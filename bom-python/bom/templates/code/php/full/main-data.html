@@ -1,0 +1,39 @@
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+<?php namespace #{app_name};
+
+//include '#{app_name}ACT.php';
+//include '#{app_name}Data.php';
+
+//use ent;
+
+class #{app_name}Data extends Base#{app_name}Data { 
+
+    private static $instance; 
+
+    public static function Instance() { 
+    
+        if(!self::$instance) { 
+            self::$instance = new self(); 
+        } 
+        
+        return self::$instance; 
+    
+    } 
+
+    //public $data = new #{app_name}Data();
+
+    public function __construct() {
+    
+    }
+    
+    public function __destruct() {
+    
+    }
+  
+    // CUSTOM API CODE GOES HERE
+  
+}
+
+?> 

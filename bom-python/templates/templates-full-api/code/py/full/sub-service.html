@@ -1,0 +1,384 @@
+import ent
+from ent import *
+
+class Base#{app_name}RequestHandler(object):
+
+    def __init__(self):
+        self.path = ''
+        self.path_parsed = ''
+        self.path_info = ''
+        self.qstring = ''
+        self.action = ''
+        self.action_params = ''
+        self.url = ''
+        
+"""
+
+namespace #{namespace} {
+
+    public class Base#{app_name}RequestHandler : IBaseHandler  {	
+    
+	private static readonly log4net.ILog log = log4net.LogManager.GetLogger("main");
+                
+        public string path = "";
+        public string path_parsed = "";
+        public string path_info = "";
+        public string qstring = "";
+
+        public string action = "";
+        public string action_params = "";
+
+        public string url = "";
+        public string ext = ".ashx";
+
+        public HttpContext _context;
+        public ServiceUtil util = new ServiceUtil();
+        
+        public string _format = "json";
+    
+        public #{app_name}API api = new #{app_name}API();
+        
+        public Base#{app_name}RequestHandler(){
+        
+        }
+        
+        public void ParseServiceParams() {
+            _format = util.GetParamValue(_context, "format");
+            if(String.IsNoneOrEmpty(_format)){
+               _format = util.FORMAT_JSON; 
+            }
+            
+        }
+        
+        public virtual void Render(HttpContext context) {
+
+            _context = context;
+            
+            log.Debug("------------------------------------------------------------------------->");
+            log.Debug(String.Format("Start Render URL: {0}", HttpContext.Current.Request.Url.ToString()));
+
+            path = context.Request.Url.ToString();
+            path_parsed = path.Replace("api/v1/", "");
+            path_info = context.Request.PathInfo;
+            if(path_parsed.IndexOf("?") > -1)
+                    qstring = path_parsed.Split('?')[1];
+			
+            ParseServiceParams();
+                    
+            BaseProcessRequest();
+            
+            // If you need to render a page in the service...
+            //StringWriter writer = new StringWriter();
+            //HttpContext.Current.Server.Execute("~/main.aspx", writer);
+            //string html = writer.ToString();
+            //writer.Close();
+            //writer.Dispose();
+            // Emit the rendered HTML
+            //context.Response.Write(html);
+        }
+        
+        public virtual bool IsContext(string action) {
+            if(path.IndexOf(action) > -1) {
+                return true;
+            }
+            return false;
+        }
+
+        public virtual void BaseProcessRequest() {        
+<?py for model in bom.bom_json['models']: ?>
+    <?py incc = 0 ?>
+    <?py if bom.should_generate_code(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_code = model_id.replace('_','-') ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py inc = 0 ?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+                    <?py service_name = bom.bom_method_service_name(model_id, item, method) ?>
+                    <?py if inc == 0: ?>
+            if(IsContext("#{model_code}/#{item}#{service_name}")){
+                #{code_name}();
+            }
+                    <?py else: ?>
+            else if(IsContext("#{model_code}/#{item}#{service_name}")){
+                #{code_name}();
+            }
+                    <?py #endif ?>
+                    <?py inc = inc + 1 ?>
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+        }    
+        
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_code(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_code = model_id.replace('_','-') ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+                    <?py service_name = bom.bom_method_service_name(model_id, item, method) ?>
+//------------------------------------------------------------------------------                    
+                    <?py if item == 'get': ?>
+                    
+        public virtual void #{code_name}() {
+        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                                <?py if converted_type == "float": ?>
+            #{converted_type} _#{param} = #{converted_type}.Parse(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif bom_type == "datetime": ?>
+            #{converted_type} _#{param} = Convert.To#{converted_type}(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif bom_type == "bool": ?>
+            #{converted_type} _#{param} = Convert.ToBoolean(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif converted_type == "int": ?>
+            #{converted_type} _#{param} = #{converted_type}.Parse(util.GetParamValue(_context, "@#{param}"));
+                                <?py else: ?>
+            #{converted_type} _#{param} = (#{converted_type})util.GetParamValue(_context, "@#{param}");
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+
+            Response#{model_name}List wrapper = new Response#{model_name}List();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "#{model_code}/#{item}#{service_name}";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<#{model_name}> objs = api.#{code_name}(
+                        <?py inc = 0 ?>                        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                                <?py if inc == 0: ?>
+                _#{param}
+                                <?py else: ?>
+                , _#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+        public virtual void #{code_name}() {
+        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                                <?py if converted_type == "float": ?>
+            #{converted_type} _#{param} = #{converted_type}.Parse(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif bom_type == "datetime": ?>
+            #{converted_type} _#{param} = Convert.To#{converted_type}(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif bom_type == "bool": ?>
+            #{converted_type} _#{param} = Convert.ToBoolean(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif converted_type == "int": ?>
+            #{converted_type} _#{param} = #{converted_type}.Parse(util.GetParamValue(_context, "@#{param}"));
+                                <?py else: ?>
+            #{converted_type} _#{param} = (#{converted_type})util.GetParamValue(_context, "@#{param}");
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+
+            Response#{model_name}Bool wrapper = new Response#{model_name}Bool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "#{model_code}/#{item}#{service_name}";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.#{code_name}(
+                        <?py inc = 0 ?>
+                        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                                <?py if inc == 0: ?>
+                _#{param}
+                                <?py else: ?>
+                , _#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+                    
+        public virtual void #{code_name}() {
+        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                                <?py if converted_type == "float": ?>
+            #{converted_type} _#{param} = #{converted_type}.Parse(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif bom_type == "datetime": ?>
+            #{converted_type} _#{param} = Convert.To#{converted_type}(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif bom_type == "bool": ?>
+            #{converted_type} _#{param} = Convert.ToBoolean(util.GetParamValue(_context, "@#{param}"));
+                                <?py elif converted_type == "int": ?>
+            #{converted_type} _#{param} = #{converted_type}.Parse(util.GetParamValue(_context, "@#{param}"));
+                                <?py else: ?>
+            #{converted_type} _#{param} = (#{converted_type})util.GetParamValue(_context, "@#{param}");
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+
+            Response#{model_name}Int wrapper = new Response#{model_name}Int();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "#{model_code}/#{item}#{service_name}";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                                <?py if inc == 0: ?>
+                _#{param}
+                                <?py else: ?>
+                , _#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+        public virtual void #{code_name}()  {
+        
+            Response#{model_name}Bool wrapper = new Response#{model_name}Bool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "#{model_code}/#{item}#{service_name}";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            #{model_name} obj = new #{model_name}();
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems(): ?>
+                            <?py for type, typename in _item_data.iteritems(): ?>
+                                <?py if type == 'type': ?>
+                                    <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.bom_json['code_type'])?>
+            
+            string _#{_item} = util.GetParamValue(_context, "@#{_item}");
+            if(!String.IsNoneOrEmpty(_#{_item}))
+                                    <?py if typename == 'bool': ?>                        
+                obj.#{_item} = Convert.ToBoolean(_#{_item});
+                                    <?py elif typename == 'datetime': ?>
+                obj.#{_item} = Convert.ToDateTime(_#{_item});
+                                    <?py elif typename == 'float': ?>
+                obj.#{_item} = float.Parse(_#{_item});
+                                    <?py elif typename == 'numeric': ?>
+                obj.#{_item} = float.Parse(_#{_item});
+                                    <?py elif typename == 'int': ?>
+                obj.#{_item} = Convert.ToInt32(_#{_item});
+                                    <?py else: ?>
+                obj.#{_item} = (#{converted_type})_#{_item};
+                                    <?py #endif ?>
+                                    <?py if typename == 'datetime': ?>
+            else 
+                obj.#{_item} = DateTime.Now;
+                                    <?py #endif ?>
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #end ?> 
+            
+            
+            // get data
+            wrapper.data = api.#{code_name}(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+        public virtual void #{code_name}()  {
+        
+            Response#{model_name}List wrapper = new Response#{model_name}List();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "#{model_code}/#{item}#{service_name}";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            #{model_name}Result result = api.#{code_name}(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+                    <?py #endif ?>                     
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+    }
+}
+
+"""
+
+
+
+
+

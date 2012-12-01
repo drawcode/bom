@@ -1,0 +1,143 @@
+<?py model_name = bom.to_camel_cap(model,'_') ?>
+<?py namespace = bom.bom_json['namespace_root'] ?>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using ah.core.data;
+using ah.core.ent;
+
+namespace #{namespace}.ent {
+<?py extends = '' ?>
+<?py if model_data.has_key('extends'): ?>
+    <?py extends = ': ' ?>
+    <?py extends += bom.to_camel_cap(model_data['extends'],'_')?>
+<?py #endif ?>
+
+        public class #{model_name}Result : BaseObjectResult {
+    
+        public List<#{model_name}> data = new List<#{model_name}>();
+
+        public #{model_name}Result() {
+            Reset();
+        }
+
+        public override void Reset() {
+            base.Reset();
+        }
+        
+        public override Dictionary<string, object> ToDictionary() {
+            Dictionary<string, object> dict = base.ToDictionary();
+
+            if (data != null) {
+                dict.Add("data", GetListDict(data));
+            }
+
+            return dict;
+        }
+
+        public override void FillFromDictionary(Dictionary<string, object> dict) {
+
+            base.FillFromDictionary(dict);
+
+            if (dict.ContainsKey("data")) {
+                if (dict["data"] != null) {
+                    data = GetList((List<Dictionary<string, object>>)dict["data"]);
+                }
+            }
+        }
+
+        public List<Dictionary<string, object>> GetListDict(List<#{model_name}> data) {
+            
+            List<Dictionary<string, object>> dictList = new List<Dictionary<string, object>>();
+            
+            foreach (#{model_name} obj in data) {
+                dictList.Add(obj.ToDictionary());
+            }
+            
+            return dictList;
+        }
+
+        public List<#{model_name}> GetList(List<Dictionary<string, object>> dictList) {
+            
+            data.Clear();
+            
+            foreach (Dictionary<string, object> dict in dictList) {
+                foreach (KeyValuePair<string, object> obj in dict) {
+                    #{model_name} objectValue = (#{model_name})obj.Value;
+                    objectValue.FillFromDictionary(dict);
+                    data.Add(objectValue);
+                }
+            }
+            
+            return data;
+        }
+    }
+
+    public class #{model_name} #{extends} {
+    
+        public #{model_name}() {
+	
+        }
+    
+<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
+    <?py for type, typename in item_data.iteritems(): ?>
+        <?py if type == 'type': ?>
+            <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type())?>
+        public #{converted_type} #{item} { get; set; }
+        <?py #endif ?>
+    <?py #end ?>
+<?py #end ?>
+
+        public override Dictionary<string, object> ToDictionary(){
+            dict = base.ToDictionary();
+<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
+    <?py for type, typename in item_data.iteritems(): ?>
+        <?py if type == 'type': ?>
+            <?py bom_type = bom.bom_model_property_extended_type(model, item) ?>
+            <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type())?>
+            <?py converted_type_formatted = bom.to_camel_cap(converted_type, '_')?>
+            <?py if converted_type == "float": ?>
+	    	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+	    <?py elif bom_type == "double": ?>
+	    	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+            <?py elif bom_type == "datetime": ?>
+	    	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+            <?py elif bom_type == "bool": ?>
+	    	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+            <?py elif converted_type == "int": ?>             
+	    	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+            <?py else: ?>	
+	    	if (${item} != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+	    	}
+            <?py #endif ?>	
+	<?py #endif ?>
+    <?py #end ?>
+<?py #end ?>            
+            return dict;
+        }
+
+        public override void FillFromDictionary(Dictionary<string, object> dict){
+<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
+    <?py for type, typename in item_data.iteritems(): ?>
+        <?py if type == 'type': ?>
+            <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type())?>
+            <?py converted_type_formatted = bom.to_camel_cap(converted_type, '_')?>
+	    	if(dict.ContainsKey("#{item}")) {
+	    	    if(dict["#{item}"] != null) {
+	    	    	#{item} = DataType.Instance.Fill#{converted_type_formatted}(dict["#{item}"]);
+	    	    }		
+	    	}
+        <?py #endif ?>
+    <?py #end ?>
+<?py #end ?>               
+        }
+    }
+}
+
+
+
+
+

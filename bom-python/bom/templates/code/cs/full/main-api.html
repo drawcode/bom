@@ -1,0 +1,33 @@
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using ah.core.ent;
+
+using #{namespace};
+using #{namespace}.ent;
+
+namespace #{namespace} {
+
+    public class #{app_name}API : Base#{app_name}API {
+        #{app_name}ACT act = new #{app_name}ACT();
+        
+        public #{app_name}API() {
+        
+        }
+        
+        // CUSTOM API CODE GOES HERE
+    }
+}
+
+
+
+
+
+

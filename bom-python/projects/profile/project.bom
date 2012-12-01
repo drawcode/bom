@@ -1,0 +1,464 @@
+{
+    "namespace_root" : "profile",
+    "app":"profile",
+    "code_type":["cs", "py", "php"],
+    "data_type":["pgsql", "mssql", "mysql"],
+    "dirs":[
+        "base","ent","data","act","config","util","dto","setup"
+    ]
+    ,
+    "models": [
+        {
+            "id":"base_entity",
+            "description":"Base model",
+            "type":"object",
+            "generate":["code"],
+            "properties": {
+                "uuid":{ "type":"uuid", "format":"uuid", "maximum":40, "required":true},
+                "date_created":{"type":"datetime", "format":"datetime", "required":false},
+                "date_modified":{"type":"datetime", "format":"datetime", "required":false},
+                "status":{"type":"string", "maximum":50, "required":false},
+                "active":{"type":"bool"}
+            }
+        },
+        {
+            "id":"base_meta",
+            "description":"Base model",
+            "extends": "base_entity",
+            "type":"object",
+            "generate":["code"],
+            "properties":{
+                "code":{"type":"string", "maximum":255, "required":false},
+                "name":{"type":"string", "maximum":255, "required":false},
+                "display_name":{"type":"string", "maximum":255, "required":false},
+                "description":{"type":"string", "maximum":255, "required":false}
+            }
+        },
+        {
+            "id":"profile",
+            "extends": "base_entity",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+                "username":{"type":"string", "maximum":255, "required":false},
+                "hash":{"type":"string", "maximum":255, "required":false}
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "indexes":[
+                {"fields":["username","hash"], "unique": false, "type":"clustered", "direction":"ASC"}
+            ],
+            "methods":{
+                "get":[
+                    {"params":["uuid"]},
+                    {"params":["username","hash"]},
+                    {"params":["username"]}
+                ],
+                "set":[               
+                    {"params":["uuid"]},                    
+                    {"params":["username"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},                
+                    {"params":["username"]}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["username","hash"]},
+                    {"params":["username"]}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },
+        {
+            "id":"profile_type",
+            "extends": "base_meta",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{                
+                "type_id":{"type":"uuid", "maximum":40, "required":false}
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "indexes":[
+
+            ],
+            "methods":{
+                "get":[
+                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                    {"params":["code"], "inherited":"base_meta", "sort_field":"sort", "sort_direction":"ASC"},
+                    {"params":["type_id"], "sort_field":"sort", "sort_direction":"ASC"}
+                ],
+                "set":[               
+                    {"params":["uuid"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["type_id"],  "inherited":"base_meta"}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },
+        {
+            "id":"profile_attribute",
+            "extends": "base_meta",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+                "sort":{"type":"int", "required":false},
+                "order":{"type":"int", "required":false},
+                "group":{"type":"int", "required":false},
+                "type":{"type":"int", "required":false}
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "indexes":[
+            ],
+            "methods":{
+                "get":[
+                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                    {"params":["code"], "inherited":"base_meta", "sort_field":"sort", "sort_direction":"ASC"},
+                    {"params":["type"], "sort_field":"sort", "sort_direction":"ASC"},
+                    {"params":["group"], "sort_field":"sort", "sort_direction":"ASC"},
+                    {"params":["code", "type"], "sort_field":"sort", "sort_direction":"ASC"}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["code"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["code"]}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"]},
+                    {"params":["type"]},
+                    {"params":["group"]},
+                    {"params":["code", "type"]}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },
+        {
+            "id":"profile_attribute_text",
+            "extends": "base_entity",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+                "profile_id":{"type":"uuid", "maximum":500, "required":false},
+                "attribute_id":{"type":"uuid", "maximum":500, "required":false},
+                "attribute_value":{"type":"string", "maximum":1000, "required":false},
+                "sort":{"type":"int", "required":false},
+                "order":{"type":"int", "required":false},
+                "group":{"type":"int", "required":false},
+                "type":{"type":"int", "required":false}
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "indexes":[
+                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+                {"fields":["attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+                {"fields":["profile_id","attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+                {"fields":["profile_id","attribute_id","sort"], "unique": false, "type":"clustered", "direction":"ASC"}
+            ],
+            "methods":{
+                "get":[
+                    {"params":["uuid"]},
+                    {"params":["profile_id"]},
+                    {"params":["profile_id", "attribute_id"], "sort_field":"sort", "sort_direction":"ASC"}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["profile_id"]},
+                    {"params":["profile_id", "attribute_id"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["profile_id"]},
+                    {"params":["profile_id", "attribute_id"]}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["profile_id"]},
+                    {"params":["profile_id", "attribute_id"]}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },{
+            "id":"profile_attribute_data",
+            "extends": "base_entity",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+                "profile_id":{"type":"uuid", "maximum":500, "required":false},
+                "attribute_id":{"type":"uuid", "maximum":500, "required":false},
+                "attribute_value":{"type":"data", "required":false},
+                "sort":{"type":"int", "required":false},
+                "order":{"type":"int", "required":false},
+                "group":{"type":"int", "required":false},
+                "type":{"type":"int", "required":false}
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "indexes":[
+                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+                {"fields":["attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+                {"fields":["profile_id","attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+                {"fields":["profile_id","attribute_id", "sort"], "unique": false, "type":"clustered", "direction":"ASC"}
+            ],
+            "methods":{
+                "get":[
+                    {"params":["uuid"]},
+                    {"params":["profile_id"]},
+                    {"params":["profile_id", "attribute_id"], "sort_field":"sort", "sort_direction":"ASC"}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["profile_id"]},
+                    {"params":["profile_id", "attribute_id"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["profile_id"]},
+                    {"params":["profile_id", "attribute_id"]}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"], "returns":"int"},
+                    {"params":["profile_id"], "returns":"int"},
+                    {"params":["profile_id", "attribute_id"], "returns":"int", "sort_field":"sort", "sort_direction":"ASC"}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },
+        {
+            "id":"profile_device",
+            "extends": "base_entity",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+                "profile_id":{"type":"uuid", "maximum":50, "required":true},
+                "device_id":{"type":"string", "maximum":128, "required":true},
+                "token":{"type":"string", "maximum":128, "required":false},
+                "secret":{"type":"string", "maximum":128, "required":false},
+                "device_type":{"type":"string", "maximum":128, "required":false},
+                "device_os":{"type":"string", "maximum":128, "required":false},
+                "device_platform":{"type":"string", "maximum":128, "required":false},
+                "device_version":{"type":"string", "maximum":128, "required":false}
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "methods":{
+                "get":[
+                    {"params":["uuid"]},
+                    {"params":["profile_id","device_id"]},
+                    {"params":["profile_id","token"]},
+                    {"params":["profile_id"]},
+                    {"params":["device_id"]},
+                    {"params":["token"]}
+                ],
+                "set":[               
+                    {"params":["uuid"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["profile_id", "device_id"]},
+                    {"params":["profile_id","token"]},
+                    {"params":["token"]}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["profile_id","device_id"]},
+                    {"params":["profile_id","token"]},
+                    {"params":["profile_id"]},
+                    {"params":["device_id"]},
+                    {"params":["token"]}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },
+        {
+            "id":"country",
+            "extends": "base_meta",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "methods":{
+                "get":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        }
+        ,
+        {
+            "id":"state",
+            "extends": "base_meta",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "methods":{
+                "get":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        }
+        ,
+        {
+            "id":"city",
+            "extends": "base_meta",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "methods":{
+                "get":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        }
+        ,
+        {
+            "id":"postal_code",
+            "extends": "base_meta",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "methods":{
+                "get":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"], "inherited":"base_meta"}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        }
+    ]
+}
+
+
+
+
+
+
+

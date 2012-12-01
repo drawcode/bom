@@ -1,0 +1,455 @@
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+-- -----------------------------------------------------------------------------
+-- SQL SETUP 
+-- -----------------------------------------------------------------------------
+-- TABLES
+
+/*
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[#{model_id}]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[#{model_id}]
+GO
+    <?py #endif ?>
+<?py #endif ?>
+*/
+
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+CREATE TABLE [dbo].[#{model_id}] 
+(
+        <?py inc = 0 ?>
+        <?py for item, item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+            <?py if inc == 0: ?>
+    [#{item}] #{bom.bom_data_type_table_formatted(item_data)}
+            <?py else: ?>
+    , [#{item}] #{bom.bom_data_type_table_formatted(item_data)}
+            <?py #endif ?>
+            <?py if item_data['type'] == 'datetime': ?>
+                CONSTRAINT DF_#{model_id}_#{item} DEFAULT GETDATE()
+            <?py #endif ?>
+            <?py if item_data['type'] == 'bool': ?>
+                CONSTRAINT DF_#{model_id}_#{item}_bool DEFAULT 1
+            <?py #endif ?>
+            <?py inc = inc + 1 ?>
+        <?py #end ?>
+)
+GO
+ALTER TABLE [dbo].[#{model_id}] ADD 
+    CONSTRAINT [PK_#{model_id}] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+    <?py #endif ?>
+<?py #endif ?>
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('indexes'):?>
+   
+-- -----------------------------------------------------------------------------
+-- INDEXES
+
+-- INDEX DROPS        
+            <?py for index in model['indexes']: ?>
+                <?py index_name = bom.bom_model_index_name(index) ?>
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[#{model_id}]') AND name = N'#{index_name}')
+DROP INDEX [#{index_name}] ON [dbo].[#{model_id}]
+GO
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        
+        <?py if model.has_key('indexes'):?>
+-- INDEX CREATES
+
+            <?py for index in model['indexes']: ?>
+                <?py index_name = bom.bom_model_index_name(index) ?>
+CREATE NONCLUSTERED INDEX [#{index_name}] ON [dbo].[#{model_id}] 
+(
+                <?py inc = 0 ?>
+                <?py for item, item_data in bom.bom_model_index_fields(model_id, index).iteritems() : ?>                    
+                    
+                    <?py item_direction = 'DESC' ?>
+                    <?py if index.has_key('direction'):?>
+                        <?py item_direction = index['direction'] ?>
+                        <?py if inc == 0: ?>
+    [#{item}] #{item_direction}
+                        <?py else: ?>
+    , [#{item}] #{item_direction}
+                        <?py #endif ?>
+                        <?py inc = inc + 1 ?>
+                    <?py #endif ?>
+                <?py #end ?> 
+)
+GO
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+-- ------------------------------------
+-- #{item.upper()}
+
+-- ------------------------------------
+-- MODEL: #{model_name} - #{model_id}
+                       
+                <?py for method in item_data: ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+                    <?py if item == '' or item == None: ?>
+                        <?py item = 'get'?>
+                    <?py if item != 'del' and item != 'count' and item != 'set' and item != 'browse': ?>
+                        <?py item = 'get'?>
+                    <?py if item == 'del': ?>
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[#{proc_name}]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[#{proc_name}]
+
+GO
+
+CREATE PROCEDURE #{proc_name}
+                        <?py inc = 0 ?>                        
+                        <?py if method.has_key('params'): ?>
+(
+                            <?py for param in method['params']: ?>
+                                <?py converted_type = bom.bom_data_type_proc_formatted(model_id, param, method) ?>
+                                <?py if inc == 0: ?>
+    @#{param} #{converted_type}
+                                <?py else: ?>
+    , @#{param} #{converted_type}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+)
+                        <?py #endif ?>
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[#{model_id}]
+    WHERE 1=1                        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+    AND LOWER([#{param}]) = LOWER(@#{param})
+                                <?py else: ?>
+    AND [#{param}] = @#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+END
+GO
+                    <?py #endif ?>
+                    <?py if item == 'get': ?>
+                        <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[#{proc_name}]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[#{proc_name}]
+
+GO
+
+CREATE PROCEDURE #{proc_name}
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+(
+                            <?py for param in method['params']: ?>
+                                <?py converted_type = bom.bom_data_type_proc_formatted(model_id, param, method) ?>
+                                <?py if inc == 0: ?>
+    @#{param} #{converted_type}
+                                <?py else: ?>
+    , @#{param} #{converted_type}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+)
+                        <?py #endif ?>
+AS
+BEGIN
+    SELECT
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+        [#{_item}]
+                            <?py else: ?>
+        , [#{_item}]
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?>
+    FROM [dbo].[#{model_id}]
+    WHERE 1=1
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+    AND LOWER([#{param}]) = LOWER(@#{param})
+                                <?py else: ?>
+    AND [#{param}] = @#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+                        <?py if method.has_key('sort_order'): ?>
+                            <?py sort_field = method['sort_field'] ?>
+                            <?py if method.has_key('sort_direction'): ?>
+                                <?py sort_direction = method['sort_direction'] ?>
+                            <?py else: ?>
+                                <?py sort_direction = 'ASC' ?>
+                            <?py #endif ?>
+    ORDER BY [#{sort_field}] #{sort_direction}
+                        <?py #endif ?>
+END
+GO
+                    <?py #endif ?>
+                    <?py if item == 'count': ?>
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[#{proc_name}]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[#{proc_name}]
+
+GO
+
+CREATE PROCEDURE #{proc_name}
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+(
+                            <?py for param in method['params']: ?>
+                                <?py converted_type = bom.bom_data_type_proc_formatted(model_id, param, method) ?>
+                                <?py if inc == 0: ?>
+    @#{param} #{converted_type}
+                                <?py else: ?>
+    , @#{param} #{converted_type}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+)
+                        <?py #endif ?>
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[#{model_id}]
+    WHERE 1=1
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+    AND LOWER([#{param}]) = LOWER(@#{param})
+                                <?py else: ?>
+    AND [#{param}] = @#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+END
+GO
+                    <?py #endif ?>
+                    <?py if item == 'set': ?>
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[#{proc_name}]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[#{proc_name}]
+
+GO
+
+CREATE PROCEDURE #{proc_name}
+(
+    @set_type varchar (50) = 'full'                        
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py converted_type = bom.bom_data_type_proc_formatted(model_id, _item, method) ?>
+    , @#{_item} #{converted_type}
+                            <?py #endif ?>
+                        <?py #end ?>                        
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[#{model_id}]  
+                WHERE 1=1
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+                AND LOWER([#{param}]) = LOWER(@#{param})
+                                <?py else: ?>
+                AND [#{param}] = @#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[#{model_id}] 
+                SET
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+                    [#{_item}] = @#{_item}
+                            <?py else: ?>
+                    , [#{_item}] = @#{_item}
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?>
+                WHERE 1=1
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+                AND LOWER([#{param}]) = LOWER(@#{param})
+                                <?py else: ?>
+                AND [#{param}] = @#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[#{model_id}]
+                (
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+                    [#{_item}]
+                            <?py else: ?>
+                    , [#{_item}]
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?>
+                )
+                VALUES
+                (
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+                    @#{_item}
+                            <?py else: ?>
+                    , @#{_item}
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?>
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+                    <?py #endif ?>
+                    <?py if item == 'browse': ?>
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[#{proc_name}]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[#{proc_name}]
+
+GO
+
+CREATE PROCEDURE #{proc_name}
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+    SET @sql = @sql + ', [#{_item}]'
+                        <?py #end ?>
+
+    SET @sql = @sql + ' FROM [dbo].[#{model_id}] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+                    <?py #endif ?>                    
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+

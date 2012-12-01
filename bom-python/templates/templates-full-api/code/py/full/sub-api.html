@@ -1,0 +1,265 @@
+import ent
+from ent import *
+
+import Base#{app_name}ACT
+from Base#{app_name}ACT import *
+
+def enum(**enums):
+    return type('Enum', (), enums)
+    
+SetType = enum(FULL='full', INSERT_ONLY='insertonly', UPDATE_ONLY='updateonly')
+
+class Base#{app_name}API(object):
+
+    def __init__(self):
+        self.DEFAULT_CACHE_HOURS = 12
+        self.DEFAULT_SET_TYPE = 'full'
+        self.act = Base#{app_name}ACT()
+        
+        
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py code_name_cached = "Cached" + code_name ?>
+                    <?py code_name_item = bom.bom_method_code_name_item(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+#------------------------------------------------------------------------------                    
+                    <?py if item == 'get': ?>
+    def #{code_name}(self
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+        , #{param}
+                            <?py #end ?>
+                        <?py #endif ?>
+        ) :
+            return self.act.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+                #{param}
+                                <?py else: ?>
+                , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            )
+        
+    def #{code_name_item}(self
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        , #{param}
+                                <?py else: ?>
+        , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) :
+        for item in self.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        #{param}
+                                <?py else: ?>
+        , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        ) :
+            return item
+        return None
+    
+    def #{code_name_cached}(self
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        , #{param}
+                                <?py else: ?>
+        , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) :
+        return #{code_name_cached}(
+            false
+            , self.CACHE_DEFAULT_HOURS
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+            , #{param}
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )
+        
+    def #{code_name_cached}(self
+        , overrideCache
+        , cacheHours
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+        , #{param}
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) :
+        pass
+        """
+        List<#{model_name}> objs;
+
+        string method_name = "#{code_name_cached}";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+        sb.Append("_");
+        sb.Append("#{param}".ToLower());
+        sb.Append("_");
+        sb.Append(#{param});
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>            
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<#{model_name}>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+                #{param}
+                                <?py else: ?>
+                , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+    def #{code_name}(self
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        , #{param}
+                                <?py else: ?>
+        , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) :          
+        return self.act.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        #{param}
+                                <?py else: ?>
+        , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+    def #{code_name}(self
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        , #{param}
+                                <?py else: ?>
+        , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) :         
+        return self.act.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        #{param}
+                                <?py else: ?>
+        , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )
+        
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+    def #{code_name}(self, set_type, obj) :
+        return self.act.#{code_name}(set_type, obj)
+               
+    def #{code_name}(self, set_type, obj) :
+        return self.act.#{code_name}('full', obj)
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+    def #{code_name}(self, filter_obj) :
+        return self.act.#{code_name}(filter_obj)
+                    <?py #endif ?>                     
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>        
+        
+

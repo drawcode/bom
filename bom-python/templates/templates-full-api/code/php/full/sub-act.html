@@ -1,0 +1,204 @@
+<?php // namespace ${app_name};
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+require_once('ent/#{model_name}.php');
+    <?py #endif ?>
+<?py #end ?>
+
+require_once('Base#{app_name}Data.php');
+
+class Base#{app_name}ACT {
+
+    public $data;
+    
+    public function __construct() {
+        $this->data = new Base#{app_name}Data();
+    }
+    
+    public function __destruct() {
+        
+    }
+        
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        
+    public function Fill#{model_name}($row) {
+        $obj = new #{model_name}();
+
+        <?py for item, item_data in bom.bom_model_properties_extended(model_id).iteritems(): ?>
+            <?py for type, typename in item_data.iteritems(): ?>
+                <?py if type == 'type': ?>
+                    <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type)?>
+                    <?py converted_type_formatted = bom.to_camel_cap(converted_type, '_')?>
+        if ($row['#{item}'] != NULL) {                
+            $obj->#{item} = $row['#{item}'];#dataType.FillData#{converted_type_formatted}(dr, "#{item}");
+        }
+                <?py #endif ?>
+            <?py #end ?>
+        <?py #end ?>
+
+        return $obj;
+    }
+        
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>           
+                    <?py if item == 'get': ?>                    
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {
+
+        $results = array();
+        $rows = $this->data->#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+            $#{param}
+                                <?py else: ?>
+            , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $#{model_id}  = $this->Fill#{model_name}($row);
+                $results[] = $#{model_id};
+            }
+        }
+        
+        return $results;
+    }
+        
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {
+        return $this->data->#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+            $#{param}
+                                <?py else: ?>
+            , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        );
+    }
+        
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {       
+        return $this->data->#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+            $#{param}
+                                <?py else: ?>
+            , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        );
+    }
+               
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+    public function #{code_name}($set_type, $obj) {           
+        return $this->data->#{code_name}($set_type, $obj);
+    }
+            
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+    public function #{code_name}($filter_obj) {
+        $result = new #{model_name}Result();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->#{code_name}(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $#{model_id} = $this->Fill#{model_name}($row);
+                $result->data[] = $#{model_id};
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+                    <?py #endif ?>                    
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+
+
+}
+
+?>

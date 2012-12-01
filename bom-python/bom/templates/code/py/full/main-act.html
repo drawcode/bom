@@ -1,0 +1,21 @@
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+import ent
+from ent import *
+
+import Base#{app_name}ACT
+from Base#{app_name}ACT import *
+
+import #{app_name}Data
+from #{app_name}Data import *
+
+class #{app_name}ACT(Base#{app_name}ACT) :
+
+    def __init__(self):
+        super(#{app_name}ACT, self).__init__()
+        self.data = #{app_name}Data()
+        
+    # CUSTOM ACT CODE GOES HERE
+    
+    

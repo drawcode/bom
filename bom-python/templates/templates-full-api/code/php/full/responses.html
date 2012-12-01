@@ -1,0 +1,107 @@
+<?php // namespace ${app_name};
+/*
+
+
+
+import ent
+from ent import *
+
+class BaseResponse :
+
+    def __init__(self):
+        self.message = 'Success'
+        self.code = 0
+        self.info = {}
+        self.error = {}
+        self.action = ''
+        self.data = None
+
+"""
+       
+    public class BaseResponse {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseString : BaseResponse{
+        public string data = "";
+    }
+    
+    public class ResponseBool : BaseResponse {
+        public bool data;
+    }
+    
+    public class ResponseInt : BaseResponse {
+        public int data;
+    }
+    
+    public class ResponseObject : BaseResponse {
+        public object data = new object();
+    }
+    
+    public class ResponseList : BaseResponse {
+        public List<object> data = new List<object>();
+    }
+    
+    public class ResponseDict : BaseResponse {
+        public Dictionary<string, object> data
+            = new Dictionary<string, object>();
+    }
+       
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+//------------------------------------------------------------------------------
+        
+    public class BaseResponse#{model_name} {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class Response#{model_name}String : BaseResponse#{model_name} {
+        public string data = "";
+    }
+    
+    public class Response#{model_name}Bool : BaseResponse#{model_name} {
+        public bool data;
+    }
+    
+    public class Response#{model_name}Int : BaseResponse#{model_name} {
+        public int data;
+    }
+    
+    public class Response#{model_name}Object : BaseResponse#{model_name} {
+        public #{model_name} data = new #{model_name}();
+    }
+    
+    public class Response#{model_name}Result : BaseResponse#{model_name} {
+        public #{model_name}Result data = new #{model_name}Result();
+    }
+    
+    public class Response#{model_name}List : BaseResponse#{model_name} {
+        public List<#{model_name}> data = new List<#{model_name}>();
+    }
+    
+    public class Response#{model_name}Dict : BaseResponse#{model_name} {
+        public Dictionary<string, #{model_name}> data
+            = new Dictionary<string, #{model_name}>();
+    }
+    
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+}
+"""
+
+*/
+?>
+
+
+

@@ -1,0 +1,360 @@
+
+var return_#{app}_obj = None;
+
+//-------------------------------------------------
+if (!window.#{namespace})
+    window.#{namespace} = {};
+    
+if (!window.#{namespace})
+    window.#{namespace} = {};
+    
+<?py for model in bom.bom_json['models']: ?>
+    <?py incc = 0 ?>
+    <?py if bom.should_generate_code(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_code = model_id.replace('_','-') ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+if (!window.#{namespace}.#{model_id})
+    window.#{namespace}.#{model_id} = {};
+   
+    <?py #endif ?>
+<?py #endif ?>        
+
+//-------------------------------------------------
+#{namespace}.#{app}.global = function() {
+
+    this.url = document.location;
+    this.service_base = '/api/v1/';
+<?py for model in bom.bom_json['models']: ?>
+    <?py incc = 0 ?>
+    <?py if bom.should_generate_code(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_code = model_id.replace('_','-') ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+    this.#{model_id}_service = this.service_base + '#{model_id}/';
+    <?py #endif ?>
+<?py #endif ?>    
+}
+
+var #{namespace}_#{app}_global = new #{namespace}.#{app}.global();
+       
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_code(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_code = model_id.replace('_','-') ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+//-------------------------------------------------
+#{namespace}.#{model_id} = function() {
+    this.fn_callback;
+    this.fn_callbacks;
+    return_#{app}_obj = this;
+}        
+        
+#{namespace}.#{model_id}.prototype = {
+    //-------------------------------------------------
+    init: function() {
+
+    } 
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+                    <?py service_name = bom.bom_method_service_name(model_id, item, method) ?>
+                    <?py script_name = bom.bom_method_script_name(model_id, item, method) ?>
+                    <?py if item == 'get': ?>
+    ,
+    //-------------------------------------------------
+    #{script_name}: function
+    (
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+        #{param},
+                            <?py #end ?>
+                        <?py #endif ?>
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = #{namespace}_#{app}_global.#{model_id}_service + '#{item}'
+                + "#{service_name}"
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                + "/@#{param}/" + #{param}            
+                            <?py #end ?>
+                        <?py #endif ?>
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    #{script_name}_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::#{model_id}_#{script_name}_callback", true);
+            // call a method that can be inline callback
+            try {error_#{script_name}(data);} catch(e) { _log("Error calling: error_#{script_name}: " + e);}
+        }
+        else {
+            _log("SUCCESS::#{model_id}_#{script_name}_callback", false);
+            // call a method that can be inline callback
+            try {handle_#{script_name}(data);} catch(e) { _log("Error calling: handle_#{script_name}: " + e);}
+        }
+        
+    }
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+    ,
+    //-------------------------------------------------
+    #{script_name}: function
+    (
+                        <?py for param in method['params']: ?>
+                            <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                            <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+        #{param},
+                        <?py #end ?> 
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = #{namespace}_#{app}_global.#{model_id}_service + '#{item}'
+                + "#{service_name}"
+                        <?py for param in method['params']: ?>
+                            <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                            <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                + "/@#{param}/" + #{param}            
+                        <?py #end ?>                
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    #{script_name}_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::#{model_id}_#{script_name}_callback", true);
+            // call a method that can be inline callback
+            try {error_#{script_name}(data);} catch(e) { _log("Error calling: error_#{script_name}: " + e);}
+        }
+        else {
+            _log("SUCCESS::#{model_id}_#{script_name}_callback", false);
+            // call a method that can be inline callback
+            try {handle_#{script_name}(data);} catch(e) { _log("Error calling: handle_#{script_name}: " + e);}
+        }
+        
+    }
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+    ,
+    //-------------------------------------------------
+    #{script_name}: function
+    (
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+        #{param},
+                            <?py #end ?>
+                        <?py #endif ?>
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = #{namespace}_#{app}_global.#{model_id}_service + '#{item}'
+                + "#{service_name}"
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                + "/@#{param}/" + #{param}            
+                            <?py #end ?>
+                        <?py #endif ?>
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    #{script_name}_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::#{model_id}_#{script_name}_callback", true);
+            // call a method that can be inline callback
+            try {error_#{script_name}(data);} catch(e) { _log("Error calling: error_#{script_name}: " + e);}
+        }
+        else {
+            _log("SUCCESS::#{model_id}_#{script_name}_callback", false);
+            // call a method that can be inline callback
+            try {handle_#{script_name}(data);} catch(e) { _log("Error calling: handle_#{script_name}: " + e);}
+        }
+    }
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+    ,
+    //-------------------------------------------------
+    #{script_name}: function
+    (
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems(): ?>
+                            <?py for type, typename in _item_data.iteritems(): ?>
+                                <?py if type == 'type': ?>
+                                    <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.bom_json['code_type'])?>
+        #{_item},
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #end ?>                         
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = #{namespace}_#{app}_global.#{model_id}_service + '#{item}'
+                + "#{service_name}"
+                        <?py for param in method['params']: ?>
+                            <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                            <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.bom_json['code_type']) ?>
+                + "/@#{param}/" + #{param}            
+                        <?py #end ?>
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+                        <?py for __item, __item_data in bom.bom_model_properties_extended(model_id).iteritems(): ?>
+                            <?py for type, typename in __item_data.iteritems(): ?>
+                                <?py if type == 'type': ?>
+                                    <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.bom_json['code_type'])?>
+            , "@#{__item}": #{__item}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #end ?>             
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    #{script_name}_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::#{model_id}_#{script_name}_callback", true);
+            // call a method that can be inline callback
+            try {error_#{script_name}(data);} catch(e) { _log("Error calling: error_#{script_name}: " + e);}
+        }
+        else {
+            _log("SUCCESS::#{model_id}_#{script_name}_callback", false);
+            // call a method that can be inline callback
+            try {handle_#{script_name}(data);} catch(e) { _log("Error calling: handle_#{script_name}: " + e);}
+        }
+    }                    
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+    ,
+    //-------------------------------------------------
+    #{script_name}: function
+    (
+        page,
+        page_size,
+        filter,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = #{namespace}_#{app}_global.#{model_id}_service + '#{item}'
+                + "#{service_name}"
+                + "/@page/" + page
+                + "/@page_size/" + page_size
+                + "/@filter/" + filter
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    #{script_name}_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::#{model_id}_#{script_name}_callback", true);
+            // call a method that can be inline callback
+            try {error_#{script_name}(data);} catch(e) { _log("Error calling: error_#{script_name}: " + e);}
+        }
+        else {
+            _log("SUCCESS::#{model_id}_#{script_name}_callback", false);
+            // call a method that can be inline callback
+            try {handle_#{script_name}(data);} catch(e) { _log("Error calling: handle_#{script_name}: " + e);}
+        }
+        
+    }
+                    <?py #endif ?>                     
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+}
+    <?py #endif ?>
+<?py #endif ?>
+
+
+
+
+
+

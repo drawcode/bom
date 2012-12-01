@@ -1,0 +1,311 @@
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using ah.core;
+using ah.core.data;
+using ah.core.ent;
+using ah.core.util;
+
+using #{namespace};
+using #{namespace}.ent;
+
+namespace #{namespace} {
+
+    public class Base#{app_name}API {
+        Base#{app_name}ACT act = new Base#{app_name}ACT();
+        
+        public int CACHE_DEFAULT_HOURS = 12;
+        
+        public string DEFAULT_SET_TYPE = "full";
+        
+        public Base#{app_name}API(){
+        
+        }
+        
+        public enum SetType{
+            FULL,
+            INSERT_ONLY, // use insert only for faster logs, bulk data
+            UPDATE_ONLY
+        }
+        
+        public virtual string ConvertSetTypeToString(SetType set_type){
+            if(set_type == SetType.UPDATE_ONLY)
+                return "updateonly";
+            else if(set_type == SetType.INSERT_ONLY)
+                return "insertonly";
+            else 
+                return "full";
+        }
+        
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py code_name_cached = "Cached" + code_name ?>
+                    <?py code_name_item = bom.bom_method_code_name_item(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+//------------------------------------------------------------------------------                    
+                    <?py if item == 'get': ?>                    
+        public virtual List<#{model_name}> #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {
+            return act.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{param}
+                                <?py else: ?>
+            , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+        }
+        
+        public virtual #{model_name} #{code_name_item}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {
+            foreach (#{model_name} item in #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{param}
+                                <?py else: ?>
+            , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<#{model_name}> #{code_name_cached}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        ) {
+            return #{code_name_cached}(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                    , #{param}
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+                );
+        }
+        
+        public virtual List<#{model_name}> #{code_name_cached}(
+            bool overrideCache
+            , int cacheHours
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+            , #{converted_type} #{param}
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        ) {
+            List<#{model_name}> objs;
+
+            string method_name = "#{code_name_cached}";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+            sb.Append("_");
+            sb.Append("#{param}".ToLower());
+            sb.Append("_");
+            sb.Append(#{param});
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>            
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<#{model_name}>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+                    #{param}
+                                <?py else: ?>
+                    , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+        public virtual bool #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {            
+            return act.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{param}
+                                <?py else: ?>
+            , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+        }                     
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+        public virtual int #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {            
+            return act.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{param}
+                                <?py else: ?>
+            , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+        }       
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+        public virtual bool #{code_name}(string set_type, #{model_name} obj)  {
+            return act.#{code_name}(set_type, obj);
+        }
+        
+        public virtual bool #{code_name}(SetType set_type, #{model_name} obj)  {
+            return act.#{code_name}(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool #{code_name}(#{model_name} obj)  {
+            return act.#{code_name}(DEFAULT_SET_TYPE, obj);
+        }
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+        public virtual #{model_name}Result #{code_name}(SearchFilter obj)  {
+            return act.#{code_name}(obj);
+        }
+                    <?py #endif ?>                     
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+    }
+}
+
+
+
+
+
+

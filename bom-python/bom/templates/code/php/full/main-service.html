@@ -1,0 +1,142 @@
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+import ent
+from ent import *
+
+class BaseResponse :
+
+    def __init__(self):
+        self.message = 'Success'
+        self.code = 0
+        self.info = {}
+        self.error = {}
+        self.action = ''
+        self.data = None
+
+"""
+
+    public class #{app_name}RequestHandler : Base#{app_name}RequestHandler, IBaseHandler  {
+    
+        public string cookieNameUser = "bb-user";
+        public string cookieNameUserName = "bb-user-name";
+        public string cookieNameLoggedIn = "bb-user-state";
+        public string cookieNameAdminUser = "bb-admin-user";
+        public string cookieNameAdminUserName = "bb-admin-user-name";
+        public string cookieNameAdminLoggedIn = "bb-admin-user-state";
+        
+        public #{app_name}RequestHandler(){
+        
+        }
+        
+        public override void Render(HttpContext context) {
+        
+            base.Render(context);
+
+            _context = context;
+            
+            ProcessRequest();
+
+            //StringWriter writer = new StringWriter();
+            //HttpContext.Current.Server.Execute("~/main.aspx", writer);
+            //string html = writer.ToString();
+            //writer.Close();
+            //writer.Dispose();
+            // Emit the rendered HTML
+            //context.Response.Write(html);
+        }
+           
+        public void ProcessRequest() {
+            if(IsContext("service/about")) {
+                    ServiceAbout("service/about");
+            }
+            else if(IsContext("service/dict")) {
+                    ServiceList("service/dict");
+            }
+        }
+        
+        public void ServiceAbout(string service) {
+            
+            ResponseString wrapper = new ResponseString();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = service;
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            // get data
+            wrapper.data = "Hi! I am #{namespace} service, and I am reporting for service...";
+            
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+        
+        public void ServiceList(string service) {
+            
+            ResponseDict wrapper = new ResponseDict();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = service;
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            // get data
+            wrapper.data.Add("service/about", "");
+            
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+        
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_code(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+        
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_code(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+                    <?py if item == 'get': ?>
+                        <?py pass ?>
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+                        <?py pass ?>
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+                        <?py pass ?>
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+                        <?py pass ?>
+                    <?py #endif ?>                    
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+    }
+}
+"""
+
+
+
+
+

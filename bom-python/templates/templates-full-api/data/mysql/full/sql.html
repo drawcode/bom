@@ -1,0 +1,449 @@
+-- -----------------------------------------------------------------------------
+-- SQL SETUP 
+-- -----------------------------------------------------------------------------
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS drop_index_if_exists $$
+CREATE PROCEDURE drop_index_if_exists(in theTable varchar(128), in theIndexName varchar(128) )
+BEGIN
+ IF((SELECT COUNT(*) AS index_exists FROM information_schema.statistics WHERE TABLE_SCHEMA = DATABASE() and table_name =
+theTable AND index_name = theIndexName) > 0) THEN
+   SET @s = CONCAT('DROP INDEX `' , theIndexName , '` ON `' , theTable, '`');
+   PREPARE stmt FROM @s;
+   EXECUTE stmt;
+ END IF;
+END $$
+
+DELIMITER ;
+
+-- TABLES
+/*
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        
+DROP TABLE IF EXISTS `#{model_id}` CASCADE;
+    
+    <?py #endif ?>
+<?py #endif ?> 
+*/
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        
+CREATE TABLE `#{model_id}` 
+(
+        <?py inc = 0 ?>
+        <?py for item, item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+            <?py if inc == 0: ?>
+    `#{item}` #{bom.bom_data_type_table_formatted(item_data)}
+            <?py else: ?>
+    , `#{item}` #{bom.bom_data_type_table_formatted(item_data)}
+            <?py #endif ?>
+            <?py if item_data['type'] == 'datetime': ?>            
+                <?py if item != 'date_modified': ?>
+                    DEFAULT '0000-00-00 00:00:00'
+                <?py else: ?>                
+                    DEFAULT NOW()
+                <?py #endif ?>
+            <?py #endif ?>
+            <?py if item_data['type'] == 'bool': ?>
+                DEFAULT 1
+            <?py #endif ?>
+            <?py inc = inc + 1 ?>
+        <?py #end ?>
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `#{model_id}` ADD PRIMARY KEY (`uuid`);
+    
+    <?py #endif ?>
+<?py #endif ?>
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        
+        <?py if model.has_key('indexes'):?>
+-- INDEX CREATES
+
+            <?py for index in model['indexes']: ?>
+                <?py index_name = bom.bom_model_index_name(index, model_id) ?>
+                
+CALL drop_index_if_exists('#{index_name}','#{model_id}');
+                
+CREATE INDEX `#{index_name}` ON `#{model_id}` 
+(
+                <?py inc = 0 ?>
+                <?py for item, item_data in bom.bom_model_index_fields(model_id, index).iteritems() : ?>                    
+                    
+                    <?py item_direction = 'DESC' ?>
+                    <?py if index.has_key('direction'):?>
+                        <?py item_direction = index['direction'] ?>
+                        <?py if inc == 0: ?>
+    `#{item}` #{item_direction}
+                        <?py else: ?>
+    , `#{item}` #{item_direction}
+                        <?py #endif ?>
+                        <?py inc = inc + 1 ?>
+                    <?py #endif ?>
+                <?py #end ?> 
+);
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+-- ------------------------------------
+-- #{item.upper()}
+
+-- ------------------------------------
+-- MODEL: #{model_name} - #{model_id}
+
+                       
+                <?py for method in item_data: ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+                    <?py if item == '' or item == None: ?>
+                        <?py item = 'get'?>
+                    <?py if item != 'del' and item != 'count' and item != 'set' and item != 'browse': ?>
+                        <?py item = 'get'?>
+                    <?py if item == 'del': ?>
+DROP PROCEDURE IF EXISTS `#{proc_name}`;
+
+delimiter $$
+CREATE PROCEDURE `#{proc_name}`
+                        <?py inc = 0 ?>                        
+                        <?py if method.has_key('params'): ?>
+(
+                            <?py for param in method['params']: ?>
+                                <?py converted_type = bom.bom_data_type_proc_formatted(model_id, param, method) ?>
+                                <?py if inc == 0: ?>
+    in_#{param} #{converted_type}
+                                <?py else: ?>
+    , in_#{param} #{converted_type}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+)
+
+                        <?py else: ?>
+(
+)                        
+                        <?py #endif ?>
+BEGIN
+    DELETE 
+    FROM `#{model_id}`
+    WHERE 1=1                        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+    AND lower("#{param}") = lower(in_#{param})
+                                <?py else: ?>
+    AND "#{param}" = in_#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ;
+END$$
+delimiter ;
+                    <?py #endif ?>
+                    <?py if item == 'get': ?>
+                        <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+DROP PROCEDURE IF EXISTS `#{proc_name}`;
+
+delimiter $$
+CREATE PROCEDURE `#{proc_name}`
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+(
+                            <?py for param in method['params']: ?>
+                                <?py converted_type = bom.bom_data_type_proc_formatted(model_id, param, method) ?>
+                                <?py if inc == 0: ?>
+    in_#{param} #{converted_type}
+                                <?py else: ?>
+    , in_#{param} #{converted_type}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+)
+                        <?py else: ?>
+(
+)                        
+                        <?py #endif ?>
+BEGIN
+    SELECT
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+        `#{_item}`
+                            <?py else: ?>
+        , `#{_item}`
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?>
+    FROM `#{model_id}`
+    WHERE 1=1
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+    AND lower(`#{param}`) = lower(in_#{param})
+                                <?py else: ?>
+    AND `#{param}` = in_#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+                        <?py if method.has_key('in_sort_order'): ?>
+                            <?py in_sort_field = method['in_sort_field'] ?>
+                            <?py if method.has_key('in_sort_direction'): ?>
+                                <?py in_sort_direction = method['in_sort_direction'] ?>
+                            <?py else: ?>
+                                <?py in_sort_direction = 'ASC' ?>
+                            <?py #endif ?>
+    ORDER BY `#{in_sort_field}` #{in_sort_direction}
+                        <?py #endif ?>
+    ;
+END$$
+delimiter ;
+
+                    <?py #endif ?>
+                    <?py if item == 'count': ?>
+DROP PROCEDURE IF EXISTS `#{proc_name}`;
+delimiter $$
+CREATE PROCEDURE `#{proc_name}`
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+(
+                            <?py for param in method['params']: ?>
+                                <?py converted_type = bom.bom_data_type_proc_formatted(model_id, param, method) ?>
+                                <?py if inc == 0: ?>
+    in_#{param} #{converted_type}
+                                <?py else: ?>
+    , in_#{param} #{converted_type}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+)
+                        <?py #endif ?>
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `#{model_id}`
+    WHERE 1=1
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+    AND lower(`#{param}`) = lower(in_#{param})
+                                <?py else: ?>
+    AND `#{param}` = in_#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ;
+END$$
+delimiter ;
+
+                    <?py #endif ?>
+                    <?py if item == 'set': ?>
+DROP PROCEDURE IF EXISTS `#{proc_name}`;
+delimiter $$
+CREATE PROCEDURE `#{proc_name}`
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+(
+    in_set_type varchar(50)                      
+                            <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                                <?py converted_type = bom.bom_data_type_proc_formatted(model_id, _item, method) ?>
+    , in_#{_item} #{converted_type}
+                            <?py #end ?>                       
+)
+                        <?py #endif ?>                      
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `#{model_id}`  
+                    WHERE 1=1
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+                    AND lower(`#{param}`) = lower(in_#{param})
+                                <?py else: ?>
+                    AND `#{param}` = in_#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `#{model_id}` 
+                    SET
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+                        `#{_item}` = in_#{_item}
+                            <?py else: ?>
+                        , `#{_item}` = in_#{_item}
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?>
+                    WHERE 1=1
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py if bom.bom_type.is_text_type(bom_type): ?>
+                    AND lower(`#{param}`) = lower(in_#{param})
+                                <?py else: ?>
+                    AND `#{param}` = in_#{param}
+                                <?py #endif ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `#{model_id}`
+                    (
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+                        `#{_item}`
+                            <?py else: ?>
+                        , `#{_item}`
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?>
+                    )
+                    VALUES
+                    (
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+                        in_#{_item}
+                            <?py else: ?>
+                        , in_#{_item}
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?>
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+                    <?py #endif ?>
+                    <?py if item == 'browse': ?>
+DROP PROCEDURE IF EXISTS `#{proc_name}`;
+
+delimiter $$
+CREATE PROCEDURE `#{proc_name}`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+                        <?py inc = 0 ?>
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>
+                            <?py if inc == 0: ?>
+    SET @sfields = CONCAT('', '`#{_item}`');
+                            <?py else: ?>
+    SET @sfields = CONCAT(@sfields, ', `#{_item}`');
+                            <?py #endif ?>
+                            <?py inc = inc + 1 ?>
+                        <?py #end ?> 
+    
+    SET @stable = CONCAT('', ' FROM `#{model_id}` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+                    <?py #endif ?>                    
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+

@@ -1,0 +1,24 @@
+<?php // namespace #{app_name};
+
+require_once('#{app_name}Data.php');
+require_once('Base#{app_name}ACT.php');
+
+class #{app_name}ACT extends Base#{app_name}ACT {
+    
+    public $data;
+
+    public function __construct() {
+        parent::__construct();
+        $this->data = new #{app_name}Data();
+    }
+    
+    public function __destruct() {
+    
+    }
+    
+    // CUSTOM API CODE GOES HERE
+    
+}
+
+?>    
+    

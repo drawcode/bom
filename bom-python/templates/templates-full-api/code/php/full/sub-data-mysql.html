@@ -1,0 +1,260 @@
+<?php // namespace ${app_name};
+
+require_once('core/data/mysql/DataProvider.php');
+
+
+class Base#{app_name}Data {
+
+    public $data_provider;
+    public $connection_string;
+    
+    public function __construct() {
+        $this->data_provider = new DataProvider();
+    }
+    
+    public function __destruct() {
+        
+    }
+    
+    public function log_util($key, $val) {
+        echo "\r\n<!--";
+        echo "\r\n";
+        echo $key;
+        echo "\r\n ";
+        echo $val;
+        echo "\r\n-->\r\n";
+    }    
+            
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>           
+                    <?py if item == 'get': ?>                    
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {
+            
+        $parameters = array();
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+        $parameters['in_#{param}'] =  $#{param}; //#"in_#{param}"
+                            <?py #end ?>
+                        <?py #endif ?>
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL #{proc_name}(".
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py if inc == 0: ?>
+                    "in_#{param}".
+                                <?py else: ?>
+                    ", in_#{param}".
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>                    
+                            <?py #end ?>
+                        <?py #endif ?>
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+                <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {
+        $parameters = array();
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+        $parameters['in_#{param}'] = $#{param}; // #"in_#{param}"
+                            <?py #end ?>
+                        <?py #endif ?>
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL #{proc_name}(".
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py if inc == 0: ?>
+                    "in_#{param}".
+                                <?py else: ?>
+                    ", in_#{param}".
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>                    
+                            <?py #end ?>
+                        <?py #endif ?>
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {
+        $parameters = array();
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+        $parameters['in_#{param}'] = $#{param}; // #"in_#{param}"
+                            <?py #end ?>
+                        <?py #endif ?>
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL #{proc_name}(".
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py if inc == 0: ?>
+                    "in_#{param}".
+                                <?py else: ?>
+                    ", in_#{param}".
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>                    
+                            <?py #end ?>
+                        <?py #endif ?>
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+    public function #{code_name}($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>        
+            if($obj->#{_item} != NULL)
+                $parameters['in_#{_item}'] = $obj->#{_item}; // #"in_#{_item}"
+                        <?py #end ?>  
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL #{proc_name}(".
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py if inc == 0: ?>
+                        "in_#{param}".
+                                <?py else: ?>
+                        ", in_#{param}".
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>                    
+                            <?py #end ?>
+                        <?py #endif ?>
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+    public function #{code_name}($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL #{proc_name}(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+                    <?py #endif ?>                    
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+
+}
+
+
+?>

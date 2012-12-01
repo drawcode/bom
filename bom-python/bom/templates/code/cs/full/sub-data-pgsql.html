@@ -1,0 +1,216 @@
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+using System;
+using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using ah.core.config;
+using ah.core.data;
+using ah.core.data.pgsql;
+
+using Npgsql;
+using log4net;
+
+using #{namespace};
+using #{namespace}.ent;
+
+namespace #{namespace} {
+
+    public class Base#{app_name}Data {
+        
+	private static readonly log4net.ILog log = log4net.LogManager.GetLogger("main");
+    
+        DataProvider data = new DataProvider();
+        public static string connectionString = CoreConfig.GetConnectionStringByName("#{namespace}");
+                
+        public Base#{app_name}Data(){
+        }
+        
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+//------------------------------------------------------------------------------                    
+                    <?py if item == 'get': ?>                    
+        public virtual DataSet #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+            parameters.Add(new NpgsqlParameter("in_#{param}", #{param}));
+                            <?py #end ?>
+                        <?py #endif ?>
+            try {
+                return data.ExecuteDataSet(
+                Base#{app_name}Data.connectionString
+                , CommandType.StoredProcedure
+                , "#{proc_name}"
+                , "${model_id}"
+                , parameters
+                );          
+            }
+            catch (Exception e){
+                log.Error(e);
+                return null;
+            }
+            
+            
+        } 
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+        public virtual bool #{code_name}(
+                        <?py inc = 0 ?>                        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+            parameters.Add(new NpgsqlParameter("in_#{param}", #{param}));
+                            <?py #end ?>   
+                        <?py #endif ?>
+            try {
+                data.ExecuteNonQuery(
+                    Base#{app_name}Data.connectionString
+                    , CommandType.StoredProcedure
+                    , "#{proc_name}"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){      
+                log.Error(e);      
+                return false;
+            }
+        }                     
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+        public virtual int #{code_name}(
+                        <?py inc = 0 ?>                        
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type()) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+            parameters.Add(new NpgsqlParameter("in_#{param}", #{param}));
+                            <?py #end ?>
+                        <?py #endif ?>
+            try {
+                return (int)data.ExecuteScalar(
+                Base#{app_name}Data.connectionString
+                , CommandType.StoredProcedure
+                , "#{proc_name}"
+                , parameters
+                );            
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return 0;
+            }
+        }       
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+        public virtual bool #{code_name}(string set_type, #{model_name} obj)  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();
+            parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>        
+            parameters.Add(new NpgsqlParameter("in_#{_item}", obj.#{_item}));
+                        <?py #end ?>        
+            
+            try {
+                return Convert.ToBoolean(data.ExecuteScalar(
+                Base#{app_name}Data.connectionString
+                , CommandType.StoredProcedure
+                , "#{proc_name}"
+                , parameters
+                ));           
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return false;
+            }    
+        }    
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+        public virtual DataSet #{code_name}(SearchFilter obj)  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();
+            parameters.Add(new NpgsqlParameter("in_page", obj.page));
+            parameters.Add(new NpgsqlParameter("in_page_size", obj.page_size));
+            parameters.Add(new NpgsqlParameter("in_sort", obj.sort));
+            parameters.Add(new NpgsqlParameter("in_filter", obj.filter));
+            
+            try {
+                return data.ExecuteDataSet(
+                Base#{app_name}Data.connectionString
+                , CommandType.StoredProcedure
+                , "#{proc_name}"
+                , "${model_id}"
+                , parameters
+                );           
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return null;
+            }
+        }
+                    <?py #endif ?>                    
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+    }
+}
+
+
+
+
+
+

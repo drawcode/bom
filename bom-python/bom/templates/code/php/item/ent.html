@@ -1,0 +1,84 @@
+<?py model_name = bom.to_camel_cap(model,'_') ?>
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+<?py extends = '' ?>
+<?py if model_data.has_key('extends'): ?>
+    <?py extender = bom.to_camel_cap(model_data['extends'],'_')?>
+    <?py extends += extender?>    
+include '#{extender}.php';
+<?py #endif ?>
+<?php namespace #{app_name};
+
+//include '#{app_name}ACT.php';
+//include '#{app_name}Data.php';
+
+//use ent;
+
+class #{model_name}Result {
+
+    public $page = 1;
+    public $page_size = 10;
+    public $total_rows = 0;
+    public $total_pages = 1;
+    public $data = [];
+
+    public function __construct() {
+        $this->total_pages = ceil($this->total_rows / $this->page_size);
+    }
+
+}
+
+class #{model_name} extends #{extends} { 
+
+    private static $instance; 
+
+    public static function Instance() { 
+    
+        if(!self::$instance) { 
+            self::$instance = new self(); 
+        } 
+        
+        return self::$instance; 
+    
+    }
+    
+<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
+    <?py for type, typename in item_data.iteritems(): ?>
+        <?py if type == 'type': ?>
+            <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type())?>
+        public $#{item};
+        <?py #endif ?>
+    <?py #end ?>
+<?py #end ?> 
+
+    //public $data = new #{app_name}Data();
+
+    public function __construct() {
+    
+    }
+    
+    public function __destruct() {
+    
+    }
+        
+    public function set_object_vars(array $vars) {
+        $has = get_object_vars($this);
+        foreach ($has as $name => $oldValue) {
+            $this->$name = isset($vars[$name]) ? $vars[$name] : NULL;
+        }
+    }
+    
+    public function from_dict(array $vars) {
+        $this->set_object_vars($vars);
+    }
+    
+    public function to_dict() {
+        return get_object_vars($this);
+    }
+  
+}
+
+?> 
+
+

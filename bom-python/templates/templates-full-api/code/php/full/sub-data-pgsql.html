@@ -1,0 +1,190 @@
+<?php // namespace #{app_name};
+
+require_once('core/data/pgsql/DataProvider.php');
+
+class Base#{app_name}Data {
+
+    public $data;
+    
+    public function __construct() {
+        $this->data = new DataProvider();
+    }
+    
+    public function __destruct() {
+        
+    }
+
+}
+
+/*
+
+import ent
+from ent import *
+
+import libs.core.data.pgsql
+from libs.core.data.pgsql import *
+
+class Base#{app_name}Data(object):
+
+    def __init__(self):
+        self.connection_string = ''
+        self.data_provider = DataProvider()
+        
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>           
+                    <?py if item == 'get': ?>                    
+    def #{code_name}(self
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+        , #{param}
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) :
+            
+        parameters = []
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+        parameters.append(#{param}) #"in_#{param}"
+                            <?py #end ?>
+                        <?py #endif ?>
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "#{proc_name}"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+                <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+    def #{code_name}(self
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+        , #{param}
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) :
+        parameters = []
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+        parameters.append(#{param}) #"in_#{param}"
+                            <?py #end ?>
+                        <?py #endif ?>
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "#{proc_name}"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+    def #{code_name}(self
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+        , #{param}
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) :
+        parameters = []
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+        parameters.append(#{param}) #"in_#{param}"
+                            <?py #end ?>
+                        <?py #endif ?>
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "#{proc_name}"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+    def #{code_name}(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+                        <?py for _item, _item_data in bom.bom_model_properties_extended(model_id).iteritems() : ?>        
+        parameters.append(obj.#{_item}) #"in_#{_item}"
+                        <?py #end ?>  
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "#{proc_name}"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+    def #{code_name}(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "#{proc_name}"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+                    <?py #endif ?>                    
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+
+*/
+
+?>

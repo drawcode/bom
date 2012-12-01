@@ -1,0 +1,288 @@
+<?php // namespace ${app_name};
+
+require_once('Base#{app_name}ACT.php');
+
+class SetType {
+    const FULL = 'full';
+    const INSERT_ONLY = 'insertonly';
+    const UPDATE_ONLY = 'updateonly';
+}
+
+class Base#{app_name}API {
+
+    public $act;
+    public $DEFAULT_CACHE_HOURS = 12;
+    public $DEFAULT_SET_TYPE = 'full';
+
+    public function __construct() {
+        $this->DEFAULT_CACHE_HOURS = 12;
+        $this->DEFAULT_SET_TYPE = SetType::FULL;
+        $this->act = new Base#{app_name}ACT();
+    }
+    
+    public function __destruct() {
+    
+    }
+    
+    
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py code_name_cached = "Cached" + code_name ?>
+                    <?py code_name_item = bom.bom_method_code_name_item(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+#------------------------------------------------------------------------------                    
+                    <?py if item == 'get': ?>
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        ) {
+            return $this->act->#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+                $#{param}
+                                <?py else: ?>
+                , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+        }
+        
+    public function #{code_name_item}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {
+        foreach($this->act->#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function #{code_name_cached}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {
+        return $this->#{code_name_cached}(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+            , $#{param}
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        );
+    }
+    */
+        
+    public function #{code_name_cached}(
+        $overrideCache
+        , $cacheHours
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+        , $#{param}
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {
+
+        $objs = array();
+
+        $method_name = "#{code_name_cached}";
+
+        $sb = "";
+        $sb += $method_name;
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+        $sb += "_";
+        $sb += strtolower("$#{param}");
+        $sb += "_";
+        $sb += $#{param};
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>            
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<#{model_name}>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+                $#{param}
+                                <?py else: ?>
+                , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {         
+        return $this->act->#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        );
+    }
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+    public function #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+    ) {      
+        return $this->act->#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+        $#{param}
+                                <?py else: ?>
+        , $#{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        );
+    }
+        
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+    public function #{code_name}($set_type, $obj) {
+        return $this->act->#{code_name}($set_type, $obj);
+    }
+               
+    public function #{code_name}Full($obj) {
+        return $this->act->#{code_name}('full', $obj);
+    }
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+    public function #{code_name}($filter_obj) {
+        return $this->act->#{code_name}($filter_obj);
+    }
+                    <?py #endif ?>                     
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?> 
+    
+}
+
+?>

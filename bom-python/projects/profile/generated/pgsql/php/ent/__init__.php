@@ -1,0 +1,12 @@
+<?php
+require_once('Profile.php');
+require_once('ProfileType.php');
+require_once('ProfileAttribute.php');
+require_once('ProfileAttributeText.php');
+require_once('ProfileAttributeData.php');
+require_once('ProfileDevice.php');
+require_once('Country.php');
+require_once('State.php');
+require_once('City.php');
+require_once('PostalCode.php');
+?>

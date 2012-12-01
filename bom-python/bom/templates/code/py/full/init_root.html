@@ -1,0 +1,34 @@
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py app = bom.bom_json['app'] ?>
+<?py app_name = bom.to_camel_cap(app,'_') ?>
+import #{app_name}API
+import #{app_name}ACT
+import #{app_name}Data
+import #{app_name}RequestHandler
+import Base#{app_name}API
+import Base#{app_name}ACT
+import Base#{app_name}Data
+import Base#{app_name}RequestHandler
+import #{app_name}Responses
+
+from #{app_name}API import *
+from #{app_name}ACT import *
+from #{app_name}Data import *
+from #{app_name}RequestHandler import *
+from Base#{app_name}API import *
+from Base#{app_name}ACT import *
+from Base#{app_name}Data import *
+from Base#{app_name}RequestHandler import *
+from #{app_name}Responses import *
+
+__all__ = [
+    "#{app_name}API"
+    , "#{app_name}ACT"
+    , "#{app_name}Data"
+    , "#{app_name}RequestHandler"
+    , "Base#{app_name}API"
+    , "Base#{app_name}ACT"
+    , "Base#{app_name}Data"
+    , "Base#{app_name}RequestHandler"
+    , "#{app_name}Responses"
+]

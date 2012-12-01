@@ -1,0 +1,200 @@
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using ah.core.data;
+using ah.core.data.pgsql;
+using ah.core.ent;
+
+using #{namespace};
+using #{namespace}.ent;
+
+namespace #{namespace} {
+
+    public class Base#{app_name}ACT {
+    
+        #{app_name}Data data = new #{app_name}Data();
+        DataType dataType = new DataType();
+        
+        public Base#{app_name}ACT(){
+        
+        }
+        
+<?py for model in bom.bom_json['models']: ?>
+    <?py if bom.should_generate_data(model['id']):?>
+        <?py model_id = model['id'] ?>
+        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+        
+        public virtual #{model_name} Fill#{model_name}(DataRow dr) {
+            #{model_name} obj = new #{model_name}();
+
+        <?py for item, item_data in bom.bom_model_properties_extended(model_id).iteritems(): ?>
+            <?py for type, typename in item_data.iteritems(): ?>
+                <?py if type == 'type': ?>
+                    <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type)?>
+                    <?py converted_type_formatted = bom.to_camel_cap(converted_type, '_')?>
+            if (dr["#{item}"] != null)                    
+                    obj.#{item} = dataType.FillData#{converted_type_formatted}(dr, "#{item}");                
+                <?py #endif ?>
+            <?py #end ?>
+        <?py #end ?>
+
+            return obj;
+        }
+        
+        <?py if model.has_key('methods'):?>
+            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+                <?py for method in item_data: ?>
+                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>           
+                    <?py if item == 'get': ?>                    
+        public virtual List<#{model_name}> #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {
+            List<#{model_name}> list = new List<#{model_name}>();
+            DataSet ds = data.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+                #{param}
+                                <?py else: ?>
+                , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       #{model_name} #{model_id}  = Fill#{model_name}(dr);
+                        list.Add(#{model_id});
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+                    <?py #endif ?>                    
+                    <?py if  item == 'del': ?>
+        public virtual bool #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {
+            return data.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+                #{param}
+                                <?py else: ?>
+                , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+        }                     
+                    <?py #endif ?>
+                    <?py if  item == 'count': ?>
+        public virtual int #{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+            #{converted_type} #{param}
+                                <?py else: ?>
+            , #{converted_type} #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+        )  {            
+            return data.#{code_name}(
+                        <?py inc = 0 ?>
+                        <?py if method.has_key('params'): ?>
+                            <?py for param in method['params']: ?>
+                                <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
+                                <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
+                                <?py if inc == 0: ?>
+                #{param}
+                                <?py else: ?>
+                , #{param}
+                                <?py #endif ?>
+                                <?py inc = inc + 1 ?>
+                            <?py #end ?>
+                        <?py #endif ?>
+            );
+        }       
+                    <?py #endif ?>
+                    <?py if  item == 'set': ?>
+        public virtual bool #{code_name}(string set_type, #{model_name} obj)  {            
+            return data.#{code_name}(set_type, obj);
+        }    
+                    <?py #endif ?>
+                    <?py if  item == 'browse': ?>
+        public virtual #{model_name}Result #{code_name}(SearchFilter obj)  {
+            #{model_name}Result result = new #{model_name}Result();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.#{code_name}(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       #{model_name} #{model_id}  = Fill#{model_name}(dr);
+                        result.data.Add(#{model_id});
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+                    <?py #endif ?>                    
+                <?py #end ?>
+            <?py #end ?>
+        <?py #endif ?>
+    <?py #endif ?>
+<?py #endif ?>
+    }
+}
+
+
+
+
+
+

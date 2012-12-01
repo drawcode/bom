@@ -1,0 +1,39 @@
+{ 
+    "name":"full-api",
+    "code_type":[
+        "cs",
+        "py"
+    ],
+    "data_type":[
+        "mssql",
+        "pgsql"
+    ],
+    "files": {
+        "code":{
+             "full":[
+                {"code":"init","pattern":"__init__", "path":"ent", "file":"init", "ext":"{{ code_type }}", "filter":["py"]},
+                {"code":"init-root","pattern":"__init__", "path":"", "file":"init-root", "ext":"{{ code_type }}", "filter":["py"]},
+                {"code":"main-api","pattern":"{{ app_name_formatted }}API", "path":"", "ext":"{{ code_type }}", "file":"main-api"},
+                {"code":"main-act","pattern":"{{ app_name_formatted }}ACT", "path":"", "ext":"{{ code_type }}", "file":"main-act"},
+                {"code":"main-data","pattern":"{{ app_name_formatted }}Data", "path":"", "ext":"{{ code_type }}", "file":"main-data"},
+                {"code":"main-service","pattern":"{{ app_name_formatted }}Service", "path":"", "ext":"{{ code_type }}", "file":"main-service"},
+                {"code":"responses","pattern":"{{ app_name_formatted }}Responses", "path":"", "ext":"{{ code_type }}", "file":"responses"},
+                {"code":"sub-api","pattern":"Base{{ app_name_formatted }}API", "path":"", "ext":"{{ code_type }}", "file":"sub-api"},
+                {"code":"sub-act","pattern":"Base{{ app_name_formatted }}ACT", "path":"", "ext":"{{ code_type }}", "file":"sub-act"},
+                {"code":"sub-data","pattern":"Base{{ app_name_formatted }}Data", "path":"", "ext":"{{ code_type }}", "file":"sub-data-{{ data_type }}"},
+                {"code":"sub-service","pattern":"Base{{ app_name_formatted }}Service", "path":"", "ext":"{{ code_type }}", "file":"sub-service"},
+                {"code":"sub-service-script","pattern":"{{ app_name_lower }}", "path":"", "ext":"js", "file":"sub-service-script"},
+                {"code":"utility","pattern":"{{ app_name_formatted }}Utils", "path":"", "ext":"{{ code_type }}", "file":"utility"}
+            ],
+            "item":[            
+                {"code":"ent","pattern":"{{ model_name_formatted }}", "path":"ent", "ext":"{{ code_type }}", "file":"ent"}
+            ]
+        },
+        "data":{
+             "full":[
+                {"code":"sql","pattern":"{{ app_name_formatted }}SQL", "path":"setup", "ext":"sql", "file":"sql"}
+            ],
+            "item":[]
+        }
+    }
+}

@@ -74,18 +74,6 @@ public class #{model_name} #{extends} {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
-    <?py for type, typename in item_data.iteritems(): ?>
-        <?py if type == 'type': ?>
-            <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type)?>
-    public #{converted_type} #{item} { get; set; }
-        <?py #endif ?>
-    <?py #end ?>
-<?py #end ?>
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 <?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>

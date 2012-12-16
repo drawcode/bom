@@ -68,19 +68,6 @@ public class Message : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  profile_from_name { get; set; }
-    public  read { get; set; }
-    public  profile_from_id { get; set; }
-    public  profile_to_token { get; set; }
-    public  app_id { get; set; }
-    public  profile_to_id { get; set; }
-    public  profile_to_name { get; set; }
-    public  sent { get; set; }
-    public  subject { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (profile_from_name != null) {

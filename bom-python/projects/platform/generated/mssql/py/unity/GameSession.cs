@@ -80,31 +80,6 @@ public class GameSession : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  network_port { get; set; }
-    public  game_state { get; set; }
-    public  profile_network { get; set; }
-    public  network_uuid { get; set; }
-    public  game_players_connected { get; set; }
-    public  network_external_ip { get; set; }
-    public  network_external_port { get; set; }
-    public  profile_id { get; set; }
-    public  game_type { get; set; }
-    public  profile_username { get; set; }
-    public  game_area { get; set; }
-    public  game_players_allowed { get; set; }
-    public  game_player_x { get; set; }
-    public  game_level { get; set; }
-    public  game_player_z { get; set; }
-    public  game_id { get; set; }
-    public  game_code { get; set; }
-    public  network_ip { get; set; }
-    public  network_use_nat { get; set; }
-    public  profile_device { get; set; }
-    public  hash { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (network_port != null) {

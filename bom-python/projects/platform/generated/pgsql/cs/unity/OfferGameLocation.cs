@@ -62,13 +62,6 @@ public class OfferGameLocation : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string game_location_id { get; set; }
-    public string offer_id { get; set; }
-    public string type_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (game_location_id != null) {

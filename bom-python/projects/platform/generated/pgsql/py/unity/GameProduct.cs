@@ -61,12 +61,6 @@ public class GameProduct : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  url { get; set; }
-    public  game_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (url != null) {

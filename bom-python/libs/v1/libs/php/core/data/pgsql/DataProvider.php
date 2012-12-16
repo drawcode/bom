@@ -16,7 +16,7 @@ class DataProvider(object):
         return "DataProvider provides baseplane signatures for data connections"
 
     def __init__(self) :
-        self.connection_string = "dbname=gameverses user=gameverses password=!!gameverses33 port=5432"
+        self.connection_string = "dbname=platform user=platform password=platform port=5432"
         self.connection_string_name = ""
         self.conn = None
         self.cur = None

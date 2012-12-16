@@ -69,20 +69,6 @@ public class GameAchievement : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string username { get; set; }
-    public string level { get; set; }
-    public string type { get; set; }
-    public bool completed { get; set; }
-    public string profile_id { get; set; }
-    public string key { get; set; }
-    public float timestamp { get; set; }
-    public string game_id { get; set; }
-    public float achievement_value { get; set; }
-    public string data { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (username != null) {

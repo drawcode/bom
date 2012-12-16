@@ -66,17 +66,6 @@ public class ProfileAttributeData : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public int sort { get; set; }
-    public int group { get; set; }
-    public string profile_id { get; set; }
-    public string attribute_id { get; set; }
-    public string attribute_value { get; set; }
-    public int type { get; set; }
-    public int order { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	dict = DataUtil.SetDictValue(dict, "sort", sort);

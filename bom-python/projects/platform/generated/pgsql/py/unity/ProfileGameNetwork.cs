@@ -66,17 +66,6 @@ public class ProfileGameNetwork : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  hash { get; set; }
-    public  profile_id { get; set; }
-    public  token { get; set; }
-    public  game_network_id { get; set; }
-    public  secret { get; set; }
-    public  network_username { get; set; }
-    public  game_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (hash != null) {

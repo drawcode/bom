@@ -67,18 +67,6 @@ public class ProfileGameDataAttribute  {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string code { get; set; }
-    public string uuid { get; set; }
-    public string val { get; set; }
-    public string profile_id { get; set; }
-    public string otype { get; set; }
-    public string game_id { get; set; }
-    public string type { get; set; }
-    public string name { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (code != null) {

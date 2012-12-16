@@ -68,19 +68,6 @@ public class GameAchievementMeta : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public int sort { get; set; }
-    public boolean game_stat { get; set; }
-    public string level { get; set; }
-    public string data { get; set; }
-    public int points { get; set; }
-    public string key { get; set; }
-    public string game_id { get; set; }
-    public string type { get; set; }
-    public boolean leaderboard { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	dict = DataUtil.SetDictValue(dict, "sort", sort);

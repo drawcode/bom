@@ -65,16 +65,6 @@ public class GameLevel : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public int sort { get; set; }
-    public string data { get; set; }
-    public string key { get; set; }
-    public string game_id { get; set; }
-    public string type { get; set; }
-    public string order { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	dict = DataUtil.SetDictValue(dict, "sort", sort);

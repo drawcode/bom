@@ -75,26 +75,6 @@ public class BaseLocation : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string state_province { get; set; }
-    public string city { get; set; }
-    public string fax { get; set; }
-    public string twitter { get; set; }
-    public DateTime dob { get; set; }
-    public string address1 { get; set; }
-    public string address2 { get; set; }
-    public DateTime date_start { get; set; }
-    public double longitude { get; set; }
-    public string phone { get; set; }
-    public DateTime date_end { get; set; }
-    public string postal_code { get; set; }
-    public string country_code { get; set; }
-    public double latitude { get; set; }
-    public string facebook { get; set; }
-    public string email { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (state_province != null) {

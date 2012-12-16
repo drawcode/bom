@@ -63,14 +63,6 @@ public class Question : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string channel_id { get; set; }
-    public string type { get; set; }
-    public string org_id { get; set; }
-    public string choices { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (channel_id != null) {

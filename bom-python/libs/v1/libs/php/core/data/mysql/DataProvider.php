@@ -24,12 +24,12 @@ class DataProvider {
     
     }
     
-    public $connection_string = "mysql:host=localhost;dbname=gameverses;port=3307;";
+    public $connection_string = "mysql:host=localhost;dbname=platform;port=3307;";
     public $connection_string_name = "";
     public $conn = NULL;
     public $cur = NULL;
-    public $user = "gameverses";
-    public $pass = "!!gameverses33";
+    public $user = "platform";
+    public $pass = "platform";
 
     public function __construct() {    
         $this->reset();

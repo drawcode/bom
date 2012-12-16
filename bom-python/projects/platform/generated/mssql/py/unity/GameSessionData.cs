@@ -64,15 +64,6 @@ public class GameSessionData : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  data_layer_enemy { get; set; }
-    public  data_layer_actors { get; set; }
-    public  data_results { get; set; }
-    public  data { get; set; }
-    public  data_layer_projectile { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (data_layer_enemy != null) {

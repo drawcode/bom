@@ -63,14 +63,6 @@ public class BaseMeta : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string code { get; set; }
-    public string display_name { get; set; }
-    public string name { get; set; }
-    public string description { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (code != null) {

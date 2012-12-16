@@ -61,12 +61,6 @@ public class OfferCategoryTree : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string parent_id { get; set; }
-    public string category_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (parent_id != null) {

@@ -63,14 +63,6 @@ public class ProfileAttribute : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  sort { get; set; }
-    public  type { get; set; }
-    public  group { get; set; }
-    public  order { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (sort != null) {

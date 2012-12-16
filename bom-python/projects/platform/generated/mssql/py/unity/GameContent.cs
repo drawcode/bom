@@ -70,21 +70,6 @@ public class GameContent : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  hash { get; set; }
-    public  content_type { get; set; }
-    public  extension { get; set; }
-    public  source { get; set; }
-    public  filename { get; set; }
-    public  platform { get; set; }
-    public  version { get; set; }
-    public  increment { get; set; }
-    public  path { get; set; }
-    public  game_id { get; set; }
-    public  data { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (hash != null) {

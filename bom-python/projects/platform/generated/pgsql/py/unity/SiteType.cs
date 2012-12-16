@@ -59,10 +59,6 @@ public class SiteType : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
          return dict;

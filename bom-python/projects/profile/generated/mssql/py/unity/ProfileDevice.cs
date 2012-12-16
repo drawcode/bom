@@ -67,18 +67,6 @@ public class ProfileDevice : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  profile_id { get; set; }
-    public  secret { get; set; }
-    public  token { get; set; }
-    public  device_version { get; set; }
-    public  device_type { get; set; }
-    public  device_os { get; set; }
-    public  device_platform { get; set; }
-    public  device_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (profile_id != null) {

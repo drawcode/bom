@@ -65,16 +65,6 @@ public class GameLiveRecentQueue : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  username { get; set; }
-    public  data { get; set; }
-    public  profile_id { get; set; }
-    public  game { get; set; }
-    public  game_id { get; set; }
-    public  type { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (username != null) {

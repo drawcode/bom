@@ -74,25 +74,6 @@ public class GameRpgItem : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string third_party_oembed { get; set; }
-    public string url { get; set; }
-    public string third_party_data { get; set; }
-    public float game_price { get; set; }
-    public float game_defense { get; set; }
-    public float game_type { get; set; }
-    public float game_skill { get; set; }
-    public float game_health { get; set; }
-    public string third_party_url { get; set; }
-    public string third_party_id { get; set; }
-    public string content_type { get; set; }
-    public string game_id { get; set; }
-    public float game_energy { get; set; }
-    public string game_data { get; set; }
-    public float game_attack { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (third_party_oembed != null) {

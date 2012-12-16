@@ -64,15 +64,6 @@ public class ProfileOffer : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  redeem_code { get; set; }
-    public  url { get; set; }
-    public  offer_id { get; set; }
-    public  profile_id { get; set; }
-    public  redeemed { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (redeem_code != null) {

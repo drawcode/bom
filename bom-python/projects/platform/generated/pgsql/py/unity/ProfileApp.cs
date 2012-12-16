@@ -61,12 +61,6 @@ public class ProfileApp : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  profile_id { get; set; }
-    public  app_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (profile_id != null) {

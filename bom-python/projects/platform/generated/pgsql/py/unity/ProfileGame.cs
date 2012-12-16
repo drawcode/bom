@@ -64,15 +64,6 @@ public class ProfileGame : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  game_id { get; set; }
-    public  profile_id { get; set; }
-    public  game_profile { get; set; }
-    public  profile_version { get; set; }
-    public  type_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (game_id != null) {

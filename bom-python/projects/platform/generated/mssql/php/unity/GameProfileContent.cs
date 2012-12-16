@@ -73,24 +73,6 @@ public class GameProfileContent : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string username { get; set; }
-    public string hash { get; set; }
-    public string content_type { get; set; }
-    public string extension { get; set; }
-    public string source { get; set; }
-    public string profile_id { get; set; }
-    public string filename { get; set; }
-    public string platform { get; set; }
-    public string version { get; set; }
-    public int increment { get; set; }
-    public string game_network { get; set; }
-    public string game_id { get; set; }
-    public string path { get; set; }
-    public string data { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (username != null) {

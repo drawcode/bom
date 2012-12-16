@@ -63,14 +63,6 @@ public class GameStatisticTimestamp : BaseEntity {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string game_id { get; set; }
-    public string profile_id { get; set; }
-    public string key { get; set; }
-    public Date timestamp { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (game_id != null) {

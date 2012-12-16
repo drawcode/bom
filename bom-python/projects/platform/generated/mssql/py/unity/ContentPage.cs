@@ -64,15 +64,6 @@ public class ContentPage : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  path { get; set; }
-    public  date_end { get; set; }
-    public  date_start { get; set; }
-    public  site_id { get; set; }
-    public  template { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (path != null) {

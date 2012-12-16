@@ -63,14 +63,6 @@ public class Offer : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string url { get; set; }
-    public string org_id { get; set; }
-    public int usage_count { get; set; }
-    public string type_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (url != null) {

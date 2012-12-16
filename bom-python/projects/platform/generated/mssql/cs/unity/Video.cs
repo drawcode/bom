@@ -66,17 +66,6 @@ public class Video : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public string third_party_oembed { get; set; }
-    public string url { get; set; }
-    public string third_party_data { get; set; }
-    public string third_party_url { get; set; }
-    public string third_party_id { get; set; }
-    public string content_type { get; set; }
-    public string external_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (third_party_oembed != null) {

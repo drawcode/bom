@@ -66,17 +66,6 @@ public class Photo : BaseMeta {
         base.Reset();
     }
 
-    // Attributes that are added or changed after launch should be like this to prevent
-    // conversions.
-    
-    public  third_party_oembed { get; set; }
-    public  url { get; set; }
-    public  third_party_data { get; set; }
-    public  third_party_url { get; set; }
-    public  third_party_id { get; set; }
-    public  content_type { get; set; }
-    public  external_id { get; set; }
-
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	if (third_party_oembed != null) {

@@ -26,7 +26,8 @@
                 {"code":"utility","pattern":"{{ app_name_formatted }}Utils", "path":"", "ext":"{{ code_type }}", "file":"utility"}
             ],
             "item":[            
-                {"code":"ent","pattern":"{{ model_name_formatted }}", "path":"ent", "ext":"{{ code_type }}", "file":"ent"}
+                {"code":"ent","pattern":"{{ model_name_formatted }}", "path":"ent", "ext":"{{ code_type }}", "file":"ent"},
+                {"code":"ent-unity","pattern":"{{ model_name_formatted }}", "path":"unity", "ext":"cs", "file":"ent-unity"}
             ]
         },
         "data":{

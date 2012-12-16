@@ -1,0 +1,141 @@
+<?py model_name = bom.to_camel_cap(model,'_') ?>
+<?py namespace = bom.bom_json['namespace_root'] ?>
+<?py extends = '' ?>
+<?py if model_data.has_key('extends'): ?>
+    <?py extends = ': ' ?>
+    <?py extends += bom.to_camel_cap(model_data['extends'],'_')?>
+<?py #endif ?>
+using System;
+
+public class #{model_name}s<T> : DataObjects<T> where T : new() {
+
+    private static T current;
+    private static volatile #{model_name}s<T> instance;
+    private static object syncRoot = new Object();
+
+    private string DATA_KEY = "#{model}-data";
+
+    public static T Current {
+        get {
+            if (current == null) {
+                lock (syncRoot) {
+                    if (current == null)
+                        current = new T();
+                }
+            }
+            return current;
+        }
+        set {
+            current = value;
+        }
+    }
+
+    public static #{model_name}s<T> Instance {
+        get {
+            if (instance == null) {
+                lock (syncRoot) {
+                    if (instance == null)
+                        instance = new #{model_name}s<T>();
+                }
+            }
+            return instance;
+        }
+    }
+
+    public #{model_name}s() {
+        Reset();
+    }
+
+    public #{model_name}s(bool loadData) {
+        Reset();
+        path = "data/" + DATA_KEY + ".json";
+        pathKey = DATA_KEY;
+        LoadData();
+    }
+}
+
+public class #{model_name} #{extends} {
+    // Attributes that are added or changed after launch should be like this to prevent
+    // profile conversions.
+<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
+    <?py for type, typename in item_data.iteritems(): ?>
+	 <?py if type == 'type': ?>
+	    <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type)?>
+    public #{converted_type} #{item} { get; set; }
+	<?py #endif ?>
+    <?py #end ?>
+<?py #end ?>
+
+    public #{model_name}() {
+        Reset();
+    }
+    
+    public override void Reset() {
+        base.Reset();
+    }
+
+    // Attributes that are added or changed after launch should be like this to prevent
+    // conversions.
+    
+<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
+    <?py for type, typename in item_data.iteritems(): ?>
+        <?py if type == 'type': ?>
+            <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type)?>
+    public #{converted_type} #{item} { get; set; }
+        <?py #endif ?>
+    <?py #end ?>
+<?py #end ?>
+
+    public override Dictionary<string, object> ToDictionary(){
+        dict = base.ToDictionary();
+<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
+    <?py for type, typename in item_data.iteritems(): ?>
+        <?py if type == 'type': ?>
+            <?py bom_type = bom.bom_model_property_extended_type(model, item) ?>
+            <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type)?>
+            <?py converted_type_formatted = bom.to_camel_cap(converted_type, '_')?>
+            <?py if converted_type == "float": ?>
+	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+	    <?py elif bom_type == "double": ?>
+	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+            <?py elif bom_type == "datetime": ?>
+	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+            <?py elif bom_type == "bool": ?>
+	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+            <?py elif converted_type == "int": ?>             
+	dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+            <?py else: ?>	
+	if (${item} != null) {
+	    dict = DataUtil.SetDictValue(dict, "#{item}", #{item});
+	}
+            <?py #endif ?>	
+	<?py #endif ?>
+    <?py #end ?>
+<?py #end ?>            
+         return dict;
+    }
+
+    public override void FillFromDictionary(Dictionary<string, object> dict){
+<?py for item, item_data in bom.bom_model_properties(model).iteritems(): ?>
+    <?py for type, typename in item_data.iteritems(): ?>
+        <?py if type == 'type': ?>
+            <?py converted_type = bom.bom_type.bom_type_from_custom_type(typename, 'code', bom.current_code_type)?>
+            <?py converted_type_formatted = bom.to_camel_cap(converted_type, '_')?>
+	if(dict.ContainsKey("#{item}")) {
+	    if(dict["#{item}"] != null) {
+	    	#{item} = DataType.Instance.Fill#{converted_type_formatted}(dict["#{item}"]);
+	    }		
+	}
+        <?py #endif ?>
+    <?py #end ?>
+<?py #end ?>               
+    }
+}
+
+
+
+
+
+
+
+

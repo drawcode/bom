@@ -18,32 +18,6 @@ import ContentPage
 from ContentPage import *
 import Message
 from Message import *
-import Game
-from Game import *
-import GameCategory
-from GameCategory import *
-import GameCategoryTree
-from GameCategoryTree import *
-import GameCategoryAssoc
-from GameCategoryAssoc import *
-import GameType
-from GameType import *
-import ProfileGame
-from ProfileGame import *
-import ProfileGameNetwork
-from ProfileGameNetwork import *
-import ProfileGameDataAttribute
-from ProfileGameDataAttribute import *
-import GameSession
-from GameSession import *
-import GameSessionData
-from GameSessionData import *
-import GameContent
-from GameContent import *
-import GameProfileContent
-from GameProfileContent import *
-import GameApp
-from GameApp import *
 import Offer
 from Offer import *
 import OfferType
@@ -80,8 +54,6 @@ import ProfileApp
 from ProfileApp import *
 import ProfileOrg
 from ProfileOrg import *
-import ProfileGameLocation
-from ProfileGameLocation import *
 import ProfileQuestion
 from ProfileQuestion import *
 import ProfileChannel
@@ -94,32 +66,6 @@ import Photo
 from Photo import *
 import Video
 from Video import *
-import GameRpgItemWeapon
-from GameRpgItemWeapon import *
-import GameRpgItemSkill
-from GameRpgItemSkill import *
-import GameProduct
-from GameProduct import *
-import GameStatisticLeaderboard
-from GameStatisticLeaderboard import *
-import GameLiveQueue
-from GameLiveQueue import *
-import GameLiveRecentQueue
-from GameLiveRecentQueue import *
-import GameStatistic
-from GameStatistic import *
-import GameStatisticMeta
-from GameStatisticMeta import *
-import GameStatisticTimestamp
-from GameStatisticTimestamp import *
-import GameKeyMeta
-from GameKeyMeta import *
-import GameLevel
-from GameLevel import *
-import GameAchievement
-from GameAchievement import *
-import GameAchievementMeta
-from GameAchievementMeta import *
 __all__ = [
     "App"
     , "AppResult"
@@ -141,32 +87,6 @@ __all__ = [
     , "ContentPageResult"
     , "Message"
     , "MessageResult"
-    , "Game"
-    , "GameResult"
-    , "GameCategory"
-    , "GameCategoryResult"
-    , "GameCategoryTree"
-    , "GameCategoryTreeResult"
-    , "GameCategoryAssoc"
-    , "GameCategoryAssocResult"
-    , "GameType"
-    , "GameTypeResult"
-    , "ProfileGame"
-    , "ProfileGameResult"
-    , "ProfileGameNetwork"
-    , "ProfileGameNetworkResult"
-    , "ProfileGameDataAttribute"
-    , "ProfileGameDataAttributeResult"
-    , "GameSession"
-    , "GameSessionResult"
-    , "GameSessionData"
-    , "GameSessionDataResult"
-    , "GameContent"
-    , "GameContentResult"
-    , "GameProfileContent"
-    , "GameProfileContentResult"
-    , "GameApp"
-    , "GameAppResult"
     , "Offer"
     , "OfferResult"
     , "OfferType"
@@ -203,8 +123,6 @@ __all__ = [
     , "ProfileAppResult"
     , "ProfileOrg"
     , "ProfileOrgResult"
-    , "ProfileGameLocation"
-    , "ProfileGameLocationResult"
     , "ProfileQuestion"
     , "ProfileQuestionResult"
     , "ProfileChannel"
@@ -217,30 +135,4 @@ __all__ = [
     , "PhotoResult"
     , "Video"
     , "VideoResult"
-    , "GameRpgItemWeapon"
-    , "GameRpgItemWeaponResult"
-    , "GameRpgItemSkill"
-    , "GameRpgItemSkillResult"
-    , "GameProduct"
-    , "GameProductResult"
-    , "GameStatisticLeaderboard"
-    , "GameStatisticLeaderboardResult"
-    , "GameLiveQueue"
-    , "GameLiveQueueResult"
-    , "GameLiveRecentQueue"
-    , "GameLiveRecentQueueResult"
-    , "GameStatistic"
-    , "GameStatisticResult"
-    , "GameStatisticMeta"
-    , "GameStatisticMetaResult"
-    , "GameStatisticTimestamp"
-    , "GameStatisticTimestampResult"
-    , "GameKeyMeta"
-    , "GameKeyMetaResult"
-    , "GameLevel"
-    , "GameLevelResult"
-    , "GameAchievement"
-    , "GameAchievementResult"
-    , "GameAchievementMeta"
-    , "GameAchievementMetaResult"
 ]

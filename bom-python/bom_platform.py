@@ -864,7 +864,7 @@ def init():
     
     bomplatform.generate("templates-full-api", "profile")
     bomplatform.generate("templates-full-api", "platform")
-    bomplatform.generate("templates-full-api", "gameplatform")
+    bomplatform.generate("templates-full-api", "gaming")
     
     # after full project completed simply regen the base layers and entities
     # on changes so you can just drop into the project

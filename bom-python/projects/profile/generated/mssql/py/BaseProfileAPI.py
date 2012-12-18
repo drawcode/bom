@@ -16,7 +16,9 @@ class BaseProfileAPI(object):
         self.DEFAULT_SET_TYPE = 'full'
         self.act = BaseProfileACT()
         
-        
+    def set_connection_string(self, connection_string):
+        self.act.data.data_provider.connection_string = connection_string
+        self.act.data.connection_string = connection_string        
 
 #------------------------------------------------------------------------------                    
     def CountProfile(self

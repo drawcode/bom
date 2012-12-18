@@ -16,7 +16,9 @@ class Base#{app_name}API(object):
         self.DEFAULT_SET_TYPE = 'full'
         self.act = Base#{app_name}ACT()
         
-        
+    def set_connection_string(self, connection_string):
+        self.act.data.data_provider.connection_string = connection_string
+        self.act.data.connection_string = connection_string        
 
 <?py for model in bom.bom_json['models']: ?>
     <?py if bom.should_generate_data(model['id']):?>

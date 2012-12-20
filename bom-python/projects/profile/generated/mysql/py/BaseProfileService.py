@@ -1,7 +1,7 @@
 import ent
 from ent import *
 
-class BaseProfileRequestHandler(object):
+class BaseProfileService(object):
 
     def __init__(self):
         self.path = ''
@@ -16,7 +16,7 @@ class BaseProfileRequestHandler(object):
 
 namespace profile {
 
-    public class BaseProfileRequestHandler : IBaseHandler  {	
+    public class BaseProfileService : IBaseHandler  {	
     
 	private static readonly log4net.ILog log = log4net.LogManager.GetLogger("main");
                 
@@ -38,7 +38,7 @@ namespace profile {
     
         public ProfileAPI api = new ProfileAPI();
         
-        public BaseProfileRequestHandler(){
+        public BaseProfileService(){
         
         }
         

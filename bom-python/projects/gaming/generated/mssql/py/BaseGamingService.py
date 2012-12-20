@@ -1,7 +1,7 @@
 import ent
 from ent import *
 
-class BaseGamingRequestHandler(object):
+class BaseGamingService(object):
 
     def __init__(self):
         self.path = ''
@@ -16,7 +16,7 @@ class BaseGamingRequestHandler(object):
 
 namespace gaming {
 
-    public class BaseGamingRequestHandler : IBaseHandler  {	
+    public class BaseGamingService : IBaseHandler  {	
     
 	private static readonly log4net.ILog log = log4net.LogManager.GetLogger("main");
                 
@@ -38,7 +38,7 @@ namespace gaming {
     
         public GamingAPI api = new GamingAPI();
         
-        public BaseGamingRequestHandler(){
+        public BaseGamingService(){
         
         }
         

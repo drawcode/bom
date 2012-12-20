@@ -18,7 +18,7 @@ using platform.ent;
 
 namespace platform {
 
-    public class PlatformRequestHandler : BasePlatformRequestHandler, IBaseHandler  {
+    public class PlatformService : BasePlatformService, IBaseHandler  {
     
         public string cookieNameUser = "a-user";
         public string cookieNameUserName = "a-user-name";
@@ -27,7 +27,7 @@ namespace platform {
         public string cookieNameAdminUserName = "a-admin-user-name";
         public string cookieNameAdminLoggedIn = "a-admin-user-state";
         
-        public PlatformRequestHandler() {
+        public PlatformService() {
         
         }
         

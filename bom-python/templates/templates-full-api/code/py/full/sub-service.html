@@ -1,7 +1,7 @@
 import ent
 from ent import *
 
-class Base#{app_name}RequestHandler(object):
+class Base#{app_name}Service(object):
 
     def __init__(self):
         self.path = ''
@@ -16,7 +16,7 @@ class Base#{app_name}RequestHandler(object):
 
 namespace #{namespace} {
 
-    public class Base#{app_name}RequestHandler : IBaseHandler  {	
+    public class Base#{app_name}Service : IBaseHandler  {	
     
 	private static readonly log4net.ILog log = log4net.LogManager.GetLogger("main");
                 
@@ -38,7 +38,7 @@ namespace #{namespace} {
     
         public #{app_name}API api = new #{app_name}API();
         
-        public Base#{app_name}RequestHandler(){
+        public Base#{app_name}Service(){
         
         }
         

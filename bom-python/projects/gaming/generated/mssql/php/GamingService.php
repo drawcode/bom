@@ -17,7 +17,7 @@ class BaseResponse :
 
 """
 
-    public class GamingRequestHandler : BaseGamingRequestHandler, IBaseHandler  {
+    public class GamingService : BaseGamingService, IBaseHandler  {
     
         public string cookieNameUser = "bb-user";
         public string cookieNameUserName = "bb-user-name";
@@ -26,7 +26,7 @@ class BaseResponse :
         public string cookieNameAdminUserName = "bb-admin-user-name";
         public string cookieNameAdminLoggedIn = "bb-admin-user-state";
         
-        public GamingRequestHandler(){
+        public GamingService(){
         
         }
         

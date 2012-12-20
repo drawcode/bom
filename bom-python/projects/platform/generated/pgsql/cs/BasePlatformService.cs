@@ -20,7 +20,7 @@ using platform.ent;
 
 namespace platform {
 
-    public class BasePlatformRequestHandler : IBaseHandler  {	
+    public class BasePlatformService : IBaseHandler  {	
     
 	private static readonly log4net.ILog log = log4net.LogManager.GetLogger("main");
                 
@@ -42,7 +42,7 @@ namespace platform {
     
         public PlatformAPI api = new PlatformAPI();
         
-        public BasePlatformRequestHandler(){
+        public BasePlatformService(){
         
         }
         

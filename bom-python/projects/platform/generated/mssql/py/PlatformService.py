@@ -1,6 +1,9 @@
 import ent
 from ent import *
 
+import BasePlatformService
+from BasePlatformService import *
+
 class BaseResponse :
 
     def __init__(self):
@@ -11,9 +14,18 @@ class BaseResponse :
         self.action = ''
         self.data = None
 
+class PlatformService(BasePlatformService) :
+
+    def __init__(self):
+        super(PlatformService, self).__init__()
+        
+    # CUSTOM API CODE GOES HERE
+    
+    
+    
 """
 
-    public class PlatformRequestHandler : BasePlatformRequestHandler, IBaseHandler  {
+    public class PlatformService : BasePlatformService, IBaseHandler  {
     
         public string cookieNameUser = "bb-user";
         public string cookieNameUserName = "bb-user-name";
@@ -22,7 +34,7 @@ class BaseResponse :
         public string cookieNameAdminUserName = "bb-admin-user-name";
         public string cookieNameAdminLoggedIn = "bb-admin-user-state";
         
-        public PlatformRequestHandler(){
+        public PlatformService(){
         
         }
         

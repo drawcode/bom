@@ -20,7 +20,7 @@ using profile.ent;
 
 namespace profile {
 
-    public class BaseProfileRequestHandler : IBaseHandler  {	
+    public class BaseProfileService : IBaseHandler  {	
     
 	private static readonly log4net.ILog log = log4net.LogManager.GetLogger("main");
                 
@@ -42,7 +42,7 @@ namespace profile {
     
         public ProfileAPI api = new ProfileAPI();
         
-        public BaseProfileRequestHandler(){
+        public BaseProfileService(){
         
         }
         

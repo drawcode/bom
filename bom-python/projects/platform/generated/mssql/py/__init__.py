@@ -1,31 +1,31 @@
 import PlatformAPI
 import PlatformACT
 import PlatformData
-import PlatformRequestHandler
+import PlatformService
 import BasePlatformAPI
 import BasePlatformACT
 import BasePlatformData
-import BasePlatformRequestHandler
+import BasePlatformService
 import PlatformResponses
 
 from PlatformAPI import *
 from PlatformACT import *
 from PlatformData import *
-from PlatformRequestHandler import *
+from PlatformService import *
 from BasePlatformAPI import *
 from BasePlatformACT import *
 from BasePlatformData import *
-from BasePlatformRequestHandler import *
+from BasePlatformService import *
 from PlatformResponses import *
 
 __all__ = [
     "PlatformAPI"
     , "PlatformACT"
     , "PlatformData"
-    , "PlatformRequestHandler"
+    , "PlatformService"
     , "BasePlatformAPI"
     , "BasePlatformACT"
     , "BasePlatformData"
-    , "BasePlatformRequestHandler"
+    , "BasePlatformService"
     , "PlatformResponses"
 ]

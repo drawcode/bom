@@ -862,7 +862,7 @@ ALTER TABLE "game_achievement_meta" ADD PRIMARY KEY ("uuid");
 
 
 -- result / return types
-/*
+
         
 DROP type IF EXISTS "game_result" CASCADE;
     
@@ -953,7 +953,6 @@ DROP type IF EXISTS "game_profile_achievement_result" CASCADE;
         
 DROP type IF EXISTS "game_achievement_meta_result" CASCADE;
     
-*/
 
 CREATE TYPE "game_result" as
 (

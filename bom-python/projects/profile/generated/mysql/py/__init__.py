@@ -1,31 +1,31 @@
 import ProfileAPI
 import ProfileACT
 import ProfileData
-import ProfileRequestHandler
+import ProfileService
 import BaseProfileAPI
 import BaseProfileACT
 import BaseProfileData
-import BaseProfileRequestHandler
+import BaseProfileService
 import ProfileResponses
 
 from ProfileAPI import *
 from ProfileACT import *
 from ProfileData import *
-from ProfileRequestHandler import *
+from ProfileService import *
 from BaseProfileAPI import *
 from BaseProfileACT import *
 from BaseProfileData import *
-from BaseProfileRequestHandler import *
+from BaseProfileService import *
 from ProfileResponses import *
 
 __all__ = [
     "ProfileAPI"
     , "ProfileACT"
     , "ProfileData"
-    , "ProfileRequestHandler"
+    , "ProfileService"
     , "BaseProfileAPI"
     , "BaseProfileACT"
     , "BaseProfileData"
-    , "BaseProfileRequestHandler"
+    , "BaseProfileService"
     , "ProfileResponses"
 ]

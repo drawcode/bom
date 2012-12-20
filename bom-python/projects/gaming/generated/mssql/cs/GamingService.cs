@@ -18,7 +18,7 @@ using gaming.ent;
 
 namespace gaming {
 
-    public class GamingRequestHandler : BaseGamingRequestHandler, IBaseHandler  {
+    public class GamingService : BaseGamingService, IBaseHandler  {
     
         public string cookieNameUser = "a-user";
         public string cookieNameUserName = "a-user-name";
@@ -27,7 +27,7 @@ namespace gaming {
         public string cookieNameAdminUserName = "a-admin-user-name";
         public string cookieNameAdminLoggedIn = "a-admin-user-state";
         
-        public GamingRequestHandler() {
+        public GamingService() {
         
         }
         

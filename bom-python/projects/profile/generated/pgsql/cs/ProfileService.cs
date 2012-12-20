@@ -18,7 +18,7 @@ using profile.ent;
 
 namespace profile {
 
-    public class ProfileRequestHandler : BaseProfileRequestHandler, IBaseHandler  {
+    public class ProfileService : BaseProfileService, IBaseHandler  {
     
         public string cookieNameUser = "a-user";
         public string cookieNameUserName = "a-user-name";
@@ -27,7 +27,7 @@ namespace profile {
         public string cookieNameAdminUserName = "a-admin-user-name";
         public string cookieNameAdminLoggedIn = "a-admin-user-state";
         
-        public ProfileRequestHandler() {
+        public ProfileService() {
         
         }
         

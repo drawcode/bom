@@ -4,7 +4,7 @@
 import ent
 from ent import *
 
-class BasePlatformRequestHandler(object):
+class BasePlatformService(object):
 
     def __init__(self):
         self.path = ''
@@ -19,7 +19,7 @@ class BasePlatformRequestHandler(object):
 
 namespace platform {
 
-    public class BasePlatformRequestHandler : IBaseHandler  {	
+    public class BasePlatformService : IBaseHandler  {	
     
 	private static readonly log4net.ILog log = log4net.LogManager.GetLogger("main");
                 
@@ -41,7 +41,7 @@ namespace platform {
     
         public PlatformAPI api = new PlatformAPI();
         
-        public BasePlatformRequestHandler(){
+        public BasePlatformService(){
         
         }
         

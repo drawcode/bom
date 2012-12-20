@@ -1,6 +1,9 @@
 import ent
 from ent import *
 
+import Base#{app_name}Service
+from Base#{app_name}Service import *
+
 class BaseResponse :
 
     def __init__(self):
@@ -11,9 +14,18 @@ class BaseResponse :
         self.action = ''
         self.data = None
 
+class #{app_name}Service(Base#{app_name}Service) :
+
+    def __init__(self):
+        super(#{app_name}Service, self).__init__()
+        
+    # CUSTOM API CODE GOES HERE
+    
+    
+    
 """
 
-    public class #{app_name}RequestHandler : Base#{app_name}RequestHandler, IBaseHandler  {
+    public class #{app_name}Service : Base#{app_name}Service, IBaseHandler  {
     
         public string cookieNameUser = "bb-user";
         public string cookieNameUserName = "bb-user-name";
@@ -22,7 +34,7 @@ class BaseResponse :
         public string cookieNameAdminUserName = "bb-admin-user-name";
         public string cookieNameAdminLoggedIn = "bb-admin-user-state";
         
-        public #{app_name}RequestHandler(){
+        public #{app_name}Service(){
         
         }
         

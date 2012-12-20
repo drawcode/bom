@@ -46,7 +46,7 @@ ALTER TABLE "#{model_id}" ADD PRIMARY KEY ("uuid");
 
 
 -- result / return types
-/*
+
 <?py for model in bom.bom_json['models']: ?>
     <?py if bom.should_generate_data(model['id']):?>
         <?py model_id = model['id'] ?>
@@ -56,7 +56,6 @@ DROP type IF EXISTS "#{model_id}_result" CASCADE;
     
     <?py #endif ?>
 <?py #endif ?>
-*/
 
 <?py for model in bom.bom_json['models']: ?>
     <?py if bom.should_generate_data(model['id']):?>

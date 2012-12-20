@@ -872,7 +872,7 @@ ALTER TABLE "video" ADD PRIMARY KEY ("uuid");
 
 
 -- result / return types
-/*
+
         
 DROP type IF EXISTS "app_result" CASCADE;
     
@@ -975,7 +975,6 @@ DROP type IF EXISTS "photo_result" CASCADE;
         
 DROP type IF EXISTS "video_result" CASCADE;
     
-*/
 
 CREATE TYPE "app_result" as
 (

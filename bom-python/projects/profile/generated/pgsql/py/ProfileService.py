@@ -1,6 +1,9 @@
 import ent
 from ent import *
 
+import BaseProfileService
+from BaseProfileService import *
+
 class BaseResponse :
 
     def __init__(self):
@@ -11,9 +14,18 @@ class BaseResponse :
         self.action = ''
         self.data = None
 
+class ProfileService(BaseProfileService) :
+
+    def __init__(self):
+        super(ProfileService, self).__init__()
+        
+    # CUSTOM API CODE GOES HERE
+    
+    
+    
 """
 
-    public class ProfileRequestHandler : BaseProfileRequestHandler, IBaseHandler  {
+    public class ProfileService : BaseProfileService, IBaseHandler  {
     
         public string cookieNameUser = "bb-user";
         public string cookieNameUserName = "bb-user-name";
@@ -22,7 +34,7 @@ class BaseResponse :
         public string cookieNameAdminUserName = "bb-admin-user-name";
         public string cookieNameAdminLoggedIn = "bb-admin-user-state";
         
-        public ProfileRequestHandler(){
+        public ProfileService(){
         
         }
         

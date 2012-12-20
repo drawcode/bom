@@ -246,7 +246,7 @@ ALTER TABLE "postal_code" ADD PRIMARY KEY ("uuid");
 
 
 -- result / return types
-/*
+
         
 DROP type IF EXISTS "profile_result" CASCADE;
     
@@ -277,7 +277,6 @@ DROP type IF EXISTS "city_result" CASCADE;
         
 DROP type IF EXISTS "postal_code_result" CASCADE;
     
-*/
 
 CREATE TYPE "profile_result" as
 (

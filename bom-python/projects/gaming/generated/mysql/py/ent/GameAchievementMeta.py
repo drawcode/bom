@@ -23,6 +23,7 @@ class GameAchievementMeta(BaseMeta):
         self.points = None
         self.key = None
         self.game_id = None
+        self.modifier = None
         self.type = None
         self.leaderboard = None
         

@@ -142,6 +142,10 @@ class BaseProfileData {
                 $parameters['in_status'] = $obj->status; // #"in_status"
             if($obj->username != NULL)
                 $parameters['in_username'] = $obj->username; // #"in_username"
+            if($obj->first_name != NULL)
+                $parameters['in_first_name'] = $obj->first_name; // #"in_first_name"
+            if($obj->last_name != NULL)
+                $parameters['in_last_name'] = $obj->last_name; // #"in_last_name"
             if($obj->hash != NULL)
                 $parameters['in_hash'] = $obj->hash; // #"in_hash"
             if($obj->uuid != NULL)
@@ -152,6 +156,10 @@ class BaseProfileData {
                 $parameters['in_active'] = $obj->active; // #"in_active"
             if($obj->date_created != NULL)
                 $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->email != NULL)
+                $parameters['in_email'] = $obj->email; // #"in_email"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
 
             try {
                 return $this->data_provider->execute_scalar(
@@ -179,6 +187,10 @@ class BaseProfileData {
                 $parameters['in_status'] = $obj->status; // #"in_status"
             if($obj->username != NULL)
                 $parameters['in_username'] = $obj->username; // #"in_username"
+            if($obj->first_name != NULL)
+                $parameters['in_first_name'] = $obj->first_name; // #"in_first_name"
+            if($obj->last_name != NULL)
+                $parameters['in_last_name'] = $obj->last_name; // #"in_last_name"
             if($obj->hash != NULL)
                 $parameters['in_hash'] = $obj->hash; // #"in_hash"
             if($obj->uuid != NULL)
@@ -189,6 +201,10 @@ class BaseProfileData {
                 $parameters['in_active'] = $obj->active; // #"in_active"
             if($obj->date_created != NULL)
                 $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->email != NULL)
+                $parameters['in_email'] = $obj->email; // #"in_email"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
 
             try {
                 return $this->data_provider->execute_scalar(

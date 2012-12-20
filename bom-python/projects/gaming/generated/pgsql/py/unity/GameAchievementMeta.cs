@@ -57,6 +57,7 @@ public class GameAchievementMeta : BaseMeta {
     public  points { get; set; }
     public  key { get; set; }
     public  game_id { get; set; }
+    public  modifier { get; set; }
     public  type { get; set; }
     public  leaderboard { get; set; }
 
@@ -88,6 +89,9 @@ public class GameAchievementMeta : BaseMeta {
 	}
 	if (game_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
+	}
+	if (modifier != null) {
+	    dict = DataUtil.SetDictValue(dict, "modifier", modifier);
 	}
 	if (type != null) {
 	    dict = DataUtil.SetDictValue(dict, "type", type);
@@ -130,6 +134,11 @@ public class GameAchievementMeta : BaseMeta {
 	if(dict.ContainsKey("game_id")) {
 	    if(dict["game_id"] != null) {
 	    	game_id = DataType.Instance.Fill(dict["game_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("modifier")) {
+	    if(dict["modifier"] != null) {
+	    	modifier = DataType.Instance.Fill(dict["modifier"]);
 	    }		
 	}
 	if(dict.ContainsKey("type")) {

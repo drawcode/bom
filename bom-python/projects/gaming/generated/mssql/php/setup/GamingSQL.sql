@@ -85,6 +85,10 @@ IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_stati
 DROP TABLE [dbo].[game_statistic_leaderboard]
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_statistic_leaderboard_rollup]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_live_queue]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 DROP TABLE [dbo].[game_live_queue]
 GO
@@ -272,6 +276,7 @@ CREATE TABLE [dbo].[profile_game_network]
     , [active] bit
                 CONSTRAINT DF_profile_game_network_active_bool DEFAULT 1
     , [game_id] uniqueidentifier
+    , [data] ntext
     , [uuid] uniqueidentifier NOT NULL
     , [date_modified] DATETIME
                 CONSTRAINT DF_profile_game_network_date_modified DEFAULT GETDATE()
@@ -660,7 +665,7 @@ CREATE TABLE [dbo].[game_statistic_leaderboard]
     [status] varchar (255)
     , [username] varchar (500)
     , [key] uniqueidentifier
-    , [stat_value_formatted] varchar (500)
+    , [timestamp] float
     , [profile_id] uniqueidentifier
     , [rank] int
     , [rank_change] int
@@ -670,11 +675,12 @@ CREATE TABLE [dbo].[game_statistic_leaderboard]
     , [rank_total_count] int
     , [data] ntext
     , [stat_value] float
+    , [network] varchar (500)
     , [uuid] uniqueidentifier NOT NULL
     , [date_modified] DATETIME
                 CONSTRAINT DF_game_statistic_leaderboard_date_modified DEFAULT GETDATE()
     , [level] varchar (500)
-    , [timestamp] float
+    , [stat_value_formatted] varchar (500)
     , [date_created] DATETIME
                 CONSTRAINT DF_game_statistic_leaderboard_date_created DEFAULT GETDATE()
     , [type] varchar (500)
@@ -682,6 +688,38 @@ CREATE TABLE [dbo].[game_statistic_leaderboard]
 GO
 ALTER TABLE [dbo].[game_statistic_leaderboard] ADD 
     CONSTRAINT [PK_game_statistic_leaderboard] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[game_statistic_leaderboard_rollup] 
+(
+    [status] varchar (255)
+    , [username] varchar (500)
+    , [key] uniqueidentifier
+    , [timestamp] float
+    , [profile_id] uniqueidentifier
+    , [rank] int
+    , [rank_change] int
+    , [game_id] uniqueidentifier
+    , [active] bit
+                CONSTRAINT DF_game_statistic_leaderboard_rollup_active_bool DEFAULT 1
+    , [rank_total_count] int
+    , [data] ntext
+    , [stat_value] float
+    , [network] varchar (500)
+    , [uuid] uniqueidentifier NOT NULL
+    , [date_modified] DATETIME
+                CONSTRAINT DF_game_statistic_leaderboard_rollup_date_modified DEFAULT GETDATE()
+    , [level] varchar (500)
+    , [stat_value_formatted] varchar (500)
+    , [date_created] DATETIME
+                CONSTRAINT DF_game_statistic_leaderboard_rollup_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+)
+GO
+ALTER TABLE [dbo].[game_statistic_leaderboard_rollup] ADD 
+    CONSTRAINT [PK_game_statistic_leaderboard_rollup] PRIMARY KEY CLUSTERED 
     (
             [uuid]
     )
@@ -753,6 +791,7 @@ CREATE TABLE [dbo].[game_profile_statistic]
     , [date_modified] DATETIME
                 CONSTRAINT DF_game_profile_statistic_date_modified DEFAULT GETDATE()
     , [level] varchar (500)
+    , [points] float
     , [date_created] DATETIME
                 CONSTRAINT DF_game_profile_statistic_date_created DEFAULT GETDATE()
     , [type] varchar (500)
@@ -775,6 +814,7 @@ CREATE TABLE [dbo].[game_statistic_meta]
                 CONSTRAINT DF_game_statistic_meta_date_modified DEFAULT GETDATE()
     , [data] ntext
     , [uuid] uniqueidentifier NOT NULL
+    , [points] float
     , [store_count] int
     , [key] varchar (50)
     , [game_id] uniqueidentifier
@@ -927,6 +967,7 @@ CREATE TABLE [dbo].[game_achievement_meta]
                 CONSTRAINT DF_game_achievement_meta_active_bool DEFAULT 1
     , [date_created] DATETIME
                 CONSTRAINT DF_game_achievement_meta_date_created DEFAULT GETDATE()
+    , [modifier] decimal
     , [type] varchar (40)
     , [leaderboard] bit
                 CONSTRAINT DF_game_achievement_meta_leaderboard_bool DEFAULT 1
@@ -1069,6 +1110,75 @@ GO
 -- -----------------------------------------------------------------------------                
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_key_game_id_type')
 DROP INDEX [IX_game_statistic_leaderboard_key_game_id_type] ON [dbo].[game_statistic_leaderboard]
+GO
+   
+-- -----------------------------------------------------------------------------
+-- INDEXES
+
+-- INDEX DROPS        
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_profile_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_profile_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_username')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_username] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_game_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_game_id_level')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_game_id_level] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_profile_id_game_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_username_game_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_username_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_username')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_username] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_username_game_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_username_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_username_game_id_type')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_username_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_profile_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_profile_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_profile_id_game_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_profile_id_game_id_type')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_profile_id_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_game_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_game_id_profile_id')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_game_id_profile_id] ON [dbo].[game_statistic_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_key_game_id_type')
+DROP INDEX [IX_game_statistic_leaderboard_rollup_key_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup]
 GO
    
 -- -----------------------------------------------------------------------------
@@ -1575,6 +1685,147 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_key_game_id_profile_id]
 )
 GO
 CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_key_game_id_type] ON [dbo].[game_statistic_leaderboard] 
+(
+                    
+    [game_id] ASC
+                    
+    , [type] ASC
+                    
+    , [key] ASC
+)
+GO
+        
+-- INDEX CREATES
+
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_profile_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [profile_id] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_username] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [username] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [game_id] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_game_id_level] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [game_id] ASC
+                    
+    , [key] ASC
+                    
+    , [level] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [game_id] ASC
+                    
+    , [profile_id] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_username_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [username] ASC
+                    
+    , [game_id] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_username] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [username] ASC
+                    
+    , [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_username_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [username] ASC
+                    
+    , [game_id] ASC
+                    
+    , [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_username_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [username] ASC
+                    
+    , [game_id] ASC
+                    
+    , [type] ASC
+                    
+    , [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_profile_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [profile_id] ASC
+                    
+    , [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [game_id] ASC
+                    
+    , [profile_id] ASC
+                    
+    , [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_profile_id_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [game_id] ASC
+                    
+    , [profile_id] ASC
+                    
+    , [type] ASC
+                    
+    , [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [game_id] ASC
+                    
+    , [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_game_id_profile_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+(
+                    
+    [game_id] ASC
+                    
+    , [profile_id] ASC
+                    
+    , [key] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_key_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup] 
 (
                     
     [game_id] ASC
@@ -5948,6 +6199,7 @@ BEGIN
     SET @sql = @sql + ', [network_username]'
     SET @sql = @sql + ', [active]'
     SET @sql = @sql + ', [game_id]'
+    SET @sql = @sql + ', [data]'
     SET @sql = @sql + ', [uuid]'
     SET @sql = @sql + ', [date_modified]'
     SET @sql = @sql + ', [secret]'
@@ -6004,6 +6256,7 @@ CREATE PROCEDURE usp_profile_game_network_set_by_uuid
     , @network_username varchar (500) = NULL
     , @active bit = NULL
     , @game_id uniqueidentifier = NULL
+    , @data ntext = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @secret varchar (500) = NULL
@@ -6051,6 +6304,7 @@ BEGIN
                     , [network_username] = @network_username
                     , [active] = @active
                     , [game_id] = @game_id
+                    , [data] = @data
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [secret] = @secret
@@ -6075,6 +6329,7 @@ BEGIN
                     , [network_username]
                     , [active]
                     , [game_id]
+                    , [data]
                     , [uuid]
                     , [date_modified]
                     , [secret]
@@ -6091,6 +6346,7 @@ BEGIN
                     , @network_username
                     , @active
                     , @game_id
+                    , @data
                     , @uuid
                     , @date_modified
                     , @secret
@@ -6152,6 +6408,7 @@ BEGIN
         , [network_username]
         , [active]
         , [game_id]
+        , [data]
         , [uuid]
         , [date_modified]
         , [secret]
@@ -6182,6 +6439,7 @@ BEGIN
         , [network_username]
         , [active]
         , [game_id]
+        , [data]
         , [uuid]
         , [date_modified]
         , [secret]
@@ -6213,6 +6471,7 @@ BEGIN
         , [network_username]
         , [active]
         , [game_id]
+        , [data]
         , [uuid]
         , [date_modified]
         , [secret]
@@ -6244,6 +6503,7 @@ BEGIN
         , [network_username]
         , [active]
         , [game_id]
+        , [data]
         , [uuid]
         , [date_modified]
         , [secret]
@@ -6276,6 +6536,7 @@ BEGIN
         , [network_username]
         , [active]
         , [game_id]
+        , [data]
         , [uuid]
         , [date_modified]
         , [secret]
@@ -19272,27 +19533,6 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_by_profile_id_by_game_id]
-
-GO
-
-CREATE PROCEDURE usp_game_statistic_leaderboard_count_by_profile_id_by_game_id
-(
-    @profile_id uniqueidentifier = NULL
-    , @game_id uniqueidentifier = NULL
-)
-AS
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
-    WHERE 1=1
-    AND [profile_id] = @profile_id
-    AND [game_id] = @game_id
-END
-GO
--- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_by_key_by_profile_id_by_game_id]
 
@@ -19340,6 +19580,27 @@ BEGIN
     AND [timestamp] = @timestamp
 END
 GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_count_by_profile_id_by_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
 -- ------------------------------------
 -- BROWSE
 
@@ -19380,7 +19641,7 @@ BEGIN
     SET @sql = @sql + ', [status]'
     SET @sql = @sql + ', [username]'
     SET @sql = @sql + ', [key]'
-    SET @sql = @sql + ', [stat_value_formatted]'
+    SET @sql = @sql + ', [timestamp]'
     SET @sql = @sql + ', [profile_id]'
     SET @sql = @sql + ', [rank]'
     SET @sql = @sql + ', [rank_change]'
@@ -19389,10 +19650,11 @@ BEGIN
     SET @sql = @sql + ', [rank_total_count]'
     SET @sql = @sql + ', [data]'
     SET @sql = @sql + ', [stat_value]'
+    SET @sql = @sql + ', [network]'
     SET @sql = @sql + ', [uuid]'
     SET @sql = @sql + ', [date_modified]'
     SET @sql = @sql + ', [level]'
-    SET @sql = @sql + ', [timestamp]'
+    SET @sql = @sql + ', [stat_value_formatted]'
     SET @sql = @sql + ', [date_created]'
     SET @sql = @sql + ', [type]'
 
@@ -19441,7 +19703,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_uuid
     , @status varchar (255) = NULL
     , @username varchar (500) = NULL
     , @key uniqueidentifier = NULL
-    , @stat_value_formatted varchar (500) = NULL
+    , @timestamp float = NULL
     , @profile_id uniqueidentifier = NULL
     , @rank int = NULL
     , @rank_change int = NULL
@@ -19450,10 +19712,11 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_uuid
     , @rank_total_count int = NULL
     , @data ntext = NULL
     , @stat_value float = NULL
+    , @network varchar (500) = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
-    , @timestamp float = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -19493,7 +19756,7 @@ BEGIN
                     [status] = @status
                     , [username] = @username
                     , [key] = @key
-                    , [stat_value_formatted] = @stat_value_formatted
+                    , [timestamp] = @timestamp
                     , [profile_id] = @profile_id
                     , [rank] = @rank
                     , [rank_change] = @rank_change
@@ -19502,10 +19765,11 @@ BEGIN
                     , [rank_total_count] = @rank_total_count
                     , [data] = @data
                     , [stat_value] = @stat_value
+                    , [network] = @network
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
-                    , [timestamp] = @timestamp
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -19522,7 +19786,7 @@ BEGIN
                     [status]
                     , [username]
                     , [key]
-                    , [stat_value_formatted]
+                    , [timestamp]
                     , [profile_id]
                     , [rank]
                     , [rank_change]
@@ -19531,10 +19795,11 @@ BEGIN
                     , [rank_total_count]
                     , [data]
                     , [stat_value]
+                    , [network]
                     , [uuid]
                     , [date_modified]
                     , [level]
-                    , [timestamp]
+                    , [stat_value_formatted]
                     , [date_created]
                     , [type]
                 )
@@ -19543,7 +19808,7 @@ BEGIN
                     @status
                     , @username
                     , @key
-                    , @stat_value_formatted
+                    , @timestamp
                     , @profile_id
                     , @rank
                     , @rank_change
@@ -19552,10 +19817,11 @@ BEGIN
                     , @rank_total_count
                     , @data
                     , @stat_value
+                    , @network
                     , @uuid
                     , @date_modified
                     , @level
-                    , @timestamp
+                    , @stat_value_formatted
                     , @date_created
                     , @type
                 )                    
@@ -19578,7 +19844,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_uuid_by_profile_id_by_gam
     , @status varchar (255) = NULL
     , @username varchar (500) = NULL
     , @key uniqueidentifier = NULL
-    , @stat_value_formatted varchar (500) = NULL
+    , @timestamp float = NULL
     , @profile_id uniqueidentifier = NULL
     , @rank int = NULL
     , @rank_change int = NULL
@@ -19587,10 +19853,11 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_uuid_by_profile_id_by_gam
     , @rank_total_count int = NULL
     , @data ntext = NULL
     , @stat_value float = NULL
+    , @network varchar (500) = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
-    , @timestamp float = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -19633,7 +19900,7 @@ BEGIN
                     [status] = @status
                     , [username] = @username
                     , [key] = @key
-                    , [stat_value_formatted] = @stat_value_formatted
+                    , [timestamp] = @timestamp
                     , [profile_id] = @profile_id
                     , [rank] = @rank
                     , [rank_change] = @rank_change
@@ -19642,10 +19909,11 @@ BEGIN
                     , [rank_total_count] = @rank_total_count
                     , [data] = @data
                     , [stat_value] = @stat_value
+                    , [network] = @network
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
-                    , [timestamp] = @timestamp
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -19665,7 +19933,7 @@ BEGIN
                     [status]
                     , [username]
                     , [key]
-                    , [stat_value_formatted]
+                    , [timestamp]
                     , [profile_id]
                     , [rank]
                     , [rank_change]
@@ -19674,10 +19942,11 @@ BEGIN
                     , [rank_total_count]
                     , [data]
                     , [stat_value]
+                    , [network]
                     , [uuid]
                     , [date_modified]
                     , [level]
-                    , [timestamp]
+                    , [stat_value_formatted]
                     , [date_created]
                     , [type]
                 )
@@ -19686,7 +19955,7 @@ BEGIN
                     @status
                     , @username
                     , @key
-                    , @stat_value_formatted
+                    , @timestamp
                     , @profile_id
                     , @rank
                     , @rank_change
@@ -19695,10 +19964,11 @@ BEGIN
                     , @rank_total_count
                     , @data
                     , @stat_value
+                    , @network
                     , @uuid
                     , @date_modified
                     , @level
-                    , @timestamp
+                    , @stat_value_formatted
                     , @date_created
                     , @type
                 )                    
@@ -19710,18 +19980,18 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_by_profile_id_by_key]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_by_profile_id_by_key]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_by_key_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_by_key_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_profile_id_by_key
+CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_key_by_profile_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
     , @username varchar (500) = NULL
     , @key uniqueidentifier = NULL
-    , @stat_value_formatted varchar (500) = NULL
+    , @timestamp float = NULL
     , @profile_id uniqueidentifier = NULL
     , @rank int = NULL
     , @rank_change int = NULL
@@ -19730,10 +20000,11 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_profile_id_by_key
     , @rank_total_count int = NULL
     , @data ntext = NULL
     , @stat_value float = NULL
+    , @network varchar (500) = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
-    , @timestamp float = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -19759,8 +20030,8 @@ BEGIN
                 SELECT @CountItems =  COUNT(*)
                 FROM  [dbo].[game_statistic_leaderboard]  
                 WHERE 1=1
-                AND [profile_id] = @profile_id
                 AND [key] = @key
+                AND [profile_id] = @profile_id
 	    END
 	END
 
@@ -19774,7 +20045,7 @@ BEGIN
                     [status] = @status
                     , [username] = @username
                     , [key] = @key
-                    , [stat_value_formatted] = @stat_value_formatted
+                    , [timestamp] = @timestamp
                     , [profile_id] = @profile_id
                     , [rank] = @rank
                     , [rank_change] = @rank_change
@@ -19783,15 +20054,16 @@ BEGIN
                     , [rank_total_count] = @rank_total_count
                     , [data] = @data
                     , [stat_value] = @stat_value
+                    , [network] = @network
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
-                    , [timestamp] = @timestamp
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
-                AND [profile_id] = @profile_id
                 AND [key] = @key
+                AND [profile_id] = @profile_id
                 SET @id=1
             END
         END
@@ -19804,7 +20076,7 @@ BEGIN
                     [status]
                     , [username]
                     , [key]
-                    , [stat_value_formatted]
+                    , [timestamp]
                     , [profile_id]
                     , [rank]
                     , [rank_change]
@@ -19813,10 +20085,11 @@ BEGIN
                     , [rank_total_count]
                     , [data]
                     , [stat_value]
+                    , [network]
                     , [uuid]
                     , [date_modified]
                     , [level]
-                    , [timestamp]
+                    , [stat_value_formatted]
                     , [date_created]
                     , [type]
                 )
@@ -19825,7 +20098,7 @@ BEGIN
                     @status
                     , @username
                     , @key
-                    , @stat_value_formatted
+                    , @timestamp
                     , @profile_id
                     , @rank
                     , @rank_change
@@ -19834,10 +20107,11 @@ BEGIN
                     , @rank_total_count
                     , @data
                     , @stat_value
+                    , @network
                     , @uuid
                     , @date_modified
                     , @level
-                    , @timestamp
+                    , @stat_value_formatted
                     , @date_created
                     , @type
                 )                    
@@ -19849,18 +20123,18 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_by_profile_id_by_key_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_by_profile_id_by_key_by_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_profile_id_by_key_by_timestamp
+CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
     , @username varchar (500) = NULL
     , @key uniqueidentifier = NULL
-    , @stat_value_formatted varchar (500) = NULL
+    , @timestamp float = NULL
     , @profile_id uniqueidentifier = NULL
     , @rank int = NULL
     , @rank_change int = NULL
@@ -19869,10 +20143,11 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_profile_id_by_key_by_time
     , @rank_total_count int = NULL
     , @data ntext = NULL
     , @stat_value float = NULL
+    , @network varchar (500) = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
-    , @timestamp float = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -19898,8 +20173,8 @@ BEGIN
                 SELECT @CountItems =  COUNT(*)
                 FROM  [dbo].[game_statistic_leaderboard]  
                 WHERE 1=1
-                AND [profile_id] = @profile_id
                 AND [key] = @key
+                AND [profile_id] = @profile_id
                 AND [timestamp] = @timestamp
 	    END
 	END
@@ -19914,7 +20189,7 @@ BEGIN
                     [status] = @status
                     , [username] = @username
                     , [key] = @key
-                    , [stat_value_formatted] = @stat_value_formatted
+                    , [timestamp] = @timestamp
                     , [profile_id] = @profile_id
                     , [rank] = @rank
                     , [rank_change] = @rank_change
@@ -19923,15 +20198,16 @@ BEGIN
                     , [rank_total_count] = @rank_total_count
                     , [data] = @data
                     , [stat_value] = @stat_value
+                    , [network] = @network
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
-                    , [timestamp] = @timestamp
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
-                AND [profile_id] = @profile_id
                 AND [key] = @key
+                AND [profile_id] = @profile_id
                 AND [timestamp] = @timestamp
                 SET @id=1
             END
@@ -19945,7 +20221,7 @@ BEGIN
                     [status]
                     , [username]
                     , [key]
-                    , [stat_value_formatted]
+                    , [timestamp]
                     , [profile_id]
                     , [rank]
                     , [rank_change]
@@ -19954,10 +20230,11 @@ BEGIN
                     , [rank_total_count]
                     , [data]
                     , [stat_value]
+                    , [network]
                     , [uuid]
                     , [date_modified]
                     , [level]
-                    , [timestamp]
+                    , [stat_value_formatted]
                     , [date_created]
                     , [type]
                 )
@@ -19966,7 +20243,7 @@ BEGIN
                     @status
                     , @username
                     , @key
-                    , @stat_value_formatted
+                    , @timestamp
                     , @profile_id
                     , @rank
                     , @rank_change
@@ -19975,10 +20252,11 @@ BEGIN
                     , @rank_total_count
                     , @data
                     , @stat_value
+                    , @network
                     , @uuid
                     , @date_modified
                     , @level
-                    , @timestamp
+                    , @stat_value_formatted
                     , @date_created
                     , @type
                 )                    
@@ -20001,7 +20279,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_game
     , @status varchar (255) = NULL
     , @username varchar (500) = NULL
     , @key uniqueidentifier = NULL
-    , @stat_value_formatted varchar (500) = NULL
+    , @timestamp float = NULL
     , @profile_id uniqueidentifier = NULL
     , @rank int = NULL
     , @rank_change int = NULL
@@ -20010,10 +20288,11 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_game
     , @rank_total_count int = NULL
     , @data ntext = NULL
     , @stat_value float = NULL
+    , @network varchar (500) = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
-    , @timestamp float = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -20056,7 +20335,7 @@ BEGIN
                     [status] = @status
                     , [username] = @username
                     , [key] = @key
-                    , [stat_value_formatted] = @stat_value_formatted
+                    , [timestamp] = @timestamp
                     , [profile_id] = @profile_id
                     , [rank] = @rank
                     , [rank_change] = @rank_change
@@ -20065,10 +20344,11 @@ BEGIN
                     , [rank_total_count] = @rank_total_count
                     , [data] = @data
                     , [stat_value] = @stat_value
+                    , [network] = @network
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
-                    , [timestamp] = @timestamp
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -20088,7 +20368,7 @@ BEGIN
                     [status]
                     , [username]
                     , [key]
-                    , [stat_value_formatted]
+                    , [timestamp]
                     , [profile_id]
                     , [rank]
                     , [rank_change]
@@ -20097,10 +20377,11 @@ BEGIN
                     , [rank_total_count]
                     , [data]
                     , [stat_value]
+                    , [network]
                     , [uuid]
                     , [date_modified]
                     , [level]
-                    , [timestamp]
+                    , [stat_value_formatted]
                     , [date_created]
                     , [type]
                 )
@@ -20109,7 +20390,7 @@ BEGIN
                     @status
                     , @username
                     , @key
-                    , @stat_value_formatted
+                    , @timestamp
                     , @profile_id
                     , @rank
                     , @rank_change
@@ -20118,10 +20399,11 @@ BEGIN
                     , @rank_total_count
                     , @data
                     , @stat_value
+                    , @network
                     , @uuid
                     , @date_modified
                     , @level
-                    , @timestamp
+                    , @stat_value_formatted
                     , @date_created
                     , @type
                 )                    
@@ -20133,18 +20415,18 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_by_profile_id_by_game_id_by_key]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_by_profile_id_by_game_id_by_key]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_profile_id_by_game_id_by_key
+CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
     , @username varchar (500) = NULL
     , @key uniqueidentifier = NULL
-    , @stat_value_formatted varchar (500) = NULL
+    , @timestamp float = NULL
     , @profile_id uniqueidentifier = NULL
     , @rank int = NULL
     , @rank_change int = NULL
@@ -20153,10 +20435,11 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_set_by_profile_id_by_game_id_by_
     , @rank_total_count int = NULL
     , @data ntext = NULL
     , @stat_value float = NULL
+    , @network varchar (500) = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
-    , @timestamp float = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -20182,9 +20465,9 @@ BEGIN
                 SELECT @CountItems =  COUNT(*)
                 FROM  [dbo].[game_statistic_leaderboard]  
                 WHERE 1=1
+                AND [key] = @key
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
-                AND [key] = @key
 	    END
 	END
 
@@ -20198,7 +20481,7 @@ BEGIN
                     [status] = @status
                     , [username] = @username
                     , [key] = @key
-                    , [stat_value_formatted] = @stat_value_formatted
+                    , [timestamp] = @timestamp
                     , [profile_id] = @profile_id
                     , [rank] = @rank
                     , [rank_change] = @rank_change
@@ -20207,16 +20490,17 @@ BEGIN
                     , [rank_total_count] = @rank_total_count
                     , [data] = @data
                     , [stat_value] = @stat_value
+                    , [network] = @network
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
-                    , [timestamp] = @timestamp
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
+                AND [key] = @key
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
-                AND [key] = @key
                 SET @id=1
             END
         END
@@ -20229,7 +20513,7 @@ BEGIN
                     [status]
                     , [username]
                     , [key]
-                    , [stat_value_formatted]
+                    , [timestamp]
                     , [profile_id]
                     , [rank]
                     , [rank_change]
@@ -20238,10 +20522,11 @@ BEGIN
                     , [rank_total_count]
                     , [data]
                     , [stat_value]
+                    , [network]
                     , [uuid]
                     , [date_modified]
                     , [level]
-                    , [timestamp]
+                    , [stat_value_formatted]
                     , [date_created]
                     , [type]
                 )
@@ -20250,7 +20535,7 @@ BEGIN
                     @status
                     , @username
                     , @key
-                    , @stat_value_formatted
+                    , @timestamp
                     , @profile_id
                     , @rank
                     , @rank_change
@@ -20259,10 +20544,11 @@ BEGIN
                     , @rank_total_count
                     , @data
                     , @stat_value
+                    , @network
                     , @uuid
                     , @date_modified
                     , @level
-                    , @timestamp
+                    , @stat_value_formatted
                     , @date_created
                     , @type
                 )                    
@@ -20318,26 +20604,6 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_by_profile_id_by_game_id]
-
-GO
-
-CREATE PROCEDURE usp_game_statistic_leaderboard_del_by_profile_id_by_game_id
-(
-    @profile_id uniqueidentifier = NULL
-    , @game_id uniqueidentifier = NULL
-)
-AS
-BEGIN
-    DELETE 
-    FROM [dbo].[game_statistic_leaderboard]
-    WHERE 1=1                        
-    AND [profile_id] = @profile_id
-    AND [game_id] = @game_id
-END
-GO
--- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_by_key_by_profile_id_by_game_id]
 
@@ -20355,6 +20621,26 @@ BEGIN
     FROM [dbo].[game_statistic_leaderboard]
     WHERE 1=1                        
     AND [key] = @key
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_del_by_profile_id_by_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_statistic_leaderboard]
+    WHERE 1=1                        
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
 END
@@ -20378,7 +20664,7 @@ BEGIN
         [status]
         , [username]
         , [key]
-        , [stat_value_formatted]
+        , [timestamp]
         , [profile_id]
         , [rank]
         , [rank_change]
@@ -20387,10 +20673,11 @@ BEGIN
         , [rank_total_count]
         , [data]
         , [stat_value]
+        , [network]
         , [uuid]
         , [date_modified]
         , [level]
-        , [timestamp]
+        , [stat_value_formatted]
         , [date_created]
         , [type]
     FROM [dbo].[game_statistic_leaderboard]
@@ -20413,7 +20700,7 @@ BEGIN
         [status]
         , [username]
         , [key]
-        , [stat_value_formatted]
+        , [timestamp]
         , [profile_id]
         , [rank]
         , [rank_change]
@@ -20422,10 +20709,11 @@ BEGIN
         , [rank_total_count]
         , [data]
         , [stat_value]
+        , [network]
         , [uuid]
         , [date_modified]
         , [level]
-        , [timestamp]
+        , [stat_value_formatted]
         , [date_created]
         , [type]
     FROM [dbo].[game_statistic_leaderboard]
@@ -20449,7 +20737,7 @@ BEGIN
         [status]
         , [username]
         , [key]
-        , [stat_value_formatted]
+        , [timestamp]
         , [profile_id]
         , [rank]
         , [rank_change]
@@ -20458,10 +20746,11 @@ BEGIN
         , [rank_total_count]
         , [data]
         , [stat_value]
+        , [network]
         , [uuid]
         , [date_modified]
         , [level]
-        , [timestamp]
+        , [stat_value_formatted]
         , [date_created]
         , [type]
     FROM [dbo].[game_statistic_leaderboard]
@@ -20485,7 +20774,7 @@ BEGIN
         [status]
         , [username]
         , [key]
-        , [stat_value_formatted]
+        , [timestamp]
         , [profile_id]
         , [rank]
         , [rank_change]
@@ -20494,10 +20783,11 @@ BEGIN
         , [rank_total_count]
         , [data]
         , [stat_value]
+        , [network]
         , [uuid]
         , [date_modified]
         , [level]
-        , [timestamp]
+        , [stat_value_formatted]
         , [date_created]
         , [type]
     FROM [dbo].[game_statistic_leaderboard]
@@ -20522,7 +20812,7 @@ BEGIN
         [status]
         , [username]
         , [key]
-        , [stat_value_formatted]
+        , [timestamp]
         , [profile_id]
         , [rank]
         , [rank_change]
@@ -20531,10 +20821,11 @@ BEGIN
         , [rank_total_count]
         , [data]
         , [stat_value]
+        , [network]
         , [uuid]
         , [date_modified]
         , [level]
-        , [timestamp]
+        , [stat_value_formatted]
         , [date_created]
         , [type]
     FROM [dbo].[game_statistic_leaderboard]
@@ -20544,15 +20835,16 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_by_profile_id_by_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_by_key_by_game_id_by_network]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_by_key_by_game_id_by_network]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_by_profile_id_by_game_id
+CREATE PROCEDURE usp_game_statistic_leaderboard_get_by_key_by_game_id_by_network
 (
-    @profile_id uniqueidentifier = NULL
+    @key uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
+    , @network varchar (500) = NULL
 )
 AS
 BEGIN
@@ -20560,7 +20852,7 @@ BEGIN
         [status]
         , [username]
         , [key]
-        , [stat_value_formatted]
+        , [timestamp]
         , [profile_id]
         , [rank]
         , [rank_change]
@@ -20569,56 +20861,18 @@ BEGIN
         , [rank_total_count]
         , [data]
         , [stat_value]
+        , [network]
         , [uuid]
         , [date_modified]
         , [level]
-        , [timestamp]
-        , [date_created]
-        , [type]
-    FROM [dbo].[game_statistic_leaderboard]
-    WHERE 1=1
-    AND [profile_id] = @profile_id
-    AND [game_id] = @game_id
-END
-GO
--- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp]
-
-GO
-
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp
-(
-    @profile_id uniqueidentifier = NULL
-    , @game_id uniqueidentifier = NULL
-    , @timestamp float = NULL
-)
-AS
-BEGIN
-    SELECT
-        [status]
-        , [username]
-        , [key]
         , [stat_value_formatted]
-        , [profile_id]
-        , [rank]
-        , [rank_change]
-        , [game_id]
-        , [active]
-        , [rank_total_count]
-        , [data]
-        , [stat_value]
-        , [uuid]
-        , [date_modified]
-        , [level]
-        , [timestamp]
         , [date_created]
         , [type]
     FROM [dbo].[game_statistic_leaderboard]
     WHERE 1=1
-    AND [profile_id] = @profile_id
+    AND [key] = @key
     AND [game_id] = @game_id
-    AND [timestamp] = @timestamp
+    AND LOWER([network]) = LOWER(@network)
 END
 GO
 -- -----------------------------------------------------------------------------
@@ -20639,7 +20893,7 @@ BEGIN
         [status]
         , [username]
         , [key]
-        , [stat_value_formatted]
+        , [timestamp]
         , [profile_id]
         , [rank]
         , [rank_change]
@@ -20648,10 +20902,11 @@ BEGIN
         , [rank_total_count]
         , [data]
         , [stat_value]
+        , [network]
         , [uuid]
         , [date_modified]
         , [level]
-        , [timestamp]
+        , [stat_value_formatted]
         , [date_created]
         , [type]
     FROM [dbo].[game_statistic_leaderboard]
@@ -20680,7 +20935,7 @@ BEGIN
         [status]
         , [username]
         , [key]
-        , [stat_value_formatted]
+        , [timestamp]
         , [profile_id]
         , [rank]
         , [rank_change]
@@ -20689,15 +20944,1705 @@ BEGIN
         , [rank_total_count]
         , [data]
         , [stat_value]
+        , [network]
         , [uuid]
         , [date_modified]
         , [level]
-        , [timestamp]
+        , [stat_value_formatted]
         , [date_created]
         , [type]
     FROM [dbo].[game_statistic_leaderboard]
     WHERE 1=1
     AND [key] = @key
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+    AND [timestamp] = @timestamp
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_get_by_profile_id_by_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+    , @timestamp float = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+    AND [timestamp] = @timestamp
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_by_key]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_by_key]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_by_key
+(
+    @key uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_by_game_id
+(
+    @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_by_key_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_by_key_by_game_id
+(
+    @key uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id
+(
+    @key uniqueidentifier = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id_by_timestamp
+(
+    @key uniqueidentifier = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+    , @timestamp float = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+    AND [timestamp] = @timestamp
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_by_profile_id_by_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [username]'
+    SET @sql = @sql + ', [key]'
+    SET @sql = @sql + ', [timestamp]'
+    SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [rank]'
+    SET @sql = @sql + ', [rank_change]'
+    SET @sql = @sql + ', [game_id]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [rank_total_count]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [stat_value]'
+    SET @sql = @sql + ', [network]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [level]'
+    SET @sql = @sql + ', [stat_value_formatted]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+
+    SET @sql = @sql + ' FROM [dbo].[game_statistic_leaderboard_rollup] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @key uniqueidentifier = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [key] = @key
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                (
+                    [status]
+                    , [username]
+                    , [key]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @key
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_by_uuid_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_by_uuid_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_by_uuid_by_profile_id_by_game_id_by_timestamp
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @key uniqueidentifier = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [key] = @key
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [uuid] = @uuid
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                (
+                    [status]
+                    , [username]
+                    , [key]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @key
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @key uniqueidentifier = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                WHERE 1=1
+                AND [key] = @key
+                AND [profile_id] = @profile_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [key] = @key
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [key] = @key
+                AND [profile_id] = @profile_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                (
+                    [status]
+                    , [username]
+                    , [key]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @key
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_timestamp
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @key uniqueidentifier = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                WHERE 1=1
+                AND [key] = @key
+                AND [profile_id] = @profile_id
+                AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [key] = @key
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [key] = @key
+                AND [profile_id] = @profile_id
+                AND [timestamp] = @timestamp
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                (
+                    [status]
+                    , [username]
+                    , [key]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @key
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id_by_timestamp
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @key uniqueidentifier = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                WHERE 1=1
+                AND [key] = @key
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [key] = @key
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [key] = @key
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                (
+                    [status]
+                    , [username]
+                    , [key]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @key
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @key uniqueidentifier = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                WHERE 1=1
+                AND [key] = @key
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [key] = @key
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [key] = @key
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                (
+                    [status]
+                    , [username]
+                    , [key]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @key
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_by_key_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_by_key_by_game_id
+(
+    @key uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1                        
+    AND [key] = @key
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_by_key_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_by_key_by_profile_id_by_game_id
+(
+    @key uniqueidentifier = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1                        
+    AND [key] = @key
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_by_profile_id_by_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1                        
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_key]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_key]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_key
+(
+    @key uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_game_id
+(
+    @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id
+(
+    @key uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id_by_network]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id_by_network]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id_by_network
+(
+    @key uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+    , @network varchar (500) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+    AND [game_id] = @game_id
+    AND LOWER([network]) = LOWER(@network)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id
+(
+    @key uniqueidentifier = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id_by_timestamp
+(
+    @key uniqueidentifier = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+    , @timestamp float = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [key] = @key
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+    AND [timestamp] = @timestamp
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id_by_timestamp
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+    , @timestamp float = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [key]
+        , [timestamp]
+        , [profile_id]
+        , [rank]
+        , [rank_change]
+        , [game_id]
+        , [active]
+        , [rank_total_count]
+        , [data]
+        , [stat_value]
+        , [network]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [stat_value_formatted]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_statistic_leaderboard_rollup]
+    WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
     AND [timestamp] = @timestamp
@@ -22022,6 +23967,7 @@ BEGIN
     SET @sql = @sql + ', [uuid]'
     SET @sql = @sql + ', [date_modified]'
     SET @sql = @sql + ', [level]'
+    SET @sql = @sql + ', [points]'
     SET @sql = @sql + ', [date_created]'
     SET @sql = @sql + ', [type]'
 
@@ -22079,6 +24025,7 @@ CREATE PROCEDURE usp_game_profile_statistic_set_by_uuid
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
+    , @points float = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -22127,6 +24074,7 @@ BEGIN
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
+                    , [points] = @points
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -22152,6 +24100,7 @@ BEGIN
                     , [uuid]
                     , [date_modified]
                     , [level]
+                    , [points]
                     , [date_created]
                     , [type]
                 )
@@ -22169,6 +24118,7 @@ BEGIN
                     , @uuid
                     , @date_modified
                     , @level
+                    , @points
                     , @date_created
                     , @type
                 )                    
@@ -22200,6 +24150,7 @@ CREATE PROCEDURE usp_game_profile_statistic_set_by_uuid_by_profile_id_by_game_id
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
+    , @points float = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -22251,6 +24202,7 @@ BEGIN
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
+                    , [points] = @points
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -22279,6 +24231,7 @@ BEGIN
                     , [uuid]
                     , [date_modified]
                     , [level]
+                    , [points]
                     , [date_created]
                     , [type]
                 )
@@ -22296,6 +24249,7 @@ BEGIN
                     , @uuid
                     , @date_modified
                     , @level
+                    , @points
                     , @date_created
                     , @type
                 )                    
@@ -22327,6 +24281,7 @@ CREATE PROCEDURE usp_game_profile_statistic_set_by_profile_id_by_key
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
+    , @points float = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -22376,6 +24331,7 @@ BEGIN
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
+                    , [points] = @points
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -22402,6 +24358,7 @@ BEGIN
                     , [uuid]
                     , [date_modified]
                     , [level]
+                    , [points]
                     , [date_created]
                     , [type]
                 )
@@ -22419,6 +24376,7 @@ BEGIN
                     , @uuid
                     , @date_modified
                     , @level
+                    , @points
                     , @date_created
                     , @type
                 )                    
@@ -22450,6 +24408,7 @@ CREATE PROCEDURE usp_game_profile_statistic_set_by_profile_id_by_key_by_timestam
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
+    , @points float = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -22500,6 +24459,7 @@ BEGIN
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
+                    , [points] = @points
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -22527,6 +24487,7 @@ BEGIN
                     , [uuid]
                     , [date_modified]
                     , [level]
+                    , [points]
                     , [date_created]
                     , [type]
                 )
@@ -22544,6 +24505,7 @@ BEGIN
                     , @uuid
                     , @date_modified
                     , @level
+                    , @points
                     , @date_created
                     , @type
                 )                    
@@ -22575,6 +24537,7 @@ CREATE PROCEDURE usp_game_profile_statistic_set_by_key_by_profile_id_by_game_id_
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
+    , @points float = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -22626,6 +24589,7 @@ BEGIN
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
+                    , [points] = @points
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -22654,6 +24618,7 @@ BEGIN
                     , [uuid]
                     , [date_modified]
                     , [level]
+                    , [points]
                     , [date_created]
                     , [type]
                 )
@@ -22671,6 +24636,7 @@ BEGIN
                     , @uuid
                     , @date_modified
                     , @level
+                    , @points
                     , @date_created
                     , @type
                 )                    
@@ -22702,6 +24668,7 @@ CREATE PROCEDURE usp_game_profile_statistic_set_by_profile_id_by_game_id_by_key
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @level varchar (500) = NULL
+    , @points float = NULL
     , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
@@ -22752,6 +24719,7 @@ BEGIN
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [level] = @level
+                    , [points] = @points
                     , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
@@ -22779,6 +24747,7 @@ BEGIN
                     , [uuid]
                     , [date_modified]
                     , [level]
+                    , [points]
                     , [date_created]
                     , [type]
                 )
@@ -22796,6 +24765,7 @@ BEGIN
                     , @uuid
                     , @date_modified
                     , @level
+                    , @points
                     , @date_created
                     , @type
                 )                    
@@ -22923,6 +24893,7 @@ BEGIN
         , [uuid]
         , [date_modified]
         , [level]
+        , [points]
         , [date_created]
         , [type]
     FROM [dbo].[game_profile_statistic]
@@ -22955,6 +24926,7 @@ BEGIN
         , [uuid]
         , [date_modified]
         , [level]
+        , [points]
         , [date_created]
         , [type]
     FROM [dbo].[game_profile_statistic]
@@ -22987,6 +24959,7 @@ BEGIN
         , [uuid]
         , [date_modified]
         , [level]
+        , [points]
         , [date_created]
         , [type]
     FROM [dbo].[game_profile_statistic]
@@ -23020,6 +24993,7 @@ BEGIN
         , [uuid]
         , [date_modified]
         , [level]
+        , [points]
         , [date_created]
         , [type]
     FROM [dbo].[game_profile_statistic]
@@ -23054,6 +25028,7 @@ BEGIN
         , [uuid]
         , [date_modified]
         , [level]
+        , [points]
         , [date_created]
         , [type]
     FROM [dbo].[game_profile_statistic]
@@ -23089,6 +25064,7 @@ BEGIN
         , [uuid]
         , [date_modified]
         , [level]
+        , [points]
         , [date_created]
         , [type]
     FROM [dbo].[game_profile_statistic]
@@ -23125,6 +25101,7 @@ BEGIN
         , [uuid]
         , [date_modified]
         , [level]
+        , [points]
         , [date_created]
         , [type]
     FROM [dbo].[game_profile_statistic]
@@ -23162,6 +25139,7 @@ BEGIN
         , [uuid]
         , [date_modified]
         , [level]
+        , [points]
         , [date_created]
         , [type]
     FROM [dbo].[game_profile_statistic]
@@ -23357,6 +25335,7 @@ BEGIN
     SET @sql = @sql + ', [date_modified]'
     SET @sql = @sql + ', [data]'
     SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [points]'
     SET @sql = @sql + ', [store_count]'
     SET @sql = @sql + ', [key]'
     SET @sql = @sql + ', [game_id]'
@@ -23416,6 +25395,7 @@ CREATE PROCEDURE usp_game_statistic_meta_set_by_uuid
     , @date_modified DATETIME = GETDATE
     , @data ntext = NULL
     , @uuid uniqueidentifier 
+    , @points float = NULL
     , @store_count int = NULL
     , @key varchar (50) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23466,6 +25446,7 @@ BEGIN
                     , [date_modified] = @date_modified
                     , [data] = @data
                     , [uuid] = @uuid
+                    , [points] = @points
                     , [store_count] = @store_count
                     , [key] = @key
                     , [game_id] = @game_id
@@ -23493,6 +25474,7 @@ BEGIN
                     , [date_modified]
                     , [data]
                     , [uuid]
+                    , [points]
                     , [store_count]
                     , [key]
                     , [game_id]
@@ -23512,6 +25494,7 @@ BEGIN
                     , @date_modified
                     , @data
                     , @uuid
+                    , @points
                     , @store_count
                     , @key
                     , @game_id
@@ -23545,6 +25528,7 @@ CREATE PROCEDURE usp_game_statistic_meta_set_by_key_by_game_id
     , @date_modified DATETIME = GETDATE
     , @data ntext = NULL
     , @uuid uniqueidentifier 
+    , @points float = NULL
     , @store_count int = NULL
     , @key varchar (50) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23596,6 +25580,7 @@ BEGIN
                     , [date_modified] = @date_modified
                     , [data] = @data
                     , [uuid] = @uuid
+                    , [points] = @points
                     , [store_count] = @store_count
                     , [key] = @key
                     , [game_id] = @game_id
@@ -23624,6 +25609,7 @@ BEGIN
                     , [date_modified]
                     , [data]
                     , [uuid]
+                    , [points]
                     , [store_count]
                     , [key]
                     , [game_id]
@@ -23643,6 +25629,7 @@ BEGIN
                     , @date_modified
                     , @data
                     , @uuid
+                    , @points
                     , @store_count
                     , @key
                     , @game_id
@@ -23730,6 +25717,7 @@ BEGIN
         , [date_modified]
         , [data]
         , [uuid]
+        , [points]
         , [store_count]
         , [key]
         , [game_id]
@@ -23764,6 +25752,7 @@ BEGIN
         , [date_modified]
         , [data]
         , [uuid]
+        , [points]
         , [store_count]
         , [key]
         , [game_id]
@@ -23798,6 +25787,7 @@ BEGIN
         , [date_modified]
         , [data]
         , [uuid]
+        , [points]
         , [store_count]
         , [key]
         , [game_id]
@@ -23832,6 +25822,7 @@ BEGIN
         , [date_modified]
         , [data]
         , [uuid]
+        , [points]
         , [store_count]
         , [key]
         , [game_id]
@@ -23866,6 +25857,7 @@ BEGIN
         , [date_modified]
         , [data]
         , [uuid]
+        , [points]
         , [store_count]
         , [key]
         , [game_id]
@@ -23901,6 +25893,7 @@ BEGIN
         , [date_modified]
         , [data]
         , [uuid]
+        , [points]
         , [store_count]
         , [key]
         , [game_id]
@@ -27564,6 +29557,7 @@ BEGIN
     SET @sql = @sql + ', [game_id]'
     SET @sql = @sql + ', [active]'
     SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [modifier]'
     SET @sql = @sql + ', [type]'
     SET @sql = @sql + ', [leaderboard]'
     SET @sql = @sql + ', [description]'
@@ -27625,6 +29619,7 @@ CREATE PROCEDURE usp_game_achievement_meta_set_by_uuid
     , @game_id uniqueidentifier = NULL
     , @active bit = NULL
     , @date_created DATETIME = GETDATE
+    , @modifier decimal = NULL
     , @type varchar (40) = NULL
     , @leaderboard bit = 1
     , @description varchar (255) = NULL
@@ -27677,6 +29672,7 @@ BEGIN
                     , [game_id] = @game_id
                     , [active] = @active
                     , [date_created] = @date_created
+                    , [modifier] = @modifier
                     , [type] = @type
                     , [leaderboard] = @leaderboard
                     , [description] = @description
@@ -27706,6 +29702,7 @@ BEGIN
                     , [game_id]
                     , [active]
                     , [date_created]
+                    , [modifier]
                     , [type]
                     , [leaderboard]
                     , [description]
@@ -27727,6 +29724,7 @@ BEGIN
                     , @game_id
                     , @active
                     , @date_created
+                    , @modifier
                     , @type
                     , @leaderboard
                     , @description
@@ -27762,6 +29760,7 @@ CREATE PROCEDURE usp_game_achievement_meta_set_by_key_by_game_id
     , @game_id uniqueidentifier = NULL
     , @active bit = NULL
     , @date_created DATETIME = GETDATE
+    , @modifier decimal = NULL
     , @type varchar (40) = NULL
     , @leaderboard bit = 1
     , @description varchar (255) = NULL
@@ -27815,6 +29814,7 @@ BEGIN
                     , [game_id] = @game_id
                     , [active] = @active
                     , [date_created] = @date_created
+                    , [modifier] = @modifier
                     , [type] = @type
                     , [leaderboard] = @leaderboard
                     , [description] = @description
@@ -27845,6 +29845,7 @@ BEGIN
                     , [game_id]
                     , [active]
                     , [date_created]
+                    , [modifier]
                     , [type]
                     , [leaderboard]
                     , [description]
@@ -27866,6 +29867,7 @@ BEGIN
                     , @game_id
                     , @active
                     , @date_created
+                    , @modifier
                     , @type
                     , @leaderboard
                     , @description
@@ -27955,6 +29957,7 @@ BEGIN
         , [game_id]
         , [active]
         , [date_created]
+        , [modifier]
         , [type]
         , [leaderboard]
         , [description]
@@ -27991,6 +29994,7 @@ BEGIN
         , [game_id]
         , [active]
         , [date_created]
+        , [modifier]
         , [type]
         , [leaderboard]
         , [description]
@@ -28027,6 +30031,7 @@ BEGIN
         , [game_id]
         , [active]
         , [date_created]
+        , [modifier]
         , [type]
         , [leaderboard]
         , [description]
@@ -28063,6 +30068,7 @@ BEGIN
         , [game_id]
         , [active]
         , [date_created]
+        , [modifier]
         , [type]
         , [leaderboard]
         , [description]
@@ -28099,6 +30105,7 @@ BEGIN
         , [game_id]
         , [active]
         , [date_created]
+        , [modifier]
         , [type]
         , [leaderboard]
         , [description]
@@ -28136,6 +30143,7 @@ BEGIN
         , [game_id]
         , [active]
         , [date_created]
+        , [modifier]
         , [type]
         , [leaderboard]
         , [description]

@@ -42,7 +42,11 @@
             "generate":["code","data"],
             "properties":{
                 "username":{"type":"string", "maximum":255, "required":false},
-                "hash":{"type":"string", "maximum":255, "required":false}
+                "hash":{"type":"string", "maximum":255, "required":false},
+                "email":{"type":"string", "maximum":255, "required":false},
+                "name":{"type":"string", "maximum":255, "required":false},
+                "first_name":{"type":"string", "maximum":255, "required":false},
+                "last_name":{"type":"string", "maximum":255, "required":false}
             },
             "relation":[
                 {"table":"", "field":""}

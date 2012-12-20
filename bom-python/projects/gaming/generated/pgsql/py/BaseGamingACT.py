@@ -1171,6 +1171,8 @@ class BaseGamingACT(object):
             obj.active = row['active'] #dataType.FillData(dr, "active");                
         if (row['game_id'] != None) :                 
             obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
         if (row['uuid'] != None) :                 
             obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
         if (row['date_modified'] != None) :                 
@@ -4210,8 +4212,8 @@ class BaseGamingACT(object):
             obj.username = row['username'] #dataType.FillData(dr, "username");                
         if (row['key'] != None) :                 
             obj.key = row['key'] #dataType.FillData(dr, "key");                
-        if (row['stat_value_formatted'] != None) :                 
-            obj.stat_value_formatted = row['stat_value_formatted'] #dataType.FillData(dr, "stat_value_formatted");                
+        if (row['timestamp'] != None) :                 
+            obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
         if (row['profile_id'] != None) :                 
             obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
         if (row['rank'] != None) :                 
@@ -4228,14 +4230,16 @@ class BaseGamingACT(object):
             obj.data = row['data'] #dataType.FillData(dr, "data");                
         if (row['stat_value'] != None) :                 
             obj.stat_value = row['stat_value'] #dataType.FillData(dr, "stat_value");                
+        if (row['network'] != None) :                 
+            obj.network = row['network'] #dataType.FillData(dr, "network");                
         if (row['uuid'] != None) :                 
             obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
         if (row['date_modified'] != None) :                 
             obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
         if (row['level'] != None) :                 
             obj.level = row['level'] #dataType.FillData(dr, "level");                
-        if (row['timestamp'] != None) :                 
-            obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
+        if (row['stat_value_formatted'] != None) :                 
+            obj.stat_value_formatted = row['stat_value_formatted'] #dataType.FillData(dr, "stat_value_formatted");                
         if (row['date_created'] != None) :                 
             obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
         if (row['type'] != None) :                 
@@ -4278,15 +4282,6 @@ class BaseGamingACT(object):
             , game_id
         )
                
-    def CountGameStatisticLeaderboardByProfileIdByGameId(self
-        , profile_id
-        , game_id
-    ) :         
-        return self.data.CountGameStatisticLeaderboardByProfileIdByGameId(
-            profile_id
-            , game_id
-        )
-               
     def CountGameStatisticLeaderboardByKeyByProfileIdByGameId(self
         , key
         , profile_id
@@ -4309,6 +4304,15 @@ class BaseGamingACT(object):
             , profile_id
             , game_id
             , timestamp
+        )
+               
+    def CountGameStatisticLeaderboardByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.data.CountGameStatisticLeaderboardByProfileIdByGameId(
+            profile_id
+            , game_id
         )
                
     def BrowseGameStatisticLeaderboardListByFilter(self, filter_obj) :
@@ -4334,17 +4338,17 @@ class BaseGamingACT(object):
     def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
             return self.data.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameStatisticLeaderboardByProfileIdByKey(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardByProfileIdByKey(set_type, obj)
+    def SetGameStatisticLeaderboardByKeyByProfileId(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardByKeyByProfileId(set_type, obj)
             
-    def SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(set_type, obj)
             
     def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
             return self.data.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameStatisticLeaderboardByProfileIdByGameIdByKey(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardByProfileIdByGameIdByKey(set_type, obj)
+    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(set_type, obj)
             
     def DelGameStatisticLeaderboardByUuid(self
         , uuid
@@ -4362,15 +4366,6 @@ class BaseGamingACT(object):
             , game_id
         )
         
-    def DelGameStatisticLeaderboardByProfileIdByGameId(self
-        , profile_id
-        , game_id
-    ) :
-        return self.data.DelGameStatisticLeaderboardByProfileIdByGameId(
-            profile_id
-            , game_id
-        )
-        
     def DelGameStatisticLeaderboardByKeyByProfileIdByGameId(self
         , key
         , profile_id
@@ -4379,6 +4374,15 @@ class BaseGamingACT(object):
         return self.data.DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
             key
             , profile_id
+            , game_id
+        )
+        
+    def DelGameStatisticLeaderboardByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return self.data.DelGameStatisticLeaderboardByProfileIdByGameId(
+            profile_id
             , game_id
         )
         
@@ -4457,34 +4461,17 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListByProfileIdByGameId(self
-        , profile_id
+    def GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(self
+        , key
         , game_id
+        , network
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListByProfileIdByGameId(
-            profile_id
+        rows = self.data.GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+            key
             , game_id
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
-            return results        
-        
-    def GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
-        , profile_id
-        , game_id
-        , timestamp
-    ) :
-
-        results = []
-        rows = self.data.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            profile_id
-            , game_id
-            , timestamp
+            , network
         )
         
         if(rows != None) :
@@ -4531,6 +4518,396 @@ class BaseGamingACT(object):
             for row in rows :
                 game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
                 results.append(game_statistic_leaderboard)
+            return results        
+        
+    def GetGameStatisticLeaderboardListByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardListByProfileIdByGameId(
+            profile_id
+            , game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
+                results.append(game_statistic_leaderboard)
+            return results        
+        
+    def GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
+                results.append(game_statistic_leaderboard)
+            return results        
+        
+        
+    def FillGameStatisticLeaderboardRollup(self, row) :
+        obj = GameStatisticLeaderboardRollup()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['username'] != None) :                 
+            obj.username = row['username'] #dataType.FillData(dr, "username");                
+        if (row['key'] != None) :                 
+            obj.key = row['key'] #dataType.FillData(dr, "key");                
+        if (row['timestamp'] != None) :                 
+            obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
+        if (row['profile_id'] != None) :                 
+            obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['rank'] != None) :                 
+            obj.rank = row['rank'] #dataType.FillData(dr, "rank");                
+        if (row['rank_change'] != None) :                 
+            obj.rank_change = row['rank_change'] #dataType.FillData(dr, "rank_change");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['rank_total_count'] != None) :                 
+            obj.rank_total_count = row['rank_total_count'] #dataType.FillData(dr, "rank_total_count");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['stat_value'] != None) :                 
+            obj.stat_value = row['stat_value'] #dataType.FillData(dr, "stat_value");                
+        if (row['network'] != None) :                 
+            obj.network = row['network'] #dataType.FillData(dr, "network");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['level'] != None) :                 
+            obj.level = row['level'] #dataType.FillData(dr, "level");                
+        if (row['stat_value_formatted'] != None) :                 
+            obj.stat_value_formatted = row['stat_value_formatted'] #dataType.FillData(dr, "stat_value_formatted");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+
+        return obj
+        
+    def CountGameStatisticLeaderboardRollup(self
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollup(
+        )
+               
+    def CountGameStatisticLeaderboardRollupByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollupByUuid(
+            uuid
+        )
+               
+    def CountGameStatisticLeaderboardRollupByKey(self
+        , key
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollupByKey(
+            key
+        )
+               
+    def CountGameStatisticLeaderboardRollupByGameId(self
+        , game_id
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollupByGameId(
+            game_id
+        )
+               
+    def CountGameStatisticLeaderboardRollupByKeyByGameId(self
+        , key
+        , game_id
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollupByKeyByGameId(
+            key
+            , game_id
+        )
+               
+    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+        )
+               
+    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+            key
+            , profile_id
+            , game_id
+            , timestamp
+        )
+               
+    def CountGameStatisticLeaderboardRollupByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+            profile_id
+            , game_id
+        )
+               
+    def BrowseGameStatisticLeaderboardRollupListByFilter(self, filter_obj) :
+        result = GameStatisticLeaderboardRollupResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameStatisticLeaderboardRollupListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup = self.FillGameStatisticLeaderboardRollup(row)
+                result.data.append(game_statistic_leaderboard_rollup)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameStatisticLeaderboardRollupByUuid(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByUuid(set_type, obj)
+            
+    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
+            
+    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByKeyByProfileId(set_type, obj)
+            
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(set_type, obj)
+            
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
+            
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(set_type, obj)
+            
+    def DelGameStatisticLeaderboardRollupByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameStatisticLeaderboardRollupByUuid(
+            uuid
+        )
+        
+    def DelGameStatisticLeaderboardRollupByKeyByGameId(self
+        , key
+        , game_id
+    ) :
+        return self.data.DelGameStatisticLeaderboardRollupByKeyByGameId(
+            key
+            , game_id
+        )
+        
+    def DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+        return self.data.DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+        )
+        
+    def DelGameStatisticLeaderboardRollupByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return self.data.DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+            profile_id
+            , game_id
+        )
+        
+    def GetGameStatisticLeaderboardRollupList(self
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupList(
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByKey(self
+        , key
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByKey(
+            key
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByGameId(self
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByGameId(
+            game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByKeyByGameId(self
+        , key
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByKeyByGameId(
+            key
+            , game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(self
+        , key
+        , game_id
+        , network
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            key
+            , game_id
+            , network
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(self
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            key
+            , profile_id
+            , game_id
+            , timestamp
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            profile_id
+            , game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
             return results        
         
         
@@ -4865,6 +5242,8 @@ class BaseGamingACT(object):
             obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
         if (row['level'] != None) :                 
             obj.level = row['level'] #dataType.FillData(dr, "level");                
+        if (row['points'] != None) :                 
+            obj.points = row['points'] #dataType.FillData(dr, "points");                
         if (row['date_created'] != None) :                 
             obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
         if (row['type'] != None) :                 
@@ -5169,6 +5548,8 @@ class BaseGamingACT(object):
             obj.data = row['data'] #dataType.FillData(dr, "data");                
         if (row['uuid'] != None) :                 
             obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['points'] != None) :                 
+            obj.points = row['points'] #dataType.FillData(dr, "points");                
         if (row['store_count'] != None) :                 
             obj.store_count = row['store_count'] #dataType.FillData(dr, "store_count");                
         if (row['key'] != None) :                 
@@ -6311,6 +6692,8 @@ class BaseGamingACT(object):
             obj.active = row['active'] #dataType.FillData(dr, "active");                
         if (row['date_created'] != None) :                 
             obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['modifier'] != None) :                 
+            obj.modifier = row['modifier'] #dataType.FillData(dr, "modifier");                
         if (row['type'] != None) :                 
             obj.type = row['type'] #dataType.FillData(dr, "type");                
         if (row['leaderboard'] != None) :                 

@@ -81,6 +81,7 @@ namespace gaming.ent {
         public string secret { get; set; }
         public string network_username { get; set; }
         public string game_id { get; set; }
+        public string data { get; set; }
 
         public override Dictionary<string, object> ToDictionary(){
             dict = base.ToDictionary();
@@ -104,6 +105,9 @@ namespace gaming.ent {
 	    	}
 	    	if (game_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
+	    	}
+	    	if (data != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "data", data);
 	    	}
             return dict;
         }
@@ -142,6 +146,11 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("game_id")) {
 	    	    if(dict["game_id"] != null) {
 	    	    	game_id = DataType.Instance.FillString(dict["game_id"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("data")) {
+	    	    if(dict["data"] != null) {
+	    	    	data = DataType.Instance.FillString(dict["data"]);
 	    	    }		
 	    	}
         }

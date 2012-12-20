@@ -136,11 +136,15 @@ namespace profile {
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
             parameters.Add(new NpgsqlParameter("in_status", obj.status));
             parameters.Add(new NpgsqlParameter("in_username", obj.username));
+            parameters.Add(new NpgsqlParameter("in_first_name", obj.first_name));
+            parameters.Add(new NpgsqlParameter("in_last_name", obj.last_name));
             parameters.Add(new NpgsqlParameter("in_hash", obj.hash));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
             parameters.Add(new NpgsqlParameter("in_active", obj.active));
             parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
+            parameters.Add(new NpgsqlParameter("in_email", obj.email));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(
@@ -162,11 +166,15 @@ namespace profile {
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
             parameters.Add(new NpgsqlParameter("in_status", obj.status));
             parameters.Add(new NpgsqlParameter("in_username", obj.username));
+            parameters.Add(new NpgsqlParameter("in_first_name", obj.first_name));
+            parameters.Add(new NpgsqlParameter("in_last_name", obj.last_name));
             parameters.Add(new NpgsqlParameter("in_hash", obj.hash));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
             parameters.Add(new NpgsqlParameter("in_active", obj.active));
             parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
+            parameters.Add(new NpgsqlParameter("in_email", obj.email));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(

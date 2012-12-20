@@ -23,6 +23,7 @@ class ProfileGameNetwork(BaseEntity):
         self.secret = None
         self.network_username = None
         self.game_id = None
+        self.data = None
         
     def to_dict_obj(self):
         return self.to_dict(self)

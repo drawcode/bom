@@ -17,7 +17,11 @@ class Profile(BaseEntity):
         super(Profile, self).__init__()
         #self.__dict__.update(entries)
         self.username = None
+        self.first_name = None
+        self.last_name = None
         self.hash = None
+        self.name = None
+        self.email = None
         
     def to_dict_obj(self):
         return self.to_dict(self)

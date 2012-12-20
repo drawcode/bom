@@ -2224,6 +2224,7 @@ class BaseGamingData(object):
         parameters.append(obj.network_username) #"in_network_username"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.data) #"in_data"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.secret) #"in_secret"
@@ -8267,27 +8268,6 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByProfileIdByGameId(self
-        , profile_id
-        , game_id
-    ) :
-        parameters = []
-        parameters.append(profile_id) #"in_profile_id"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_profile_id_game_id"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
     def CountGameStatisticLeaderboardByKeyByProfileIdByGameId(self
         , key
         , profile_id
@@ -8336,6 +8316,27 @@ class BaseGamingData(object):
         finally :
             pass
             
+    def CountGameStatisticLeaderboardByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_count_profile_id_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
     def BrowseGameStatisticLeaderboardListByFilter(self, filter_obj) :
         parameters = []
             
@@ -8362,7 +8363,7 @@ class BaseGamingData(object):
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.key) #"in_key"
-        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
         parameters.append(obj.rank_change) #"in_rank_change"
@@ -8371,10 +8372,11 @@ class BaseGamingData(object):
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -8398,7 +8400,7 @@ class BaseGamingData(object):
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.key) #"in_key"
-        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
         parameters.append(obj.rank_change) #"in_rank_change"
@@ -8407,10 +8409,11 @@ class BaseGamingData(object):
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -8428,13 +8431,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByProfileIdByKey(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.key) #"in_key"
-        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
         parameters.append(obj.rank_change) #"in_rank_change"
@@ -8443,10 +8446,11 @@ class BaseGamingData(object):
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -8454,7 +8458,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_profile_id_key"
+            , "usp_game_statistic_leaderboard_set_key_profile_id"
             , parameters
             ))
         except Exception: 
@@ -8464,13 +8468,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.key) #"in_key"
-        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
         parameters.append(obj.rank_change) #"in_rank_change"
@@ -8479,10 +8483,11 @@ class BaseGamingData(object):
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -8490,7 +8495,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_profile_id_key_timestamp"
+            , "usp_game_statistic_leaderboard_set_key_profile_id_timestamp"
             , parameters
             ))
         except Exception: 
@@ -8506,7 +8511,7 @@ class BaseGamingData(object):
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.key) #"in_key"
-        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
         parameters.append(obj.rank_change) #"in_rank_change"
@@ -8515,10 +8520,11 @@ class BaseGamingData(object):
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -8536,13 +8542,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByProfileIdByGameIdByKey(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.key) #"in_key"
-        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
         parameters.append(obj.rank_change) #"in_rank_change"
@@ -8551,10 +8557,11 @@ class BaseGamingData(object):
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -8562,7 +8569,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_profile_id_game_id_key"
+            , "usp_game_statistic_leaderboard_set_key_profile_id_game_id"
             , parameters
             ))
         except Exception: 
@@ -8612,27 +8619,6 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardByProfileIdByGameId(self
-        , profile_id
-        , game_id
-    ) :
-        parameters = []
-        parameters.append(profile_id) #"in_profile_id"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            self.data_provider.execute_no_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_profile_id_game_id"
-            , parameters
-            )
-            return True
-        except Exception: 
-            return False
-        finally :
-            pass
-             
     def DelGameStatisticLeaderboardByKeyByProfileIdByGameId(self
         , key
         , profile_id
@@ -8648,6 +8634,27 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_statistic_leaderboard_del_key_profile_id_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_del_profile_id_game_id"
             , parameters
             )
             return True
@@ -8761,45 +8768,22 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByProfileIdByGameId(self
-        , profile_id
+    def GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(self
+        , key
         , game_id
+        , network
     ) :
             
         parameters = []
-        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(key) #"in_key"
         parameters.append(game_id) #"in_game_id"
+        parameters.append(network) #"in_network"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_profile_id_game_id"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
-    def GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
-        , profile_id
-        , game_id
-        , timestamp
-    ) :
-            
-        parameters = []
-        parameters.append(profile_id) #"in_profile_id"
-        parameters.append(game_id) #"in_game_id"
-        parameters.append(timestamp) #"in_timestamp"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp"
+            , "usp_game_statistic_leaderboard_get_key_game_id_network"
             , parameters
             )
         except Exception: 
@@ -8852,6 +8836,774 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_statistic_leaderboard_get_key_profile_id_game_id_times"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardListByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_get_profile_id_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountGameStatisticLeaderboardRollup(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardRollupByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardRollupByKey(self
+        , key
+    ) :
+        parameters = []
+        parameters.append(key) #"in_key"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count_key"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardRollupByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardRollupByKeyByGameId(self
+        , key
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count_key_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count_key_profile_id_game"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count_key_profile_id_game"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardRollupByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count_profile_id_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameStatisticLeaderboardRollupListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameStatisticLeaderboardRollupByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_set_key_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_set_key_profile_id_timest"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_i"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_i"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameStatisticLeaderboardRollupByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardRollupByKeyByGameId(self
+        , key
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_del_key_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_del_key_profile_id_game_i"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardRollupByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_del_profile_id_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameStatisticLeaderboardRollupList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByKey(self
+        , key
+    ) :
+            
+        parameters = []
+        parameters.append(key) #"in_key"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_key"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByGameId(self
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByKeyByGameId(self
+        , key
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_key_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(self
+        , key
+        , game_id
+        , network
+    ) :
+            
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(network) #"in_network"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_key_game_id_network"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_key_profile_id_game_i"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(self
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+            
+        parameters = []
+        parameters.append(key) #"in_key"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_key_profile_id_game_i"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_profile_id_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_ti"
             , parameters
             )
         except Exception: 
@@ -9584,6 +10336,7 @@ class BaseGamingData(object):
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
+        parameters.append(obj.points) #"in_points"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -9616,6 +10369,7 @@ class BaseGamingData(object):
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
+        parameters.append(obj.points) #"in_points"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -9648,6 +10402,7 @@ class BaseGamingData(object):
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
+        parameters.append(obj.points) #"in_points"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -9680,6 +10435,7 @@ class BaseGamingData(object):
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
+        parameters.append(obj.points) #"in_points"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -9712,6 +10468,7 @@ class BaseGamingData(object):
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
+        parameters.append(obj.points) #"in_points"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -9744,6 +10501,7 @@ class BaseGamingData(object):
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
+        parameters.append(obj.points) #"in_points"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -10195,6 +10953,7 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.points) #"in_points"
         parameters.append(obj.store_count) #"in_store_count"
         parameters.append(obj.key) #"in_key"
         parameters.append(obj.game_id) #"in_game_id"
@@ -10229,6 +10988,7 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.points) #"in_points"
         parameters.append(obj.store_count) #"in_store_count"
         parameters.append(obj.key) #"in_key"
         parameters.append(obj.game_id) #"in_game_id"
@@ -12262,6 +13022,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.modifier) #"in_modifier"
         parameters.append(obj.type) #"in_type"
         parameters.append(obj.leaderboard) #"in_leaderboard"
         parameters.append(obj.description) #"in_description"
@@ -12298,6 +13059,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.modifier) #"in_modifier"
         parameters.append(obj.type) #"in_type"
         parameters.append(obj.leaderboard) #"in_leaderboard"
         parameters.append(obj.description) #"in_description"

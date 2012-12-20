@@ -623,6 +623,14 @@ namespace profile {
             if(!String.IsNoneOrEmpty(_username))
                 obj.username = ()_username;
             
+            string _first_name = util.GetParamValue(_context, "@first_name");
+            if(!String.IsNoneOrEmpty(_first_name))
+                obj.first_name = ()_first_name;
+            
+            string _last_name = util.GetParamValue(_context, "@last_name");
+            if(!String.IsNoneOrEmpty(_last_name))
+                obj.last_name = ()_last_name;
+            
             string _hash = util.GetParamValue(_context, "@hash");
             if(!String.IsNoneOrEmpty(_hash))
                 obj.hash = ()_hash;
@@ -646,6 +654,14 @@ namespace profile {
                 obj.date_created = Convert.ToDateTime(_date_created);
             else 
                 obj.date_created = DateTime.Now;
+            
+            string _email = util.GetParamValue(_context, "@email");
+            if(!String.IsNoneOrEmpty(_email))
+                obj.email = ()_email;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
             
             
             // get data
@@ -676,6 +692,14 @@ namespace profile {
             if(!String.IsNoneOrEmpty(_username))
                 obj.username = ()_username;
             
+            string _first_name = util.GetParamValue(_context, "@first_name");
+            if(!String.IsNoneOrEmpty(_first_name))
+                obj.first_name = ()_first_name;
+            
+            string _last_name = util.GetParamValue(_context, "@last_name");
+            if(!String.IsNoneOrEmpty(_last_name))
+                obj.last_name = ()_last_name;
+            
             string _hash = util.GetParamValue(_context, "@hash");
             if(!String.IsNoneOrEmpty(_hash))
                 obj.hash = ()_hash;
@@ -699,6 +723,14 @@ namespace profile {
                 obj.date_created = Convert.ToDateTime(_date_created);
             else 
                 obj.date_created = DateTime.Now;
+            
+            string _email = util.GetParamValue(_context, "@email");
+            if(!String.IsNoneOrEmpty(_email))
+                obj.email = ()_email;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
             
             
             // get data

@@ -9064,16 +9064,6 @@ namespace gaming {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByProfileIdByGameId(
-            string profile_id
-            , string game_id
-        )  {            
-            return act.CountGameStatisticLeaderboardByProfileIdByGameId(
-            profile_id
-            , game_id
-            );
-        }       
-//------------------------------------------------------------------------------                    
         public virtual int CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
             string key
             , string profile_id
@@ -9097,6 +9087,16 @@ namespace gaming {
             , profile_id
             , game_id
             , timestamp
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return act.CountGameStatisticLeaderboardByProfileIdByGameId(
+            profile_id
+            , game_id
             );
         }       
 //------------------------------------------------------------------------------                    
@@ -9128,28 +9128,28 @@ namespace gaming {
             return act.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKey(string set_type, GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByKey(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileId(string set_type, GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileId(set_type, obj);
         }
         
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKey(SetType set_type, GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByKey(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileId(SetType set_type, GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKey(GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByKey(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileId(GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(set_type, obj);
         }
         
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(SetType set_type, GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(SetType set_type, GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
         public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
@@ -9164,16 +9164,16 @@ namespace gaming {
             return act.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByGameIdByKey(string set_type, GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByGameIdByKey(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(set_type, obj);
         }
         
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByGameIdByKey(SetType set_type, GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByGameIdByKey(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameId(SetType set_type, GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByGameIdByKey(GameStatisticLeaderboard obj)  {
-            return act.SetGameStatisticLeaderboardByProfileIdByGameIdByKey(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameId(GameStatisticLeaderboard obj)  {
+            return act.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
         public virtual bool DelGameStatisticLeaderboardByUuid(
@@ -9194,16 +9194,6 @@ namespace gaming {
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByProfileIdByGameId(
-            string profile_id
-            , string game_id
-        )  {            
-            return act.DelGameStatisticLeaderboardByProfileIdByGameId(
-            profile_id
-            , game_id
-            );
-        }                     
-//------------------------------------------------------------------------------                    
         public virtual bool DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
             string key
             , string profile_id
@@ -9212,6 +9202,16 @@ namespace gaming {
             return act.DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
             key
             , profile_id
+            , game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return act.DelGameStatisticLeaderboardByProfileIdByGameId(
+            profile_id
             , game_id
             );
         }                     
@@ -9516,62 +9516,73 @@ namespace gaming {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByProfileIdByGameId(
-            string profile_id
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+            string key
             , string game_id
+            , string network
         )  {
-            return act.GetGameStatisticLeaderboardListByProfileIdByGameId(
-            profile_id
+            return act.GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+            key
             , game_id
+            , network
             );
         }
         
-        public virtual GameStatisticLeaderboard GetGameStatisticLeaderboardByProfileIdByGameId(
-            string profile_id
+        public virtual GameStatisticLeaderboard GetGameStatisticLeaderboardByKeyByGameIdByNetwork(
+            string key
             , string game_id
+            , string network
         )  {
-            foreach (GameStatisticLeaderboard item in GetGameStatisticLeaderboardListByProfileIdByGameId(
-            profile_id
+            foreach (GameStatisticLeaderboard item in GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+            key
             , game_id
+            , network
             ))  {
                 return item;
             }
             return null;
         }
         
-        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
-            string profile_id
+        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+            string key
             , string game_id
+            , string network
         ) {
-            return CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+            return CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
                     false
                     , CACHE_DEFAULT_HOURS
-                    , profile_id
+                    , key
                     , game_id
+                    , network
                 );
         }
         
-        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
             bool overrideCache
             , int cacheHours
-            , string profile_id
+            , string key
             , string game_id
+            , string network
         ) {
             List<GameStatisticLeaderboard> objs;
 
-            string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameId";
+            string method_name = "CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
             sb.Append(method_name);
             sb.Append("_");
-            sb.Append("profile_id".ToLower());
+            sb.Append("key".ToLower());
             sb.Append("_");
-            sb.Append(profile_id);
+            sb.Append(key);
             sb.Append("_");
             sb.Append("game_id".ToLower());
             sb.Append("_");
             sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("network".ToLower());
+            sb.Append("_");
+            sb.Append(network);
 
             string cache_key = sb.ToString();
 
@@ -9579,93 +9590,10 @@ namespace gaming {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetGameStatisticLeaderboardListByProfileIdByGameId(
-                    profile_id
+                objs = GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+                    key
                     , game_id
-                );
-                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
-            }
-            return objs;
-        }        
-//------------------------------------------------------------------------------                    
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            string profile_id
-            , string game_id
-            , float timestamp
-        )  {
-            return act.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            profile_id
-            , game_id
-            , timestamp
-            );
-        }
-        
-        public virtual GameStatisticLeaderboard GetGameStatisticLeaderboardByProfileIdByGameIdByTimestamp(
-            string profile_id
-            , string game_id
-            , float timestamp
-        )  {
-            foreach (GameStatisticLeaderboard item in GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            profile_id
-            , game_id
-            , timestamp
-            ))  {
-                return item;
-            }
-            return null;
-        }
-        
-        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            string profile_id
-            , string game_id
-            , float timestamp
-        ) {
-            return CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-                    false
-                    , CACHE_DEFAULT_HOURS
-                    , profile_id
-                    , game_id
-                    , timestamp
-                );
-        }
-        
-        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            bool overrideCache
-            , int cacheHours
-            , string profile_id
-            , string game_id
-            , float timestamp
-        ) {
-            List<GameStatisticLeaderboard> objs;
-
-            string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp";
-
-            StringBuilder sb = new StringBuilder();
-            sb.Length = 0;
-            sb.Append(method_name);
-            sb.Append("_");
-            sb.Append("profile_id".ToLower());
-            sb.Append("_");
-            sb.Append(profile_id);
-            sb.Append("_");
-            sb.Append("game_id".ToLower());
-            sb.Append("_");
-            sb.Append(game_id);
-            sb.Append("_");
-            sb.Append("timestamp".ToLower());
-            sb.Append("_");
-            sb.Append(timestamp);
-
-            string cache_key = sb.ToString();
-
-            objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
-
-            if (objs == null || overrideCache) // if object not cached, get and cache
-            {
-                objs = GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-                    profile_id
-                    , game_id
-                    , timestamp
+                    , network
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
             }
@@ -9844,6 +9772,1074 @@ namespace gaming {
                 objs = GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
                     key
                     , profile_id
+                    , game_id
+                    , timestamp
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            return act.GetGameStatisticLeaderboardListByProfileIdByGameId(
+            profile_id
+            , game_id
+            );
+        }
+        
+        public virtual GameStatisticLeaderboard GetGameStatisticLeaderboardByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            foreach (GameStatisticLeaderboard item in GetGameStatisticLeaderboardListByProfileIdByGameId(
+            profile_id
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        ) {
+            return CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+            , string game_id
+        ) {
+            List<GameStatisticLeaderboard> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardListByProfileIdByGameId(
+                    profile_id
+                    , game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            return act.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+            );
+        }
+        
+        public virtual GameStatisticLeaderboard GetGameStatisticLeaderboardByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            foreach (GameStatisticLeaderboard item in GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        ) {
+            return CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                    , game_id
+                    , timestamp
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboard> CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+            , string game_id
+            , float timestamp
+        ) {
+            List<GameStatisticLeaderboard> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("timestamp".ToLower());
+            sb.Append("_");
+            sb.Append(timestamp);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+                    profile_id
+                    , game_id
+                    , timestamp
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollup(
+        )  {            
+            return act.CountGameStatisticLeaderboardRollup(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByUuid(
+            string uuid
+        )  {            
+            return act.CountGameStatisticLeaderboardRollupByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByKey(
+            string key
+        )  {            
+            return act.CountGameStatisticLeaderboardRollupByKey(
+            key
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByGameId(
+            string game_id
+        )  {            
+            return act.CountGameStatisticLeaderboardRollupByGameId(
+            game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByGameId(
+            string key
+            , string game_id
+        )  {            
+            return act.CountGameStatisticLeaderboardRollupByKeyByGameId(
+            key
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {            
+            return act.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+            string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        )  {            
+            return act.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+            key
+            , profile_id
+            , game_id
+            , timestamp
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return act.CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+            profile_id
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameStatisticLeaderboardRollupResult BrowseGameStatisticLeaderboardRollupListByFilter(SearchFilter obj)  {
+            return act.BrowseGameStatisticLeaderboardRollupListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByUuid(string set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByUuid(SetType set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByUuid(GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(SetType set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileId(set_type, obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileId(SetType set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileId(GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(set_type, obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(SetType set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(SetType set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(SetType set_type, GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(GameStatisticLeaderboardRollup obj)  {
+            return act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByUuid(
+            string uuid
+        )  {            
+            return act.DelGameStatisticLeaderboardRollupByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByKeyByGameId(
+            string key
+            , string game_id
+        )  {            
+            return act.DelGameStatisticLeaderboardRollupByKeyByGameId(
+            key
+            , game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {            
+            return act.DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return act.DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+            profile_id
+            , game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupList(
+        )  {
+            return act.GetGameStatisticLeaderboardRollupList(
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollup(
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupList(
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupList(
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupList(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupList(
+            bool overrideCache
+            , int cacheHours
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupList";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupList(
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByUuid(
+            string uuid
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByUuid(
+            string uuid
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKey(
+            string key
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByKey(
+            key
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByKey(
+            string key
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByKey(
+            key
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKey(
+            string key
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByKey(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , key
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKey(
+            bool overrideCache
+            , int cacheHours
+            , string key
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByKey";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("key".ToLower());
+            sb.Append("_");
+            sb.Append(key);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByKey(
+                    key
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByGameId(
+            string game_id
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByGameId(
+            game_id
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByGameId(
+            string game_id
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByGameId(
+            game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByGameId(
+            string game_id
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByGameId(
+                    game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByGameId(
+            string key
+            , string game_id
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByKeyByGameId(
+            key
+            , game_id
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByKeyByGameId(
+            string key
+            , string game_id
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByKeyByGameId(
+            key
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(
+            string key
+            , string game_id
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , key
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string key
+            , string game_id
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("key".ToLower());
+            sb.Append("_");
+            sb.Append(key);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByKeyByGameId(
+                    key
+                    , game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            string key
+            , string game_id
+            , string network
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            key
+            , game_id
+            , network
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByKeyByGameIdByNetwork(
+            string key
+            , string game_id
+            , string network
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            key
+            , game_id
+            , network
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            string key
+            , string game_id
+            , string network
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , key
+                    , game_id
+                    , network
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            bool overrideCache
+            , int cacheHours
+            , string key
+            , string game_id
+            , string network
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("key".ToLower());
+            sb.Append("_");
+            sb.Append(key);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("network".ToLower());
+            sb.Append("_");
+            sb.Append(network);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+                    key
+                    , game_id
+                    , network
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , key
+                    , profile_id
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string key
+            , string profile_id
+            , string game_id
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("key".ToLower());
+            sb.Append("_");
+            sb.Append(key);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+                    key
+                    , profile_id
+                    , game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            key
+            , profile_id
+            , game_id
+            , timestamp
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+            string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            key
+            , profile_id
+            , game_id
+            , timestamp
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , key
+                    , profile_id
+                    , game_id
+                    , timestamp
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            bool overrideCache
+            , int cacheHours
+            , string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("key".ToLower());
+            sb.Append("_");
+            sb.Append(key);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("timestamp".ToLower());
+            sb.Append("_");
+            sb.Append(timestamp);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+                    key
+                    , profile_id
+                    , game_id
+                    , timestamp
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            profile_id
+            , game_id
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            profile_id
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+            , string game_id
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+                    profile_id
+                    , game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            return act.GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+            );
+        }
+        
+        public virtual GameStatisticLeaderboardRollup GetGameStatisticLeaderboardRollupByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            foreach (GameStatisticLeaderboardRollup item in GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        ) {
+            return CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                    , game_id
+                    , timestamp
+                );
+        }
+        
+        public virtual List<GameStatisticLeaderboardRollup> CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+            , string game_id
+            , float timestamp
+        ) {
+            List<GameStatisticLeaderboardRollup> objs;
+
+            string method_name = "CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("timestamp".ToLower());
+            sb.Append("_");
+            sb.Append(timestamp);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+                    profile_id
                     , game_id
                     , timestamp
                 );

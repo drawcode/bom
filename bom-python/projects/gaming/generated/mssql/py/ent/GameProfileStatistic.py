@@ -20,6 +20,7 @@ class GameProfileStatistic(BaseEntity):
         self.level = None
         self.type = None
         self.profile_id = None
+        self.points = None
         self.key = None
         self.timestamp = None
         self.game_id = None

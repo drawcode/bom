@@ -1322,6 +1322,8 @@ namespace gaming {
                     obj.active = dataType.FillDataBool(dr, "active");                
             if (dr["game_id"] != null)                    
                     obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["data"] != null)                    
+                    obj.data = dataType.FillDataString(dr, "data");                
             if (dr["uuid"] != null)                    
                     obj.uuid = dataType.FillDataString(dr, "uuid");                
             if (dr["date_modified"] != null)                    
@@ -4662,8 +4664,8 @@ namespace gaming {
                     obj.username = dataType.FillDataString(dr, "username");                
             if (dr["key"] != null)                    
                     obj.key = dataType.FillDataString(dr, "key");                
-            if (dr["stat_value_formatted"] != null)                    
-                    obj.stat_value_formatted = dataType.FillDataString(dr, "stat_value_formatted");                
+            if (dr["timestamp"] != null)                    
+                    obj.timestamp = dataType.FillDataFloat(dr, "timestamp");                
             if (dr["profile_id"] != null)                    
                     obj.profile_id = dataType.FillDataString(dr, "profile_id");                
             if (dr["rank"] != null)                    
@@ -4680,14 +4682,16 @@ namespace gaming {
                     obj.data = dataType.FillDataString(dr, "data");                
             if (dr["stat_value"] != null)                    
                     obj.stat_value = dataType.FillDataFloat(dr, "stat_value");                
+            if (dr["network"] != null)                    
+                    obj.network = dataType.FillDataString(dr, "network");                
             if (dr["uuid"] != null)                    
                     obj.uuid = dataType.FillDataString(dr, "uuid");                
             if (dr["date_modified"] != null)                    
                     obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
             if (dr["level"] != null)                    
                     obj.level = dataType.FillDataString(dr, "level");                
-            if (dr["timestamp"] != null)                    
-                    obj.timestamp = dataType.FillDataFloat(dr, "timestamp");                
+            if (dr["stat_value_formatted"] != null)                    
+                    obj.stat_value_formatted = dataType.FillDataString(dr, "stat_value_formatted");                
             if (dr["date_created"] != null)                    
                     obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
             if (dr["type"] != null)                    
@@ -4731,15 +4735,6 @@ namespace gaming {
                 , game_id
             );
         }       
-        public virtual int CountGameStatisticLeaderboardByProfileIdByGameId(
-            string profile_id
-            , string game_id
-        )  {            
-            return data.CountGameStatisticLeaderboardByProfileIdByGameId(
-                profile_id
-                , game_id
-            );
-        }       
         public virtual int CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
             string key
             , string profile_id
@@ -4762,6 +4757,15 @@ namespace gaming {
                 , profile_id
                 , game_id
                 , timestamp
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return data.CountGameStatisticLeaderboardByProfileIdByGameId(
+                profile_id
+                , game_id
             );
         }       
         public virtual GameStatisticLeaderboardResult BrowseGameStatisticLeaderboardListByFilter(SearchFilter obj)  {
@@ -4787,17 +4791,17 @@ namespace gaming {
         public virtual bool SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {            
             return data.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKey(string set_type, GameStatisticLeaderboard obj)  {            
-            return data.SetGameStatisticLeaderboardByProfileIdByKey(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileId(string set_type, GameStatisticLeaderboard obj)  {            
+            return data.SetGameStatisticLeaderboardByKeyByProfileId(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(string set_type, GameStatisticLeaderboard obj)  {            
-            return data.SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {            
+            return data.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(set_type, obj);
         }    
         public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {            
             return data.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByGameIdByKey(string set_type, GameStatisticLeaderboard obj)  {            
-            return data.SetGameStatisticLeaderboardByProfileIdByGameIdByKey(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboard obj)  {            
+            return data.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(set_type, obj);
         }    
         public virtual bool DelGameStatisticLeaderboardByUuid(
             string uuid
@@ -4815,15 +4819,6 @@ namespace gaming {
                 , game_id
             );
         }                     
-        public virtual bool DelGameStatisticLeaderboardByProfileIdByGameId(
-            string profile_id
-            , string game_id
-        )  {
-            return data.DelGameStatisticLeaderboardByProfileIdByGameId(
-                profile_id
-                , game_id
-            );
-        }                     
         public virtual bool DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
             string key
             , string profile_id
@@ -4832,6 +4827,15 @@ namespace gaming {
             return data.DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
                 key
                 , profile_id
+                , game_id
+            );
+        }                     
+        public virtual bool DelGameStatisticLeaderboardByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            return data.DelGameStatisticLeaderboardByProfileIdByGameId(
+                profile_id
                 , game_id
             );
         }                     
@@ -4930,37 +4934,16 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByProfileIdByGameId(
-            string profile_id
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+            string key
             , string game_id
+            , string network
         )  {
             List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
-            DataSet ds = data.GetGameStatisticLeaderboardListByProfileIdByGameId(
-                profile_id
+            DataSet ds = data.GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+                key
                 , game_id
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameStatisticLeaderboard game_statistic_leaderboard  = FillGameStatisticLeaderboard(dr);
-                        list.Add(game_statistic_leaderboard);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            string profile_id
-            , string game_id
-            , float timestamp
-        )  {
-            List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
-            DataSet ds = data.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-                profile_id
-                , game_id
-                , timestamp
+                , network
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -5015,6 +4998,445 @@ namespace gaming {
                     foreach(DataRow dr in dt.Rows){
                        GameStatisticLeaderboard game_statistic_leaderboard  = FillGameStatisticLeaderboard(dr);
                         list.Add(game_statistic_leaderboard);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
+            DataSet ds = data.GetGameStatisticLeaderboardListByProfileIdByGameId(
+                profile_id
+                , game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboard game_statistic_leaderboard  = FillGameStatisticLeaderboard(dr);
+                        list.Add(game_statistic_leaderboard);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
+            DataSet ds = data.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboard game_statistic_leaderboard  = FillGameStatisticLeaderboard(dr);
+                        list.Add(game_statistic_leaderboard);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
+        public virtual GameStatisticLeaderboardRollup FillGameStatisticLeaderboardRollup(DataRow dr) {
+            GameStatisticLeaderboardRollup obj = new GameStatisticLeaderboardRollup();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["username"] != null)                    
+                    obj.username = dataType.FillDataString(dr, "username");                
+            if (dr["key"] != null)                    
+                    obj.key = dataType.FillDataString(dr, "key");                
+            if (dr["timestamp"] != null)                    
+                    obj.timestamp = dataType.FillDataFloat(dr, "timestamp");                
+            if (dr["profile_id"] != null)                    
+                    obj.profile_id = dataType.FillDataString(dr, "profile_id");                
+            if (dr["rank"] != null)                    
+                    obj.rank = dataType.FillDataInt(dr, "rank");                
+            if (dr["rank_change"] != null)                    
+                    obj.rank_change = dataType.FillDataInt(dr, "rank_change");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["rank_total_count"] != null)                    
+                    obj.rank_total_count = dataType.FillDataInt(dr, "rank_total_count");                
+            if (dr["data"] != null)                    
+                    obj.data = dataType.FillDataString(dr, "data");                
+            if (dr["stat_value"] != null)                    
+                    obj.stat_value = dataType.FillDataFloat(dr, "stat_value");                
+            if (dr["network"] != null)                    
+                    obj.network = dataType.FillDataString(dr, "network");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["level"] != null)                    
+                    obj.level = dataType.FillDataString(dr, "level");                
+            if (dr["stat_value_formatted"] != null)                    
+                    obj.stat_value_formatted = dataType.FillDataString(dr, "stat_value_formatted");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataString(dr, "type");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameStatisticLeaderboardRollup(
+        )  {            
+            return data.CountGameStatisticLeaderboardRollup(
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardRollupByUuid(
+            string uuid
+        )  {            
+            return data.CountGameStatisticLeaderboardRollupByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardRollupByKey(
+            string key
+        )  {            
+            return data.CountGameStatisticLeaderboardRollupByKey(
+                key
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardRollupByGameId(
+            string game_id
+        )  {            
+            return data.CountGameStatisticLeaderboardRollupByGameId(
+                game_id
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByGameId(
+            string key
+            , string game_id
+        )  {            
+            return data.CountGameStatisticLeaderboardRollupByKeyByGameId(
+                key
+                , game_id
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {            
+            return data.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+                key
+                , profile_id
+                , game_id
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+            string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        )  {            
+            return data.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+                key
+                , profile_id
+                , game_id
+                , timestamp
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return data.CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+                profile_id
+                , game_id
+            );
+        }       
+        public virtual GameStatisticLeaderboardRollupResult BrowseGameStatisticLeaderboardRollupListByFilter(SearchFilter obj)  {
+            GameStatisticLeaderboardRollupResult result = new GameStatisticLeaderboardRollupResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameStatisticLeaderboardRollupListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        result.data.Add(game_statistic_leaderboard_rollup);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameStatisticLeaderboardRollupByUuid(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj);
+        }    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByKeyByProfileId(set_type, obj);
+        }    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(set_type, obj);
+        }    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
+        }    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(set_type, obj);
+        }    
+        public virtual bool DelGameStatisticLeaderboardRollupByUuid(
+            string uuid
+        )  {
+            return data.DelGameStatisticLeaderboardRollupByUuid(
+                uuid
+            );
+        }                     
+        public virtual bool DelGameStatisticLeaderboardRollupByKeyByGameId(
+            string key
+            , string game_id
+        )  {
+            return data.DelGameStatisticLeaderboardRollupByKeyByGameId(
+                key
+                , game_id
+            );
+        }                     
+        public virtual bool DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            return data.DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+                key
+                , profile_id
+                , game_id
+            );
+        }                     
+        public virtual bool DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            return data.DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+                profile_id
+                , game_id
+            );
+        }                     
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupList(
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupList(
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByUuid(
+            string uuid
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKey(
+            string key
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKey(
+                key
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByGameId(
+            string game_id
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByGameId(
+                game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByGameId(
+            string key
+            , string game_id
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKeyByGameId(
+                key
+                , game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            string key
+            , string game_id
+            , string network
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+                key
+                , game_id
+                , network
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+                key
+                , profile_id
+                , game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+                key
+                , profile_id
+                , game_id
+                , timestamp
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+                profile_id
+                , game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
                     }
                 }
             }
@@ -5388,6 +5810,8 @@ namespace gaming {
                     obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
             if (dr["level"] != null)                    
                     obj.level = dataType.FillDataString(dr, "level");                
+            if (dr["points"] != null)                    
+                    obj.points = dataType.FillDataFloat(dr, "points");                
             if (dr["date_created"] != null)                    
                     obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
             if (dr["type"] != null)                    
@@ -5725,6 +6149,8 @@ namespace gaming {
                     obj.data = dataType.FillDataString(dr, "data");                
             if (dr["uuid"] != null)                    
                     obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["points"] != null)                    
+                    obj.points = dataType.FillDataFloat(dr, "points");                
             if (dr["store_count"] != null)                    
                     obj.store_count = dataType.FillDataInt(dr, "store_count");                
             if (dr["key"] != null)                    
@@ -6996,6 +7422,8 @@ namespace gaming {
                     obj.active = dataType.FillDataBool(dr, "active");                
             if (dr["date_created"] != null)                    
                     obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["modifier"] != null)                    
+                    obj.modifier = dataType.FillDataFloat(dr, "modifier");                
             if (dr["type"] != null)                    
                     obj.type = dataType.FillDataString(dr, "type");                
             if (dr["leaderboard"] != null)                    

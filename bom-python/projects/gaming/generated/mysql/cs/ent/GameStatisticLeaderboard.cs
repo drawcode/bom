@@ -76,6 +76,7 @@ namespace gaming.ent {
     
         public string username { get; set; }
         public int rank_change { get; set; }
+        public string network { get; set; }
         public float timestamp { get; set; }
         public string level { get; set; }
         public string stat_value_formatted { get; set; }
@@ -94,6 +95,9 @@ namespace gaming.ent {
 	    	    dict = DataUtil.SetDictValue(dict, "username", username);
 	    	}
 	    	dict = DataUtil.SetDictValue(dict, "rank_change", rank_change);
+	    	if (network != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "network", network);
+	    	}
 	    	dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
 	    	if (level != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "level", level);
@@ -131,6 +135,11 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("rank_change")) {
 	    	    if(dict["rank_change"] != null) {
 	    	    	rank_change = DataType.Instance.FillInt(dict["rank_change"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("network")) {
+	    	    if(dict["network"] != null) {
+	    	    	network = DataType.Instance.FillString(dict["network"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("timestamp")) {

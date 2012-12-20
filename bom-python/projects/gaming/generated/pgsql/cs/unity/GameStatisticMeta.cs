@@ -53,6 +53,7 @@ public class GameStatisticMeta : BaseMeta {
     public int sort { get; set; }
     public int store_count { get; set; }
     public string data { get; set; }
+    public float points { get; set; }
     public string key { get; set; }
     public string game_id { get; set; }
     public string type { get; set; }
@@ -73,6 +74,7 @@ public class GameStatisticMeta : BaseMeta {
 	if (data != null) {
 	    dict = DataUtil.SetDictValue(dict, "data", data);
 	}
+	dict = DataUtil.SetDictValue(dict, "points", points);
 	if (key != null) {
 	    dict = DataUtil.SetDictValue(dict, "key", key);
 	}
@@ -102,6 +104,11 @@ public class GameStatisticMeta : BaseMeta {
 	if(dict.ContainsKey("data")) {
 	    if(dict["data"] != null) {
 	    	data = DataType.Instance.FillString(dict["data"]);
+	    }		
+	}
+	if(dict.ContainsKey("points")) {
+	    if(dict["points"] != null) {
+	    	points = DataType.Instance.FillFloat(dict["points"]);
 	    }		
 	}
 	if(dict.ContainsKey("key")) {

@@ -57,6 +57,7 @@ public class ProfileGameNetwork : BaseEntity {
     public string secret { get; set; }
     public string network_username { get; set; }
     public string game_id { get; set; }
+    public string data { get; set; }
 
     public ProfileGameNetwork() {
         Reset();
@@ -88,6 +89,9 @@ public class ProfileGameNetwork : BaseEntity {
 	}
 	if (game_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
+	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
 	}
          return dict;
     }
@@ -126,6 +130,11 @@ public class ProfileGameNetwork : BaseEntity {
 	if(dict.ContainsKey("game_id")) {
 	    if(dict["game_id"] != null) {
 	    	game_id = DataType.Instance.FillString(dict["game_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.FillString(dict["data"]);
 	    }		
 	}
     }

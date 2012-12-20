@@ -336,7 +336,8 @@
                 "secret":{"type":"string", "maximum":500, "required":false},
                 "hash":{"type":"string", "maximum":500, "required":false},
                 "token":{"type":"string", "maximum":500, "required":false},
-                "network_username":{"type":"string", "maximum":500, "required":false}
+                "network_username":{"type":"string", "maximum":500, "required":false},
+                "data":{"type":"data", "required":false}
             },
             "relation":[
                 {"table":"", "field":""}
@@ -373,7 +374,7 @@
         ,
         {
             "id":"profile_game_data_attribute",
-            "description":"Used for local storage in game clietn so keys are compact.",
+            "description":"Used for local storage in game client so keys are compact.",
             "type":"object",
             "generate":["code","data"],
             "properties":{
@@ -1085,6 +1086,7 @@
                 "stat_value":{"type":"float", "required":false},
                 "stat_value_formatted":{"type":"string", "maximum":500, "required":false},
                 "username":{"type":"string", "maximum":500, "required":false},
+                "network":{"type":"string", "maximum":500, "required":false},
                 "data":{"type":"data", "required":false},
                 "type":{"type":"string", "maximum":500, "required":false},
                 "level":{"type":"string", "maximum":500, "required":false},
@@ -1122,24 +1124,25 @@
                     {"params":["key"]},
                     {"params":["game_id"]},
                     {"params":["key", "game_id"]},
-                    {"params":["profile_id", "game_id"]},
-                    {"params":["profile_id", "game_id", "timestamp"]},
+                    {"params":["key", "game_id", "network"]},
                     {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]}
+                    {"params":["key", "profile_id", "game_id", "timestamp"]},
+                    {"params":["profile_id", "game_id"]},
+                    {"params":["profile_id", "game_id", "timestamp"]}
                 ],
                 "set":[               
                     {"params":["uuid"]},
                     {"params":["uuid", "profile_id","game_id","timestamp"]}, 
-                    {"params":["profile_id","key"]},                       
-                    {"params":["profile_id","key", "timestamp"]}, 
+                    {"params":["key", "profile_id"]},                       
+                    {"params":["key", "profile_id", "timestamp"]}, 
                     {"params":["key", "profile_id","game_id","timestamp"]},                    
-                    {"params":["profile_id","game_id", "key"]}
+                    {"params":["key", "profile_id","game_id"]}
                 ],
                 "del":[                    
                     {"params":["uuid"]},
                     {"params":["key", "game_id"]},
-                    {"params":["profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id"]}
+                    {"params":["key", "profile_id", "game_id"]},
+                    {"params":["profile_id", "game_id"]}
                 ],
                 "count":[
                     {},
@@ -1147,9 +1150,95 @@
                     {"params":["key"]},
                     {"params":["game_id"]},
                     {"params":["key", "game_id"]},
-                    {"params":["profile_id", "game_id"]},
                     {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]}
+                    {"params":["key", "profile_id", "game_id", "timestamp"]},
+                    {"params":["profile_id", "game_id"]}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },
+        {
+            "id":"game_statistic_leaderboard_rollup",
+            "extends": "base_entity",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{
+                "key":{"type":"uuid", "required":false},
+                "game_id":{"type":"uuid",  "required":false},
+                "profile_id":{"type":"uuid",  "required":false},
+                "stat_value":{"type":"float", "required":false},
+                "stat_value_formatted":{"type":"string", "maximum":500, "required":false},
+                "username":{"type":"string", "maximum":500, "required":false},
+                "network":{"type":"string", "maximum":500, "required":false},
+                "data":{"type":"data", "required":false},
+                "type":{"type":"string", "maximum":500, "required":false},
+                "level":{"type":"string", "maximum":500, "required":false},
+                "timestamp":{"type":"float", "required":false},
+                "rank":{"type":"int", "required":false},
+                "rank_change":{"type":"int", "required":false},
+                "rank_total_count":{"type":"int", "required":false}
+                
+            },
+            "indexes":[
+                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"}, 
+                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
+                {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},  
+                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+                {"fields":["key", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+                {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
+                {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
+                {"fields":["key", "username"], "unique": false, "type":"clustered", "direction":"ASC"}, 
+                {"fields":["key", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
+                {"fields":["key", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}, 
+                {"fields":["key", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},        
+                {"fields":["key", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
+                {"fields":["key", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},                
+                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},       
+                {"fields":["key", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},                
+                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+            ],
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "methods":{
+                "get":[
+                    {},
+                    {"params":["uuid"]},
+                    {"params":["key"]},
+                    {"params":["game_id"]},
+                    {"params":["key", "game_id"]},
+                    {"params":["key", "game_id", "network"]},
+                    {"params":["key", "profile_id", "game_id"]},
+                    {"params":["key", "profile_id", "game_id", "timestamp"]},
+                    {"params":["profile_id", "game_id"]},
+                    {"params":["profile_id", "game_id", "timestamp"]}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["uuid", "profile_id","game_id","timestamp"]}, 
+                    {"params":["key", "profile_id"]},                       
+                    {"params":["key", "profile_id", "timestamp"]}, 
+                    {"params":["key", "profile_id","game_id","timestamp"]},                    
+                    {"params":["key", "profile_id","game_id"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]},
+                    {"params":["key", "game_id"]},
+                    {"params":["key", "profile_id", "game_id"]},
+                    {"params":["profile_id", "game_id"]}
+                ],
+                "count":[
+                    {},
+                    {"params":["uuid"]},
+                    {"params":["key"]},
+                    {"params":["game_id"]},
+                    {"params":["key", "game_id"]},
+                    {"params":["key", "profile_id", "game_id"]},
+                    {"params":["key", "profile_id", "game_id", "timestamp"]},
+                    {"params":["profile_id", "game_id"]}
                 ],
                 "browse":[
                     {"params":["filter"]}
@@ -1265,7 +1354,8 @@
                 "data":{"type":"data", "required":false},
                 "type":{"type":"string", "maximum":500, "required":false},
                 "level":{"type":"string", "maximum":500, "required":false},
-                "timestamp":{"type":"float", "required":false}
+                "timestamp":{"type":"float", "required":false},
+                "points":{"type":"float", "required":false}
                 
             },
             "indexes":[
@@ -1342,7 +1432,8 @@
                 "order":{"type":"string", "maximum":40, "required":false},
                 "sort":{"type":"int", "required":false},
                 "store_count":{"type":"int", "required":false},
-                "data":{"type":"data", "required":false}
+                "data":{"type":"data", "required":false},
+                "points":{"type":"float", "required":false}
             },
             "indexes":[
                 {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"},
@@ -1638,6 +1729,7 @@
                 "game_stat":{"type":"bool", "required":false},
                 "sort":{"type":"int", "required":false},
                 "points":{"type":"int", "required":false},
+                "modifier":{"type":"numeric", "required":false},
                 "level":{"type":"string", "maximum":500, "required":false},
                 "data":{"type":"data", "required":false }
             },

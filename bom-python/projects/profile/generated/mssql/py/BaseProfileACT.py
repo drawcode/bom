@@ -18,6 +18,10 @@ class BaseProfileACT(object):
             obj.status = row['status'] #dataType.FillData(dr, "status");                
         if (row['username'] != None) :                 
             obj.username = row['username'] #dataType.FillData(dr, "username");                
+        if (row['first_name'] != None) :                 
+            obj.first_name = row['first_name'] #dataType.FillData(dr, "first_name");                
+        if (row['last_name'] != None) :                 
+            obj.last_name = row['last_name'] #dataType.FillData(dr, "last_name");                
         if (row['hash'] != None) :                 
             obj.hash = row['hash'] #dataType.FillData(dr, "hash");                
         if (row['uuid'] != None) :                 
@@ -28,6 +32,10 @@ class BaseProfileACT(object):
             obj.active = row['active'] #dataType.FillData(dr, "active");                
         if (row['date_created'] != None) :                 
             obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['email'] != None) :                 
+            obj.email = row['email'] #dataType.FillData(dr, "email");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
 
         return obj
         

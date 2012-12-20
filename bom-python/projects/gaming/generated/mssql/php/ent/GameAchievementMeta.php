@@ -42,6 +42,7 @@ class GameAchievementMeta extends BaseMeta {
     public $points;
     public $key;
     public $game_id;
+    public $modifier;
     public $type;
     public $leaderboard;
 

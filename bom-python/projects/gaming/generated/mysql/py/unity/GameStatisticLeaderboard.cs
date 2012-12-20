@@ -52,6 +52,7 @@ public class GameStatisticLeaderboard : BaseEntity {
     // profile conversions.
     public  username { get; set; }
     public  rank_change { get; set; }
+    public  network { get; set; }
     public  timestamp { get; set; }
     public  level { get; set; }
     public  stat_value_formatted { get; set; }
@@ -79,6 +80,9 @@ public class GameStatisticLeaderboard : BaseEntity {
 	}
 	if (rank_change != null) {
 	    dict = DataUtil.SetDictValue(dict, "rank_change", rank_change);
+	}
+	if (network != null) {
+	    dict = DataUtil.SetDictValue(dict, "network", network);
 	}
 	if (timestamp != null) {
 	    dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
@@ -125,6 +129,11 @@ public class GameStatisticLeaderboard : BaseEntity {
 	if(dict.ContainsKey("rank_change")) {
 	    if(dict["rank_change"] != null) {
 	    	rank_change = DataType.Instance.Fill(dict["rank_change"]);
+	    }		
+	}
+	if(dict.ContainsKey("network")) {
+	    if(dict["network"] != null) {
+	    	network = DataType.Instance.Fill(dict["network"]);
 	    }		
 	}
 	if(dict.ContainsKey("timestamp")) {

@@ -37,6 +37,7 @@ class GameStatisticLeaderboard extends BaseEntity {
     
     public $username;
     public $rank_change;
+    public $network;
     public $timestamp;
     public $level;
     public $stat_value_formatted;

@@ -20,6 +20,7 @@ require_once('ent/GameRpgItemWeapon.php');
 require_once('ent/GameRpgItemSkill.php');
 require_once('ent/GameProduct.php');
 require_once('ent/GameStatisticLeaderboard.php');
+require_once('ent/GameStatisticLeaderboardRollup.php');
 require_once('ent/GameLiveQueue.php');
 require_once('ent/GameLiveRecentQueue.php');
 require_once('ent/GameProfileStatistic.php');
@@ -1494,6 +1495,9 @@ class BaseGamingACT {
         }
         if ($row['game_id'] != NULL) {                
             $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
         }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
@@ -5278,8 +5282,8 @@ class BaseGamingACT {
         if ($row['key'] != NULL) {                
             $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
         }
-        if ($row['stat_value_formatted'] != NULL) {                
-            $obj->stat_value_formatted = $row['stat_value_formatted'];#dataType.FillDataString(dr, "stat_value_formatted");
+        if ($row['timestamp'] != NULL) {                
+            $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
         }
         if ($row['profile_id'] != NULL) {                
             $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
@@ -5305,6 +5309,9 @@ class BaseGamingACT {
         if ($row['stat_value'] != NULL) {                
             $obj->stat_value = $row['stat_value'];#dataType.FillDataFloat(dr, "stat_value");
         }
+        if ($row['network'] != NULL) {                
+            $obj->network = $row['network'];#dataType.FillDataString(dr, "network");
+        }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
         }
@@ -5314,8 +5321,8 @@ class BaseGamingACT {
         if ($row['level'] != NULL) {                
             $obj->level = $row['level'];#dataType.FillDataString(dr, "level");
         }
-        if ($row['timestamp'] != NULL) {                
-            $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
+        if ($row['stat_value_formatted'] != NULL) {                
+            $obj->stat_value_formatted = $row['stat_value_formatted'];#dataType.FillDataString(dr, "stat_value_formatted");
         }
         if ($row['date_created'] != NULL) {                
             $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
@@ -5367,16 +5374,6 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardByProfileIdByGameId(
-        $profile_id
-        , $game_id
-    ) {       
-        return $this->data->CountGameStatisticLeaderboardByProfileIdByGameId(
-            $profile_id
-            , $game_id
-        );
-    }
-               
     public function CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
         $key
         , $profile_id
@@ -5400,6 +5397,16 @@ class BaseGamingACT {
             , $profile_id
             , $game_id
             , $timestamp
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardByProfileIdByGameId(
+            $profile_id
+            , $game_id
         );
     }
                
@@ -5432,20 +5439,20 @@ class BaseGamingACT {
         return $this->data->SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByProfileIdByKey($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByProfileIdByKey($set_type, $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardByKeyByProfileId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp($set_type, $obj);
     }
             
     public function SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {           
         return $this->data->SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByProfileIdByGameIdByKey($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByProfileIdByGameIdByKey($set_type, $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileIdByGameId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardByKeyByProfileIdByGameId($set_type, $obj);
     }
             
     public function DelGameStatisticLeaderboardByUuid(
@@ -5466,16 +5473,6 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameStatisticLeaderboardByProfileIdByGameId(
-        $profile_id
-        , $game_id
-    ) {
-        return $this->data->DelGameStatisticLeaderboardByProfileIdByGameId(
-            $profile_id
-            , $game_id
-        );
-    }
-        
     public function DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
         $key
         , $profile_id
@@ -5484,6 +5481,16 @@ class BaseGamingACT {
         return $this->data->DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
             $key
             , $profile_id
+            , $game_id
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        return $this->data->DelGameStatisticLeaderboardByProfileIdByGameId(
+            $profile_id
             , $game_id
         );
     }
@@ -5583,38 +5590,17 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByProfileIdByGameId(
-        $profile_id
+    public function GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+        $key
         , $game_id
+        , $network
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByProfileIdByGameId(
-            $profile_id
+        $rows = $this->data->GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+            $key
             , $game_id
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_statistic_leaderboard  = $this->FillGameStatisticLeaderboard($row);
-                $results[] = $game_statistic_leaderboard;
-            }
-        }
-        
-        return $results;
-    }
-        
-    public function GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-        $profile_id
-        , $game_id
-        , $timestamp
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            $profile_id
-            , $game_id
-            , $timestamp
+            , $network
         );
         
         if($rows != NULL) {
@@ -5669,6 +5655,486 @@ class BaseGamingACT {
             foreach ($rows as $row) {
                 $game_statistic_leaderboard  = $this->FillGameStatisticLeaderboard($row);
                 $results[] = $game_statistic_leaderboard;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardListByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardListByProfileIdByGameId(
+            $profile_id
+            , $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard  = $this->FillGameStatisticLeaderboard($row);
+                $results[] = $game_statistic_leaderboard;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            $profile_id
+            , $game_id
+            , $timestamp
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard  = $this->FillGameStatisticLeaderboard($row);
+                $results[] = $game_statistic_leaderboard;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameStatisticLeaderboardRollup($row) {
+        $obj = new GameStatisticLeaderboardRollup();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['username'] != NULL) {                
+            $obj->username = $row['username'];#dataType.FillDataString(dr, "username");
+        }
+        if ($row['key'] != NULL) {                
+            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
+        }
+        if ($row['timestamp'] != NULL) {                
+            $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
+        }
+        if ($row['profile_id'] != NULL) {                
+            $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
+        }
+        if ($row['rank'] != NULL) {                
+            $obj->rank = $row['rank'];#dataType.FillDataInt(dr, "rank");
+        }
+        if ($row['rank_change'] != NULL) {                
+            $obj->rank_change = $row['rank_change'];#dataType.FillDataInt(dr, "rank_change");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['rank_total_count'] != NULL) {                
+            $obj->rank_total_count = $row['rank_total_count'];#dataType.FillDataInt(dr, "rank_total_count");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
+        if ($row['stat_value'] != NULL) {                
+            $obj->stat_value = $row['stat_value'];#dataType.FillDataFloat(dr, "stat_value");
+        }
+        if ($row['network'] != NULL) {                
+            $obj->network = $row['network'];#dataType.FillDataString(dr, "network");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['level'] != NULL) {                
+            $obj->level = $row['level'];#dataType.FillDataString(dr, "level");
+        }
+        if ($row['stat_value_formatted'] != NULL) {                
+            $obj->stat_value_formatted = $row['stat_value_formatted'];#dataType.FillDataString(dr, "stat_value_formatted");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataString(dr, "type");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameStatisticLeaderboardRollup(
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollup(
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardRollupByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollupByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardRollupByKey(
+        $key
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollupByKey(
+            $key
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardRollupByGameId(
+        $game_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollupByGameId(
+            $game_id
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardRollupByKeyByGameId(
+        $key
+        , $game_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollupByKeyByGameId(
+            $key
+            , $game_id
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            $key
+            , $profile_id
+            , $game_id
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+        $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+            $key
+            , $profile_id
+            , $game_id
+            , $timestamp
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+            $profile_id
+            , $game_id
+        );
+    }
+               
+    public function BrowseGameStatisticLeaderboardRollupListByFilter($filter_obj) {
+        $result = new GameStatisticLeaderboardRollupResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameStatisticLeaderboardRollupListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup = $this->FillGameStatisticLeaderboardRollup($row);
+                $result->data[] = $game_statistic_leaderboard_rollup;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameStatisticLeaderboardRollupByUuid($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByUuid($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByKeyByProfileId($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId($set_type, $obj);
+    }
+            
+    public function DelGameStatisticLeaderboardRollupByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameStatisticLeaderboardRollupByUuid(
+            $uuid
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardRollupByKeyByGameId(
+        $key
+        , $game_id
+    ) {
+        return $this->data->DelGameStatisticLeaderboardRollupByKeyByGameId(
+            $key
+            , $game_id
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+        return $this->data->DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            $key
+            , $profile_id
+            , $game_id
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        return $this->data->DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+            $profile_id
+            , $game_id
+        );
+    }
+        
+    public function GetGameStatisticLeaderboardRollupList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByKey(
+        $key
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKey(
+            $key
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByGameId(
+        $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByGameId(
+            $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByKeyByGameId(
+        $key
+        , $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKeyByGameId(
+            $key
+            , $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+        $key
+        , $game_id
+        , $network
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            $key
+            , $game_id
+            , $network
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            $key
+            , $profile_id
+            , $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+        $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            $key
+            , $profile_id
+            , $game_id
+            , $timestamp
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            $profile_id
+            , $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            $profile_id
+            , $game_id
+            , $timestamp
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
             }
         }
         
@@ -6100,6 +6566,9 @@ class BaseGamingACT {
         if ($row['level'] != NULL) {                
             $obj->level = $row['level'];#dataType.FillDataString(dr, "level");
         }
+        if ($row['points'] != NULL) {                
+            $obj->points = $row['points'];#dataType.FillDataFloat(dr, "points");
+        }
         if ($row['date_created'] != NULL) {                
             $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
         }
@@ -6468,6 +6937,9 @@ class BaseGamingACT {
         }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['points'] != NULL) {                
+            $obj->points = $row['points'];#dataType.FillDataFloat(dr, "points");
         }
         if ($row['store_count'] != NULL) {                
             $obj->store_count = $row['store_count'];#dataType.FillDataInt(dr, "store_count");
@@ -7896,6 +8368,9 @@ class BaseGamingACT {
         }
         if ($row['date_created'] != NULL) {                
             $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['modifier'] != NULL) {                
+            $obj->modifier = $row['modifier'];#dataType.FillDataFloat(dr, "modifier");
         }
         if ($row['type'] != NULL) {                
             $obj->type = $row['type'];#dataType.FillDataString(dr, "type");

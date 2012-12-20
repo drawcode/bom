@@ -35,6 +35,12 @@ class BaseProfileACT {
         if ($row['username'] != NULL) {                
             $obj->username = $row['username'];#dataType.FillDataString(dr, "username");
         }
+        if ($row['first_name'] != NULL) {                
+            $obj->first_name = $row['first_name'];#dataType.FillDataString(dr, "first_name");
+        }
+        if ($row['last_name'] != NULL) {                
+            $obj->last_name = $row['last_name'];#dataType.FillDataString(dr, "last_name");
+        }
         if ($row['hash'] != NULL) {                
             $obj->hash = $row['hash'];#dataType.FillDataString(dr, "hash");
         }
@@ -49,6 +55,12 @@ class BaseProfileACT {
         }
         if ($row['date_created'] != NULL) {                
             $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['email'] != NULL) {                
+            $obj->email = $row['email'];#dataType.FillDataString(dr, "email");
+        }
+        if ($row['name'] != NULL) {                
+            $obj->name = $row['name'];#dataType.FillDataString(dr, "name");
         }
 
         return $obj;

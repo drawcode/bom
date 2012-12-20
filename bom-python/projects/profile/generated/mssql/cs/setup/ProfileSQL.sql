@@ -51,6 +51,8 @@ CREATE TABLE [dbo].[profile]
 (
     [status] varchar (50)
     , [username] varchar (255)
+    , [first_name] varchar (255)
+    , [last_name] varchar (255)
     , [hash] varchar (255)
     , [uuid] uniqueidentifier NOT NULL
     , [date_modified] DATETIME
@@ -59,6 +61,8 @@ CREATE TABLE [dbo].[profile]
                 CONSTRAINT DF_profile_active_bool DEFAULT 1
     , [date_created] DATETIME
                 CONSTRAINT DF_profile_date_created DEFAULT GETDATE()
+    , [email] varchar (255)
+    , [name] varchar (255)
 )
 GO
 ALTER TABLE [dbo].[profile] ADD 
@@ -554,11 +558,15 @@ BEGIN
     SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
     SET @sql = @sql + ', [status]'
     SET @sql = @sql + ', [username]'
+    SET @sql = @sql + ', [first_name]'
+    SET @sql = @sql + ', [last_name]'
     SET @sql = @sql + ', [hash]'
     SET @sql = @sql + ', [uuid]'
     SET @sql = @sql + ', [date_modified]'
     SET @sql = @sql + ', [active]'
     SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [email]'
+    SET @sql = @sql + ', [name]'
 
     SET @sql = @sql + ' FROM [dbo].[profile] WHERE 1=1 '
     BEGIN
@@ -604,11 +612,15 @@ CREATE PROCEDURE usp_profile_set_by_uuid
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
     , @username varchar (255) = NULL
+    , @first_name varchar (255) = NULL
+    , @last_name varchar (255) = NULL
     , @hash varchar (255) = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @active bit = NULL
     , @date_created DATETIME = GETDATE
+    , @email varchar (255) = NULL
+    , @name varchar (255) = NULL
 )
 AS
 BEGIN
@@ -645,11 +657,15 @@ BEGIN
                 SET
                     [status] = @status
                     , [username] = @username
+                    , [first_name] = @first_name
+                    , [last_name] = @last_name
                     , [hash] = @hash
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [active] = @active
                     , [date_created] = @date_created
+                    , [email] = @email
+                    , [name] = @name
                 WHERE 1=1
                 AND [uuid] = @uuid
                 SET @id=1
@@ -663,21 +679,29 @@ BEGIN
                 (
                     [status]
                     , [username]
+                    , [first_name]
+                    , [last_name]
                     , [hash]
                     , [uuid]
                     , [date_modified]
                     , [active]
                     , [date_created]
+                    , [email]
+                    , [name]
                 )
                 VALUES
                 (
                     @status
                     , @username
+                    , @first_name
+                    , @last_name
                     , @hash
                     , @uuid
                     , @date_modified
                     , @active
                     , @date_created
+                    , @email
+                    , @name
                 )                    
                 SET @id=1                    
             END
@@ -697,11 +721,15 @@ CREATE PROCEDURE usp_profile_set_by_username
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
     , @username varchar (255) = NULL
+    , @first_name varchar (255) = NULL
+    , @last_name varchar (255) = NULL
     , @hash varchar (255) = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @active bit = NULL
     , @date_created DATETIME = GETDATE
+    , @email varchar (255) = NULL
+    , @name varchar (255) = NULL
 )
 AS
 BEGIN
@@ -738,11 +766,15 @@ BEGIN
                 SET
                     [status] = @status
                     , [username] = @username
+                    , [first_name] = @first_name
+                    , [last_name] = @last_name
                     , [hash] = @hash
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [active] = @active
                     , [date_created] = @date_created
+                    , [email] = @email
+                    , [name] = @name
                 WHERE 1=1
                 AND LOWER([username]) = LOWER(@username)
                 SET @id=1
@@ -756,21 +788,29 @@ BEGIN
                 (
                     [status]
                     , [username]
+                    , [first_name]
+                    , [last_name]
                     , [hash]
                     , [uuid]
                     , [date_modified]
                     , [active]
                     , [date_created]
+                    , [email]
+                    , [name]
                 )
                 VALUES
                 (
                     @status
                     , @username
+                    , @first_name
+                    , @last_name
                     , @hash
                     , @uuid
                     , @date_modified
                     , @active
                     , @date_created
+                    , @email
+                    , @name
                 )                    
                 SET @id=1                    
             END
@@ -842,11 +882,15 @@ BEGIN
     SELECT
         [status]
         , [username]
+        , [first_name]
+        , [last_name]
         , [hash]
         , [uuid]
         , [date_modified]
         , [active]
         , [date_created]
+        , [email]
+        , [name]
     FROM [dbo].[profile]
     WHERE 1=1
     AND [uuid] = @uuid
@@ -868,11 +912,15 @@ BEGIN
     SELECT
         [status]
         , [username]
+        , [first_name]
+        , [last_name]
         , [hash]
         , [uuid]
         , [date_modified]
         , [active]
         , [date_created]
+        , [email]
+        , [name]
     FROM [dbo].[profile]
     WHERE 1=1
     AND LOWER([username]) = LOWER(@username)
@@ -894,11 +942,15 @@ BEGIN
     SELECT
         [status]
         , [username]
+        , [first_name]
+        , [last_name]
         , [hash]
         , [uuid]
         , [date_modified]
         , [active]
         , [date_created]
+        , [email]
+        , [name]
     FROM [dbo].[profile]
     WHERE 1=1
     AND LOWER([username]) = LOWER(@username)

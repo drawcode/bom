@@ -8501,16 +8501,6 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardByProfileIdByGameId(self
-        , profile_id
-        , game_id
-    ) :         
-        return self.act.CountGameStatisticLeaderboardByProfileIdByGameId(
-        profile_id
-        , game_id
-        )
-        
-#------------------------------------------------------------------------------                    
     def CountGameStatisticLeaderboardByKeyByProfileIdByGameId(self
         , key
         , profile_id
@@ -8537,6 +8527,16 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardByProfileIdByGameId(
+        profile_id
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
     def BrowseGameStatisticLeaderboardListByFilter(self, filter_obj) :
         return self.act.BrowseGameStatisticLeaderboardListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
@@ -8552,17 +8552,17 @@ class BaseGamingAPI(object):
     def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByProfileIdByKey(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByProfileIdByKey(set_type, obj)
+    def SetGameStatisticLeaderboardByKeyByProfileId(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardByKeyByProfileId(set_type, obj)
                
-    def SetGameStatisticLeaderboardByProfileIdByKey(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByProfileIdByKey('full', obj)
+    def SetGameStatisticLeaderboardByKeyByProfileId(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardByKeyByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp('full', obj)
+    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
     def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
@@ -8570,11 +8570,11 @@ class BaseGamingAPI(object):
     def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByProfileIdByGameIdByKey(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByProfileIdByGameIdByKey(set_type, obj)
+    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(set_type, obj)
                
-    def SetGameStatisticLeaderboardByProfileIdByGameIdByKey(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByProfileIdByGameIdByKey('full', obj)
+    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameStatisticLeaderboardByUuid(self
         , uuid
@@ -8592,15 +8592,6 @@ class BaseGamingAPI(object):
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardByProfileIdByGameId(self
-        , profile_id
-        , game_id
-    ) :          
-        return self.act.DelGameStatisticLeaderboardByProfileIdByGameId(
-        profile_id
-        , game_id
-        )
-#------------------------------------------------------------------------------                    
     def DelGameStatisticLeaderboardByKeyByProfileIdByGameId(self
         , key
         , profile_id
@@ -8609,6 +8600,15 @@ class BaseGamingAPI(object):
         return self.act.DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
         key
         , profile_id
+        , game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :          
+        return self.act.DelGameStatisticLeaderboardByProfileIdByGameId(
+        profile_id
         , game_id
         )
 #------------------------------------------------------------------------------                    
@@ -8907,60 +8907,71 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByProfileIdByGameId(self
-        , profile_id
+    def GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(self
+        , key
         , game_id
+        , network
         ) :
-            return self.act.GetGameStatisticLeaderboardListByProfileIdByGameId(
-                profile_id
+            return self.act.GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+                key
                 , game_id
+                , network
             )
         
-    def GetGameStatisticLeaderboardByProfileIdByGameId(self
-        , profile_id
+    def GetGameStatisticLeaderboardByKeyByGameIdByNetwork(self
+        , key
         , game_id
+        , network
     ) :
-        for item in self.GetGameStatisticLeaderboardListByProfileIdByGameId(
-        profile_id
+        for item in self.GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+        key
         , game_id
+        , network
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByProfileIdByGameId(self
-        , profile_id
+    def CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(self
+        , key
         , game_id
+        , network
     ) :
-        return CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+        return CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
             false
             , self.CACHE_DEFAULT_HOURS
-            , profile_id
+            , key
             , game_id
+            , network
         )
         
-    def CachedGetGameStatisticLeaderboardListByProfileIdByGameId(self
+    def CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(self
         , overrideCache
         , cacheHours
-        , profile_id
+        , key
         , game_id
+        , network
     ) :
         pass
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameId";
+        string method_name = "CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
         sb.Append(method_name);
         sb.Append("_");
-        sb.Append("profile_id".ToLower());
+        sb.Append("key".ToLower());
         sb.Append("_");
-        sb.Append(profile_id);
+        sb.Append(key);
         sb.Append("_");
         sb.Append("game_id".ToLower());
         sb.Append("_");
         sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("network".ToLower());
+        sb.Append("_");
+        sb.Append(network);
 
         string cache_key = sb.ToString();
 
@@ -8968,92 +8979,10 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByProfileIdByGameId(
-                profile_id
+            objs = GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+                key
                 , game_id
-            );
-            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
-        }
-        return objs;
-        """
-              
-#------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
-        , profile_id
-        , game_id
-        , timestamp
-        ) :
-            return self.act.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-                profile_id
-                , game_id
-                , timestamp
-            )
-        
-    def GetGameStatisticLeaderboardByProfileIdByGameIdByTimestamp(self
-        , profile_id
-        , game_id
-        , timestamp
-    ) :
-        for item in self.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-        profile_id
-        , game_id
-        , timestamp
-        ) :
-            return item
-        return None
-    
-    def CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
-        , profile_id
-        , game_id
-        , timestamp
-    ) :
-        return CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            false
-            , self.CACHE_DEFAULT_HOURS
-            , profile_id
-            , game_id
-            , timestamp
-        )
-        
-    def CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
-        , overrideCache
-        , cacheHours
-        , profile_id
-        , game_id
-        , timestamp
-    ) :
-        pass
-        """
-        List<GameStatisticLeaderboard> objs;
-
-        string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp";
-
-        StringBuilder sb = new StringBuilder();
-        sb.Length = 0;
-        sb.Append(method_name);
-        sb.Append("_");
-        sb.Append("profile_id".ToLower());
-        sb.Append("_");
-        sb.Append(profile_id);
-        sb.Append("_");
-        sb.Append("game_id".ToLower());
-        sb.Append("_");
-        sb.Append(game_id);
-        sb.Append("_");
-        sb.Append("timestamp".ToLower());
-        sb.Append("_");
-        sb.Append(timestamp);
-
-        string cache_key = sb.ToString();
-
-        objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
-
-        if (objs == None || overrideCache) // if object not cached, get and cache
-        {
-            objs = GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-                profile_id
-                , game_id
-                , timestamp
+                , network
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -9230,6 +9159,1021 @@ class BaseGamingAPI(object):
             objs = GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
                 key
                 , profile_id
+                , game_id
+                , timestamp
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardListByProfileIdByGameId(self
+        , profile_id
+        , game_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardListByProfileIdByGameId(
+                profile_id
+                , game_id
+            )
+        
+    def GetGameStatisticLeaderboardByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardListByProfileIdByGameId(
+        profile_id
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardListByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , game_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardListByProfileIdByGameId(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboard> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardListByProfileIdByGameId(
+                profile_id
+                , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+        ) :
+            return self.act.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            )
+        
+    def GetGameStatisticLeaderboardByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        for item in self.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        profile_id
+        , game_id
+        , timestamp
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        return CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , game_id
+            , timestamp
+        )
+        
+    def CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboard> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("timestamp".ToLower());
+        sb.Append("_");
+        sb.Append(timestamp);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardRollup(self
+    ) :         
+        return self.act.CountGameStatisticLeaderboardRollup(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardRollupByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameStatisticLeaderboardRollupByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardRollupByKey(self
+        , key
+    ) :         
+        return self.act.CountGameStatisticLeaderboardRollupByKey(
+        key
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardRollupByGameId(self
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardRollupByGameId(
+        game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardRollupByKeyByGameId(self
+        , key
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardRollupByKeyByGameId(
+        key
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        key
+        , profile_id
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+    ) :         
+        return self.act.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+        key
+        , profile_id
+        , game_id
+        , timestamp
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardRollupByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+        profile_id
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameStatisticLeaderboardRollupListByFilter(self, filter_obj) :
+        return self.act.BrowseGameStatisticLeaderboardRollupListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardRollupByUuid(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByUuid(set_type, obj)
+               
+    def SetGameStatisticLeaderboardRollupByUuid(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
+               
+    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileId(set_type, obj)
+               
+    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(set_type, obj)
+               
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
+               
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(set_type, obj)
+               
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardRollupByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameStatisticLeaderboardRollupByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardRollupByKeyByGameId(self
+        , key
+        , game_id
+    ) :          
+        return self.act.DelGameStatisticLeaderboardRollupByKeyByGameId(
+        key
+        , game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :          
+        return self.act.DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        key
+        , profile_id
+        , game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardRollupByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :          
+        return self.act.DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+        profile_id
+        , game_id
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupList(self
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupList(
+            )
+        
+    def GetGameStatisticLeaderboardRollup(self
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupList(self
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByUuid(
+                uuid
+            )
+        
+    def GetGameStatisticLeaderboardRollupByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByKey(self
+        , key
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByKey(
+                key
+            )
+        
+    def GetGameStatisticLeaderboardRollupByKey(self
+        , key
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByKey(
+        key
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByKey(self
+        , key
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByKey(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , key
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByKey(self
+        , overrideCache
+        , cacheHours
+        , key
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByKey";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("key".ToLower());
+        sb.Append("_");
+        sb.Append(key);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByKey(
+                key
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByGameId(self
+        , game_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByGameId(
+                game_id
+            )
+        
+    def GetGameStatisticLeaderboardRollupByGameId(self
+        , game_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByGameId(
+        game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByGameId(self
+        , game_id
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByGameId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByGameId(
+                game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByKeyByGameId(self
+        , key
+        , game_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByKeyByGameId(
+                key
+                , game_id
+            )
+        
+    def GetGameStatisticLeaderboardRollupByKeyByGameId(self
+        , key
+        , game_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByKeyByGameId(
+        key
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(self
+        , key
+        , game_id
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , key
+            , game_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(self
+        , overrideCache
+        , cacheHours
+        , key
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("key".ToLower());
+        sb.Append("_");
+        sb.Append(key);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByKeyByGameId(
+                key
+                , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(self
+        , key
+        , game_id
+        , network
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+                key
+                , game_id
+                , network
+            )
+        
+    def GetGameStatisticLeaderboardRollupByKeyByGameIdByNetwork(self
+        , key
+        , game_id
+        , network
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+        key
+        , game_id
+        , network
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(self
+        , key
+        , game_id
+        , network
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , key
+            , game_id
+            , network
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(self
+        , overrideCache
+        , cacheHours
+        , key
+        , game_id
+        , network
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("key".ToLower());
+        sb.Append("_");
+        sb.Append(key);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("network".ToLower());
+        sb.Append("_");
+        sb.Append(network);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+                key
+                , game_id
+                , network
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+                key
+                , profile_id
+                , game_id
+            )
+        
+    def GetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+        key
+        , profile_id
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , key
+            , profile_id
+            , game_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(self
+        , overrideCache
+        , cacheHours
+        , key
+        , profile_id
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("key".ToLower());
+        sb.Append("_");
+        sb.Append(key);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+                key
+                , profile_id
+                , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(self
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+                key
+                , profile_id
+                , game_id
+                , timestamp
+            )
+        
+    def GetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+        key
+        , profile_id
+        , game_id
+        , timestamp
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(self
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , key
+            , profile_id
+            , game_id
+            , timestamp
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(self
+        , overrideCache
+        , cacheHours
+        , key
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("key".ToLower());
+        sb.Append("_");
+        sb.Append(key);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("timestamp".ToLower());
+        sb.Append("_");
+        sb.Append(timestamp);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+                key
+                , profile_id
+                , game_id
+                , timestamp
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+        , profile_id
+        , game_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+                profile_id
+                , game_id
+            )
+        
+    def GetGameStatisticLeaderboardRollupByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        profile_id
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , game_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+                profile_id
+                , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+        ) :
+            return self.act.GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            )
+        
+    def GetGameStatisticLeaderboardRollupByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        for item in self.GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        profile_id
+        , game_id
+        , timestamp
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        return CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , game_id
+            , timestamp
+        )
+        
+    def CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardRollup> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("timestamp".ToLower());
+        sb.Append("_");
+        sb.Append(timestamp);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+                profile_id
                 , game_id
                 , timestamp
             );

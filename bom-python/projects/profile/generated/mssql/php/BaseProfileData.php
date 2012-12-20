@@ -171,11 +171,15 @@ namespace profile {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@first_name", obj.first_name));
+            parameters.Add(new SqlParameter("@last_name", obj.last_name));
             parameters.Add(new SqlParameter("@hash", obj.hash));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@email", obj.email));
+            parameters.Add(new SqlParameter("@name", obj.name));
                         
             try { 
                 return (bool)data.ExecuteScalar(
@@ -198,11 +202,15 @@ namespace profile {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@first_name", obj.first_name));
+            parameters.Add(new SqlParameter("@last_name", obj.last_name));
             parameters.Add(new SqlParameter("@hash", obj.hash));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@email", obj.email));
+            parameters.Add(new SqlParameter("@name", obj.name));
                         
             try { 
                 return (bool)data.ExecuteScalar(

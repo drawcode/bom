@@ -328,11 +328,15 @@ profile.profile.prototype = {
     (
         status,
         username,
+        first_name,
+        last_name,
         hash,
         uuid,
         date_modified,
         active,
         date_created,
+        email,
+        name,
         fn
     ){
         this.fn_callback = fn;
@@ -348,11 +352,15 @@ profile.profile.prototype = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
             , "@status": status
             , "@username": username
+            , "@first_name": first_name
+            , "@last_name": last_name
             , "@hash": hash
             , "@uuid": uuid
             , "@date_modified": date_modified
             , "@active": active
             , "@date_created": date_created
+            , "@email": email
+            , "@name": name
         }
 
         _log("obj to submit::", obj);
@@ -387,11 +395,15 @@ profile.profile.prototype = {
     (
         status,
         username,
+        first_name,
+        last_name,
         hash,
         uuid,
         date_modified,
         active,
         date_created,
+        email,
+        name,
         fn
     ){
         this.fn_callback = fn;
@@ -407,11 +419,15 @@ profile.profile.prototype = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
             , "@status": status
             , "@username": username
+            , "@first_name": first_name
+            , "@last_name": last_name
             , "@hash": hash
             , "@uuid": uuid
             , "@date_modified": date_modified
             , "@active": active
             , "@date_created": date_created
+            , "@email": email
+            , "@name": name
         }
 
         _log("obj to submit::", obj);

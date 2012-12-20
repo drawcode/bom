@@ -131,11 +131,15 @@ class BaseProfileData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.first_name) #"in_first_name"
+        parameters.append(obj.last_name) #"in_last_name"
         parameters.append(obj.hash) #"in_hash"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.email) #"in_email"
+        parameters.append(obj.name) #"in_name"
                         
         try:
             return bool(self.data_provider.execute_scalar(
@@ -156,11 +160,15 @@ class BaseProfileData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.first_name) #"in_first_name"
+        parameters.append(obj.last_name) #"in_last_name"
         parameters.append(obj.hash) #"in_hash"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.email) #"in_email"
+        parameters.append(obj.name) #"in_name"
                         
         try:
             return bool(self.data_provider.execute_scalar(

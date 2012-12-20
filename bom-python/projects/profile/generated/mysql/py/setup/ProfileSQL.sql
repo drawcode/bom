@@ -56,6 +56,8 @@ CREATE TABLE `profile`
 (
     `status` VARCHAR (50)
     , `username` VARCHAR (255)
+    , `first_name` VARCHAR (255)
+    , `last_name` VARCHAR (255)
     , `hash` VARCHAR (255)
     , `uuid` BINARY(16) 
     , `date_modified` TIMESTAMP
@@ -64,6 +66,8 @@ CREATE TABLE `profile`
                 DEFAULT 1
     , `date_created` TIMESTAMP
                     DEFAULT '0000-00-00 00:00:00'
+    , `email` VARCHAR (255)
+    , `name` VARCHAR (255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `profile` ADD PRIMARY KEY (`uuid`);
@@ -470,11 +474,15 @@ BEGIN
     
     SET @sfields = CONCAT('', '`status`');
     SET @sfields = CONCAT(@sfields, ', `username`');
+    SET @sfields = CONCAT(@sfields, ', `first_name`');
+    SET @sfields = CONCAT(@sfields, ', `last_name`');
     SET @sfields = CONCAT(@sfields, ', `hash`');
     SET @sfields = CONCAT(@sfields, ', `uuid`');
     SET @sfields = CONCAT(@sfields, ', `date_modified`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `email`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
     
     SET @stable = CONCAT('', ' FROM `profile` WHERE 1=1 ');
     
@@ -513,11 +521,15 @@ CREATE PROCEDURE `usp_profile_set_uuid`
     in_set_type varchar(50)                      
     , in_status VARCHAR (50) 
     , in_username VARCHAR (255) 
+    , in_first_name VARCHAR (255) 
+    , in_last_name VARCHAR (255) 
     , in_hash VARCHAR (255) 
     , in_uuid BINARY(16) 
     , in_date_modified TIMESTAMP 
     , in_active int 
     , in_date_created TIMESTAMP 
+    , in_email VARCHAR (255) 
+    , in_name VARCHAR (255) 
 )
 BEGIN
     BEGIN
@@ -554,11 +566,15 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `first_name` = in_first_name
+                        , `last_name` = in_last_name
                         , `hash` = in_hash
                         , `uuid` = in_uuid
                         , `date_modified` = in_date_modified
                         , `active` = in_active
                         , `date_created` = in_date_created
+                        , `email` = in_email
+                        , `name` = in_name
                     WHERE 1=1
                     AND `uuid` = in_uuid
                     ;
@@ -574,21 +590,29 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `first_name`
+                        , `last_name`
                         , `hash`
                         , `uuid`
                         , `date_modified`
                         , `active`
                         , `date_created`
+                        , `email`
+                        , `name`
                     )
                     VALUES
                     (
                         in_status
                         , in_username
+                        , in_first_name
+                        , in_last_name
                         , in_hash
                         , in_uuid
                         , in_date_modified
                         , in_active
                         , in_date_created
+                        , in_email
+                        , in_name
                     )
                     ;
                     SET @id = 1;                  
@@ -607,11 +631,15 @@ CREATE PROCEDURE `usp_profile_set_username`
     in_set_type varchar(50)                      
     , in_status VARCHAR (50) 
     , in_username VARCHAR (255) 
+    , in_first_name VARCHAR (255) 
+    , in_last_name VARCHAR (255) 
     , in_hash VARCHAR (255) 
     , in_uuid BINARY(16) 
     , in_date_modified TIMESTAMP 
     , in_active int 
     , in_date_created TIMESTAMP 
+    , in_email VARCHAR (255) 
+    , in_name VARCHAR (255) 
 )
 BEGIN
     BEGIN
@@ -648,11 +676,15 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `first_name` = in_first_name
+                        , `last_name` = in_last_name
                         , `hash` = in_hash
                         , `uuid` = in_uuid
                         , `date_modified` = in_date_modified
                         , `active` = in_active
                         , `date_created` = in_date_created
+                        , `email` = in_email
+                        , `name` = in_name
                     WHERE 1=1
                     AND lower(`username`) = lower(in_username)
                     ;
@@ -668,21 +700,29 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `first_name`
+                        , `last_name`
                         , `hash`
                         , `uuid`
                         , `date_modified`
                         , `active`
                         , `date_created`
+                        , `email`
+                        , `name`
                     )
                     VALUES
                     (
                         in_status
                         , in_username
+                        , in_first_name
+                        , in_last_name
                         , in_hash
                         , in_uuid
                         , in_date_modified
                         , in_active
                         , in_date_created
+                        , in_email
+                        , in_name
                     )
                     ;
                     SET @id = 1;                  
@@ -751,11 +791,15 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `first_name`
+        , `last_name`
         , `hash`
         , `uuid`
         , `date_modified`
         , `active`
         , `date_created`
+        , `email`
+        , `name`
     FROM `profile`
     WHERE 1=1
     AND `uuid` = in_uuid
@@ -775,11 +819,15 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `first_name`
+        , `last_name`
         , `hash`
         , `uuid`
         , `date_modified`
         , `active`
         , `date_created`
+        , `email`
+        , `name`
     FROM `profile`
     WHERE 1=1
     AND lower(`username`) = lower(in_username)
@@ -799,11 +847,15 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `first_name`
+        , `last_name`
         , `hash`
         , `uuid`
         , `date_modified`
         , `active`
         , `date_created`
+        , `email`
+        , `name`
     FROM `profile`
     WHERE 1=1
     AND lower(`username`) = lower(in_username)

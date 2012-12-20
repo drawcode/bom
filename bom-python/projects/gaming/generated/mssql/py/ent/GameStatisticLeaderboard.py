@@ -18,6 +18,7 @@ class GameStatisticLeaderboard(BaseEntity):
         #self.__dict__.update(entries)
         self.username = None
         self.rank_change = None
+        self.network = None
         self.timestamp = None
         self.level = None
         self.stat_value_formatted = None

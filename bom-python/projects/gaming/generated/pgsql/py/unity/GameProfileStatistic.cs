@@ -54,6 +54,7 @@ public class GameProfileStatistic : BaseEntity {
     public  level { get; set; }
     public  type { get; set; }
     public  profile_id { get; set; }
+    public  points { get; set; }
     public  key { get; set; }
     public  timestamp { get; set; }
     public  game_id { get; set; }
@@ -81,6 +82,9 @@ public class GameProfileStatistic : BaseEntity {
 	}
 	if (profile_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
+	}
+	if (points != null) {
+	    dict = DataUtil.SetDictValue(dict, "points", points);
 	}
 	if (key != null) {
 	    dict = DataUtil.SetDictValue(dict, "key", key);
@@ -119,6 +123,11 @@ public class GameProfileStatistic : BaseEntity {
 	if(dict.ContainsKey("profile_id")) {
 	    if(dict["profile_id"] != null) {
 	    	profile_id = DataType.Instance.Fill(dict["profile_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("points")) {
+	    if(dict["points"] != null) {
+	    	points = DataType.Instance.Fill(dict["points"]);
 	    }		
 	}
 	if(dict.ContainsKey("key")) {

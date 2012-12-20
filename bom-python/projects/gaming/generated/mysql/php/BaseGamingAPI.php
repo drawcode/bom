@@ -9238,17 +9238,6 @@ class BaseGamingAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountGameStatisticLeaderboardByProfileIdByGameId(
-        $profile_id
-        , $game_id
-    ) {      
-        return $this->act->CountGameStatisticLeaderboardByProfileIdByGameId(
-        $profile_id
-        , $game_id
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
     public function CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
         $key
         , $profile_id
@@ -9277,6 +9266,17 @@ class BaseGamingAPI {
     }
         
 #------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardByProfileIdByGameId(
+        $profile_id
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
     public function BrowseGameStatisticLeaderboardListByFilter($filter_obj) {
         return $this->act->BrowseGameStatisticLeaderboardListByFilter($filter_obj);
     }
@@ -9297,20 +9297,20 @@ class BaseGamingAPI {
         return $this->act->SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetGameStatisticLeaderboardByProfileIdByKey($set_type, $obj) {
-        return $this->act->SetGameStatisticLeaderboardByProfileIdByKey($set_type, $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileId($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardByKeyByProfileId($set_type, $obj);
     }
                
-    public function SetGameStatisticLeaderboardByProfileIdByKeyFull($obj) {
-        return $this->act->SetGameStatisticLeaderboardByProfileIdByKey('full', $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileIdFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardByKeyByProfileId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp($set_type, $obj) {
-        return $this->act->SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp($set_type, $obj);
     }
                
-    public function SetGameStatisticLeaderboardByProfileIdByKeyByTimestampFull($obj) {
-        return $this->act->SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp('full', $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileIdByTimestampFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp('full', $obj);
     }
 #------------------------------------------------------------------------------                    
     public function SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {
@@ -9321,12 +9321,12 @@ class BaseGamingAPI {
         return $this->act->SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetGameStatisticLeaderboardByProfileIdByGameIdByKey($set_type, $obj) {
-        return $this->act->SetGameStatisticLeaderboardByProfileIdByGameIdByKey($set_type, $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileIdByGameId($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardByKeyByProfileIdByGameId($set_type, $obj);
     }
                
-    public function SetGameStatisticLeaderboardByProfileIdByGameIdByKeyFull($obj) {
-        return $this->act->SetGameStatisticLeaderboardByProfileIdByGameIdByKey('full', $obj);
+    public function SetGameStatisticLeaderboardByKeyByProfileIdByGameIdFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardByKeyByProfileIdByGameId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
     public function DelGameStatisticLeaderboardByUuid(
@@ -9347,16 +9347,6 @@ class BaseGamingAPI {
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelGameStatisticLeaderboardByProfileIdByGameId(
-        $profile_id
-        , $game_id
-    ) {         
-        return $this->act->DelGameStatisticLeaderboardByProfileIdByGameId(
-        $profile_id
-        , $game_id
-        );
-    }
-#------------------------------------------------------------------------------                    
     public function DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
         $key
         , $profile_id
@@ -9365,6 +9355,16 @@ class BaseGamingAPI {
         return $this->act->DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
         $key
         , $profile_id
+        , $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameStatisticLeaderboardByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {         
+        return $this->act->DelGameStatisticLeaderboardByProfileIdByGameId(
+        $profile_id
         , $game_id
         );
     }
@@ -9684,23 +9684,27 @@ class BaseGamingAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetGameStatisticLeaderboardListByProfileIdByGameId(
-        $profile_id
+    public function GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+        $key
         , $game_id
+        , $network
         ) {
-            return $this->act->GetGameStatisticLeaderboardListByProfileIdByGameId(
-                $profile_id
+            return $this->act->GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+                $key
                 , $game_id
+                , $network
             );
         }
         
-    public function GetGameStatisticLeaderboardByProfileIdByGameId(
-        $profile_id
+    public function GetGameStatisticLeaderboardByKeyByGameIdByNetwork(
+        $key
         , $game_id
+        , $network
     ) {
-        foreach($this->act->GetGameStatisticLeaderboardListByProfileIdByGameId(
-        $profile_id
+        foreach($this->act->GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+        $key
         , $game_id
+        , $network
         ) as $item) {
             return $item;
         }
@@ -9708,40 +9712,47 @@ class BaseGamingAPI {
     }
     
     /*
-    public function CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
-        $profile_id
+    public function CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+        $key
         , $game_id
+        , $network
     ) {
-        return $this->CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+        return $this->CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
-            , $profile_id
+            , $key
             , $game_id
+            , $network
         );
     }
     */
         
-    public function CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+    public function CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
         $overrideCache
         , $cacheHours
-        , $profile_id
+        , $key
         , $game_id
+        , $network
     ) {
 
         $objs = array();
 
-        $method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameId";
+        $method_name = "CachedGetGameStatisticLeaderboardListByKeyByGameIdByNetwork";
 
         $sb = "";
         $sb += $method_name;
         $sb += "_";
-        $sb += strtolower("$profile_id");
+        $sb += strtolower("$key");
         $sb += "_";
-        $sb += $profile_id;
+        $sb += $key;
         $sb += "_";
         $sb += strtolower("$game_id");
         $sb += "_";
         $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$network");
+        $sb += "_";
+        $sb += $network;
 
         $cache_key = $sb;
 
@@ -9749,96 +9760,10 @@ class BaseGamingAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetGameStatisticLeaderboardListByProfileIdByGameId(
-                $profile_id
+            $objs = $this->GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+                $key
                 , $game_id
-            );
-            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
-        }
-        return $objs;
-    }
-              
-#------------------------------------------------------------------------------                    
-    public function GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-        $profile_id
-        , $game_id
-        , $timestamp
-        ) {
-            return $this->act->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-                $profile_id
-                , $game_id
-                , $timestamp
-            );
-        }
-        
-    public function GetGameStatisticLeaderboardByProfileIdByGameIdByTimestamp(
-        $profile_id
-        , $game_id
-        , $timestamp
-    ) {
-        foreach($this->act->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-        $profile_id
-        , $game_id
-        , $timestamp
-        ) as $item) {
-            return $item;
-        }
-        return NULL;
-    }
-    
-    /*
-    public function CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-        $profile_id
-        , $game_id
-        , $timestamp
-    ) {
-        return $this->CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            FALSE
-            , $this->CACHE_DEFAULT_HOURS
-            , $profile_id
-            , $game_id
-            , $timestamp
-        );
-    }
-    */
-        
-    public function CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-        $overrideCache
-        , $cacheHours
-        , $profile_id
-        , $game_id
-        , $timestamp
-    ) {
-
-        $objs = array();
-
-        $method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp";
-
-        $sb = "";
-        $sb += $method_name;
-        $sb += "_";
-        $sb += strtolower("$profile_id");
-        $sb += "_";
-        $sb += $profile_id;
-        $sb += "_";
-        $sb += strtolower("$game_id");
-        $sb += "_";
-        $sb += $game_id;
-        $sb += "_";
-        $sb += strtolower("$timestamp");
-        $sb += "_";
-        $sb += $timestamp;
-
-        $cache_key = $sb;
-
-        //$objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
-
-        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
-        {
-            $objs = $this->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-                $profile_id
-                , $game_id
-                , $timestamp
+                , $network
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -10023,6 +9948,1094 @@ class BaseGamingAPI {
             $objs = $this->GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
                 $key
                 , $profile_id
+                , $game_id
+                , $timestamp
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardListByProfileIdByGameId(
+        $profile_id
+        , $game_id
+        ) {
+            return $this->act->GetGameStatisticLeaderboardListByProfileIdByGameId(
+                $profile_id
+                , $game_id
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardListByProfileIdByGameId(
+        $profile_id
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $profile_id
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+        $overrideCache
+        , $cacheHours
+        , $profile_id
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardListByProfileIdByGameId(
+                $profile_id
+                , $game_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+        ) {
+            return $this->act->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+                $profile_id
+                , $game_id
+                , $timestamp
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $profile_id
+            , $game_id
+            , $timestamp
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        $overrideCache
+        , $cacheHours
+        , $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$timestamp");
+        $sb += "_";
+        $sb += $timestamp;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboard>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+                $profile_id
+                , $game_id
+                , $timestamp
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardRollup(
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardRollup(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardRollupByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardRollupByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardRollupByKey(
+        $key
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardRollupByKey(
+        $key
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardRollupByGameId(
+        $game_id
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardRollupByGameId(
+        $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardRollupByKeyByGameId(
+        $key
+        , $game_id
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardRollupByKeyByGameId(
+        $key
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+        $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+        $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {      
+        return $this->act->CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+        $profile_id
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameStatisticLeaderboardRollupListByFilter($filter_obj) {
+        return $this->act->BrowseGameStatisticLeaderboardRollupListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameStatisticLeaderboardRollupByUuid($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByUuid($set_type, $obj);
+    }
+               
+    public function SetGameStatisticLeaderboardRollupByUuidFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
+    }
+               
+    public function SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestampFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileId($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByKeyByProfileId($set_type, $obj);
+    }
+               
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByKeyByProfileId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp($set_type, $obj);
+    }
+               
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestampFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
+    }
+               
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestampFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId($set_type, $obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId($set_type, $obj);
+    }
+               
+    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdFull($obj) {
+        return $this->act->SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameStatisticLeaderboardRollupByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameStatisticLeaderboardRollupByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameStatisticLeaderboardRollupByKeyByGameId(
+        $key
+        , $game_id
+    ) {         
+        return $this->act->DelGameStatisticLeaderboardRollupByKeyByGameId(
+        $key
+        , $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {         
+        return $this->act->DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {         
+        return $this->act->DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+        $profile_id
+        , $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupList(
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupList(
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollup(
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupList(
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupList(
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupList(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupList(
+        $overrideCache
+        , $cacheHours
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupList";
+
+        $sb = "";
+        $sb += $method_name;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupList(
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByKey(
+        $key
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByKey(
+                $key
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByKey(
+        $key
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByKey(
+        $key
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByKey(
+        $key
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByKey(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $key
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByKey(
+        $overrideCache
+        , $cacheHours
+        , $key
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByKey";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$key");
+        $sb += "_";
+        $sb += $key;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByKey(
+                $key
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByGameId(
+        $game_id
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByGameId(
+                $game_id
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByGameId(
+        $game_id
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByGameId(
+        $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByGameId(
+        $game_id
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByGameId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByGameId(
+                $game_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByKeyByGameId(
+        $key
+        , $game_id
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByKeyByGameId(
+                $key
+                , $game_id
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByKeyByGameId(
+        $key
+        , $game_id
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByKeyByGameId(
+        $key
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(
+        $key
+        , $game_id
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $key
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByKeyByGameId(
+        $overrideCache
+        , $cacheHours
+        , $key
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$key");
+        $sb += "_";
+        $sb += $key;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByKeyByGameId(
+                $key
+                , $game_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+        $key
+        , $game_id
+        , $network
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+                $key
+                , $game_id
+                , $network
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByKeyByGameIdByNetwork(
+        $key
+        , $game_id
+        , $network
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+        $key
+        , $game_id
+        , $network
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+        $key
+        , $game_id
+        , $network
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $key
+            , $game_id
+            , $network
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+        $overrideCache
+        , $cacheHours
+        , $key
+        , $game_id
+        , $network
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$key");
+        $sb += "_";
+        $sb += $key;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$network");
+        $sb += "_";
+        $sb += $network;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+                $key
+                , $game_id
+                , $network
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+                $key
+                , $profile_id
+                , $game_id
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $key
+            , $profile_id
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+        $overrideCache
+        , $cacheHours
+        , $key
+        , $profile_id
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$key");
+        $sb += "_";
+        $sb += $key;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+                $key
+                , $profile_id
+                , $game_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+        $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+                $key
+                , $profile_id
+                , $game_id
+                , $timestamp
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+        $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+        $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+        $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $key
+            , $profile_id
+            , $game_id
+            , $timestamp
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+        $overrideCache
+        , $cacheHours
+        , $key
+        , $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$key");
+        $sb += "_";
+        $sb += $key;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$timestamp");
+        $sb += "_";
+        $sb += $timestamp;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+                $key
+                , $profile_id
+                , $game_id
+                , $timestamp
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        $profile_id
+        , $game_id
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+                $profile_id
+                , $game_id
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        $profile_id
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $profile_id
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        $overrideCache
+        , $cacheHours
+        , $profile_id
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+                $profile_id
+                , $game_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+        ) {
+            return $this->act->GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+                $profile_id
+                , $game_id
+                , $timestamp
+            );
+        }
+        
+    public function GetGameStatisticLeaderboardRollupByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+        foreach($this->act->GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+        return $this->CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $profile_id
+            , $game_id
+            , $timestamp
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        $overrideCache
+        , $cacheHours
+        , $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$timestamp");
+        $sb += "_";
+        $sb += $timestamp;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticLeaderboardRollup>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+                $profile_id
                 , $game_id
                 , $timestamp
             );

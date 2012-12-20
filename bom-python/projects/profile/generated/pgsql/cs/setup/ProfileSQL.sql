@@ -41,6 +41,8 @@ CREATE TABLE "profile"
 (
     "status" varchar (50)
     , "username" varchar (255)
+    , "first_name" varchar (255)
+    , "last_name" varchar (255)
     , "hash" varchar (255)
     , "uuid" uuid NOT NULL
     , "date_modified" TIMESTAMP
@@ -49,6 +51,8 @@ CREATE TABLE "profile"
                 --CONSTRAINT DF_profile_active_bool DEFAULT 1
     , "date_created" TIMESTAMP
                 --CONSTRAINT DF_profile_date_created DEFAULT GETDATE()
+    , "email" varchar (255)
+    , "name" varchar (255)
 );
 
 ALTER TABLE "profile" ADD PRIMARY KEY ("uuid");
@@ -280,11 +284,15 @@ CREATE TYPE "profile_result" as
     total_rows bigint
     , "status" varchar
     , "username" varchar
+    , "first_name" varchar
+    , "last_name" varchar
     , "hash" varchar
     , "uuid" uuid
     , "date_modified" TIMESTAMP
     , "active" boolean
     , "date_created" TIMESTAMP
+    , "email" varchar
+    , "name" varchar
 );    
 CREATE TYPE "profile_type_result" as
 (
@@ -548,10 +556,14 @@ DROP FUNCTION IF EXISTS usp_profile_count
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_count
@@ -576,10 +588,14 @@ DROP FUNCTION IF EXISTS usp_profile_count_uuid
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_count_uuid
@@ -606,10 +622,14 @@ DROP FUNCTION IF EXISTS usp_profile_count_username_hash
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_count_username_hash
@@ -638,10 +658,14 @@ DROP FUNCTION IF EXISTS usp_profile_count_username
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_count_username
@@ -682,10 +706,14 @@ DROP FUNCTION IF EXISTS usp_profile_browse_filter
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_browse_filter
@@ -712,11 +740,15 @@ BEGIN
     _sql := 'SELECT count(*) over () as total_rows'
     || ', "status"'
     || ', "username"'
+    || ', "first_name"'
+    || ', "last_name"'
     || ', "hash"'
     || ', "uuid"'
     || ', "date_modified"'
     || ', "active"'
     || ', "date_created"'
+    || ', "email"'
+    || ', "name"'
     || ' FROM "profile" WHERE 1=1 ';
     
     BEGIN
@@ -729,11 +761,15 @@ BEGIN
     || ' GROUP BY '
     || '"status" '
     || ', "username" '
+    || ', "first_name" '
+    || ', "last_name" '
     || ', "hash" '
     || ', "uuid" '
     || ', "date_modified" '
     || ', "active" '
     || ', "date_created" '
+    || ', "email" '
+    || ', "name" '
     ;
     
     _sql := _sql 
@@ -768,10 +804,14 @@ DROP FUNCTION IF EXISTS usp_profile_set_uuid
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_set_uuid
@@ -779,11 +819,15 @@ CREATE OR REPLACE FUNCTION usp_profile_set_uuid
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (50) = NULL
     , in_username varchar (255) = NULL
+    , in_first_name varchar (255) = NULL
+    , in_last_name varchar (255) = NULL
     , in_hash varchar (255) = NULL
     , in_uuid uuid = NULL
     , in_date_modified TIMESTAMP = now()
     , in_active boolean = NULL
     , in_date_created TIMESTAMP = now()
+    , in_email varchar (255) = NULL
+    , in_name varchar (255) = NULL
     , OUT out_id int                        
 )
 RETURNS int
@@ -826,11 +870,15 @@ BEGIN
                     SET
                         "status" = in_status
                         , "username" = in_username
+                        , "first_name" = in_first_name
+                        , "last_name" = in_last_name
                         , "hash" = in_hash
                         , "uuid" = in_uuid
                         , "date_modified" = in_date_modified
                         , "active" = in_active
                         , "date_created" = in_date_created
+                        , "email" = in_email
+                        , "name" = in_name
                     WHERE 1=1
                     AND "uuid" = in_uuid
                     ;
@@ -846,21 +894,29 @@ BEGIN
                     (
                         "status"
                         , "username"
+                        , "first_name"
+                        , "last_name"
                         , "hash"
                         , "uuid"
                         , "date_modified"
                         , "active"
                         , "date_created"
+                        , "email"
+                        , "name"
                     )
                     VALUES
                     (
                         in_status
                         , in_username
+                        , in_first_name
+                        , in_last_name
                         , in_hash
                         , in_uuid
                         , in_date_modified
                         , in_active
                         , in_date_created
+                        , in_email
+                        , in_name
                     )
                     ;
                     _id := 1;                  
@@ -878,10 +934,14 @@ DROP FUNCTION IF EXISTS usp_profile_set_username
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_set_username
@@ -889,11 +949,15 @@ CREATE OR REPLACE FUNCTION usp_profile_set_username
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (50) = NULL
     , in_username varchar (255) = NULL
+    , in_first_name varchar (255) = NULL
+    , in_last_name varchar (255) = NULL
     , in_hash varchar (255) = NULL
     , in_uuid uuid = NULL
     , in_date_modified TIMESTAMP = now()
     , in_active boolean = NULL
     , in_date_created TIMESTAMP = now()
+    , in_email varchar (255) = NULL
+    , in_name varchar (255) = NULL
     , OUT out_id int                        
 )
 RETURNS int
@@ -936,11 +1000,15 @@ BEGIN
                     SET
                         "status" = in_status
                         , "username" = in_username
+                        , "first_name" = in_first_name
+                        , "last_name" = in_last_name
                         , "hash" = in_hash
                         , "uuid" = in_uuid
                         , "date_modified" = in_date_modified
                         , "active" = in_active
                         , "date_created" = in_date_created
+                        , "email" = in_email
+                        , "name" = in_name
                     WHERE 1=1
                     AND lower("username") = lower(in_username)
                     ;
@@ -956,21 +1024,29 @@ BEGIN
                     (
                         "status"
                         , "username"
+                        , "first_name"
+                        , "last_name"
                         , "hash"
                         , "uuid"
                         , "date_modified"
                         , "active"
                         , "date_created"
+                        , "email"
+                        , "name"
                     )
                     VALUES
                     (
                         in_status
                         , in_username
+                        , in_first_name
+                        , in_last_name
                         , in_hash
                         , in_uuid
                         , in_date_modified
                         , in_active
                         , in_date_created
+                        , in_email
+                        , in_name
                     )
                     ;
                     _id := 1;                  
@@ -1002,10 +1078,14 @@ DROP FUNCTION IF EXISTS usp_profile_del_uuid
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_del_uuid
@@ -1030,10 +1110,14 @@ DROP FUNCTION IF EXISTS usp_profile_del_username
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_del_username
@@ -1072,10 +1156,14 @@ DROP FUNCTION IF EXISTS usp_profile_get_uuid
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_get_uuid
@@ -1089,11 +1177,15 @@ BEGIN
     RETURN QUERY SELECT
         "status"
         , "username"
+        , "first_name"
+        , "last_name"
         , "hash"
         , "uuid"
         , "date_modified"
         , "active"
         , "date_created"
+        , "email"
+        , "name"
     FROM "profile"
     WHERE 1=1
     AND "uuid" = in_uuid
@@ -1107,10 +1199,14 @@ DROP FUNCTION IF EXISTS usp_profile_get_username_hash
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_get_username_hash
@@ -1125,11 +1221,15 @@ BEGIN
     RETURN QUERY SELECT
         "status"
         , "username"
+        , "first_name"
+        , "last_name"
         , "hash"
         , "uuid"
         , "date_modified"
         , "active"
         , "date_created"
+        , "email"
+        , "name"
     FROM "profile"
     WHERE 1=1
     AND lower("username") = lower(in_username)
@@ -1144,10 +1244,14 @@ DROP FUNCTION IF EXISTS usp_profile_get_username
     varchar
     , varchar
     , varchar
+    , varchar
+    , varchar
     , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
+    , varchar
+    , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_get_username
@@ -1161,11 +1265,15 @@ BEGIN
     RETURN QUERY SELECT
         "status"
         , "username"
+        , "first_name"
+        , "last_name"
         , "hash"
         , "uuid"
         , "date_modified"
         , "active"
         , "date_created"
+        , "email"
+        , "name"
     FROM "profile"
     WHERE 1=1
     AND lower("username") = lower(in_username)

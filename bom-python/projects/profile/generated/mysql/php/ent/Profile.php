@@ -36,7 +36,11 @@ class Profile extends BaseEntity {
     }
     
     public $username;
+    public $first_name;
+    public $last_name;
     public $hash;
+    public $name;
+    public $email;
 
     public function __construct() {
         

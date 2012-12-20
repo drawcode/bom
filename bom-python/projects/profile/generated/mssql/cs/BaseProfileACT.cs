@@ -31,6 +31,10 @@ namespace profile {
                     obj.status = dataType.FillDataString(dr, "status");                
             if (dr["username"] != null)                    
                     obj.username = dataType.FillDataString(dr, "username");                
+            if (dr["first_name"] != null)                    
+                    obj.first_name = dataType.FillDataString(dr, "first_name");                
+            if (dr["last_name"] != null)                    
+                    obj.last_name = dataType.FillDataString(dr, "last_name");                
             if (dr["hash"] != null)                    
                     obj.hash = dataType.FillDataString(dr, "hash");                
             if (dr["uuid"] != null)                    
@@ -41,6 +45,10 @@ namespace profile {
                     obj.active = dataType.FillDataBool(dr, "active");                
             if (dr["date_created"] != null)                    
                     obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["email"] != null)                    
+                    obj.email = dataType.FillDataString(dr, "email");                
+            if (dr["name"] != null)                    
+                    obj.name = dataType.FillDataString(dr, "name");                
 
             return obj;
         }

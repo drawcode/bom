@@ -2376,6 +2376,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@network_username", obj.network_username));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@secret", obj.secret));
@@ -8731,28 +8732,6 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByProfileIdByGameId(
-            string profile_id
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_profile_id_by_game_id"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
         public virtual int CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
             string key
             , string profile_id
@@ -8803,6 +8782,28 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_count_by_profile_id_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
         public virtual DataSet BrowseGameStatisticLeaderboardListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
@@ -8834,7 +8835,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
             parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
@@ -8843,10 +8844,11 @@ namespace gaming {
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -8872,7 +8874,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
             parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
@@ -8881,10 +8883,11 @@ namespace gaming {
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -8903,14 +8906,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKey(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileId(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
             parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
@@ -8919,10 +8922,11 @@ namespace gaming {
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -8930,7 +8934,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_profile_id_by_key"
+                , "usp_game_statistic_leaderboard_set_by_key_by_profile_id"
                 , parameters
                 );          
             }
@@ -8941,14 +8945,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByKeyByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
             parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
@@ -8957,10 +8961,11 @@ namespace gaming {
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -8968,7 +8973,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_profile_id_by_key_by_timestamp"
+                , "usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -8986,7 +8991,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
             parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
@@ -8995,10 +9000,11 @@ namespace gaming {
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -9017,14 +9023,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByProfileIdByGameIdByKey(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
             parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
@@ -9033,10 +9039,11 @@ namespace gaming {
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -9044,7 +9051,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_profile_id_by_game_id_by_key"
+                , "usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_game_id"
                 , parameters
                 );          
             }
@@ -9099,29 +9106,6 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByProfileIdByGameId(
-            string profile_id
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {
-                data.ExecuteNonQuery(
-                    BaseGamingData.connectionString
-                    , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_profile_id_by_game_id"
-                    , parameters
-                    );
-                return true;            
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return false;
-            }
-        }                     
-//------------------------------------------------------------------------------                    
         public virtual bool DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
             string key
             , string profile_id
@@ -9137,6 +9121,29 @@ namespace gaming {
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
                     , "usp_game_statistic_leaderboard_del_by_key_by_profile_id_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_del_by_profile_id_by_game_id"
                     , parameters
                     );
                 return true;            
@@ -9252,44 +9259,21 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByProfileIdByGameId(
-            string profile_id
+        public virtual DataSet GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
+            string key
             , string game_id
+            , string network
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@key", key));
             parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@network", network));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_profile_id_by_game_id"
-                , "game_statistic_leaderboard"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return None;
-            }
-        } 
-//------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
-            string profile_id
-            , string game_id
-            , float timestamp
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            parameters.Add(new SqlParameter("@timestamp", timestamp));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_get_by_key_by_game_id_by_network"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -9343,6 +9327,806 @@ namespace gaming {
                 , CommandType.StoredProcedure
                 , "usp_game_statistic_leaderboard_get_by_key_by_profile_id_by_game_id_by_timestamp"
                 , "game_statistic_leaderboard"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardListByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_get_by_profile_id_by_game_id"
+                , "game_statistic_leaderboard"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp"
+                , "game_statistic_leaderboard"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollup(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByKey(
+            string key
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@key", key));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count_by_key"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByGameId(
+            string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByGameId(
+            string key
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count_by_key_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
+            string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id_by_timestamp"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count_by_profile_id_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameStatisticLeaderboardRollupListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_browse_by_filter"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByUuid(string set_type, GameStatisticLeaderboardRollup obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_set_by_uuid_by_profile_id_by_game_id_by_timestamp"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_timestamp"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id_by_timestamp"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboardRollup obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_rollup_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByKeyByGameId(
+            string key
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_rollup_del_by_key_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_rollup_del_by_key_by_profile_id_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_rollup_del_by_profile_id_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_uuid"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByKey(
+            string key
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@key", key));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_key"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByGameId(
+            string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_game_id"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByKeyByGameId(
+            string key
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
+            string key
+            , string game_id
+            , string network
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@network", network));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id_by_network"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
+            string key
+            , string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id"
+                , "game_statistic_leaderboard_rollup"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id_by_timestamp"
+                , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
             }
@@ -10118,6 +10902,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -10152,6 +10937,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -10186,6 +10972,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -10220,6 +11007,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -10254,6 +11042,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -10288,6 +11077,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -10760,6 +11550,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@store_count", obj.store_count));
             parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -10796,6 +11587,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@store_count", obj.store_count));
             parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -12927,6 +13719,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@modifier", obj.modifier));
             parameters.Add(new SqlParameter("@type", obj.type));
             parameters.Add(new SqlParameter("@leaderboard", obj.leaderboard));
             parameters.Add(new SqlParameter("@description", obj.description));
@@ -12965,6 +13758,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@modifier", obj.modifier));
             parameters.Add(new SqlParameter("@type", obj.type));
             parameters.Add(new SqlParameter("@leaderboard", obj.leaderboard));
             parameters.Add(new SqlParameter("@description", obj.description));

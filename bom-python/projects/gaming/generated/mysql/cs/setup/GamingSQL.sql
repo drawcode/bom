@@ -314,14 +314,21 @@ ALTER TABLE `profile_game_network` ADD PRIMARY KEY (`uuid`);
         
 CREATE TABLE `profile_game_data_attribute` 
 (
-    `code` VARCHAR (500)
+    `status` VARCHAR (255)
+    , `code` VARCHAR (500)
+    , `profile_id` BINARY(16)
+    , `active` int
+                DEFAULT 1
+    , `game_id` BINARY(16)
+    , `name` VARCHAR (500)
     , `uuid` BINARY(16)
     , `val` TEXT
-    , `profile_id` BINARY(16)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
     , `otype` VARCHAR (500)
-    , `game_id` BINARY(16)
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
     , `type` VARCHAR (500)
-    , `name` VARCHAR (500)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `profile_game_data_attribute` ADD PRIMARY KEY (`uuid`);
@@ -7147,14 +7154,18 @@ BEGIN
        SET in_sort = ' date_modified ASC ';
     END IF;
     
-    SET @sfields = CONCAT('', '`code`');
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `profile_id`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `game_id`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
     SET @sfields = CONCAT(@sfields, ', `uuid`');
     SET @sfields = CONCAT(@sfields, ', `val`');
-    SET @sfields = CONCAT(@sfields, ', `profile_id`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
     SET @sfields = CONCAT(@sfields, ', `otype`');
-    SET @sfields = CONCAT(@sfields, ', `game_id`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
     SET @sfields = CONCAT(@sfields, ', `type`');
-    SET @sfields = CONCAT(@sfields, ', `name`');
     
     SET @stable = CONCAT('', ' FROM `profile_game_data_attribute` WHERE 1=1 ');
     
@@ -7191,14 +7202,18 @@ delimiter $$
 CREATE PROCEDURE `usp_profile_game_data_attribute_set_uuid`
 (
     in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
     , in_code VARCHAR (500) 
+    , in_profile_id BINARY(16) 
+    , in_active int 
+    , in_game_id BINARY(16) 
+    , in_name VARCHAR (500) 
     , in_uuid BINARY(16) 
     , in_val TEXT 
-    , in_profile_id BINARY(16) 
+    , in_date_modified TIMESTAMP 
     , in_otype VARCHAR (500) 
-    , in_game_id BINARY(16) 
+    , in_date_created TIMESTAMP 
     , in_type VARCHAR (500) 
-    , in_name VARCHAR (500) 
 )
 BEGIN
     BEGIN
@@ -7233,14 +7248,18 @@ BEGIN
                 BEGIN		
                     UPDATE `profile_game_data_attribute` 
                     SET
-                        `code` = in_code
+                        `status` = in_status
+                        , `code` = in_code
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `game_id` = in_game_id
+                        , `name` = in_name
                         , `uuid` = in_uuid
                         , `val` = in_val
-                        , `profile_id` = in_profile_id
+                        , `date_modified` = in_date_modified
                         , `otype` = in_otype
-                        , `game_id` = in_game_id
+                        , `date_created` = in_date_created
                         , `type` = in_type
-                        , `name` = in_name
                     WHERE 1=1
                     AND `uuid` = in_uuid
                     ;
@@ -7254,25 +7273,33 @@ BEGIN
                 BEGIN			
                     INSERT INTO `profile_game_data_attribute`
                     (
-                        `code`
+                        `status`
+                        , `code`
+                        , `profile_id`
+                        , `active`
+                        , `game_id`
+                        , `name`
                         , `uuid`
                         , `val`
-                        , `profile_id`
+                        , `date_modified`
                         , `otype`
-                        , `game_id`
+                        , `date_created`
                         , `type`
-                        , `name`
                     )
                     VALUES
                     (
-                        in_code
+                        in_status
+                        , in_code
+                        , in_profile_id
+                        , in_active
+                        , in_game_id
+                        , in_name
                         , in_uuid
                         , in_val
-                        , in_profile_id
+                        , in_date_modified
                         , in_otype
-                        , in_game_id
+                        , in_date_created
                         , in_type
-                        , in_name
                     )
                     ;
                     SET @id = 1;                  
@@ -7289,14 +7316,18 @@ delimiter $$
 CREATE PROCEDURE `usp_profile_game_data_attribute_set_profile_id`
 (
     in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
     , in_code VARCHAR (500) 
+    , in_profile_id BINARY(16) 
+    , in_active int 
+    , in_game_id BINARY(16) 
+    , in_name VARCHAR (500) 
     , in_uuid BINARY(16) 
     , in_val TEXT 
-    , in_profile_id BINARY(16) 
+    , in_date_modified TIMESTAMP 
     , in_otype VARCHAR (500) 
-    , in_game_id BINARY(16) 
+    , in_date_created TIMESTAMP 
     , in_type VARCHAR (500) 
-    , in_name VARCHAR (500) 
 )
 BEGIN
     BEGIN
@@ -7331,14 +7362,18 @@ BEGIN
                 BEGIN		
                     UPDATE `profile_game_data_attribute` 
                     SET
-                        `code` = in_code
+                        `status` = in_status
+                        , `code` = in_code
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `game_id` = in_game_id
+                        , `name` = in_name
                         , `uuid` = in_uuid
                         , `val` = in_val
-                        , `profile_id` = in_profile_id
+                        , `date_modified` = in_date_modified
                         , `otype` = in_otype
-                        , `game_id` = in_game_id
+                        , `date_created` = in_date_created
                         , `type` = in_type
-                        , `name` = in_name
                     WHERE 1=1
                     AND `profile_id` = in_profile_id
                     ;
@@ -7352,25 +7387,33 @@ BEGIN
                 BEGIN			
                     INSERT INTO `profile_game_data_attribute`
                     (
-                        `code`
+                        `status`
+                        , `code`
+                        , `profile_id`
+                        , `active`
+                        , `game_id`
+                        , `name`
                         , `uuid`
                         , `val`
-                        , `profile_id`
+                        , `date_modified`
                         , `otype`
-                        , `game_id`
+                        , `date_created`
                         , `type`
-                        , `name`
                     )
                     VALUES
                     (
-                        in_code
+                        in_status
+                        , in_code
+                        , in_profile_id
+                        , in_active
+                        , in_game_id
+                        , in_name
                         , in_uuid
                         , in_val
-                        , in_profile_id
+                        , in_date_modified
                         , in_otype
-                        , in_game_id
+                        , in_date_created
                         , in_type
-                        , in_name
                     )
                     ;
                     SET @id = 1;                  
@@ -7387,14 +7430,18 @@ delimiter $$
 CREATE PROCEDURE `usp_profile_game_data_attribute_set_profile_id_game_id_code`
 (
     in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
     , in_code VARCHAR (500) 
+    , in_profile_id BINARY(16) 
+    , in_active int 
+    , in_game_id BINARY(16) 
+    , in_name VARCHAR (500) 
     , in_uuid BINARY(16) 
     , in_val TEXT 
-    , in_profile_id BINARY(16) 
+    , in_date_modified TIMESTAMP 
     , in_otype VARCHAR (500) 
-    , in_game_id BINARY(16) 
+    , in_date_created TIMESTAMP 
     , in_type VARCHAR (500) 
-    , in_name VARCHAR (500) 
 )
 BEGIN
     BEGIN
@@ -7431,14 +7478,18 @@ BEGIN
                 BEGIN		
                     UPDATE `profile_game_data_attribute` 
                     SET
-                        `code` = in_code
+                        `status` = in_status
+                        , `code` = in_code
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `game_id` = in_game_id
+                        , `name` = in_name
                         , `uuid` = in_uuid
                         , `val` = in_val
-                        , `profile_id` = in_profile_id
+                        , `date_modified` = in_date_modified
                         , `otype` = in_otype
-                        , `game_id` = in_game_id
+                        , `date_created` = in_date_created
                         , `type` = in_type
-                        , `name` = in_name
                     WHERE 1=1
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
@@ -7454,25 +7505,33 @@ BEGIN
                 BEGIN			
                     INSERT INTO `profile_game_data_attribute`
                     (
-                        `code`
+                        `status`
+                        , `code`
+                        , `profile_id`
+                        , `active`
+                        , `game_id`
+                        , `name`
                         , `uuid`
                         , `val`
-                        , `profile_id`
+                        , `date_modified`
                         , `otype`
-                        , `game_id`
+                        , `date_created`
                         , `type`
-                        , `name`
                     )
                     VALUES
                     (
-                        in_code
+                        in_status
+                        , in_code
+                        , in_profile_id
+                        , in_active
+                        , in_game_id
+                        , in_name
                         , in_uuid
                         , in_val
-                        , in_profile_id
+                        , in_date_modified
                         , in_otype
-                        , in_game_id
+                        , in_date_created
                         , in_type
-                        , in_name
                     )
                     ;
                     SET @id = 1;                  
@@ -7559,14 +7618,18 @@ CREATE PROCEDURE `usp_profile_game_data_attribute_get_uuid`
 )
 BEGIN
     SELECT
-        `code`
+        `status`
+        , `code`
+        , `profile_id`
+        , `active`
+        , `game_id`
+        , `name`
         , `uuid`
         , `val`
-        , `profile_id`
+        , `date_modified`
         , `otype`
-        , `game_id`
+        , `date_created`
         , `type`
-        , `name`
     FROM `profile_game_data_attribute`
     WHERE 1=1
     AND `uuid` = in_uuid
@@ -7583,14 +7646,18 @@ CREATE PROCEDURE `usp_profile_game_data_attribute_get_profile_id`
 )
 BEGIN
     SELECT
-        `code`
+        `status`
+        , `code`
+        , `profile_id`
+        , `active`
+        , `game_id`
+        , `name`
         , `uuid`
         , `val`
-        , `profile_id`
+        , `date_modified`
         , `otype`
-        , `game_id`
+        , `date_created`
         , `type`
-        , `name`
     FROM `profile_game_data_attribute`
     WHERE 1=1
     AND `profile_id` = in_profile_id
@@ -7609,14 +7676,18 @@ CREATE PROCEDURE `usp_profile_game_data_attribute_get_profile_id_game_id_code`
 )
 BEGIN
     SELECT
-        `code`
+        `status`
+        , `code`
+        , `profile_id`
+        , `active`
+        , `game_id`
+        , `name`
         , `uuid`
         , `val`
-        , `profile_id`
+        , `date_modified`
         , `otype`
-        , `game_id`
+        , `date_created`
         , `type`
-        , `name`
     FROM `profile_game_data_attribute`
     WHERE 1=1
     AND `profile_id` = in_profile_id
@@ -25116,6 +25187,24 @@ BEGIN
 END$$
 delimiter ;
 
+DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_count_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_meta_count_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_statistic_meta`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
+    ;
+END$$
+delimiter ;
+
 DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_count_name`;
 delimiter $$
 CREATE PROCEDURE `usp_game_statistic_meta_count_name`
@@ -25398,6 +25487,142 @@ BEGIN
 END$$
 delimiter ;
 
+DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_set_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_meta_set_code_game_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_sort INTEGER 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_points decimal 
+    , in_store_count INTEGER 
+    , in_key VARCHAR (50) 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (40) 
+    , in_order VARCHAR (40) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_statistic_meta`  
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_statistic_meta` 
+                    SET
+                        `status` = in_status
+                        , `sort` = in_sort
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `points` = in_points
+                        , `store_count` = in_store_count
+                        , `key` = in_key
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `order` = in_order
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_statistic_meta`
+                    (
+                        `status`
+                        , `sort`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `uuid`
+                        , `points`
+                        , `store_count`
+                        , `key`
+                        , `game_id`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `order`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_points
+                        , in_store_count
+                        , in_key
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
 DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_set_key_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_statistic_meta_set_key_game_id`
@@ -25557,6 +25782,24 @@ BEGIN
     ;
 END$$
 delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_del_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_meta_del_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_statistic_meta`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+END$$
+delimiter ;
 DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_del_key_game_id`;
 
 delimiter $$
@@ -25644,6 +25887,41 @@ BEGIN
     FROM `game_statistic_meta`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_get_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_meta_get_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `sort`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `points`
+        , `store_count`
+        , `key`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `order`
+        , `description`
+    FROM `game_statistic_meta`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
@@ -25816,6 +26094,26 @@ BEGIN
     FROM `game_profile_statistic_timestamp`
     WHERE 1=1
     AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_count_key_profile_id_game_`;
+delimiter $$
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_count_key_profile_id_game_`
+(
+    in_key VARCHAR (50) 
+    , in_profile_id BINARY(16) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_profile_statistic_timestamp`
+    WHERE 1=1
+    AND lower(`key`) = lower(in_key)
+    AND `profile_id` = in_profile_id
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
@@ -26062,6 +26360,116 @@ BEGIN
                     AND lower(`key`) = lower(in_key)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_profile_statistic_timestamp` 
+                    SET
+                        `status` = in_status
+                        , `timestamp` = in_timestamp
+                        , `uuid` = in_uuid
+                        , `key` = in_key
+                        , `date_modified` = in_date_modified
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `game_id` = in_game_id
+                        , `profile_id` = in_profile_id
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND lower(`key`) = lower(in_key)
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_profile_statistic_timestamp`
+                    (
+                        `status`
+                        , `timestamp`
+                        , `uuid`
+                        , `key`
+                        , `date_modified`
+                        , `active`
+                        , `date_created`
+                        , `game_id`
+                        , `profile_id`
+                        , `type`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_timestamp
+                        , in_uuid
+                        , in_key
+                        , in_date_modified
+                        , in_active
+                        , in_date_created
+                        , in_game_id
+                        , in_profile_id
+                        , in_type
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_set_key_profile_id_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_set_key_profile_id_game_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_timestamp TIMESTAMP 
+    , in_uuid BINARY(16) 
+    , in_key VARCHAR (50) 
+    , in_date_modified TIMESTAMP 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+    , in_type VARCHAR (500) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_profile_statistic_timestamp`  
+                    WHERE 1=1
+                    AND lower(`key`) = lower(in_key)
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
                     ;
                 END;
@@ -26166,6 +26574,26 @@ CREATE PROCEDURE `usp_game_profile_statistic_timestamp_del_key_profile_id_game_i
     in_key VARCHAR (50) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_profile_statistic_timestamp`
+    WHERE 1=1                        
+    AND lower("key") = lower(in_key)
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_del_key_profile_id_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_del_key_profile_id_game_id`
+(
+    in_key VARCHAR (50) 
+    , in_profile_id BINARY(16) 
+    , in_game_id BINARY(16) 
     , in_timestamp TIMESTAMP 
 )
 
@@ -26209,6 +26637,36 @@ BEGIN
     FROM `game_profile_statistic_timestamp`
     WHERE 1=1
     AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_get_key_profile_id_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_get_key_profile_id_game_id`
+(
+    in_key VARCHAR (50) 
+    , in_profile_id BINARY(16) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `timestamp`
+        , `uuid`
+        , `key`
+        , `date_modified`
+        , `active`
+        , `date_created`
+        , `game_id`
+        , `profile_id`
+        , `type`
+    FROM `game_profile_statistic_timestamp`
+    WHERE 1=1
+    AND lower(`key`) = lower(in_key)
+    AND `profile_id` = in_profile_id
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
@@ -26295,6 +26753,24 @@ BEGIN
     FROM `game_key_meta`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_key_meta_count_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_key_meta_count_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_key_meta`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
@@ -26528,6 +27004,150 @@ BEGIN
                         , `description` = in_description
                     WHERE 1=1
                     AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_key_meta`
+                    (
+                        `status`
+                        , `sort`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `level`
+                        , `uuid`
+                        , `key_level`
+                        , `store_count`
+                        , `key`
+                        , `game_id`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `order`
+                        , `key_stat`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_level
+                        , in_uuid
+                        , in_key_level
+                        , in_store_count
+                        , in_key
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_key_stat
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_key_meta_set_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_key_meta_set_code_game_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_sort INTEGER 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_level VARCHAR (500) 
+    , in_uuid BINARY(16) 
+    , in_key_level VARCHAR (50) 
+    , in_store_count INTEGER 
+    , in_key VARCHAR (50) 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (40) 
+    , in_order VARCHAR (40) 
+    , in_key_stat VARCHAR (50) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_key_meta`  
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_key_meta` 
+                    SET
+                        `status` = in_status
+                        , `sort` = in_sort
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `level` = in_level
+                        , `uuid` = in_uuid
+                        , `key_level` = in_key_level
+                        , `store_count` = in_store_count
+                        , `key` = in_key
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `order` = in_order
+                        , `key_stat` = in_key_stat
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
                     ;
                     SET @id = 1;
                 END;
@@ -26904,6 +27524,24 @@ BEGIN
     ;
 END$$
 delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_key_meta_del_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_key_meta_del_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_key_meta`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+END$$
+delimiter ;
 DROP PROCEDURE IF EXISTS `usp_game_key_meta_del_key_game_id`;
 
 delimiter $$
@@ -26995,6 +27633,43 @@ BEGIN
     FROM `game_key_meta`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_key_meta_get_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_key_meta_get_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `sort`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `level`
+        , `uuid`
+        , `key_level`
+        , `store_count`
+        , `key`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `order`
+        , `key_stat`
+        , `description`
+    FROM `game_key_meta`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
@@ -27228,6 +27903,24 @@ BEGIN
     FROM `game_level`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_level_count_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_level_count_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_level`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
@@ -27504,6 +28197,134 @@ BEGIN
 END$$
 delimiter ;
 
+DROP PROCEDURE IF EXISTS `usp_game_level_set_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_level_set_code_game_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_sort INTEGER 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_key VARCHAR (50) 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (40) 
+    , in_order VARCHAR (40) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_level`  
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_level` 
+                    SET
+                        `status` = in_status
+                        , `sort` = in_sort
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `key` = in_key
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `order` = in_order
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_level`
+                    (
+                        `status`
+                        , `sort`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `uuid`
+                        , `key`
+                        , `game_id`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `order`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_key
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
 DROP PROCEDURE IF EXISTS `usp_game_level_set_key_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_level_set_key_game_id`
@@ -27655,6 +28476,24 @@ BEGIN
     ;
 END$$
 delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_level_del_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_level_del_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_level`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+END$$
+delimiter ;
 DROP PROCEDURE IF EXISTS `usp_game_level_del_key_game_id`;
 
 delimiter $$
@@ -27738,6 +28577,39 @@ BEGIN
     FROM `game_level`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_level_get_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_level_get_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `sort`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `key`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `order`
+        , `description`
+    FROM `game_level`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
@@ -29156,6 +30028,24 @@ BEGIN
 END$$
 delimiter ;
 
+DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_count_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_achievement_meta_count_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_achievement_meta`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
+    ;
+END$$
+delimiter ;
+
 DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_count_name`;
 delimiter $$
 CREATE PROCEDURE `usp_game_achievement_meta_count_name`
@@ -29448,6 +30338,150 @@ BEGIN
 END$$
 delimiter ;
 
+DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_set_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_achievement_meta_set_code_game_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_sort INTEGER 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_game_stat int 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_level VARCHAR (500) 
+    , in_uuid BINARY(16) 
+    , in_points INTEGER 
+    , in_key VARCHAR (50) 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_modifier decimal 
+    , in_type VARCHAR (40) 
+    , in_leaderboard int 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_achievement_meta`  
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_achievement_meta` 
+                    SET
+                        `status` = in_status
+                        , `sort` = in_sort
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `game_stat` = in_game_stat
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `level` = in_level
+                        , `uuid` = in_uuid
+                        , `points` = in_points
+                        , `key` = in_key
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `modifier` = in_modifier
+                        , `type` = in_type
+                        , `leaderboard` = in_leaderboard
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_achievement_meta`
+                    (
+                        `status`
+                        , `sort`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `game_stat`
+                        , `date_modified`
+                        , `data`
+                        , `level`
+                        , `uuid`
+                        , `points`
+                        , `key`
+                        , `game_id`
+                        , `active`
+                        , `date_created`
+                        , `modifier`
+                        , `type`
+                        , `leaderboard`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_game_stat
+                        , in_date_modified
+                        , in_data
+                        , in_level
+                        , in_uuid
+                        , in_points
+                        , in_key
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_modifier
+                        , in_type
+                        , in_leaderboard
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
 DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_set_key_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_achievement_meta_set_key_game_id`
@@ -29615,6 +30649,24 @@ BEGIN
     ;
 END$$
 delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_del_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_achievement_meta_del_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_achievement_meta`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+END$$
+delimiter ;
 DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_del_key_game_id`;
 
 delimiter $$
@@ -29706,6 +30758,43 @@ BEGIN
     FROM `game_achievement_meta`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_get_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_achievement_meta_get_code_game_id`
+(
+    in_code VARCHAR (255) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `sort`
+        , `code`
+        , `display_name`
+        , `name`
+        , `game_stat`
+        , `date_modified`
+        , `data`
+        , `level`
+        , `uuid`
+        , `points`
+        , `key`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `modifier`
+        , `type`
+        , `leaderboard`
+        , `description`
+    FROM `game_achievement_meta`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;

@@ -299,14 +299,21 @@ ALTER TABLE "profile_game_network" ADD PRIMARY KEY ("uuid");
         
 CREATE TABLE "profile_game_data_attribute" 
 (
-    "code" varchar (500)
+    "status" varchar (255)
+    , "code" varchar (500)
+    , "profile_id" uuid
+    , "active" boolean
+                --CONSTRAINT DF_profile_game_data_attribute_active_bool DEFAULT 1
+    , "game_id" uuid
+    , "name" varchar (500)
     , "uuid" uuid
     , "val" varchar
-    , "profile_id" uuid
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_profile_game_data_attribute_date_modified DEFAULT GETDATE()
     , "otype" varchar (500)
-    , "game_id" uuid
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_profile_game_data_attribute_date_created DEFAULT GETDATE()
     , "type" varchar (500)
-    , "name" varchar (500)
 );
 
 ALTER TABLE "profile_game_data_attribute" ADD PRIMARY KEY ("uuid");
@@ -1158,14 +1165,18 @@ CREATE TYPE "profile_game_network_result" as
 CREATE TYPE "profile_game_data_attribute_result" as
 (
     total_rows bigint
+    , "status" varchar
     , "code" varchar
+    , "profile_id" uuid
+    , "active" boolean
+    , "game_id" uuid
+    , "name" varchar
     , "uuid" uuid
     , "val" varchar
-    , "profile_id" uuid
+    , "date_modified" TIMESTAMP
     , "otype" varchar
-    , "game_id" uuid
+    , "date_created" TIMESTAMP
     , "type" varchar
-    , "name" varchar
 );    
 CREATE TYPE "game_session_result" as
 (
@@ -10514,12 +10525,16 @@ LANGUAGE sql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_count
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -10543,12 +10558,16 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_count_uuid
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -10574,12 +10593,16 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_count_profile_id
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -10605,12 +10628,16 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_count_profile_id_game_id_code
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -10654,12 +10681,16 @@ LANGUAGE sql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_browse_filter
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -10685,14 +10716,18 @@ BEGIN
     END IF;
     
     _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
     || ', "code"'
+    || ', "profile_id"'
+    || ', "active"'
+    || ', "game_id"'
+    || ', "name"'
     || ', "uuid"'
     || ', "val"'
-    || ', "profile_id"'
+    || ', "date_modified"'
     || ', "otype"'
-    || ', "game_id"'
+    || ', "date_created"'
     || ', "type"'
-    || ', "name"'
     || ' FROM "profile_game_data_attribute" WHERE 1=1 ';
     
     BEGIN
@@ -10703,14 +10738,18 @@ BEGIN
     
     _sql := _sql 
     || ' GROUP BY '
-    || '"code" '
+    || '"status" '
+    || ', "code" '
+    || ', "profile_id" '
+    || ', "active" '
+    || ', "game_id" '
+    || ', "name" '
     || ', "uuid" '
     || ', "val" '
-    || ', "profile_id" '
+    || ', "date_modified" '
     || ', "otype" '
-    || ', "game_id" '
+    || ', "date_created" '
     || ', "type" '
-    || ', "name" '
     ;
     
     _sql := _sql 
@@ -10743,26 +10782,34 @@ LANGUAGE sql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_set_uuid
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_data_attribute_set_uuid
 (
     in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
     , in_code varchar (500) = NULL
+    , in_profile_id uuid = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_name varchar (500) = NULL
     , in_uuid uuid = NULL
     , in_val varchar = NULL
-    , in_profile_id uuid = NULL
+    , in_date_modified TIMESTAMP = now()
     , in_otype varchar (500) = NULL
-    , in_game_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
-    , in_name varchar (500) = NULL
     , OUT out_id int                        
 )
 RETURNS int
@@ -10803,14 +10850,18 @@ BEGIN
                 BEGIN		
                     UPDATE "profile_game_data_attribute" 
                     SET
-                        "code" = in_code
+                        "status" = in_status
+                        , "code" = in_code
+                        , "profile_id" = in_profile_id
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "name" = in_name
                         , "uuid" = in_uuid
                         , "val" = in_val
-                        , "profile_id" = in_profile_id
+                        , "date_modified" = in_date_modified
                         , "otype" = in_otype
-                        , "game_id" = in_game_id
+                        , "date_created" = in_date_created
                         , "type" = in_type
-                        , "name" = in_name
                     WHERE 1=1
                     AND "uuid" = in_uuid
                     ;
@@ -10824,25 +10875,33 @@ BEGIN
                 BEGIN			
                     INSERT INTO "profile_game_data_attribute"
                     (
-                        "code"
+                        "status"
+                        , "code"
+                        , "profile_id"
+                        , "active"
+                        , "game_id"
+                        , "name"
                         , "uuid"
                         , "val"
-                        , "profile_id"
+                        , "date_modified"
                         , "otype"
-                        , "game_id"
+                        , "date_created"
                         , "type"
-                        , "name"
                     )
                     VALUES
                     (
-                        in_code
+                        in_status
+                        , in_code
+                        , in_profile_id
+                        , in_active
+                        , in_game_id
+                        , in_name
                         , in_uuid
                         , in_val
-                        , in_profile_id
+                        , in_date_modified
                         , in_otype
-                        , in_game_id
+                        , in_date_created
                         , in_type
-                        , in_name
                     )
                     ;
                     _id := 1;                  
@@ -10858,26 +10917,34 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_set_profile_id
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_data_attribute_set_profile_id
 (
     in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
     , in_code varchar (500) = NULL
+    , in_profile_id uuid = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_name varchar (500) = NULL
     , in_uuid uuid = NULL
     , in_val varchar = NULL
-    , in_profile_id uuid = NULL
+    , in_date_modified TIMESTAMP = now()
     , in_otype varchar (500) = NULL
-    , in_game_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
-    , in_name varchar (500) = NULL
     , OUT out_id int                        
 )
 RETURNS int
@@ -10918,14 +10985,18 @@ BEGIN
                 BEGIN		
                     UPDATE "profile_game_data_attribute" 
                     SET
-                        "code" = in_code
+                        "status" = in_status
+                        , "code" = in_code
+                        , "profile_id" = in_profile_id
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "name" = in_name
                         , "uuid" = in_uuid
                         , "val" = in_val
-                        , "profile_id" = in_profile_id
+                        , "date_modified" = in_date_modified
                         , "otype" = in_otype
-                        , "game_id" = in_game_id
+                        , "date_created" = in_date_created
                         , "type" = in_type
-                        , "name" = in_name
                     WHERE 1=1
                     AND "profile_id" = in_profile_id
                     ;
@@ -10939,25 +11010,33 @@ BEGIN
                 BEGIN			
                     INSERT INTO "profile_game_data_attribute"
                     (
-                        "code"
+                        "status"
+                        , "code"
+                        , "profile_id"
+                        , "active"
+                        , "game_id"
+                        , "name"
                         , "uuid"
                         , "val"
-                        , "profile_id"
+                        , "date_modified"
                         , "otype"
-                        , "game_id"
+                        , "date_created"
                         , "type"
-                        , "name"
                     )
                     VALUES
                     (
-                        in_code
+                        in_status
+                        , in_code
+                        , in_profile_id
+                        , in_active
+                        , in_game_id
+                        , in_name
                         , in_uuid
                         , in_val
-                        , in_profile_id
+                        , in_date_modified
                         , in_otype
-                        , in_game_id
+                        , in_date_created
                         , in_type
-                        , in_name
                     )
                     ;
                     _id := 1;                  
@@ -10973,26 +11052,34 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_set_profile_id_game_id_code
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_data_attribute_set_profile_id_game_id_code
 (
     in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
     , in_code varchar (500) = NULL
+    , in_profile_id uuid = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_name varchar (500) = NULL
     , in_uuid uuid = NULL
     , in_val varchar = NULL
-    , in_profile_id uuid = NULL
+    , in_date_modified TIMESTAMP = now()
     , in_otype varchar (500) = NULL
-    , in_game_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
-    , in_name varchar (500) = NULL
     , OUT out_id int                        
 )
 RETURNS int
@@ -11035,14 +11122,18 @@ BEGIN
                 BEGIN		
                     UPDATE "profile_game_data_attribute" 
                     SET
-                        "code" = in_code
+                        "status" = in_status
+                        , "code" = in_code
+                        , "profile_id" = in_profile_id
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "name" = in_name
                         , "uuid" = in_uuid
                         , "val" = in_val
-                        , "profile_id" = in_profile_id
+                        , "date_modified" = in_date_modified
                         , "otype" = in_otype
-                        , "game_id" = in_game_id
+                        , "date_created" = in_date_created
                         , "type" = in_type
-                        , "name" = in_name
                     WHERE 1=1
                     AND "profile_id" = in_profile_id
                     AND "game_id" = in_game_id
@@ -11058,25 +11149,33 @@ BEGIN
                 BEGIN			
                     INSERT INTO "profile_game_data_attribute"
                     (
-                        "code"
+                        "status"
+                        , "code"
+                        , "profile_id"
+                        , "active"
+                        , "game_id"
+                        , "name"
                         , "uuid"
                         , "val"
-                        , "profile_id"
+                        , "date_modified"
                         , "otype"
-                        , "game_id"
+                        , "date_created"
                         , "type"
-                        , "name"
                     )
                     VALUES
                     (
-                        in_code
+                        in_status
+                        , in_code
+                        , in_profile_id
+                        , in_active
+                        , in_game_id
+                        , in_name
                         , in_uuid
                         , in_val
-                        , in_profile_id
+                        , in_date_modified
                         , in_otype
-                        , in_game_id
+                        , in_date_created
                         , in_type
-                        , in_name
                     )
                     ;
                     _id := 1;                  
@@ -11106,12 +11205,16 @@ LANGUAGE sql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_del_uuid
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -11135,12 +11238,16 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_del_profile_id
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -11164,12 +11271,16 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_del_profile_id_game_id_code
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -11211,12 +11322,16 @@ LANGUAGE sql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_get_uuid
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -11229,14 +11344,18 @@ AS $$
 DECLARE
 BEGIN
     RETURN QUERY SELECT
-        "code"
+        "status"
+        , "code"
+        , "profile_id"
+        , "active"
+        , "game_id"
+        , "name"
         , "uuid"
         , "val"
-        , "profile_id"
+        , "date_modified"
         , "otype"
-        , "game_id"
+        , "date_created"
         , "type"
-        , "name"
     FROM "profile_game_data_attribute"
     WHERE 1=1
     AND "uuid" = in_uuid
@@ -11248,12 +11367,16 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_get_profile_id
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -11266,14 +11389,18 @@ AS $$
 DECLARE
 BEGIN
     RETURN QUERY SELECT
-        "code"
+        "status"
+        , "code"
+        , "profile_id"
+        , "active"
+        , "game_id"
+        , "name"
         , "uuid"
         , "val"
-        , "profile_id"
+        , "date_modified"
         , "otype"
-        , "game_id"
+        , "date_created"
         , "type"
-        , "name"
     FROM "profile_game_data_attribute"
     WHERE 1=1
     AND "profile_id" = in_profile_id
@@ -11285,12 +11412,16 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_profile_game_data_attribute_get_profile_id_game_id_code
 (
     varchar
+    , varchar
+    , uuid
+    , boolean
     , uuid
     , varchar
     , uuid
     , varchar
-    , uuid
+    , TIMESTAMP
     , varchar
+    , TIMESTAMP
     , varchar
 );
 
@@ -11305,14 +11436,18 @@ AS $$
 DECLARE
 BEGIN
     RETURN QUERY SELECT
-        "code"
+        "status"
+        , "code"
+        , "profile_id"
+        , "active"
+        , "game_id"
+        , "name"
         , "uuid"
         , "val"
-        , "profile_id"
+        , "date_modified"
         , "otype"
-        , "game_id"
+        , "date_created"
         , "type"
-        , "name"
     FROM "profile_game_data_attribute"
     WHERE 1=1
     AND "profile_id" = in_profile_id
@@ -38093,6 +38228,48 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP FUNCTION IF EXISTS usp_game_statistic_meta_count_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , decimal
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_meta_count_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_meta"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
 DROP FUNCTION IF EXISTS usp_game_statistic_meta_count_name
 (
     varchar
@@ -38545,6 +38722,168 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP FUNCTION IF EXISTS usp_game_statistic_meta_set_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , decimal
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_meta_set_code_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_points decimal = NULL
+    , in_store_count INTEGER = NULL
+    , in_key varchar (50) = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (40) = NULL
+    , in_order varchar (40) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_statistic_meta"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_statistic_meta" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "points" = in_points
+                        , "store_count" = in_store_count
+                        , "key" = in_key
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_statistic_meta"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "uuid"
+                        , "points"
+                        , "store_count"
+                        , "key"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_points
+                        , in_store_count
+                        , in_key
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
 DROP FUNCTION IF EXISTS usp_game_statistic_meta_set_key_game_id
 (
     varchar
@@ -38759,6 +39098,46 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_statistic_meta_del_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , decimal
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_meta_del_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_statistic_meta"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_game_statistic_meta_del_key_game_id
 (
     varchar
@@ -38918,6 +39297,63 @@ BEGIN
     FROM "game_statistic_meta"
     WHERE 1=1
     AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_meta_get_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , decimal
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_meta_get_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+)
+RETURNS setof "game_statistic_meta"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "points"
+        , "store_count"
+        , "key"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_statistic_meta"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
     ;
     RETURN;
 END;
@@ -39221,6 +39657,43 @@ BEGIN
     FROM "game_profile_statistic_timestamp"
     WHERE 1=1
     AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_statistic_timestamp_count_key_profile_id_game_
+(
+    varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_statistic_timestamp_count_key_profile_id_game_
+(
+    in_key varchar (50) = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_statistic_timestamp"
+    WHERE 1=1
+    AND lower("key") = lower(in_key)
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
     ;
     RETURN;
 END;
@@ -39556,6 +40029,135 @@ BEGIN
                     AND lower("key") = lower(in_key)
                     AND "profile_id" = in_profile_id
                     AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_statistic_timestamp" 
+                    SET
+                        "status" = in_status
+                        , "timestamp" = in_timestamp
+                        , "uuid" = in_uuid
+                        , "key" = in_key
+                        , "date_modified" = in_date_modified
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "game_id" = in_game_id
+                        , "profile_id" = in_profile_id
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND lower("key") = lower(in_key)
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_statistic_timestamp"
+                    (
+                        "status"
+                        , "timestamp"
+                        , "uuid"
+                        , "key"
+                        , "date_modified"
+                        , "active"
+                        , "date_created"
+                        , "game_id"
+                        , "profile_id"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_timestamp
+                        , in_uuid
+                        , in_key
+                        , in_date_modified
+                        , in_active
+                        , in_date_created
+                        , in_game_id
+                        , in_profile_id
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_statistic_timestamp_set_key_profile_id_game_id
+(
+    varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_statistic_timestamp_set_key_profile_id_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_timestamp TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_key varchar (50) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_statistic_timestamp"  
+                    WHERE 1=1
+                    AND lower("key") = lower(in_key)
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
                     AND "timestamp" = in_timestamp
                     ;
                 END;
@@ -39694,6 +40296,41 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_timestamp_del_key_profile_
     in_key varchar (50) = NULL
     , in_profile_id uuid = NULL
     , in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_statistic_timestamp"
+    WHERE 1=1                        
+    AND lower("key") = lower(in_key)
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_statistic_timestamp_del_key_profile_id_game_id
+(
+    varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_statistic_timestamp_del_key_profile_id_game_id
+(
+    in_key varchar (50) = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
     , in_timestamp TIMESTAMP = now()
 )
 
@@ -39762,6 +40399,51 @@ BEGIN
     FROM "game_profile_statistic_timestamp"
     WHERE 1=1
     AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_statistic_timestamp_get_key_profile_id_game_id
+(
+    varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_statistic_timestamp_get_key_profile_id_game_id
+(
+    in_key varchar (50) = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+)
+RETURNS setof "game_profile_statistic_timestamp"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "timestamp"
+        , "uuid"
+        , "key"
+        , "date_modified"
+        , "active"
+        , "date_created"
+        , "game_id"
+        , "profile_id"
+        , "type"
+    FROM "game_profile_statistic_timestamp"
+    WHERE 1=1
+    AND lower("key") = lower(in_key)
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
     ;
     RETURN;
 END;
@@ -39950,6 +40632,50 @@ BEGIN
     FROM "game_key_meta"
     WHERE 1=1
     AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_key_meta_count_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_key_meta_count_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_key_meta"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
     ;
     RETURN;
 END;
@@ -40431,6 +41157,178 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP FUNCTION IF EXISTS usp_game_key_meta_set_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_key_meta_set_code_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_level varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_key_level varchar (50) = NULL
+    , in_store_count INTEGER = NULL
+    , in_key varchar (50) = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (40) = NULL
+    , in_order varchar (40) = NULL
+    , in_key_stat varchar (50) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_key_meta"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_key_meta" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "level" = in_level
+                        , "uuid" = in_uuid
+                        , "key_level" = in_key_level
+                        , "store_count" = in_store_count
+                        , "key" = in_key
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "key_stat" = in_key_stat
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_key_meta"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "level"
+                        , "uuid"
+                        , "key_level"
+                        , "store_count"
+                        , "key"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "key_stat"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_level
+                        , in_uuid
+                        , in_key_level
+                        , in_store_count
+                        , in_key
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_key_stat
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
 DROP FUNCTION IF EXISTS usp_game_key_meta_set_key_game_id
 (
     varchar
@@ -40831,6 +41729,48 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_key_meta_del_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_key_meta_del_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_key_meta"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_game_key_meta_del_key_game_id
 (
     varchar
@@ -41000,6 +41940,67 @@ BEGIN
     FROM "game_key_meta"
     WHERE 1=1
     AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_key_meta_get_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_key_meta_get_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+)
+RETURNS setof "game_key_meta"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "level"
+        , "uuid"
+        , "key_level"
+        , "store_count"
+        , "key"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "key_stat"
+        , "description"
+    FROM "game_key_meta"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
     ;
     RETURN;
 END;
@@ -41433,6 +42434,46 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP FUNCTION IF EXISTS usp_game_level_count_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_level_count_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_level"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
 DROP FUNCTION IF EXISTS usp_game_level_count_name
 (
     varchar
@@ -41861,6 +42902,158 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP FUNCTION IF EXISTS usp_game_level_set_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_level_set_code_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_key varchar (50) = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (40) = NULL
+    , in_order varchar (40) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_level"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_level" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "key" = in_key
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_level"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "uuid"
+                        , "key"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_key
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
 DROP FUNCTION IF EXISTS usp_game_level_set_key_game_id
 (
     varchar
@@ -42063,6 +43256,44 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_level_del_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_level_del_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_level"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_game_level_del_key_game_id
 (
     varchar
@@ -42212,6 +43443,59 @@ BEGIN
     FROM "game_level"
     WHERE 1=1
     AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_level_get_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_level_get_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+)
+RETURNS setof "game_level"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "key"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_level"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
     ;
     RETURN;
 END;
@@ -44377,6 +45661,50 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP FUNCTION IF EXISTS usp_game_achievement_meta_count_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , decimal
+    , varchar
+    , boolean
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_achievement_meta_count_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_achievement_meta"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
 DROP FUNCTION IF EXISTS usp_game_achievement_meta_count_name
 (
     varchar
@@ -44853,6 +46181,178 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP FUNCTION IF EXISTS usp_game_achievement_meta_set_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , decimal
+    , varchar
+    , boolean
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_achievement_meta_set_code_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_game_stat boolean = true
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_level varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_points INTEGER = NULL
+    , in_key varchar (50) = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_modifier decimal = NULL
+    , in_type varchar (40) = NULL
+    , in_leaderboard boolean = true
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_achievement_meta"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_achievement_meta" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "game_stat" = in_game_stat
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "level" = in_level
+                        , "uuid" = in_uuid
+                        , "points" = in_points
+                        , "key" = in_key
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "modifier" = in_modifier
+                        , "type" = in_type
+                        , "leaderboard" = in_leaderboard
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_achievement_meta"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "game_stat"
+                        , "date_modified"
+                        , "data"
+                        , "level"
+                        , "uuid"
+                        , "points"
+                        , "key"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "modifier"
+                        , "type"
+                        , "leaderboard"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_game_stat
+                        , in_date_modified
+                        , in_data
+                        , in_level
+                        , in_uuid
+                        , in_points
+                        , in_key
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_modifier
+                        , in_type
+                        , in_leaderboard
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
 DROP FUNCTION IF EXISTS usp_game_achievement_meta_set_key_game_id
 (
     varchar
@@ -45079,6 +46579,48 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_achievement_meta_del_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , decimal
+    , varchar
+    , boolean
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_achievement_meta_del_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_achievement_meta"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS usp_game_achievement_meta_del_key_game_id
 (
     varchar
@@ -45248,6 +46790,67 @@ BEGIN
     FROM "game_achievement_meta"
     WHERE 1=1
     AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_achievement_meta_get_code_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , INTEGER
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , decimal
+    , varchar
+    , boolean
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_achievement_meta_get_code_game_id
+(
+    in_code varchar (255) = NULL
+    , in_game_id uuid = NULL
+)
+RETURNS setof "game_achievement_meta"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "game_stat"
+        , "date_modified"
+        , "data"
+        , "level"
+        , "uuid"
+        , "points"
+        , "key"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "modifier"
+        , "type"
+        , "leaderboard"
+        , "description"
+    FROM "game_achievement_meta"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
     ;
     RETURN;
 END;

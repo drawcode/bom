@@ -1,4 +1,6 @@
 import math
+import BaseEntity
+from BaseEntity import *
 
 class ProfileGameDataAttributeResult(object):
   
@@ -55,9 +57,10 @@ class ProfileGameDataAttributeResult(object):
       o.__dict__[k] = self.dict_to_obj(d[k])
     return o    
         
-class ProfileGameDataAttribute(object):
+class ProfileGameDataAttribute(BaseEntity):
 
   def __init__(self):
+    super(ProfileGameDataAttribute, self).__init__()
     #self.__dict__.update(entries)
     self.code = None
     self.uuid = None

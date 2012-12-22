@@ -1,5 +1,6 @@
 <?php //namespace Gaming;
 
+require_once('BaseEntity.php');
 
 //include 'GamingACT.php';
 //include 'GamingData.php';
@@ -20,7 +21,7 @@ class ProfileGameDataAttributeResult {
     }
 
 }
-class ProfileGameDataAttribute { 
+class ProfileGameDataAttribute extends BaseEntity { 
 
     private static $instance; 
 
@@ -49,6 +50,7 @@ class ProfileGameDataAttribute {
     }
     
     public function reset() {
+        parent::reset();
         $this->display_name = "b";
     }
     

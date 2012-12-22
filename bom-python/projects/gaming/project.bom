@@ -461,6 +461,7 @@
         ,
         {
             "id":"profile_game_data_attribute",
+            "extends": "base_entity",
             "description":"Used for local storage in game client so keys are compact.",
             "type":"object",
             "generate":["code","data"],
@@ -1537,6 +1538,7 @@
                 "get":[
                     {"params":["uuid"]},
                     {"params":["code"]},
+                    {"params":["code","game_id"]},
                     {"params":["name"]},
                     {"params":["key"]},
                     {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
@@ -1544,16 +1546,19 @@
                 ],
                 "set":[               
                     {"params":["uuid"]},
+                    {"params":["code","game_id"]},
                     {"params":["key", "game_id"]}
                 ],
                 "del":[                    
                     {"params":["uuid"]},
+                    {"params":["code","game_id"]},
                     {"params":["key", "game_id"]}
                 ],
                 "count":[
                     {"scope":"public"},
                     {"params":["uuid"], "returns":"int"},
                     {"params":["code"], "returns":"int"},
+                    {"params":["code","game_id"]},
                     {"params":["name"], "returns":"int"},
                     {"params":["key"], "returns":"int"},
                     {"params":["game_id"], "returns":"int"},
@@ -1585,19 +1590,23 @@
             "methods":{
                 "get":[
                     {"params":["uuid"]},
+                    {"params":["key", "profile_id", "game_id"]},
                     {"params":["key", "profile_id", "game_id","timestamp"]}
                 ],
                 "set":[               
                     {"params":["uuid"]},
+                    {"params":["key", "profile_id", "game_id"]},
                     {"params":["key", "profile_id", "game_id","timestamp"]}
                 ],
                 "del":[                    
                     {"params":["uuid"]},
+                    {"params":["key", "profile_id", "game_id"]},
                     {"params":["key", "profile_id", "game_id","timestamp"]}
                 ],
                 "count":[
                     {"scope":"public"},
                     {"params":["uuid"], "returns":"int"},
+                    {"params":["key", "profile_id", "game_id"]},
                     {"params":["key", "profile_id", "game_id","timestamp"], "returns":"int"}
                 ],
                 "browse":[
@@ -1642,6 +1651,7 @@
                 "get":[
                     {"params":["uuid"]},
                     {"params":["code"]},
+                    {"params":["code","game_id"]},
                     {"params":["name"]},
                     {"params":["key"]},
                     {"params":["game_id"]},
@@ -1650,17 +1660,20 @@
                 ],
                 "set":[               
                     {"params":["uuid"]},
+                    {"params":["code","game_id"]},
                     {"params":["key", "game_id"]},
                     {"params":["key", "game_id", "level"]}
                 ],
                 "del":[                    
                     {"params":["uuid"]},
+                    {"params":["code","game_id"]},
                     {"params":["key", "game_id"]}
                 ],
                 "count":[
                     {"scope":"public"},
                     {"params":["uuid"]},
                     {"params":["code"]},
+                    {"params":["code","game_id"]},
                     {"params":["name"]},
                     {"params":["key"]},
                     {"params":["game_id"]},
@@ -1697,6 +1710,7 @@
                 "get":[
                     {"params":["uuid"]},
                     {"params":["code"]},
+                    {"params":["code","game_id"]},
                     {"params":["name"]},
                     {"params":["key"]},
                     {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
@@ -1704,16 +1718,19 @@
                 ],
                 "set":[               
                     {"params":["uuid"]},
+                    {"params":["code","game_id"]},
                     {"params":["key", "game_id"]}
                 ],
                 "del":[                    
                     {"params":["uuid"]},
+                    {"params":["code","game_id"]},
                     {"params":["key", "game_id"]}
                 ],
                 "count":[
                     {"scope":"public"},
                     {"params":["uuid"]},
                     {"params":["code"]},
+                    {"params":["code","game_id"]},
                     {"params":["name"]},
                     {"params":["key"]},
                     {"params":["game_id"]},
@@ -1836,6 +1853,7 @@
                 "get":[
                     {"params":["uuid"]},
                     {"params":["code"]},
+                    {"params":["code","game_id"]},
                     {"params":["name"]},
                     {"params":["key"]},
                     {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
@@ -1843,16 +1861,19 @@
                 ],
                 "set":[               
                     {"params":["uuid"]},
+                    {"params":["code","game_id"]},
                     {"params":["key", "game_id"]}
                 ],
                 "del":[                    
                     {"params":["uuid"]},
+                    {"params":["code","game_id"]},
                     {"params":["key", "game_id"]}
                 ],
                 "count":[
                     {"scope":"public"},
                     {"params":["uuid"]},
                     {"params":["code"]},
+                    {"params":["code","game_id"]},
                     {"params":["name"]},
                     {"params":["key"]},
                     {"params":["game_id"]},

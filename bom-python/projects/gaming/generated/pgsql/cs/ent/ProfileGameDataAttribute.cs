@@ -68,7 +68,7 @@ namespace gaming.ent {
         }
     }
 
-    public class ProfileGameDataAttribute  {
+    public class ProfileGameDataAttribute : BaseEntity {
     
         public ProfileGameDataAttribute() {
 	

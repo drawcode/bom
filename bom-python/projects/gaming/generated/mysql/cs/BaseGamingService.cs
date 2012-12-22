@@ -1638,6 +1638,9 @@ namespace gaming {
             else if(IsContext("game-statistic-meta/count/by-code")){
                 CountGameStatisticMetaByCode();
             }
+            else if(IsContext("game-statistic-meta/count/by-code/by-game-id")){
+                CountGameStatisticMetaByCodeByGameId();
+            }
             else if(IsContext("game-statistic-meta/count/by-name")){
                 CountGameStatisticMetaByName();
             }
@@ -1656,11 +1659,17 @@ namespace gaming {
             else if(IsContext("game-statistic-meta/set/by-uuid")){
                 SetGameStatisticMetaByUuid();
             }
+            else if(IsContext("game-statistic-meta/set/by-code/by-game-id")){
+                SetGameStatisticMetaByCodeByGameId();
+            }
             else if(IsContext("game-statistic-meta/set/by-key/by-game-id")){
                 SetGameStatisticMetaByKeyByGameId();
             }
             else if(IsContext("game-statistic-meta/del/by-uuid")){
                 DelGameStatisticMetaByUuid();
+            }
+            else if(IsContext("game-statistic-meta/del/by-code/by-game-id")){
+                DelGameStatisticMetaByCodeByGameId();
             }
             else if(IsContext("game-statistic-meta/del/by-key/by-game-id")){
                 DelGameStatisticMetaByKeyByGameId();
@@ -1670,6 +1679,9 @@ namespace gaming {
             }
             else if(IsContext("game-statistic-meta/get/by-code")){
                 GetGameStatisticMetaListByCode();
+            }
+            else if(IsContext("game-statistic-meta/get/by-code/by-game-id")){
+                GetGameStatisticMetaListByCodeByGameId();
             }
             else if(IsContext("game-statistic-meta/get/by-name")){
                 GetGameStatisticMetaListByName();
@@ -1689,6 +1701,9 @@ namespace gaming {
             else if(IsContext("game-profile-statistic-timestamp/count/by-uuid")){
                 CountGameProfileStatisticTimestampByUuid();
             }
+            else if(IsContext("game-profile-statistic-timestamp/count/by-key/by-profile-id/by-game-id")){
+                CountGameProfileStatisticTimestampByKeyByProfileIdByGameId();
+            }
             else if(IsContext("game-profile-statistic-timestamp/count/by-key/by-profile-id/by-game-id/by-timestamp")){
                 CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp();
             }
@@ -1698,17 +1713,26 @@ namespace gaming {
             else if(IsContext("game-profile-statistic-timestamp/set/by-uuid")){
                 SetGameProfileStatisticTimestampByUuid();
             }
+            else if(IsContext("game-profile-statistic-timestamp/set/by-key/by-profile-id/by-game-id")){
+                SetGameProfileStatisticTimestampByKeyByProfileIdByGameId();
+            }
             else if(IsContext("game-profile-statistic-timestamp/set/by-key/by-profile-id/by-game-id/by-timestamp")){
                 SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp();
             }
             else if(IsContext("game-profile-statistic-timestamp/del/by-uuid")){
                 DelGameProfileStatisticTimestampByUuid();
             }
+            else if(IsContext("game-profile-statistic-timestamp/del/by-key/by-profile-id/by-game-id")){
+                DelGameProfileStatisticTimestampByKeyByProfileIdByGameId();
+            }
             else if(IsContext("game-profile-statistic-timestamp/del/by-key/by-profile-id/by-game-id/by-timestamp")){
                 DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp();
             }
             else if(IsContext("game-profile-statistic-timestamp/get/by-uuid")){
                 GetGameProfileStatisticTimestampListByUuid();
+            }
+            else if(IsContext("game-profile-statistic-timestamp/get/by-key/by-profile-id/by-game-id")){
+                GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId();
             }
             else if(IsContext("game-profile-statistic-timestamp/get/by-key/by-profile-id/by-game-id/by-timestamp")){
                 GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp();
@@ -1721,6 +1745,9 @@ namespace gaming {
             }
             else if(IsContext("game-key-meta/count/by-code")){
                 CountGameKeyMetaByCode();
+            }
+            else if(IsContext("game-key-meta/count/by-code/by-game-id")){
+                CountGameKeyMetaByCodeByGameId();
             }
             else if(IsContext("game-key-meta/count/by-name")){
                 CountGameKeyMetaByName();
@@ -1740,6 +1767,9 @@ namespace gaming {
             else if(IsContext("game-key-meta/set/by-uuid")){
                 SetGameKeyMetaByUuid();
             }
+            else if(IsContext("game-key-meta/set/by-code/by-game-id")){
+                SetGameKeyMetaByCodeByGameId();
+            }
             else if(IsContext("game-key-meta/set/by-key/by-game-id")){
                 SetGameKeyMetaByKeyByGameId();
             }
@@ -1749,6 +1779,9 @@ namespace gaming {
             else if(IsContext("game-key-meta/del/by-uuid")){
                 DelGameKeyMetaByUuid();
             }
+            else if(IsContext("game-key-meta/del/by-code/by-game-id")){
+                DelGameKeyMetaByCodeByGameId();
+            }
             else if(IsContext("game-key-meta/del/by-key/by-game-id")){
                 DelGameKeyMetaByKeyByGameId();
             }
@@ -1757,6 +1790,9 @@ namespace gaming {
             }
             else if(IsContext("game-key-meta/get/by-code")){
                 GetGameKeyMetaListByCode();
+            }
+            else if(IsContext("game-key-meta/get/by-code/by-game-id")){
+                GetGameKeyMetaListByCodeByGameId();
             }
             else if(IsContext("game-key-meta/get/by-name")){
                 GetGameKeyMetaListByName();
@@ -1782,6 +1818,9 @@ namespace gaming {
             else if(IsContext("game-level/count/by-code")){
                 CountGameLevelByCode();
             }
+            else if(IsContext("game-level/count/by-code/by-game-id")){
+                CountGameLevelByCodeByGameId();
+            }
             else if(IsContext("game-level/count/by-name")){
                 CountGameLevelByName();
             }
@@ -1800,11 +1839,17 @@ namespace gaming {
             else if(IsContext("game-level/set/by-uuid")){
                 SetGameLevelByUuid();
             }
+            else if(IsContext("game-level/set/by-code/by-game-id")){
+                SetGameLevelByCodeByGameId();
+            }
             else if(IsContext("game-level/set/by-key/by-game-id")){
                 SetGameLevelByKeyByGameId();
             }
             else if(IsContext("game-level/del/by-uuid")){
                 DelGameLevelByUuid();
+            }
+            else if(IsContext("game-level/del/by-code/by-game-id")){
+                DelGameLevelByCodeByGameId();
             }
             else if(IsContext("game-level/del/by-key/by-game-id")){
                 DelGameLevelByKeyByGameId();
@@ -1814,6 +1859,9 @@ namespace gaming {
             }
             else if(IsContext("game-level/get/by-code")){
                 GetGameLevelListByCode();
+            }
+            else if(IsContext("game-level/get/by-code/by-game-id")){
+                GetGameLevelListByCodeByGameId();
             }
             else if(IsContext("game-level/get/by-name")){
                 GetGameLevelListByName();
@@ -1911,6 +1959,9 @@ namespace gaming {
             else if(IsContext("game-achievement-meta/count/by-code")){
                 CountGameAchievementMetaByCode();
             }
+            else if(IsContext("game-achievement-meta/count/by-code/by-game-id")){
+                CountGameAchievementMetaByCodeByGameId();
+            }
             else if(IsContext("game-achievement-meta/count/by-name")){
                 CountGameAchievementMetaByName();
             }
@@ -1929,11 +1980,17 @@ namespace gaming {
             else if(IsContext("game-achievement-meta/set/by-uuid")){
                 SetGameAchievementMetaByUuid();
             }
+            else if(IsContext("game-achievement-meta/set/by-code/by-game-id")){
+                SetGameAchievementMetaByCodeByGameId();
+            }
             else if(IsContext("game-achievement-meta/set/by-key/by-game-id")){
                 SetGameAchievementMetaByKeyByGameId();
             }
             else if(IsContext("game-achievement-meta/del/by-uuid")){
                 DelGameAchievementMetaByUuid();
+            }
+            else if(IsContext("game-achievement-meta/del/by-code/by-game-id")){
+                DelGameAchievementMetaByCodeByGameId();
             }
             else if(IsContext("game-achievement-meta/del/by-key/by-game-id")){
                 DelGameAchievementMetaByKeyByGameId();
@@ -1943,6 +2000,9 @@ namespace gaming {
             }
             else if(IsContext("game-achievement-meta/get/by-code")){
                 GetGameAchievementMetaListByCode();
+            }
+            else if(IsContext("game-achievement-meta/get/by-code/by-game-id")){
+                GetGameAchievementMetaListByCodeByGameId();
             }
             else if(IsContext("game-achievement-meta/get/by-name")){
                 GetGameAchievementMetaListByName();
@@ -5568,9 +5628,29 @@ namespace gaming {
                         
             ProfileGameDataAttribute obj = new ProfileGameDataAttribute();
             
+            string _status = util.GetParamValue(_context, "status");
+            if(!String.IsNullOrEmpty(_status))
+                obj.status = (string)_status;
+            
             string _code = util.GetParamValue(_context, "code");
             if(!String.IsNullOrEmpty(_code))
                 obj.code = (string)_code;
+            
+            string _profile_id = util.GetParamValue(_context, "profile_id");
+            if(!String.IsNullOrEmpty(_profile_id))
+                obj.profile_id = (string)_profile_id;
+            
+            string _active = util.GetParamValue(_context, "active");
+            if(!String.IsNullOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "game_id");
+            if(!String.IsNullOrEmpty(_game_id))
+                obj.game_id = (string)_game_id;
+            
+            string _name = util.GetParamValue(_context, "name");
+            if(!String.IsNullOrEmpty(_name))
+                obj.name = (string)_name;
             
             string _uuid = util.GetParamValue(_context, "uuid");
             if(!String.IsNullOrEmpty(_uuid))
@@ -5580,25 +5660,25 @@ namespace gaming {
             if(!String.IsNullOrEmpty(_val))
                 obj.val = (string)_val;
             
-            string _profile_id = util.GetParamValue(_context, "profile_id");
-            if(!String.IsNullOrEmpty(_profile_id))
-                obj.profile_id = (string)_profile_id;
+            string _date_modified = util.GetParamValue(_context, "date_modified");
+            if(!String.IsNullOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
             
             string _otype = util.GetParamValue(_context, "otype");
             if(!String.IsNullOrEmpty(_otype))
                 obj.otype = (string)_otype;
             
-            string _game_id = util.GetParamValue(_context, "game_id");
-            if(!String.IsNullOrEmpty(_game_id))
-                obj.game_id = (string)_game_id;
+            string _date_created = util.GetParamValue(_context, "date_created");
+            if(!String.IsNullOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
             
             string _type = util.GetParamValue(_context, "type");
             if(!String.IsNullOrEmpty(_type))
                 obj.type = (string)_type;
-            
-            string _name = util.GetParamValue(_context, "name");
-            if(!String.IsNullOrEmpty(_name))
-                obj.name = (string)_name;
             
             
             // get data
@@ -5616,9 +5696,29 @@ namespace gaming {
                         
             ProfileGameDataAttribute obj = new ProfileGameDataAttribute();
             
+            string _status = util.GetParamValue(_context, "status");
+            if(!String.IsNullOrEmpty(_status))
+                obj.status = (string)_status;
+            
             string _code = util.GetParamValue(_context, "code");
             if(!String.IsNullOrEmpty(_code))
                 obj.code = (string)_code;
+            
+            string _profile_id = util.GetParamValue(_context, "profile_id");
+            if(!String.IsNullOrEmpty(_profile_id))
+                obj.profile_id = (string)_profile_id;
+            
+            string _active = util.GetParamValue(_context, "active");
+            if(!String.IsNullOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "game_id");
+            if(!String.IsNullOrEmpty(_game_id))
+                obj.game_id = (string)_game_id;
+            
+            string _name = util.GetParamValue(_context, "name");
+            if(!String.IsNullOrEmpty(_name))
+                obj.name = (string)_name;
             
             string _uuid = util.GetParamValue(_context, "uuid");
             if(!String.IsNullOrEmpty(_uuid))
@@ -5628,25 +5728,25 @@ namespace gaming {
             if(!String.IsNullOrEmpty(_val))
                 obj.val = (string)_val;
             
-            string _profile_id = util.GetParamValue(_context, "profile_id");
-            if(!String.IsNullOrEmpty(_profile_id))
-                obj.profile_id = (string)_profile_id;
+            string _date_modified = util.GetParamValue(_context, "date_modified");
+            if(!String.IsNullOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
             
             string _otype = util.GetParamValue(_context, "otype");
             if(!String.IsNullOrEmpty(_otype))
                 obj.otype = (string)_otype;
             
-            string _game_id = util.GetParamValue(_context, "game_id");
-            if(!String.IsNullOrEmpty(_game_id))
-                obj.game_id = (string)_game_id;
+            string _date_created = util.GetParamValue(_context, "date_created");
+            if(!String.IsNullOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
             
             string _type = util.GetParamValue(_context, "type");
             if(!String.IsNullOrEmpty(_type))
                 obj.type = (string)_type;
-            
-            string _name = util.GetParamValue(_context, "name");
-            if(!String.IsNullOrEmpty(_name))
-                obj.name = (string)_name;
             
             
             // get data
@@ -5664,9 +5764,29 @@ namespace gaming {
                         
             ProfileGameDataAttribute obj = new ProfileGameDataAttribute();
             
+            string _status = util.GetParamValue(_context, "status");
+            if(!String.IsNullOrEmpty(_status))
+                obj.status = (string)_status;
+            
             string _code = util.GetParamValue(_context, "code");
             if(!String.IsNullOrEmpty(_code))
                 obj.code = (string)_code;
+            
+            string _profile_id = util.GetParamValue(_context, "profile_id");
+            if(!String.IsNullOrEmpty(_profile_id))
+                obj.profile_id = (string)_profile_id;
+            
+            string _active = util.GetParamValue(_context, "active");
+            if(!String.IsNullOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "game_id");
+            if(!String.IsNullOrEmpty(_game_id))
+                obj.game_id = (string)_game_id;
+            
+            string _name = util.GetParamValue(_context, "name");
+            if(!String.IsNullOrEmpty(_name))
+                obj.name = (string)_name;
             
             string _uuid = util.GetParamValue(_context, "uuid");
             if(!String.IsNullOrEmpty(_uuid))
@@ -5676,25 +5796,25 @@ namespace gaming {
             if(!String.IsNullOrEmpty(_val))
                 obj.val = (string)_val;
             
-            string _profile_id = util.GetParamValue(_context, "profile_id");
-            if(!String.IsNullOrEmpty(_profile_id))
-                obj.profile_id = (string)_profile_id;
+            string _date_modified = util.GetParamValue(_context, "date_modified");
+            if(!String.IsNullOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
             
             string _otype = util.GetParamValue(_context, "otype");
             if(!String.IsNullOrEmpty(_otype))
                 obj.otype = (string)_otype;
             
-            string _game_id = util.GetParamValue(_context, "game_id");
-            if(!String.IsNullOrEmpty(_game_id))
-                obj.game_id = (string)_game_id;
+            string _date_created = util.GetParamValue(_context, "date_created");
+            if(!String.IsNullOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
             
             string _type = util.GetParamValue(_context, "type");
             if(!String.IsNullOrEmpty(_type))
                 obj.type = (string)_type;
-            
-            string _name = util.GetParamValue(_context, "name");
-            if(!String.IsNullOrEmpty(_name))
-                obj.name = (string)_name;
             
             
             // get data
@@ -18998,6 +19118,28 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
+        public virtual void CountGameStatisticMetaByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameStatisticMetaInt wrapper = new ResponseGameStatisticMetaInt();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-statistic-meta/count/by-code/by-game-id";
+
+            int i = api.CountGameStatisticMetaByCodeByGameId(
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
         public virtual void CountGameStatisticMetaByName() {
         
             string _name = (string)util.GetParamValue(_context, "name");
@@ -19191,6 +19333,94 @@ namespace gaming {
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void SetGameStatisticMetaByCodeByGameId()  {
+        
+            ResponseGameStatisticMetaBool wrapper = new ResponseGameStatisticMetaBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-statistic-meta/set/by-code/by-game-id";
+                        
+            GameStatisticMeta obj = new GameStatisticMeta();
+            
+            string _status = util.GetParamValue(_context, "status");
+            if(!String.IsNullOrEmpty(_status))
+                obj.status = (string)_status;
+            
+            string _sort = util.GetParamValue(_context, "sort");
+            if(!String.IsNullOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "code");
+            if(!String.IsNullOrEmpty(_code))
+                obj.code = (string)_code;
+            
+            string _display_name = util.GetParamValue(_context, "display_name");
+            if(!String.IsNullOrEmpty(_display_name))
+                obj.display_name = (string)_display_name;
+            
+            string _name = util.GetParamValue(_context, "name");
+            if(!String.IsNullOrEmpty(_name))
+                obj.name = (string)_name;
+            
+            string _date_modified = util.GetParamValue(_context, "date_modified");
+            if(!String.IsNullOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "data");
+            if(!String.IsNullOrEmpty(_data))
+                obj.data = (string)_data;
+            
+            string _uuid = util.GetParamValue(_context, "uuid");
+            if(!String.IsNullOrEmpty(_uuid))
+                obj.uuid = (string)_uuid;
+            
+            string _points = util.GetParamValue(_context, "points");
+            if(!String.IsNullOrEmpty(_points))
+                obj.points = float.Parse(_points);
+            
+            string _store_count = util.GetParamValue(_context, "store_count");
+            if(!String.IsNullOrEmpty(_store_count))
+                obj.store_count = Convert.ToInt32(_store_count);
+            
+            string _key = util.GetParamValue(_context, "key");
+            if(!String.IsNullOrEmpty(_key))
+                obj.key = (string)_key;
+            
+            string _game_id = util.GetParamValue(_context, "game_id");
+            if(!String.IsNullOrEmpty(_game_id))
+                obj.game_id = (string)_game_id;
+            
+            string _active = util.GetParamValue(_context, "active");
+            if(!String.IsNullOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "date_created");
+            if(!String.IsNullOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "type");
+            if(!String.IsNullOrEmpty(_type))
+                obj.type = (string)_type;
+            
+            string _order = util.GetParamValue(_context, "order");
+            if(!String.IsNullOrEmpty(_order))
+                obj.order = (string)_order;
+            
+            string _description = util.GetParamValue(_context, "description");
+            if(!String.IsNullOrEmpty(_description))
+                obj.description = (string)_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameStatisticMetaByCodeByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void SetGameStatisticMetaByKeyByGameId()  {
         
             ResponseGameStatisticMetaBool wrapper = new ResponseGameStatisticMetaBool();
@@ -19299,6 +19529,28 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void DelGameStatisticMetaByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameStatisticMetaBool wrapper = new ResponseGameStatisticMetaBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-statistic-meta/del/by-code/by-game-id";
+
+            bool completed = api.DelGameStatisticMetaByCodeByGameId(
+                        
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void DelGameStatisticMetaByKeyByGameId() {
         
             string _key = (string)util.GetParamValue(_context, "key");
@@ -19353,6 +19605,28 @@ namespace gaming {
 
             List<GameStatisticMeta> objs = api.GetGameStatisticMetaListByCode(
                 _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticMetaListByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameStatisticMetaList wrapper = new ResponseGameStatisticMetaList();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-statistic-meta/get/by-code/by-game-id";
+
+            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListByCodeByGameId(
+                _code
+                , _game_id
             );
             
             // get data
@@ -19482,6 +19756,30 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
+        public virtual void CountGameProfileStatisticTimestampByKeyByProfileIdByGameId() {
+        
+            string _key = (string)util.GetParamValue(_context, "key");
+            string _profile_id = (string)util.GetParamValue(_context, "profile_id");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameProfileStatisticTimestampInt wrapper = new ResponseGameProfileStatisticTimestampInt();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-profile-statistic-timestamp/count/by-key/by-profile-id/by-game-id";
+
+            int i = api.CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+                _key
+                , _profile_id
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
         public virtual void CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp() {
         
             string _key = (string)util.GetParamValue(_context, "key");
@@ -19593,6 +19891,68 @@ namespace gaming {
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileStatisticTimestampByKeyByProfileIdByGameId()  {
+        
+            ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-profile-statistic-timestamp/set/by-key/by-profile-id/by-game-id";
+                        
+            GameProfileStatisticTimestamp obj = new GameProfileStatisticTimestamp();
+            
+            string _status = util.GetParamValue(_context, "status");
+            if(!String.IsNullOrEmpty(_status))
+                obj.status = (string)_status;
+            
+            string _timestamp = util.GetParamValue(_context, "timestamp");
+            if(!String.IsNullOrEmpty(_timestamp))
+                obj.timestamp = Convert.ToDateTime(_timestamp);
+            else 
+                obj.timestamp = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "uuid");
+            if(!String.IsNullOrEmpty(_uuid))
+                obj.uuid = (string)_uuid;
+            
+            string _key = util.GetParamValue(_context, "key");
+            if(!String.IsNullOrEmpty(_key))
+                obj.key = (string)_key;
+            
+            string _date_modified = util.GetParamValue(_context, "date_modified");
+            if(!String.IsNullOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _active = util.GetParamValue(_context, "active");
+            if(!String.IsNullOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "date_created");
+            if(!String.IsNullOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _game_id = util.GetParamValue(_context, "game_id");
+            if(!String.IsNullOrEmpty(_game_id))
+                obj.game_id = (string)_game_id;
+            
+            string _profile_id = util.GetParamValue(_context, "profile_id");
+            if(!String.IsNullOrEmpty(_profile_id))
+                obj.profile_id = (string)_profile_id;
+            
+            string _type = util.GetParamValue(_context, "type");
+            if(!String.IsNullOrEmpty(_type))
+                obj.type = (string)_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp()  {
         
             ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
@@ -19675,6 +20035,30 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileStatisticTimestampByKeyByProfileIdByGameId() {
+        
+            string _key = (string)util.GetParamValue(_context, "key");
+            string _profile_id = (string)util.GetParamValue(_context, "profile_id");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-profile-statistic-timestamp/del/by-key/by-profile-id/by-game-id";
+
+            bool completed = api.DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+                        
+                _key
+                , _profile_id
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp() {
         
             string _key = (string)util.GetParamValue(_context, "key");
@@ -19713,6 +20097,30 @@ namespace gaming {
 
             List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListByUuid(
                 _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId() {
+        
+            string _key = (string)util.GetParamValue(_context, "key");
+            string _profile_id = (string)util.GetParamValue(_context, "profile_id");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-profile-statistic-timestamp/get/by-key/by-profile-id/by-game-id";
+
+            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+                _key
+                , _profile_id
+                , _game_id
             );
             
             // get data
@@ -19797,6 +20205,28 @@ namespace gaming {
 
             int i = api.CountGameKeyMetaByCode(
                 _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameKeyMetaByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameKeyMetaInt wrapper = new ResponseGameKeyMetaInt();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-key-meta/count/by-code/by-game-id";
+
+            int i = api.CountGameKeyMetaByCodeByGameId(
+                _code
+                , _game_id
             );
             
             // get data
@@ -20003,6 +20433,102 @@ namespace gaming {
             
             // get data
             wrapper.data = api.SetGameKeyMetaByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameKeyMetaByCodeByGameId()  {
+        
+            ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-key-meta/set/by-code/by-game-id";
+                        
+            GameKeyMeta obj = new GameKeyMeta();
+            
+            string _status = util.GetParamValue(_context, "status");
+            if(!String.IsNullOrEmpty(_status))
+                obj.status = (string)_status;
+            
+            string _sort = util.GetParamValue(_context, "sort");
+            if(!String.IsNullOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "code");
+            if(!String.IsNullOrEmpty(_code))
+                obj.code = (string)_code;
+            
+            string _display_name = util.GetParamValue(_context, "display_name");
+            if(!String.IsNullOrEmpty(_display_name))
+                obj.display_name = (string)_display_name;
+            
+            string _name = util.GetParamValue(_context, "name");
+            if(!String.IsNullOrEmpty(_name))
+                obj.name = (string)_name;
+            
+            string _date_modified = util.GetParamValue(_context, "date_modified");
+            if(!String.IsNullOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "data");
+            if(!String.IsNullOrEmpty(_data))
+                obj.data = (string)_data;
+            
+            string _level = util.GetParamValue(_context, "level");
+            if(!String.IsNullOrEmpty(_level))
+                obj.level = (string)_level;
+            
+            string _uuid = util.GetParamValue(_context, "uuid");
+            if(!String.IsNullOrEmpty(_uuid))
+                obj.uuid = (string)_uuid;
+            
+            string _key_level = util.GetParamValue(_context, "key_level");
+            if(!String.IsNullOrEmpty(_key_level))
+                obj.key_level = (string)_key_level;
+            
+            string _store_count = util.GetParamValue(_context, "store_count");
+            if(!String.IsNullOrEmpty(_store_count))
+                obj.store_count = Convert.ToInt32(_store_count);
+            
+            string _key = util.GetParamValue(_context, "key");
+            if(!String.IsNullOrEmpty(_key))
+                obj.key = (string)_key;
+            
+            string _game_id = util.GetParamValue(_context, "game_id");
+            if(!String.IsNullOrEmpty(_game_id))
+                obj.game_id = (string)_game_id;
+            
+            string _active = util.GetParamValue(_context, "active");
+            if(!String.IsNullOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "date_created");
+            if(!String.IsNullOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "type");
+            if(!String.IsNullOrEmpty(_type))
+                obj.type = (string)_type;
+            
+            string _order = util.GetParamValue(_context, "order");
+            if(!String.IsNullOrEmpty(_order))
+                obj.order = (string)_order;
+            
+            string _key_stat = util.GetParamValue(_context, "key_stat");
+            if(!String.IsNullOrEmpty(_key_stat))
+                obj.key_stat = (string)_key_stat;
+            
+            string _description = util.GetParamValue(_context, "description");
+            if(!String.IsNullOrEmpty(_description))
+                obj.description = (string)_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameKeyMetaByCodeByGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
@@ -20219,6 +20745,28 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void DelGameKeyMetaByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-key-meta/del/by-code/by-game-id";
+
+            bool completed = api.DelGameKeyMetaByCodeByGameId(
+                        
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void DelGameKeyMetaByKeyByGameId() {
         
             string _key = (string)util.GetParamValue(_context, "key");
@@ -20273,6 +20821,28 @@ namespace gaming {
 
             List<GameKeyMeta> objs = api.GetGameKeyMetaListByCode(
                 _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameKeyMetaListByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-key-meta/get/by-code/by-game-id";
+
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListByCodeByGameId(
+                _code
+                , _game_id
             );
             
             // get data
@@ -20435,6 +21005,28 @@ namespace gaming {
 
             int i = api.CountGameLevelByCode(
                 _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameLevelByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameLevelInt wrapper = new ResponseGameLevelInt();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-level/count/by-code/by-game-id";
+
+            int i = api.CountGameLevelByCodeByGameId(
+                _code
+                , _game_id
             );
             
             // get data
@@ -20629,6 +21221,86 @@ namespace gaming {
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void SetGameLevelByCodeByGameId()  {
+        
+            ResponseGameLevelBool wrapper = new ResponseGameLevelBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-level/set/by-code/by-game-id";
+                        
+            GameLevel obj = new GameLevel();
+            
+            string _status = util.GetParamValue(_context, "status");
+            if(!String.IsNullOrEmpty(_status))
+                obj.status = (string)_status;
+            
+            string _sort = util.GetParamValue(_context, "sort");
+            if(!String.IsNullOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "code");
+            if(!String.IsNullOrEmpty(_code))
+                obj.code = (string)_code;
+            
+            string _display_name = util.GetParamValue(_context, "display_name");
+            if(!String.IsNullOrEmpty(_display_name))
+                obj.display_name = (string)_display_name;
+            
+            string _name = util.GetParamValue(_context, "name");
+            if(!String.IsNullOrEmpty(_name))
+                obj.name = (string)_name;
+            
+            string _date_modified = util.GetParamValue(_context, "date_modified");
+            if(!String.IsNullOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "data");
+            if(!String.IsNullOrEmpty(_data))
+                obj.data = (string)_data;
+            
+            string _uuid = util.GetParamValue(_context, "uuid");
+            if(!String.IsNullOrEmpty(_uuid))
+                obj.uuid = (string)_uuid;
+            
+            string _key = util.GetParamValue(_context, "key");
+            if(!String.IsNullOrEmpty(_key))
+                obj.key = (string)_key;
+            
+            string _game_id = util.GetParamValue(_context, "game_id");
+            if(!String.IsNullOrEmpty(_game_id))
+                obj.game_id = (string)_game_id;
+            
+            string _active = util.GetParamValue(_context, "active");
+            if(!String.IsNullOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "date_created");
+            if(!String.IsNullOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "type");
+            if(!String.IsNullOrEmpty(_type))
+                obj.type = (string)_type;
+            
+            string _order = util.GetParamValue(_context, "order");
+            if(!String.IsNullOrEmpty(_order))
+                obj.order = (string)_order;
+            
+            string _description = util.GetParamValue(_context, "description");
+            if(!String.IsNullOrEmpty(_description))
+                obj.description = (string)_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameLevelByCodeByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void SetGameLevelByKeyByGameId()  {
         
             ResponseGameLevelBool wrapper = new ResponseGameLevelBool();
@@ -20729,6 +21401,28 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void DelGameLevelByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameLevelBool wrapper = new ResponseGameLevelBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-level/del/by-code/by-game-id";
+
+            bool completed = api.DelGameLevelByCodeByGameId(
+                        
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void DelGameLevelByKeyByGameId() {
         
             string _key = (string)util.GetParamValue(_context, "key");
@@ -20783,6 +21477,28 @@ namespace gaming {
 
             List<GameLevel> objs = api.GetGameLevelListByCode(
                 _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameLevelListByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameLevelList wrapper = new ResponseGameLevelList();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-level/get/by-code/by-game-id";
+
+            List<GameLevel> objs = api.GetGameLevelListByCodeByGameId(
+                _code
+                , _game_id
             );
             
             // get data
@@ -21770,6 +22486,28 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
+        public virtual void CountGameAchievementMetaByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameAchievementMetaInt wrapper = new ResponseGameAchievementMetaInt();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-achievement-meta/count/by-code/by-game-id";
+
+            int i = api.CountGameAchievementMetaByCodeByGameId(
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
         public virtual void CountGameAchievementMetaByName() {
         
             string _name = (string)util.GetParamValue(_context, "name");
@@ -21971,6 +22709,102 @@ namespace gaming {
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void SetGameAchievementMetaByCodeByGameId()  {
+        
+            ResponseGameAchievementMetaBool wrapper = new ResponseGameAchievementMetaBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-achievement-meta/set/by-code/by-game-id";
+                        
+            GameAchievementMeta obj = new GameAchievementMeta();
+            
+            string _status = util.GetParamValue(_context, "status");
+            if(!String.IsNullOrEmpty(_status))
+                obj.status = (string)_status;
+            
+            string _sort = util.GetParamValue(_context, "sort");
+            if(!String.IsNullOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "code");
+            if(!String.IsNullOrEmpty(_code))
+                obj.code = (string)_code;
+            
+            string _display_name = util.GetParamValue(_context, "display_name");
+            if(!String.IsNullOrEmpty(_display_name))
+                obj.display_name = (string)_display_name;
+            
+            string _name = util.GetParamValue(_context, "name");
+            if(!String.IsNullOrEmpty(_name))
+                obj.name = (string)_name;
+            
+            string _game_stat = util.GetParamValue(_context, "game_stat");
+            if(!String.IsNullOrEmpty(_game_stat))
+                obj.game_stat = Convert.ToBoolean(_game_stat);
+            
+            string _date_modified = util.GetParamValue(_context, "date_modified");
+            if(!String.IsNullOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "data");
+            if(!String.IsNullOrEmpty(_data))
+                obj.data = (string)_data;
+            
+            string _level = util.GetParamValue(_context, "level");
+            if(!String.IsNullOrEmpty(_level))
+                obj.level = (string)_level;
+            
+            string _uuid = util.GetParamValue(_context, "uuid");
+            if(!String.IsNullOrEmpty(_uuid))
+                obj.uuid = (string)_uuid;
+            
+            string _points = util.GetParamValue(_context, "points");
+            if(!String.IsNullOrEmpty(_points))
+                obj.points = Convert.ToInt32(_points);
+            
+            string _key = util.GetParamValue(_context, "key");
+            if(!String.IsNullOrEmpty(_key))
+                obj.key = (string)_key;
+            
+            string _game_id = util.GetParamValue(_context, "game_id");
+            if(!String.IsNullOrEmpty(_game_id))
+                obj.game_id = (string)_game_id;
+            
+            string _active = util.GetParamValue(_context, "active");
+            if(!String.IsNullOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "date_created");
+            if(!String.IsNullOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _modifier = util.GetParamValue(_context, "modifier");
+            if(!String.IsNullOrEmpty(_modifier))
+                obj.modifier = float.Parse(_modifier);
+            
+            string _type = util.GetParamValue(_context, "type");
+            if(!String.IsNullOrEmpty(_type))
+                obj.type = (string)_type;
+            
+            string _leaderboard = util.GetParamValue(_context, "leaderboard");
+            if(!String.IsNullOrEmpty(_leaderboard))
+                obj.leaderboard = Convert.ToBoolean(_leaderboard);
+            
+            string _description = util.GetParamValue(_context, "description");
+            if(!String.IsNullOrEmpty(_description))
+                obj.description = (string)_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameAchievementMetaByCodeByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void SetGameAchievementMetaByKeyByGameId()  {
         
             ResponseGameAchievementMetaBool wrapper = new ResponseGameAchievementMetaBool();
@@ -22087,6 +22921,28 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void DelGameAchievementMetaByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameAchievementMetaBool wrapper = new ResponseGameAchievementMetaBool();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-achievement-meta/del/by-code/by-game-id";
+
+            bool completed = api.DelGameAchievementMetaByCodeByGameId(
+                        
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void DelGameAchievementMetaByKeyByGameId() {
         
             string _key = (string)util.GetParamValue(_context, "key");
@@ -22141,6 +22997,28 @@ namespace gaming {
 
             List<GameAchievementMeta> objs = api.GetGameAchievementMetaListByCode(
                 _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAchievementMetaListByCodeByGameId() {
+        
+            string _code = (string)util.GetParamValue(_context, "code");
+            string _game_id = (string)util.GetParamValue(_context, "game_id");
+
+            ResponseGameAchievementMetaList wrapper = new ResponseGameAchievementMetaList();
+            wrapper.message = "Success";
+            wrapper.code = 0;
+            wrapper.action = "game-achievement-meta/get/by-code/by-game-id";
+
+            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListByCodeByGameId(
+                _code
+                , _game_id
             );
             
             // get data

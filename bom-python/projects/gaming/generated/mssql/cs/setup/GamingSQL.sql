@@ -358,14 +358,21 @@ ALTER TABLE [dbo].[profile_game_network] ADD
 GO
 CREATE TABLE [dbo].[profile_game_data_attribute] 
 (
-    [code] varchar (500)
+    [status] varchar (255)
+    , [code] varchar (500)
+    , [profile_id] uniqueidentifier
+    , [active] bit
+                CONSTRAINT DF_profile_game_data_attribute_active_bool DEFAULT 1
+    , [game_id] uniqueidentifier
+    , [name] varchar (500)
     , [uuid] uniqueidentifier
     , [val] ntext
-    , [profile_id] uniqueidentifier
+    , [date_modified] DATETIME
+                CONSTRAINT DF_profile_game_data_attribute_date_modified DEFAULT GETDATE()
     , [otype] varchar (500)
-    , [game_id] uniqueidentifier
+    , [date_created] DATETIME
+                CONSTRAINT DF_profile_game_data_attribute_date_created DEFAULT GETDATE()
     , [type] varchar (500)
-    , [name] varchar (500)
 )
 GO
 ALTER TABLE [dbo].[profile_game_data_attribute] ADD 
@@ -7844,14 +7851,18 @@ BEGIN
                            ORDER BY '
     SET @sql = @sql + @sort
     SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
     SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [game_id]'
+    SET @sql = @sql + ', [name]'
     SET @sql = @sql + ', [uuid]'
     SET @sql = @sql + ', [val]'
-    SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [date_modified]'
     SET @sql = @sql + ', [otype]'
-    SET @sql = @sql + ', [game_id]'
+    SET @sql = @sql + ', [date_created]'
     SET @sql = @sql + ', [type]'
-    SET @sql = @sql + ', [name]'
 
     SET @sql = @sql + ' FROM [dbo].[profile_game_data_attribute] WHERE 1=1 '
     BEGIN
@@ -7895,14 +7906,18 @@ GO
 CREATE PROCEDURE usp_profile_game_data_attribute_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
     , @code varchar (500) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @name varchar (500) = NULL
     , @uuid uniqueidentifier = NULL
     , @val ntext = NULL
-    , @profile_id uniqueidentifier = NULL
+    , @date_modified DATETIME = GETDATE
     , @otype varchar (500) = NULL
-    , @game_id uniqueidentifier = NULL
+    , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
-    , @name varchar (500) = NULL
 )
 AS
 BEGIN
@@ -7937,14 +7952,18 @@ BEGIN
             BEGIN		
                 UPDATE [dbo].[profile_game_data_attribute] 
                 SET
-                    [code] = @code
+                    [status] = @status
+                    , [code] = @code
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [name] = @name
                     , [uuid] = @uuid
                     , [val] = @val
-                    , [profile_id] = @profile_id
+                    , [date_modified] = @date_modified
                     , [otype] = @otype
-                    , [game_id] = @game_id
+                    , [date_created] = @date_created
                     , [type] = @type
-                    , [name] = @name
                 WHERE 1=1
                 AND [uuid] = @uuid
                 SET @id=1
@@ -7956,25 +7975,33 @@ BEGIN
             BEGIN			
                 INSERT INTO [dbo].[profile_game_data_attribute]
                 (
-                    [code]
+                    [status]
+                    , [code]
+                    , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [name]
                     , [uuid]
                     , [val]
-                    , [profile_id]
+                    , [date_modified]
                     , [otype]
-                    , [game_id]
+                    , [date_created]
                     , [type]
-                    , [name]
                 )
                 VALUES
                 (
-                    @code
+                    @status
+                    , @code
+                    , @profile_id
+                    , @active
+                    , @game_id
+                    , @name
                     , @uuid
                     , @val
-                    , @profile_id
+                    , @date_modified
                     , @otype
-                    , @game_id
+                    , @date_created
                     , @type
-                    , @name
                 )                    
                 SET @id=1                    
             END
@@ -7992,14 +8019,18 @@ GO
 CREATE PROCEDURE usp_profile_game_data_attribute_set_by_profile_id
 (
     @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
     , @code varchar (500) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @name varchar (500) = NULL
     , @uuid uniqueidentifier = NULL
     , @val ntext = NULL
-    , @profile_id uniqueidentifier = NULL
+    , @date_modified DATETIME = GETDATE
     , @otype varchar (500) = NULL
-    , @game_id uniqueidentifier = NULL
+    , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
-    , @name varchar (500) = NULL
 )
 AS
 BEGIN
@@ -8034,14 +8065,18 @@ BEGIN
             BEGIN		
                 UPDATE [dbo].[profile_game_data_attribute] 
                 SET
-                    [code] = @code
+                    [status] = @status
+                    , [code] = @code
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [name] = @name
                     , [uuid] = @uuid
                     , [val] = @val
-                    , [profile_id] = @profile_id
+                    , [date_modified] = @date_modified
                     , [otype] = @otype
-                    , [game_id] = @game_id
+                    , [date_created] = @date_created
                     , [type] = @type
-                    , [name] = @name
                 WHERE 1=1
                 AND [profile_id] = @profile_id
                 SET @id=1
@@ -8053,25 +8088,33 @@ BEGIN
             BEGIN			
                 INSERT INTO [dbo].[profile_game_data_attribute]
                 (
-                    [code]
+                    [status]
+                    , [code]
+                    , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [name]
                     , [uuid]
                     , [val]
-                    , [profile_id]
+                    , [date_modified]
                     , [otype]
-                    , [game_id]
+                    , [date_created]
                     , [type]
-                    , [name]
                 )
                 VALUES
                 (
-                    @code
+                    @status
+                    , @code
+                    , @profile_id
+                    , @active
+                    , @game_id
+                    , @name
                     , @uuid
                     , @val
-                    , @profile_id
+                    , @date_modified
                     , @otype
-                    , @game_id
+                    , @date_created
                     , @type
-                    , @name
                 )                    
                 SET @id=1                    
             END
@@ -8089,14 +8132,18 @@ GO
 CREATE PROCEDURE usp_profile_game_data_attribute_set_by_profile_id_by_game_id_by_code
 (
     @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
     , @code varchar (500) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @name varchar (500) = NULL
     , @uuid uniqueidentifier = NULL
     , @val ntext = NULL
-    , @profile_id uniqueidentifier = NULL
+    , @date_modified DATETIME = GETDATE
     , @otype varchar (500) = NULL
-    , @game_id uniqueidentifier = NULL
+    , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
-    , @name varchar (500) = NULL
 )
 AS
 BEGIN
@@ -8133,14 +8180,18 @@ BEGIN
             BEGIN		
                 UPDATE [dbo].[profile_game_data_attribute] 
                 SET
-                    [code] = @code
+                    [status] = @status
+                    , [code] = @code
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [name] = @name
                     , [uuid] = @uuid
                     , [val] = @val
-                    , [profile_id] = @profile_id
+                    , [date_modified] = @date_modified
                     , [otype] = @otype
-                    , [game_id] = @game_id
+                    , [date_created] = @date_created
                     , [type] = @type
-                    , [name] = @name
                 WHERE 1=1
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
@@ -8154,25 +8205,33 @@ BEGIN
             BEGIN			
                 INSERT INTO [dbo].[profile_game_data_attribute]
                 (
-                    [code]
+                    [status]
+                    , [code]
+                    , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [name]
                     , [uuid]
                     , [val]
-                    , [profile_id]
+                    , [date_modified]
                     , [otype]
-                    , [game_id]
+                    , [date_created]
                     , [type]
-                    , [name]
                 )
                 VALUES
                 (
-                    @code
+                    @status
+                    , @code
+                    , @profile_id
+                    , @active
+                    , @game_id
+                    , @name
                     , @uuid
                     , @val
-                    , @profile_id
+                    , @date_modified
                     , @otype
-                    , @game_id
+                    , @date_created
                     , @type
-                    , @name
                 )                    
                 SET @id=1                    
             END
@@ -8264,14 +8323,18 @@ CREATE PROCEDURE usp_profile_game_data_attribute_get_by_uuid
 AS
 BEGIN
     SELECT
-        [code]
+        [status]
+        , [code]
+        , [profile_id]
+        , [active]
+        , [game_id]
+        , [name]
         , [uuid]
         , [val]
-        , [profile_id]
+        , [date_modified]
         , [otype]
-        , [game_id]
+        , [date_created]
         , [type]
-        , [name]
     FROM [dbo].[profile_game_data_attribute]
     WHERE 1=1
     AND [uuid] = @uuid
@@ -8290,14 +8353,18 @@ CREATE PROCEDURE usp_profile_game_data_attribute_get_by_profile_id
 AS
 BEGIN
     SELECT
-        [code]
+        [status]
+        , [code]
+        , [profile_id]
+        , [active]
+        , [game_id]
+        , [name]
         , [uuid]
         , [val]
-        , [profile_id]
+        , [date_modified]
         , [otype]
-        , [game_id]
+        , [date_created]
         , [type]
-        , [name]
     FROM [dbo].[profile_game_data_attribute]
     WHERE 1=1
     AND [profile_id] = @profile_id
@@ -8318,14 +8385,18 @@ CREATE PROCEDURE usp_profile_game_data_attribute_get_by_profile_id_by_game_id_by
 AS
 BEGIN
     SELECT
-        [code]
+        [status]
+        , [code]
+        , [profile_id]
+        , [active]
+        , [game_id]
+        , [name]
         , [uuid]
         , [val]
-        , [profile_id]
+        , [date_modified]
         , [otype]
-        , [game_id]
+        , [date_created]
         , [type]
-        , [name]
     FROM [dbo].[profile_game_data_attribute]
     WHERE 1=1
     AND [profile_id] = @profile_id
@@ -26386,6 +26457,27 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_meta_count_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_statistic_meta]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_by_name]
 
@@ -26685,6 +26777,141 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_set_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_meta_set_by_code_by_game_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @sort int = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @points float = NULL
+    , @store_count int = NULL
+    , @key varchar (50) = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (40) = NULL
+    , @order varchar (40) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_statistic_meta]  
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_statistic_meta] 
+                SET
+                    [status] = @status
+                    , [sort] = @sort
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [points] = @points
+                    , [store_count] = @store_count
+                    , [key] = @key
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [order] = @order
+                    , [description] = @description
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_statistic_meta]
+                (
+                    [status]
+                    , [sort]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [uuid]
+                    , [points]
+                    , [store_count]
+                    , [key]
+                    , [game_id]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [order]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @sort
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @uuid
+                    , @points
+                    , @store_count
+                    , @key
+                    , @game_id
+                    , @active
+                    , @date_created
+                    , @type
+                    , @order
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_set_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_statistic_meta_set_by_key_by_game_id]
 
@@ -26844,6 +27071,26 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_del_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_meta_del_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_statistic_meta]
+    WHERE 1=1                        
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_del_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_statistic_meta_del_by_key_by_game_id]
 
@@ -26937,6 +27184,43 @@ BEGIN
     FROM [dbo].[game_statistic_meta]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_statistic_meta_get_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [sort]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [points]
+        , [store_count]
+        , [key]
+        , [game_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [order]
+        , [description]
+    FROM [dbo].[game_statistic_meta]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
@@ -27122,6 +27406,29 @@ BEGIN
     FROM [dbo].[game_profile_statistic_timestamp]
     WHERE 1=1
     AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_count_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_count_by_key_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_timestamp_count_by_key_by_profile_id_by_game_id
+(
+    @key varchar (50) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_profile_statistic_timestamp]
+    WHERE 1=1
+    AND LOWER([key]) = LOWER(@key)
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
@@ -27336,6 +27643,115 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_set_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_set_by_key_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_timestamp_set_by_key_by_profile_id_by_game_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @timestamp DATETIME = GETDATE
+    , @uuid uniqueidentifier 
+    , @key varchar (50) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @game_id uniqueidentifier = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_profile_statistic_timestamp]  
+                WHERE 1=1
+                AND LOWER([key]) = LOWER(@key)
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_profile_statistic_timestamp] 
+                SET
+                    [status] = @status
+                    , [timestamp] = @timestamp
+                    , [uuid] = @uuid
+                    , [key] = @key
+                    , [date_modified] = @date_modified
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [game_id] = @game_id
+                    , [profile_id] = @profile_id
+                    , [type] = @type
+                WHERE 1=1
+                AND LOWER([key]) = LOWER(@key)
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_profile_statistic_timestamp]
+                (
+                    [status]
+                    , [timestamp]
+                    , [uuid]
+                    , [key]
+                    , [date_modified]
+                    , [active]
+                    , [date_created]
+                    , [game_id]
+                    , [profile_id]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @timestamp
+                    , @uuid
+                    , @key
+                    , @date_modified
+                    , @active
+                    , @date_created
+                    , @game_id
+                    , @profile_id
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_set_by_key_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_set_by_key_by_profile_id_by_game_id_by_timestamp]
 
@@ -27471,6 +27887,28 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_del_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_del_by_key_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_timestamp_del_by_key_by_profile_id_by_game_id
+(
+    @key varchar (50) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_profile_statistic_timestamp]
+    WHERE 1=1                        
+    AND LOWER([key]) = LOWER(@key)
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_del_by_key_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_del_by_key_by_profile_id_by_game_id_by_timestamp]
 
@@ -27526,6 +27964,38 @@ BEGIN
     FROM [dbo].[game_profile_statistic_timestamp]
     WHERE 1=1
     AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_get_by_key_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_get_by_key_by_profile_id_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_timestamp_get_by_key_by_profile_id_by_game_id
+(
+    @key varchar (50) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [timestamp]
+        , [uuid]
+        , [key]
+        , [date_modified]
+        , [active]
+        , [date_created]
+        , [game_id]
+        , [profile_id]
+        , [type]
+    FROM [dbo].[game_profile_statistic_timestamp]
+    WHERE 1=1
+    AND LOWER([key]) = LOWER(@key)
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
@@ -27622,6 +28092,27 @@ BEGIN
     FROM [dbo].[game_key_meta]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_count_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_key_meta_count_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_key_meta]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
@@ -27875,6 +28366,149 @@ BEGIN
                     , [description] = @description
                 WHERE 1=1
                 AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_key_meta]
+                (
+                    [status]
+                    , [sort]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [level]
+                    , [uuid]
+                    , [key_level]
+                    , [store_count]
+                    , [key]
+                    , [game_id]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [order]
+                    , [key_stat]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @sort
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @level
+                    , @uuid
+                    , @key_level
+                    , @store_count
+                    , @key
+                    , @game_id
+                    , @active
+                    , @date_created
+                    , @type
+                    , @order
+                    , @key_stat
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_set_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_key_meta_set_by_code_by_game_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @sort int = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @level varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @key_level varchar (50) = NULL
+    , @store_count int = NULL
+    , @key varchar (50) = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (40) = NULL
+    , @order varchar (40) = NULL
+    , @key_stat varchar (50) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_key_meta]  
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_key_meta] 
+                SET
+                    [status] = @status
+                    , [sort] = @sort
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [level] = @level
+                    , [uuid] = @uuid
+                    , [key_level] = @key_level
+                    , [store_count] = @store_count
+                    , [key] = @key
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [order] = @order
+                    , [key_stat] = @key_stat
+                    , [description] = @description
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
                 SET @id=1
             END
         END
@@ -28246,6 +28880,26 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_del_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_key_meta_del_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_key_meta]
+    WHERE 1=1                        
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_del_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_key_meta_del_by_key_by_game_id]
 
@@ -28343,6 +28997,45 @@ BEGIN
     FROM [dbo].[game_key_meta]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_key_meta_get_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [sort]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [level]
+        , [uuid]
+        , [key_level]
+        , [store_count]
+        , [key]
+        , [game_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [order]
+        , [key_stat]
+        , [description]
+    FROM [dbo].[game_key_meta]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
@@ -28594,6 +29287,27 @@ BEGIN
     FROM [dbo].[game_level]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_count_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_level_count_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_level]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
@@ -28886,6 +29600,133 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_set_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_level_set_by_code_by_game_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @sort int = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @key varchar (50) = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (40) = NULL
+    , @order varchar (40) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_level]  
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_level] 
+                SET
+                    [status] = @status
+                    , [sort] = @sort
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [key] = @key
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [order] = @order
+                    , [description] = @description
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_level]
+                (
+                    [status]
+                    , [sort]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [uuid]
+                    , [key]
+                    , [game_id]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [order]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @sort
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @uuid
+                    , @key
+                    , @game_id
+                    , @active
+                    , @date_created
+                    , @type
+                    , @order
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_set_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_level_set_by_key_by_game_id]
 
@@ -29037,6 +29878,26 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_del_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_level_del_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_level]
+    WHERE 1=1                        
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_del_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_level_del_by_key_by_game_id]
 
@@ -29126,6 +29987,41 @@ BEGIN
     FROM [dbo].[game_level]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_get_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_level_get_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [sort]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [key]
+        , [game_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [order]
+        , [description]
+    FROM [dbo].[game_level]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
@@ -30601,6 +31497,27 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_achievement_meta_count_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_achievement_meta]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_by_name]
 
@@ -30910,6 +31827,149 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_set_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_achievement_meta_set_by_code_by_game_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @sort int = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @game_stat bit = 1
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @level varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @points int = NULL
+    , @key varchar (50) = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @modifier decimal = NULL
+    , @type varchar (40) = NULL
+    , @leaderboard bit = 1
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_achievement_meta]  
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_achievement_meta] 
+                SET
+                    [status] = @status
+                    , [sort] = @sort
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [game_stat] = @game_stat
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [level] = @level
+                    , [uuid] = @uuid
+                    , [points] = @points
+                    , [key] = @key
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [modifier] = @modifier
+                    , [type] = @type
+                    , [leaderboard] = @leaderboard
+                    , [description] = @description
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_achievement_meta]
+                (
+                    [status]
+                    , [sort]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [game_stat]
+                    , [date_modified]
+                    , [data]
+                    , [level]
+                    , [uuid]
+                    , [points]
+                    , [key]
+                    , [game_id]
+                    , [active]
+                    , [date_created]
+                    , [modifier]
+                    , [type]
+                    , [leaderboard]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @sort
+                    , @code
+                    , @display_name
+                    , @name
+                    , @game_stat
+                    , @date_modified
+                    , @data
+                    , @level
+                    , @uuid
+                    , @points
+                    , @key
+                    , @game_id
+                    , @active
+                    , @date_created
+                    , @modifier
+                    , @type
+                    , @leaderboard
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_set_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_achievement_meta_set_by_key_by_game_id]
 
@@ -31077,6 +32137,26 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_del_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_achievement_meta_del_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_achievement_meta]
+    WHERE 1=1                        
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_del_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[usp_game_achievement_meta_del_by_key_by_game_id]
 
@@ -31174,6 +32254,45 @@ BEGIN
     FROM [dbo].[game_achievement_meta]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_by_code_by_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_achievement_meta_get_by_code_by_game_id
+(
+    @code varchar (255) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [sort]
+        , [code]
+        , [display_name]
+        , [name]
+        , [game_stat]
+        , [date_modified]
+        , [data]
+        , [level]
+        , [uuid]
+        , [points]
+        , [key]
+        , [game_id]
+        , [active]
+        , [date_created]
+        , [modifier]
+        , [type]
+        , [leaderboard]
+        , [description]
+    FROM [dbo].[game_achievement_meta]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------

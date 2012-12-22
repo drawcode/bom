@@ -3557,22 +3557,30 @@ class BaseGamingData {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
             if($obj->uuid != NULL)
                 $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
             if($obj->val != NULL)
                 $parameters['in_val'] = $obj->val; // #"in_val"
-            if($obj->profile_id != NULL)
-                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
             if($obj->otype != NULL)
                 $parameters['in_otype'] = $obj->otype; // #"in_otype"
-            if($obj->game_id != NULL)
-                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
                 $parameters['in_type'] = $obj->type; // #"in_type"
-            if($obj->name != NULL)
-                $parameters['in_name'] = $obj->name; // #"in_name"
 
             try {
                 return $this->data_provider->execute_scalar(
@@ -3596,22 +3604,30 @@ class BaseGamingData {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
             if($obj->uuid != NULL)
                 $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
             if($obj->val != NULL)
                 $parameters['in_val'] = $obj->val; // #"in_val"
-            if($obj->profile_id != NULL)
-                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
             if($obj->otype != NULL)
                 $parameters['in_otype'] = $obj->otype; // #"in_otype"
-            if($obj->game_id != NULL)
-                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
                 $parameters['in_type'] = $obj->type; // #"in_type"
-            if($obj->name != NULL)
-                $parameters['in_name'] = $obj->name; // #"in_name"
 
             try {
                 return $this->data_provider->execute_scalar(
@@ -3635,22 +3651,30 @@ class BaseGamingData {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
             if($obj->uuid != NULL)
                 $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
             if($obj->val != NULL)
                 $parameters['in_val'] = $obj->val; // #"in_val"
-            if($obj->profile_id != NULL)
-                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
             if($obj->otype != NULL)
                 $parameters['in_otype'] = $obj->otype; // #"in_otype"
-            if($obj->game_id != NULL)
-                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
                 $parameters['in_type'] = $obj->type; // #"in_type"
-            if($obj->name != NULL)
-                $parameters['in_name'] = $obj->name; // #"in_name"
 
             try {
                 return $this->data_provider->execute_scalar(
@@ -14561,6 +14585,31 @@ class BaseGamingData {
         
         return 0;
     }
+    public function CountGameStatisticMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_meta_count_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
     public function CountGameStatisticMetaByName(
         $name
     ) {
@@ -14730,6 +14779,64 @@ class BaseGamingData {
         return FALSE;
     }
     
+    public function SetGameStatisticMetaByCodeByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->points != NULL)
+                $parameters['in_points'] = $obj->points; // #"in_points"
+            if($obj->store_count != NULL)
+                $parameters['in_store_count'] = $obj->store_count; // #"in_store_count"
+            if($obj->key != NULL)
+                $parameters['in_key'] = $obj->key; // #"in_key"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_statistic_meta_set_code_game_id(".
+                        "in_code".
+                        ", in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
     public function SetGameStatisticMetaByKeyByGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
@@ -14811,6 +14918,32 @@ class BaseGamingData {
         
         return FALSE;
     }
+    public function DelGameStatisticMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_meta_del_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
     public function DelGameStatisticMetaByKeyByGameId(
         $key
         , $game_id
@@ -14873,6 +15006,32 @@ class BaseGamingData {
                 , CommandType::StoredProcedure
                 , "CALL usp_game_statistic_meta_get_code(".
                     "in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticMetaListByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_meta_get_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
                     ")"
                 , $parameters
             );
@@ -15019,6 +15178,34 @@ class BaseGamingData {
         
         return 0;
     }
+    public function CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_key'] = $key; // #"in_key"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_statistic_timestamp_count_key_profile_id_game_(".
+                    "in_key".
+                    ", in_profile_id".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
     public function CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
         $key
         , $profile_id
@@ -15114,6 +15301,51 @@ class BaseGamingData {
         return FALSE;
     }
     
+    public function SetGameProfileStatisticTimestampByKeyByProfileIdByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->key != NULL)
+                $parameters['in_key'] = $obj->key; // #"in_key"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_statistic_timestamp_set_key_profile_id_game_id(".
+                        "in_key".
+                        ", in_profile_id".
+                        ", in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
     public function SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
@@ -15183,6 +15415,35 @@ class BaseGamingData {
         
         return FALSE;
     }
+    public function DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_key'] = $key; // #"in_key"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_statistic_timestamp_del_key_profile_id_game_id(".
+                    "in_key".
+                    ", in_profile_id".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
     public function DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
         $key
         , $profile_id
@@ -15228,6 +15489,35 @@ class BaseGamingData {
                 , CommandType::StoredProcedure
                 , "CALL usp_game_profile_statistic_timestamp_get_uuid(".
                     "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_key'] =  $key; //#"in_key"
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_statistic_timestamp_get_key_profile_id_game_id(".
+                    "in_key".
+                    ", in_profile_id".
+                    ", in_game_id".
                     ")"
                 , $parameters
             );
@@ -15323,6 +15613,31 @@ class BaseGamingData {
                 , CommandType::StoredProcedure
                 , "CALL usp_game_key_meta_count_code(".
                     "in_code".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameKeyMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_key_meta_count_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
                     ")"
                 , $parameters
             );       
@@ -15506,6 +15821,68 @@ class BaseGamingData {
         return FALSE;
     }
     
+    public function SetGameKeyMetaByCodeByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->level != NULL)
+                $parameters['in_level'] = $obj->level; // #"in_level"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->key_level != NULL)
+                $parameters['in_key_level'] = $obj->key_level; // #"in_key_level"
+            if($obj->store_count != NULL)
+                $parameters['in_store_count'] = $obj->store_count; // #"in_store_count"
+            if($obj->key != NULL)
+                $parameters['in_key'] = $obj->key; // #"in_key"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->key_stat != NULL)
+                $parameters['in_key_stat'] = $obj->key_stat; // #"in_key_stat"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_key_meta_set_code_game_id(".
+                        "in_code".
+                        ", in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
     public function SetGameKeyMetaByKeyByGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
@@ -15654,6 +16031,32 @@ class BaseGamingData {
         
         return FALSE;
     }
+    public function DelGameKeyMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_key_meta_del_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
     public function DelGameKeyMetaByKeyByGameId(
         $key
         , $game_id
@@ -15716,6 +16119,32 @@ class BaseGamingData {
                 , CommandType::StoredProcedure
                 , "CALL usp_game_key_meta_get_code(".
                     "in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameKeyMetaListByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_key_meta_get_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
                     ")"
                 , $parameters
             );
@@ -15910,6 +16339,31 @@ class BaseGamingData {
         
         return 0;
     }
+    public function CountGameLevelByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_level_count_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
     public function CountGameLevelByName(
         $name
     ) {
@@ -16075,6 +16529,60 @@ class BaseGamingData {
         return FALSE;
     }
     
+    public function SetGameLevelByCodeByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->key != NULL)
+                $parameters['in_key'] = $obj->key; // #"in_key"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_level_set_code_game_id(".
+                        "in_code".
+                        ", in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
     public function SetGameLevelByKeyByGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
@@ -16152,6 +16660,32 @@ class BaseGamingData {
         
         return FALSE;
     }
+    public function DelGameLevelByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_level_del_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
     public function DelGameLevelByKeyByGameId(
         $key
         , $game_id
@@ -16214,6 +16748,32 @@ class BaseGamingData {
                 , CommandType::StoredProcedure
                 , "CALL usp_game_level_get_code(".
                     "in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameLevelListByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_level_get_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
                     ")"
                 , $parameters
             );
@@ -17157,6 +17717,31 @@ class BaseGamingData {
         
         return 0;
     }
+    public function CountGameAchievementMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_achievement_meta_count_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
     public function CountGameAchievementMetaByName(
         $name
     ) {
@@ -17330,6 +17915,68 @@ class BaseGamingData {
         return FALSE;
     }
     
+    public function SetGameAchievementMetaByCodeByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->game_stat != NULL)
+                $parameters['in_game_stat'] = $obj->game_stat; // #"in_game_stat"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->level != NULL)
+                $parameters['in_level'] = $obj->level; // #"in_level"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->points != NULL)
+                $parameters['in_points'] = $obj->points; // #"in_points"
+            if($obj->key != NULL)
+                $parameters['in_key'] = $obj->key; // #"in_key"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->modifier != NULL)
+                $parameters['in_modifier'] = $obj->modifier; // #"in_modifier"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->leaderboard != NULL)
+                $parameters['in_leaderboard'] = $obj->leaderboard; // #"in_leaderboard"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_achievement_meta_set_code_game_id(".
+                        "in_code".
+                        ", in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
     public function SetGameAchievementMetaByKeyByGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
@@ -17415,6 +18062,32 @@ class BaseGamingData {
         
         return FALSE;
     }
+    public function DelGameAchievementMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_achievement_meta_del_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
     public function DelGameAchievementMetaByKeyByGameId(
         $key
         , $game_id
@@ -17477,6 +18150,32 @@ class BaseGamingData {
                 , CommandType::StoredProcedure
                 , "CALL usp_game_achievement_meta_get_code(".
                     "in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAchievementMetaListByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_achievement_meta_get_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
                     ")"
                 , $parameters
             );

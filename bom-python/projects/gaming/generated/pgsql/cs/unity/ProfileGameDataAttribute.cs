@@ -47,7 +47,7 @@ public class ProfileGameDataAttributes<T> : DataObjects<T> where T : new() {
     }
 }
 
-public class ProfileGameDataAttribute  {
+public class ProfileGameDataAttribute : BaseEntity {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public string code { get; set; }

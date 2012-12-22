@@ -12031,6 +12031,16 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
+    def CountGameStatisticMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticMetaByCodeByGameId(
+        code
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
     def CountGameStatisticMetaByName(self
         , name
     ) :         
@@ -12074,6 +12084,12 @@ class BaseGamingAPI(object):
     def SetGameStatisticMetaByUuid(self, obj) :
         return self.act.SetGameStatisticMetaByUuid('full', obj)
 #------------------------------------------------------------------------------                    
+    def SetGameStatisticMetaByCodeByGameIdType(self, set_type, obj) :
+        return self.act.SetGameStatisticMetaByCodeByGameId(set_type, obj)
+               
+    def SetGameStatisticMetaByCodeByGameId(self, obj) :
+        return self.act.SetGameStatisticMetaByCodeByGameId('full', obj)
+#------------------------------------------------------------------------------                    
     def SetGameStatisticMetaByKeyByGameIdType(self, set_type, obj) :
         return self.act.SetGameStatisticMetaByKeyByGameId(set_type, obj)
                
@@ -12085,6 +12101,15 @@ class BaseGamingAPI(object):
     ) :          
         return self.act.DelGameStatisticMetaByUuid(
         uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :          
+        return self.act.DelGameStatisticMetaByCodeByGameId(
+        code
+        , game_id
         )
 #------------------------------------------------------------------------------                    
     def DelGameStatisticMetaByKeyByGameId(self
@@ -12207,6 +12232,77 @@ class BaseGamingAPI(object):
         {
             objs = GetGameStatisticMetaListByCode(
                 code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticMetaListByCodeByGameId(self
+        , code
+        , game_id
+        ) :
+            return self.act.GetGameStatisticMetaListByCodeByGameId(
+                code
+                , game_id
+            )
+        
+    def GetGameStatisticMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :
+        for item in self.GetGameStatisticMetaListByCodeByGameId(
+        code
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticMetaListByCodeByGameId(self
+        , code
+        , game_id
+    ) :
+        return CachedGetGameStatisticMetaListByCodeByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , game_id
+        )
+        
+    def CachedGetGameStatisticMetaListByCodeByGameId(self
+        , overrideCache
+        , cacheHours
+        , code
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticMeta> objs;
+
+        string method_name = "CachedGetGameStatisticMetaListByCodeByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticMeta>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticMetaListByCodeByGameId(
+                code
+                , game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -12476,6 +12572,18 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
+    def CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :         
+        return self.act.CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        key
+        , profile_id
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
     def CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self
         , key
         , profile_id
@@ -12499,6 +12607,12 @@ class BaseGamingAPI(object):
     def SetGameProfileStatisticTimestampByUuid(self, obj) :
         return self.act.SetGameProfileStatisticTimestampByUuid('full', obj)
 #------------------------------------------------------------------------------                    
+    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(set_type, obj)
+               
+    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(self, obj) :
+        return self.act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameId('full', obj)
+#------------------------------------------------------------------------------                    
     def SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
                
@@ -12510,6 +12624,17 @@ class BaseGamingAPI(object):
     ) :          
         return self.act.DelGameProfileStatisticTimestampByUuid(
         uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :          
+        return self.act.DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        key
+        , profile_id
+        , game_id
         )
 #------------------------------------------------------------------------------                    
     def DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self
@@ -12577,6 +12702,89 @@ class BaseGamingAPI(object):
         {
             objs = GetGameProfileStatisticTimestampListByUuid(
                 uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+        ) :
+            return self.act.GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+                key
+                , profile_id
+                , game_id
+            )
+        
+    def GetGameProfileStatisticTimestampByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+        for item in self.GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+        key
+        , profile_id
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(self
+        , key
+        , profile_id
+        , game_id
+    ) :
+        return CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , key
+            , profile_id
+            , game_id
+        )
+        
+    def CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(self
+        , overrideCache
+        , cacheHours
+        , key
+        , profile_id
+        , game_id
+    ) :
+        pass
+        """
+        List<GameProfileStatisticTimestamp> objs;
+
+        string method_name = "CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("key".ToLower());
+        sb.Append("_");
+        sb.Append(key);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+                key
+                , profile_id
+                , game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -12701,6 +12909,16 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
+    def CountGameKeyMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :         
+        return self.act.CountGameKeyMetaByCodeByGameId(
+        code
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
     def CountGameKeyMetaByName(self
         , name
     ) :         
@@ -12744,6 +12962,12 @@ class BaseGamingAPI(object):
     def SetGameKeyMetaByUuid(self, obj) :
         return self.act.SetGameKeyMetaByUuid('full', obj)
 #------------------------------------------------------------------------------                    
+    def SetGameKeyMetaByCodeByGameIdType(self, set_type, obj) :
+        return self.act.SetGameKeyMetaByCodeByGameId(set_type, obj)
+               
+    def SetGameKeyMetaByCodeByGameId(self, obj) :
+        return self.act.SetGameKeyMetaByCodeByGameId('full', obj)
+#------------------------------------------------------------------------------                    
     def SetGameKeyMetaByKeyByGameIdType(self, set_type, obj) :
         return self.act.SetGameKeyMetaByKeyByGameId(set_type, obj)
                
@@ -12761,6 +12985,15 @@ class BaseGamingAPI(object):
     ) :          
         return self.act.DelGameKeyMetaByUuid(
         uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameKeyMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :          
+        return self.act.DelGameKeyMetaByCodeByGameId(
+        code
+        , game_id
         )
 #------------------------------------------------------------------------------                    
     def DelGameKeyMetaByKeyByGameId(self
@@ -12883,6 +13116,77 @@ class BaseGamingAPI(object):
         {
             objs = GetGameKeyMetaListByCode(
                 code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameKeyMetaListByCodeByGameId(self
+        , code
+        , game_id
+        ) :
+            return self.act.GetGameKeyMetaListByCodeByGameId(
+                code
+                , game_id
+            )
+        
+    def GetGameKeyMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :
+        for item in self.GetGameKeyMetaListByCodeByGameId(
+        code
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameKeyMetaListByCodeByGameId(self
+        , code
+        , game_id
+    ) :
+        return CachedGetGameKeyMetaListByCodeByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , game_id
+        )
+        
+    def CachedGetGameKeyMetaListByCodeByGameId(self
+        , overrideCache
+        , cacheHours
+        , code
+        , game_id
+    ) :
+        pass
+        """
+        List<GameKeyMeta> objs;
+
+        string method_name = "CachedGetGameKeyMetaListByCodeByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameKeyMeta>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameKeyMetaListByCodeByGameId(
+                code
+                , game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -13231,6 +13535,16 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
+    def CountGameLevelByCodeByGameId(self
+        , code
+        , game_id
+    ) :         
+        return self.act.CountGameLevelByCodeByGameId(
+        code
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
     def CountGameLevelByName(self
         , name
     ) :         
@@ -13274,6 +13588,12 @@ class BaseGamingAPI(object):
     def SetGameLevelByUuid(self, obj) :
         return self.act.SetGameLevelByUuid('full', obj)
 #------------------------------------------------------------------------------                    
+    def SetGameLevelByCodeByGameIdType(self, set_type, obj) :
+        return self.act.SetGameLevelByCodeByGameId(set_type, obj)
+               
+    def SetGameLevelByCodeByGameId(self, obj) :
+        return self.act.SetGameLevelByCodeByGameId('full', obj)
+#------------------------------------------------------------------------------                    
     def SetGameLevelByKeyByGameIdType(self, set_type, obj) :
         return self.act.SetGameLevelByKeyByGameId(set_type, obj)
                
@@ -13285,6 +13605,15 @@ class BaseGamingAPI(object):
     ) :          
         return self.act.DelGameLevelByUuid(
         uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameLevelByCodeByGameId(self
+        , code
+        , game_id
+    ) :          
+        return self.act.DelGameLevelByCodeByGameId(
+        code
+        , game_id
         )
 #------------------------------------------------------------------------------                    
     def DelGameLevelByKeyByGameId(self
@@ -13407,6 +13736,77 @@ class BaseGamingAPI(object):
         {
             objs = GetGameLevelListByCode(
                 code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameLevelListByCodeByGameId(self
+        , code
+        , game_id
+        ) :
+            return self.act.GetGameLevelListByCodeByGameId(
+                code
+                , game_id
+            )
+        
+    def GetGameLevelByCodeByGameId(self
+        , code
+        , game_id
+    ) :
+        for item in self.GetGameLevelListByCodeByGameId(
+        code
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameLevelListByCodeByGameId(self
+        , code
+        , game_id
+    ) :
+        return CachedGetGameLevelListByCodeByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , game_id
+        )
+        
+    def CachedGetGameLevelListByCodeByGameId(self
+        , overrideCache
+        , cacheHours
+        , code
+        , game_id
+    ) :
+        pass
+        """
+        List<GameLevel> objs;
+
+        string method_name = "CachedGetGameLevelListByCodeByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameLevel>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameLevelListByCodeByGameId(
+                code
+                , game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -14510,6 +14910,16 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
+    def CountGameAchievementMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :         
+        return self.act.CountGameAchievementMetaByCodeByGameId(
+        code
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
     def CountGameAchievementMetaByName(self
         , name
     ) :         
@@ -14553,6 +14963,12 @@ class BaseGamingAPI(object):
     def SetGameAchievementMetaByUuid(self, obj) :
         return self.act.SetGameAchievementMetaByUuid('full', obj)
 #------------------------------------------------------------------------------                    
+    def SetGameAchievementMetaByCodeByGameIdType(self, set_type, obj) :
+        return self.act.SetGameAchievementMetaByCodeByGameId(set_type, obj)
+               
+    def SetGameAchievementMetaByCodeByGameId(self, obj) :
+        return self.act.SetGameAchievementMetaByCodeByGameId('full', obj)
+#------------------------------------------------------------------------------                    
     def SetGameAchievementMetaByKeyByGameIdType(self, set_type, obj) :
         return self.act.SetGameAchievementMetaByKeyByGameId(set_type, obj)
                
@@ -14564,6 +14980,15 @@ class BaseGamingAPI(object):
     ) :          
         return self.act.DelGameAchievementMetaByUuid(
         uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAchievementMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :          
+        return self.act.DelGameAchievementMetaByCodeByGameId(
+        code
+        , game_id
         )
 #------------------------------------------------------------------------------                    
     def DelGameAchievementMetaByKeyByGameId(self
@@ -14686,6 +15111,77 @@ class BaseGamingAPI(object):
         {
             objs = GetGameAchievementMetaListByCode(
                 code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAchievementMetaListByCodeByGameId(self
+        , code
+        , game_id
+        ) :
+            return self.act.GetGameAchievementMetaListByCodeByGameId(
+                code
+                , game_id
+            )
+        
+    def GetGameAchievementMetaByCodeByGameId(self
+        , code
+        , game_id
+    ) :
+        for item in self.GetGameAchievementMetaListByCodeByGameId(
+        code
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAchievementMetaListByCodeByGameId(self
+        , code
+        , game_id
+    ) :
+        return CachedGetGameAchievementMetaListByCodeByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , game_id
+        )
+        
+    def CachedGetGameAchievementMetaListByCodeByGameId(self
+        , overrideCache
+        , cacheHours
+        , code
+        , game_id
+    ) :
+        pass
+        """
+        List<GameAchievementMeta> objs;
+
+        string method_name = "CachedGetGameAchievementMetaListByCodeByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAchievementMeta>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAchievementMetaListByCodeByGameId(
+                code
+                , game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }

@@ -12818,6 +12818,16 @@ namespace gaming {
             );
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.CountGameStatisticMetaByCodeByGameId(
+            code
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameStatisticMetaByName(
             string name
         )  {            
@@ -12868,6 +12878,18 @@ namespace gaming {
             return act.SetGameStatisticMetaByUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticMetaByCodeByGameId(string set_type, GameStatisticMeta obj)  {
+            return act.SetGameStatisticMetaByCodeByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameStatisticMetaByCodeByGameId(SetType set_type, GameStatisticMeta obj)  {
+            return act.SetGameStatisticMetaByCodeByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameStatisticMetaByCodeByGameId(GameStatisticMeta obj)  {
+            return act.SetGameStatisticMetaByCodeByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameStatisticMetaByKeyByGameId(string set_type, GameStatisticMeta obj)  {
             return act.SetGameStatisticMetaByKeyByGameId(set_type, obj);
         }
@@ -12885,6 +12907,16 @@ namespace gaming {
         )  {            
             return act.DelGameStatisticMetaByUuid(
             uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.DelGameStatisticMetaByCodeByGameId(
+            code
+            , game_id
             );
         }                     
 //------------------------------------------------------------------------------                    
@@ -13012,6 +13044,78 @@ namespace gaming {
             {
                 objs = GetGameStatisticMetaListByCode(
                     code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameStatisticMeta> GetGameStatisticMetaListByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            return act.GetGameStatisticMetaListByCodeByGameId(
+            code
+            , game_id
+            );
+        }
+        
+        public virtual GameStatisticMeta GetGameStatisticMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            foreach (GameStatisticMeta item in GetGameStatisticMetaListByCodeByGameId(
+            code
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameStatisticMeta> CachedGetGameStatisticMetaListByCodeByGameId(
+            string code
+            , string game_id
+        ) {
+            return CachedGetGameStatisticMetaListByCodeByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameStatisticMeta> CachedGetGameStatisticMetaListByCodeByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string code
+            , string game_id
+        ) {
+            List<GameStatisticMeta> objs;
+
+            string method_name = "CachedGetGameStatisticMetaListByCodeByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameStatisticMeta>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameStatisticMetaListByCodeByGameId(
+                    code
+                    , game_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
             }
@@ -13284,6 +13388,18 @@ namespace gaming {
             );
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {            
+            return act.CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
             string key
             , string profile_id
@@ -13314,6 +13430,18 @@ namespace gaming {
             return act.SetGameProfileStatisticTimestampByUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(string set_type, GameProfileStatisticTimestamp obj)  {
+            return act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(SetType set_type, GameProfileStatisticTimestamp obj)  {
+            return act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(GameProfileStatisticTimestamp obj)  {
+            return act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {
             return act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
         }
@@ -13331,6 +13459,18 @@ namespace gaming {
         )  {            
             return act.DelGameProfileStatisticTimestampByUuid(
             uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {            
+            return act.DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
             );
         }                     
 //------------------------------------------------------------------------------                    
@@ -13402,6 +13542,90 @@ namespace gaming {
             {
                 objs = GetGameProfileStatisticTimestampListByUuid(
                     uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            return act.GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+            );
+        }
+        
+        public virtual GameProfileStatisticTimestamp GetGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            foreach (GameProfileStatisticTimestamp item in GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+            key
+            , profile_id
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileStatisticTimestamp> CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        ) {
+            return CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , key
+                    , profile_id
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameProfileStatisticTimestamp> CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string key
+            , string profile_id
+            , string game_id
+        ) {
+            List<GameProfileStatisticTimestamp> objs;
+
+            string method_name = "CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("key".ToLower());
+            sb.Append("_");
+            sb.Append(key);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+                    key
+                    , profile_id
+                    , game_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
             }
@@ -13526,6 +13750,16 @@ namespace gaming {
             );
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameKeyMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.CountGameKeyMetaByCodeByGameId(
+            code
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameKeyMetaByName(
             string name
         )  {            
@@ -13576,6 +13810,18 @@ namespace gaming {
             return act.SetGameKeyMetaByUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameKeyMetaByCodeByGameId(string set_type, GameKeyMeta obj)  {
+            return act.SetGameKeyMetaByCodeByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameKeyMetaByCodeByGameId(SetType set_type, GameKeyMeta obj)  {
+            return act.SetGameKeyMetaByCodeByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameKeyMetaByCodeByGameId(GameKeyMeta obj)  {
+            return act.SetGameKeyMetaByCodeByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameKeyMetaByKeyByGameId(string set_type, GameKeyMeta obj)  {
             return act.SetGameKeyMetaByKeyByGameId(set_type, obj);
         }
@@ -13605,6 +13851,16 @@ namespace gaming {
         )  {            
             return act.DelGameKeyMetaByUuid(
             uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameKeyMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.DelGameKeyMetaByCodeByGameId(
+            code
+            , game_id
             );
         }                     
 //------------------------------------------------------------------------------                    
@@ -13732,6 +13988,78 @@ namespace gaming {
             {
                 objs = GetGameKeyMetaListByCode(
                     code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameKeyMeta> GetGameKeyMetaListByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            return act.GetGameKeyMetaListByCodeByGameId(
+            code
+            , game_id
+            );
+        }
+        
+        public virtual GameKeyMeta GetGameKeyMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            foreach (GameKeyMeta item in GetGameKeyMetaListByCodeByGameId(
+            code
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameKeyMeta> CachedGetGameKeyMetaListByCodeByGameId(
+            string code
+            , string game_id
+        ) {
+            return CachedGetGameKeyMetaListByCodeByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameKeyMeta> CachedGetGameKeyMetaListByCodeByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string code
+            , string game_id
+        ) {
+            List<GameKeyMeta> objs;
+
+            string method_name = "CachedGetGameKeyMetaListByCodeByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameKeyMeta>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameKeyMetaListByCodeByGameId(
+                    code
+                    , game_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
             }
@@ -14084,6 +14412,16 @@ namespace gaming {
             );
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameLevelByCodeByGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.CountGameLevelByCodeByGameId(
+            code
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameLevelByName(
             string name
         )  {            
@@ -14134,6 +14472,18 @@ namespace gaming {
             return act.SetGameLevelByUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameLevelByCodeByGameId(string set_type, GameLevel obj)  {
+            return act.SetGameLevelByCodeByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameLevelByCodeByGameId(SetType set_type, GameLevel obj)  {
+            return act.SetGameLevelByCodeByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameLevelByCodeByGameId(GameLevel obj)  {
+            return act.SetGameLevelByCodeByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameLevelByKeyByGameId(string set_type, GameLevel obj)  {
             return act.SetGameLevelByKeyByGameId(set_type, obj);
         }
@@ -14151,6 +14501,16 @@ namespace gaming {
         )  {            
             return act.DelGameLevelByUuid(
             uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameLevelByCodeByGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.DelGameLevelByCodeByGameId(
+            code
+            , game_id
             );
         }                     
 //------------------------------------------------------------------------------                    
@@ -14278,6 +14638,78 @@ namespace gaming {
             {
                 objs = GetGameLevelListByCode(
                     code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameLevel> GetGameLevelListByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            return act.GetGameLevelListByCodeByGameId(
+            code
+            , game_id
+            );
+        }
+        
+        public virtual GameLevel GetGameLevelByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            foreach (GameLevel item in GetGameLevelListByCodeByGameId(
+            code
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameLevel> CachedGetGameLevelListByCodeByGameId(
+            string code
+            , string game_id
+        ) {
+            return CachedGetGameLevelListByCodeByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameLevel> CachedGetGameLevelListByCodeByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string code
+            , string game_id
+        ) {
+            List<GameLevel> objs;
+
+            string method_name = "CachedGetGameLevelListByCodeByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameLevel>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameLevelListByCodeByGameId(
+                    code
+                    , game_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
             }
@@ -15428,6 +15860,16 @@ namespace gaming {
             );
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameAchievementMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.CountGameAchievementMetaByCodeByGameId(
+            code
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameAchievementMetaByName(
             string name
         )  {            
@@ -15478,6 +15920,18 @@ namespace gaming {
             return act.SetGameAchievementMetaByUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameAchievementMetaByCodeByGameId(string set_type, GameAchievementMeta obj)  {
+            return act.SetGameAchievementMetaByCodeByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameAchievementMetaByCodeByGameId(SetType set_type, GameAchievementMeta obj)  {
+            return act.SetGameAchievementMetaByCodeByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAchievementMetaByCodeByGameId(GameAchievementMeta obj)  {
+            return act.SetGameAchievementMetaByCodeByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameAchievementMetaByKeyByGameId(string set_type, GameAchievementMeta obj)  {
             return act.SetGameAchievementMetaByKeyByGameId(set_type, obj);
         }
@@ -15495,6 +15949,16 @@ namespace gaming {
         )  {            
             return act.DelGameAchievementMetaByUuid(
             uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAchievementMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.DelGameAchievementMetaByCodeByGameId(
+            code
+            , game_id
             );
         }                     
 //------------------------------------------------------------------------------                    
@@ -15622,6 +16086,78 @@ namespace gaming {
             {
                 objs = GetGameAchievementMetaListByCode(
                     code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAchievementMeta> GetGameAchievementMetaListByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            return act.GetGameAchievementMetaListByCodeByGameId(
+            code
+            , game_id
+            );
+        }
+        
+        public virtual GameAchievementMeta GetGameAchievementMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            foreach (GameAchievementMeta item in GetGameAchievementMetaListByCodeByGameId(
+            code
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAchievementMeta> CachedGetGameAchievementMetaListByCodeByGameId(
+            string code
+            , string game_id
+        ) {
+            return CachedGetGameAchievementMetaListByCodeByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameAchievementMeta> CachedGetGameAchievementMetaListByCodeByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string code
+            , string game_id
+        ) {
+            List<GameAchievementMeta> objs;
+
+            string method_name = "CachedGetGameAchievementMetaListByCodeByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAchievementMeta>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAchievementMetaListByCodeByGameId(
+                    code
+                    , game_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
             }

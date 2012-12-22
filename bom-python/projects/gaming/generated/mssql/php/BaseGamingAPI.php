@@ -13052,6 +13052,17 @@ class BaseGamingAPI {
     }
         
 #------------------------------------------------------------------------------                    
+    public function CountGameStatisticMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {      
+        return $this->act->CountGameStatisticMetaByCodeByGameId(
+        $code
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
     public function CountGameStatisticMetaByName(
         $name
     ) {      
@@ -13102,6 +13113,14 @@ class BaseGamingAPI {
         return $this->act->SetGameStatisticMetaByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
+    public function SetGameStatisticMetaByCodeByGameId($set_type, $obj) {
+        return $this->act->SetGameStatisticMetaByCodeByGameId($set_type, $obj);
+    }
+               
+    public function SetGameStatisticMetaByCodeByGameIdFull($obj) {
+        return $this->act->SetGameStatisticMetaByCodeByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
     public function SetGameStatisticMetaByKeyByGameId($set_type, $obj) {
         return $this->act->SetGameStatisticMetaByKeyByGameId($set_type, $obj);
     }
@@ -13115,6 +13134,16 @@ class BaseGamingAPI {
     ) {         
         return $this->act->DelGameStatisticMetaByUuid(
         $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameStatisticMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {         
+        return $this->act->DelGameStatisticMetaByCodeByGameId(
+        $code
+        , $game_id
         );
     }
 #------------------------------------------------------------------------------                    
@@ -13247,6 +13276,81 @@ class BaseGamingAPI {
         {
             $objs = $this->GetGameStatisticMetaListByCode(
                 $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameStatisticMetaListByCodeByGameId(
+        $code
+        , $game_id
+        ) {
+            return $this->act->GetGameStatisticMetaListByCodeByGameId(
+                $code
+                , $game_id
+            );
+        }
+        
+    public function GetGameStatisticMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        foreach($this->act->GetGameStatisticMetaListByCodeByGameId(
+        $code
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameStatisticMetaListByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        return $this->CachedGetGameStatisticMetaListByCodeByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameStatisticMetaListByCodeByGameId(
+        $overrideCache
+        , $cacheHours
+        , $code
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameStatisticMetaListByCodeByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameStatisticMeta>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameStatisticMetaListByCodeByGameId(
+                $code
+                , $game_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -13534,6 +13638,19 @@ class BaseGamingAPI {
     }
         
 #------------------------------------------------------------------------------                    
+    public function CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {      
+        return $this->act->CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
     public function CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
         $key
         , $profile_id
@@ -13561,6 +13678,14 @@ class BaseGamingAPI {
         return $this->act->SetGameProfileStatisticTimestampByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
+    public function SetGameProfileStatisticTimestampByKeyByProfileIdByGameId($set_type, $obj) {
+        return $this->act->SetGameProfileStatisticTimestampByKeyByProfileIdByGameId($set_type, $obj);
+    }
+               
+    public function SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdFull($obj) {
+        return $this->act->SetGameProfileStatisticTimestampByKeyByProfileIdByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
     public function SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {
         return $this->act->SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
@@ -13574,6 +13699,18 @@ class BaseGamingAPI {
     ) {         
         return $this->act->DelGameProfileStatisticTimestampByUuid(
         $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {         
+        return $this->act->DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
         );
     }
 #------------------------------------------------------------------------------                    
@@ -13647,6 +13784,93 @@ class BaseGamingAPI {
         {
             $objs = $this->GetGameProfileStatisticTimestampListByUuid(
                 $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+        ) {
+            return $this->act->GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+                $key
+                , $profile_id
+                , $game_id
+            );
+        }
+        
+    public function GetGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+        foreach($this->act->GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+        $key
+        , $profile_id
+        , $game_id
+    ) {
+        return $this->CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $key
+            , $profile_id
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+        $overrideCache
+        , $cacheHours
+        , $key
+        , $profile_id
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileStatisticTimestampListByKeyByProfileIdByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$key");
+        $sb += "_";
+        $sb += $key;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+                $key
+                , $profile_id
+                , $game_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -13778,6 +14002,17 @@ class BaseGamingAPI {
     }
         
 #------------------------------------------------------------------------------                    
+    public function CountGameKeyMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {      
+        return $this->act->CountGameKeyMetaByCodeByGameId(
+        $code
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
     public function CountGameKeyMetaByName(
         $name
     ) {      
@@ -13828,6 +14063,14 @@ class BaseGamingAPI {
         return $this->act->SetGameKeyMetaByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
+    public function SetGameKeyMetaByCodeByGameId($set_type, $obj) {
+        return $this->act->SetGameKeyMetaByCodeByGameId($set_type, $obj);
+    }
+               
+    public function SetGameKeyMetaByCodeByGameIdFull($obj) {
+        return $this->act->SetGameKeyMetaByCodeByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
     public function SetGameKeyMetaByKeyByGameId($set_type, $obj) {
         return $this->act->SetGameKeyMetaByKeyByGameId($set_type, $obj);
     }
@@ -13849,6 +14092,16 @@ class BaseGamingAPI {
     ) {         
         return $this->act->DelGameKeyMetaByUuid(
         $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameKeyMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {         
+        return $this->act->DelGameKeyMetaByCodeByGameId(
+        $code
+        , $game_id
         );
     }
 #------------------------------------------------------------------------------                    
@@ -13981,6 +14234,81 @@ class BaseGamingAPI {
         {
             $objs = $this->GetGameKeyMetaListByCode(
                 $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameKeyMetaListByCodeByGameId(
+        $code
+        , $game_id
+        ) {
+            return $this->act->GetGameKeyMetaListByCodeByGameId(
+                $code
+                , $game_id
+            );
+        }
+        
+    public function GetGameKeyMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        foreach($this->act->GetGameKeyMetaListByCodeByGameId(
+        $code
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameKeyMetaListByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        return $this->CachedGetGameKeyMetaListByCodeByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameKeyMetaListByCodeByGameId(
+        $overrideCache
+        , $cacheHours
+        , $code
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameKeyMetaListByCodeByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameKeyMeta>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameKeyMetaListByCodeByGameId(
+                $code
+                , $game_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -14352,6 +14680,17 @@ class BaseGamingAPI {
     }
         
 #------------------------------------------------------------------------------                    
+    public function CountGameLevelByCodeByGameId(
+        $code
+        , $game_id
+    ) {      
+        return $this->act->CountGameLevelByCodeByGameId(
+        $code
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
     public function CountGameLevelByName(
         $name
     ) {      
@@ -14402,6 +14741,14 @@ class BaseGamingAPI {
         return $this->act->SetGameLevelByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
+    public function SetGameLevelByCodeByGameId($set_type, $obj) {
+        return $this->act->SetGameLevelByCodeByGameId($set_type, $obj);
+    }
+               
+    public function SetGameLevelByCodeByGameIdFull($obj) {
+        return $this->act->SetGameLevelByCodeByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
     public function SetGameLevelByKeyByGameId($set_type, $obj) {
         return $this->act->SetGameLevelByKeyByGameId($set_type, $obj);
     }
@@ -14415,6 +14762,16 @@ class BaseGamingAPI {
     ) {         
         return $this->act->DelGameLevelByUuid(
         $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameLevelByCodeByGameId(
+        $code
+        , $game_id
+    ) {         
+        return $this->act->DelGameLevelByCodeByGameId(
+        $code
+        , $game_id
         );
     }
 #------------------------------------------------------------------------------                    
@@ -14547,6 +14904,81 @@ class BaseGamingAPI {
         {
             $objs = $this->GetGameLevelListByCode(
                 $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameLevelListByCodeByGameId(
+        $code
+        , $game_id
+        ) {
+            return $this->act->GetGameLevelListByCodeByGameId(
+                $code
+                , $game_id
+            );
+        }
+        
+    public function GetGameLevelByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        foreach($this->act->GetGameLevelListByCodeByGameId(
+        $code
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameLevelListByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        return $this->CachedGetGameLevelListByCodeByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameLevelListByCodeByGameId(
+        $overrideCache
+        , $cacheHours
+        , $code
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameLevelListByCodeByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameLevel>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameLevelListByCodeByGameId(
+                $code
+                , $game_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }
@@ -15729,6 +16161,17 @@ class BaseGamingAPI {
     }
         
 #------------------------------------------------------------------------------                    
+    public function CountGameAchievementMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {      
+        return $this->act->CountGameAchievementMetaByCodeByGameId(
+        $code
+        , $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
     public function CountGameAchievementMetaByName(
         $name
     ) {      
@@ -15779,6 +16222,14 @@ class BaseGamingAPI {
         return $this->act->SetGameAchievementMetaByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
+    public function SetGameAchievementMetaByCodeByGameId($set_type, $obj) {
+        return $this->act->SetGameAchievementMetaByCodeByGameId($set_type, $obj);
+    }
+               
+    public function SetGameAchievementMetaByCodeByGameIdFull($obj) {
+        return $this->act->SetGameAchievementMetaByCodeByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
     public function SetGameAchievementMetaByKeyByGameId($set_type, $obj) {
         return $this->act->SetGameAchievementMetaByKeyByGameId($set_type, $obj);
     }
@@ -15792,6 +16243,16 @@ class BaseGamingAPI {
     ) {         
         return $this->act->DelGameAchievementMetaByUuid(
         $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAchievementMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {         
+        return $this->act->DelGameAchievementMetaByCodeByGameId(
+        $code
+        , $game_id
         );
     }
 #------------------------------------------------------------------------------                    
@@ -15924,6 +16385,81 @@ class BaseGamingAPI {
         {
             $objs = $this->GetGameAchievementMetaListByCode(
                 $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAchievementMetaListByCodeByGameId(
+        $code
+        , $game_id
+        ) {
+            return $this->act->GetGameAchievementMetaListByCodeByGameId(
+                $code
+                , $game_id
+            );
+        }
+        
+    public function GetGameAchievementMetaByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        foreach($this->act->GetGameAchievementMetaListByCodeByGameId(
+        $code
+        , $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAchievementMetaListByCodeByGameId(
+        $code
+        , $game_id
+    ) {
+        return $this->CachedGetGameAchievementMetaListByCodeByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameAchievementMetaListByCodeByGameId(
+        $overrideCache
+        , $cacheHours
+        , $code
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAchievementMetaListByCodeByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAchievementMeta>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAchievementMetaListByCodeByGameId(
+                $code
+                , $game_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }

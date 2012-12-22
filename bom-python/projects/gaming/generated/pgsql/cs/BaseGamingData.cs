@@ -3180,14 +3180,18 @@ namespace gaming {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+            parameters.Add(new NpgsqlParameter("in_status", obj.status));
             parameters.Add(new NpgsqlParameter("in_code", obj.code));
+            parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
+            parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_val", obj.val));
-            parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
+            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
             parameters.Add(new NpgsqlParameter("in_otype", obj.otype));
-            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
             parameters.Add(new NpgsqlParameter("in_type", obj.type));
-            parameters.Add(new NpgsqlParameter("in_name", obj.name));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(
@@ -3207,14 +3211,18 @@ namespace gaming {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+            parameters.Add(new NpgsqlParameter("in_status", obj.status));
             parameters.Add(new NpgsqlParameter("in_code", obj.code));
+            parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
+            parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_val", obj.val));
-            parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
+            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
             parameters.Add(new NpgsqlParameter("in_otype", obj.otype));
-            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
             parameters.Add(new NpgsqlParameter("in_type", obj.type));
-            parameters.Add(new NpgsqlParameter("in_name", obj.name));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(
@@ -3234,14 +3242,18 @@ namespace gaming {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+            parameters.Add(new NpgsqlParameter("in_status", obj.status));
             parameters.Add(new NpgsqlParameter("in_code", obj.code));
+            parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
+            parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_val", obj.val));
-            parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
+            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
             parameters.Add(new NpgsqlParameter("in_otype", obj.otype));
-            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
             parameters.Add(new NpgsqlParameter("in_type", obj.type));
-            parameters.Add(new NpgsqlParameter("in_name", obj.name));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(
@@ -12098,6 +12110,28 @@ namespace gaming {
             }
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_meta_count_code_game_id"
+                , parameters
+                );            
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return 0;
+            }
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameStatisticMetaByName(
             string name
         )  {
@@ -12239,6 +12273,42 @@ namespace gaming {
             }    
         }    
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticMetaByCodeByGameId(string set_type, GameStatisticMeta obj)  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();
+            parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+            parameters.Add(new NpgsqlParameter("in_status", obj.status));
+            parameters.Add(new NpgsqlParameter("in_sort", obj.sort));
+            parameters.Add(new NpgsqlParameter("in_code", obj.code));
+            parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
+            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
+            parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_points", obj.points));
+            parameters.Add(new NpgsqlParameter("in_store_count", obj.store_count));
+            parameters.Add(new NpgsqlParameter("in_key", obj.key));
+            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
+            parameters.Add(new NpgsqlParameter("in_type", obj.type));
+            parameters.Add(new NpgsqlParameter("in_order", obj.order));
+            parameters.Add(new NpgsqlParameter("in_description", obj.description));
+            
+            try {
+                return Convert.ToBoolean(data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_meta_set_code_game_id"
+                , parameters
+                ));           
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return false;
+            }    
+        }    
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameStatisticMetaByKeyByGameId(string set_type, GameStatisticMeta obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
@@ -12286,6 +12356,29 @@ namespace gaming {
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
                     , "usp_game_statistic_meta_del_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){      
+                log.Error(e);      
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_meta_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -12353,6 +12446,31 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_statistic_meta_get_code"
+                , "game_statistic_meta"
+                , parameters
+                );          
+            }
+            catch (Exception e){
+                log.Error(e);
+                return null;
+            }
+            
+            
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticMetaListByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                        
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_meta_get_code_game_id"
                 , "game_statistic_meta"
                 , parameters
                 );          
@@ -12497,6 +12615,30 @@ namespace gaming {
             }
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_key", key));
+            parameters.Add(new NpgsqlParameter("in_profile_id", profile_id));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_statistic_timestamp_count_key_profile_id_game_"
+                , parameters
+                );            
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return 0;
+            }
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
             string key
             , string profile_id
@@ -12575,6 +12717,35 @@ namespace gaming {
             }    
         }    
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(string set_type, GameProfileStatisticTimestamp obj)  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();
+            parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+            parameters.Add(new NpgsqlParameter("in_status", obj.status));
+            parameters.Add(new NpgsqlParameter("in_timestamp", obj.timestamp));
+            parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_key", obj.key));
+            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
+            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
+            parameters.Add(new NpgsqlParameter("in_type", obj.type));
+            
+            try {
+                return Convert.ToBoolean(data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_statistic_timestamp_set_key_profile_id_game_id"
+                , parameters
+                ));           
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return false;
+            }    
+        }    
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
@@ -12625,6 +12796,31 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_key", key));
+            parameters.Add(new NpgsqlParameter("in_profile_id", profile_id));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_statistic_timestamp_del_key_profile_id_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){      
+                log.Error(e);      
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
         public virtual bool DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
             string key
             , string profile_id
@@ -12663,6 +12859,33 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_profile_statistic_timestamp_get_uuid"
+                , "game_profile_statistic_timestamp"
+                , parameters
+                );          
+            }
+            catch (Exception e){
+                log.Error(e);
+                return null;
+            }
+            
+            
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
+            string key
+            , string profile_id
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                        
+            parameters.Add(new NpgsqlParameter("in_key", key));
+            parameters.Add(new NpgsqlParameter("in_profile_id", profile_id));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_statistic_timestamp_get_key_profile_id_game_id"
                 , "game_profile_statistic_timestamp"
                 , parameters
                 );          
@@ -12753,6 +12976,28 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_key_meta_count_code"
+                , parameters
+                );            
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return 0;
+            }
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameKeyMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_key_meta_count_code_game_id"
                 , parameters
                 );            
             }
@@ -12905,6 +13150,44 @@ namespace gaming {
             }    
         }    
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameKeyMetaByCodeByGameId(string set_type, GameKeyMeta obj)  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();
+            parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+            parameters.Add(new NpgsqlParameter("in_status", obj.status));
+            parameters.Add(new NpgsqlParameter("in_sort", obj.sort));
+            parameters.Add(new NpgsqlParameter("in_code", obj.code));
+            parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
+            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
+            parameters.Add(new NpgsqlParameter("in_level", obj.level));
+            parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_key_level", obj.key_level));
+            parameters.Add(new NpgsqlParameter("in_store_count", obj.store_count));
+            parameters.Add(new NpgsqlParameter("in_key", obj.key));
+            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
+            parameters.Add(new NpgsqlParameter("in_type", obj.type));
+            parameters.Add(new NpgsqlParameter("in_order", obj.order));
+            parameters.Add(new NpgsqlParameter("in_key_stat", obj.key_stat));
+            parameters.Add(new NpgsqlParameter("in_description", obj.description));
+            
+            try {
+                return Convert.ToBoolean(data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_key_meta_set_code_game_id"
+                , parameters
+                ));           
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return false;
+            }    
+        }    
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameKeyMetaByKeyByGameId(string set_type, GameKeyMeta obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
@@ -13002,6 +13285,29 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
+        public virtual bool DelGameKeyMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_key_meta_del_code_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){      
+                log.Error(e);      
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
         public virtual bool DelGameKeyMetaByKeyByGameId(
             string key
             , string game_id
@@ -13059,6 +13365,31 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_key_meta_get_code"
+                , "game_key_meta"
+                , parameters
+                );          
+            }
+            catch (Exception e){
+                log.Error(e);
+                return null;
+            }
+            
+            
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameKeyMetaListByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                        
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_key_meta_get_code_game_id"
                 , "game_key_meta"
                 , parameters
                 );          
@@ -13248,6 +13579,28 @@ namespace gaming {
             }
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameLevelByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_level_count_code_game_id"
+                , parameters
+                );            
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return 0;
+            }
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameLevelByName(
             string name
         )  {
@@ -13387,6 +13740,40 @@ namespace gaming {
             }    
         }    
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameLevelByCodeByGameId(string set_type, GameLevel obj)  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();
+            parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+            parameters.Add(new NpgsqlParameter("in_status", obj.status));
+            parameters.Add(new NpgsqlParameter("in_sort", obj.sort));
+            parameters.Add(new NpgsqlParameter("in_code", obj.code));
+            parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
+            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
+            parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_key", obj.key));
+            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
+            parameters.Add(new NpgsqlParameter("in_type", obj.type));
+            parameters.Add(new NpgsqlParameter("in_order", obj.order));
+            parameters.Add(new NpgsqlParameter("in_description", obj.description));
+            
+            try {
+                return Convert.ToBoolean(data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_level_set_code_game_id"
+                , parameters
+                ));           
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return false;
+            }    
+        }    
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameLevelByKeyByGameId(string set_type, GameLevel obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
@@ -13432,6 +13819,29 @@ namespace gaming {
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
                     , "usp_game_level_del_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){      
+                log.Error(e);      
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameLevelByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_level_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -13499,6 +13909,31 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_level_get_code"
+                , "game_level"
+                , parameters
+                );          
+            }
+            catch (Exception e){
+                log.Error(e);
+                return null;
+            }
+            
+            
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameLevelListByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                        
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_level_get_code_game_id"
                 , "game_level"
                 , parameters
                 );          
@@ -14303,6 +14738,28 @@ namespace gaming {
             }
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameAchievementMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_achievement_meta_count_code_game_id"
+                , parameters
+                );            
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return 0;
+            }
+        }       
+//------------------------------------------------------------------------------                    
         public virtual int CountGameAchievementMetaByName(
             string name
         )  {
@@ -14446,6 +14903,44 @@ namespace gaming {
             }    
         }    
 //------------------------------------------------------------------------------                    
+        public virtual bool SetGameAchievementMetaByCodeByGameId(string set_type, GameAchievementMeta obj)  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();
+            parameters.Add(new NpgsqlParameter("in_set_type", set_type));
+            parameters.Add(new NpgsqlParameter("in_status", obj.status));
+            parameters.Add(new NpgsqlParameter("in_sort", obj.sort));
+            parameters.Add(new NpgsqlParameter("in_code", obj.code));
+            parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
+            parameters.Add(new NpgsqlParameter("in_name", obj.name));
+            parameters.Add(new NpgsqlParameter("in_game_stat", obj.game_stat));
+            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
+            parameters.Add(new NpgsqlParameter("in_level", obj.level));
+            parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_points", obj.points));
+            parameters.Add(new NpgsqlParameter("in_key", obj.key));
+            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
+            parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
+            parameters.Add(new NpgsqlParameter("in_modifier", obj.modifier));
+            parameters.Add(new NpgsqlParameter("in_type", obj.type));
+            parameters.Add(new NpgsqlParameter("in_leaderboard", obj.leaderboard));
+            parameters.Add(new NpgsqlParameter("in_description", obj.description));
+            
+            try {
+                return Convert.ToBoolean(data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_achievement_meta_set_code_game_id"
+                , parameters
+                ));           
+            }
+            catch (Exception e){  
+                log.Error(e);          
+                return false;
+            }    
+        }    
+//------------------------------------------------------------------------------                    
         public virtual bool SetGameAchievementMetaByKeyByGameId(string set_type, GameAchievementMeta obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
@@ -14495,6 +14990,29 @@ namespace gaming {
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
                     , "usp_game_achievement_meta_del_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){      
+                log.Error(e);      
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAchievementMetaByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_achievement_meta_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -14562,6 +15080,31 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_achievement_meta_get_code"
+                , "game_achievement_meta"
+                , parameters
+                );          
+            }
+            catch (Exception e){
+                log.Error(e);
+                return null;
+            }
+            
+            
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAchievementMetaListByCodeByGameId(
+            string code
+            , string game_id
+        )  {
+            List<NpgsqlParameter> parameters 
+                = new List<NpgsqlParameter>();                        
+            parameters.Add(new NpgsqlParameter("in_code", code));
+            parameters.Add(new NpgsqlParameter("in_game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_achievement_meta_get_code_game_id"
                 , "game_achievement_meta"
                 , parameters
                 );          

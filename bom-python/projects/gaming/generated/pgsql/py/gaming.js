@@ -6824,14 +6824,18 @@ gaming.profile_game_data_attribute.prototype = {
     //-------------------------------------------------
     set_profile_game_data_attribute_uuid: function
     (
+        status,
         code,
+        profile_id,
+        active,
+        game_id,
+        name,
         uuid,
         val,
-        profile_id,
+        date_modified,
         otype,
-        game_id,
+        date_created,
         type,
-        name,
         fn
     ){
         this.fn_callback = fn;
@@ -6845,14 +6849,18 @@ gaming.profile_game_data_attribute.prototype = {
             
         var obj = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
             , "@code": code
+            , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@name": name
             , "@uuid": uuid
             , "@val": val
-            , "@profile_id": profile_id
+            , "@date_modified": date_modified
             , "@otype": otype
-            , "@game_id": game_id
+            , "@date_created": date_created
             , "@type": type
-            , "@name": name
         }
 
         _log("obj to submit::", obj);
@@ -6885,14 +6893,18 @@ gaming.profile_game_data_attribute.prototype = {
     //-------------------------------------------------
     set_profile_game_data_attribute_profile_id: function
     (
+        status,
         code,
+        profile_id,
+        active,
+        game_id,
+        name,
         uuid,
         val,
-        profile_id,
+        date_modified,
         otype,
-        game_id,
+        date_created,
         type,
-        name,
         fn
     ){
         this.fn_callback = fn;
@@ -6906,14 +6918,18 @@ gaming.profile_game_data_attribute.prototype = {
             
         var obj = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
             , "@code": code
+            , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@name": name
             , "@uuid": uuid
             , "@val": val
-            , "@profile_id": profile_id
+            , "@date_modified": date_modified
             , "@otype": otype
-            , "@game_id": game_id
+            , "@date_created": date_created
             , "@type": type
-            , "@name": name
         }
 
         _log("obj to submit::", obj);
@@ -6946,14 +6962,18 @@ gaming.profile_game_data_attribute.prototype = {
     //-------------------------------------------------
     set_profile_game_data_attribute_profile_id_game_id_code: function
     (
+        status,
         code,
+        profile_id,
+        active,
+        game_id,
+        name,
         uuid,
         val,
-        profile_id,
+        date_modified,
         otype,
-        game_id,
+        date_created,
         type,
-        name,
         fn
     ){
         this.fn_callback = fn;
@@ -6969,14 +6989,18 @@ gaming.profile_game_data_attribute.prototype = {
             
         var obj = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
             , "@code": code
+            , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@name": name
             , "@uuid": uuid
             , "@val": val
-            , "@profile_id": profile_id
+            , "@date_modified": date_modified
             , "@otype": otype
-            , "@game_id": game_id
+            , "@date_created": date_created
             , "@type": type
-            , "@name": name
         }
 
         _log("obj to submit::", obj);
@@ -26562,6 +26586,51 @@ gaming.game_statistic_meta.prototype = {
     }
     ,
     //-------------------------------------------------
+    count_game_statistic_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_meta_service + 'count'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_meta_count_game_statistic_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_meta_code_game_id(data);} catch(e) { _log("Error calling: error_count_game_statistic_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_meta_count_game_statistic_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_count_game_statistic_meta_code_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
     count_game_statistic_meta_name: function
     (
         name,
@@ -26862,6 +26931,86 @@ gaming.game_statistic_meta.prototype = {
     }                    
     ,
     //-------------------------------------------------
+    set_game_statistic_meta_code_game_id: function
+    (
+        status,
+        sort,
+        code,
+        display_name,
+        name,
+        date_modified,
+        data,
+        uuid,
+        points,
+        store_count,
+        key,
+        game_id,
+        active,
+        date_created,
+        type,
+        order,
+        description,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_meta_service + 'set'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@sort": sort
+            , "@code": code
+            , "@display_name": display_name
+            , "@name": name
+            , "@date_modified": date_modified
+            , "@data": data
+            , "@uuid": uuid
+            , "@points": points
+            , "@store_count": store_count
+            , "@key": key
+            , "@game_id": game_id
+            , "@active": active
+            , "@date_created": date_created
+            , "@type": type
+            , "@order": order
+            , "@description": description
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_statistic_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_meta_set_game_statistic_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_statistic_meta_code_game_id(data);} catch(e) { _log("Error calling: error_set_game_statistic_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_meta_set_game_statistic_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_statistic_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_set_game_statistic_meta_code_game_id: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
     set_game_statistic_meta_key_game_id: function
     (
         status,
@@ -26980,6 +27129,51 @@ gaming.game_statistic_meta.prototype = {
             _log("SUCCESS::game_statistic_meta_del_game_statistic_meta_uuid_callback", false);
             // call a method that can be inline callback
             try {handle_del_game_statistic_meta_uuid(data);} catch(e) { _log("Error calling: handle_del_game_statistic_meta_uuid: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_meta_service + 'del'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_meta_del_game_statistic_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_statistic_meta_code_game_id(data);} catch(e) { _log("Error calling: error_del_game_statistic_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_meta_del_game_statistic_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_statistic_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_del_game_statistic_meta_code_game_id: " + e);}
         }
         
     }
@@ -27113,6 +27307,52 @@ gaming.game_statistic_meta.prototype = {
             _log("SUCCESS::game_statistic_meta_get_game_statistic_meta_code_callback", false);
             // call a method that can be inline callback
             try {handle_get_game_statistic_meta_code(data);} catch(e) { _log("Error calling: handle_get_game_statistic_meta_code: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_meta_service + 'get'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_meta_get_game_statistic_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_meta_code_game_id(data);} catch(e) { _log("Error calling: error_get_game_statistic_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_meta_get_game_statistic_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_get_game_statistic_meta_code_game_id: " + e);}
         }
         
     }
@@ -27393,6 +27633,53 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
+    count_game_profile_statistic_timestamp_key_profile_id_game_id: function
+    (
+        key,
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'count'
+                + "/by-key/by-profile-id/by-game-id"
+                + "/@key/" + key            
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_timestamp_key_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_key_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_profile_statistic_timestamp_key_profile_id_game_id(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_timestamp_key_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_key_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_profile_statistic_timestamp_key_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_timestamp_key_profile_id_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
     count_game_profile_statistic_timestamp_key_profile_id_game_id_timestamp: function
     (
         key,
@@ -27554,6 +27841,73 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }                    
     ,
     //-------------------------------------------------
+    set_game_profile_statistic_timestamp_key_profile_id_game_id: function
+    (
+        status,
+        timestamp,
+        uuid,
+        key,
+        date_modified,
+        active,
+        date_created,
+        game_id,
+        profile_id,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'set'
+                + "/by-key/by-profile-id/by-game-id"
+                + "/@key/" + key            
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@timestamp": timestamp
+            , "@uuid": uuid
+            , "@key": key
+            , "@date_modified": date_modified
+            , "@active": active
+            , "@date_created": date_created
+            , "@game_id": game_id
+            , "@profile_id": profile_id
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_profile_statistic_timestamp_key_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_timestamp_set_game_profile_statistic_timestamp_key_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_profile_statistic_timestamp_key_profile_id_game_id(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_timestamp_key_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_timestamp_set_game_profile_statistic_timestamp_key_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_profile_statistic_timestamp_key_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_timestamp_key_profile_id_game_id: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
     set_game_profile_statistic_timestamp_key_profile_id_game_id_timestamp: function
     (
         status,
@@ -27665,6 +28019,53 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
+    del_game_profile_statistic_timestamp_key_profile_id_game_id: function
+    (
+        key,
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'del'
+                + "/by-key/by-profile-id/by-game-id"
+                + "/@key/" + key            
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_profile_statistic_timestamp_key_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_timestamp_del_game_profile_statistic_timestamp_key_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_profile_statistic_timestamp_key_profile_id_game_id(data);} catch(e) { _log("Error calling: error_del_game_profile_statistic_timestamp_key_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_timestamp_del_game_profile_statistic_timestamp_key_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_profile_statistic_timestamp_key_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_del_game_profile_statistic_timestamp_key_profile_id_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
     del_game_profile_statistic_timestamp_key_profile_id_game_id_timestamp: function
     (
         key,
@@ -27753,6 +28154,54 @@ gaming.game_profile_statistic_timestamp.prototype = {
             _log("SUCCESS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_uuid_callback", false);
             // call a method that can be inline callback
             try {handle_get_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_timestamp_uuid: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_timestamp_key_profile_id_game_id: function
+    (
+        key,
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'get'
+                + "/by-key/by-profile-id/by-game-id"
+                + "/@key/" + key            
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_timestamp_key_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_key_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_profile_statistic_timestamp_key_profile_id_game_id(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_timestamp_key_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_key_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_profile_statistic_timestamp_key_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_timestamp_key_profile_id_game_id: " + e);}
         }
         
     }
@@ -27944,6 +28393,51 @@ gaming.game_key_meta.prototype = {
             _log("SUCCESS::game_key_meta_count_game_key_meta_code_callback", false);
             // call a method that can be inline callback
             try {handle_count_game_key_meta_code(data);} catch(e) { _log("Error calling: handle_count_game_key_meta_code: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_key_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_key_meta_service + 'count'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_key_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_key_meta_count_game_key_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_key_meta_code_game_id(data);} catch(e) { _log("Error calling: error_count_game_key_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_key_meta_count_game_key_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_key_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_count_game_key_meta_code_game_id: " + e);}
         }
     }
     ,
@@ -28252,6 +28746,90 @@ gaming.game_key_meta.prototype = {
     }                    
     ,
     //-------------------------------------------------
+    set_game_key_meta_code_game_id: function
+    (
+        status,
+        sort,
+        code,
+        display_name,
+        name,
+        date_modified,
+        data,
+        level,
+        uuid,
+        key_level,
+        store_count,
+        key,
+        game_id,
+        active,
+        date_created,
+        type,
+        order,
+        key_stat,
+        description,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_key_meta_service + 'set'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@sort": sort
+            , "@code": code
+            , "@display_name": display_name
+            , "@name": name
+            , "@date_modified": date_modified
+            , "@data": data
+            , "@level": level
+            , "@uuid": uuid
+            , "@key_level": key_level
+            , "@store_count": store_count
+            , "@key": key
+            , "@game_id": game_id
+            , "@active": active
+            , "@date_created": date_created
+            , "@type": type
+            , "@order": order
+            , "@key_stat": key_stat
+            , "@description": description
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_key_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_key_meta_set_game_key_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_key_meta_code_game_id(data);} catch(e) { _log("Error calling: error_set_game_key_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_key_meta_set_game_key_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_key_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_set_game_key_meta_code_game_id: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
     set_game_key_meta_key_game_id: function
     (
         status,
@@ -28464,6 +29042,51 @@ gaming.game_key_meta.prototype = {
     }
     ,
     //-------------------------------------------------
+    del_game_key_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_key_meta_service + 'del'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_key_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_key_meta_del_game_key_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_key_meta_code_game_id(data);} catch(e) { _log("Error calling: error_del_game_key_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_key_meta_del_game_key_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_key_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_del_game_key_meta_code_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
     del_game_key_meta_key_game_id: function
     (
         key,
@@ -28592,6 +29215,52 @@ gaming.game_key_meta.prototype = {
             _log("SUCCESS::game_key_meta_get_game_key_meta_code_callback", false);
             // call a method that can be inline callback
             try {handle_get_game_key_meta_code(data);} catch(e) { _log("Error calling: handle_get_game_key_meta_code: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_key_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_key_meta_service + 'get'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_key_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_key_meta_get_game_key_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_key_meta_code_game_id(data);} catch(e) { _log("Error calling: error_get_game_key_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_key_meta_get_game_key_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_key_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_get_game_key_meta_code_game_id: " + e);}
         }
         
     }
@@ -28961,6 +29630,51 @@ gaming.game_level.prototype = {
     }
     ,
     //-------------------------------------------------
+    count_game_level_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_level_service + 'count'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_level_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_level_count_game_level_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_level_code_game_id(data);} catch(e) { _log("Error calling: error_count_game_level_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_level_count_game_level_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_level_code_game_id(data);} catch(e) { _log("Error calling: handle_count_game_level_code_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
     count_game_level_name: function
     (
         name,
@@ -29257,6 +29971,82 @@ gaming.game_level.prototype = {
     }                    
     ,
     //-------------------------------------------------
+    set_game_level_code_game_id: function
+    (
+        status,
+        sort,
+        code,
+        display_name,
+        name,
+        date_modified,
+        data,
+        uuid,
+        key,
+        game_id,
+        active,
+        date_created,
+        type,
+        order,
+        description,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_level_service + 'set'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@sort": sort
+            , "@code": code
+            , "@display_name": display_name
+            , "@name": name
+            , "@date_modified": date_modified
+            , "@data": data
+            , "@uuid": uuid
+            , "@key": key
+            , "@game_id": game_id
+            , "@active": active
+            , "@date_created": date_created
+            , "@type": type
+            , "@order": order
+            , "@description": description
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_level_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_level_set_game_level_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_level_code_game_id(data);} catch(e) { _log("Error calling: error_set_game_level_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_level_set_game_level_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_level_code_game_id(data);} catch(e) { _log("Error calling: handle_set_game_level_code_game_id: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
     set_game_level_key_game_id: function
     (
         status,
@@ -29371,6 +30161,51 @@ gaming.game_level.prototype = {
             _log("SUCCESS::game_level_del_game_level_uuid_callback", false);
             // call a method that can be inline callback
             try {handle_del_game_level_uuid(data);} catch(e) { _log("Error calling: handle_del_game_level_uuid: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_level_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_level_service + 'del'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_level_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_level_del_game_level_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_level_code_game_id(data);} catch(e) { _log("Error calling: error_del_game_level_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_level_del_game_level_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_level_code_game_id(data);} catch(e) { _log("Error calling: handle_del_game_level_code_game_id: " + e);}
         }
         
     }
@@ -29504,6 +30339,52 @@ gaming.game_level.prototype = {
             _log("SUCCESS::game_level_get_game_level_code_callback", false);
             // call a method that can be inline callback
             try {handle_get_game_level_code(data);} catch(e) { _log("Error calling: handle_get_game_level_code: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_level_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_level_service + 'get'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_level_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_level_get_game_level_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_level_code_game_id(data);} catch(e) { _log("Error calling: error_get_game_level_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_level_get_game_level_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_level_code_game_id(data);} catch(e) { _log("Error calling: handle_get_game_level_code_game_id: " + e);}
         }
         
     }
@@ -31130,6 +32011,51 @@ gaming.game_achievement_meta.prototype = {
     }
     ,
     //-------------------------------------------------
+    count_game_achievement_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_achievement_meta_service + 'count'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_achievement_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_achievement_meta_count_game_achievement_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_achievement_meta_code_game_id(data);} catch(e) { _log("Error calling: error_count_game_achievement_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_achievement_meta_count_game_achievement_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_achievement_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_count_game_achievement_meta_code_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
     count_game_achievement_meta_name: function
     (
         name,
@@ -31434,6 +32360,90 @@ gaming.game_achievement_meta.prototype = {
     }                    
     ,
     //-------------------------------------------------
+    set_game_achievement_meta_code_game_id: function
+    (
+        status,
+        sort,
+        code,
+        display_name,
+        name,
+        game_stat,
+        date_modified,
+        data,
+        level,
+        uuid,
+        points,
+        key,
+        game_id,
+        active,
+        date_created,
+        modifier,
+        type,
+        leaderboard,
+        description,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_achievement_meta_service + 'set'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@sort": sort
+            , "@code": code
+            , "@display_name": display_name
+            , "@name": name
+            , "@game_stat": game_stat
+            , "@date_modified": date_modified
+            , "@data": data
+            , "@level": level
+            , "@uuid": uuid
+            , "@points": points
+            , "@key": key
+            , "@game_id": game_id
+            , "@active": active
+            , "@date_created": date_created
+            , "@modifier": modifier
+            , "@type": type
+            , "@leaderboard": leaderboard
+            , "@description": description
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_achievement_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_achievement_meta_set_game_achievement_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_achievement_meta_code_game_id(data);} catch(e) { _log("Error calling: error_set_game_achievement_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_achievement_meta_set_game_achievement_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_achievement_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_set_game_achievement_meta_code_game_id: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
     set_game_achievement_meta_key_game_id: function
     (
         status,
@@ -31556,6 +32566,51 @@ gaming.game_achievement_meta.prototype = {
             _log("SUCCESS::game_achievement_meta_del_game_achievement_meta_uuid_callback", false);
             // call a method that can be inline callback
             try {handle_del_game_achievement_meta_uuid(data);} catch(e) { _log("Error calling: handle_del_game_achievement_meta_uuid: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_achievement_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_achievement_meta_service + 'del'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_achievement_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_achievement_meta_del_game_achievement_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_achievement_meta_code_game_id(data);} catch(e) { _log("Error calling: error_del_game_achievement_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_achievement_meta_del_game_achievement_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_achievement_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_del_game_achievement_meta_code_game_id: " + e);}
         }
         
     }
@@ -31689,6 +32744,52 @@ gaming.game_achievement_meta.prototype = {
             _log("SUCCESS::game_achievement_meta_get_game_achievement_meta_code_callback", false);
             // call a method that can be inline callback
             try {handle_get_game_achievement_meta_code(data);} catch(e) { _log("Error calling: handle_get_game_achievement_meta_code: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_achievement_meta_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_achievement_meta_service + 'get'
+                + "/by-code/by-game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_achievement_meta_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_achievement_meta_get_game_achievement_meta_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_achievement_meta_code_game_id(data);} catch(e) { _log("Error calling: error_get_game_achievement_meta_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_achievement_meta_get_game_achievement_meta_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_achievement_meta_code_game_id(data);} catch(e) { _log("Error calling: handle_get_game_achievement_meta_code_game_id: " + e);}
         }
         
     }

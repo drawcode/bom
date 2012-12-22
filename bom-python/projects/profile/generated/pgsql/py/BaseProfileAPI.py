@@ -56,16 +56,16 @@ class BaseProfileAPI(object):
     def BrowseProfileListByFilter(self, filter_obj) :
         return self.act.BrowseProfileListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileByUuid(self, set_type, obj) :
+    def SetProfileByUuidType(self, set_type, obj) :
         return self.act.SetProfileByUuid(set_type, obj)
                
-    def SetProfileByUuid(self, set_type, obj) :
+    def SetProfileByUuid(self, obj) :
         return self.act.SetProfileByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileByUsername(self, set_type, obj) :
+    def SetProfileByUsernameType(self, set_type, obj) :
         return self.act.SetProfileByUsername(set_type, obj)
                
-    def SetProfileByUsername(self, set_type, obj) :
+    def SetProfileByUsername(self, obj) :
         return self.act.SetProfileByUsername('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileByUuid(self
@@ -296,10 +296,10 @@ class BaseProfileAPI(object):
     def BrowseProfileTypeListByFilter(self, filter_obj) :
         return self.act.BrowseProfileTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileTypeByUuid(self, set_type, obj) :
+    def SetProfileTypeByUuidType(self, set_type, obj) :
         return self.act.SetProfileTypeByUuid(set_type, obj)
                
-    def SetProfileTypeByUuid(self, set_type, obj) :
+    def SetProfileTypeByUuid(self, obj) :
         return self.act.SetProfileTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileTypeByUuid(self
@@ -537,16 +537,16 @@ class BaseProfileAPI(object):
     def BrowseProfileAttributeListByFilter(self, filter_obj) :
         return self.act.BrowseProfileAttributeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeByUuid(self, set_type, obj) :
+    def SetProfileAttributeByUuidType(self, set_type, obj) :
         return self.act.SetProfileAttributeByUuid(set_type, obj)
                
-    def SetProfileAttributeByUuid(self, set_type, obj) :
+    def SetProfileAttributeByUuid(self, obj) :
         return self.act.SetProfileAttributeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeByCode(self, set_type, obj) :
+    def SetProfileAttributeByCodeType(self, set_type, obj) :
         return self.act.SetProfileAttributeByCode(set_type, obj)
                
-    def SetProfileAttributeByCode(self, set_type, obj) :
+    def SetProfileAttributeByCode(self, obj) :
         return self.act.SetProfileAttributeByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileAttributeByUuid(self
@@ -905,22 +905,22 @@ class BaseProfileAPI(object):
     def BrowseProfileAttributeTextListByFilter(self, filter_obj) :
         return self.act.BrowseProfileAttributeTextListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeTextByUuid(self, set_type, obj) :
+    def SetProfileAttributeTextByUuidType(self, set_type, obj) :
         return self.act.SetProfileAttributeTextByUuid(set_type, obj)
                
-    def SetProfileAttributeTextByUuid(self, set_type, obj) :
+    def SetProfileAttributeTextByUuid(self, obj) :
         return self.act.SetProfileAttributeTextByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeTextByProfileId(self, set_type, obj) :
+    def SetProfileAttributeTextByProfileIdType(self, set_type, obj) :
         return self.act.SetProfileAttributeTextByProfileId(set_type, obj)
                
-    def SetProfileAttributeTextByProfileId(self, set_type, obj) :
+    def SetProfileAttributeTextByProfileId(self, obj) :
         return self.act.SetProfileAttributeTextByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeTextByProfileIdByAttributeId(self, set_type, obj) :
+    def SetProfileAttributeTextByProfileIdByAttributeIdType(self, set_type, obj) :
         return self.act.SetProfileAttributeTextByProfileIdByAttributeId(set_type, obj)
                
-    def SetProfileAttributeTextByProfileIdByAttributeId(self, set_type, obj) :
+    def SetProfileAttributeTextByProfileIdByAttributeId(self, obj) :
         return self.act.SetProfileAttributeTextByProfileIdByAttributeId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileAttributeTextByUuid(self
@@ -1170,22 +1170,22 @@ class BaseProfileAPI(object):
     def BrowseProfileAttributeDataListByFilter(self, filter_obj) :
         return self.act.BrowseProfileAttributeDataListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeDataByUuid(self, set_type, obj) :
+    def SetProfileAttributeDataByUuidType(self, set_type, obj) :
         return self.act.SetProfileAttributeDataByUuid(set_type, obj)
                
-    def SetProfileAttributeDataByUuid(self, set_type, obj) :
+    def SetProfileAttributeDataByUuid(self, obj) :
         return self.act.SetProfileAttributeDataByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeDataByProfileId(self, set_type, obj) :
+    def SetProfileAttributeDataByProfileIdType(self, set_type, obj) :
         return self.act.SetProfileAttributeDataByProfileId(set_type, obj)
                
-    def SetProfileAttributeDataByProfileId(self, set_type, obj) :
+    def SetProfileAttributeDataByProfileId(self, obj) :
         return self.act.SetProfileAttributeDataByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeDataByProfileIdByAttributeId(self, set_type, obj) :
+    def SetProfileAttributeDataByProfileIdByAttributeIdType(self, set_type, obj) :
         return self.act.SetProfileAttributeDataByProfileIdByAttributeId(set_type, obj)
                
-    def SetProfileAttributeDataByProfileIdByAttributeId(self, set_type, obj) :
+    def SetProfileAttributeDataByProfileIdByAttributeId(self, obj) :
         return self.act.SetProfileAttributeDataByProfileIdByAttributeId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileAttributeDataByUuid(self
@@ -1461,10 +1461,10 @@ class BaseProfileAPI(object):
     def BrowseProfileDeviceListByFilter(self, filter_obj) :
         return self.act.BrowseProfileDeviceListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileDeviceByUuid(self, set_type, obj) :
+    def SetProfileDeviceByUuidType(self, set_type, obj) :
         return self.act.SetProfileDeviceByUuid(set_type, obj)
                
-    def SetProfileDeviceByUuid(self, set_type, obj) :
+    def SetProfileDeviceByUuid(self, obj) :
         return self.act.SetProfileDeviceByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileDeviceByUuid(self
@@ -1902,16 +1902,16 @@ class BaseProfileAPI(object):
     def BrowseCountryListByFilter(self, filter_obj) :
         return self.act.BrowseCountryListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetCountryByUuid(self, set_type, obj) :
+    def SetCountryByUuidType(self, set_type, obj) :
         return self.act.SetCountryByUuid(set_type, obj)
                
-    def SetCountryByUuid(self, set_type, obj) :
+    def SetCountryByUuid(self, obj) :
         return self.act.SetCountryByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetCountryByCode(self, set_type, obj) :
+    def SetCountryByCodeType(self, set_type, obj) :
         return self.act.SetCountryByCode(set_type, obj)
                
-    def SetCountryByCode(self, set_type, obj) :
+    def SetCountryByCode(self, obj) :
         return self.act.SetCountryByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelCountryByUuid(self
@@ -2118,16 +2118,16 @@ class BaseProfileAPI(object):
     def BrowseStateListByFilter(self, filter_obj) :
         return self.act.BrowseStateListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetStateByUuid(self, set_type, obj) :
+    def SetStateByUuidType(self, set_type, obj) :
         return self.act.SetStateByUuid(set_type, obj)
                
-    def SetStateByUuid(self, set_type, obj) :
+    def SetStateByUuid(self, obj) :
         return self.act.SetStateByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetStateByCode(self, set_type, obj) :
+    def SetStateByCodeType(self, set_type, obj) :
         return self.act.SetStateByCode(set_type, obj)
                
-    def SetStateByCode(self, set_type, obj) :
+    def SetStateByCode(self, obj) :
         return self.act.SetStateByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelStateByUuid(self
@@ -2334,16 +2334,16 @@ class BaseProfileAPI(object):
     def BrowseCityListByFilter(self, filter_obj) :
         return self.act.BrowseCityListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetCityByUuid(self, set_type, obj) :
+    def SetCityByUuidType(self, set_type, obj) :
         return self.act.SetCityByUuid(set_type, obj)
                
-    def SetCityByUuid(self, set_type, obj) :
+    def SetCityByUuid(self, obj) :
         return self.act.SetCityByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetCityByCode(self, set_type, obj) :
+    def SetCityByCodeType(self, set_type, obj) :
         return self.act.SetCityByCode(set_type, obj)
                
-    def SetCityByCode(self, set_type, obj) :
+    def SetCityByCode(self, obj) :
         return self.act.SetCityByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelCityByUuid(self
@@ -2550,16 +2550,16 @@ class BaseProfileAPI(object):
     def BrowsePostalCodeListByFilter(self, filter_obj) :
         return self.act.BrowsePostalCodeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetPostalCodeByUuid(self, set_type, obj) :
+    def SetPostalCodeByUuidType(self, set_type, obj) :
         return self.act.SetPostalCodeByUuid(set_type, obj)
                
-    def SetPostalCodeByUuid(self, set_type, obj) :
+    def SetPostalCodeByUuid(self, obj) :
         return self.act.SetPostalCodeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPostalCodeByCode(self, set_type, obj) :
+    def SetPostalCodeByCodeType(self, set_type, obj) :
         return self.act.SetPostalCodeByCode(set_type, obj)
                
-    def SetPostalCodeByCode(self, set_type, obj) :
+    def SetPostalCodeByCode(self, obj) :
         return self.act.SetPostalCodeByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelPostalCodeByUuid(self

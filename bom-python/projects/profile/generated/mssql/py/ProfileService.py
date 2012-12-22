@@ -6,20 +6,20 @@ from BaseProfileService import *
 
 class BaseResponse :
 
-    def __init__(self):
-        self.message = 'Success'
-        self.code = 0
-        self.info = {}
-        self.error = {}
-        self.action = ''
-        self.data = None
+  def __init__(self):
+    self.message = 'Success'
+    self.code = 0
+    self.info = {}
+    self.error = {}
+    self.action = ''
+    self.data = None
 
 class ProfileService(BaseProfileService) :
 
-    def __init__(self):
-        super(ProfileService, self).__init__()
-        
-    # CUSTOM API CODE GOES HERE
+  def __init__(self):
+    super(ProfileService, self).__init__()
+      
+  # CUSTOM API CODE GOES HERE
     
     
     

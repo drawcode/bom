@@ -3,13 +3,13 @@ from ent import *
 
 class BaseResponse :
 
-    def __init__(self):
-        self.message = 'Success'
-        self.code = 0
-        self.info = {}
-        self.error = {}
-        self.action = ''
-        self.data = None
+  def __init__(self):
+    self.message = 'Success'
+    self.code = 0
+    self.info = {}
+    self.error = {}
+    self.action = ''
+    self.data = None
 
 """
        

@@ -248,10 +248,10 @@ class Base#{app_name}API(object):
         
                     <?py #endif ?>
                     <?py if  item == 'set': ?>
-    def #{code_name}(self, set_type, obj) :
+    def #{code_name}Type(self, set_type, obj) :
         return self.act.#{code_name}(set_type, obj)
                
-    def #{code_name}(self, set_type, obj) :
+    def #{code_name}(self, obj) :
         return self.act.#{code_name}('full', obj)
                     <?py #endif ?>
                     <?py if  item == 'browse': ?>

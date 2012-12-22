@@ -29,6 +29,14 @@ IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[profile_ga
 DROP TABLE [dbo].[profile_game]
 GO
 -- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_network]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[game_network]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_network_auth]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[game_network_auth]
+GO
+-- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[profile_game_network]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 DROP TABLE [dbo].[profile_game_network]
 GO
@@ -262,6 +270,61 @@ CREATE TABLE [dbo].[profile_game]
 GO
 ALTER TABLE [dbo].[profile_game] ADD 
     CONSTRAINT [PK_profile_game] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[game_network] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_game_network_date_modified DEFAULT GETDATE()
+    , [url] varchar (500)
+    , [data] ntext
+    , [uuid] uniqueidentifier NOT NULL
+    , [secret] varchar (500)
+    , [active] bit
+                CONSTRAINT DF_game_network_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_game_network_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[game_network] ADD 
+    CONSTRAINT [PK_game_network] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[game_network_auth] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_game_network_auth_date_modified DEFAULT GETDATE()
+    , [url] varchar (500)
+    , [data] ntext
+    , [uuid] uniqueidentifier NOT NULL
+    , [app_id] varchar (500)
+    , [game_network_id] uniqueidentifier
+    , [secret] varchar (500)
+    , [game_id] uniqueidentifier
+    , [active] bit
+                CONSTRAINT DF_game_network_auth_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_game_network_auth_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[game_network_auth] ADD 
+    CONSTRAINT [PK_game_network_auth] PRIMARY KEY CLUSTERED 
     (
             [uuid]
     )
@@ -1001,6 +1064,16 @@ GO
 -- INDEXES
 
 -- INDEX DROPS        
+   
+-- -----------------------------------------------------------------------------
+-- INDEXES
+
+-- INDEX DROPS        
+   
+-- -----------------------------------------------------------------------------
+-- INDEXES
+
+-- INDEX DROPS        
 -- -----------------------------------------------------------------------------                
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[profile_game_data_attribute]') AND name = N'IX_profile_game_data_attribute_uuid')
 DROP INDEX [IX_profile_game_data_attribute_uuid] ON [dbo].[profile_game_data_attribute]
@@ -1493,6 +1566,12 @@ GO
         
         
         
+        
+-- INDEX CREATES
+
+        
+-- INDEX CREATES
+
         
 -- INDEX CREATES
 
@@ -6051,6 +6130,1100 @@ BEGIN
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_count]
+
+GO
+
+CREATE PROCEDURE usp_game_network_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_network]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_network_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_network]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_game_network_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_network]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_by_uuid_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_count_by_uuid_by_type]
+
+GO
+
+CREATE PROCEDURE usp_game_network_count_by_uuid_by_type
+(
+    @uuid uniqueidentifier 
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_network]
+    WHERE 1=1
+    AND [uuid] = @uuid
+    AND LOWER([type]) = LOWER(@type)
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_game_network_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [url]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [secret]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[game_network] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_network_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @url varchar (500) = NULL
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @secret varchar (500) = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_network]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_network] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [url] = @url
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [secret] = @secret
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_network]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [url]
+                    , [data]
+                    , [uuid]
+                    , [secret]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @url
+                    , @data
+                    , @uuid
+                    , @secret
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_set_by_code]
+
+GO
+
+CREATE PROCEDURE usp_game_network_set_by_code
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @url varchar (500) = NULL
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @secret varchar (500) = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_network]  
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_network] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [url] = @url
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [secret] = @secret
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_network]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [url]
+                    , [data]
+                    , [uuid]
+                    , [secret]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @url
+                    , @data
+                    , @uuid
+                    , @secret
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_network_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_network]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_get]
+
+GO
+
+CREATE PROCEDURE usp_game_network_get
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [uuid]
+        , [secret]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[game_network]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_network_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [uuid]
+        , [secret]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[game_network]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_game_network_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [uuid]
+        , [secret]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[game_network]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_by_uuid_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_get_by_uuid_by_type]
+
+GO
+
+CREATE PROCEDURE usp_game_network_get_by_uuid_by_type
+(
+    @uuid uniqueidentifier 
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [uuid]
+        , [secret]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[game_network]
+    WHERE 1=1
+    AND [uuid] = @uuid
+    AND LOWER([type]) = LOWER(@type)
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_count]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_network_auth]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_network_auth]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_count_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_count_by_game_id_by_game_network_id]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_count_by_game_id_by_game_network_id
+(
+    @game_id uniqueidentifier = NULL
+    , @game_network_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_network_auth]
+    WHERE 1=1
+    AND [game_id] = @game_id
+    AND [game_network_id] = @game_network_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [url]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [app_id]'
+    SET @sql = @sql + ', [game_network_id]'
+    SET @sql = @sql + ', [secret]'
+    SET @sql = @sql + ', [game_id]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[game_network_auth] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @url varchar (500) = NULL
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @app_id varchar (500) = NULL
+    , @game_network_id uniqueidentifier = NULL
+    , @secret varchar (500) = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_network_auth]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_network_auth] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [url] = @url
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [app_id] = @app_id
+                    , [game_network_id] = @game_network_id
+                    , [secret] = @secret
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_network_auth]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [url]
+                    , [data]
+                    , [uuid]
+                    , [app_id]
+                    , [game_network_id]
+                    , [secret]
+                    , [game_id]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @url
+                    , @data
+                    , @uuid
+                    , @app_id
+                    , @game_network_id
+                    , @secret
+                    , @game_id
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_set_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_set_by_game_id_by_game_network_id]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_set_by_game_id_by_game_network_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @url varchar (500) = NULL
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @app_id varchar (500) = NULL
+    , @game_network_id uniqueidentifier = NULL
+    , @secret varchar (500) = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_network_auth]  
+                WHERE 1=1
+                AND [game_id] = @game_id
+                AND [game_network_id] = @game_network_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_network_auth] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [url] = @url
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [app_id] = @app_id
+                    , [game_network_id] = @game_network_id
+                    , [secret] = @secret
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [game_id] = @game_id
+                AND [game_network_id] = @game_network_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_network_auth]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [url]
+                    , [data]
+                    , [uuid]
+                    , [app_id]
+                    , [game_network_id]
+                    , [secret]
+                    , [game_id]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @url
+                    , @data
+                    , @uuid
+                    , @app_id
+                    , @game_network_id
+                    , @secret
+                    , @game_id
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_network_auth]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_get]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_get
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [uuid]
+        , [app_id]
+        , [game_network_id]
+        , [secret]
+        , [game_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[game_network_auth]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [uuid]
+        , [app_id]
+        , [game_network_id]
+        , [secret]
+        , [game_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[game_network_auth]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_get_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_get_by_game_id_by_game_network_id]
+
+GO
+
+CREATE PROCEDURE usp_game_network_auth_get_by_game_id_by_game_network_id
+(
+    @game_id uniqueidentifier = NULL
+    , @game_network_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [uuid]
+        , [app_id]
+        , [game_network_id]
+        , [secret]
+        , [game_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[game_network_auth]
+    WHERE 1=1
+    AND [game_id] = @game_id
+    AND [game_network_id] = @game_network_id
 END
 GO
 -- -----------------------------------------------------------------------------

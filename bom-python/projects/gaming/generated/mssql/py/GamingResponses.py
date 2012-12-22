@@ -3,13 +3,13 @@ from ent import *
 
 class BaseResponse :
 
-    def __init__(self):
-        self.message = 'Success'
-        self.code = 0
-        self.info = {}
-        self.error = {}
-        self.action = ''
-        self.data = None
+  def __init__(self):
+    self.message = 'Success'
+    self.code = 0
+    self.info = {}
+    self.error = {}
+    self.action = ''
+    self.data = None
 
 """
        
@@ -278,6 +278,84 @@ class BaseResponse :
     public class ResponseProfileGameDict : BaseResponseProfileGame {
         public Dictionary<string, ProfileGame> data
             = new Dictionary<string, ProfileGame>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseGameNetwork {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameNetworkString : BaseResponseGameNetwork {
+        public string data = "";
+    }
+    
+    public class ResponseGameNetworkBool : BaseResponseGameNetwork {
+        public bool data;
+    }
+    
+    public class ResponseGameNetworkInt : BaseResponseGameNetwork {
+        public int data;
+    }
+    
+    public class ResponseGameNetworkObject : BaseResponseGameNetwork {
+        public GameNetwork data = new GameNetwork();
+    }
+    
+    public class ResponseGameNetworkResult : BaseResponseGameNetwork {
+        public GameNetworkResult data = new GameNetworkResult();
+    }
+    
+    public class ResponseGameNetworkList : BaseResponseGameNetwork {
+        public List<GameNetwork> data = new List<GameNetwork>();
+    }
+    
+    public class ResponseGameNetworkDict : BaseResponseGameNetwork {
+        public Dictionary<string, GameNetwork> data
+            = new Dictionary<string, GameNetwork>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseGameNetworkAuth {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameNetworkAuthString : BaseResponseGameNetworkAuth {
+        public string data = "";
+    }
+    
+    public class ResponseGameNetworkAuthBool : BaseResponseGameNetworkAuth {
+        public bool data;
+    }
+    
+    public class ResponseGameNetworkAuthInt : BaseResponseGameNetworkAuth {
+        public int data;
+    }
+    
+    public class ResponseGameNetworkAuthObject : BaseResponseGameNetworkAuth {
+        public GameNetworkAuth data = new GameNetworkAuth();
+    }
+    
+    public class ResponseGameNetworkAuthResult : BaseResponseGameNetworkAuth {
+        public GameNetworkAuthResult data = new GameNetworkAuthResult();
+    }
+    
+    public class ResponseGameNetworkAuthList : BaseResponseGameNetworkAuth {
+        public List<GameNetworkAuth> data = new List<GameNetworkAuth>();
+    }
+    
+    public class ResponseGameNetworkAuthDict : BaseResponseGameNetworkAuth {
+        public Dictionary<string, GameNetworkAuth> data
+            = new Dictionary<string, GameNetworkAuth>();
     }
     
 //------------------------------------------------------------------------------

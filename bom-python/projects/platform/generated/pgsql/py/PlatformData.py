@@ -6,7 +6,7 @@ from BasePlatformData import *
 
 class PlatformData(BasePlatformData) :
 
-    def __init__(self):
-        super(PlatformData, self).__init__()
-        
-    # CUSTOM API CODE GOES HERE
+  def __init__(self):
+    super(PlatformData, self).__init__()
+      
+  # CUSTOM API CODE GOES HERE

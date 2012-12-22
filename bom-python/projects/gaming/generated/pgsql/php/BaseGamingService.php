@@ -385,6 +385,72 @@ namespace gaming {
             else if(IsContext("profile-game/get/by-profile-id/by-game-id")){
                 GetProfileGameListByProfileIdByGameId();
             }
+            if(IsContext("game-network/count")){
+                CountGameNetwork();
+            }
+            else if(IsContext("game-network/count/by-uuid")){
+                CountGameNetworkByUuid();
+            }
+            else if(IsContext("game-network/count/by-code")){
+                CountGameNetworkByCode();
+            }
+            else if(IsContext("game-network/count/by-uuid/by-type")){
+                CountGameNetworkByUuidByType();
+            }
+            else if(IsContext("game-network/browse/by-filter")){
+                BrowseGameNetworkListByFilter();
+            }
+            else if(IsContext("game-network/set/by-uuid")){
+                SetGameNetworkByUuid();
+            }
+            else if(IsContext("game-network/set/by-code")){
+                SetGameNetworkByCode();
+            }
+            else if(IsContext("game-network/del/by-uuid")){
+                DelGameNetworkByUuid();
+            }
+            else if(IsContext("game-network/get")){
+                GetGameNetworkList();
+            }
+            else if(IsContext("game-network/get/by-uuid")){
+                GetGameNetworkListByUuid();
+            }
+            else if(IsContext("game-network/get/by-code")){
+                GetGameNetworkListByCode();
+            }
+            else if(IsContext("game-network/get/by-uuid/by-type")){
+                GetGameNetworkListByUuidByType();
+            }
+            if(IsContext("game-network-auth/count")){
+                CountGameNetworkAuth();
+            }
+            else if(IsContext("game-network-auth/count/by-uuid")){
+                CountGameNetworkAuthByUuid();
+            }
+            else if(IsContext("game-network-auth/count/by-game-id/by-game-network-id")){
+                CountGameNetworkAuthByGameIdByGameNetworkId();
+            }
+            else if(IsContext("game-network-auth/browse/by-filter")){
+                BrowseGameNetworkAuthListByFilter();
+            }
+            else if(IsContext("game-network-auth/set/by-uuid")){
+                SetGameNetworkAuthByUuid();
+            }
+            else if(IsContext("game-network-auth/set/by-game-id/by-game-network-id")){
+                SetGameNetworkAuthByGameIdByGameNetworkId();
+            }
+            else if(IsContext("game-network-auth/del/by-uuid")){
+                DelGameNetworkAuthByUuid();
+            }
+            else if(IsContext("game-network-auth/get")){
+                GetGameNetworkAuthList();
+            }
+            else if(IsContext("game-network-auth/get/by-uuid")){
+                GetGameNetworkAuthListByUuid();
+            }
+            else if(IsContext("game-network-auth/get/by-game-id/by-game-network-id")){
+                GetGameNetworkAuthListByGameIdByGameNetworkId();
+            }
             if(IsContext("profile-game-network/count")){
                 CountProfileGameNetwork();
             }
@@ -4854,6 +4920,796 @@ namespace gaming {
             List<ProfileGame> objs = api.GetProfileGameListByProfileIdByGameId(
                 _profile_id
                 , _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameNetwork() {
+        
+
+            ResponseGameNetworkInt wrapper = new ResponseGameNetworkInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameNetwork(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameNetworkByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameNetworkInt wrapper = new ResponseGameNetworkInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/count/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameNetworkByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameNetworkByCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameNetworkInt wrapper = new ResponseGameNetworkInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/count/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameNetworkByCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameNetworkByUuidByType() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameNetworkInt wrapper = new ResponseGameNetworkInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/count/by-uuid/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameNetworkByUuidByType(
+                _uuid
+                , _type
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameNetworkListByFilter()  {
+        
+            ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/browse/by-filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameNetworkResult result = api.BrowseGameNetworkListByFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameNetworkByUuid()  {
+        
+            ResponseGameNetworkBool wrapper = new ResponseGameNetworkBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/set/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameNetwork obj = new GameNetwork();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _url = util.GetParamValue(_context, "@url");
+            if(!String.IsNoneOrEmpty(_url))
+                obj.url = ()_url;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _secret = util.GetParamValue(_context, "@secret");
+            if(!String.IsNoneOrEmpty(_secret))
+                obj.secret = ()_secret;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameNetworkByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameNetworkByCode()  {
+        
+            ResponseGameNetworkBool wrapper = new ResponseGameNetworkBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/set/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameNetwork obj = new GameNetwork();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _url = util.GetParamValue(_context, "@url");
+            if(!String.IsNoneOrEmpty(_url))
+                obj.url = ()_url;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _secret = util.GetParamValue(_context, "@secret");
+            if(!String.IsNoneOrEmpty(_secret))
+                obj.secret = ()_secret;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameNetworkByCode(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameNetworkByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameNetworkBool wrapper = new ResponseGameNetworkBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/del/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameNetworkByUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameNetworkList() {
+        
+
+            ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/get";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameNetwork> objs = api.GetGameNetworkList(
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameNetworkListByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/get/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameNetwork> objs = api.GetGameNetworkListByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameNetworkListByCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/get/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameNetwork> objs = api.GetGameNetworkListByCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameNetworkListByUuidByType() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network/get/by-uuid/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameNetwork> objs = api.GetGameNetworkListByUuidByType(
+                _uuid
+                , _type
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameNetworkAuth() {
+        
+
+            ResponseGameNetworkAuthInt wrapper = new ResponseGameNetworkAuthInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameNetworkAuth(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameNetworkAuthByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameNetworkAuthInt wrapper = new ResponseGameNetworkAuthInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/count/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameNetworkAuthByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameNetworkAuthByGameIdByGameNetworkId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _game_network_id = ()util.GetParamValue(_context, "@game_network_id");
+
+            ResponseGameNetworkAuthInt wrapper = new ResponseGameNetworkAuthInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/count/by-game-id/by-game-network-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameNetworkAuthByGameIdByGameNetworkId(
+                _game_id
+                , _game_network_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameNetworkAuthListByFilter()  {
+        
+            ResponseGameNetworkAuthList wrapper = new ResponseGameNetworkAuthList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/browse/by-filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameNetworkAuthResult result = api.BrowseGameNetworkAuthListByFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameNetworkAuthByUuid()  {
+        
+            ResponseGameNetworkAuthBool wrapper = new ResponseGameNetworkAuthBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/set/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameNetworkAuth obj = new GameNetworkAuth();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _url = util.GetParamValue(_context, "@url");
+            if(!String.IsNoneOrEmpty(_url))
+                obj.url = ()_url;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _app_id = util.GetParamValue(_context, "@app_id");
+            if(!String.IsNoneOrEmpty(_app_id))
+                obj.app_id = ()_app_id;
+            
+            string _game_network_id = util.GetParamValue(_context, "@game_network_id");
+            if(!String.IsNoneOrEmpty(_game_network_id))
+                obj.game_network_id = ()_game_network_id;
+            
+            string _secret = util.GetParamValue(_context, "@secret");
+            if(!String.IsNoneOrEmpty(_secret))
+                obj.secret = ()_secret;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameNetworkAuthByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameNetworkAuthByGameIdByGameNetworkId()  {
+        
+            ResponseGameNetworkAuthBool wrapper = new ResponseGameNetworkAuthBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/set/by-game-id/by-game-network-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameNetworkAuth obj = new GameNetworkAuth();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _url = util.GetParamValue(_context, "@url");
+            if(!String.IsNoneOrEmpty(_url))
+                obj.url = ()_url;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _app_id = util.GetParamValue(_context, "@app_id");
+            if(!String.IsNoneOrEmpty(_app_id))
+                obj.app_id = ()_app_id;
+            
+            string _game_network_id = util.GetParamValue(_context, "@game_network_id");
+            if(!String.IsNoneOrEmpty(_game_network_id))
+                obj.game_network_id = ()_game_network_id;
+            
+            string _secret = util.GetParamValue(_context, "@secret");
+            if(!String.IsNoneOrEmpty(_secret))
+                obj.secret = ()_secret;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameNetworkAuthByGameIdByGameNetworkId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameNetworkAuthByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameNetworkAuthBool wrapper = new ResponseGameNetworkAuthBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/del/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameNetworkAuthByUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameNetworkAuthList() {
+        
+
+            ResponseGameNetworkAuthList wrapper = new ResponseGameNetworkAuthList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/get";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameNetworkAuth> objs = api.GetGameNetworkAuthList(
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameNetworkAuthListByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameNetworkAuthList wrapper = new ResponseGameNetworkAuthList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/get/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameNetworkAuth> objs = api.GetGameNetworkAuthListByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameNetworkAuthListByGameIdByGameNetworkId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _game_network_id = ()util.GetParamValue(_context, "@game_network_id");
+
+            ResponseGameNetworkAuthList wrapper = new ResponseGameNetworkAuthList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-network-auth/get/by-game-id/by-game-network-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameNetworkAuth> objs = api.GetGameNetworkAuthListByGameIdByGameNetworkId(
+                _game_id
+                , _game_network_id
             );
             
             // get data

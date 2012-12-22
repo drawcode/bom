@@ -2241,6 +2241,521 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameNetwork(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkByCode(
+            string code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_count_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkByUuidByType(
+            string uuid
+            , string type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            parameters.Add(new SqlParameter("@type", type));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_count_by_uuid_by_type"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameNetworkListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_browse_by_filter"
+                , "game_network"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameNetworkByUuid(string set_type, GameNetwork obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@url", obj.url));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@secret", obj.secret));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameNetworkByCode(string set_type, GameNetwork obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@url", obj.url));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@secret", obj.secret));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_set_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameNetworkByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_network_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameNetworkList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_get"
+                , "game_network"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameNetworkListByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_get_by_uuid"
+                , "game_network"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameNetworkListByCode(
+            string code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_get_by_code"
+                , "game_network"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameNetworkListByUuidByType(
+            string uuid
+            , string type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            parameters.Add(new SqlParameter("@type", type));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_get_by_uuid_by_type"
+                , "game_network"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkAuth(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkAuthByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkAuthByGameIdByGameNetworkId(
+            string game_id
+            , string game_network_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@game_network_id", game_network_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_count_by_game_id_by_game_network_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameNetworkAuthListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_browse_by_filter"
+                , "game_network_auth"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameNetworkAuthByUuid(string set_type, GameNetworkAuth obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@url", obj.url));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@app_id", obj.app_id));
+            parameters.Add(new SqlParameter("@game_network_id", obj.game_network_id));
+            parameters.Add(new SqlParameter("@secret", obj.secret));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameNetworkAuthByGameIdByGameNetworkId(string set_type, GameNetworkAuth obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@url", obj.url));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@app_id", obj.app_id));
+            parameters.Add(new SqlParameter("@game_network_id", obj.game_network_id));
+            parameters.Add(new SqlParameter("@secret", obj.secret));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_set_by_game_id_by_game_network_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameNetworkAuthByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_network_auth_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameNetworkAuthList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_get"
+                , "game_network_auth"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameNetworkAuthListByUuid(
+            string uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_get_by_uuid"
+                , "game_network_auth"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameNetworkAuthListByGameIdByGameNetworkId(
+            string game_id
+            , string game_network_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@game_network_id", game_network_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_network_auth_get_by_game_id_by_game_network_id"
+                , "game_network_auth"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
         public virtual int CountProfileGameNetwork(
         )  {
             List<SqlParameter> parameters 

@@ -2099,6 +2099,494 @@ class BaseGamingData(object):
                 
         return None
 
+    def CountGameNetwork(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameNetworkByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameNetworkByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameNetworkByUuidByType(self
+        , uuid
+        , type
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_count_uuid_type"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameNetworkListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameNetworkByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.url) #"in_url"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.secret) #"in_secret"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameNetworkByCode(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.url) #"in_url"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.secret) #"in_secret"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_set_code"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameNetworkByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameNetworkList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameNetworkListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameNetworkListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameNetworkListByUuidByType(self
+        , uuid
+        , type
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_get_uuid_type"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountGameNetworkAuth(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameNetworkAuthByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameNetworkAuthByGameIdByGameNetworkId(self
+        , game_id
+        , game_network_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(game_network_id) #"in_game_network_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_count_game_id_game_network_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameNetworkAuthListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameNetworkAuthByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.url) #"in_url"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.app_id) #"in_app_id"
+        parameters.append(obj.game_network_id) #"in_game_network_id"
+        parameters.append(obj.secret) #"in_secret"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameNetworkAuthByGameIdByGameNetworkId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.url) #"in_url"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.app_id) #"in_app_id"
+        parameters.append(obj.game_network_id) #"in_game_network_id"
+        parameters.append(obj.secret) #"in_secret"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_set_game_id_game_network_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameNetworkAuthByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameNetworkAuthList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameNetworkAuthListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameNetworkAuthListByGameIdByGameNetworkId(self
+        , game_id
+        , game_network_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(game_network_id) #"in_game_network_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_network_auth_get_game_id_game_network_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
     def CountProfileGameNetwork(self
     ) :
         parameters = []

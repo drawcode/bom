@@ -2509,6 +2509,618 @@ class BaseGamingData {
                 
         return NULL;
     }
+    public function CountGameNetwork(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameNetworkByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameNetworkByCode(
+        $code
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_count_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameNetworkByUuidByType(
+        $uuid
+        , $type
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+        $parameters['in_type'] = $type; // #"in_type"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_count_uuid_type(".
+                    "in_uuid".
+                    ", in_type".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameNetworkListByFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameNetworkByUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->url != NULL)
+                $parameters['in_url'] = $obj->url; // #"in_url"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->secret != NULL)
+                $parameters['in_secret'] = $obj->secret; // #"in_secret"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_network_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameNetworkByCode($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->url != NULL)
+                $parameters['in_url'] = $obj->url; // #"in_url"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->secret != NULL)
+                $parameters['in_secret'] = $obj->secret; // #"in_secret"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_network_set_code(".
+                        "in_code".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameNetworkByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameNetworkList(
+    ) {
+            
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_get(".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameNetworkListByUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameNetworkListByCode(
+        $code
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_get_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameNetworkListByUuidByType(
+        $uuid
+        , $type
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+        $parameters['in_type'] =  $type; //#"in_type"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_get_uuid_type(".
+                    "in_uuid".
+                    ", in_type".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function CountGameNetworkAuth(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_auth_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameNetworkAuthByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_auth_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameNetworkAuthByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_game_network_id'] = $game_network_id; // #"in_game_network_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_auth_count_game_id_game_network_id(".
+                    "in_game_id".
+                    ", in_game_network_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameNetworkAuthListByFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_auth_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameNetworkAuthByUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->url != NULL)
+                $parameters['in_url'] = $obj->url; // #"in_url"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->app_id != NULL)
+                $parameters['in_app_id'] = $obj->app_id; // #"in_app_id"
+            if($obj->game_network_id != NULL)
+                $parameters['in_game_network_id'] = $obj->game_network_id; // #"in_game_network_id"
+            if($obj->secret != NULL)
+                $parameters['in_secret'] = $obj->secret; // #"in_secret"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_network_auth_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameNetworkAuthByGameIdByGameNetworkId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->url != NULL)
+                $parameters['in_url'] = $obj->url; // #"in_url"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->app_id != NULL)
+                $parameters['in_app_id'] = $obj->app_id; // #"in_app_id"
+            if($obj->game_network_id != NULL)
+                $parameters['in_game_network_id'] = $obj->game_network_id; // #"in_game_network_id"
+            if($obj->secret != NULL)
+                $parameters['in_secret'] = $obj->secret; // #"in_secret"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_network_auth_set_game_id_game_network_id(".
+                        "in_game_id".
+                        ", in_game_network_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameNetworkAuthByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_auth_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameNetworkAuthList(
+    ) {
+            
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_auth_get(".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameNetworkAuthListByUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_auth_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameNetworkAuthListByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_game_network_id'] =  $game_network_id; //#"in_game_network_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_network_auth_get_game_id_game_network_id(".
+                    "in_game_id".
+                    ", in_game_network_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
     public function CountProfileGameNetwork(
     ) {
         $parameters = array();

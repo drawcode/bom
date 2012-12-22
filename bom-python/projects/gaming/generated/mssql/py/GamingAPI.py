@@ -9,10 +9,10 @@ from GamingACT import *
 
 class GamingAPI(BaseGamingAPI) :
 
-    def __init__(self):
-        super(GamingAPI, self).__init__()
-        self.act = GamingACT()
-        
-    # CUSTOM API CODE GOES HERE
+  def __init__(self):
+    super(GamingAPI, self).__init__()
+    self.act = GamingACT()
+      
+  # CUSTOM API CODE GOES HERE
     
     

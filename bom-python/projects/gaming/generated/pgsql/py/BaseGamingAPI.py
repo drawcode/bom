@@ -80,40 +80,40 @@ class BaseGamingAPI(object):
     def BrowseGameListByFilter(self, filter_obj) :
         return self.act.BrowseGameListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByUuid(self, set_type, obj) :
+    def SetGameByUuidType(self, set_type, obj) :
         return self.act.SetGameByUuid(set_type, obj)
                
-    def SetGameByUuid(self, set_type, obj) :
+    def SetGameByUuid(self, obj) :
         return self.act.SetGameByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByCode(self, set_type, obj) :
+    def SetGameByCodeType(self, set_type, obj) :
         return self.act.SetGameByCode(set_type, obj)
                
-    def SetGameByCode(self, set_type, obj) :
+    def SetGameByCode(self, obj) :
         return self.act.SetGameByCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByName(self, set_type, obj) :
+    def SetGameByNameType(self, set_type, obj) :
         return self.act.SetGameByName(set_type, obj)
                
-    def SetGameByName(self, set_type, obj) :
+    def SetGameByName(self, obj) :
         return self.act.SetGameByName('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByOrgId(self, set_type, obj) :
+    def SetGameByOrgIdType(self, set_type, obj) :
         return self.act.SetGameByOrgId(set_type, obj)
                
-    def SetGameByOrgId(self, set_type, obj) :
+    def SetGameByOrgId(self, obj) :
         return self.act.SetGameByOrgId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByAppId(self, set_type, obj) :
+    def SetGameByAppIdType(self, set_type, obj) :
         return self.act.SetGameByAppId(set_type, obj)
                
-    def SetGameByAppId(self, set_type, obj) :
+    def SetGameByAppId(self, obj) :
         return self.act.SetGameByAppId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByOrgIdByAppId(self, set_type, obj) :
+    def SetGameByOrgIdByAppIdType(self, set_type, obj) :
         return self.act.SetGameByOrgIdByAppId(set_type, obj)
                
-    def SetGameByOrgIdByAppId(self, set_type, obj) :
+    def SetGameByOrgIdByAppId(self, obj) :
         return self.act.SetGameByOrgIdByAppId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameByUuid(self
@@ -632,10 +632,10 @@ class BaseGamingAPI(object):
     def BrowseGameCategoryListByFilter(self, filter_obj) :
         return self.act.BrowseGameCategoryListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameCategoryByUuid(self, set_type, obj) :
+    def SetGameCategoryByUuidType(self, set_type, obj) :
         return self.act.SetGameCategoryByUuid(set_type, obj)
                
-    def SetGameCategoryByUuid(self, set_type, obj) :
+    def SetGameCategoryByUuid(self, obj) :
         return self.act.SetGameCategoryByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameCategoryByUuid(self
@@ -1121,10 +1121,10 @@ class BaseGamingAPI(object):
     def BrowseGameCategoryTreeListByFilter(self, filter_obj) :
         return self.act.BrowseGameCategoryTreeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameCategoryTreeByUuid(self, set_type, obj) :
+    def SetGameCategoryTreeByUuidType(self, set_type, obj) :
         return self.act.SetGameCategoryTreeByUuid(set_type, obj)
                
-    def SetGameCategoryTreeByUuid(self, set_type, obj) :
+    def SetGameCategoryTreeByUuid(self, obj) :
         return self.act.SetGameCategoryTreeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameCategoryTreeByUuid(self
@@ -1495,10 +1495,10 @@ class BaseGamingAPI(object):
     def BrowseGameCategoryAssocListByFilter(self, filter_obj) :
         return self.act.BrowseGameCategoryAssocListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameCategoryAssocByUuid(self, set_type, obj) :
+    def SetGameCategoryAssocByUuidType(self, set_type, obj) :
         return self.act.SetGameCategoryAssocByUuid(set_type, obj)
                
-    def SetGameCategoryAssocByUuid(self, set_type, obj) :
+    def SetGameCategoryAssocByUuid(self, obj) :
         return self.act.SetGameCategoryAssocByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameCategoryAssocByUuid(self
@@ -1836,10 +1836,10 @@ class BaseGamingAPI(object):
     def BrowseGameTypeListByFilter(self, filter_obj) :
         return self.act.BrowseGameTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameTypeByUuid(self, set_type, obj) :
+    def SetGameTypeByUuidType(self, set_type, obj) :
         return self.act.SetGameTypeByUuid(set_type, obj)
                
-    def SetGameTypeByUuid(self, set_type, obj) :
+    def SetGameTypeByUuid(self, obj) :
         return self.act.SetGameTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameTypeByUuid(self
@@ -2116,10 +2116,10 @@ class BaseGamingAPI(object):
     def BrowseProfileGameListByFilter(self, filter_obj) :
         return self.act.BrowseProfileGameListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameByUuid(self, set_type, obj) :
+    def SetProfileGameByUuidType(self, set_type, obj) :
         return self.act.SetProfileGameByUuid(set_type, obj)
                
-    def SetProfileGameByUuid(self, set_type, obj) :
+    def SetProfileGameByUuid(self, obj) :
         return self.act.SetProfileGameByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileGameByUuid(self
@@ -2424,6 +2424,519 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
+    def CountGameNetwork(self
+    ) :         
+        return self.act.CountGameNetwork(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameNetworkByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameNetworkByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameNetworkByCode(self
+        , code
+    ) :         
+        return self.act.CountGameNetworkByCode(
+        code
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameNetworkByUuidByType(self
+        , uuid
+        , type
+    ) :         
+        return self.act.CountGameNetworkByUuidByType(
+        uuid
+        , type
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameNetworkListByFilter(self, filter_obj) :
+        return self.act.BrowseGameNetworkListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameNetworkByUuidType(self, set_type, obj) :
+        return self.act.SetGameNetworkByUuid(set_type, obj)
+               
+    def SetGameNetworkByUuid(self, obj) :
+        return self.act.SetGameNetworkByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameNetworkByCodeType(self, set_type, obj) :
+        return self.act.SetGameNetworkByCode(set_type, obj)
+               
+    def SetGameNetworkByCode(self, obj) :
+        return self.act.SetGameNetworkByCode('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameNetworkByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameNetworkByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameNetworkList(self
+        ) :
+            return self.act.GetGameNetworkList(
+            )
+        
+    def GetGameNetwork(self
+    ) :
+        for item in self.GetGameNetworkList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameNetworkList(self
+    ) :
+        return CachedGetGameNetworkList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameNetworkList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameNetwork> objs;
+
+        string method_name = "CachedGetGameNetworkList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameNetworkList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameNetworkListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameNetworkListByUuid(
+                uuid
+            )
+        
+    def GetGameNetworkByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameNetworkListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameNetworkListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameNetworkListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameNetworkListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameNetwork> objs;
+
+        string method_name = "CachedGetGameNetworkListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameNetworkListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameNetworkListByCode(self
+        , code
+        ) :
+            return self.act.GetGameNetworkListByCode(
+                code
+            )
+        
+    def GetGameNetworkByCode(self
+        , code
+    ) :
+        for item in self.GetGameNetworkListByCode(
+        code
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameNetworkListByCode(self
+        , code
+    ) :
+        return CachedGetGameNetworkListByCode(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+        )
+        
+    def CachedGetGameNetworkListByCode(self
+        , overrideCache
+        , cacheHours
+        , code
+    ) :
+        pass
+        """
+        List<GameNetwork> objs;
+
+        string method_name = "CachedGetGameNetworkListByCode";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameNetworkListByCode(
+                code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameNetworkListByUuidByType(self
+        , uuid
+        , type
+        ) :
+            return self.act.GetGameNetworkListByUuidByType(
+                uuid
+                , type
+            )
+        
+    def GetGameNetworkByUuidByType(self
+        , uuid
+        , type
+    ) :
+        for item in self.GetGameNetworkListByUuidByType(
+        uuid
+        , type
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameNetworkListByUuidByType(self
+        , uuid
+        , type
+    ) :
+        return CachedGetGameNetworkListByUuidByType(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+            , type
+        )
+        
+    def CachedGetGameNetworkListByUuidByType(self
+        , overrideCache
+        , cacheHours
+        , uuid
+        , type
+    ) :
+        pass
+        """
+        List<GameNetwork> objs;
+
+        string method_name = "CachedGetGameNetworkListByUuidByType";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+        sb.Append("_");
+        sb.Append("type".ToLower());
+        sb.Append("_");
+        sb.Append(type);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameNetworkListByUuidByType(
+                uuid
+                , type
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def CountGameNetworkAuth(self
+    ) :         
+        return self.act.CountGameNetworkAuth(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameNetworkAuthByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameNetworkAuthByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameNetworkAuthByGameIdByGameNetworkId(self
+        , game_id
+        , game_network_id
+    ) :         
+        return self.act.CountGameNetworkAuthByGameIdByGameNetworkId(
+        game_id
+        , game_network_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameNetworkAuthListByFilter(self, filter_obj) :
+        return self.act.BrowseGameNetworkAuthListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameNetworkAuthByUuidType(self, set_type, obj) :
+        return self.act.SetGameNetworkAuthByUuid(set_type, obj)
+               
+    def SetGameNetworkAuthByUuid(self, obj) :
+        return self.act.SetGameNetworkAuthByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameNetworkAuthByGameIdByGameNetworkIdType(self, set_type, obj) :
+        return self.act.SetGameNetworkAuthByGameIdByGameNetworkId(set_type, obj)
+               
+    def SetGameNetworkAuthByGameIdByGameNetworkId(self, obj) :
+        return self.act.SetGameNetworkAuthByGameIdByGameNetworkId('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameNetworkAuthByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameNetworkAuthByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameNetworkAuthList(self
+        ) :
+            return self.act.GetGameNetworkAuthList(
+            )
+        
+    def GetGameNetworkAuth(self
+    ) :
+        for item in self.GetGameNetworkAuthList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameNetworkAuthList(self
+    ) :
+        return CachedGetGameNetworkAuthList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameNetworkAuthList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameNetworkAuth> objs;
+
+        string method_name = "CachedGetGameNetworkAuthList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameNetworkAuthList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameNetworkAuthListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameNetworkAuthListByUuid(
+                uuid
+            )
+        
+    def GetGameNetworkAuthByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameNetworkAuthListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameNetworkAuthListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameNetworkAuthListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameNetworkAuthListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameNetworkAuth> objs;
+
+        string method_name = "CachedGetGameNetworkAuthListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameNetworkAuthListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameNetworkAuthListByGameIdByGameNetworkId(self
+        , game_id
+        , game_network_id
+        ) :
+            return self.act.GetGameNetworkAuthListByGameIdByGameNetworkId(
+                game_id
+                , game_network_id
+            )
+        
+    def GetGameNetworkAuthByGameIdByGameNetworkId(self
+        , game_id
+        , game_network_id
+    ) :
+        for item in self.GetGameNetworkAuthListByGameIdByGameNetworkId(
+        game_id
+        , game_network_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameNetworkAuthListByGameIdByGameNetworkId(self
+        , game_id
+        , game_network_id
+    ) :
+        return CachedGetGameNetworkAuthListByGameIdByGameNetworkId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , game_network_id
+        )
+        
+    def CachedGetGameNetworkAuthListByGameIdByGameNetworkId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , game_network_id
+    ) :
+        pass
+        """
+        List<GameNetworkAuth> objs;
+
+        string method_name = "CachedGetGameNetworkAuthListByGameIdByGameNetworkId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("game_network_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_network_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameNetworkAuthListByGameIdByGameNetworkId(
+                game_id
+                , game_network_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
     def CountProfileGameNetwork(self
     ) :         
         return self.act.CountProfileGameNetwork(
@@ -2467,10 +2980,10 @@ class BaseGamingAPI(object):
     def BrowseProfileGameNetworkListByFilter(self, filter_obj) :
         return self.act.BrowseProfileGameNetworkListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameNetworkByUuid(self, set_type, obj) :
+    def SetProfileGameNetworkByUuidType(self, set_type, obj) :
         return self.act.SetProfileGameNetworkByUuid(set_type, obj)
                
-    def SetProfileGameNetworkByUuid(self, set_type, obj) :
+    def SetProfileGameNetworkByUuid(self, obj) :
         return self.act.SetProfileGameNetworkByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileGameNetworkByUuid(self
@@ -2812,22 +3325,22 @@ class BaseGamingAPI(object):
     def BrowseProfileGameDataAttributeListByFilter(self, filter_obj) :
         return self.act.BrowseProfileGameDataAttributeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameDataAttributeByUuid(self, set_type, obj) :
+    def SetProfileGameDataAttributeByUuidType(self, set_type, obj) :
         return self.act.SetProfileGameDataAttributeByUuid(set_type, obj)
                
-    def SetProfileGameDataAttributeByUuid(self, set_type, obj) :
+    def SetProfileGameDataAttributeByUuid(self, obj) :
         return self.act.SetProfileGameDataAttributeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameDataAttributeByProfileId(self, set_type, obj) :
+    def SetProfileGameDataAttributeByProfileIdType(self, set_type, obj) :
         return self.act.SetProfileGameDataAttributeByProfileId(set_type, obj)
                
-    def SetProfileGameDataAttributeByProfileId(self, set_type, obj) :
+    def SetProfileGameDataAttributeByProfileId(self, obj) :
         return self.act.SetProfileGameDataAttributeByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameDataAttributeByProfileIdByGameIdByCode(self, set_type, obj) :
+    def SetProfileGameDataAttributeByProfileIdByGameIdByCodeType(self, set_type, obj) :
         return self.act.SetProfileGameDataAttributeByProfileIdByGameIdByCode(set_type, obj)
                
-    def SetProfileGameDataAttributeByProfileIdByGameIdByCode(self, set_type, obj) :
+    def SetProfileGameDataAttributeByProfileIdByGameIdByCode(self, obj) :
         return self.act.SetProfileGameDataAttributeByProfileIdByGameIdByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileGameDataAttributeByUuid(self
@@ -3099,10 +3612,10 @@ class BaseGamingAPI(object):
     def BrowseGameSessionListByFilter(self, filter_obj) :
         return self.act.BrowseGameSessionListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameSessionByUuid(self, set_type, obj) :
+    def SetGameSessionByUuidType(self, set_type, obj) :
         return self.act.SetGameSessionByUuid(set_type, obj)
                
-    def SetGameSessionByUuid(self, set_type, obj) :
+    def SetGameSessionByUuid(self, obj) :
         return self.act.SetGameSessionByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameSessionByUuid(self
@@ -3424,10 +3937,10 @@ class BaseGamingAPI(object):
     def BrowseGameSessionDataListByFilter(self, filter_obj) :
         return self.act.BrowseGameSessionDataListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameSessionDataByUuid(self, set_type, obj) :
+    def SetGameSessionDataByUuidType(self, set_type, obj) :
         return self.act.SetGameSessionDataByUuid(set_type, obj)
                
-    def SetGameSessionDataByUuid(self, set_type, obj) :
+    def SetGameSessionDataByUuid(self, obj) :
         return self.act.SetGameSessionDataByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameSessionDataByUuid(self
@@ -3606,34 +4119,34 @@ class BaseGamingAPI(object):
     def BrowseGameContentListByFilter(self, filter_obj) :
         return self.act.BrowseGameContentListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByUuid(self, set_type, obj) :
+    def SetGameContentByUuidType(self, set_type, obj) :
         return self.act.SetGameContentByUuid(set_type, obj)
                
-    def SetGameContentByUuid(self, set_type, obj) :
+    def SetGameContentByUuid(self, obj) :
         return self.act.SetGameContentByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByGameId(self, set_type, obj) :
+    def SetGameContentByGameIdType(self, set_type, obj) :
         return self.act.SetGameContentByGameId(set_type, obj)
                
-    def SetGameContentByGameId(self, set_type, obj) :
+    def SetGameContentByGameId(self, obj) :
         return self.act.SetGameContentByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByGameIdByPath(self, set_type, obj) :
+    def SetGameContentByGameIdByPathType(self, set_type, obj) :
         return self.act.SetGameContentByGameIdByPath(set_type, obj)
                
-    def SetGameContentByGameIdByPath(self, set_type, obj) :
+    def SetGameContentByGameIdByPath(self, obj) :
         return self.act.SetGameContentByGameIdByPath('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByGameIdByPathByVersion(self, set_type, obj) :
+    def SetGameContentByGameIdByPathByVersionType(self, set_type, obj) :
         return self.act.SetGameContentByGameIdByPathByVersion(set_type, obj)
                
-    def SetGameContentByGameIdByPathByVersion(self, set_type, obj) :
+    def SetGameContentByGameIdByPathByVersion(self, obj) :
         return self.act.SetGameContentByGameIdByPathByVersion('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByGameIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameContentByGameIdByPathByVersionByPlatformByIncrementType(self, set_type, obj) :
         return self.act.SetGameContentByGameIdByPathByVersionByPlatformByIncrement(set_type, obj)
                
-    def SetGameContentByGameIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameContentByGameIdByPathByVersionByPlatformByIncrement(self, obj) :
         return self.act.SetGameContentByGameIdByPathByVersionByPlatformByIncrement('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameContentByUuid(self
@@ -4244,64 +4757,64 @@ class BaseGamingAPI(object):
     def BrowseGameProfileContentListByFilter(self, filter_obj) :
         return self.act.BrowseGameProfileContentListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByUuid(self, set_type, obj) :
+    def SetGameProfileContentByUuidType(self, set_type, obj) :
         return self.act.SetGameProfileContentByUuid(set_type, obj)
                
-    def SetGameProfileContentByUuid(self, set_type, obj) :
+    def SetGameProfileContentByUuid(self, obj) :
         return self.act.SetGameProfileContentByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByProfileId(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdType(self, set_type, obj) :
         return self.act.SetGameProfileContentByGameIdByProfileId(set_type, obj)
                
-    def SetGameProfileContentByGameIdByProfileId(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileId(self, obj) :
         return self.act.SetGameProfileContentByGameIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByUsername(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameType(self, set_type, obj) :
         return self.act.SetGameProfileContentByGameIdByUsername(set_type, obj)
                
-    def SetGameProfileContentByGameIdByUsername(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsername(self, obj) :
         return self.act.SetGameProfileContentByGameIdByUsername('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByUsername(self, set_type, obj) :
+    def SetGameProfileContentByUsernameType(self, set_type, obj) :
         return self.act.SetGameProfileContentByUsername(set_type, obj)
                
-    def SetGameProfileContentByUsername(self, set_type, obj) :
+    def SetGameProfileContentByUsername(self, obj) :
         return self.act.SetGameProfileContentByUsername('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByProfileIdByPath(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPathType(self, set_type, obj) :
         return self.act.SetGameProfileContentByGameIdByProfileIdByPath(set_type, obj)
                
-    def SetGameProfileContentByGameIdByProfileIdByPath(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPath(self, obj) :
         return self.act.SetGameProfileContentByGameIdByProfileIdByPath('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersion(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPathByVersionType(self, set_type, obj) :
         return self.act.SetGameProfileContentByGameIdByProfileIdByPathByVersion(set_type, obj)
                
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersion(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPathByVersion(self, obj) :
         return self.act.SetGameProfileContentByGameIdByProfileIdByPathByVersion('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrementType(self, set_type, obj) :
         return self.act.SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(set_type, obj)
                
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self, obj) :
         return self.act.SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByUsernameByPath(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPathType(self, set_type, obj) :
         return self.act.SetGameProfileContentByGameIdByUsernameByPath(set_type, obj)
                
-    def SetGameProfileContentByGameIdByUsernameByPath(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPath(self, obj) :
         return self.act.SetGameProfileContentByGameIdByUsernameByPath('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByUsernameByPathByVersion(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPathByVersionType(self, set_type, obj) :
         return self.act.SetGameProfileContentByGameIdByUsernameByPathByVersion(set_type, obj)
                
-    def SetGameProfileContentByGameIdByUsernameByPathByVersion(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPathByVersion(self, obj) :
         return self.act.SetGameProfileContentByGameIdByUsernameByPathByVersion('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrementType(self, set_type, obj) :
         return self.act.SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(set_type, obj)
                
-    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self, obj) :
         return self.act.SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameProfileContentByUuid(self
@@ -5362,10 +5875,10 @@ class BaseGamingAPI(object):
     def BrowseGameAppListByFilter(self, filter_obj) :
         return self.act.BrowseGameAppListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameAppByUuid(self, set_type, obj) :
+    def SetGameAppByUuidType(self, set_type, obj) :
         return self.act.SetGameAppByUuid(set_type, obj)
                
-    def SetGameAppByUuid(self, set_type, obj) :
+    def SetGameAppByUuid(self, obj) :
         return self.act.SetGameAppByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameAppByUuid(self
@@ -5713,10 +6226,10 @@ class BaseGamingAPI(object):
     def BrowseProfileGameLocationListByFilter(self, filter_obj) :
         return self.act.BrowseProfileGameLocationListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameLocationByUuid(self, set_type, obj) :
+    def SetProfileGameLocationByUuidType(self, set_type, obj) :
         return self.act.SetProfileGameLocationByUuid(set_type, obj)
                
-    def SetProfileGameLocationByUuid(self, set_type, obj) :
+    def SetProfileGameLocationByUuid(self, obj) :
         return self.act.SetProfileGameLocationByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileGameLocationByUuid(self
@@ -6074,34 +6587,34 @@ class BaseGamingAPI(object):
     def BrowseGamePhotoListByFilter(self, filter_obj) :
         return self.act.BrowseGamePhotoListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByUuid(self, set_type, obj) :
+    def SetGamePhotoByUuidType(self, set_type, obj) :
         return self.act.SetGamePhotoByUuid(set_type, obj)
                
-    def SetGamePhotoByUuid(self, set_type, obj) :
+    def SetGamePhotoByUuid(self, obj) :
         return self.act.SetGamePhotoByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByExternalId(self, set_type, obj) :
+    def SetGamePhotoByExternalIdType(self, set_type, obj) :
         return self.act.SetGamePhotoByExternalId(set_type, obj)
                
-    def SetGamePhotoByExternalId(self, set_type, obj) :
+    def SetGamePhotoByExternalId(self, obj) :
         return self.act.SetGamePhotoByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByUrl(self, set_type, obj) :
+    def SetGamePhotoByUrlType(self, set_type, obj) :
         return self.act.SetGamePhotoByUrl(set_type, obj)
                
-    def SetGamePhotoByUrl(self, set_type, obj) :
+    def SetGamePhotoByUrl(self, obj) :
         return self.act.SetGamePhotoByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByUrlByExternalId(self, set_type, obj) :
+    def SetGamePhotoByUrlByExternalIdType(self, set_type, obj) :
         return self.act.SetGamePhotoByUrlByExternalId(set_type, obj)
                
-    def SetGamePhotoByUrlByExternalId(self, set_type, obj) :
+    def SetGamePhotoByUrlByExternalId(self, obj) :
         return self.act.SetGamePhotoByUrlByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByUuidByExternalId(self, set_type, obj) :
+    def SetGamePhotoByUuidByExternalIdType(self, set_type, obj) :
         return self.act.SetGamePhotoByUuidByExternalId(set_type, obj)
                
-    def SetGamePhotoByUuidByExternalId(self, set_type, obj) :
+    def SetGamePhotoByUuidByExternalId(self, obj) :
         return self.act.SetGamePhotoByUuidByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGamePhotoByUuid(self
@@ -6562,34 +7075,34 @@ class BaseGamingAPI(object):
     def BrowseGameVideoListByFilter(self, filter_obj) :
         return self.act.BrowseGameVideoListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByUuid(self, set_type, obj) :
+    def SetGameVideoByUuidType(self, set_type, obj) :
         return self.act.SetGameVideoByUuid(set_type, obj)
                
-    def SetGameVideoByUuid(self, set_type, obj) :
+    def SetGameVideoByUuid(self, obj) :
         return self.act.SetGameVideoByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByExternalId(self, set_type, obj) :
+    def SetGameVideoByExternalIdType(self, set_type, obj) :
         return self.act.SetGameVideoByExternalId(set_type, obj)
                
-    def SetGameVideoByExternalId(self, set_type, obj) :
+    def SetGameVideoByExternalId(self, obj) :
         return self.act.SetGameVideoByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByUrl(self, set_type, obj) :
+    def SetGameVideoByUrlType(self, set_type, obj) :
         return self.act.SetGameVideoByUrl(set_type, obj)
                
-    def SetGameVideoByUrl(self, set_type, obj) :
+    def SetGameVideoByUrl(self, obj) :
         return self.act.SetGameVideoByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByUrlByExternalId(self, set_type, obj) :
+    def SetGameVideoByUrlByExternalIdType(self, set_type, obj) :
         return self.act.SetGameVideoByUrlByExternalId(set_type, obj)
                
-    def SetGameVideoByUrlByExternalId(self, set_type, obj) :
+    def SetGameVideoByUrlByExternalId(self, obj) :
         return self.act.SetGameVideoByUrlByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByUuidByExternalId(self, set_type, obj) :
+    def SetGameVideoByUuidByExternalIdType(self, set_type, obj) :
         return self.act.SetGameVideoByUuidByExternalId(set_type, obj)
                
-    def SetGameVideoByUuidByExternalId(self, set_type, obj) :
+    def SetGameVideoByUuidByExternalId(self, obj) :
         return self.act.SetGameVideoByUuidByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameVideoByUuid(self
@@ -7050,34 +7563,34 @@ class BaseGamingAPI(object):
     def BrowseGameRpgItemWeaponListByFilter(self, filter_obj) :
         return self.act.BrowseGameRpgItemWeaponListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByUuid(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUuidType(self, set_type, obj) :
         return self.act.SetGameRpgItemWeaponByUuid(set_type, obj)
                
-    def SetGameRpgItemWeaponByUuid(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUuid(self, obj) :
         return self.act.SetGameRpgItemWeaponByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByGameIdType(self, set_type, obj) :
         return self.act.SetGameRpgItemWeaponByGameId(set_type, obj)
                
-    def SetGameRpgItemWeaponByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByGameId(self, obj) :
         return self.act.SetGameRpgItemWeaponByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByUrl(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUrlType(self, set_type, obj) :
         return self.act.SetGameRpgItemWeaponByUrl(set_type, obj)
                
-    def SetGameRpgItemWeaponByUrl(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUrl(self, obj) :
         return self.act.SetGameRpgItemWeaponByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByUrlByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUrlByGameIdType(self, set_type, obj) :
         return self.act.SetGameRpgItemWeaponByUrlByGameId(set_type, obj)
                
-    def SetGameRpgItemWeaponByUrlByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUrlByGameId(self, obj) :
         return self.act.SetGameRpgItemWeaponByUrlByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByUuidByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUuidByGameIdType(self, set_type, obj) :
         return self.act.SetGameRpgItemWeaponByUuidByGameId(set_type, obj)
                
-    def SetGameRpgItemWeaponByUuidByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUuidByGameId(self, obj) :
         return self.act.SetGameRpgItemWeaponByUuidByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameRpgItemWeaponByUuid(self
@@ -7538,34 +8051,34 @@ class BaseGamingAPI(object):
     def BrowseGameRpgItemSkillListByFilter(self, filter_obj) :
         return self.act.BrowseGameRpgItemSkillListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByUuid(self, set_type, obj) :
+    def SetGameRpgItemSkillByUuidType(self, set_type, obj) :
         return self.act.SetGameRpgItemSkillByUuid(set_type, obj)
                
-    def SetGameRpgItemSkillByUuid(self, set_type, obj) :
+    def SetGameRpgItemSkillByUuid(self, obj) :
         return self.act.SetGameRpgItemSkillByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByGameIdType(self, set_type, obj) :
         return self.act.SetGameRpgItemSkillByGameId(set_type, obj)
                
-    def SetGameRpgItemSkillByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByGameId(self, obj) :
         return self.act.SetGameRpgItemSkillByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByUrl(self, set_type, obj) :
+    def SetGameRpgItemSkillByUrlType(self, set_type, obj) :
         return self.act.SetGameRpgItemSkillByUrl(set_type, obj)
                
-    def SetGameRpgItemSkillByUrl(self, set_type, obj) :
+    def SetGameRpgItemSkillByUrl(self, obj) :
         return self.act.SetGameRpgItemSkillByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByUrlByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByUrlByGameIdType(self, set_type, obj) :
         return self.act.SetGameRpgItemSkillByUrlByGameId(set_type, obj)
                
-    def SetGameRpgItemSkillByUrlByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByUrlByGameId(self, obj) :
         return self.act.SetGameRpgItemSkillByUrlByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByUuidByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByUuidByGameIdType(self, set_type, obj) :
         return self.act.SetGameRpgItemSkillByUuidByGameId(set_type, obj)
                
-    def SetGameRpgItemSkillByUuidByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByUuidByGameId(self, obj) :
         return self.act.SetGameRpgItemSkillByUuidByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameRpgItemSkillByUuid(self
@@ -8026,34 +8539,34 @@ class BaseGamingAPI(object):
     def BrowseGameProductListByFilter(self, filter_obj) :
         return self.act.BrowseGameProductListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByUuid(self, set_type, obj) :
+    def SetGameProductByUuidType(self, set_type, obj) :
         return self.act.SetGameProductByUuid(set_type, obj)
                
-    def SetGameProductByUuid(self, set_type, obj) :
+    def SetGameProductByUuid(self, obj) :
         return self.act.SetGameProductByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByGameId(self, set_type, obj) :
+    def SetGameProductByGameIdType(self, set_type, obj) :
         return self.act.SetGameProductByGameId(set_type, obj)
                
-    def SetGameProductByGameId(self, set_type, obj) :
+    def SetGameProductByGameId(self, obj) :
         return self.act.SetGameProductByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByUrl(self, set_type, obj) :
+    def SetGameProductByUrlType(self, set_type, obj) :
         return self.act.SetGameProductByUrl(set_type, obj)
                
-    def SetGameProductByUrl(self, set_type, obj) :
+    def SetGameProductByUrl(self, obj) :
         return self.act.SetGameProductByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByUrlByGameId(self, set_type, obj) :
+    def SetGameProductByUrlByGameIdType(self, set_type, obj) :
         return self.act.SetGameProductByUrlByGameId(set_type, obj)
                
-    def SetGameProductByUrlByGameId(self, set_type, obj) :
+    def SetGameProductByUrlByGameId(self, obj) :
         return self.act.SetGameProductByUrlByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByUuidByGameId(self, set_type, obj) :
+    def SetGameProductByUuidByGameIdType(self, set_type, obj) :
         return self.act.SetGameProductByUuidByGameId(set_type, obj)
                
-    def SetGameProductByUuidByGameId(self, set_type, obj) :
+    def SetGameProductByUuidByGameId(self, obj) :
         return self.act.SetGameProductByUuidByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameProductByUuid(self
@@ -8540,40 +9053,40 @@ class BaseGamingAPI(object):
     def BrowseGameStatisticLeaderboardListByFilter(self, filter_obj) :
         return self.act.BrowseGameStatisticLeaderboardListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByUuid(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByUuidType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByUuid(set_type, obj)
                
-    def SetGameStatisticLeaderboardByUuid(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByUuid(self, obj) :
         return self.act.SetGameStatisticLeaderboardByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, obj) :
         return self.act.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByKeyByProfileId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileId(set_type, obj)
                
-    def SetGameStatisticLeaderboardByKeyByProfileId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileId(self, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(set_type, obj)
                
-    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, obj) :
         return self.act.SetGameStatisticLeaderboardByKeyByProfileIdByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameStatisticLeaderboardByUuid(self
@@ -9401,40 +9914,40 @@ class BaseGamingAPI(object):
     def BrowseGameStatisticLeaderboardRollupListByFilter(self, filter_obj) :
         return self.act.BrowseGameStatisticLeaderboardRollupListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByUuid(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByUuidType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByUuid(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByUuid(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByUuid(self, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileId(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdType(self, set_type, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, obj) :
         return self.act.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameStatisticLeaderboardRollupByUuid(self
@@ -10210,16 +10723,16 @@ class BaseGamingAPI(object):
     def BrowseGameLiveQueueListByFilter(self, filter_obj) :
         return self.act.BrowseGameLiveQueueListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLiveQueueByUuid(self, set_type, obj) :
+    def SetGameLiveQueueByUuidType(self, set_type, obj) :
         return self.act.SetGameLiveQueueByUuid(set_type, obj)
                
-    def SetGameLiveQueueByUuid(self, set_type, obj) :
+    def SetGameLiveQueueByUuid(self, obj) :
         return self.act.SetGameLiveQueueByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLiveQueueByProfileIdByGameId(self, set_type, obj) :
+    def SetGameLiveQueueByProfileIdByGameIdType(self, set_type, obj) :
         return self.act.SetGameLiveQueueByProfileIdByGameId(set_type, obj)
                
-    def SetGameLiveQueueByProfileIdByGameId(self, set_type, obj) :
+    def SetGameLiveQueueByProfileIdByGameId(self, obj) :
         return self.act.SetGameLiveQueueByProfileIdByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameLiveQueueByUuid(self
@@ -10501,16 +11014,16 @@ class BaseGamingAPI(object):
     def BrowseGameLiveRecentQueueListByFilter(self, filter_obj) :
         return self.act.BrowseGameLiveRecentQueueListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLiveRecentQueueByUuid(self, set_type, obj) :
+    def SetGameLiveRecentQueueByUuidType(self, set_type, obj) :
         return self.act.SetGameLiveRecentQueueByUuid(set_type, obj)
                
-    def SetGameLiveRecentQueueByUuid(self, set_type, obj) :
+    def SetGameLiveRecentQueueByUuid(self, obj) :
         return self.act.SetGameLiveRecentQueueByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLiveRecentQueueByProfileIdByGameId(self, set_type, obj) :
+    def SetGameLiveRecentQueueByProfileIdByGameIdType(self, set_type, obj) :
         return self.act.SetGameLiveRecentQueueByProfileIdByGameId(set_type, obj)
                
-    def SetGameLiveRecentQueueByProfileIdByGameId(self, set_type, obj) :
+    def SetGameLiveRecentQueueByProfileIdByGameId(self, obj) :
         return self.act.SetGameLiveRecentQueueByProfileIdByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameLiveRecentQueueByUuid(self
@@ -10844,40 +11357,40 @@ class BaseGamingAPI(object):
     def BrowseGameProfileStatisticListByFilter(self, filter_obj) :
         return self.act.BrowseGameProfileStatisticListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByUuid(self, set_type, obj) :
+    def SetGameProfileStatisticByUuidType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticByUuid(set_type, obj)
                
-    def SetGameProfileStatisticByUuid(self, set_type, obj) :
+    def SetGameProfileStatisticByUuid(self, obj) :
         return self.act.SetGameProfileStatisticByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(self, obj) :
         return self.act.SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByProfileIdByKey(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByKeyType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticByProfileIdByKey(set_type, obj)
                
-    def SetGameProfileStatisticByProfileIdByKey(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByKey(self, obj) :
         return self.act.SetGameProfileStatisticByProfileIdByKey('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByProfileIdByKeyByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByKeyByTimestampType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticByProfileIdByKeyByTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticByProfileIdByKeyByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByKeyByTimestamp(self, obj) :
         return self.act.SetGameProfileStatisticByProfileIdByKeyByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(self, obj) :
         return self.act.SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByProfileIdByGameIdByKey(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByGameIdByKeyType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticByProfileIdByGameIdByKey(set_type, obj)
                
-    def SetGameProfileStatisticByProfileIdByGameIdByKey(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByGameIdByKey(self, obj) :
         return self.act.SetGameProfileStatisticByProfileIdByGameIdByKey('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameProfileStatisticByUuid(self
@@ -11555,16 +12068,16 @@ class BaseGamingAPI(object):
     def BrowseGameStatisticMetaListByFilter(self, filter_obj) :
         return self.act.BrowseGameStatisticMetaListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticMetaByUuid(self, set_type, obj) :
+    def SetGameStatisticMetaByUuidType(self, set_type, obj) :
         return self.act.SetGameStatisticMetaByUuid(set_type, obj)
                
-    def SetGameStatisticMetaByUuid(self, set_type, obj) :
+    def SetGameStatisticMetaByUuid(self, obj) :
         return self.act.SetGameStatisticMetaByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticMetaByKeyByGameId(self, set_type, obj) :
+    def SetGameStatisticMetaByKeyByGameIdType(self, set_type, obj) :
         return self.act.SetGameStatisticMetaByKeyByGameId(set_type, obj)
                
-    def SetGameStatisticMetaByKeyByGameId(self, set_type, obj) :
+    def SetGameStatisticMetaByKeyByGameId(self, obj) :
         return self.act.SetGameStatisticMetaByKeyByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameStatisticMetaByUuid(self
@@ -11980,16 +12493,16 @@ class BaseGamingAPI(object):
     def BrowseGameProfileStatisticTimestampListByFilter(self, filter_obj) :
         return self.act.BrowseGameProfileStatisticTimestampListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticTimestampByUuid(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampByUuidType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticTimestampByUuid(set_type, obj)
                
-    def SetGameProfileStatisticTimestampByUuid(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampByUuid(self, obj) :
         return self.act.SetGameProfileStatisticTimestampByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self, obj) :
         return self.act.SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameProfileStatisticTimestampByUuid(self
@@ -12225,22 +12738,22 @@ class BaseGamingAPI(object):
     def BrowseGameKeyMetaListByFilter(self, filter_obj) :
         return self.act.BrowseGameKeyMetaListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameKeyMetaByUuid(self, set_type, obj) :
+    def SetGameKeyMetaByUuidType(self, set_type, obj) :
         return self.act.SetGameKeyMetaByUuid(set_type, obj)
                
-    def SetGameKeyMetaByUuid(self, set_type, obj) :
+    def SetGameKeyMetaByUuid(self, obj) :
         return self.act.SetGameKeyMetaByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameKeyMetaByKeyByGameId(self, set_type, obj) :
+    def SetGameKeyMetaByKeyByGameIdType(self, set_type, obj) :
         return self.act.SetGameKeyMetaByKeyByGameId(set_type, obj)
                
-    def SetGameKeyMetaByKeyByGameId(self, set_type, obj) :
+    def SetGameKeyMetaByKeyByGameId(self, obj) :
         return self.act.SetGameKeyMetaByKeyByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameKeyMetaByKeyByGameIdByLevel(self, set_type, obj) :
+    def SetGameKeyMetaByKeyByGameIdByLevelType(self, set_type, obj) :
         return self.act.SetGameKeyMetaByKeyByGameIdByLevel(set_type, obj)
                
-    def SetGameKeyMetaByKeyByGameIdByLevel(self, set_type, obj) :
+    def SetGameKeyMetaByKeyByGameIdByLevel(self, obj) :
         return self.act.SetGameKeyMetaByKeyByGameIdByLevel('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameKeyMetaByUuid(self
@@ -12755,16 +13268,16 @@ class BaseGamingAPI(object):
     def BrowseGameLevelListByFilter(self, filter_obj) :
         return self.act.BrowseGameLevelListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLevelByUuid(self, set_type, obj) :
+    def SetGameLevelByUuidType(self, set_type, obj) :
         return self.act.SetGameLevelByUuid(set_type, obj)
                
-    def SetGameLevelByUuid(self, set_type, obj) :
+    def SetGameLevelByUuid(self, obj) :
         return self.act.SetGameLevelByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLevelByKeyByGameId(self, set_type, obj) :
+    def SetGameLevelByKeyByGameIdType(self, set_type, obj) :
         return self.act.SetGameLevelByKeyByGameId(set_type, obj)
                
-    def SetGameLevelByKeyByGameId(self, set_type, obj) :
+    def SetGameLevelByKeyByGameId(self, obj) :
         return self.act.SetGameLevelByKeyByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameLevelByUuid(self
@@ -13210,34 +13723,34 @@ class BaseGamingAPI(object):
     def BrowseGameProfileAchievementListByFilter(self, filter_obj) :
         return self.act.BrowseGameProfileAchievementListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByUuid(self, set_type, obj) :
+    def SetGameProfileAchievementByUuidType(self, set_type, obj) :
         return self.act.SetGameProfileAchievementByUuid(set_type, obj)
                
-    def SetGameProfileAchievementByUuid(self, set_type, obj) :
+    def SetGameProfileAchievementByUuid(self, obj) :
         return self.act.SetGameProfileAchievementByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByUuidByKey(self, set_type, obj) :
+    def SetGameProfileAchievementByUuidByKeyType(self, set_type, obj) :
         return self.act.SetGameProfileAchievementByUuidByKey(set_type, obj)
                
-    def SetGameProfileAchievementByUuidByKey(self, set_type, obj) :
+    def SetGameProfileAchievementByUuidByKey(self, obj) :
         return self.act.SetGameProfileAchievementByUuidByKey('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByProfileIdByKey(self, set_type, obj) :
+    def SetGameProfileAchievementByProfileIdByKeyType(self, set_type, obj) :
         return self.act.SetGameProfileAchievementByProfileIdByKey(set_type, obj)
                
-    def SetGameProfileAchievementByProfileIdByKey(self, set_type, obj) :
+    def SetGameProfileAchievementByProfileIdByKey(self, obj) :
         return self.act.SetGameProfileAchievementByProfileIdByKey('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameProfileAchievementByKeyByProfileIdByGameIdType(self, set_type, obj) :
         return self.act.SetGameProfileAchievementByKeyByProfileIdByGameId(set_type, obj)
                
-    def SetGameProfileAchievementByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameProfileAchievementByKeyByProfileIdByGameId(self, obj) :
         return self.act.SetGameProfileAchievementByKeyByProfileIdByGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestampType(self, set_type, obj) :
         return self.act.SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
                
-    def SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(self, obj) :
         return self.act.SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameProfileAchievementByUuid(self
@@ -14034,16 +14547,16 @@ class BaseGamingAPI(object):
     def BrowseGameAchievementMetaListByFilter(self, filter_obj) :
         return self.act.BrowseGameAchievementMetaListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameAchievementMetaByUuid(self, set_type, obj) :
+    def SetGameAchievementMetaByUuidType(self, set_type, obj) :
         return self.act.SetGameAchievementMetaByUuid(set_type, obj)
                
-    def SetGameAchievementMetaByUuid(self, set_type, obj) :
+    def SetGameAchievementMetaByUuid(self, obj) :
         return self.act.SetGameAchievementMetaByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameAchievementMetaByKeyByGameId(self, set_type, obj) :
+    def SetGameAchievementMetaByKeyByGameIdType(self, set_type, obj) :
         return self.act.SetGameAchievementMetaByKeyByGameId(set_type, obj)
                
-    def SetGameAchievementMetaByKeyByGameId(self, set_type, obj) :
+    def SetGameAchievementMetaByKeyByGameId(self, obj) :
         return self.act.SetGameAchievementMetaByKeyByGameId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelGameAchievementMetaByUuid(self

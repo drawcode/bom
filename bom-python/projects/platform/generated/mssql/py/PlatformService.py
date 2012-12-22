@@ -6,20 +6,20 @@ from BasePlatformService import *
 
 class BaseResponse :
 
-    def __init__(self):
-        self.message = 'Success'
-        self.code = 0
-        self.info = {}
-        self.error = {}
-        self.action = ''
-        self.data = None
+  def __init__(self):
+    self.message = 'Success'
+    self.code = 0
+    self.info = {}
+    self.error = {}
+    self.action = ''
+    self.data = None
 
 class PlatformService(BasePlatformService) :
 
-    def __init__(self):
-        super(PlatformService, self).__init__()
-        
-    # CUSTOM API CODE GOES HERE
+  def __init__(self):
+    super(PlatformService, self).__init__()
+      
+  # CUSTOM API CODE GOES HERE
     
     
     

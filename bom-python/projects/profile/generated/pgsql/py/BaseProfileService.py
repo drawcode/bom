@@ -3,14 +3,14 @@ from ent import *
 
 class BaseProfileService(object):
 
-    def __init__(self):
-        self.path = ''
-        self.path_parsed = ''
-        self.path_info = ''
-        self.qstring = ''
-        self.action = ''
-        self.action_params = ''
-        self.url = ''
+  def __init__(self):
+    self.path = ''
+    self.path_parsed = ''
+    self.path_info = ''
+    self.qstring = ''
+    self.action = ''
+    self.action_params = ''
+    self.url = ''
         
 """
 

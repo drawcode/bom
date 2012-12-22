@@ -82,16 +82,16 @@ class BasePlatformAPI(object):
     def BrowseAppListByFilter(self, filter_obj) :
         return self.act.BrowseAppListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetAppByUuid(self, set_type, obj) :
+    def SetAppByUuidType(self, set_type, obj) :
         return self.act.SetAppByUuid(set_type, obj)
                
-    def SetAppByUuid(self, set_type, obj) :
+    def SetAppByUuid(self, obj) :
         return self.act.SetAppByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetAppByCode(self, set_type, obj) :
+    def SetAppByCodeType(self, set_type, obj) :
         return self.act.SetAppByCode(set_type, obj)
                
-    def SetAppByCode(self, set_type, obj) :
+    def SetAppByCode(self, obj) :
         return self.act.SetAppByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelAppByUuid(self
@@ -558,16 +558,16 @@ class BasePlatformAPI(object):
     def BrowseAppTypeListByFilter(self, filter_obj) :
         return self.act.BrowseAppTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetAppTypeByUuid(self, set_type, obj) :
+    def SetAppTypeByUuidType(self, set_type, obj) :
         return self.act.SetAppTypeByUuid(set_type, obj)
                
-    def SetAppTypeByUuid(self, set_type, obj) :
+    def SetAppTypeByUuid(self, obj) :
         return self.act.SetAppTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetAppTypeByCode(self, set_type, obj) :
+    def SetAppTypeByCodeType(self, set_type, obj) :
         return self.act.SetAppTypeByCode(set_type, obj)
                
-    def SetAppTypeByCode(self, set_type, obj) :
+    def SetAppTypeByCode(self, obj) :
         return self.act.SetAppTypeByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelAppTypeByUuid(self
@@ -810,16 +810,16 @@ class BasePlatformAPI(object):
     def BrowseSiteListByFilter(self, filter_obj) :
         return self.act.BrowseSiteListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteByUuid(self, set_type, obj) :
+    def SetSiteByUuidType(self, set_type, obj) :
         return self.act.SetSiteByUuid(set_type, obj)
                
-    def SetSiteByUuid(self, set_type, obj) :
+    def SetSiteByUuid(self, obj) :
         return self.act.SetSiteByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteByCode(self, set_type, obj) :
+    def SetSiteByCodeType(self, set_type, obj) :
         return self.act.SetSiteByCode(set_type, obj)
                
-    def SetSiteByCode(self, set_type, obj) :
+    def SetSiteByCode(self, obj) :
         return self.act.SetSiteByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelSiteByUuid(self
@@ -1286,16 +1286,16 @@ class BasePlatformAPI(object):
     def BrowseSiteTypeListByFilter(self, filter_obj) :
         return self.act.BrowseSiteTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteTypeByUuid(self, set_type, obj) :
+    def SetSiteTypeByUuidType(self, set_type, obj) :
         return self.act.SetSiteTypeByUuid(set_type, obj)
                
-    def SetSiteTypeByUuid(self, set_type, obj) :
+    def SetSiteTypeByUuid(self, obj) :
         return self.act.SetSiteTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteTypeByCode(self, set_type, obj) :
+    def SetSiteTypeByCodeType(self, set_type, obj) :
         return self.act.SetSiteTypeByCode(set_type, obj)
                
-    def SetSiteTypeByCode(self, set_type, obj) :
+    def SetSiteTypeByCode(self, obj) :
         return self.act.SetSiteTypeByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelSiteTypeByUuid(self
@@ -1510,10 +1510,10 @@ class BasePlatformAPI(object):
     def BrowseOrgListByFilter(self, filter_obj) :
         return self.act.BrowseOrgListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgByUuid(self, set_type, obj) :
+    def SetOrgByUuidType(self, set_type, obj) :
         return self.act.SetOrgByUuid(set_type, obj)
                
-    def SetOrgByUuid(self, set_type, obj) :
+    def SetOrgByUuid(self, obj) :
         return self.act.SetOrgByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOrgByUuid(self
@@ -1772,16 +1772,16 @@ class BasePlatformAPI(object):
     def BrowseOrgTypeListByFilter(self, filter_obj) :
         return self.act.BrowseOrgTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgTypeByUuid(self, set_type, obj) :
+    def SetOrgTypeByUuidType(self, set_type, obj) :
         return self.act.SetOrgTypeByUuid(set_type, obj)
                
-    def SetOrgTypeByUuid(self, set_type, obj) :
+    def SetOrgTypeByUuid(self, obj) :
         return self.act.SetOrgTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgTypeByCode(self, set_type, obj) :
+    def SetOrgTypeByCodeType(self, set_type, obj) :
         return self.act.SetOrgTypeByCode(set_type, obj)
                
-    def SetOrgTypeByCode(self, set_type, obj) :
+    def SetOrgTypeByCode(self, obj) :
         return self.act.SetOrgTypeByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOrgTypeByUuid(self
@@ -2004,10 +2004,10 @@ class BasePlatformAPI(object):
     def BrowseContentItemListByFilter(self, filter_obj) :
         return self.act.BrowseContentItemListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetContentItemByUuid(self, set_type, obj) :
+    def SetContentItemByUuidType(self, set_type, obj) :
         return self.act.SetContentItemByUuid(set_type, obj)
                
-    def SetContentItemByUuid(self, set_type, obj) :
+    def SetContentItemByUuid(self, obj) :
         return self.act.SetContentItemByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelContentItemByUuid(self
@@ -2332,16 +2332,16 @@ class BasePlatformAPI(object):
     def BrowseContentItemTypeListByFilter(self, filter_obj) :
         return self.act.BrowseContentItemTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetContentItemTypeByUuid(self, set_type, obj) :
+    def SetContentItemTypeByUuidType(self, set_type, obj) :
         return self.act.SetContentItemTypeByUuid(set_type, obj)
                
-    def SetContentItemTypeByUuid(self, set_type, obj) :
+    def SetContentItemTypeByUuid(self, obj) :
         return self.act.SetContentItemTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetContentItemTypeByCode(self, set_type, obj) :
+    def SetContentItemTypeByCodeType(self, set_type, obj) :
         return self.act.SetContentItemTypeByCode(set_type, obj)
                
-    def SetContentItemTypeByCode(self, set_type, obj) :
+    def SetContentItemTypeByCode(self, obj) :
         return self.act.SetContentItemTypeByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelContentItemTypeByUuid(self
@@ -2564,10 +2564,10 @@ class BasePlatformAPI(object):
     def BrowseContentPageListByFilter(self, filter_obj) :
         return self.act.BrowseContentPageListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetContentPageByUuid(self, set_type, obj) :
+    def SetContentPageByUuidType(self, set_type, obj) :
         return self.act.SetContentPageByUuid(set_type, obj)
                
-    def SetContentPageByUuid(self, set_type, obj) :
+    def SetContentPageByUuid(self, obj) :
         return self.act.SetContentPageByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelContentPageByUuid(self
@@ -3023,10 +3023,10 @@ class BasePlatformAPI(object):
     def BrowseMessageListByFilter(self, filter_obj) :
         return self.act.BrowseMessageListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetMessageByUuid(self, set_type, obj) :
+    def SetMessageByUuidType(self, set_type, obj) :
         return self.act.SetMessageByUuid(set_type, obj)
                
-    def SetMessageByUuid(self, set_type, obj) :
+    def SetMessageByUuid(self, obj) :
         return self.act.SetMessageByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelMessageByUuid(self
@@ -3183,10 +3183,10 @@ class BasePlatformAPI(object):
     def BrowseOfferListByFilter(self, filter_obj) :
         return self.act.BrowseOfferListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferByUuid(self, set_type, obj) :
+    def SetOfferByUuidType(self, set_type, obj) :
         return self.act.SetOfferByUuid(set_type, obj)
                
-    def SetOfferByUuid(self, set_type, obj) :
+    def SetOfferByUuid(self, obj) :
         return self.act.SetOfferByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOfferByUuid(self
@@ -3519,10 +3519,10 @@ class BasePlatformAPI(object):
     def BrowseOfferTypeListByFilter(self, filter_obj) :
         return self.act.BrowseOfferTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferTypeByUuid(self, set_type, obj) :
+    def SetOfferTypeByUuidType(self, set_type, obj) :
         return self.act.SetOfferTypeByUuid(set_type, obj)
                
-    def SetOfferTypeByUuid(self, set_type, obj) :
+    def SetOfferTypeByUuid(self, obj) :
         return self.act.SetOfferTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOfferTypeByUuid(self
@@ -3805,10 +3805,10 @@ class BasePlatformAPI(object):
     def BrowseOfferLocationListByFilter(self, filter_obj) :
         return self.act.BrowseOfferLocationListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferLocationByUuid(self, set_type, obj) :
+    def SetOfferLocationByUuidType(self, set_type, obj) :
         return self.act.SetOfferLocationByUuid(set_type, obj)
                
-    def SetOfferLocationByUuid(self, set_type, obj) :
+    def SetOfferLocationByUuid(self, obj) :
         return self.act.SetOfferLocationByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOfferLocationByUuid(self
@@ -4219,10 +4219,10 @@ class BasePlatformAPI(object):
     def BrowseOfferCategoryListByFilter(self, filter_obj) :
         return self.act.BrowseOfferCategoryListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferCategoryByUuid(self, set_type, obj) :
+    def SetOfferCategoryByUuidType(self, set_type, obj) :
         return self.act.SetOfferCategoryByUuid(set_type, obj)
                
-    def SetOfferCategoryByUuid(self, set_type, obj) :
+    def SetOfferCategoryByUuid(self, obj) :
         return self.act.SetOfferCategoryByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOfferCategoryByUuid(self
@@ -4708,10 +4708,10 @@ class BasePlatformAPI(object):
     def BrowseOfferCategoryTreeListByFilter(self, filter_obj) :
         return self.act.BrowseOfferCategoryTreeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferCategoryTreeByUuid(self, set_type, obj) :
+    def SetOfferCategoryTreeByUuidType(self, set_type, obj) :
         return self.act.SetOfferCategoryTreeByUuid(set_type, obj)
                
-    def SetOfferCategoryTreeByUuid(self, set_type, obj) :
+    def SetOfferCategoryTreeByUuid(self, obj) :
         return self.act.SetOfferCategoryTreeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOfferCategoryTreeByUuid(self
@@ -5082,10 +5082,10 @@ class BasePlatformAPI(object):
     def BrowseOfferCategoryAssocListByFilter(self, filter_obj) :
         return self.act.BrowseOfferCategoryAssocListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferCategoryAssocByUuid(self, set_type, obj) :
+    def SetOfferCategoryAssocByUuidType(self, set_type, obj) :
         return self.act.SetOfferCategoryAssocByUuid(set_type, obj)
                
-    def SetOfferCategoryAssocByUuid(self, set_type, obj) :
+    def SetOfferCategoryAssocByUuid(self, obj) :
         return self.act.SetOfferCategoryAssocByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOfferCategoryAssocByUuid(self
@@ -5433,10 +5433,10 @@ class BasePlatformAPI(object):
     def BrowseOfferGameLocationListByFilter(self, filter_obj) :
         return self.act.BrowseOfferGameLocationListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferGameLocationByUuid(self, set_type, obj) :
+    def SetOfferGameLocationByUuidType(self, set_type, obj) :
         return self.act.SetOfferGameLocationByUuid(set_type, obj)
                
-    def SetOfferGameLocationByUuid(self, set_type, obj) :
+    def SetOfferGameLocationByUuid(self, obj) :
         return self.act.SetOfferGameLocationByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOfferGameLocationByUuid(self
@@ -5782,10 +5782,10 @@ class BasePlatformAPI(object):
     def BrowseEventInfoListByFilter(self, filter_obj) :
         return self.act.BrowseEventInfoListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventInfoByUuid(self, set_type, obj) :
+    def SetEventInfoByUuidType(self, set_type, obj) :
         return self.act.SetEventInfoByUuid(set_type, obj)
                
-    def SetEventInfoByUuid(self, set_type, obj) :
+    def SetEventInfoByUuid(self, obj) :
         return self.act.SetEventInfoByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelEventInfoByUuid(self
@@ -6134,10 +6134,10 @@ class BasePlatformAPI(object):
     def BrowseEventLocationListByFilter(self, filter_obj) :
         return self.act.BrowseEventLocationListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventLocationByUuid(self, set_type, obj) :
+    def SetEventLocationByUuidType(self, set_type, obj) :
         return self.act.SetEventLocationByUuid(set_type, obj)
                
-    def SetEventLocationByUuid(self, set_type, obj) :
+    def SetEventLocationByUuid(self, obj) :
         return self.act.SetEventLocationByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelEventLocationByUuid(self
@@ -6548,10 +6548,10 @@ class BasePlatformAPI(object):
     def BrowseEventCategoryListByFilter(self, filter_obj) :
         return self.act.BrowseEventCategoryListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventCategoryByUuid(self, set_type, obj) :
+    def SetEventCategoryByUuidType(self, set_type, obj) :
         return self.act.SetEventCategoryByUuid(set_type, obj)
                
-    def SetEventCategoryByUuid(self, set_type, obj) :
+    def SetEventCategoryByUuid(self, obj) :
         return self.act.SetEventCategoryByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelEventCategoryByUuid(self
@@ -7037,10 +7037,10 @@ class BasePlatformAPI(object):
     def BrowseEventCategoryTreeListByFilter(self, filter_obj) :
         return self.act.BrowseEventCategoryTreeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventCategoryTreeByUuid(self, set_type, obj) :
+    def SetEventCategoryTreeByUuidType(self, set_type, obj) :
         return self.act.SetEventCategoryTreeByUuid(set_type, obj)
                
-    def SetEventCategoryTreeByUuid(self, set_type, obj) :
+    def SetEventCategoryTreeByUuid(self, obj) :
         return self.act.SetEventCategoryTreeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelEventCategoryTreeByUuid(self
@@ -7411,10 +7411,10 @@ class BasePlatformAPI(object):
     def BrowseEventCategoryAssocListByFilter(self, filter_obj) :
         return self.act.BrowseEventCategoryAssocListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventCategoryAssocByUuid(self, set_type, obj) :
+    def SetEventCategoryAssocByUuidType(self, set_type, obj) :
         return self.act.SetEventCategoryAssocByUuid(set_type, obj)
                
-    def SetEventCategoryAssocByUuid(self, set_type, obj) :
+    def SetEventCategoryAssocByUuid(self, obj) :
         return self.act.SetEventCategoryAssocByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelEventCategoryAssocByUuid(self
@@ -7778,10 +7778,10 @@ class BasePlatformAPI(object):
     def BrowseChannelListByFilter(self, filter_obj) :
         return self.act.BrowseChannelListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetChannelByUuid(self, set_type, obj) :
+    def SetChannelByUuidType(self, set_type, obj) :
         return self.act.SetChannelByUuid(set_type, obj)
                
-    def SetChannelByUuid(self, set_type, obj) :
+    def SetChannelByUuid(self, obj) :
         return self.act.SetChannelByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelChannelByUuid(self
@@ -8257,10 +8257,10 @@ class BasePlatformAPI(object):
     def BrowseChannelTypeListByFilter(self, filter_obj) :
         return self.act.BrowseChannelTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetChannelTypeByUuid(self, set_type, obj) :
+    def SetChannelTypeByUuidType(self, set_type, obj) :
         return self.act.SetChannelTypeByUuid(set_type, obj)
                
-    def SetChannelTypeByUuid(self, set_type, obj) :
+    def SetChannelTypeByUuid(self, obj) :
         return self.act.SetChannelTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelChannelTypeByUuid(self
@@ -8563,16 +8563,16 @@ class BasePlatformAPI(object):
     def BrowseQuestionListByFilter(self, filter_obj) :
         return self.act.BrowseQuestionListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetQuestionByUuid(self, set_type, obj) :
+    def SetQuestionByUuidType(self, set_type, obj) :
         return self.act.SetQuestionByUuid(set_type, obj)
                
-    def SetQuestionByUuid(self, set_type, obj) :
+    def SetQuestionByUuid(self, obj) :
         return self.act.SetQuestionByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetQuestionByChannelIdByCode(self, set_type, obj) :
+    def SetQuestionByChannelIdByCodeType(self, set_type, obj) :
         return self.act.SetQuestionByChannelIdByCode(set_type, obj)
                
-    def SetQuestionByChannelIdByCode(self, set_type, obj) :
+    def SetQuestionByChannelIdByCode(self, obj) :
         return self.act.SetQuestionByChannelIdByCode('full', obj)
 #------------------------------------------------------------------------------                    
     def DelQuestionByUuid(self
@@ -9159,10 +9159,10 @@ class BasePlatformAPI(object):
     def BrowseProfileOfferListByFilter(self, filter_obj) :
         return self.act.BrowseProfileOfferListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileOfferByUuid(self, set_type, obj) :
+    def SetProfileOfferByUuidType(self, set_type, obj) :
         return self.act.SetProfileOfferByUuid(set_type, obj)
                
-    def SetProfileOfferByUuid(self, set_type, obj) :
+    def SetProfileOfferByUuid(self, obj) :
         return self.act.SetProfileOfferByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileOfferByUuid(self
@@ -9371,16 +9371,16 @@ class BasePlatformAPI(object):
     def BrowseProfileAppListByFilter(self, filter_obj) :
         return self.act.BrowseProfileAppListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAppByUuid(self, set_type, obj) :
+    def SetProfileAppByUuidType(self, set_type, obj) :
         return self.act.SetProfileAppByUuid(set_type, obj)
                
-    def SetProfileAppByUuid(self, set_type, obj) :
+    def SetProfileAppByUuid(self, obj) :
         return self.act.SetProfileAppByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAppByProfileIdByAppId(self, set_type, obj) :
+    def SetProfileAppByProfileIdByAppIdType(self, set_type, obj) :
         return self.act.SetProfileAppByProfileIdByAppId(set_type, obj)
                
-    def SetProfileAppByProfileIdByAppId(self, set_type, obj) :
+    def SetProfileAppByProfileIdByAppId(self, obj) :
         return self.act.SetProfileAppByProfileIdByAppId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileAppByUuid(self
@@ -9727,10 +9727,10 @@ class BasePlatformAPI(object):
     def BrowseProfileOrgListByFilter(self, filter_obj) :
         return self.act.BrowseProfileOrgListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileOrgByUuid(self, set_type, obj) :
+    def SetProfileOrgByUuidType(self, set_type, obj) :
         return self.act.SetProfileOrgByUuid(set_type, obj)
                
-    def SetProfileOrgByUuid(self, set_type, obj) :
+    def SetProfileOrgByUuid(self, obj) :
         return self.act.SetProfileOrgByUuid('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileOrgByUuid(self
@@ -10043,28 +10043,28 @@ class BasePlatformAPI(object):
     def BrowseProfileQuestionListByFilter(self, filter_obj) :
         return self.act.BrowseProfileQuestionListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileQuestionByUuid(self, set_type, obj) :
+    def SetProfileQuestionByUuidType(self, set_type, obj) :
         return self.act.SetProfileQuestionByUuid(set_type, obj)
                
-    def SetProfileQuestionByUuid(self, set_type, obj) :
+    def SetProfileQuestionByUuid(self, obj) :
         return self.act.SetProfileQuestionByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileQuestionByChannelIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionByChannelIdByProfileIdType(self, set_type, obj) :
         return self.act.SetProfileQuestionByChannelIdByProfileId(set_type, obj)
                
-    def SetProfileQuestionByChannelIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionByChannelIdByProfileId(self, obj) :
         return self.act.SetProfileQuestionByChannelIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileQuestionByQuestionIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionByQuestionIdByProfileIdType(self, set_type, obj) :
         return self.act.SetProfileQuestionByQuestionIdByProfileId(set_type, obj)
                
-    def SetProfileQuestionByQuestionIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionByQuestionIdByProfileId(self, obj) :
         return self.act.SetProfileQuestionByQuestionIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileQuestionByChannelIdByQuestionIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionByChannelIdByQuestionIdByProfileIdType(self, set_type, obj) :
         return self.act.SetProfileQuestionByChannelIdByQuestionIdByProfileId(set_type, obj)
                
-    def SetProfileQuestionByChannelIdByQuestionIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionByChannelIdByQuestionIdByProfileId(self, obj) :
         return self.act.SetProfileQuestionByChannelIdByQuestionIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileQuestionByUuid(self
@@ -10681,16 +10681,16 @@ class BasePlatformAPI(object):
     def BrowseProfileChannelListByFilter(self, filter_obj) :
         return self.act.BrowseProfileChannelListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileChannelByUuid(self, set_type, obj) :
+    def SetProfileChannelByUuidType(self, set_type, obj) :
         return self.act.SetProfileChannelByUuid(set_type, obj)
                
-    def SetProfileChannelByUuid(self, set_type, obj) :
+    def SetProfileChannelByUuid(self, obj) :
         return self.act.SetProfileChannelByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileChannelByChannelIdByProfileId(self, set_type, obj) :
+    def SetProfileChannelByChannelIdByProfileIdType(self, set_type, obj) :
         return self.act.SetProfileChannelByChannelIdByProfileId(set_type, obj)
                
-    def SetProfileChannelByChannelIdByProfileId(self, set_type, obj) :
+    def SetProfileChannelByChannelIdByProfileId(self, obj) :
         return self.act.SetProfileChannelByChannelIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelProfileChannelByUuid(self
@@ -11047,16 +11047,16 @@ class BasePlatformAPI(object):
     def BrowseOrgSiteListByFilter(self, filter_obj) :
         return self.act.BrowseOrgSiteListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgSiteByUuid(self, set_type, obj) :
+    def SetOrgSiteByUuidType(self, set_type, obj) :
         return self.act.SetOrgSiteByUuid(set_type, obj)
                
-    def SetOrgSiteByUuid(self, set_type, obj) :
+    def SetOrgSiteByUuid(self, obj) :
         return self.act.SetOrgSiteByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgSiteByOrgIdBySiteId(self, set_type, obj) :
+    def SetOrgSiteByOrgIdBySiteIdType(self, set_type, obj) :
         return self.act.SetOrgSiteByOrgIdBySiteId(set_type, obj)
                
-    def SetOrgSiteByOrgIdBySiteId(self, set_type, obj) :
+    def SetOrgSiteByOrgIdBySiteId(self, obj) :
         return self.act.SetOrgSiteByOrgIdBySiteId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelOrgSiteByUuid(self
@@ -11413,16 +11413,16 @@ class BasePlatformAPI(object):
     def BrowseSiteAppListByFilter(self, filter_obj) :
         return self.act.BrowseSiteAppListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteAppByUuid(self, set_type, obj) :
+    def SetSiteAppByUuidType(self, set_type, obj) :
         return self.act.SetSiteAppByUuid(set_type, obj)
                
-    def SetSiteAppByUuid(self, set_type, obj) :
+    def SetSiteAppByUuid(self, obj) :
         return self.act.SetSiteAppByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteAppByAppIdBySiteId(self, set_type, obj) :
+    def SetSiteAppByAppIdBySiteIdType(self, set_type, obj) :
         return self.act.SetSiteAppByAppIdBySiteId(set_type, obj)
                
-    def SetSiteAppByAppIdBySiteId(self, set_type, obj) :
+    def SetSiteAppByAppIdBySiteId(self, obj) :
         return self.act.SetSiteAppByAppIdBySiteId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelSiteAppByUuid(self
@@ -11789,34 +11789,34 @@ class BasePlatformAPI(object):
     def BrowsePhotoListByFilter(self, filter_obj) :
         return self.act.BrowsePhotoListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoByUuid(self, set_type, obj) :
+    def SetPhotoByUuidType(self, set_type, obj) :
         return self.act.SetPhotoByUuid(set_type, obj)
                
-    def SetPhotoByUuid(self, set_type, obj) :
+    def SetPhotoByUuid(self, obj) :
         return self.act.SetPhotoByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoByExternalId(self, set_type, obj) :
+    def SetPhotoByExternalIdType(self, set_type, obj) :
         return self.act.SetPhotoByExternalId(set_type, obj)
                
-    def SetPhotoByExternalId(self, set_type, obj) :
+    def SetPhotoByExternalId(self, obj) :
         return self.act.SetPhotoByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoByUrl(self, set_type, obj) :
+    def SetPhotoByUrlType(self, set_type, obj) :
         return self.act.SetPhotoByUrl(set_type, obj)
                
-    def SetPhotoByUrl(self, set_type, obj) :
+    def SetPhotoByUrl(self, obj) :
         return self.act.SetPhotoByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoByUrlByExternalId(self, set_type, obj) :
+    def SetPhotoByUrlByExternalIdType(self, set_type, obj) :
         return self.act.SetPhotoByUrlByExternalId(set_type, obj)
                
-    def SetPhotoByUrlByExternalId(self, set_type, obj) :
+    def SetPhotoByUrlByExternalId(self, obj) :
         return self.act.SetPhotoByUrlByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoByUuidByExternalId(self, set_type, obj) :
+    def SetPhotoByUuidByExternalIdType(self, set_type, obj) :
         return self.act.SetPhotoByUuidByExternalId(set_type, obj)
                
-    def SetPhotoByUuidByExternalId(self, set_type, obj) :
+    def SetPhotoByUuidByExternalId(self, obj) :
         return self.act.SetPhotoByUuidByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelPhotoByUuid(self
@@ -12277,34 +12277,34 @@ class BasePlatformAPI(object):
     def BrowseVideoListByFilter(self, filter_obj) :
         return self.act.BrowseVideoListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoByUuid(self, set_type, obj) :
+    def SetVideoByUuidType(self, set_type, obj) :
         return self.act.SetVideoByUuid(set_type, obj)
                
-    def SetVideoByUuid(self, set_type, obj) :
+    def SetVideoByUuid(self, obj) :
         return self.act.SetVideoByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoByExternalId(self, set_type, obj) :
+    def SetVideoByExternalIdType(self, set_type, obj) :
         return self.act.SetVideoByExternalId(set_type, obj)
                
-    def SetVideoByExternalId(self, set_type, obj) :
+    def SetVideoByExternalId(self, obj) :
         return self.act.SetVideoByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoByUrl(self, set_type, obj) :
+    def SetVideoByUrlType(self, set_type, obj) :
         return self.act.SetVideoByUrl(set_type, obj)
                
-    def SetVideoByUrl(self, set_type, obj) :
+    def SetVideoByUrl(self, obj) :
         return self.act.SetVideoByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoByUrlByExternalId(self, set_type, obj) :
+    def SetVideoByUrlByExternalIdType(self, set_type, obj) :
         return self.act.SetVideoByUrlByExternalId(set_type, obj)
                
-    def SetVideoByUrlByExternalId(self, set_type, obj) :
+    def SetVideoByUrlByExternalId(self, obj) :
         return self.act.SetVideoByUrlByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoByUuidByExternalId(self, set_type, obj) :
+    def SetVideoByUuidByExternalIdType(self, set_type, obj) :
         return self.act.SetVideoByUuidByExternalId(set_type, obj)
                
-    def SetVideoByUuidByExternalId(self, set_type, obj) :
+    def SetVideoByUuidByExternalId(self, obj) :
         return self.act.SetVideoByUuidByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
     def DelVideoByUuid(self

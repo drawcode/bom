@@ -38,6 +38,12 @@ DROP TABLE IF EXISTS `game_type` CASCADE;
 DROP TABLE IF EXISTS `profile_game` CASCADE;
     
         
+DROP TABLE IF EXISTS `game_network` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `game_network_auth` CASCADE;
+    
+        
 DROP TABLE IF EXISTS `profile_game_network` CASCADE;
     
         
@@ -231,6 +237,55 @@ CREATE TABLE `profile_game`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `profile_game` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `game_network` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `url` VARCHAR (500)
+    , `data` TEXT
+    , `uuid` BINARY(16) 
+    , `secret` VARCHAR (500)
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `game_network` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `game_network_auth` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `url` VARCHAR (500)
+    , `data` TEXT
+    , `uuid` BINARY(16) 
+    , `app_id` VARCHAR (500)
+    , `game_network_id` BINARY(16)
+    , `secret` VARCHAR (500)
+    , `game_id` BINARY(16)
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `game_network_auth` ADD PRIMARY KEY (`uuid`);
     
         
 CREATE TABLE `profile_game_network` 
@@ -882,6 +937,12 @@ ALTER TABLE `game_achievement_meta` ADD PRIMARY KEY (`uuid`);
         
         
         
+        
+-- INDEX CREATES
+
+        
+-- INDEX CREATES
+
         
 -- INDEX CREATES
 
@@ -5448,6 +5509,1063 @@ BEGIN
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_count`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_network`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_network`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_network`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_count_uuid_type`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_count_uuid_type`
+(
+    in_uuid BINARY(16) 
+    , in_type VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_network`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    AND lower(`type`) = lower(in_type)
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `url`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `secret`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `game_network` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_url VARCHAR (500) 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_secret VARCHAR (500) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_network`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_network` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `url` = in_url
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `secret` = in_secret
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_network`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `url`
+                        , `data`
+                        , `uuid`
+                        , `secret`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_uuid
+                        , in_secret
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_set_code`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_set_code`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_url VARCHAR (500) 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_secret VARCHAR (500) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_network`  
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_network` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `url` = in_url
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `secret` = in_secret
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_network`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `url`
+                        , `data`
+                        , `uuid`
+                        , `secret`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_uuid
+                        , in_secret
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_network`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_get`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_get`
+(
+)                        
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `uuid`
+        , `secret`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `game_network`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `uuid`
+        , `secret`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `game_network`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `uuid`
+        , `secret`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `game_network`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_get_uuid_type`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_get_uuid_type`
+(
+    in_uuid BINARY(16) 
+    , in_type VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `uuid`
+        , `secret`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `game_network`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    AND lower(`type`) = lower(in_type)
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_count`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_network_auth`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_network_auth`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_count_game_id_game_network_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_count_game_id_game_network_id`
+(
+    in_game_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_network_auth`
+    WHERE 1=1
+    AND `game_id` = in_game_id
+    AND `game_network_id` = in_game_network_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `url`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `app_id`');
+    SET @sfields = CONCAT(@sfields, ', `game_network_id`');
+    SET @sfields = CONCAT(@sfields, ', `secret`');
+    SET @sfields = CONCAT(@sfields, ', `game_id`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `game_network_auth` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_url VARCHAR (500) 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_app_id VARCHAR (500) 
+    , in_game_network_id BINARY(16) 
+    , in_secret VARCHAR (500) 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_network_auth`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_network_auth` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `url` = in_url
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `app_id` = in_app_id
+                        , `game_network_id` = in_game_network_id
+                        , `secret` = in_secret
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_network_auth`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `url`
+                        , `data`
+                        , `uuid`
+                        , `app_id`
+                        , `game_network_id`
+                        , `secret`
+                        , `game_id`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_uuid
+                        , in_app_id
+                        , in_game_network_id
+                        , in_secret
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_set_game_id_game_network_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_set_game_id_game_network_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_url VARCHAR (500) 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_app_id VARCHAR (500) 
+    , in_game_network_id BINARY(16) 
+    , in_secret VARCHAR (500) 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_network_auth`  
+                    WHERE 1=1
+                    AND `game_id` = in_game_id
+                    AND `game_network_id` = in_game_network_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_network_auth` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `url` = in_url
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `app_id` = in_app_id
+                        , `game_network_id` = in_game_network_id
+                        , `secret` = in_secret
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `game_id` = in_game_id
+                    AND `game_network_id` = in_game_network_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_network_auth`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `url`
+                        , `data`
+                        , `uuid`
+                        , `app_id`
+                        , `game_network_id`
+                        , `secret`
+                        , `game_id`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_uuid
+                        , in_app_id
+                        , in_game_network_id
+                        , in_secret
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_network_auth`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+                       
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_get`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_get`
+(
+)                        
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `uuid`
+        , `app_id`
+        , `game_network_id`
+        , `secret`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `game_network_auth`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `uuid`
+        , `app_id`
+        , `game_network_id`
+        , `secret`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `game_network_auth`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_network_auth_get_game_id_game_network_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_network_auth_get_game_id_game_network_id`
+(
+    in_game_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `uuid`
+        , `app_id`
+        , `game_network_id`
+        , `secret`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `game_network_auth`
+    WHERE 1=1
+    AND `game_id` = in_game_id
+    AND `game_network_id` = in_game_network_id
     ;
 END$$
 delimiter ;

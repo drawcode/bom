@@ -6,20 +6,20 @@ from Base#{app_name}Service import *
 
 class BaseResponse :
 
-    def __init__(self):
-        self.message = 'Success'
-        self.code = 0
-        self.info = {}
-        self.error = {}
-        self.action = ''
-        self.data = None
+  def __init__(self):
+    self.message = 'Success'
+    self.code = 0
+    self.info = {}
+    self.error = {}
+    self.action = ''
+    self.data = None
 
 class #{app_name}Service(Base#{app_name}Service) :
 
-    def __init__(self):
-        super(#{app_name}Service, self).__init__()
-        
-    # CUSTOM API CODE GOES HERE
+  def __init__(self):
+    super(#{app_name}Service, self).__init__()
+      
+  # CUSTOM API CODE GOES HERE
     
     
     
@@ -101,45 +101,45 @@ class #{app_name}Service(Base#{app_name}Service) :
         }
         
 <?py for model in bom.bom_json['models']: ?>
-    <?py if bom.should_generate_code(model['id']):?>
-        <?py model_id = model['id'] ?>
-        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
-        <?py if model.has_key('methods'):?>
-            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
-                <?py for method in item_data: ?>
-                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
-                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
-                <?py #end ?>
-            <?py #end ?>
-        <?py #endif ?>
+  <?py if bom.should_generate_code(model['id']):?>
+    <?py model_id = model['id'] ?>
+    <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+    <?py if model.has_key('methods'):?>
+      <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+        <?py for method in item_data: ?>
+          <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+          <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+        <?py #end ?>
+      <?py #end ?>
     <?py #endif ?>
+  <?py #endif ?>
 <?py #endif ?>
         
 <?py for model in bom.bom_json['models']: ?>
-    <?py if bom.should_generate_code(model['id']):?>
-        <?py model_id = model['id'] ?>
-        <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
-        <?py if model.has_key('methods'):?>
-            <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
-                <?py for method in item_data: ?>
-                    <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
-                    <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
-                    <?py if item == 'get': ?>
-                        <?py pass ?>
-                    <?py #endif ?>                    
-                    <?py if  item == 'del': ?>
-                        <?py pass ?>
-                    <?py #endif ?>
-                    <?py if  item == 'count': ?>
-                        <?py pass ?>
-                    <?py #endif ?>
-                    <?py if  item == 'set': ?>
-                        <?py pass ?>
-                    <?py #endif ?>                    
-                <?py #end ?>
-            <?py #end ?>
-        <?py #endif ?>
+  <?py if bom.should_generate_code(model['id']):?>
+    <?py model_id = model['id'] ?>
+    <?py model_name = bom.to_camel_cap(model['id'],'_') ?>
+    <?py if model.has_key('methods'):?>
+      <?py for item, item_data in bom.bom_model_methods(model_id).iteritems() : ?>
+        <?py for method in item_data: ?>
+          <?py code_name = bom.bom_method_code_name(model_id, item, method) ?>
+          <?py proc_name = bom.bom_method_proc_name(model_id, item, method) ?>
+          <?py if item == 'get': ?>
+            <?py pass ?>
+          <?py #endif ?>                    
+          <?py if  item == 'del': ?>
+            <?py pass ?>
+          <?py #endif ?>
+          <?py if  item == 'count': ?>
+            <?py pass ?>
+          <?py #endif ?>
+          <?py if  item == 'set': ?>
+            <?py pass ?>
+          <?py #endif ?>                    
+        <?py #end ?>
+      <?py #end ?>
     <?py #endif ?>
+  <?py #endif ?>
 <?py #endif ?>
     }
 }

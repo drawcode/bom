@@ -9,10 +9,10 @@ from PlatformData import *
 
 class PlatformACT(BasePlatformACT) :
 
-    def __init__(self):
-        super(PlatformACT, self).__init__()
-        self.data = PlatformData()
-        
-    # CUSTOM ACT CODE GOES HERE
+  def __init__(self):
+    super(PlatformACT, self).__init__()
+    self.data = PlatformData()
+      
+  # CUSTOM ACT CODE GOES HERE
     
     

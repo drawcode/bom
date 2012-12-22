@@ -2638,6 +2638,566 @@ class BaseGamingAPI {
     }
               
 #------------------------------------------------------------------------------                    
+    public function CountGameNetwork(
+    ) {      
+        return $this->act->CountGameNetwork(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameNetworkByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameNetworkByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameNetworkByCode(
+        $code
+    ) {      
+        return $this->act->CountGameNetworkByCode(
+        $code
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameNetworkByUuidByType(
+        $uuid
+        , $type
+    ) {      
+        return $this->act->CountGameNetworkByUuidByType(
+        $uuid
+        , $type
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameNetworkListByFilter($filter_obj) {
+        return $this->act->BrowseGameNetworkListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameNetworkByUuid($set_type, $obj) {
+        return $this->act->SetGameNetworkByUuid($set_type, $obj);
+    }
+               
+    public function SetGameNetworkByUuidFull($obj) {
+        return $this->act->SetGameNetworkByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameNetworkByCode($set_type, $obj) {
+        return $this->act->SetGameNetworkByCode($set_type, $obj);
+    }
+               
+    public function SetGameNetworkByCodeFull($obj) {
+        return $this->act->SetGameNetworkByCode('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameNetworkByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameNetworkByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameNetworkList(
+        ) {
+            return $this->act->GetGameNetworkList(
+            );
+        }
+        
+    public function GetGameNetwork(
+    ) {
+        foreach($this->act->GetGameNetworkList(
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameNetworkList(
+    ) {
+        return $this->CachedGetGameNetworkList(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+        );
+    }
+    */
+        
+    public function CachedGetGameNetworkList(
+        $overrideCache
+        , $cacheHours
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameNetworkList";
+
+        $sb = "";
+        $sb += $method_name;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameNetworkList(
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameNetworkListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameNetworkListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameNetworkByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameNetworkListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameNetworkListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameNetworkListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameNetworkListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameNetworkListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameNetworkListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameNetworkListByCode(
+        $code
+        ) {
+            return $this->act->GetGameNetworkListByCode(
+                $code
+            );
+        }
+        
+    public function GetGameNetworkByCode(
+        $code
+    ) {
+        foreach($this->act->GetGameNetworkListByCode(
+        $code
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameNetworkListByCode(
+        $code
+    ) {
+        return $this->CachedGetGameNetworkListByCode(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+        );
+    }
+    */
+        
+    public function CachedGetGameNetworkListByCode(
+        $overrideCache
+        , $cacheHours
+        , $code
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameNetworkListByCode";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameNetworkListByCode(
+                $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameNetworkListByUuidByType(
+        $uuid
+        , $type
+        ) {
+            return $this->act->GetGameNetworkListByUuidByType(
+                $uuid
+                , $type
+            );
+        }
+        
+    public function GetGameNetworkByUuidByType(
+        $uuid
+        , $type
+    ) {
+        foreach($this->act->GetGameNetworkListByUuidByType(
+        $uuid
+        , $type
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameNetworkListByUuidByType(
+        $uuid
+        , $type
+    ) {
+        return $this->CachedGetGameNetworkListByUuidByType(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+            , $type
+        );
+    }
+    */
+        
+    public function CachedGetGameNetworkListByUuidByType(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+        , $type
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameNetworkListByUuidByType";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+        $sb += "_";
+        $sb += strtolower("$type");
+        $sb += "_";
+        $sb += $type;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameNetworkListByUuidByType(
+                $uuid
+                , $type
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function CountGameNetworkAuth(
+    ) {      
+        return $this->act->CountGameNetworkAuth(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameNetworkAuthByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameNetworkAuthByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameNetworkAuthByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+    ) {      
+        return $this->act->CountGameNetworkAuthByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameNetworkAuthListByFilter($filter_obj) {
+        return $this->act->BrowseGameNetworkAuthListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameNetworkAuthByUuid($set_type, $obj) {
+        return $this->act->SetGameNetworkAuthByUuid($set_type, $obj);
+    }
+               
+    public function SetGameNetworkAuthByUuidFull($obj) {
+        return $this->act->SetGameNetworkAuthByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameNetworkAuthByGameIdByGameNetworkId($set_type, $obj) {
+        return $this->act->SetGameNetworkAuthByGameIdByGameNetworkId($set_type, $obj);
+    }
+               
+    public function SetGameNetworkAuthByGameIdByGameNetworkIdFull($obj) {
+        return $this->act->SetGameNetworkAuthByGameIdByGameNetworkId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameNetworkAuthByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameNetworkAuthByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameNetworkAuthList(
+        ) {
+            return $this->act->GetGameNetworkAuthList(
+            );
+        }
+        
+    public function GetGameNetworkAuth(
+    ) {
+        foreach($this->act->GetGameNetworkAuthList(
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameNetworkAuthList(
+    ) {
+        return $this->CachedGetGameNetworkAuthList(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+        );
+    }
+    */
+        
+    public function CachedGetGameNetworkAuthList(
+        $overrideCache
+        , $cacheHours
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameNetworkAuthList";
+
+        $sb = "";
+        $sb += $method_name;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameNetworkAuthList(
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameNetworkAuthListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameNetworkAuthListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameNetworkAuthByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameNetworkAuthListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameNetworkAuthListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameNetworkAuthListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameNetworkAuthListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameNetworkAuthListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameNetworkAuthListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameNetworkAuthListByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+        ) {
+            return $this->act->GetGameNetworkAuthListByGameIdByGameNetworkId(
+                $game_id
+                , $game_network_id
+            );
+        }
+        
+    public function GetGameNetworkAuthByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+    ) {
+        foreach($this->act->GetGameNetworkAuthListByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameNetworkAuthListByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+    ) {
+        return $this->CachedGetGameNetworkAuthListByGameIdByGameNetworkId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $game_network_id
+        );
+    }
+    */
+        
+    public function CachedGetGameNetworkAuthListByGameIdByGameNetworkId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $game_network_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameNetworkAuthListByGameIdByGameNetworkId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$game_network_id");
+        $sb += "_";
+        $sb += $game_network_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameNetworkAuthListByGameIdByGameNetworkId(
+                $game_id
+                , $game_network_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
     public function CountProfileGameNetwork(
     ) {      
         return $this->act->CountProfileGameNetwork(

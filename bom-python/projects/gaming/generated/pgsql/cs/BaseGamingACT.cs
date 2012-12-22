@@ -1305,6 +1305,322 @@ namespace gaming {
         
         
         
+        public virtual GameNetwork FillGameNetwork(DataRow dr) {
+            GameNetwork obj = new GameNetwork();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
+            if (dr["display_name"] != null)                    
+                    obj.display_name = dataType.FillDataString(dr, "display_name");                
+            if (dr["name"] != null)                    
+                    obj.name = dataType.FillDataString(dr, "name");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["url"] != null)                    
+                    obj.url = dataType.FillDataString(dr, "url");                
+            if (dr["data"] != null)                    
+                    obj.data = dataType.FillDataString(dr, "data");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["secret"] != null)                    
+                    obj.secret = dataType.FillDataString(dr, "secret");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataString(dr, "type");                
+            if (dr["description"] != null)                    
+                    obj.description = dataType.FillDataString(dr, "description");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameNetwork(
+        )  {            
+            return data.CountGameNetwork(
+            );
+        }       
+        public virtual int CountGameNetworkByUuid(
+            string uuid
+        )  {            
+            return data.CountGameNetworkByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameNetworkByCode(
+            string code
+        )  {            
+            return data.CountGameNetworkByCode(
+                code
+            );
+        }       
+        public virtual int CountGameNetworkByUuidByType(
+            string uuid
+            , string type
+        )  {            
+            return data.CountGameNetworkByUuidByType(
+                uuid
+                , type
+            );
+        }       
+        public virtual GameNetworkResult BrowseGameNetworkListByFilter(SearchFilter obj)  {
+            GameNetworkResult result = new GameNetworkResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameNetworkListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetwork game_network  = FillGameNetwork(dr);
+                        result.data.Add(game_network);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameNetworkByUuid(string set_type, GameNetwork obj)  {            
+            return data.SetGameNetworkByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameNetworkByCode(string set_type, GameNetwork obj)  {            
+            return data.SetGameNetworkByCode(set_type, obj);
+        }    
+        public virtual bool DelGameNetworkByUuid(
+            string uuid
+        )  {
+            return data.DelGameNetworkByUuid(
+                uuid
+            );
+        }                     
+        public virtual List<GameNetwork> GetGameNetworkList(
+        )  {
+            List<GameNetwork> list = new List<GameNetwork>();
+            DataSet ds = data.GetGameNetworkList(
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetwork game_network  = FillGameNetwork(dr);
+                        list.Add(game_network);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameNetwork> GetGameNetworkListByUuid(
+            string uuid
+        )  {
+            List<GameNetwork> list = new List<GameNetwork>();
+            DataSet ds = data.GetGameNetworkListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetwork game_network  = FillGameNetwork(dr);
+                        list.Add(game_network);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameNetwork> GetGameNetworkListByCode(
+            string code
+        )  {
+            List<GameNetwork> list = new List<GameNetwork>();
+            DataSet ds = data.GetGameNetworkListByCode(
+                code
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetwork game_network  = FillGameNetwork(dr);
+                        list.Add(game_network);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameNetwork> GetGameNetworkListByUuidByType(
+            string uuid
+            , string type
+        )  {
+            List<GameNetwork> list = new List<GameNetwork>();
+            DataSet ds = data.GetGameNetworkListByUuidByType(
+                uuid
+                , type
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetwork game_network  = FillGameNetwork(dr);
+                        list.Add(game_network);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
+        public virtual GameNetworkAuth FillGameNetworkAuth(DataRow dr) {
+            GameNetworkAuth obj = new GameNetworkAuth();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
+            if (dr["display_name"] != null)                    
+                    obj.display_name = dataType.FillDataString(dr, "display_name");                
+            if (dr["name"] != null)                    
+                    obj.name = dataType.FillDataString(dr, "name");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["url"] != null)                    
+                    obj.url = dataType.FillDataString(dr, "url");                
+            if (dr["data"] != null)                    
+                    obj.data = dataType.FillDataString(dr, "data");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["app_id"] != null)                    
+                    obj.app_id = dataType.FillDataString(dr, "app_id");                
+            if (dr["game_network_id"] != null)                    
+                    obj.game_network_id = dataType.FillDataString(dr, "game_network_id");                
+            if (dr["secret"] != null)                    
+                    obj.secret = dataType.FillDataString(dr, "secret");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataString(dr, "type");                
+            if (dr["description"] != null)                    
+                    obj.description = dataType.FillDataString(dr, "description");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameNetworkAuth(
+        )  {            
+            return data.CountGameNetworkAuth(
+            );
+        }       
+        public virtual int CountGameNetworkAuthByUuid(
+            string uuid
+        )  {            
+            return data.CountGameNetworkAuthByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameNetworkAuthByGameIdByGameNetworkId(
+            string game_id
+            , string game_network_id
+        )  {            
+            return data.CountGameNetworkAuthByGameIdByGameNetworkId(
+                game_id
+                , game_network_id
+            );
+        }       
+        public virtual GameNetworkAuthResult BrowseGameNetworkAuthListByFilter(SearchFilter obj)  {
+            GameNetworkAuthResult result = new GameNetworkAuthResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameNetworkAuthListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetworkAuth game_network_auth  = FillGameNetworkAuth(dr);
+                        result.data.Add(game_network_auth);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameNetworkAuthByUuid(string set_type, GameNetworkAuth obj)  {            
+            return data.SetGameNetworkAuthByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameNetworkAuthByGameIdByGameNetworkId(string set_type, GameNetworkAuth obj)  {            
+            return data.SetGameNetworkAuthByGameIdByGameNetworkId(set_type, obj);
+        }    
+        public virtual bool DelGameNetworkAuthByUuid(
+            string uuid
+        )  {
+            return data.DelGameNetworkAuthByUuid(
+                uuid
+            );
+        }                     
+        public virtual List<GameNetworkAuth> GetGameNetworkAuthList(
+        )  {
+            List<GameNetworkAuth> list = new List<GameNetworkAuth>();
+            DataSet ds = data.GetGameNetworkAuthList(
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetworkAuth game_network_auth  = FillGameNetworkAuth(dr);
+                        list.Add(game_network_auth);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameNetworkAuth> GetGameNetworkAuthListByUuid(
+            string uuid
+        )  {
+            List<GameNetworkAuth> list = new List<GameNetworkAuth>();
+            DataSet ds = data.GetGameNetworkAuthListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetworkAuth game_network_auth  = FillGameNetworkAuth(dr);
+                        list.Add(game_network_auth);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameNetworkAuth> GetGameNetworkAuthListByGameIdByGameNetworkId(
+            string game_id
+            , string game_network_id
+        )  {
+            List<GameNetworkAuth> list = new List<GameNetworkAuth>();
+            DataSet ds = data.GetGameNetworkAuthListByGameIdByGameNetworkId(
+                game_id
+                , game_network_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameNetworkAuth game_network_auth  = FillGameNetworkAuth(dr);
+                        list.Add(game_network_auth);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
         public virtual ProfileGameNetwork FillProfileGameNetwork(DataRow dr) {
             ProfileGameNetwork obj = new ProfileGameNetwork();
 

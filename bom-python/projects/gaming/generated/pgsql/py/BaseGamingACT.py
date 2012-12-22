@@ -1154,6 +1154,292 @@ class BaseGamingACT(object):
             return results        
         
         
+    def FillGameNetwork(self, row) :
+        obj = GameNetwork()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['url'] != None) :                 
+            obj.url = row['url'] #dataType.FillData(dr, "url");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['secret'] != None) :                 
+            obj.secret = row['secret'] #dataType.FillData(dr, "secret");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountGameNetwork(self
+    ) :         
+        return self.data.CountGameNetwork(
+        )
+               
+    def CountGameNetworkByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameNetworkByUuid(
+            uuid
+        )
+               
+    def CountGameNetworkByCode(self
+        , code
+    ) :         
+        return self.data.CountGameNetworkByCode(
+            code
+        )
+               
+    def CountGameNetworkByUuidByType(self
+        , uuid
+        , type
+    ) :         
+        return self.data.CountGameNetworkByUuidByType(
+            uuid
+            , type
+        )
+               
+    def BrowseGameNetworkListByFilter(self, filter_obj) :
+        result = GameNetworkResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameNetworkListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_network = self.FillGameNetwork(row)
+                result.data.append(game_network)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameNetworkByUuid(self, set_type, obj) :            
+            return self.data.SetGameNetworkByUuid(set_type, obj)
+            
+    def SetGameNetworkByCode(self, set_type, obj) :            
+            return self.data.SetGameNetworkByCode(set_type, obj)
+            
+    def DelGameNetworkByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameNetworkByUuid(
+            uuid
+        )
+        
+    def GetGameNetworkList(self
+    ) :
+
+        results = []
+        rows = self.data.GetGameNetworkList(
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_network  = self.FillGameNetwork(row)
+                results.append(game_network)
+            return results        
+        
+    def GetGameNetworkListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameNetworkListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_network  = self.FillGameNetwork(row)
+                results.append(game_network)
+            return results        
+        
+    def GetGameNetworkListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetGameNetworkListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_network  = self.FillGameNetwork(row)
+                results.append(game_network)
+            return results        
+        
+    def GetGameNetworkListByUuidByType(self
+        , uuid
+        , type
+    ) :
+
+        results = []
+        rows = self.data.GetGameNetworkListByUuidByType(
+            uuid
+            , type
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_network  = self.FillGameNetwork(row)
+                results.append(game_network)
+            return results        
+        
+        
+    def FillGameNetworkAuth(self, row) :
+        obj = GameNetworkAuth()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['url'] != None) :                 
+            obj.url = row['url'] #dataType.FillData(dr, "url");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['app_id'] != None) :                 
+            obj.app_id = row['app_id'] #dataType.FillData(dr, "app_id");                
+        if (row['game_network_id'] != None) :                 
+            obj.game_network_id = row['game_network_id'] #dataType.FillData(dr, "game_network_id");                
+        if (row['secret'] != None) :                 
+            obj.secret = row['secret'] #dataType.FillData(dr, "secret");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountGameNetworkAuth(self
+    ) :         
+        return self.data.CountGameNetworkAuth(
+        )
+               
+    def CountGameNetworkAuthByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameNetworkAuthByUuid(
+            uuid
+        )
+               
+    def CountGameNetworkAuthByGameIdByGameNetworkId(self
+        , game_id
+        , game_network_id
+    ) :         
+        return self.data.CountGameNetworkAuthByGameIdByGameNetworkId(
+            game_id
+            , game_network_id
+        )
+               
+    def BrowseGameNetworkAuthListByFilter(self, filter_obj) :
+        result = GameNetworkAuthResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameNetworkAuthListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_network_auth = self.FillGameNetworkAuth(row)
+                result.data.append(game_network_auth)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameNetworkAuthByUuid(self, set_type, obj) :            
+            return self.data.SetGameNetworkAuthByUuid(set_type, obj)
+            
+    def SetGameNetworkAuthByGameIdByGameNetworkId(self, set_type, obj) :            
+            return self.data.SetGameNetworkAuthByGameIdByGameNetworkId(set_type, obj)
+            
+    def DelGameNetworkAuthByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameNetworkAuthByUuid(
+            uuid
+        )
+        
+    def GetGameNetworkAuthList(self
+    ) :
+
+        results = []
+        rows = self.data.GetGameNetworkAuthList(
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_network_auth  = self.FillGameNetworkAuth(row)
+                results.append(game_network_auth)
+            return results        
+        
+    def GetGameNetworkAuthListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameNetworkAuthListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_network_auth  = self.FillGameNetworkAuth(row)
+                results.append(game_network_auth)
+            return results        
+        
+    def GetGameNetworkAuthListByGameIdByGameNetworkId(self
+        , game_id
+        , game_network_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameNetworkAuthListByGameIdByGameNetworkId(
+            game_id
+            , game_network_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_network_auth  = self.FillGameNetworkAuth(row)
+                results.append(game_network_auth)
+            return results        
+        
+        
     def FillProfileGameNetwork(self, row) :
         obj = ProfileGameNetwork()
 

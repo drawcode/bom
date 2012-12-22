@@ -10,6 +10,10 @@ import GameType
 from GameType import *
 import ProfileGame
 from ProfileGame import *
+import GameNetwork
+from GameNetwork import *
+import GameNetworkAuth
+from GameNetworkAuth import *
 import ProfileGameNetwork
 from ProfileGameNetwork import *
 import ProfileGameDataAttribute
@@ -71,6 +75,10 @@ __all__ = [
     , "GameTypeResult"
     , "ProfileGame"
     , "ProfileGameResult"
+    , "GameNetwork"
+    , "GameNetworkResult"
+    , "GameNetworkAuth"
+    , "GameNetworkAuthResult"
     , "ProfileGameNetwork"
     , "ProfileGameNetworkResult"
     , "ProfileGameDataAttribute"

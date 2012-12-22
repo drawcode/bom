@@ -5,6 +5,8 @@ require_once('GameCategoryTree.php');
 require_once('GameCategoryAssoc.php');
 require_once('GameType.php');
 require_once('ProfileGame.php');
+require_once('GameNetwork.php');
+require_once('GameNetworkAuth.php');
 require_once('ProfileGameNetwork.php');
 require_once('ProfileGameDataAttribute.php');
 require_once('GameSession.php');

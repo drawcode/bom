@@ -2566,6 +2566,554 @@ namespace gaming {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameNetwork(
+        )  {            
+            return act.CountGameNetwork(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkByUuid(
+            string uuid
+        )  {            
+            return act.CountGameNetworkByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkByCode(
+            string code
+        )  {            
+            return act.CountGameNetworkByCode(
+            code
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkByUuidByType(
+            string uuid
+            , string type
+        )  {            
+            return act.CountGameNetworkByUuidByType(
+            uuid
+            , type
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameNetworkResult BrowseGameNetworkListByFilter(SearchFilter obj)  {
+            return act.BrowseGameNetworkListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameNetworkByUuid(string set_type, GameNetwork obj)  {
+            return act.SetGameNetworkByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameNetworkByUuid(SetType set_type, GameNetwork obj)  {
+            return act.SetGameNetworkByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameNetworkByUuid(GameNetwork obj)  {
+            return act.SetGameNetworkByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameNetworkByCode(string set_type, GameNetwork obj)  {
+            return act.SetGameNetworkByCode(set_type, obj);
+        }
+        
+        public virtual bool SetGameNetworkByCode(SetType set_type, GameNetwork obj)  {
+            return act.SetGameNetworkByCode(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameNetworkByCode(GameNetwork obj)  {
+            return act.SetGameNetworkByCode(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameNetworkByUuid(
+            string uuid
+        )  {            
+            return act.DelGameNetworkByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameNetwork> GetGameNetworkList(
+        )  {
+            return act.GetGameNetworkList(
+            );
+        }
+        
+        public virtual GameNetwork GetGameNetwork(
+        )  {
+            foreach (GameNetwork item in GetGameNetworkList(
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameNetwork> CachedGetGameNetworkList(
+        ) {
+            return CachedGetGameNetworkList(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                );
+        }
+        
+        public virtual List<GameNetwork> CachedGetGameNetworkList(
+            bool overrideCache
+            , int cacheHours
+        ) {
+            List<GameNetwork> objs;
+
+            string method_name = "CachedGetGameNetworkList";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameNetworkList(
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameNetwork> GetGameNetworkListByUuid(
+            string uuid
+        )  {
+            return act.GetGameNetworkListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameNetwork GetGameNetworkByUuid(
+            string uuid
+        )  {
+            foreach (GameNetwork item in GetGameNetworkListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameNetwork> CachedGetGameNetworkListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameNetworkListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameNetwork> CachedGetGameNetworkListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameNetwork> objs;
+
+            string method_name = "CachedGetGameNetworkListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameNetworkListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameNetwork> GetGameNetworkListByCode(
+            string code
+        )  {
+            return act.GetGameNetworkListByCode(
+            code
+            );
+        }
+        
+        public virtual GameNetwork GetGameNetworkByCode(
+            string code
+        )  {
+            foreach (GameNetwork item in GetGameNetworkListByCode(
+            code
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameNetwork> CachedGetGameNetworkListByCode(
+            string code
+        ) {
+            return CachedGetGameNetworkListByCode(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                );
+        }
+        
+        public virtual List<GameNetwork> CachedGetGameNetworkListByCode(
+            bool overrideCache
+            , int cacheHours
+            , string code
+        ) {
+            List<GameNetwork> objs;
+
+            string method_name = "CachedGetGameNetworkListByCode";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameNetworkListByCode(
+                    code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameNetwork> GetGameNetworkListByUuidByType(
+            string uuid
+            , string type
+        )  {
+            return act.GetGameNetworkListByUuidByType(
+            uuid
+            , type
+            );
+        }
+        
+        public virtual GameNetwork GetGameNetworkByUuidByType(
+            string uuid
+            , string type
+        )  {
+            foreach (GameNetwork item in GetGameNetworkListByUuidByType(
+            uuid
+            , type
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameNetwork> CachedGetGameNetworkListByUuidByType(
+            string uuid
+            , string type
+        ) {
+            return CachedGetGameNetworkListByUuidByType(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                    , type
+                );
+        }
+        
+        public virtual List<GameNetwork> CachedGetGameNetworkListByUuidByType(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+            , string type
+        ) {
+            List<GameNetwork> objs;
+
+            string method_name = "CachedGetGameNetworkListByUuidByType";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+            sb.Append("_");
+            sb.Append("type".ToLower());
+            sb.Append("_");
+            sb.Append(type);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameNetwork>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameNetworkListByUuidByType(
+                    uuid
+                    , type
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkAuth(
+        )  {            
+            return act.CountGameNetworkAuth(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkAuthByUuid(
+            string uuid
+        )  {            
+            return act.CountGameNetworkAuthByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameNetworkAuthByGameIdByGameNetworkId(
+            string game_id
+            , string game_network_id
+        )  {            
+            return act.CountGameNetworkAuthByGameIdByGameNetworkId(
+            game_id
+            , game_network_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameNetworkAuthResult BrowseGameNetworkAuthListByFilter(SearchFilter obj)  {
+            return act.BrowseGameNetworkAuthListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameNetworkAuthByUuid(string set_type, GameNetworkAuth obj)  {
+            return act.SetGameNetworkAuthByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameNetworkAuthByUuid(SetType set_type, GameNetworkAuth obj)  {
+            return act.SetGameNetworkAuthByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameNetworkAuthByUuid(GameNetworkAuth obj)  {
+            return act.SetGameNetworkAuthByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameNetworkAuthByGameIdByGameNetworkId(string set_type, GameNetworkAuth obj)  {
+            return act.SetGameNetworkAuthByGameIdByGameNetworkId(set_type, obj);
+        }
+        
+        public virtual bool SetGameNetworkAuthByGameIdByGameNetworkId(SetType set_type, GameNetworkAuth obj)  {
+            return act.SetGameNetworkAuthByGameIdByGameNetworkId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameNetworkAuthByGameIdByGameNetworkId(GameNetworkAuth obj)  {
+            return act.SetGameNetworkAuthByGameIdByGameNetworkId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameNetworkAuthByUuid(
+            string uuid
+        )  {            
+            return act.DelGameNetworkAuthByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameNetworkAuth> GetGameNetworkAuthList(
+        )  {
+            return act.GetGameNetworkAuthList(
+            );
+        }
+        
+        public virtual GameNetworkAuth GetGameNetworkAuth(
+        )  {
+            foreach (GameNetworkAuth item in GetGameNetworkAuthList(
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameNetworkAuth> CachedGetGameNetworkAuthList(
+        ) {
+            return CachedGetGameNetworkAuthList(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                );
+        }
+        
+        public virtual List<GameNetworkAuth> CachedGetGameNetworkAuthList(
+            bool overrideCache
+            , int cacheHours
+        ) {
+            List<GameNetworkAuth> objs;
+
+            string method_name = "CachedGetGameNetworkAuthList";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameNetworkAuthList(
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameNetworkAuth> GetGameNetworkAuthListByUuid(
+            string uuid
+        )  {
+            return act.GetGameNetworkAuthListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameNetworkAuth GetGameNetworkAuthByUuid(
+            string uuid
+        )  {
+            foreach (GameNetworkAuth item in GetGameNetworkAuthListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameNetworkAuth> CachedGetGameNetworkAuthListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameNetworkAuthListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameNetworkAuth> CachedGetGameNetworkAuthListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameNetworkAuth> objs;
+
+            string method_name = "CachedGetGameNetworkAuthListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameNetworkAuthListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameNetworkAuth> GetGameNetworkAuthListByGameIdByGameNetworkId(
+            string game_id
+            , string game_network_id
+        )  {
+            return act.GetGameNetworkAuthListByGameIdByGameNetworkId(
+            game_id
+            , game_network_id
+            );
+        }
+        
+        public virtual GameNetworkAuth GetGameNetworkAuthByGameIdByGameNetworkId(
+            string game_id
+            , string game_network_id
+        )  {
+            foreach (GameNetworkAuth item in GetGameNetworkAuthListByGameIdByGameNetworkId(
+            game_id
+            , game_network_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameNetworkAuth> CachedGetGameNetworkAuthListByGameIdByGameNetworkId(
+            string game_id
+            , string game_network_id
+        ) {
+            return CachedGetGameNetworkAuthListByGameIdByGameNetworkId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , game_network_id
+                );
+        }
+        
+        public virtual List<GameNetworkAuth> CachedGetGameNetworkAuthListByGameIdByGameNetworkId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string game_network_id
+        ) {
+            List<GameNetworkAuth> objs;
+
+            string method_name = "CachedGetGameNetworkAuthListByGameIdByGameNetworkId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("game_network_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_network_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameNetworkAuth>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameNetworkAuthListByGameIdByGameNetworkId(
+                    game_id
+                    , game_network_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
         public virtual int CountProfileGameNetwork(
         )  {            
             return act.CountProfileGameNetwork(

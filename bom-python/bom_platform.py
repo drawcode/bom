@@ -335,7 +335,8 @@ class BomPlatform():
 								
 				if obj.has_key('filter'):
 						filter = obj['filter']
-						self.create_full_file(gen_type, type, file, obj)
+						
+				self.create_full_file(gen_type, type, file, obj)
 						
 		def generate_item_file(self, gen_type, type, item_file, model):
 				#print 'item_file:'
@@ -371,63 +372,63 @@ class BomPlatform():
 				self.create_item_file(gen_type, type, file, obj, model)
 						
 		def generate(self, template_set_name, project_name):
-						self.parse_templates(template_set_name)
-						self.parse_project(project_name)
-						self.template_set_name = template_set_name
-						self.project_name = project_name
-						self.bom_json = self.source_project
-						
-						print '#----------------------------------------------------'
-						print 'template_set_name:' + template_set_name
-						print 'project_name:' + project_name
-						print 'code_types:'
-						print self.source_template_set['code_type']
-						print 'data_types:'
-						print self.source_template_set['data_type']
-						
-						self.app_name = self.source_project['app']
-						self.namespace_root = self.source_project['namespace_root']
+				self.parse_templates(template_set_name)
+				self.parse_project(project_name)
+				self.template_set_name = template_set_name
+				self.project_name = project_name
+				self.bom_json = self.source_project
+				
+				print '#----------------------------------------------------'
+				print 'template_set_name:' + template_set_name
+				print 'project_name:' + project_name
+				print 'code_types:'
+				print self.source_template_set['code_type']
+				print 'data_types:'
+				print self.source_template_set['data_type']
+				
+				self.app_name = self.source_project['app']
+				self.namespace_root = self.source_project['namespace_root']
 
-						for data_type in self.source_project['data_type']:
-								"""    
-								print '#----------------------------------------------------'
-								print 'data_type:' + data_type
+				for data_type in self.source_project['data_type']:
+						"""    
+						print '#----------------------------------------------------'
+						print 'data_type:' + data_type
+						"""
+						for code_type in self.source_project['code_type']:
+								
 								"""
-								for code_type in self.source_project['code_type']:
-										
-										"""
-										print '#----------------------------------------------------'
-										print 'code_type:'
-										print code_type
-										"""
-										
-										self.current_code_type = code_type
-										self.current_data_type = data_type
-										
-										for full_file in self.source_template_set['files']['data']['full']:
-												full_file = self.filter_tags_obj(full_file, code_type, data_type)
-												self.generate_full_file('data', data_type, full_file)
-														
-										"""
-										for item_file in self.source_template_set['files']['data']['item']:
-														for model in self.bom_models():
-																		item_file = self.filter_tags_obj(item_file, code_type, data_type)
-																		pattern = str(item_file['pattern'])
-																		pattern = pattern.replace('{{ model_name_formatted }}', self.to_camel_cap(model['id'], '_'))
-																		item_file['pattern'] = pattern
-																		self.generate_item_file('data', data_type, item_file, model)
-										"""
-										
-										for full_file in self.source_template_set['files']['code']['full']:
-												full_file = self.filter_tags_obj(full_file, code_type, data_type)
-												self.generate_full_file('code', code_type, full_file)
-														
-										for item_file in self.source_template_set['files']['code']['item']:
+								print '#----------------------------------------------------'
+								print 'code_type:'
+								print code_type
+								"""
+								
+								self.current_code_type = code_type
+								self.current_data_type = data_type
+								
+								for full_file in self.source_template_set['files']['data']['full']:
+										full_file = self.filter_tags_obj(full_file, code_type, data_type)
+										self.generate_full_file('data', data_type, full_file)
+												
+								"""
+								for item_file in self.source_template_set['files']['data']['item']:
 												for model in self.bom_models():
-														item_file = self.filter_tags_obj(item_file, code_type, data_type)
-														pattern = str(item_file['pattern'])
-														item_file['pattern'] = pattern
-														self.generate_item_file('code', code_type, item_file, model)
+																item_file = self.filter_tags_obj(item_file, code_type, data_type)
+																pattern = str(item_file['pattern'])
+																pattern = pattern.replace('{{ model_name_formatted }}', self.to_camel_cap(model['id'], '_'))
+																item_file['pattern'] = pattern
+																self.generate_item_file('data', data_type, item_file, model)
+								"""
+								
+								for full_file in self.source_template_set['files']['code']['full']:
+										full_file = self.filter_tags_obj(full_file, code_type, data_type)
+										self.generate_full_file('code', code_type, full_file)
+												
+								for item_file in self.source_template_set['files']['code']['item']:
+										for model in self.bom_models():
+												item_file = self.filter_tags_obj(item_file, code_type, data_type)
+												pattern = str(item_file['pattern'])
+												item_file['pattern'] = pattern
+												self.generate_item_file('code', code_type, item_file, model)
 
 		def init_template_engine(self):
 				self.template_engine = bom_template.Engine(cache=None)

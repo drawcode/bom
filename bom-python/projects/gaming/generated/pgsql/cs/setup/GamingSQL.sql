@@ -23,6 +23,12 @@ DROP TABLE IF EXISTS "game_type" CASCADE;
 DROP TABLE IF EXISTS "profile_game" CASCADE;
     
         
+DROP TABLE IF EXISTS "game_network" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "game_network_auth" CASCADE;
+    
+        
 DROP TABLE IF EXISTS "profile_game_network" CASCADE;
     
         
@@ -216,6 +222,55 @@ CREATE TABLE "profile_game"
 );
 
 ALTER TABLE "profile_game" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "game_network" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_network_date_modified DEFAULT GETDATE()
+    , "url" varchar (500)
+    , "data" varchar
+    , "uuid" uuid NOT NULL
+    , "secret" varchar (500)
+    , "active" boolean
+                --CONSTRAINT DF_game_network_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_network_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+    , "description" varchar (255)
+);
+
+ALTER TABLE "game_network" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "game_network_auth" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_network_auth_date_modified DEFAULT GETDATE()
+    , "url" varchar (500)
+    , "data" varchar
+    , "uuid" uuid NOT NULL
+    , "app_id" varchar (500)
+    , "game_network_id" uuid
+    , "secret" varchar (500)
+    , "game_id" uuid
+    , "active" boolean
+                --CONSTRAINT DF_game_network_auth_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_network_auth_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+    , "description" varchar (255)
+);
+
+ALTER TABLE "game_network_auth" ADD PRIMARY KEY ("uuid");
     
         
 CREATE TABLE "profile_game_network" 
@@ -882,6 +937,12 @@ DROP type IF EXISTS "game_type_result" CASCADE;
 DROP type IF EXISTS "profile_game_result" CASCADE;
     
         
+DROP type IF EXISTS "game_network_result" CASCADE;
+    
+        
+DROP type IF EXISTS "game_network_auth_result" CASCADE;
+    
+        
 DROP type IF EXISTS "profile_game_network_result" CASCADE;
     
         
@@ -1038,6 +1099,43 @@ CREATE TYPE "profile_game_result" as
     , "profile_version" varchar
     , "date_created" TIMESTAMP
     , "type" varchar
+);    
+CREATE TYPE "game_network_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "url" varchar
+    , "data" varchar
+    , "uuid" uuid
+    , "secret" varchar
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "game_network_auth_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "url" varchar
+    , "data" varchar
+    , "uuid" uuid
+    , "app_id" varchar
+    , "game_network_id" uuid
+    , "secret" varchar
+    , "game_id" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
 );    
 CREATE TYPE "profile_game_network_result" as
 (
@@ -1543,6 +1641,12 @@ CREATE TYPE "game_achievement_meta_result" as
         
         
         
+        
+-- INDEX CREATES
+
+        
+-- INDEX CREATES
+
         
 -- INDEX CREATES
 
@@ -8003,6 +8107,1612 @@ BEGIN
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_network"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_network"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_network"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_count_uuid_type
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_count_uuid_type
+(
+    in_uuid uuid = NULL
+    , in_type varchar (500) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_network"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    AND lower("type") = lower(in_type)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_network_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "url"'
+    || ', "data"'
+    || ', "uuid"'
+    || ', "secret"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "game_network" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "url" '
+    || ', "data" '
+    || ', "uuid" '
+    || ', "secret" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_url varchar (500) = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_secret varchar (500) = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_network"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_network" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "url" = in_url
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "secret" = in_secret
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_network"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "url"
+                        , "data"
+                        , "uuid"
+                        , "secret"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_uuid
+                        , in_secret
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_set_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_set_code
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_url varchar (500) = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_secret varchar (500) = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_network"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_network" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "url" = in_url
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "secret" = in_secret
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_network"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "url"
+                        , "data"
+                        , "uuid"
+                        , "secret"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_uuid
+                        , in_secret
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_network"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameNetwork - game_network
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_get
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_get
+(
+)                        
+RETURNS setof "game_network"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "uuid"
+        , "secret"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "game_network"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_network"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "uuid"
+        , "secret"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "game_network"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "game_network"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "uuid"
+        , "secret"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "game_network"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_get_uuid_type
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_get_uuid_type
+(
+    in_uuid uuid = NULL
+    , in_type varchar (500) = NULL
+)
+RETURNS setof "game_network"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "uuid"
+        , "secret"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "game_network"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    AND lower("type") = lower(in_type)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_auth_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_network_auth"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_auth_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_network_auth"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_auth_count_game_id_game_network_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_count_game_id_game_network_id
+(
+    in_game_id uuid = NULL
+    , in_game_network_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_network_auth"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "game_network_id" = in_game_network_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_auth_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_network_auth_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "url"'
+    || ', "data"'
+    || ', "uuid"'
+    || ', "app_id"'
+    || ', "game_network_id"'
+    || ', "secret"'
+    || ', "game_id"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "game_network_auth" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "url" '
+    || ', "data" '
+    || ', "uuid" '
+    || ', "app_id" '
+    || ', "game_network_id" '
+    || ', "secret" '
+    || ', "game_id" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_auth_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_url varchar (500) = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_app_id varchar (500) = NULL
+    , in_game_network_id uuid = NULL
+    , in_secret varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_network_auth"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_network_auth" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "url" = in_url
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "app_id" = in_app_id
+                        , "game_network_id" = in_game_network_id
+                        , "secret" = in_secret
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_network_auth"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "url"
+                        , "data"
+                        , "uuid"
+                        , "app_id"
+                        , "game_network_id"
+                        , "secret"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_uuid
+                        , in_app_id
+                        , in_game_network_id
+                        , in_secret
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_auth_set_game_id_game_network_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_set_game_id_game_network_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_url varchar (500) = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_app_id varchar (500) = NULL
+    , in_game_network_id uuid = NULL
+    , in_secret varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_network_auth"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "game_network_id" = in_game_network_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_network_auth" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "url" = in_url
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "app_id" = in_app_id
+                        , "game_network_id" = in_game_network_id
+                        , "secret" = in_secret
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "game_network_id" = in_game_network_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_network_auth"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "url"
+                        , "data"
+                        , "uuid"
+                        , "app_id"
+                        , "game_network_id"
+                        , "secret"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_uuid
+                        , in_app_id
+                        , in_game_network_id
+                        , in_secret
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_auth_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_network_auth"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameNetworkAuth - game_network_auth
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_network_auth_get
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_get
+(
+)                        
+RETURNS setof "game_network_auth"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "uuid"
+        , "app_id"
+        , "game_network_id"
+        , "secret"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "game_network_auth"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_auth_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_network_auth"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "uuid"
+        , "app_id"
+        , "game_network_id"
+        , "secret"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "game_network_auth"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_network_auth_get_game_id_game_network_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_network_auth_get_game_id_game_network_id
+(
+    in_game_id uuid = NULL
+    , in_game_network_id uuid = NULL
+)
+RETURNS setof "game_network_auth"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "uuid"
+        , "app_id"
+        , "game_network_id"
+        , "secret"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "game_network_auth"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "game_network_id" = in_game_network_id
     ;
     RETURN;
 END;

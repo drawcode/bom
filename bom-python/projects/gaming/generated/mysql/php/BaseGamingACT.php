@@ -6,6 +6,8 @@ require_once('ent/GameCategoryTree.php');
 require_once('ent/GameCategoryAssoc.php');
 require_once('ent/GameType.php');
 require_once('ent/ProfileGame.php');
+require_once('ent/GameNetwork.php');
+require_once('ent/GameNetworkAuth.php');
 require_once('ent/ProfileGameNetwork.php');
 require_once('ent/ProfileGameDataAttribute.php');
 require_once('ent/GameSession.php');
@@ -1465,6 +1467,372 @@ class BaseGamingACT {
             foreach ($rows as $row) {
                 $profile_game  = $this->FillProfileGame($row);
                 $results[] = $profile_game;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameNetwork($row) {
+        $obj = new GameNetwork();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
+        }
+        if ($row['display_name'] != NULL) {                
+            $obj->display_name = $row['display_name'];#dataType.FillDataString(dr, "display_name");
+        }
+        if ($row['name'] != NULL) {                
+            $obj->name = $row['name'];#dataType.FillDataString(dr, "name");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['url'] != NULL) {                
+            $obj->url = $row['url'];#dataType.FillDataString(dr, "url");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['secret'] != NULL) {                
+            $obj->secret = $row['secret'];#dataType.FillDataString(dr, "secret");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataString(dr, "type");
+        }
+        if ($row['description'] != NULL) {                
+            $obj->description = $row['description'];#dataType.FillDataString(dr, "description");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameNetwork(
+    ) {       
+        return $this->data->CountGameNetwork(
+        );
+    }
+               
+    public function CountGameNetworkByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameNetworkByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameNetworkByCode(
+        $code
+    ) {       
+        return $this->data->CountGameNetworkByCode(
+            $code
+        );
+    }
+               
+    public function CountGameNetworkByUuidByType(
+        $uuid
+        , $type
+    ) {       
+        return $this->data->CountGameNetworkByUuidByType(
+            $uuid
+            , $type
+        );
+    }
+               
+    public function BrowseGameNetworkListByFilter($filter_obj) {
+        $result = new GameNetworkResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameNetworkListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_network = $this->FillGameNetwork($row);
+                $result->data[] = $game_network;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameNetworkByUuid($set_type, $obj) {           
+        return $this->data->SetGameNetworkByUuid($set_type, $obj);
+    }
+            
+    public function SetGameNetworkByCode($set_type, $obj) {           
+        return $this->data->SetGameNetworkByCode($set_type, $obj);
+    }
+            
+    public function DelGameNetworkByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameNetworkByUuid(
+            $uuid
+        );
+    }
+        
+    public function GetGameNetworkList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameNetworkList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_network  = $this->FillGameNetwork($row);
+                $results[] = $game_network;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameNetworkListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameNetworkListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_network  = $this->FillGameNetwork($row);
+                $results[] = $game_network;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameNetworkListByCode(
+        $code
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameNetworkListByCode(
+            $code
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_network  = $this->FillGameNetwork($row);
+                $results[] = $game_network;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameNetworkListByUuidByType(
+        $uuid
+        , $type
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameNetworkListByUuidByType(
+            $uuid
+            , $type
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_network  = $this->FillGameNetwork($row);
+                $results[] = $game_network;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameNetworkAuth($row) {
+        $obj = new GameNetworkAuth();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
+        }
+        if ($row['display_name'] != NULL) {                
+            $obj->display_name = $row['display_name'];#dataType.FillDataString(dr, "display_name");
+        }
+        if ($row['name'] != NULL) {                
+            $obj->name = $row['name'];#dataType.FillDataString(dr, "name");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['url'] != NULL) {                
+            $obj->url = $row['url'];#dataType.FillDataString(dr, "url");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['app_id'] != NULL) {                
+            $obj->app_id = $row['app_id'];#dataType.FillDataString(dr, "app_id");
+        }
+        if ($row['game_network_id'] != NULL) {                
+            $obj->game_network_id = $row['game_network_id'];#dataType.FillDataString(dr, "game_network_id");
+        }
+        if ($row['secret'] != NULL) {                
+            $obj->secret = $row['secret'];#dataType.FillDataString(dr, "secret");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataString(dr, "type");
+        }
+        if ($row['description'] != NULL) {                
+            $obj->description = $row['description'];#dataType.FillDataString(dr, "description");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameNetworkAuth(
+    ) {       
+        return $this->data->CountGameNetworkAuth(
+        );
+    }
+               
+    public function CountGameNetworkAuthByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameNetworkAuthByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameNetworkAuthByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+    ) {       
+        return $this->data->CountGameNetworkAuthByGameIdByGameNetworkId(
+            $game_id
+            , $game_network_id
+        );
+    }
+               
+    public function BrowseGameNetworkAuthListByFilter($filter_obj) {
+        $result = new GameNetworkAuthResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameNetworkAuthListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_network_auth = $this->FillGameNetworkAuth($row);
+                $result->data[] = $game_network_auth;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameNetworkAuthByUuid($set_type, $obj) {           
+        return $this->data->SetGameNetworkAuthByUuid($set_type, $obj);
+    }
+            
+    public function SetGameNetworkAuthByGameIdByGameNetworkId($set_type, $obj) {           
+        return $this->data->SetGameNetworkAuthByGameIdByGameNetworkId($set_type, $obj);
+    }
+            
+    public function DelGameNetworkAuthByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameNetworkAuthByUuid(
+            $uuid
+        );
+    }
+        
+    public function GetGameNetworkAuthList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameNetworkAuthList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_network_auth  = $this->FillGameNetworkAuth($row);
+                $results[] = $game_network_auth;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameNetworkAuthListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameNetworkAuthListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_network_auth  = $this->FillGameNetworkAuth($row);
+                $results[] = $game_network_auth;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameNetworkAuthListByGameIdByGameNetworkId(
+        $game_id
+        , $game_network_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameNetworkAuthListByGameIdByGameNetworkId(
+            $game_id
+            , $game_network_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_network_auth  = $this->FillGameNetworkAuth($row);
+                $results[] = $game_network_auth;
             }
         }
         

@@ -9,10 +9,10 @@ from ProfileData import *
 
 class ProfileACT(BaseProfileACT) :
 
-    def __init__(self):
-        super(ProfileACT, self).__init__()
-        self.data = ProfileData()
-        
-    # CUSTOM ACT CODE GOES HERE
+  def __init__(self):
+    super(ProfileACT, self).__init__()
+    self.data = ProfileData()
+      
+  # CUSTOM ACT CODE GOES HERE
     
     

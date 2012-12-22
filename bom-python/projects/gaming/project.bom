@@ -324,6 +324,93 @@
             }
         },
         {
+            "id":"game_network",
+            "extends": "base_meta",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{            
+                "secret":{"type":"string", "maximum":500, "required":false},
+                "type":{"type":"string", "maximum":500, "required":false},
+                "url":{"type":"string", "maximum":500, "required":false},
+                "data":{"type":"data", "required":false}
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "indexes":[
+
+            ],
+            "methods":{
+                "get":[
+                    {"scope":"public"},
+                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                    {"params":["code"]},
+                    {"params":["uuid","type"]}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["code"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["code"]},
+                    {"params":["uuid","type"]}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },
+        {
+            "id":"game_network_auth",
+            "extends": "base_meta",
+            "description":"",
+            "type":"object",
+            "generate":["code","data"],
+            "properties":{            
+                "game_id":{"type":"uuid", "required":false},
+                "game_network_id":{"type":"uuid", "required":false},
+                "app_id":{"type":"string", "maximum":500, "required":false},
+                "secret":{"type":"string", "maximum":500, "required":false},
+                "type":{"type":"string", "maximum":500, "required":false},
+                "url":{"type":"string", "maximum":500, "required":false},
+                "data":{"type":"data", "required":false}
+            },
+            "relation":[
+                {"table":"", "field":""}
+            ],
+            "indexes":[
+
+            ],
+            "methods":{
+                "get":[
+                    {"scope":"public"},
+                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                    {"params":["game_id","game_network_id"]}
+                ],
+                "set":[               
+                    {"params":["uuid"]},
+                    {"params":["game_id","game_network_id"]}
+                ],
+                "del":[                    
+                    {"params":["uuid"]}
+                ],
+                "count":[
+                    {"scope":"public"},
+                    {"params":["uuid"]},
+                    {"params":["game_id","game_network_id"]}
+                ],
+                "browse":[
+                    {"params":["filter"]}
+                ]
+            }
+        },
+        {
             "id":"profile_game_network",
             "extends": "base_entity",
             "description":"",

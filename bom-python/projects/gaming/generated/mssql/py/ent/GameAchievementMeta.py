@@ -63,11 +63,11 @@ class GameAchievementMeta(BaseMeta):
     super(GameAchievementMeta, self).__init__()
     #self.__dict__.update(entries)
     self.sort = None
+    self.code = None
     self.game_stat = None
     self.level = None
     self.data = None
     self.points = None
-    self.key = None
     self.game_id = None
     self.modifier = None
     self.type = None

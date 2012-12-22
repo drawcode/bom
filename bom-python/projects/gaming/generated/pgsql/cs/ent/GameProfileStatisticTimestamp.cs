@@ -74,40 +74,40 @@ namespace gaming.ent {
 	
         }
     
-        public string game_id { get; set; }
         public string profile_id { get; set; }
-        public string key { get; set; }
+        public string game_id { get; set; }
+        public string code { get; set; }
         public DateTime timestamp { get; set; }
 
         public override Dictionary<string, object> ToDictionary(){
             dict = base.ToDictionary();
-	    	if (game_id != null) {
-	    	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
-	    	}
 	    	if (profile_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
 	    	}
-	    	if (key != null) {
-	    	    dict = DataUtil.SetDictValue(dict, "key", key);
+	    	if (game_id != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
+	    	}
+	    	if (code != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "code", code);
 	    	}
 	    	dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
             return dict;
         }
 
         public override void FillFromDictionary(Dictionary<string, object> dict){
-	    	if(dict.ContainsKey("game_id")) {
-	    	    if(dict["game_id"] != null) {
-	    	    	game_id = DataType.Instance.FillString(dict["game_id"]);
-	    	    }		
-	    	}
 	    	if(dict.ContainsKey("profile_id")) {
 	    	    if(dict["profile_id"] != null) {
 	    	    	profile_id = DataType.Instance.FillString(dict["profile_id"]);
 	    	    }		
 	    	}
-	    	if(dict.ContainsKey("key")) {
-	    	    if(dict["key"] != null) {
-	    	    	key = DataType.Instance.FillString(dict["key"]);
+	    	if(dict.ContainsKey("game_id")) {
+	    	    if(dict["game_id"] != null) {
+	    	    	game_id = DataType.Instance.FillString(dict["game_id"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("code")) {
+	    	    if(dict["code"] != null) {
+	    	    	code = DataType.Instance.FillString(dict["code"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("timestamp")) {

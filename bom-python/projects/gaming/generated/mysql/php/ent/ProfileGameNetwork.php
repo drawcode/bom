@@ -36,13 +36,16 @@ class ProfileGameNetwork extends BaseEntity {
     }
     
     public $hash;
+    public $network_fullname;
     public $profile_id;
     public $token;
     public $game_network_id;
     public $secret;
     public $network_username;
     public $game_id;
+    public $network_auth;
     public $data;
+    public $network_user_id;
 
     public function __construct() {
         

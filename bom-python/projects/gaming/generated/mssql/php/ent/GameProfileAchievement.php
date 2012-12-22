@@ -36,11 +36,11 @@ class GameProfileAchievement extends BaseEntity {
     }
     
     public $username;
+    public $code;
     public $level;
     public $type;
     public $completed;
     public $profile_id;
-    public $key;
     public $timestamp;
     public $game_id;
     public $achievement_value;

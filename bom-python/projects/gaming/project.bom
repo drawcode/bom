@@ -1,1890 +1,1889 @@
 {
-    "namespace_root" : "gaming",
-    "app":"gaming",
-    "code_type":["cs", "py", "php"],
-    "data_type":["pgsql", "mssql", "mysql"],
-    "dirs":[
-        "base","ent","data","act","config","util","dto","setup"
-    ]
+  "namespace_root" : "gaming",
+  "app":"gaming",
+  "code_type":["cs", "py", "php"],
+  "data_type":["pgsql", "mssql", "mysql"],
+  "dirs":[
+    "base","ent","data","act","config","util","dto","setup"
+  ]
+  ,
+  "models": [
+    {
+      "id":"base_entity",
+      "description":"Base model",
+      "type":"object",
+      "generate":["code"],
+      "properties": {
+        "uuid":{ "type":"uuid", "format":"uuid", "maximum":40, "required":true},
+        "date_created":{"type":"datetime", "format":"datetime", "required":false},
+        "date_modified":{"type":"datetime", "format":"datetime", "required":false},
+        "status":{"type":"string", "maximum":255, "required":false},
+        "type":{"type":"string", "maximum":500, "required":false},
+        "active":{"type":"bool"}
+      }
+    },
+    {
+      "id":"base_meta",
+      "description":"Base model",
+      "extends": "base_entity",
+      "type":"object",
+      "generate":["code"],
+      "properties":{
+        "code":{"type":"string", "maximum":255, "required":false},
+        "name":{"type":"string", "maximum":255, "required":false},
+        "display_name":{"type":"string", "maximum":255, "required":false},
+        "description":{"type":"string", "maximum":255, "required":false}
+      }
+    },
+    {
+      "id":"base_location",
+      "description":"Base model",
+      "extends": "base_meta",
+      "type":"object",
+      "generate":["code"],
+      "properties":{
+        "email":{"type":"string", "maximum":255, "required":false},
+        "address1":{"type":"string", "maximum":1000, "required":false},
+        "address2":{"type":"string", "maximum":500, "required":false},
+        "city":{"type":"string", "maximum":255, "required":false},
+        "state_province":{"type":"string", "maximum":255, "required":false},
+        "country_code":{"type":"string", "maximum":255, "required":false},
+        "dob":{"type":"datetime", "required":false},
+        "postal_code":{"type":"string", "maximum":30, "required":false},
+        "latitude":{"type":"double", "required":false},
+        "longitude":{"type":"double", "required":false},
+        "phone":{"type":"string", "maximum":30,"required":false},
+        "fax":{"type":"string", "maximum":30,"required":false},
+        "facebook":{"type":"string", "maximum":255,"required":false},
+        "twitter":{"type":"string", "maximum":50,"required":false},
+        "date_start":{"type":"datetime", "required":false },
+        "date_end":{"type":"datetime", "required":false }
+      }
+    },
+    {
+      "id":"game",
+      "extends": "base_meta",
+      "description":"",
+      "type":"object",
+      "generate":["code","data"],
+      "properties":{
+        "app_id":{"type":"uuid", "format":"uuid", "maximum":40, "required":false},
+        "org_id":{"type":"uuid",  "required":false}
+      },
+      "relation":[
+        {"table":"", "field":""}
+      ],
+      "indexes":[
+
+      ],
+      "methods":{
+        "get":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["code"]},
+          {"params":["name"]},
+          {"params":["org_id"]},
+          {"params":["app_id"]},
+          {"params":["org_id", "app_id"]}
+        ],
+        "set":[
+          {"params":["uuid"]},
+          {"params":["code"]},
+          {"params":["name"]},
+          {"params":["org_id"]},
+          {"params":["app_id"]},
+          {"params":["org_id", "app_id"]}
+        ],
+        "del":[
+          {"params":["uuid"]},
+          {"params":["code"]},
+          {"params":["name"]},
+          {"params":["org_id"]},
+          {"params":["app_id"]},
+          {"params":["org_id", "app_id"]}
+        ],
+        "count":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["code"]},
+          {"params":["name"]},
+          {"params":["org_id"]},
+          {"params":["app_id"]},
+          {"params":["org_id", "app_id"]}
+        ],
+        "browse":[
+            {"params":["filter"]}
+        ]
+      }
+    },
+  {
+      "id":"game_category",
+      "extends": "base_meta",
+      "description":"",
+      "type":"object",
+      "generate":["code","data"],
+      "properties":{
+        "org_id":{"type":"uuid", "maximum":50, "required":true},
+        "type_id":{"type":"uuid", "maximum":50, "required":true}
+      },
+      "relation":[
+        {"table":"", "field":""}
+      ],
+      "methods":{
+        "get":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["code"]},
+          {"params":["name"]},
+          {"params":["org_id"]},
+          {"params":["type_id"]},
+          {"params":["org_id", "type_id"]}
+        ],
+        "set":[
+          {"params":["uuid"]}
+        ],
+        "del":[
+          {"params":["uuid"]},
+          {"params":["code", "org_id"]},
+          {"params":["code", "org_id", "type_id"]}
+        ],
+        "count":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["code"]},
+          {"params":["name"]},
+          {"params":["org_id"]},
+          {"params":["type_id"]},
+          {"params":["org_id", "type_id"]}
+        ],
+        "browse":[
+          {"params":["filter"]}
+        ]
+      }
+    },
+    {
+      "id":"game_category_tree",
+      "extends": "base_entity",
+      "description":"",
+      "type":"object",
+      "generate":["code","data"],
+      "properties":{
+        "category_id":{"type":"uuid",  "required":true},
+        "parent_id":{"type":"uuid",  "required":true}
+      },
+      "relation":[
+        {"table":"", "field":""}
+      ],
+      "methods":{
+        "get":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["parent_id"]},
+          {"params":["category_id"]},
+          {"params":["parent_id","category_id"]}
+        ],
+        "set":[
+          {"params":["uuid"]}
+        ],
+        "del":[
+          {"params":["uuid"]},
+          {"params":["parent_id"]},
+          {"params":["category_id"]},
+          {"params":["parent_id","category_id"]}
+        ],
+        "count":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["parent_id"]},
+          {"params":["category_id"]},
+          {"params":["parent_id","category_id"]}
+        ],
+        "browse":[
+          {"params":["filter"]}
+        ]
+      }
+    },
+    {
+      "id":"game_category_assoc",
+      "extends": "base_entity",
+      "description":"",
+      "type":"object",
+      "generate":["code","data"],
+      "properties":{
+        "category_id":{"type":"uuid",  "required":true},
+        "game_id":{"type":"uuid",  "required":true}
+      },
+      "relation":[
+        {"table":"", "field":""}
+      ],
+      "methods":{
+        "get":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["game_id"]},
+          {"params":["category_id"]},
+          {"params":["game_id","category_id"]}
+        ],
+        "set":[
+          {"params":["uuid"]}
+        ],
+        "del":[
+          {"params":["uuid"]}
+        ],
+        "count":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["game_id"]},
+          {"params":["category_id"]},
+          {"params":["game_id","category_id"]}
+        ],
+        "browse":[
+          {"params":["filter"]}
+        ]
+      }
+    },
+    {
+      "id":"game_type",
+      "extends": "base_meta",
+      "description":"",
+      "type":"object",
+      "generate":["code","data"],
+      "properties":{
+        "type":{"type":"string", "maximum":50, "required":true}
+      },
+      "relation":[
+        {"table":"", "field":""}
+      ],
+      "methods":{
+        "get":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["code"]},
+          {"params":["name"]}
+        ],
+        "set":[
+          {"params":["uuid"]}
+        ],
+        "del":[
+            {"params":["uuid"]}
+        ],
+        "count":[
+          {"scope":"public"},
+          {"params":["uuid"]},
+          {"params":["code"]},
+          {"params":["name"]}
+        ],
+        "browse":[
+          {"params":["filter"]}
+        ]
+      }
+    },
+    {
+        "id":"profile_game",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid",  "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "type_id":{"type":"uuid",  "required":false},
+            "game_profile":{"type":"data", "required":false},
+            "profile_version":{"type":"string", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["profile_id","game_id"]}
+            ],
+            "set":[
+                {"params":["uuid"]}
+            ],
+            "del":[
+                {"params":["uuid"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_network",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "secret":{"type":"string", "maximum":500, "required":false},
+            "type":{"type":"string", "maximum":500, "required":false},
+            "url":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["code"]},
+                {"params":["uuid","type"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["code"]}
+            ],
+            "del":[
+                {"params":["uuid"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["uuid","type"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_network_auth",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid", "required":false},
+            "game_network_id":{"type":"uuid", "required":false},
+            "app_id":{"type":"string", "maximum":500, "required":false},
+            "secret":{"type":"string", "maximum":500, "required":false},
+            "type":{"type":"string", "maximum":500, "required":false},
+            "url":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id","game_network_id"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["game_id","game_network_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id","game_network_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"profile_game_network",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid",  "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "game_network_id":{"type":"uuid",  "required":false},
+            "secret":{"type":"string", "maximum":500, "required":false},
+            "hash":{"type":"string", "maximum":500, "required":false},
+            "token":{"type":"string", "maximum":500, "required":false},
+            "network_username":{"type":"string", "maximum":500, "required":false},
+            "network_fullname":{"type":"string", "maximum":500, "required":false},
+            "network_user_id":{"type":"string", "maximum":500, "required":false},
+            "network_auth":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["profile_id","game_id"]},
+                {"params":["profile_id","game_id","game_network_id"]},
+                {"params":["network_username","game_id","game_network_id"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["profile_id","game_id"]},
+                {"params":["profile_id","game_id","game_network_id"]},
+                {"params":["network_username","game_id","game_network_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["profile_id","game_id"]},
+                {"params":["profile_id","game_id","game_network_id"]},
+                {"params":["network_username","game_id","game_network_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id"]},
+                {"params":["profile_id","game_id"]},
+                {"params":["profile_id","game_id","game_network_id"]},
+                {"params":["network_username","game_id","game_network_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    }
     ,
-    "models": [
-        {
-            "id":"base_entity",
-            "description":"Base model",
-            "type":"object",
-            "generate":["code"],
-            "properties": {
-                "uuid":{ "type":"uuid", "format":"uuid", "maximum":40, "required":true},
-                "date_created":{"type":"datetime", "format":"datetime", "required":false},
-                "date_modified":{"type":"datetime", "format":"datetime", "required":false},
-                "status":{"type":"string", "maximum":255, "required":false},
-                "type":{"type":"string", "maximum":500, "required":false},
-                "active":{"type":"bool"}
-            }
+    {
+        "id":"profile_game_data_attribute",
+        "extends": "base_entity",
+        "description":"Used for local storage in game client so keys are compact.",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "uuid":{"type":"uuid", "required":false},
+            "profile_id":{"type":"uuid", "required":false},
+            "game_id":{"type":"uuid", "required":false},
+            "code":{"type":"string", "maximum":500, "required":false},
+            "type":{"type":"string", "maximum":500, "required":false},
+            "otype":{"type":"string", "maximum":500, "required":false},
+            "name":{"type":"string", "maximum":500, "required":false},
+            "val":{"type":"data", "required":false}
         },
-        {
-            "id":"base_meta",
-            "description":"Base model",
-            "extends": "base_entity",
-            "type":"object",
-            "generate":["code"],
-            "properties":{
-                "code":{"type":"string", "maximum":255, "required":false},
-                "name":{"type":"string", "maximum":255, "required":false},
-                "display_name":{"type":"string", "maximum":255, "required":false},
-                "description":{"type":"string", "maximum":255, "required":false}
-            }
-        },
-        {
-            "id":"base_location",
-            "description":"Base model",
-            "extends": "base_meta",
-            "type":"object",
-            "generate":["code"],
-            "properties":{
-                "email":{"type":"string", "maximum":255, "required":false},
-                "address1":{"type":"string", "maximum":1000, "required":false},
-                "address2":{"type":"string", "maximum":500, "required":false},
-                "city":{"type":"string", "maximum":255, "required":false},
-                "state_province":{"type":"string", "maximum":255, "required":false},
-                "country_code":{"type":"string", "maximum":255, "required":false},
-                "dob":{"type":"datetime", "required":false},
-                "postal_code":{"type":"string", "maximum":30, "required":false},
-                "latitude":{"type":"double", "required":false},
-                "longitude":{"type":"double", "required":false},
-                "phone":{"type":"string", "maximum":30,"required":false},
-                "fax":{"type":"string", "maximum":30,"required":false},
-                "facebook":{"type":"string", "maximum":255,"required":false},
-                "twitter":{"type":"string", "maximum":50,"required":false},
-                "date_start":{"type":"datetime", "required":false },
-                "date_end":{"type":"datetime", "required":false }
-            }
-        },
-        {
-            "id":"game",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "app_id":{"type":"uuid", "format":"uuid", "maximum":40, "required":false},
-                "org_id":{"type":"uuid",  "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+            {"fields":["uuid"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id","game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id","game_id","code"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id","code"]}
             ],
-            "indexes":[
-            
+            "set":[
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id","code"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["name"]},
-                    {"params":["org_id"]},
-                    {"params":["app_id"]},
-                    {"params":["org_id", "app_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["name"]},
-                    {"params":["org_id"]},
-                    {"params":["app_id"]},
-                    {"params":["org_id", "app_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["name"]},
-                    {"params":["org_id"]},
-                    {"params":["app_id"]},
-                    {"params":["org_id", "app_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["name"]},
-                    {"params":["org_id"]},
-                    {"params":["app_id"]},
-                    {"params":["org_id", "app_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_category",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "org_id":{"type":"uuid", "maximum":50, "required":true},
-                "type_id":{"type":"uuid", "maximum":50, "required":true}
-            },
-            "relation":[
-                {"table":"", "field":""}
+            "del":[
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id","code"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["name"]},
-                    {"params":["org_id"]},
-                    {"params":["type_id"]},
-                    {"params":["org_id", "type_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["code", "org_id"]},
-                    {"params":["code", "org_id", "type_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["name"]},
-                    {"params":["org_id"]},
-                    {"params":["type_id"]},
-                    {"params":["org_id", "type_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_category_tree",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "category_id":{"type":"uuid",  "required":true},                
-                "parent_id":{"type":"uuid",  "required":true}
-            },
-            "relation":[
-                {"table":"", "field":""}
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id","code"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["parent_id"]},
-                    {"params":["category_id"]},
-                    {"params":["parent_id","category_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["parent_id"]},
-                    {"params":["category_id"]},
-                    {"params":["parent_id","category_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["parent_id"]},
-                    {"params":["category_id"]},
-                    {"params":["parent_id","category_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_category_assoc",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "category_id":{"type":"uuid",  "required":true},                
-                "game_id":{"type":"uuid",  "required":true}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["category_id"]},
-                    {"params":["game_id","category_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["category_id"]},
-                    {"params":["game_id","category_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_type",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "type":{"type":"string", "maximum":50, "required":true}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["name"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["name"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"profile_game",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{                
-                "game_id":{"type":"uuid",  "required":false},
-                "profile_id":{"type":"uuid",  "required":false},
-                "type_id":{"type":"uuid",  "required":false},
-                "game_profile":{"type":"data", "required":false},
-                "profile_version":{"type":"string", "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
-
-            ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["profile_id","game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["profile_id"]},
-                    {"params":["profile_id","game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_network",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{            
-                "secret":{"type":"string", "maximum":500, "required":false},
-                "type":{"type":"string", "maximum":500, "required":false},
-                "url":{"type":"string", "maximum":500, "required":false},
-                "data":{"type":"data", "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
-
-            ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["code"]},
-                    {"params":["uuid","type"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["code"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["uuid","type"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_network_auth",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{            
-                "game_id":{"type":"uuid", "required":false},
-                "game_network_id":{"type":"uuid", "required":false},
-                "app_id":{"type":"string", "maximum":500, "required":false},
-                "secret":{"type":"string", "maximum":500, "required":false},
-                "type":{"type":"string", "maximum":500, "required":false},
-                "url":{"type":"string", "maximum":500, "required":false},
-                "data":{"type":"data", "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
-
-            ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["game_id","game_network_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["game_id","game_network_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id","game_network_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"profile_game_network",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{                
-                "game_id":{"type":"uuid",  "required":false},
-                "profile_id":{"type":"uuid",  "required":false},
-                "game_network_id":{"type":"uuid",  "required":false},
-                "secret":{"type":"string", "maximum":500, "required":false},
-                "hash":{"type":"string", "maximum":500, "required":false},
-                "token":{"type":"string", "maximum":500, "required":false},
-                "network_username":{"type":"string", "maximum":500, "required":false},
-                "data":{"type":"data", "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
-
-            ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["profile_id","game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["profile_id"]},
-                    {"params":["profile_id","game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "browse":[
+                {"params":["filter"]}
+            ]
         }
-        ,
-        {
-            "id":"profile_game_data_attribute",
-            "extends": "base_entity",
-            "description":"Used for local storage in game client so keys are compact.",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "uuid":{"type":"uuid", "required":false},
-                "profile_id":{"type":"uuid", "required":false},
-                "game_id":{"type":"uuid", "required":false},
-                "code":{"type":"string", "maximum":500, "required":false},
-                "type":{"type":"string", "maximum":500, "required":false},
-                "otype":{"type":"string", "maximum":500, "required":false},
-                "name":{"type":"string", "maximum":500, "required":false},
-                "val":{"type":"data", "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
-                {"fields":["uuid"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["profile_id","game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["profile_id","game_id","code"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "methods":{
-                "get":[
-                    {"params":["uuid"]},
-                    {"params":["profile_id"]},
-                    {"params":["profile_id","game_id","code"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["profile_id"]},
-                    {"params":["profile_id","game_id","code"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["profile_id"]},
-                    {"params":["profile_id","game_id","code"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["profile_id"]},
-                    {"params":["profile_id","game_id","code"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        }
-        ,
-        {
-            "id":"game_session",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{                
-                "game_id":{"type":"uuid",  "required":false},
-                "game_code":{"type":"string", "maximum":255, "required":false},
-                "profile_id":{"type":"uuid",  "required":false},
-                "profile_username":{"type":"string", "maximum":500, "required":false},
-                "profile_network":{"type":"string", "maximum":255, "required":false},
-                "profile_device":{"type":"string", "maximum":50, "required":false},
-                "network_uuid":{"type":"string", "maximum":40, "required":false},
-                "network_ip":{"type":"string", "maximum":40, "required":false},
-                "network_port":{"type":"int", "required":false},
-                "network_external_ip":{"type":"string", "maximum":40, "required":false},
-                "network_external_port":{"type":"int", "required":false},
-                "network_use_nat":{"type":"bool", "required":false},
-                "game_level":{"type":"string", "maximum":255, "required":false},
-                "game_area":{"type":"string", "maximum":255, "required":false},
-                "game_player_x":{"type":"numeric", "required":false},
-                "game_player_y":{"type":"numeric", "required":false},
-                "game_player_z":{"type":"numeric", "required":false},
-                "game_state":{"type":"string", "required":false},
-                "game_type":{"type":"string", "maximum":255, "required":false},
-                "game_players_connected":{"type":"int", "required":false},
-                "game_players_allowed":{"type":"int", "required":false},
-                "hash":{"type":"string", "maximum":255, "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
+    }
+    ,
+    {
+        "id":"game_session",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid",  "required":false},
+            "game_code":{"type":"string", "maximum":255, "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "profile_username":{"type":"string", "maximum":500, "required":false},
+            "profile_network":{"type":"string", "maximum":255, "required":false},
+            "profile_device":{"type":"string", "maximum":50, "required":false},
+            "network_uuid":{"type":"string", "maximum":40, "required":false},
+            "network_ip":{"type":"string", "maximum":40, "required":false},
+            "network_port":{"type":"int", "required":false},
+            "network_external_ip":{"type":"string", "maximum":40, "required":false},
+            "network_external_port":{"type":"int", "required":false},
+            "network_use_nat":{"type":"bool", "required":false},
+            "game_level":{"type":"string", "maximum":255, "required":false},
+            "game_area":{"type":"string", "maximum":255, "required":false},
+            "game_player_x":{"type":"numeric", "required":false},
+            "game_player_y":{"type":"numeric", "required":false},
+            "game_player_z":{"type":"numeric", "required":false},
+            "game_state":{"type":"string", "required":false},
+            "game_type":{"type":"string", "maximum":255, "required":false},
+            "game_players_connected":{"type":"int", "required":false},
+            "game_players_allowed":{"type":"int", "required":false},
+            "hash":{"type":"string", "maximum":255, "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
 
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["profile_id","game_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["profile_id","game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["profile_id"]},
-                    {"params":["profile_id","game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "set":[
+                {"params":["uuid"]}
+            ],
+            "del":[
+                {"params":["uuid"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_session_data",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "data":{"type":"data", "required":false},
+            "data_results":{"type":"data", "required":false},
+            "data_layer_projectile":{"type":"data", "required":false},
+            "data_layer_enemy":{"type":"data", "required":false},
+            "data_layer_actors":{"type":"data", "required":false}
         },
-        {
-            "id":"game_session_data",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{                
-                "data":{"type":"data", "required":false},
-                "data_results":{"type":"data", "required":false},
-                "data_layer_projectile":{"type":"data", "required":false},
-                "data_layer_enemy":{"type":"data", "required":false},
-                "data_layer_actors":{"type":"data", "required":false}                
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
 
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "set":[
+                {"params":["uuid"]}
+            ],
+            "del":[
+                {"params":["uuid"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_content",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid",  "required":true},
+            "data":{"type":"data", "required":false},
+            "increment":{"type":"int", "required":false},
+            "version":{"type":"string", "maximum":255, "required":false},
+            "hash":{"type":"string", "maximum":255, "required":false},
+            "path":{"type":"string", "maximum":500, "required":false},
+            "filename":{"type":"string", "maximum":500, "required":false},
+            "extension":{"type":"string", "maximum":50, "required":false},
+            "platform":{"type":"string", "maximum":255, "required":false},
+            "source":{"type":"string", "maximum":255, "required":false},
+            "content_type":{"type":"string", "maximum":255, "required":false}
         },
-        {
-            "id":"game_content",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{                         
-                "game_id":{"type":"uuid",  "required":true}, 
-                "data":{"type":"data", "required":false},
-                "increment":{"type":"int", "required":false}, 
-                "version":{"type":"string", "maximum":255, "required":false},  
-                "hash":{"type":"string", "maximum":255, "required":false},    
-                "path":{"type":"string", "maximum":500, "required":false},    
-                "filename":{"type":"string", "maximum":500, "required":false},    
-                "extension":{"type":"string", "maximum":50, "required":false},    
-                "platform":{"type":"string", "maximum":255, "required":false},    
-                "source":{"type":"string", "maximum":255, "required":false},    
-                "content_type":{"type":"string", "maximum":255, "required":false}            
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
 
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id"]},
+                {"params":["game_id", "path"]},
+                {"params":["game_id", "path", "version"]},
+                {"params":["game_id", "path", "version", "platform", "increment"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["game_id"]},
-                    {"params":["game_id", "path"]},
-                    {"params":["game_id", "path", "version"]},
-                    {"params":["game_id", "path", "version", "platform", "increment"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["game_id", "path"]},
-                    {"params":["game_id", "path", "version"]},
-                    {"params":["game_id", "path", "version", "platform", "increment"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["game_id", "path"]},
-                    {"params":["game_id", "path", "version"]},
-                    {"params":["game_id", "path", "version", "platform", "increment"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["game_id", "path"]},
-                    {"params":["game_id", "path", "version"]},
-                    {"params":["game_id", "path", "version", "platform", "increment"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "set":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "path"]},
+                {"params":["game_id", "path", "version"]},
+                {"params":["game_id", "path", "version", "platform", "increment"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "path"]},
+                {"params":["game_id", "path", "version"]},
+                {"params":["game_id", "path", "version", "platform", "increment"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "path"]},
+                {"params":["game_id", "path", "version"]},
+                {"params":["game_id", "path", "version", "platform", "increment"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
         }
-        ,
-        {
-            "id":"game_profile_content",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{                         
-                "game_id":{"type":"uuid",  "required":true},
-                "profile_id":{"type":"uuid",  "required":true}, 
-                "username":{"type":"string", "maximum":500, "required":false}, 
-                "game_network":{"type":"string", "maximum":500, "required":false}, 
-                "data":{"type":"data", "required":false},
-                "increment":{"type":"int", "required":false}, 
-                "version":{"type":"string", "maximum":255, "required":false},  
-                "hash":{"type":"string", "maximum":255, "required":false},    
-                "path":{"type":"string", "maximum":500, "required":false},    
-                "filename":{"type":"string", "maximum":500, "required":false},    
-                "extension":{"type":"string", "maximum":50, "required":false},    
-                "platform":{"type":"string", "maximum":255, "required":false},    
-                "source":{"type":"string", "maximum":255, "required":false},    
-                "content_type":{"type":"string", "maximum":255, "required":false}              
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
+    }
+    ,
+    {
+        "id":"game_profile_content",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid",  "required":true},
+            "profile_id":{"type":"uuid",  "required":true},
+            "username":{"type":"string", "maximum":500, "required":false},
+            "game_network":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false},
+            "increment":{"type":"int", "required":false},
+            "version":{"type":"string", "maximum":255, "required":false},
+            "hash":{"type":"string", "maximum":255, "required":false},
+            "path":{"type":"string", "maximum":500, "required":false},
+            "filename":{"type":"string", "maximum":500, "required":false},
+            "extension":{"type":"string", "maximum":50, "required":false},
+            "platform":{"type":"string", "maximum":255, "required":false},
+            "source":{"type":"string", "maximum":255, "required":false},
+            "content_type":{"type":"string", "maximum":255, "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
 
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "username"]},
+                {"params":["username"]},
+                {"params":["game_id", "profile_id", "path"]},
+                {"params":["game_id", "profile_id", "path", "version"]},
+                {"params":["game_id", "profile_id", "path", "version", "platform", "increment"]},
+                {"params":["game_id", "username", "path"]},
+                {"params":["game_id", "username", "path", "version"]},
+                {"params":["game_id", "username", "path", "version", "platform", "increment"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["game_id", "profile_id"]},
-                    {"params":["game_id", "username"]},
-                    {"params":["username"]},
-                    {"params":["game_id", "profile_id", "path"]},
-                    {"params":["game_id", "profile_id", "path", "version"]},
-                    {"params":["game_id", "profile_id", "path", "version", "platform", "increment"]},
-                    {"params":["game_id", "username", "path"]},
-                    {"params":["game_id", "username", "path", "version"]},
-                    {"params":["game_id", "username", "path", "version", "platform", "increment"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["game_id", "profile_id"]},
-                    {"params":["game_id", "username"]},
-                    {"params":["username"]},
-                    {"params":["game_id", "profile_id", "path"]},
-                    {"params":["game_id", "profile_id", "path", "version"]},
-                    {"params":["game_id", "profile_id", "path", "version", "platform", "increment"]},
-                    {"params":["game_id", "username", "path"]},
-                    {"params":["game_id", "username", "path", "version"]},
-                    {"params":["game_id", "username", "path", "version", "platform", "increment"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["game_id", "profile_id"]},
-                    {"params":["game_id", "username"]},
-                    {"params":["username"]},
-                    {"params":["game_id", "profile_id", "path"]},
-                    {"params":["game_id", "profile_id", "path", "version"]},
-                    {"params":["game_id", "profile_id", "path", "version", "platform", "increment"]},
-                    {"params":["game_id", "username", "path"]},
-                    {"params":["game_id", "username", "path", "version"]},
-                    {"params":["game_id", "username", "path", "version", "platform", "increment"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id", "profile_id"]},
-                    {"params":["game_id", "username"]},
-                    {"params":["username"]},
-                    {"params":["game_id", "profile_id", "path"]},
-                    {"params":["game_id", "profile_id", "path", "version"]},
-                    {"params":["game_id", "profile_id", "path", "version", "platform", "increment"]},
-                    {"params":["game_id", "username", "path"]},
-                    {"params":["game_id", "username", "path", "version"]},
-                    {"params":["game_id", "username", "path", "version", "platform", "increment"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "set":[
+                {"params":["uuid"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "username"]},
+                {"params":["username"]},
+                {"params":["game_id", "profile_id", "path"]},
+                {"params":["game_id", "profile_id", "path", "version"]},
+                {"params":["game_id", "profile_id", "path", "version", "platform", "increment"]},
+                {"params":["game_id", "username", "path"]},
+                {"params":["game_id", "username", "path", "version"]},
+                {"params":["game_id", "username", "path", "version", "platform", "increment"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "username"]},
+                {"params":["username"]},
+                {"params":["game_id", "profile_id", "path"]},
+                {"params":["game_id", "profile_id", "path", "version"]},
+                {"params":["game_id", "profile_id", "path", "version", "platform", "increment"]},
+                {"params":["game_id", "username", "path"]},
+                {"params":["game_id", "username", "path", "version"]},
+                {"params":["game_id", "username", "path", "version", "platform", "increment"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "username"]},
+                {"params":["username"]},
+                {"params":["game_id", "profile_id", "path"]},
+                {"params":["game_id", "profile_id", "path", "version"]},
+                {"params":["game_id", "profile_id", "path", "version", "platform", "increment"]},
+                {"params":["game_id", "username", "path"]},
+                {"params":["game_id", "username", "path", "version"]},
+                {"params":["game_id", "username", "path", "version", "platform", "increment"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_app",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "app_id":{"type":"uuid",  "required":true},
+            "game_id":{"type":"uuid",  "required":true}
         },
-        {
-            "id":"game_app",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "app_id":{"type":"uuid",  "required":true},                
-                "game_id":{"type":"uuid",  "required":true}
-            },
-            "relation":[
-                {"table":"", "field":""}
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["app_id"]},
+                {"params":["game_id","app_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["app_id"]},
-                    {"params":["game_id","app_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["app_id"]},
-                    {"params":["game_id","app_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "set":[
+                {"params":["uuid"]}
+            ],
+            "del":[
+                {"params":["uuid"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["app_id"]},
+                {"params":["game_id","app_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"profile_game_location",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_location_id":{"type":"uuid",  "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "type_id":{"type":"uuid",  "required":false}
         },
-        {
-            "id":"profile_game_location",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{                
-                "game_location_id":{"type":"uuid",  "required":false},
-                "profile_id":{"type":"uuid",  "required":false},
-                "type_id":{"type":"uuid",  "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "indexes":[
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
 
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_location_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["profile_id","game_location_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["game_location_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["profile_id","game_location_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_location_id"]},
-                    {"params":["profile_id"]},
-                    {"params":["profile_id","game_location_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "set":[
+                {"params":["uuid"]}
+            ],
+            "del":[
+                {"params":["uuid"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_location_id"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_location_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
         }
-        ,
-        {
-            "id":"game_photo",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "external_id":{"type":"uuid", "maximum":50, "required":false},
-                "url":{"type":"string", "maximum":500, "required":false},
-                "content_type":{"type":"string", "maximum":100, "required":false},
-                "third_party_id":{"type":"string", "maximum":500, "required":false},
-                "third_party_url":{"type":"string", "maximum":500, "required":false},
-                "third_party_data":{"type":"string", "maximum":500, "required":false},
-                "third_party_oembed":{"type":"string", "maximum":500, "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
+    }
+    ,
+    {
+        "id":"game_photo",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "external_id":{"type":"uuid", "maximum":50, "required":false},
+            "url":{"type":"string", "maximum":500, "required":false},
+            "content_type":{"type":"string", "maximum":100, "required":false},
+            "third_party_id":{"type":"string", "maximum":500, "required":false},
+            "third_party_url":{"type":"string", "maximum":500, "required":false},
+            "third_party_data":{"type":"string", "maximum":500, "required":false},
+            "third_party_oembed":{"type":"string", "maximum":500, "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["external_id"]},
+                {"params":["url"]},
+                {"params":["url","external_id"]},
+                {"params":["uuid","external_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["external_id"]},
-                    {"params":["url"]},
-                    {"params":["url","external_id"]},
-                    {"params":["uuid","external_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["external_id"]},
-                    {"params":["url"]},
-                    {"params":["url","external_id"]},
-                    {"params":["uuid","external_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["external_id"]},
-                    {"params":["url"]},
-                    {"params":["url","external_id"]},
-                    {"params":["uuid","external_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["external_id"]},
-                    {"params":["url"]},
-                    {"params":["url","external_id"]},
-                    {"params":["uuid","external_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        }  
-        ,
-        {
-            "id":"game_video",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "external_id":{"type":"uuid", "maximum":50, "required":false},
-                "url":{"type":"string", "maximum":500, "required":false},
-                "content_type":{"type":"string", "maximum":100, "required":false},
-                "third_party_id":{"type":"string", "maximum":500, "required":false},
-                "third_party_url":{"type":"string", "maximum":500, "required":false},
-                "third_party_data":{"type":"string", "maximum":500, "required":false},
-                "third_party_oembed":{"type":"string", "maximum":500, "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
+            "set":[
+                {"params":["uuid"]},
+                {"params":["external_id"]},
+                {"params":["url"]},
+                {"params":["url","external_id"]},
+                {"params":["uuid","external_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["external_id"]},
-                    {"params":["url"]},
-                    {"params":["url","external_id"]},
-                    {"params":["uuid","external_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["external_id"]},
-                    {"params":["url"]},
-                    {"params":["url","external_id"]},
-                    {"params":["uuid","external_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["external_id"]},
-                    {"params":["url"]},
-                    {"params":["url","external_id"]},
-                    {"params":["uuid","external_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["external_id"]},
-                    {"params":["url"]},
-                    {"params":["url","external_id"]},
-                    {"params":["uuid","external_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "del":[
+                {"params":["uuid"]},
+                {"params":["external_id"]},
+                {"params":["url"]},
+                {"params":["url","external_id"]},
+                {"params":["uuid","external_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["external_id"]},
+                {"params":["url"]},
+                {"params":["url","external_id"]},
+                {"params":["uuid","external_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
         }
-        ,
-        {
-            "id":"game_rpg_item",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code"],
-            "properties":{
-                "game_id":{"type":"uuid", "maximum":50, "required":false},
-                "game_health":{"type":"numeric", "required":false},
-                "game_energy":{"type":"numeric", "required":false},
-                "game_attack":{"type":"numeric", "required":false},
-                "game_defense":{"type":"numeric", "required":false},
-                "game_skill":{"type":"numeric", "required":false},
-                "game_data":{"type":"data", "required":false},
-                "game_price":{"type":"numeric", "required":false},
-                "game_type":{"type":"numeric", "required":false},
-                "url":{"type":"string", "maximum":500, "required":false},
-                "content_type":{"type":"string", "maximum":100, "required":false},
-                "third_party_id":{"type":"string", "maximum":500, "required":false},
-                "third_party_url":{"type":"string", "maximum":500, "required":false},
-                "third_party_data":{"type":"string", "maximum":500, "required":false},
-                "third_party_oembed":{"type":"string", "maximum":500, "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
+    }
+    ,
+    {
+        "id":"game_video",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "external_id":{"type":"uuid", "maximum":50, "required":false},
+            "url":{"type":"string", "maximum":500, "required":false},
+            "content_type":{"type":"string", "maximum":100, "required":false},
+            "third_party_id":{"type":"string", "maximum":500, "required":false},
+            "third_party_url":{"type":"string", "maximum":500, "required":false},
+            "third_party_data":{"type":"string", "maximum":500, "required":false},
+            "third_party_oembed":{"type":"string", "maximum":500, "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["external_id"]},
+                {"params":["url"]},
+                {"params":["url","external_id"]},
+                {"params":["uuid","external_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "set":[
+                {"params":["uuid"]},
+                {"params":["external_id"]},
+                {"params":["url"]},
+                {"params":["url","external_id"]},
+                {"params":["uuid","external_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["external_id"]},
+                {"params":["url"]},
+                {"params":["url","external_id"]},
+                {"params":["uuid","external_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["external_id"]},
+                {"params":["url"]},
+                {"params":["url","external_id"]},
+                {"params":["uuid","external_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
         }
-        
-        ,
-        {
-            "id":"game_rpg_item_weapon",
-            "extends": "game_rpg_item",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-            },
-            "relation":[
-                {"table":"", "field":""}
+    }
+    ,
+    {
+        "id":"game_rpg_item",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code"],
+        "properties":{
+            "game_id":{"type":"uuid", "maximum":50, "required":false},
+            "game_health":{"type":"numeric", "required":false},
+            "game_energy":{"type":"numeric", "required":false},
+            "game_attack":{"type":"numeric", "required":false},
+            "game_defense":{"type":"numeric", "required":false},
+            "game_skill":{"type":"numeric", "required":false},
+            "game_data":{"type":"data", "required":false},
+            "game_price":{"type":"numeric", "required":false},
+            "game_type":{"type":"numeric", "required":false},
+            "url":{"type":"string", "maximum":500, "required":false},
+            "content_type":{"type":"string", "maximum":100, "required":false},
+            "third_party_id":{"type":"string", "maximum":500, "required":false},
+            "third_party_url":{"type":"string", "maximum":500, "required":false},
+            "third_party_data":{"type":"string", "maximum":500, "required":false},
+            "third_party_oembed":{"type":"string", "maximum":500, "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "set":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
         }
-        
-        ,
-        {
-            "id":"game_rpg_item_skill",
-            "extends": "game_rpg_item",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-            },
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+    }
+
+    ,
+    {
+        "id":"game_rpg_item_weapon",
+        "extends": "game_rpg_item",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
         },
-        {
-            "id":"game_product",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{            
-                "game_id":{"type":"string", "maximum":100, "required":false},
-                "url":{"type":"string", "maximum":255, "required":false}
-            },
-            "relation":[
-                {"table":"", "field":""}
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["url"]},
-                    {"params":["url","game_id"]},
-                    {"params":["uuid","game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_statistic_leaderboard",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "key":{"type":"uuid", "required":false},
-                "game_id":{"type":"uuid",  "required":false},
-                "profile_id":{"type":"uuid",  "required":false},
-                "stat_value":{"type":"float", "required":false},
-                "stat_value_formatted":{"type":"string", "maximum":500, "required":false},
-                "username":{"type":"string", "maximum":500, "required":false},
-                "network":{"type":"string", "maximum":500, "required":false},
-                "data":{"type":"data", "required":false},
-                "type":{"type":"string", "maximum":500, "required":false},
-                "level":{"type":"string", "maximum":500, "required":false},
-                "timestamp":{"type":"float", "required":false},
-                "rank":{"type":"int", "required":false},
-                "rank_change":{"type":"int", "required":false},
-                "rank_total_count":{"type":"int", "required":false}
-                
-            },
-            "indexes":[
-                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["key", "username"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},        
-                {"fields":["key", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},                
-                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},       
-                {"fields":["key", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},                
-                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+            "set":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
             ],
-            "relation":[
-                {"table":"", "field":""}
+            "del":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
             ],
-            "methods":{
-                "get":[
-                    {},
-                    {"params":["uuid"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["key", "game_id", "network"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]},
-                    {"params":["profile_id", "game_id"]},
-                    {"params":["profile_id", "game_id", "timestamp"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["uuid", "profile_id","game_id","timestamp"]}, 
-                    {"params":["key", "profile_id"]},                       
-                    {"params":["key", "profile_id", "timestamp"]}, 
-                    {"params":["key", "profile_id","game_id","timestamp"]},                    
-                    {"params":["key", "profile_id","game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "count":[
-                    {},
-                    {"params":["uuid"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_statistic_leaderboard_rollup",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "key":{"type":"uuid", "required":false},
-                "game_id":{"type":"uuid",  "required":false},
-                "profile_id":{"type":"uuid",  "required":false},
-                "stat_value":{"type":"float", "required":false},
-                "stat_value_formatted":{"type":"string", "maximum":500, "required":false},
-                "username":{"type":"string", "maximum":500, "required":false},
-                "network":{"type":"string", "maximum":500, "required":false},
-                "data":{"type":"data", "required":false},
-                "type":{"type":"string", "maximum":500, "required":false},
-                "level":{"type":"string", "maximum":500, "required":false},
-                "timestamp":{"type":"float", "required":false},
-                "rank":{"type":"int", "required":false},
-                "rank_change":{"type":"int", "required":false},
-                "rank_total_count":{"type":"int", "required":false}
-                
-            },
-            "indexes":[
-                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["key", "username"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},        
-                {"fields":["key", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},                
-                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},       
-                {"fields":["key", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},                
-                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
             ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {},
-                    {"params":["uuid"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["key", "game_id", "network"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]},
-                    {"params":["profile_id", "game_id"]},
-                    {"params":["profile_id", "game_id", "timestamp"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["uuid", "profile_id","game_id","timestamp"]}, 
-                    {"params":["key", "profile_id"]},                       
-                    {"params":["key", "profile_id", "timestamp"]}, 
-                    {"params":["key", "profile_id","game_id","timestamp"]},                    
-                    {"params":["key", "profile_id","game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "count":[
-                    {},
-                    {"params":["uuid"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_live_queue",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "game_id":{"type":"uuid", "maximum":50, "required":false},
-                "profile_id":{"type":"uuid", "maximum":50, "required":false},
-                "data_stat":{"type":"data", "required":false},
-                "data_ad":{"type":"data", "required":false}
-                
-            },
-            "indexes":[
-                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},                 
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},                 
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "count":[
-                    {},
-                    {"params":["uuid"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_live_recent_queue",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "game":{"type":"string", "maximum":500, "required":false},
-                "username":{"type":"string", "maximum":500, "required":false},
-                "type":{"type":"string", "maximum":500, "required":false},
-                "game_id":{"type":"uuid", "maximum":50, "required":false},
-                "profile_id":{"type":"uuid", "maximum":50, "required":false},
-                "data":{"type":"data", "required":false}
-                
-            },
-            "indexes":[
-                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},                 
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {},
-                    {"params":["uuid"]},
-                    {"params":["game_id"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},                 
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["profile_id", "game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_profile_statistic",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "key":{"type":"string", "maximum":50, "required":false},
-                "game_id":{"type":"uuid",  "required":false},
-                "profile_id":{"type":"uuid",  "required":false},
-                "stat_value":{"type":"float", "required":false},
-                "username":{"type":"string", "maximum":500, "required":false},
-                "data":{"type":"data", "required":false},
-                "type":{"type":"string", "maximum":500, "required":false},
-                "level":{"type":"string", "maximum":500, "required":false},
-                "timestamp":{"type":"float", "required":false},
-                "points":{"type":"float", "required":false}
-                
-            },
-            "indexes":[
-                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["key", "username"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},        
-                {"fields":["key", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},    
-                {"fields":["key", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},                
-                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"params":["uuid"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["profile_id", "game_id"]},
-                    {"params":["profile_id", "game_id", "timestamp"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["uuid", "profile_id","game_id","timestamp"]}, 
-                    {"params":["profile_id","key"]},                       
-                    {"params":["profile_id","key", "timestamp"]}, 
-                    {"params":["key", "profile_id","game_id","timestamp"]},                    
-                    {"params":["profile_id","game_id", "key"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_statistic_meta",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "key":{"type":"string", "maximum":50, "required":false},
-                "game_id":{"type":"uuid",  "required":false},
-                "type":{"type":"string", "maximum":40, "required":false},
-                "order":{"type":"string", "maximum":40, "required":false},
-                "sort":{"type":"int", "required":false},
-                "store_count":{"type":"int", "required":false},
-                "data":{"type":"data", "required":false},
-                "points":{"type":"float", "required":false}
-            },
-            "indexes":[
-                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["code","game_id"]},
-                    {"params":["name"]},
-                    {"params":["key"]},
-                    {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["key", "game_id"], "sort_field":"sort", "sort_direction":"ASC"}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["code","game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["code","game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "returns":"int"},
-                    {"params":["code"], "returns":"int"},
-                    {"params":["code","game_id"]},
-                    {"params":["name"], "returns":"int"},
-                    {"params":["key"], "returns":"int"},
-                    {"params":["game_id"], "returns":"int"},
-                    {"params":["key", "game_id"], "returns":"int"}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_profile_statistic_timestamp",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "key":{"type":"string", "maximum":50, "required":false},
-                "profile_id":{"type":"uuid", "maximum":50, "required":false},
-                "game_id":{"type":"uuid", "maximum":50, "required":false},
-                "timestamp":{"type":"datetime", "required":false}
-            },
-            "indexes":[
-                {"fields":["key", "profile_id", "game_id","timestamp"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"params":["uuid"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id","timestamp"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id","timestamp"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id","timestamp"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"], "returns":"int"},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id","timestamp"], "returns":"int"}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_key_meta",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "level":{"type":"string", "maximum":500, "required":false},
-                "key_stat":{"type":"string", "maximum":50, "required":false},
-                "key_level":{"type":"string", "maximum":50, "required":false},
-                "key":{"type":"string", "maximum":50, "required":false},
-                "game_id":{"type":"uuid",  "required":false},
-                "type":{"type":"string", "maximum":40, "required":false},
-                "order":{"type":"string", "maximum":40, "required":false},
-                "sort":{"type":"int", "required":false},
-                "store_count":{"type":"int", "required":false},
-                "data":{"type":"data", "required":false}
-            },
-            "indexes":[
-                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key_stat", "key_level", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key_stat", "key_level", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key_stat", "key_level", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["code","game_id"]},
-                    {"params":["name"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["code", "level"], "sort_field":"sort", "sort_direction":"ASC"}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["code","game_id"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["key", "game_id", "level"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["code","game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["code","game_id"]},
-                    {"params":["name"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
-        },
-        {
-            "id":"game_level",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "key":{"type":"string", "maximum":50, "required":false},
-                "game_id":{"type":"uuid",  "required":false},
-                "type":{"type":"string", "maximum":40, "required":false},
-                "order":{"type":"string", "maximum":40, "required":false},
-                "sort":{"type":"int", "required":false},
-                "data":{"type":"data", "required":false}
-            },
-            "indexes":[
-                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"},                
-                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},                
-                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["code","game_id"]},
-                    {"params":["name"]},
-                    {"params":["key"]},
-                    {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["key", "game_id"], "sort_field":"sort", "sort_direction":"ASC"}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["code","game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["code","game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["code","game_id"]},
-                    {"params":["name"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "browse":[
+                {"params":["filter"]}
+            ]
         }
-        ,
-        {
-            "id":"game_profile_achievement",
-            "extends": "base_entity",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "game_id":{"type":"uuid",  "required":false},
-                "profile_id":{"type":"uuid",  "required":false},
-                "key":{"type":"string", "maximum":50, "required":false},
-                "completed":{"type":"bool", "required":false},
-                "achievement_value":{"type":"numeric", "required":false},
-                "username":{"type":"string", "maximum":500, "required":false},
-                "data":{"type":"data", "required":false},
-                "type":{"type":"string",  "maximum":500, "required":false},
-                "level":{"type":"string", "maximum":500, "required":false},
-                "timestamp":{"type":"float", "required":false}
-            },
-            "indexes":[
-                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},  
-                {"fields":["key", "username"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},        
-                {"fields":["key", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}, 
-                {"fields":["key", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},                
-                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
-            ],
-            "relation":[
-                {"table":"", "field":""}
-            ],
-            "methods":{
-                "get":[
-                    {"params":["uuid"]},
-                    {"params":["profile_id","key"]},
-                    {"params":["username"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]},
-                    {"params":["profile_id", "game_id"]},
-                    {"params":["profile_id", "game_id", "timestamp"]},
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]}
-                ],
-                "set":[               
-                    {"params":["uuid"]},                    
-                    {"params":["uuid","key"]},                    
-                    {"params":["profile_id","key"]},                    
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["profile_id","key"]},
-                    {"params":["uuid","key"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["profile_id","key"]},
-                    {"params":["username"]},         
-                    {"params":["key", "profile_id", "game_id"]},
-                    {"params":["key", "profile_id", "game_id", "timestamp"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+    }
+
+    ,
+    {
+        "id":"game_rpg_item_skill",
+        "extends": "game_rpg_item",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
         },
-        {
-            "id":"game_achievement_meta",
-            "extends": "base_meta",
-            "description":"",
-            "type":"object",
-            "generate":["code","data"],
-            "properties":{
-                "key":{"type":"string", "maximum":50, "required":false},
-                "game_id":{"type":"uuid",  "required":false},
-                "type":{"type":"string", "maximum":40, "required":false},
-                "leaderboard":{"type":"bool", "required":false},
-                "game_stat":{"type":"bool", "required":false},
-                "sort":{"type":"int", "required":false},
-                "points":{"type":"int", "required":false},
-                "modifier":{"type":"numeric", "required":false},
-                "level":{"type":"string", "maximum":500, "required":false},
-                "data":{"type":"data", "required":false }
-            },
-            "indexes":[
-                {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
-                {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
             ],
-            "relation":[
-                {"table":"", "field":""}
+            "set":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
             ],
-            "methods":{
-                "get":[
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["code","game_id"]},
-                    {"params":["name"]},
-                    {"params":["key"]},
-                    {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
-                    {"params":["key", "game_id"], "sort_field":"sort", "sort_direction":"ASC"}
-                ],
-                "set":[               
-                    {"params":["uuid"]},
-                    {"params":["code","game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "del":[                    
-                    {"params":["uuid"]},
-                    {"params":["code","game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "count":[
-                    {"scope":"public"},
-                    {"params":["uuid"]},
-                    {"params":["code"]},
-                    {"params":["code","game_id"]},
-                    {"params":["name"]},
-                    {"params":["key"]},
-                    {"params":["game_id"]},
-                    {"params":["key", "game_id"]}
-                ],
-                "browse":[
-                    {"params":["filter"]}
-                ]
-            }
+            "del":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
         }
-    ]
+    },
+    {
+        "id":"game_product",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"string", "maximum":100, "required":false},
+            "url":{"type":"string", "maximum":255, "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["url"]},
+                {"params":["url","game_id"]},
+                {"params":["uuid","game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_statistic_leaderboard",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "code":{"type":"string", "maximum":500, "required":false},
+            "game_id":{"type":"uuid",  "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "absolute_value":{"type":"float", "required":false},
+            "stat_value":{"type":"float", "required":false},
+            "stat_value_formatted":{"type":"string", "maximum":500, "required":false},
+            "username":{"type":"string", "maximum":500, "required":false},
+            "network":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false},
+            "type":{"type":"string", "maximum":500, "required":false},
+            "level":{"type":"string", "maximum":500, "required":false},
+            "timestamp":{"type":"float", "required":false},
+            "rank":{"type":"int", "required":false},
+            "rank_change":{"type":"int", "required":false},
+            "rank_total_count":{"type":"int", "required":false}
+
+        },
+        "indexes":[
+            {"fields":["code"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]},
+                {"params":["profile_id", "game_id", "timestamp"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["uuid", "profile_id","game_id","timestamp"]},                
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "count":[
+                {},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_statistic_leaderboard_rollup",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "code":{"type":"string", "maximum":500, "required":false},
+            "game_id":{"type":"uuid",  "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "absolute_value":{"type":"float", "required":false},
+            "stat_value":{"type":"float", "required":false},
+            "stat_value_formatted":{"type":"string", "maximum":500, "required":false},
+            "username":{"type":"string", "maximum":500, "required":false},
+            "network":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false},
+            "type":{"type":"string", "maximum":500, "required":false},
+            "level":{"type":"string", "maximum":500, "required":false},
+            "timestamp":{"type":"float", "required":false},
+            "rank":{"type":"int", "required":false},
+            "rank_change":{"type":"int", "required":false},
+            "rank_total_count":{"type":"int", "required":false}
+
+        },
+        "indexes":[
+            {"fields":["code"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]},
+                {"params":["profile_id", "game_id", "timestamp"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["uuid", "profile_id","game_id","timestamp"]},                
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "count":[
+                {},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_live_queue",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid", "maximum":50, "required":false},
+            "profile_id":{"type":"uuid", "maximum":50, "required":false},
+            "data_stat":{"type":"data", "required":false},
+            "data_ad":{"type":"data", "required":false}
+
+        },
+        "indexes":[
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "count":[
+                {},
+                {"params":["uuid"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_live_recent_queue",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game":{"type":"string", "maximum":500, "required":false},
+            "username":{"type":"string", "maximum":500, "required":false},
+            "type":{"type":"string", "maximum":500, "required":false},
+            "game_id":{"type":"uuid", "maximum":50, "required":false},
+            "profile_id":{"type":"uuid", "maximum":50, "required":false},
+            "data":{"type":"data", "required":false}
+
+        },
+        "indexes":[
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_profile_statistic",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "code":{"type":"string", "maximum":500, "required":false},
+            "game_id":{"type":"uuid",  "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "stat_value":{"type":"float", "required":false},
+            "username":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false},
+            "type":{"type":"string", "maximum":500, "required":false},
+            "level":{"type":"string", "maximum":500, "required":false},
+            "timestamp":{"type":"float", "required":false},
+            "points":{"type":"float", "required":false}
+
+        },
+        "indexes":[
+            {"fields":["code"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["game_id"]},
+                {"params":["code", "game_id"]},
+                {"params":["profile_id", "game_id"]},
+                {"params":["profile_id", "game_id", "timestamp"]},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id", "timestamp"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["uuid", "profile_id","game_id","timestamp"]},
+                {"params":["profile_id","code"]},
+                {"params":["profile_id","code", "timestamp"]},
+                {"params":["code", "profile_id","game_id","timestamp"]},
+                {"params":["code", "profile_id","game_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code", "game_id"]},
+                {"params":["profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["game_id"]},
+                {"params":["code", "game_id"]},
+                {"params":["profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id", "timestamp"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_statistic_meta",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid",  "required":false},
+            "type":{"type":"string", "maximum":40, "required":false},
+            "order":{"type":"string", "maximum":40, "required":false},
+            "sort":{"type":"int", "required":false},
+            "store_count":{"type":"int", "required":false},
+            "data":{"type":"data", "required":false},
+            "points":{"type":"float", "required":false}
+        },
+        "indexes":[
+            {"fields":["code"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["name"]},
+                {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["code", "game_id"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["code","game_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code","game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "returns":"int"},
+                {"params":["code"], "returns":"int"},
+                {"params":["code","game_id"]},
+                {"params":["name"], "returns":"int"},
+                {"params":["game_id"], "returns":"int"}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_profile_statistic_timestamp",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "code":{"type":"string", "maximum":500, "required":false},
+            "profile_id":{"type":"uuid", "required":false},
+            "game_id":{"type":"uuid", "required":false},
+            "timestamp":{"type":"datetime", "required":false}
+        },
+        "indexes":[
+            {"fields":["code", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id","timestamp"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id","timestamp"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id","timestamp"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "returns":"int"},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id","timestamp"], "returns":"int"}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_key_meta",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "level":{"type":"string", "maximum":500, "required":false},
+            "key_stat":{"type":"string", "maximum":50, "required":false},
+            "key_level":{"type":"string", "maximum":50, "required":false},
+            "key":{"type":"string", "maximum":50, "required":false},
+            "game_id":{"type":"uuid",  "required":false},
+            "type":{"type":"string", "maximum":40, "required":false},
+            "order":{"type":"string", "maximum":40, "required":false},
+            "sort":{"type":"int", "required":false},
+            "store_count":{"type":"int", "required":false},
+            "data":{"type":"data", "required":false}
+        },
+        "indexes":[
+            {"fields":["key"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["key_stat", "key_level", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["key_stat", "key_level", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["key_stat", "key_level", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["key", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["key", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["key", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["key", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code","game_id"]},
+                {"params":["name"]},
+                {"params":["key"]},
+                {"params":["game_id"]},
+                {"params":["key", "game_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["code", "level"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["code","game_id"]},
+                {"params":["key", "game_id"]},
+                {"params":["key", "game_id", "level"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code","game_id"]},
+                {"params":["key", "game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code","game_id"]},
+                {"params":["name"]},
+                {"params":["key"]},
+                {"params":["game_id"]},
+                {"params":["key", "game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_level",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "code":{"type":"string", "maximum":500, "required":false},
+            "game_id":{"type":"uuid",  "required":false},
+            "type":{"type":"string", "maximum":40, "required":false},
+            "order":{"type":"string", "maximum":40, "required":false},
+            "sort":{"type":"int", "required":false},
+            "data":{"type":"data", "required":false}
+        },
+        "indexes":[
+            {"fields":["code"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code","game_id"]},
+                {"params":["name"]},
+                {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["code","game_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code","game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code","game_id"]},
+                {"params":["name"]},
+                {"params":["game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    }
+    ,
+    {
+        "id":"game_profile_achievement",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid",  "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "code":{"type":"string", "maximum":500, "required":false},
+            "completed":{"type":"bool", "required":false},
+            "achievement_value":{"type":"numeric", "required":false},
+            "username":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false},
+            "type":{"type":"string",  "maximum":500, "required":false},
+            "level":{"type":"string", "maximum":500, "required":false},
+            "timestamp":{"type":"float", "required":false}
+        },
+        "indexes":[
+            {"fields":["code"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["profile_id","code"]},
+                {"params":["username"]},
+                {"params":["code"]},
+                {"params":["game_id"]},
+                {"params":["code", "game_id"]},
+                {"params":["profile_id", "game_id"]},
+                {"params":["profile_id", "game_id", "timestamp"]},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id", "timestamp"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["uuid","code"]},
+                {"params":["profile_id","code"]},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id", "timestamp"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["profile_id","code"]},
+                {"params":["uuid","code"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["profile_id","code"]},
+                {"params":["username"]},
+                {"params":["code", "profile_id", "game_id"]},
+                {"params":["code", "profile_id", "game_id", "timestamp"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_achievement_meta",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "code":{"type":"string", "maximum":500, "required":false},
+            "game_id":{"type":"uuid",  "required":false},
+            "type":{"type":"string", "maximum":40, "required":false},
+            "leaderboard":{"type":"bool", "required":false},
+            "game_stat":{"type":"bool", "required":false},
+            "sort":{"type":"int", "required":false},
+            "points":{"type":"int", "required":false},
+            "modifier":{"type":"numeric", "required":false},
+            "level":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false }
+        },
+        "indexes":[
+            {"fields":["code"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code","game_id"]},
+                {"params":["name"]},
+                {"params":["game_id"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["code","game_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code","game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code","game_id"]},
+                {"params":["name"]},
+                {"params":["game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    }
+  ]
 }
 
 

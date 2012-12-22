@@ -63,8 +63,8 @@ class GameLevel(BaseMeta):
     super(GameLevel, self).__init__()
     #self.__dict__.update(entries)
     self.sort = None
+    self.code = None
     self.data = None
-    self.key = None
     self.game_id = None
     self.type = None
     self.order = None

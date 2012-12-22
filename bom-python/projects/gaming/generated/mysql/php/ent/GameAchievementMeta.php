@@ -36,11 +36,11 @@ class GameAchievementMeta extends BaseMeta {
     }
     
     public $sort;
+    public $code;
     public $game_stat;
     public $level;
     public $data;
     public $points;
-    public $key;
     public $game_id;
     public $modifier;
     public $type;

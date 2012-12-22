@@ -36,8 +36,8 @@ class GameLevel extends BaseMeta {
     }
     
     public $sort;
+    public $code;
     public $data;
-    public $key;
     public $game_id;
     public $type;
     public $order;

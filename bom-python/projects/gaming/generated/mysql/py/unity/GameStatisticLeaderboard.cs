@@ -51,7 +51,7 @@ public class GameStatisticLeaderboard : BaseEntity {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public  username { get; set; }
-    public  rank_change { get; set; }
+    public  code { get; set; }
     public  network { get; set; }
     public  timestamp { get; set; }
     public  level { get; set; }
@@ -59,9 +59,10 @@ public class GameStatisticLeaderboard : BaseEntity {
     public  profile_id { get; set; }
     public  rank_total_count { get; set; }
     public  rank { get; set; }
-    public  key { get; set; }
+    public  rank_change { get; set; }
     public  type { get; set; }
     public  game_id { get; set; }
+    public  absolute_value { get; set; }
     public  data { get; set; }
     public  stat_value { get; set; }
 
@@ -78,8 +79,8 @@ public class GameStatisticLeaderboard : BaseEntity {
 	if (username != null) {
 	    dict = DataUtil.SetDictValue(dict, "username", username);
 	}
-	if (rank_change != null) {
-	    dict = DataUtil.SetDictValue(dict, "rank_change", rank_change);
+	if (code != null) {
+	    dict = DataUtil.SetDictValue(dict, "code", code);
 	}
 	if (network != null) {
 	    dict = DataUtil.SetDictValue(dict, "network", network);
@@ -102,14 +103,17 @@ public class GameStatisticLeaderboard : BaseEntity {
 	if (rank != null) {
 	    dict = DataUtil.SetDictValue(dict, "rank", rank);
 	}
-	if (key != null) {
-	    dict = DataUtil.SetDictValue(dict, "key", key);
+	if (rank_change != null) {
+	    dict = DataUtil.SetDictValue(dict, "rank_change", rank_change);
 	}
 	if (type != null) {
 	    dict = DataUtil.SetDictValue(dict, "type", type);
 	}
 	if (game_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
+	}
+	if (absolute_value != null) {
+	    dict = DataUtil.SetDictValue(dict, "absolute_value", absolute_value);
 	}
 	if (data != null) {
 	    dict = DataUtil.SetDictValue(dict, "data", data);
@@ -126,9 +130,9 @@ public class GameStatisticLeaderboard : BaseEntity {
 	    	username = DataType.Instance.Fill(dict["username"]);
 	    }		
 	}
-	if(dict.ContainsKey("rank_change")) {
-	    if(dict["rank_change"] != null) {
-	    	rank_change = DataType.Instance.Fill(dict["rank_change"]);
+	if(dict.ContainsKey("code")) {
+	    if(dict["code"] != null) {
+	    	code = DataType.Instance.Fill(dict["code"]);
 	    }		
 	}
 	if(dict.ContainsKey("network")) {
@@ -166,9 +170,9 @@ public class GameStatisticLeaderboard : BaseEntity {
 	    	rank = DataType.Instance.Fill(dict["rank"]);
 	    }		
 	}
-	if(dict.ContainsKey("key")) {
-	    if(dict["key"] != null) {
-	    	key = DataType.Instance.Fill(dict["key"]);
+	if(dict.ContainsKey("rank_change")) {
+	    if(dict["rank_change"] != null) {
+	    	rank_change = DataType.Instance.Fill(dict["rank_change"]);
 	    }		
 	}
 	if(dict.ContainsKey("type")) {
@@ -179,6 +183,11 @@ public class GameStatisticLeaderboard : BaseEntity {
 	if(dict.ContainsKey("game_id")) {
 	    if(dict["game_id"] != null) {
 	    	game_id = DataType.Instance.Fill(dict["game_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("absolute_value")) {
+	    if(dict["absolute_value"] != null) {
+	    	absolute_value = DataType.Instance.Fill(dict["absolute_value"]);
 	    }		
 	}
 	if(dict.ContainsKey("data")) {

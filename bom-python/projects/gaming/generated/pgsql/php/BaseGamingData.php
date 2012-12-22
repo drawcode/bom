@@ -2682,6 +2682,73 @@ class BaseGamingData(object):
         finally :
             pass
             
+    def CountProfileGameNetworkByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_count_profile_id_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+        , profile_id
+        , game_id
+        , game_network_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(game_network_id) #"in_game_network_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_count_profile_id_game_id_game_network_"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+        , network_username
+        , game_id
+        , game_network_id
+    ) :
+        parameters = []
+        parameters.append(network_username) #"in_network_username"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(game_network_id) #"in_game_network_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_count_network_username_game_id_game_ne"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
     def BrowseProfileGameNetworkListByFilter(self, filter_obj) :
         parameters = []
             
@@ -2715,16 +2782,124 @@ class BaseGamingData(object):
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.network_fullname) #"in_network_fullname"
         parameters.append(obj.secret) #"in_secret"
         parameters.append(obj.token) #"in_token"
         parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.network_auth) #"in_network_auth"
         parameters.append(obj.type) #"in_type"
+        parameters.append(obj.network_user_id) #"in_network_user_id"
                         
         try:
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_profile_game_network_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileGameNetworkByProfileIdByGameId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.hash) #"in_hash"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_network_id) #"in_game_network_id"
+        parameters.append(obj.network_username) #"in_network_username"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.network_fullname) #"in_network_fullname"
+        parameters.append(obj.secret) #"in_secret"
+        parameters.append(obj.token) #"in_token"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.network_auth) #"in_network_auth"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.network_user_id) #"in_network_user_id"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_set_profile_id_game_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.hash) #"in_hash"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_network_id) #"in_game_network_id"
+        parameters.append(obj.network_username) #"in_network_username"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.network_fullname) #"in_network_fullname"
+        parameters.append(obj.secret) #"in_secret"
+        parameters.append(obj.token) #"in_token"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.network_auth) #"in_network_auth"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.network_user_id) #"in_network_user_id"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_set_profile_id_game_id_game_network_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.hash) #"in_hash"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_network_id) #"in_game_network_id"
+        parameters.append(obj.network_username) #"in_network_username"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.network_fullname) #"in_network_fullname"
+        parameters.append(obj.secret) #"in_secret"
+        parameters.append(obj.token) #"in_token"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.network_auth) #"in_network_auth"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.network_user_id) #"in_network_user_id"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_set_network_username_game_id_game_netw"
             , parameters
             ))
         except Exception: 
@@ -2745,6 +2920,73 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_profile_game_network_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileGameNetworkByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_del_profile_id_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+        , profile_id
+        , game_id
+        , game_network_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(game_network_id) #"in_game_network_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_del_profile_id_game_id_game_network_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+        , network_username
+        , game_id
+        , game_network_id
+    ) :
+        parameters = []
+        parameters.append(network_username) #"in_network_username"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(game_network_id) #"in_game_network_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_del_network_username_game_id_game_netw"
             , parameters
             )
             return True
@@ -2849,6 +3091,56 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_profile_game_network_get_profile_id_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(self
+        , profile_id
+        , game_id
+        , game_network_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(game_network_id) #"in_game_network_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_get_profile_id_game_id_game_network_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(self
+        , network_username
+        , game_id
+        , game_network_id
+    ) :
+            
+        parameters = []
+        parameters.append(network_username) #"in_network_username"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(game_network_id) #"in_game_network_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_network_get_network_username_game_id_game_netw"
             , parameters
             )
         except Exception: 
@@ -8709,25 +9001,6 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByKey(self
-        , key
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_key"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
     def CountGameStatisticLeaderboardByGameId(self
         , game_id
     ) :
@@ -8747,19 +9020,17 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByKeyByGameId(self
-        , key
-        , game_id
+    def CountGameStatisticLeaderboardByCode(self
+        , code
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_key_game_id"
+            , "usp_game_statistic_leaderboard_count_code"
             , parameters
             )
         except Exception as err: 
@@ -8768,21 +9039,42 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByKeyByProfileIdByGameId(self
-        , key
-        , profile_id
+    def CountGameStatisticLeaderboardByCodeByGameId(self
+        , code
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_count_code_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
         parameters.append(profile_id) #"in_profile_id"
-        parameters.append(game_id) #"in_game_id"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_key_profile_id_game_id"
+            , "usp_game_statistic_leaderboard_count_code_game_id_profile_id"
             , parameters
             )
         except Exception as err: 
@@ -8791,23 +9083,23 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self
-        , key
-        , profile_id
+    def CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+        , code
         , game_id
+        , profile_id
         , timestamp
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
         parameters.append(timestamp) #"in_timestamp"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_key_profile_id_game_id_tim"
+            , "usp_game_statistic_leaderboard_count_code_game_id_profile_id_ti"
             , parameters
             )
         except Exception as err: 
@@ -8862,7 +9154,7 @@ class BaseGamingData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -8870,6 +9162,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -8899,7 +9192,7 @@ class BaseGamingData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -8907,6 +9200,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -8931,12 +9225,12 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByKeyByProfileId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -8944,6 +9238,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -8958,7 +9253,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_key_profile_id"
+            , "usp_game_statistic_leaderboard_set_code"
             , parameters
             ))
         except Exception: 
@@ -8968,12 +9263,12 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -8981,6 +9276,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -8995,7 +9291,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_key_profile_id_timestamp"
+            , "usp_game_statistic_leaderboard_set_code_game_id"
             , parameters
             ))
         except Exception: 
@@ -9005,12 +9301,12 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByCodeByGameIdByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -9018,6 +9314,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -9032,7 +9329,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_key_profile_id_game_id_times"
+            , "usp_game_statistic_leaderboard_set_code_game_id_profile_id"
             , parameters
             ))
         except Exception: 
@@ -9042,12 +9339,12 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -9055,6 +9352,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -9069,7 +9367,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_key_profile_id_game_id"
+            , "usp_game_statistic_leaderboard_set_code_game_id_profile_id_time"
             , parameters
             ))
         except Exception: 
@@ -9098,19 +9396,17 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardByKeyByGameId(self
-        , key
-        , game_id
+    def DelGameStatisticLeaderboardByCode(self
+        , code
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
                         
         try:
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_key_game_id"
+            , "usp_game_statistic_leaderboard_del_code"
             , parameters
             )
             return True
@@ -9119,21 +9415,67 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardByKeyByProfileIdByGameId(self
-        , key
-        , profile_id
+    def DelGameStatisticLeaderboardByCodeByGameId(self
+        , code
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
                         
         try:
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_key_profile_id_game_id"
+            , "usp_game_statistic_leaderboard_del_code_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_del_code_game_id_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_del_code_game_id_profile_id_time"
             , parameters
             )
             return True
@@ -9203,27 +9545,6 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByKey(self
-        , key
-    ) :
-            
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_key"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
     def GetGameStatisticLeaderboardListByGameId(self
         , game_id
     ) :
@@ -9245,20 +9566,18 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByKeyByGameId(self
-        , key
-        , game_id
+    def GetGameStatisticLeaderboardListByCode(self
+        , code
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_key_game_id"
+            , "usp_game_statistic_leaderboard_get_code"
             , parameters
             )
         except Exception: 
@@ -9268,22 +9587,20 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(self
-        , key
+    def GetGameStatisticLeaderboardListByCodeByGameId(self
+        , code
         , game_id
-        , network
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
-        parameters.append(network) #"in_network"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_key_game_id_network"
+            , "usp_game_statistic_leaderboard_get_code_game_id"
             , parameters
             )
         except Exception: 
@@ -9293,22 +9610,22 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByKeyByProfileIdByGameId(self
-        , key
+    def GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(self
+        , code
+        , game_id
         , profile_id
-        , game_id
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
         parameters.append(profile_id) #"in_profile_id"
-        parameters.append(game_id) #"in_game_id"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_key_profile_id_game_id"
+            , "usp_game_statistic_leaderboard_get_code_game_id_profile_id"
             , parameters
             )
         except Exception: 
@@ -9318,24 +9635,24 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
-        , profile_id
+    def GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(self
+        , code
         , game_id
+        , profile_id
         , timestamp
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
         parameters.append(timestamp) #"in_timestamp"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_key_profile_id_game_id_times"
+            , "usp_game_statistic_leaderboard_get_code_game_id_profile_id_time"
             , parameters
             )
         except Exception: 
@@ -9429,25 +9746,6 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByKey(self
-        , key
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_key"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
     def CountGameStatisticLeaderboardRollupByGameId(self
         , game_id
     ) :
@@ -9467,19 +9765,17 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByKeyByGameId(self
-        , key
-        , game_id
+    def CountGameStatisticLeaderboardRollupByCode(self
+        , code
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_key_game_id"
+            , "usp_game_statistic_leaderboard_rollup_count_code"
             , parameters
             )
         except Exception as err: 
@@ -9488,21 +9784,42 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
-        , key
-        , profile_id
+    def CountGameStatisticLeaderboardRollupByCodeByGameId(self
+        , code
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_count_code_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
         parameters.append(profile_id) #"in_profile_id"
-        parameters.append(game_id) #"in_game_id"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_key_profile_id_game"
+            , "usp_game_statistic_leaderboard_rollup_count_code_game_id_profil"
             , parameters
             )
         except Exception as err: 
@@ -9511,23 +9828,23 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self
-        , key
-        , profile_id
+    def CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+        , code
         , game_id
+        , profile_id
         , timestamp
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
         parameters.append(timestamp) #"in_timestamp"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_key_profile_id_game"
+            , "usp_game_statistic_leaderboard_rollup_count_code_game_id_profil"
             , parameters
             )
         except Exception as err: 
@@ -9582,7 +9899,7 @@ class BaseGamingData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -9590,6 +9907,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -9619,7 +9937,7 @@ class BaseGamingData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -9627,6 +9945,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -9651,12 +9970,12 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -9664,6 +9983,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -9678,7 +9998,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_key_profile_id"
+            , "usp_game_statistic_leaderboard_rollup_set_code"
             , parameters
             ))
         except Exception: 
@@ -9688,12 +10008,12 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -9701,6 +10021,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -9715,7 +10036,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_key_profile_id_timest"
+            , "usp_game_statistic_leaderboard_rollup_set_code_game_id"
             , parameters
             ))
         except Exception: 
@@ -9725,12 +10046,12 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -9738,6 +10059,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -9752,7 +10074,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_i"
+            , "usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_"
             , parameters
             ))
         except Exception: 
@@ -9762,12 +10084,12 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.rank) #"in_rank"
@@ -9775,6 +10097,7 @@ class BaseGamingData(object):
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.stat_value) #"in_stat_value"
         parameters.append(obj.network) #"in_network"
@@ -9789,7 +10112,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_i"
+            , "usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_"
             , parameters
             ))
         except Exception: 
@@ -9818,19 +10141,17 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupByKeyByGameId(self
-        , key
-        , game_id
+    def DelGameStatisticLeaderboardRollupByCode(self
+        , code
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
                         
         try:
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_del_key_game_id"
+            , "usp_game_statistic_leaderboard_rollup_del_code"
             , parameters
             )
             return True
@@ -9839,21 +10160,67 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
-        , key
-        , profile_id
+    def DelGameStatisticLeaderboardRollupByCodeByGameId(self
+        , code
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
                         
         try:
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_del_key_profile_id_game_i"
+            , "usp_game_statistic_leaderboard_rollup_del_code_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_"
             , parameters
             )
             return True
@@ -9923,27 +10290,6 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByKey(self
-        , key
-    ) :
-            
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_key"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
     def GetGameStatisticLeaderboardRollupListByGameId(self
         , game_id
     ) :
@@ -9965,20 +10311,18 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByKeyByGameId(self
-        , key
-        , game_id
+    def GetGameStatisticLeaderboardRollupListByCode(self
+        , code
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_key_game_id"
+            , "usp_game_statistic_leaderboard_rollup_get_code"
             , parameters
             )
         except Exception: 
@@ -9988,22 +10332,20 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(self
-        , key
+    def GetGameStatisticLeaderboardRollupListByCodeByGameId(self
+        , code
         , game_id
-        , network
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
-        parameters.append(network) #"in_network"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_key_game_id_network"
+            , "usp_game_statistic_leaderboard_rollup_get_code_game_id"
             , parameters
             )
         except Exception: 
@@ -10013,22 +10355,22 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(self
-        , key
+    def GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(self
+        , code
+        , game_id
         , profile_id
-        , game_id
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
         parameters.append(profile_id) #"in_profile_id"
-        parameters.append(game_id) #"in_game_id"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_key_profile_id_game_i"
+            , "usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_"
             , parameters
             )
         except Exception: 
@@ -10038,24 +10380,24 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
-        , profile_id
+    def GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(self
+        , code
         , game_id
+        , profile_id
         , timestamp
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
         parameters.append(timestamp) #"in_timestamp"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_key_profile_id_game_i"
+            , "usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_"
             , parameters
             )
         except Exception: 
@@ -10673,17 +11015,17 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByKey(self
-        , key
+    def CountGameProfileStatisticByCode(self
+        , code
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_count_key"
+            , "usp_game_profile_statistic_count_code"
             , parameters
             )
         except Exception as err: 
@@ -10711,19 +11053,19 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByKeyByGameId(self
-        , key
+    def CountGameProfileStatisticByCodeByGameId(self
+        , code
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_count_key_game_id"
+            , "usp_game_profile_statistic_count_code_game_id"
             , parameters
             )
         except Exception as err: 
@@ -10753,13 +11095,13 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByKeyByProfileIdByGameId(self
-        , key
+    def CountGameProfileStatisticByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
                         
@@ -10767,7 +11109,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_count_key_profile_id_game_id"
+            , "usp_game_profile_statistic_count_code_profile_id_game_id"
             , parameters
             )
         except Exception as err: 
@@ -10776,14 +11118,14 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
         parameters.append(timestamp) #"in_timestamp"
@@ -10792,7 +11134,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_count_key_profile_id_game_id_timesta"
+            , "usp_game_profile_statistic_count_code_profile_id_game_id_timest"
             , parameters
             )
         except Exception as err: 
@@ -10826,9 +11168,9 @@ class BaseGamingData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.data) #"in_data"
@@ -10859,9 +11201,9 @@ class BaseGamingData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.data) #"in_data"
@@ -10887,14 +11229,14 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByProfileIdByKey(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.data) #"in_data"
@@ -10910,7 +11252,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_set_profile_id_key"
+            , "usp_game_profile_statistic_set_profile_id_code"
             , parameters
             ))
         except Exception: 
@@ -10920,14 +11262,14 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByProfileIdByKeyByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByCodeByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.data) #"in_data"
@@ -10943,7 +11285,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_set_profile_id_key_timestamp"
+            , "usp_game_profile_statistic_set_profile_id_code_timestamp"
             , parameters
             ))
         except Exception: 
@@ -10953,14 +11295,14 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.data) #"in_data"
@@ -10976,7 +11318,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_set_key_profile_id_game_id_timestamp"
+            , "usp_game_profile_statistic_set_code_profile_id_game_id_timestam"
             , parameters
             ))
         except Exception: 
@@ -10986,14 +11328,14 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByProfileIdByGameIdByKey(self, set_type, obj) :
+    def SetGameProfileStatisticByCodeByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.data) #"in_data"
@@ -11009,7 +11351,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_set_profile_id_game_id_key"
+            , "usp_game_profile_statistic_set_code_profile_id_game_id"
             , parameters
             ))
         except Exception: 
@@ -11038,19 +11380,19 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticByKeyByGameId(self
-        , key
+    def DelGameProfileStatisticByCodeByGameId(self
+        , code
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
                         
         try:
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_del_key_game_id"
+            , "usp_game_profile_statistic_del_code_game_id"
             , parameters
             )
             return True
@@ -11080,13 +11422,13 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticByKeyByProfileIdByGameId(self
-        , key
+    def DelGameProfileStatisticByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
                         
@@ -11094,7 +11436,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_del_key_profile_id_game_id"
+            , "usp_game_profile_statistic_del_code_profile_id_game_id"
             , parameters
             )
             return True
@@ -11124,18 +11466,18 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByKey(self
-        , key
+    def GetGameProfileStatisticListByCode(self
+        , code
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_get_key"
+            , "usp_game_profile_statistic_get_code"
             , parameters
             )
         except Exception: 
@@ -11166,20 +11508,20 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByKeyByGameId(self
-        , key
+    def GetGameProfileStatisticListByCodeByGameId(self
+        , code
         , game_id
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_get_key_game_id"
+            , "usp_game_profile_statistic_get_code_game_id"
             , parameters
             )
         except Exception: 
@@ -11237,14 +11579,14 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByKeyByProfileIdByGameId(self
-        , key
+    def GetGameProfileStatisticListByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
                         
@@ -11252,7 +11594,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_get_key_profile_id_game_id"
+            , "usp_game_profile_statistic_get_code_profile_id_game_id"
             , parameters
             )
         except Exception: 
@@ -11262,15 +11604,15 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
         parameters.append(timestamp) #"in_timestamp"
@@ -11279,7 +11621,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_get_key_profile_id_game_id_timestamp"
+            , "usp_game_profile_statistic_get_code_profile_id_game_id_timestam"
             , parameters
             )
         except Exception: 
@@ -11384,25 +11726,6 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaByKey(self
-        , key
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_meta_count_key"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
     def CountGameStatisticMetaByGameId(self
         , game_id
     ) :
@@ -11414,27 +11737,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_statistic_meta_count_game_id"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
-    def CountGameStatisticMetaByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_meta_count_key_game_id"
             , parameters
             )
         except Exception as err: 
@@ -11476,7 +11778,6 @@ class BaseGamingData(object):
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.points) #"in_points"
         parameters.append(obj.store_count) #"in_store_count"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -11511,7 +11812,6 @@ class BaseGamingData(object):
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.points) #"in_points"
         parameters.append(obj.store_count) #"in_store_count"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -11524,41 +11824,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_statistic_meta_set_code_game_id"
-            , parameters
-            ))
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return False
-
-    def SetGameStatisticMetaByKeyByGameId(self, set_type, obj) :
-        parameters = []
-        parameters.append(set_type) #"in_set_type"
-        parameters.append(obj.status) #"in_status"
-        parameters.append(obj.sort) #"in_sort"
-        parameters.append(obj.code) #"in_code"
-        parameters.append(obj.display_name) #"in_display_name"
-        parameters.append(obj.name) #"in_name"
-        parameters.append(obj.date_modified) #"in_date_modified"
-        parameters.append(obj.data) #"in_data"
-        parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.points) #"in_points"
-        parameters.append(obj.store_count) #"in_store_count"
-        parameters.append(obj.key) #"in_key"
-        parameters.append(obj.game_id) #"in_game_id"
-        parameters.append(obj.active) #"in_active"
-        parameters.append(obj.date_created) #"in_date_created"
-        parameters.append(obj.type) #"in_type"
-        parameters.append(obj.order) #"in_order"
-        parameters.append(obj.description) #"in_description"
-                        
-        try:
-            return bool(self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_meta_set_key_game_id"
             , parameters
             ))
         except Exception: 
@@ -11600,27 +11865,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_statistic_meta_del_code_game_id"
-            , parameters
-            )
-            return True
-        except Exception: 
-            return False
-        finally :
-            pass
-             
-    def DelGameStatisticMetaByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            self.data_provider.execute_no_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_meta_del_key_game_id"
             , parameters
             )
             return True
@@ -11671,29 +11915,6 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListByCodeByGameId(self
-        , code
-        , game_id
-    ) :
-            
-        parameters = []
-        parameters.append(code) #"in_code"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_meta_get_code_game_id"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
     def GetGameStatisticMetaListByName(self
         , name
     ) :
@@ -11706,27 +11927,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_statistic_meta_get_name"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
-    def GetGameStatisticMetaListByKey(self
-        , key
-    ) :
-            
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_statistic_meta_get_key"
             , parameters
             )
         except Exception: 
@@ -11757,20 +11957,20 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListByKeyByGameId(self
-        , key
+    def GetGameStatisticMetaListByCodeByGameId(self
+        , code
         , game_id
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_meta_get_key_game_id"
+            , "usp_game_statistic_meta_get_code_game_id"
             , parameters
             )
         except Exception: 
@@ -11816,13 +12016,13 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(self
-        , key
+    def CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
                         
@@ -11830,7 +12030,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_timestamp_count_key_profile_id_game_"
+            , "usp_game_profile_statistic_timestamp_count_code_profile_id_game"
             , parameters
             )
         except Exception as err: 
@@ -11839,14 +12039,14 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
         parameters.append(timestamp) #"in_timestamp"
@@ -11855,7 +12055,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_timestamp_count_key_profile_id_game_"
+            , "usp_game_profile_statistic_timestamp_count_code_profile_id_game"
             , parameters
             )
         except Exception as err: 
@@ -11888,9 +12088,9 @@ class BaseGamingData(object):
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -11912,13 +12112,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -11930,7 +12130,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_timestamp_set_key_profile_id_game_id"
+            , "usp_game_profile_statistic_timestamp_set_code_profile_id_game_i"
             , parameters
             ))
         except Exception: 
@@ -11940,13 +12140,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.key) #"in_key"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -11958,7 +12158,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_timestamp_set_key_profile_id_game_id"
+            , "usp_game_profile_statistic_timestamp_set_code_profile_id_game_i"
             , parameters
             ))
         except Exception: 
@@ -11987,13 +12187,13 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(self
-        , key
+    def DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
                         
@@ -12001,7 +12201,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_timestamp_del_key_profile_id_game_id"
+            , "usp_game_profile_statistic_timestamp_del_code_profile_id_game_i"
             , parameters
             )
             return True
@@ -12010,14 +12210,14 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
         parameters.append(timestamp) #"in_timestamp"
@@ -12026,7 +12226,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_timestamp_del_key_profile_id_game_id"
+            , "usp_game_profile_statistic_timestamp_del_code_profile_id_game_i"
             , parameters
             )
             return True
@@ -12056,14 +12256,14 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(self
-        , key
+    def GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
                         
@@ -12071,7 +12271,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_timestamp_get_key_profile_id_game_id"
+            , "usp_game_profile_statistic_timestamp_get_code_profile_id_game_i"
             , parameters
             )
         except Exception: 
@@ -12081,15 +12281,15 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
         parameters.append(timestamp) #"in_timestamp"
@@ -12098,7 +12298,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_statistic_timestamp_get_key_profile_id_game_id"
+            , "usp_game_profile_statistic_timestamp_get_code_profile_id_game_i"
             , parameters
             )
         except Exception: 
@@ -12760,25 +12960,6 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelByKey(self
-        , key
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_level_count_key"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
     def CountGameLevelByGameId(self
         , game_id
     ) :
@@ -12790,27 +12971,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_level_count_game_id"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
-    def CountGameLevelByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_level_count_key_game_id"
             , parameters
             )
         except Exception as err: 
@@ -12850,7 +13010,6 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -12883,7 +13042,6 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.data) #"in_data"
         parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -12896,39 +13054,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_level_set_code_game_id"
-            , parameters
-            ))
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return False
-
-    def SetGameLevelByKeyByGameId(self, set_type, obj) :
-        parameters = []
-        parameters.append(set_type) #"in_set_type"
-        parameters.append(obj.status) #"in_status"
-        parameters.append(obj.sort) #"in_sort"
-        parameters.append(obj.code) #"in_code"
-        parameters.append(obj.display_name) #"in_display_name"
-        parameters.append(obj.name) #"in_name"
-        parameters.append(obj.date_modified) #"in_date_modified"
-        parameters.append(obj.data) #"in_data"
-        parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.key) #"in_key"
-        parameters.append(obj.game_id) #"in_game_id"
-        parameters.append(obj.active) #"in_active"
-        parameters.append(obj.date_created) #"in_date_created"
-        parameters.append(obj.type) #"in_type"
-        parameters.append(obj.order) #"in_order"
-        parameters.append(obj.description) #"in_description"
-                        
-        try:
-            return bool(self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_level_set_key_game_id"
             , parameters
             ))
         except Exception: 
@@ -12970,27 +13095,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_level_del_code_game_id"
-            , parameters
-            )
-            return True
-        except Exception: 
-            return False
-        finally :
-            pass
-             
-    def DelGameLevelByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            self.data_provider.execute_no_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_level_del_key_game_id"
             , parameters
             )
             return True
@@ -13085,27 +13189,6 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListByKey(self
-        , key
-    ) :
-            
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_level_get_key"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
     def GetGameLevelListByGameId(self
         , game_id
     ) :
@@ -13118,29 +13201,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_level_get_game_id"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
-    def GetGameLevelListByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-            
-        parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_level_get_key_game_id"
             , parameters
             )
         except Exception: 
@@ -13186,19 +13246,19 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementByProfileIdByKey(self
+    def CountGameProfileAchievementByProfileIdByCode(self
         , profile_id
-        , key
+        , code
     ) :
         parameters = []
         parameters.append(profile_id) #"in_profile_id"
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_count_profile_id_key"
+            , "usp_game_profile_achievement_count_profile_id_code"
             , parameters
             )
         except Exception as err: 
@@ -13226,13 +13286,13 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementByKeyByProfileIdByGameId(self
-        , key
+    def CountGameProfileAchievementByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
                         
@@ -13240,7 +13300,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_count_key_profile_id_game_id"
+            , "usp_game_profile_achievement_count_code_profile_id_game_id"
             , parameters
             )
         except Exception as err: 
@@ -13249,14 +13309,14 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
         parameters.append(timestamp) #"in_timestamp"
@@ -13265,7 +13325,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_count_key_profile_id_game_id_times"
+            , "usp_game_profile_achievement_count_code_profile_id_game_id_time"
             , parameters
             )
         except Exception as err: 
@@ -13299,10 +13359,10 @@ class BaseGamingData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.completed) #"in_completed"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.achievement_value) #"in_achievement_value"
@@ -13327,15 +13387,15 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementByUuidByKey(self, set_type, obj) :
+    def SetGameProfileAchievementByUuidByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.completed) #"in_completed"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.achievement_value) #"in_achievement_value"
@@ -13350,7 +13410,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_set_uuid_key"
+            , "usp_game_profile_achievement_set_uuid_code"
             , parameters
             ))
         except Exception: 
@@ -13360,15 +13420,15 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementByProfileIdByKey(self, set_type, obj) :
+    def SetGameProfileAchievementByProfileIdByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.completed) #"in_completed"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.achievement_value) #"in_achievement_value"
@@ -13383,7 +13443,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_set_profile_id_key"
+            , "usp_game_profile_achievement_set_profile_id_code"
             , parameters
             ))
         except Exception: 
@@ -13393,15 +13453,15 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementByKeyByProfileIdByGameId(self, set_type, obj) :
+    def SetGameProfileAchievementByCodeByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.completed) #"in_completed"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.achievement_value) #"in_achievement_value"
@@ -13416,7 +13476,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_set_key_profile_id_game_id"
+            , "usp_game_profile_achievement_set_code_profile_id_game_id"
             , parameters
             ))
         except Exception: 
@@ -13426,15 +13486,15 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
         parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.completed) #"in_completed"
         parameters.append(obj.profile_id) #"in_profile_id"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.achievement_value) #"in_achievement_value"
@@ -13449,7 +13509,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_set_key_profile_id_game_id_timesta"
+            , "usp_game_profile_achievement_set_code_profile_id_game_id_timest"
             , parameters
             ))
         except Exception: 
@@ -13478,19 +13538,19 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileAchievementByProfileIdByKey(self
+    def DelGameProfileAchievementByProfileIdByCode(self
         , profile_id
-        , key
+        , code
     ) :
         parameters = []
         parameters.append(profile_id) #"in_profile_id"
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
                         
         try:
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_del_profile_id_key"
+            , "usp_game_profile_achievement_del_profile_id_code"
             , parameters
             )
             return True
@@ -13499,19 +13559,19 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileAchievementByUuidByKey(self
+    def DelGameProfileAchievementByUuidByCode(self
         , uuid
-        , key
+        , code
     ) :
         parameters = []
         parameters.append(uuid) #"in_uuid"
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
                         
         try:
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_del_uuid_key"
+            , "usp_game_profile_achievement_del_uuid_code"
             , parameters
             )
             return True
@@ -13541,20 +13601,20 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByProfileIdByKey(self
+    def GetGameProfileAchievementListByProfileIdByCode(self
         , profile_id
-        , key
+        , code
     ) :
             
         parameters = []
         parameters.append(profile_id) #"in_profile_id"
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_get_profile_id_key"
+            , "usp_game_profile_achievement_get_profile_id_code"
             , parameters
             )
         except Exception: 
@@ -13585,18 +13645,18 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByKey(self
-        , key
+    def GetGameProfileAchievementListByCode(self
+        , code
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_get_key"
+            , "usp_game_profile_achievement_get_code"
             , parameters
             )
         except Exception: 
@@ -13627,20 +13687,20 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByKeyByGameId(self
-        , key
+    def GetGameProfileAchievementListByCodeByGameId(self
+        , code
         , game_id
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(game_id) #"in_game_id"
                         
         try:
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_get_key_game_id"
+            , "usp_game_profile_achievement_get_code_game_id"
             , parameters
             )
         except Exception: 
@@ -13698,14 +13758,14 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByKeyByProfileIdByGameId(self
-        , key
+    def GetGameProfileAchievementListByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
                         
@@ -13713,7 +13773,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_get_key_profile_id_game_id"
+            , "usp_game_profile_achievement_get_code_profile_id_game_id"
             , parameters
             )
         except Exception: 
@@ -13723,15 +13783,15 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
             
         parameters = []
-        parameters.append(key) #"in_key"
+        parameters.append(code) #"in_code"
         parameters.append(profile_id) #"in_profile_id"
         parameters.append(game_id) #"in_game_id"
         parameters.append(timestamp) #"in_timestamp"
@@ -13740,7 +13800,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_profile_achievement_get_key_profile_id_game_id_timesta"
+            , "usp_game_profile_achievement_get_code_profile_id_game_id_timest"
             , parameters
             )
         except Exception: 
@@ -13845,25 +13905,6 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaByKey(self
-        , key
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_achievement_meta_count_key"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
     def CountGameAchievementMetaByGameId(self
         , game_id
     ) :
@@ -13875,27 +13916,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_achievement_meta_count_game_id"
-            , parameters
-            )
-        except Exception as err: 
-            print err
-            return 0
-        finally :
-            pass
-            
-    def CountGameAchievementMetaByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            return self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_achievement_meta_count_key_game_id"
             , parameters
             )
         except Exception as err: 
@@ -13938,7 +13958,6 @@ class BaseGamingData(object):
         parameters.append(obj.level) #"in_level"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.points) #"in_points"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -13975,7 +13994,6 @@ class BaseGamingData(object):
         parameters.append(obj.level) #"in_level"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.points) #"in_points"
-        parameters.append(obj.key) #"in_key"
         parameters.append(obj.game_id) #"in_game_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
@@ -13989,43 +14007,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_achievement_meta_set_code_game_id"
-            , parameters
-            ))
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return False
-
-    def SetGameAchievementMetaByKeyByGameId(self, set_type, obj) :
-        parameters = []
-        parameters.append(set_type) #"in_set_type"
-        parameters.append(obj.status) #"in_status"
-        parameters.append(obj.sort) #"in_sort"
-        parameters.append(obj.code) #"in_code"
-        parameters.append(obj.display_name) #"in_display_name"
-        parameters.append(obj.name) #"in_name"
-        parameters.append(obj.game_stat) #"in_game_stat"
-        parameters.append(obj.date_modified) #"in_date_modified"
-        parameters.append(obj.data) #"in_data"
-        parameters.append(obj.level) #"in_level"
-        parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.points) #"in_points"
-        parameters.append(obj.key) #"in_key"
-        parameters.append(obj.game_id) #"in_game_id"
-        parameters.append(obj.active) #"in_active"
-        parameters.append(obj.date_created) #"in_date_created"
-        parameters.append(obj.modifier) #"in_modifier"
-        parameters.append(obj.type) #"in_type"
-        parameters.append(obj.leaderboard) #"in_leaderboard"
-        parameters.append(obj.description) #"in_description"
-                        
-        try:
-            return bool(self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_achievement_meta_set_key_game_id"
             , parameters
             ))
         except Exception: 
@@ -14067,27 +14048,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_achievement_meta_del_code_game_id"
-            , parameters
-            )
-            return True
-        except Exception: 
-            return False
-        finally :
-            pass
-             
-    def DelGameAchievementMetaByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            self.data_provider.execute_no_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_achievement_meta_del_key_game_id"
             , parameters
             )
             return True
@@ -14182,27 +14142,6 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListByKey(self
-        , key
-    ) :
-            
-        parameters = []
-        parameters.append(key) #"in_key"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_achievement_meta_get_key"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
     def GetGameAchievementMetaListByGameId(self
         , game_id
     ) :
@@ -14215,29 +14154,6 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_achievement_meta_get_game_id"
-            , parameters
-            )
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return None
-
-    def GetGameAchievementMetaListByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-            
-        parameters = []
-        parameters.append(key) #"in_key"
-        parameters.append(game_id) #"in_game_id"
-                        
-        try:
-            return self.data_provider.execute_results(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_achievement_meta_get_key_game_id"
             , parameters
             )
         except Exception: 

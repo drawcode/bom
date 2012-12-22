@@ -63,11 +63,11 @@ class GameProfileAchievement(BaseEntity):
     super(GameProfileAchievement, self).__init__()
     #self.__dict__.update(entries)
     self.username = None
+    self.code = None
     self.level = None
     self.type = None
     self.completed = None
     self.profile_id = None
-    self.key = None
     self.timestamp = None
     self.game_id = None
     self.achievement_value = None

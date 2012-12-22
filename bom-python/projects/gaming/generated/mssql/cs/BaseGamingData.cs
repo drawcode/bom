@@ -2823,6 +2823,76 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
+        public virtual int CountProfileGameNetworkByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_count_by_profile_id_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            string profile_id
+            , string game_id
+            , string game_network_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@game_network_id", game_network_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_count_by_profile_id_by_game_id_by_game_network_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            string network_username
+            , string game_id
+            , string game_network_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@network_username", network_username));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@game_network_id", game_network_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_count_by_network_username_by_game_id_by_game_network_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
         public virtual DataSet BrowseProfileGameNetworkListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
@@ -2861,16 +2931,130 @@ namespace gaming {
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@network_fullname", obj.network_fullname));
             parameters.Add(new SqlParameter("@secret", obj.secret));
             parameters.Add(new SqlParameter("@token", obj.token));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@network_auth", obj.network_auth));
             parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@network_user_id", obj.network_user_id));
                         
             try { 
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_profile_game_network_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameNetworkByProfileIdByGameId(string set_type, ProfileGameNetwork obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@hash", obj.hash));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_network_id", obj.game_network_id));
+            parameters.Add(new SqlParameter("@network_username", obj.network_username));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@network_fullname", obj.network_fullname));
+            parameters.Add(new SqlParameter("@secret", obj.secret));
+            parameters.Add(new SqlParameter("@token", obj.token));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@network_auth", obj.network_auth));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@network_user_id", obj.network_user_id));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_set_by_profile_id_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(string set_type, ProfileGameNetwork obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@hash", obj.hash));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_network_id", obj.game_network_id));
+            parameters.Add(new SqlParameter("@network_username", obj.network_username));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@network_fullname", obj.network_fullname));
+            parameters.Add(new SqlParameter("@secret", obj.secret));
+            parameters.Add(new SqlParameter("@token", obj.token));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@network_auth", obj.network_auth));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@network_user_id", obj.network_user_id));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_set_by_profile_id_by_game_id_by_game_network_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(string set_type, ProfileGameNetwork obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@hash", obj.hash));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_network_id", obj.game_network_id));
+            parameters.Add(new SqlParameter("@network_username", obj.network_username));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@network_fullname", obj.network_fullname));
+            parameters.Add(new SqlParameter("@secret", obj.secret));
+            parameters.Add(new SqlParameter("@token", obj.token));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@network_auth", obj.network_auth));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@network_user_id", obj.network_user_id));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_set_by_network_username_by_game_id_by_game_network_id"
                 , parameters
                 );          
             }
@@ -2892,6 +3076,79 @@ namespace gaming {
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
                     , "usp_profile_game_network_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameNetworkByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_profile_game_network_del_by_profile_id_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            string profile_id
+            , string game_id
+            , string game_network_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@game_network_id", game_network_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_profile_game_network_del_by_profile_id_by_game_id_by_game_network_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            string network_username
+            , string game_id
+            , string game_network_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@network_username", network_username));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@game_network_id", game_network_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_profile_game_network_del_by_network_username_by_game_id_by_game_network_id"
                     , parameters
                     );
                 return true;            
@@ -2997,6 +3254,56 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_profile_game_network_get_by_profile_id_by_game_id"
+                , "profile_game_network"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return null;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+            string profile_id
+            , string game_id
+            , string game_network_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@game_network_id", game_network_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_get_by_profile_id_by_game_id_by_game_network_id"
+                , "profile_game_network"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return null;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+            string network_username
+            , string game_id
+            , string game_network_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@network_username", network_username));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@game_network_id", game_network_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_get_by_network_username_by_game_id_by_game_network_id"
                 , "profile_game_network"
                 , parameters
                 );           
@@ -9164,26 +9471,6 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_key"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
         public virtual int CountGameStatisticLeaderboardByGameId(
             string game_id
         )  {
@@ -9204,19 +9491,17 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByKeyByGameId(
-            string key
-            , string game_id
+        public virtual int CountGameStatisticLeaderboardByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_key_by_game_id"
+                , "usp_game_statistic_leaderboard_count_by_code"
                 , parameters
                 );          
             }
@@ -9226,21 +9511,43 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
-            string key
-            , string profile_id
+        public virtual int CountGameStatisticLeaderboardByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_count_by_code_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            string code
+            , string game_id
+            , string profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@game_id", game_id));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_key_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_count_by_code_by_game_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -9250,23 +9557,23 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(
-            string key
-            , string profile_id
+        public virtual int CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            string code
             , string game_id
+            , string profile_id
             , float timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_count_by_code_by_game_id_by_profile_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -9328,7 +9635,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -9336,6 +9643,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -9367,7 +9675,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -9375,6 +9683,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -9400,13 +9709,13 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByKeyByProfileId(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardByCode(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -9414,6 +9723,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -9428,7 +9738,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_key_by_profile_id"
+                , "usp_game_statistic_leaderboard_set_by_code"
                 , parameters
                 );          
             }
@@ -9439,13 +9749,13 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardByCodeByGameId(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -9453,6 +9763,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -9467,7 +9778,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_set_by_code_by_game_id"
                 , parameters
                 );          
             }
@@ -9478,13 +9789,13 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardByCodeByGameIdByProfileId(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -9492,6 +9803,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -9506,7 +9818,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_set_by_code_by_game_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -9517,13 +9829,13 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -9531,6 +9843,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -9545,7 +9858,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_key_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_set_by_code_by_game_id_by_profile_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -9577,19 +9890,17 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByKeyByGameId(
-            string key
-            , string game_id
+        public virtual bool DelGameStatisticLeaderboardByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_key_by_game_id"
+                    , "usp_game_statistic_leaderboard_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -9600,21 +9911,71 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
-            string key
-            , string profile_id
+        public virtual bool DelGameStatisticLeaderboardByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_key_by_profile_id_by_game_id"
+                    , "usp_game_statistic_leaderboard_del_by_code_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            string code
+            , string game_id
+            , string profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_del_by_code_by_game_id_by_profile_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            string code
+            , string game_id
+            , string profile_id
+            , float timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_del_by_code_by_game_id_by_profile_id_by_timestamp"
                     , parameters
                     );
                 return true;            
@@ -9688,27 +10049,6 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_key"
-                , "game_statistic_leaderboard"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return null;
-            }
-        } 
-//------------------------------------------------------------------------------                    
         public virtual DataSet GetGameStatisticLeaderboardListByGameId(
             string game_id
         )  {
@@ -9730,19 +10070,17 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByKeyByGameId(
-            string key
-            , string game_id
+        public virtual DataSet GetGameStatisticLeaderboardListByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_key_by_game_id"
+                , "usp_game_statistic_leaderboard_get_by_code"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -9753,21 +10091,19 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
-            string key
+        public virtual DataSet GetGameStatisticLeaderboardListByCodeByGameId(
+            string code
             , string game_id
-            , string network
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
-            parameters.Add(new SqlParameter("@network", network));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_key_by_game_id_by_network"
+                , "usp_game_statistic_leaderboard_get_by_code_by_game_id"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -9778,21 +10114,21 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByKeyByProfileIdByGameId(
-            string key
+        public virtual DataSet GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+            string code
+            , string game_id
             , string profile_id
-            , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_key_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_get_by_code_by_game_id_by_profile_id"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -9803,23 +10139,23 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
-            string key
-            , string profile_id
+        public virtual DataSet GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+            string code
             , string game_id
+            , string profile_id
             , float timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_get_by_code_by_game_id_by_profile_id_by_timestamp"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -9916,26 +10252,6 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_key"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
         public virtual int CountGameStatisticLeaderboardRollupByGameId(
             string game_id
         )  {
@@ -9956,19 +10272,17 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByKeyByGameId(
-            string key
-            , string game_id
+        public virtual int CountGameStatisticLeaderboardRollupByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_key_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_count_by_code"
                 , parameters
                 );          
             }
@@ -9978,21 +10292,43 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-            string key
-            , string profile_id
+        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_rollup_count_by_code_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            string code
+            , string game_id
+            , string profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@game_id", game_id));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_count_by_code_by_game_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -10002,23 +10338,23 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
-            string key
-            , string profile_id
+        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            string code
             , string game_id
+            , string profile_id
             , float timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_count_by_code_by_game_id_by_profile_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -10080,7 +10416,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -10088,6 +10424,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -10119,7 +10456,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -10127,6 +10464,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -10152,13 +10490,13 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupByCode(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -10166,6 +10504,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -10180,7 +10519,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id"
+                , "usp_game_statistic_leaderboard_rollup_set_by_code"
                 , parameters
                 );          
             }
@@ -10191,13 +10530,13 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameId(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -10205,6 +10544,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -10219,7 +10559,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_set_by_code_by_game_id"
                 , parameters
                 );          
             }
@@ -10230,13 +10570,13 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -10244,6 +10584,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -10258,7 +10599,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_set_by_code_by_game_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -10269,13 +10610,13 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@rank", obj.rank));
@@ -10283,6 +10624,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
             parameters.Add(new SqlParameter("@network", obj.network));
@@ -10297,7 +10639,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_key_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_set_by_code_by_game_id_by_profile_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -10329,19 +10671,17 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardRollupByKeyByGameId(
-            string key
-            , string game_id
+        public virtual bool DelGameStatisticLeaderboardRollupByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_rollup_del_by_key_by_game_id"
+                    , "usp_game_statistic_leaderboard_rollup_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -10352,21 +10692,71 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-            string key
-            , string profile_id
+        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_rollup_del_by_key_by_profile_id_by_game_id"
+                    , "usp_game_statistic_leaderboard_rollup_del_by_code_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            string code
+            , string game_id
+            , string profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_rollup_del_by_code_by_game_id_by_profile_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            string code
+            , string game_id
+            , string profile_id
+            , float timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_rollup_del_by_code_by_game_id_by_profile_id_by_timestamp"
                     , parameters
                     );
                 return true;            
@@ -10440,27 +10830,6 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_key"
-                , "game_statistic_leaderboard_rollup"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return null;
-            }
-        } 
-//------------------------------------------------------------------------------                    
         public virtual DataSet GetGameStatisticLeaderboardRollupListByGameId(
             string game_id
         )  {
@@ -10482,19 +10851,17 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByKeyByGameId(
-            string key
-            , string game_id
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_get_by_code"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10505,21 +10872,19 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
-            string key
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByCodeByGameId(
+            string code
             , string game_id
-            , string network
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
-            parameters.Add(new SqlParameter("@network", network));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_key_by_game_id_by_network"
+                , "usp_game_statistic_leaderboard_rollup_get_by_code_by_game_id"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10530,21 +10895,21 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
-            string key
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+            string code
+            , string game_id
             , string profile_id
-            , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_get_by_code_by_game_id_by_profile_id"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10555,23 +10920,23 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
-            string key
-            , string profile_id
+        public virtual DataSet GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+            string code
             , string game_id
+            , string profile_id
             , float timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_get_by_code_by_game_id_by_profile_id_by_timestamp"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -11222,17 +11587,17 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByKey(
-            string key
+        public virtual int CountGameProfileStatisticByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_key"
+                , "usp_game_profile_statistic_count_by_code"
                 , parameters
                 );          
             }
@@ -11262,19 +11627,19 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByKeyByGameId(
-            string key
+        public virtual int CountGameProfileStatisticByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_key_by_game_id"
+                , "usp_game_profile_statistic_count_by_code_by_game_id"
                 , parameters
                 );          
             }
@@ -11306,21 +11671,21 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByKeyByProfileIdByGameId(
-            string key
+        public virtual int CountGameProfileStatisticByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_key_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id"
                 , parameters
                 );          
             }
@@ -11330,15 +11695,15 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual int CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , float timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
@@ -11346,7 +11711,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -11386,9 +11751,9 @@ namespace gaming {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@data", obj.data));
@@ -11421,9 +11786,9 @@ namespace gaming {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@data", obj.data));
@@ -11450,15 +11815,15 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByProfileIdByKey(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticByProfileIdByCode(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@data", obj.data));
@@ -11474,7 +11839,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_profile_id_by_key"
+                , "usp_game_profile_statistic_set_by_profile_id_by_code"
                 , parameters
                 );          
             }
@@ -11485,15 +11850,15 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByProfileIdByKeyByTimestamp(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticByProfileIdByCodeByTimestamp(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@data", obj.data));
@@ -11509,7 +11874,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_profile_id_by_key_by_timestamp"
+                , "usp_game_profile_statistic_set_by_profile_id_by_code_by_timestamp"
                 , parameters
                 );          
             }
@@ -11520,15 +11885,15 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@data", obj.data));
@@ -11544,7 +11909,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -11555,15 +11920,15 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByProfileIdByGameIdByKey(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticByCodeByProfileIdByGameId(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@data", obj.data));
@@ -11579,7 +11944,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_profile_id_by_game_id_by_key"
+                , "usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id"
                 , parameters
                 );          
             }
@@ -11611,19 +11976,19 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticByKeyByGameId(
-            string key
+        public virtual bool DelGameProfileStatisticByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_del_by_key_by_game_id"
+                    , "usp_game_profile_statistic_del_by_code_by_game_id"
                     , parameters
                     );
                 return true;            
@@ -11657,21 +12022,21 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticByKeyByProfileIdByGameId(
-            string key
+        public virtual bool DelGameProfileStatisticByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_del_by_key_by_profile_id_by_game_id"
+                    , "usp_game_profile_statistic_del_by_code_by_profile_id_by_game_id"
                     , parameters
                     );
                 return true;            
@@ -11703,17 +12068,17 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByKey(
-            string key
+        public virtual DataSet GetGameProfileStatisticListByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_key"
+                , "usp_game_profile_statistic_get_by_code"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -11745,19 +12110,19 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByKeyByGameId(
-            string key
+        public virtual DataSet GetGameProfileStatisticListByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_key_by_game_id"
+                , "usp_game_profile_statistic_get_by_code_by_game_id"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -11816,21 +12181,21 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByKeyByProfileIdByGameId(
-            string key
+        public virtual DataSet GetGameProfileStatisticListByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_key_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -11841,15 +12206,15 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual DataSet GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , float timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
@@ -11857,7 +12222,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id_by_timestamp"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -11968,26 +12333,6 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticMetaByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_count_by_key"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
         public virtual int CountGameStatisticMetaByGameId(
             string game_id
         )  {
@@ -11999,28 +12344,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_statistic_meta_count_by_game_id"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticMetaByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_count_by_key_by_game_id"
                 , parameters
                 );          
             }
@@ -12068,7 +12391,6 @@ namespace gaming {
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@store_count", obj.store_count));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -12105,7 +12427,6 @@ namespace gaming {
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@points", obj.points));
             parameters.Add(new SqlParameter("@store_count", obj.store_count));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -12118,43 +12439,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_statistic_meta_set_by_code_by_game_id"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return false;
-            }
-            
-        }    
-//------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticMetaByKeyByGameId(string set_type, GameStatisticMeta obj)  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@set_type", set_type));
-            parameters.Add(new SqlParameter("@status", obj.status));
-            parameters.Add(new SqlParameter("@sort", obj.sort));
-            parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@display_name", obj.display_name));
-            parameters.Add(new SqlParameter("@name", obj.name));
-            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
-            parameters.Add(new SqlParameter("@data", obj.data));
-            parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@points", obj.points));
-            parameters.Add(new SqlParameter("@store_count", obj.store_count));
-            parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@game_id", obj.game_id));
-            parameters.Add(new SqlParameter("@active", obj.active));
-            parameters.Add(new SqlParameter("@date_created", obj.date_created));
-            parameters.Add(new SqlParameter("@type", obj.type));
-            parameters.Add(new SqlParameter("@order", obj.order));
-            parameters.Add(new SqlParameter("@description", obj.description));
-                        
-            try { 
-                return (bool)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_set_by_key_by_game_id"
                 , parameters
                 );          
             }
@@ -12209,29 +12493,6 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticMetaByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {
-                data.ExecuteNonQuery(
-                    BaseGamingData.connectionString
-                    , CommandType.StoredProcedure
-                    , "usp_game_statistic_meta_del_by_key_by_game_id"
-                    , parameters
-                    );
-                return true;            
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return false;
-            }
-        }                     
-//------------------------------------------------------------------------------                    
         public virtual DataSet GetGameStatisticMetaListByUuid(
             string uuid
         )  {
@@ -12274,29 +12535,6 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticMetaListByCodeByGameId(
-            string code
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@code", code));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_get_by_code_by_game_id"
-                , "game_statistic_meta"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return null;
-            }
-        } 
-//------------------------------------------------------------------------------                    
         public virtual DataSet GetGameStatisticMetaListByName(
             string name
         )  {
@@ -12308,27 +12546,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_statistic_meta_get_by_name"
-                , "game_statistic_meta"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return null;
-            }
-        } 
-//------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticMetaListByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_get_by_key"
                 , "game_statistic_meta"
                 , parameters
                 );           
@@ -12360,19 +12577,19 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticMetaListByKeyByGameId(
-            string key
+        public virtual DataSet GetGameStatisticMetaListByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_get_by_key_by_game_id"
+                , "usp_game_statistic_meta_get_by_code_by_game_id"
                 , "game_statistic_meta"
                 , parameters
                 );           
@@ -12421,21 +12638,21 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-            string key
+        public virtual int CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_count_by_key_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_timestamp_count_by_code_by_profile_id_by_game_id"
                 , parameters
                 );          
             }
@@ -12445,15 +12662,15 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual int CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , DateTime timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
@@ -12461,7 +12678,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_count_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_timestamp_count_by_code_by_profile_id_by_game_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -12500,9 +12717,9 @@ namespace gaming {
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -12525,14 +12742,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(string set_type, GameProfileStatisticTimestamp obj)  {
+        public virtual bool SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(string set_type, GameProfileStatisticTimestamp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -12544,7 +12761,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_set_by_key_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_timestamp_set_by_code_by_profile_id_by_game_id"
                 , parameters
                 );          
             }
@@ -12555,14 +12772,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {
+        public virtual bool SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@key", obj.key));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -12574,7 +12791,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_set_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_timestamp_set_by_code_by_profile_id_by_game_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -12606,21 +12823,21 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-            string key
+        public virtual bool DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_timestamp_del_by_key_by_profile_id_by_game_id"
+                    , "usp_game_profile_statistic_timestamp_del_by_code_by_profile_id_by_game_id"
                     , parameters
                     );
                 return true;            
@@ -12631,15 +12848,15 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual bool DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , DateTime timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
@@ -12647,7 +12864,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_timestamp_del_by_key_by_profile_id_by_game_id_by_timestamp"
+                    , "usp_game_profile_statistic_timestamp_del_by_code_by_profile_id_by_game_id_by_timestamp"
                     , parameters
                     );
                 return true;            
@@ -12679,21 +12896,21 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
-            string key
+        public virtual DataSet GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_get_by_key_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_timestamp_get_by_code_by_profile_id_by_game_id"
                 , "game_profile_statistic_timestamp"
                 , parameters
                 );           
@@ -12704,15 +12921,15 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual DataSet GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , DateTime timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
@@ -12720,7 +12937,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_get_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_timestamp_get_by_code_by_profile_id_by_game_id_by_timestamp"
                 , "game_profile_statistic_timestamp"
                 , parameters
                 );           
@@ -13414,26 +13631,6 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLevelByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_level_count_by_key"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
         public virtual int CountGameLevelByGameId(
             string game_id
         )  {
@@ -13445,28 +13642,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_level_count_by_game_id"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
-        public virtual int CountGameLevelByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_level_count_by_key_by_game_id"
                 , parameters
                 );          
             }
@@ -13512,7 +13687,6 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -13547,7 +13721,6 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -13560,41 +13733,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_level_set_by_code_by_game_id"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return false;
-            }
-            
-        }    
-//------------------------------------------------------------------------------                    
-        public virtual bool SetGameLevelByKeyByGameId(string set_type, GameLevel obj)  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@set_type", set_type));
-            parameters.Add(new SqlParameter("@status", obj.status));
-            parameters.Add(new SqlParameter("@sort", obj.sort));
-            parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@display_name", obj.display_name));
-            parameters.Add(new SqlParameter("@name", obj.name));
-            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
-            parameters.Add(new SqlParameter("@data", obj.data));
-            parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@game_id", obj.game_id));
-            parameters.Add(new SqlParameter("@active", obj.active));
-            parameters.Add(new SqlParameter("@date_created", obj.date_created));
-            parameters.Add(new SqlParameter("@type", obj.type));
-            parameters.Add(new SqlParameter("@order", obj.order));
-            parameters.Add(new SqlParameter("@description", obj.description));
-                        
-            try { 
-                return (bool)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_level_set_by_key_by_game_id"
                 , parameters
                 );          
             }
@@ -13639,29 +13777,6 @@ namespace gaming {
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
                     , "usp_game_level_del_by_code_by_game_id"
-                    , parameters
-                    );
-                return true;            
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return false;
-            }
-        }                     
-//------------------------------------------------------------------------------                    
-        public virtual bool DelGameLevelByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {
-                data.ExecuteNonQuery(
-                    BaseGamingData.connectionString
-                    , CommandType.StoredProcedure
-                    , "usp_game_level_del_by_key_by_game_id"
                     , parameters
                     );
                 return true;            
@@ -13758,27 +13873,6 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLevelListByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_level_get_by_key"
-                , "game_level"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return null;
-            }
-        } 
-//------------------------------------------------------------------------------                    
         public virtual DataSet GetGameLevelListByGameId(
             string game_id
         )  {
@@ -13790,29 +13884,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_level_get_by_game_id"
-                , "game_level"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return null;
-            }
-        } 
-//------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLevelListByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_level_get_by_key_by_game_id"
                 , "game_level"
                 , parameters
                 );           
@@ -13861,19 +13932,19 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileAchievementByProfileIdByKey(
+        public virtual int CountGameProfileAchievementByProfileIdByCode(
             string profile_id
-            , string key
+            , string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
             parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_count_by_profile_id_by_key"
+                , "usp_game_profile_achievement_count_by_profile_id_by_code"
                 , parameters
                 );          
             }
@@ -13903,21 +13974,21 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileAchievementByKeyByProfileIdByGameId(
-            string key
+        public virtual int CountGameProfileAchievementByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {        
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_count_by_key_by_profile_id_by_game_id"
+                , "usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id"
                 , parameters
                 );          
             }
@@ -13927,15 +13998,15 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual int CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , float timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
@@ -13943,7 +14014,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_count_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -13983,10 +14054,10 @@ namespace gaming {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@completed", obj.completed));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@achievement_value", obj.achievement_value));
@@ -14012,16 +14083,16 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByUuidByKey(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementByUuidByCode(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@completed", obj.completed));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@achievement_value", obj.achievement_value));
@@ -14036,7 +14107,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_uuid_by_key"
+                , "usp_game_profile_achievement_set_by_uuid_by_code"
                 , parameters
                 );          
             }
@@ -14047,16 +14118,16 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByProfileIdByKey(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementByProfileIdByCode(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@completed", obj.completed));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@achievement_value", obj.achievement_value));
@@ -14071,7 +14142,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_profile_id_by_key"
+                , "usp_game_profile_achievement_set_by_profile_id_by_code"
                 , parameters
                 );          
             }
@@ -14082,16 +14153,16 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByKeyByProfileIdByGameId(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementByCodeByProfileIdByGameId(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@completed", obj.completed));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@achievement_value", obj.achievement_value));
@@ -14106,7 +14177,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_key_by_profile_id_by_game_id"
+                , "usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id"
                 , parameters
                 );          
             }
@@ -14117,16 +14188,16 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
             parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@completed", obj.completed));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@achievement_value", obj.achievement_value));
@@ -14141,7 +14212,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id_by_timestamp"
                 , parameters
                 );          
             }
@@ -14173,19 +14244,19 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileAchievementByProfileIdByKey(
+        public virtual bool DelGameProfileAchievementByProfileIdByCode(
             string profile_id
-            , string key
+            , string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
             parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_achievement_del_by_profile_id_by_key"
+                    , "usp_game_profile_achievement_del_by_profile_id_by_code"
                     , parameters
                     );
                 return true;            
@@ -14196,19 +14267,19 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileAchievementByUuidByKey(
+        public virtual bool DelGameProfileAchievementByUuidByCode(
             string uuid
-            , string key
+            , string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                
             parameters.Add(new SqlParameter("@uuid", uuid));
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_achievement_del_by_uuid_by_key"
+                    , "usp_game_profile_achievement_del_by_uuid_by_code"
                     , parameters
                     );
                 return true;            
@@ -14240,19 +14311,19 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByProfileIdByKey(
+        public virtual DataSet GetGameProfileAchievementListByProfileIdByCode(
             string profile_id
-            , string key
+            , string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
             parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_profile_id_by_key"
+                , "usp_game_profile_achievement_get_by_profile_id_by_code"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14284,17 +14355,17 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByKey(
-            string key
+        public virtual DataSet GetGameProfileAchievementListByCode(
+            string code
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_key"
+                , "usp_game_profile_achievement_get_by_code"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14326,19 +14397,19 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByKeyByGameId(
-            string key
+        public virtual DataSet GetGameProfileAchievementListByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_key_by_game_id"
+                , "usp_game_profile_achievement_get_by_code_by_game_id"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14397,21 +14468,21 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByKeyByProfileIdByGameId(
-            string key
+        public virtual DataSet GetGameProfileAchievementListByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             try {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_key_by_profile_id_by_game_id"
+                , "usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14422,15 +14493,15 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual DataSet GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , float timestamp
         )  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
+            parameters.Add(new SqlParameter("@code", code));
             parameters.Add(new SqlParameter("@profile_id", profile_id));
             parameters.Add(new SqlParameter("@game_id", game_id));
             parameters.Add(new SqlParameter("@timestamp", timestamp));
@@ -14438,7 +14509,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_key_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id_by_timestamp"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14549,26 +14620,6 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAchievementMetaByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_count_by_key"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
         public virtual int CountGameAchievementMetaByGameId(
             string game_id
         )  {
@@ -14580,28 +14631,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_achievement_meta_count_by_game_id"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
-        public virtual int CountGameAchievementMetaByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_count_by_key_by_game_id"
                 , parameters
                 );          
             }
@@ -14650,7 +14679,6 @@ namespace gaming {
             parameters.Add(new SqlParameter("@level", obj.level));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@points", obj.points));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -14689,7 +14717,6 @@ namespace gaming {
             parameters.Add(new SqlParameter("@level", obj.level));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@points", obj.points));
-            parameters.Add(new SqlParameter("@key", obj.key));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -14703,45 +14730,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_achievement_meta_set_by_code_by_game_id"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return false;
-            }
-            
-        }    
-//------------------------------------------------------------------------------                    
-        public virtual bool SetGameAchievementMetaByKeyByGameId(string set_type, GameAchievementMeta obj)  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@set_type", set_type));
-            parameters.Add(new SqlParameter("@status", obj.status));
-            parameters.Add(new SqlParameter("@sort", obj.sort));
-            parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@display_name", obj.display_name));
-            parameters.Add(new SqlParameter("@name", obj.name));
-            parameters.Add(new SqlParameter("@game_stat", obj.game_stat));
-            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
-            parameters.Add(new SqlParameter("@data", obj.data));
-            parameters.Add(new SqlParameter("@level", obj.level));
-            parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@points", obj.points));
-            parameters.Add(new SqlParameter("@key", obj.key));
-            parameters.Add(new SqlParameter("@game_id", obj.game_id));
-            parameters.Add(new SqlParameter("@active", obj.active));
-            parameters.Add(new SqlParameter("@date_created", obj.date_created));
-            parameters.Add(new SqlParameter("@modifier", obj.modifier));
-            parameters.Add(new SqlParameter("@type", obj.type));
-            parameters.Add(new SqlParameter("@leaderboard", obj.leaderboard));
-            parameters.Add(new SqlParameter("@description", obj.description));
-                        
-            try { 
-                return (bool)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_set_by_key_by_game_id"
                 , parameters
                 );          
             }
@@ -14786,29 +14774,6 @@ namespace gaming {
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
                     , "usp_game_achievement_meta_del_by_code_by_game_id"
-                    , parameters
-                    );
-                return true;            
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return false;
-            }
-        }                     
-//------------------------------------------------------------------------------                    
-        public virtual bool DelGameAchievementMetaByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {
-                data.ExecuteNonQuery(
-                    BaseGamingData.connectionString
-                    , CommandType.StoredProcedure
-                    , "usp_game_achievement_meta_del_by_key_by_game_id"
                     , parameters
                     );
                 return true;            
@@ -14905,27 +14870,6 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAchievementMetaListByKey(
-            string key
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_get_by_key"
-                , "game_achievement_meta"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return null;
-            }
-        } 
-//------------------------------------------------------------------------------                    
         public virtual DataSet GetGameAchievementMetaListByGameId(
             string game_id
         )  {
@@ -14937,29 +14881,6 @@ namespace gaming {
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
                 , "usp_game_achievement_meta_get_by_game_id"
-                , "game_achievement_meta"
-                , parameters
-                );           
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return null;
-            }
-        } 
-//------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAchievementMetaListByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                        
-            parameters.Add(new SqlParameter("@key", key));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {
-                return data.ExecuteDataSet(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_get_by_key_by_game_id"
                 , "game_achievement_meta"
                 , parameters
                 );           

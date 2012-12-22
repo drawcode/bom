@@ -51,11 +51,11 @@ public class GameProfileStatistic : BaseEntity {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public  username { get; set; }
+    public  code { get; set; }
     public  level { get; set; }
     public  type { get; set; }
     public  profile_id { get; set; }
     public  points { get; set; }
-    public  key { get; set; }
     public  timestamp { get; set; }
     public  game_id { get; set; }
     public  data { get; set; }
@@ -74,6 +74,9 @@ public class GameProfileStatistic : BaseEntity {
 	if (username != null) {
 	    dict = DataUtil.SetDictValue(dict, "username", username);
 	}
+	if (code != null) {
+	    dict = DataUtil.SetDictValue(dict, "code", code);
+	}
 	if (level != null) {
 	    dict = DataUtil.SetDictValue(dict, "level", level);
 	}
@@ -85,9 +88,6 @@ public class GameProfileStatistic : BaseEntity {
 	}
 	if (points != null) {
 	    dict = DataUtil.SetDictValue(dict, "points", points);
-	}
-	if (key != null) {
-	    dict = DataUtil.SetDictValue(dict, "key", key);
 	}
 	if (timestamp != null) {
 	    dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
@@ -110,6 +110,11 @@ public class GameProfileStatistic : BaseEntity {
 	    	username = DataType.Instance.Fill(dict["username"]);
 	    }		
 	}
+	if(dict.ContainsKey("code")) {
+	    if(dict["code"] != null) {
+	    	code = DataType.Instance.Fill(dict["code"]);
+	    }		
+	}
 	if(dict.ContainsKey("level")) {
 	    if(dict["level"] != null) {
 	    	level = DataType.Instance.Fill(dict["level"]);
@@ -128,11 +133,6 @@ public class GameProfileStatistic : BaseEntity {
 	if(dict.ContainsKey("points")) {
 	    if(dict["points"] != null) {
 	    	points = DataType.Instance.Fill(dict["points"]);
-	    }		
-	}
-	if(dict.ContainsKey("key")) {
-	    if(dict["key"] != null) {
-	    	key = DataType.Instance.Fill(dict["key"]);
 	    }		
 	}
 	if(dict.ContainsKey("timestamp")) {

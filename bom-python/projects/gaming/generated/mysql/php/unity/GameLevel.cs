@@ -51,8 +51,8 @@ public class GameLevel : BaseMeta {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public int sort { get; set; }
+    public string code { get; set; }
     public string data { get; set; }
-    public string key { get; set; }
     public string game_id { get; set; }
     public string type { get; set; }
     public string order { get; set; }
@@ -68,11 +68,11 @@ public class GameLevel : BaseMeta {
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
 	dict = DataUtil.SetDictValue(dict, "sort", sort);
+	if (code != null) {
+	    dict = DataUtil.SetDictValue(dict, "code", code);
+	}
 	if (data != null) {
 	    dict = DataUtil.SetDictValue(dict, "data", data);
-	}
-	if (key != null) {
-	    dict = DataUtil.SetDictValue(dict, "key", key);
 	}
 	if (game_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
@@ -92,14 +92,14 @@ public class GameLevel : BaseMeta {
 	    	sort = DataType.Instance.FillInt(dict["sort"]);
 	    }		
 	}
+	if(dict.ContainsKey("code")) {
+	    if(dict["code"] != null) {
+	    	code = DataType.Instance.FillString(dict["code"]);
+	    }		
+	}
 	if(dict.ContainsKey("data")) {
 	    if(dict["data"] != null) {
 	    	data = DataType.Instance.FillString(dict["data"]);
-	    }		
-	}
-	if(dict.ContainsKey("key")) {
-	    if(dict["key"] != null) {
-	    	key = DataType.Instance.FillString(dict["key"]);
 	    }		
 	}
 	if(dict.ContainsKey("game_id")) {

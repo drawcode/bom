@@ -75,11 +75,11 @@ namespace gaming.ent {
         }
     
         public string username { get; set; }
+        public string code { get; set; }
         public string level { get; set; }
         public string type { get; set; }
         public string profile_id { get; set; }
         public float points { get; set; }
-        public string key { get; set; }
         public float timestamp { get; set; }
         public string game_id { get; set; }
         public string data { get; set; }
@@ -89,6 +89,9 @@ namespace gaming.ent {
             dict = base.ToDictionary();
 	    	if (username != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "username", username);
+	    	}
+	    	if (code != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "code", code);
 	    	}
 	    	if (level != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "level", level);
@@ -100,9 +103,6 @@ namespace gaming.ent {
 	    	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
 	    	}
 	    	dict = DataUtil.SetDictValue(dict, "points", points);
-	    	if (key != null) {
-	    	    dict = DataUtil.SetDictValue(dict, "key", key);
-	    	}
 	    	dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
 	    	if (game_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
@@ -118,6 +118,11 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("username")) {
 	    	    if(dict["username"] != null) {
 	    	    	username = DataType.Instance.FillString(dict["username"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("code")) {
+	    	    if(dict["code"] != null) {
+	    	    	code = DataType.Instance.FillString(dict["code"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("level")) {
@@ -138,11 +143,6 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("points")) {
 	    	    if(dict["points"] != null) {
 	    	    	points = DataType.Instance.FillFloat(dict["points"]);
-	    	    }		
-	    	}
-	    	if(dict.ContainsKey("key")) {
-	    	    if(dict["key"] != null) {
-	    	    	key = DataType.Instance.FillString(dict["key"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("timestamp")) {

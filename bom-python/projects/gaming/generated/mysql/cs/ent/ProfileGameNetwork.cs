@@ -75,18 +75,24 @@ namespace gaming.ent {
         }
     
         public string hash { get; set; }
+        public string network_fullname { get; set; }
         public string profile_id { get; set; }
         public string token { get; set; }
         public string game_network_id { get; set; }
         public string secret { get; set; }
         public string network_username { get; set; }
         public string game_id { get; set; }
+        public string network_auth { get; set; }
         public string data { get; set; }
+        public string network_user_id { get; set; }
 
         public override Dictionary<string, object> ToDictionary(){
             dict = base.ToDictionary();
 	    	if (hash != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "hash", hash);
+	    	}
+	    	if (network_fullname != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "network_fullname", network_fullname);
 	    	}
 	    	if (profile_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
@@ -106,8 +112,14 @@ namespace gaming.ent {
 	    	if (game_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
 	    	}
+	    	if (network_auth != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "network_auth", network_auth);
+	    	}
 	    	if (data != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "data", data);
+	    	}
+	    	if (network_user_id != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "network_user_id", network_user_id);
 	    	}
             return dict;
         }
@@ -116,6 +128,11 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("hash")) {
 	    	    if(dict["hash"] != null) {
 	    	    	hash = DataType.Instance.FillString(dict["hash"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("network_fullname")) {
+	    	    if(dict["network_fullname"] != null) {
+	    	    	network_fullname = DataType.Instance.FillString(dict["network_fullname"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("profile_id")) {
@@ -148,9 +165,19 @@ namespace gaming.ent {
 	    	    	game_id = DataType.Instance.FillString(dict["game_id"]);
 	    	    }		
 	    	}
+	    	if(dict.ContainsKey("network_auth")) {
+	    	    if(dict["network_auth"] != null) {
+	    	    	network_auth = DataType.Instance.FillString(dict["network_auth"]);
+	    	    }		
+	    	}
 	    	if(dict.ContainsKey("data")) {
 	    	    if(dict["data"] != null) {
 	    	    	data = DataType.Instance.FillString(dict["data"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("network_user_id")) {
+	    	    if(dict["network_user_id"] != null) {
+	    	    	network_user_id = DataType.Instance.FillString(dict["network_user_id"]);
 	    	    }		
 	    	}
         }

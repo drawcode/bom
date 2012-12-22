@@ -75,7 +75,7 @@ namespace gaming.ent {
         }
     
         public string username { get; set; }
-        public int rank_change { get; set; }
+        public string code { get; set; }
         public string network { get; set; }
         public float timestamp { get; set; }
         public string level { get; set; }
@@ -83,9 +83,10 @@ namespace gaming.ent {
         public string profile_id { get; set; }
         public int rank_total_count { get; set; }
         public int rank { get; set; }
-        public string key { get; set; }
+        public int rank_change { get; set; }
         public string type { get; set; }
         public string game_id { get; set; }
+        public float absolute_value { get; set; }
         public string data { get; set; }
         public float stat_value { get; set; }
 
@@ -94,7 +95,9 @@ namespace gaming.ent {
 	    	if (username != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "username", username);
 	    	}
-	    	dict = DataUtil.SetDictValue(dict, "rank_change", rank_change);
+	    	if (code != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "code", code);
+	    	}
 	    	if (network != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "network", network);
 	    	}
@@ -110,15 +113,14 @@ namespace gaming.ent {
 	    	}
 	    	dict = DataUtil.SetDictValue(dict, "rank_total_count", rank_total_count);
 	    	dict = DataUtil.SetDictValue(dict, "rank", rank);
-	    	if (key != null) {
-	    	    dict = DataUtil.SetDictValue(dict, "key", key);
-	    	}
+	    	dict = DataUtil.SetDictValue(dict, "rank_change", rank_change);
 	    	if (type != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "type", type);
 	    	}
 	    	if (game_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
 	    	}
+	    	dict = DataUtil.SetDictValue(dict, "absolute_value", absolute_value);
 	    	if (data != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "data", data);
 	    	}
@@ -132,9 +134,9 @@ namespace gaming.ent {
 	    	    	username = DataType.Instance.FillString(dict["username"]);
 	    	    }		
 	    	}
-	    	if(dict.ContainsKey("rank_change")) {
-	    	    if(dict["rank_change"] != null) {
-	    	    	rank_change = DataType.Instance.FillInt(dict["rank_change"]);
+	    	if(dict.ContainsKey("code")) {
+	    	    if(dict["code"] != null) {
+	    	    	code = DataType.Instance.FillString(dict["code"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("network")) {
@@ -172,9 +174,9 @@ namespace gaming.ent {
 	    	    	rank = DataType.Instance.FillInt(dict["rank"]);
 	    	    }		
 	    	}
-	    	if(dict.ContainsKey("key")) {
-	    	    if(dict["key"] != null) {
-	    	    	key = DataType.Instance.FillString(dict["key"]);
+	    	if(dict.ContainsKey("rank_change")) {
+	    	    if(dict["rank_change"] != null) {
+	    	    	rank_change = DataType.Instance.FillInt(dict["rank_change"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("type")) {
@@ -185,6 +187,11 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("game_id")) {
 	    	    if(dict["game_id"] != null) {
 	    	    	game_id = DataType.Instance.FillString(dict["game_id"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("absolute_value")) {
+	    	    if(dict["absolute_value"] != null) {
+	    	    	absolute_value = DataType.Instance.FillFloat(dict["absolute_value"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("data")) {

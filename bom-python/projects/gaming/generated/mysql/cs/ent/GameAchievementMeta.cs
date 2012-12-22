@@ -75,11 +75,11 @@ namespace gaming.ent {
         }
     
         public int sort { get; set; }
+        public string code { get; set; }
         public bool game_stat { get; set; }
         public string level { get; set; }
         public string data { get; set; }
         public int points { get; set; }
-        public string key { get; set; }
         public string game_id { get; set; }
         public float modifier { get; set; }
         public string type { get; set; }
@@ -88,6 +88,9 @@ namespace gaming.ent {
         public override Dictionary<string, object> ToDictionary(){
             dict = base.ToDictionary();
 	    	dict = DataUtil.SetDictValue(dict, "sort", sort);
+	    	if (code != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "code", code);
+	    	}
 	    	dict = DataUtil.SetDictValue(dict, "game_stat", game_stat);
 	    	if (level != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "level", level);
@@ -96,9 +99,6 @@ namespace gaming.ent {
 	    	    dict = DataUtil.SetDictValue(dict, "data", data);
 	    	}
 	    	dict = DataUtil.SetDictValue(dict, "points", points);
-	    	if (key != null) {
-	    	    dict = DataUtil.SetDictValue(dict, "key", key);
-	    	}
 	    	if (game_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
 	    	}
@@ -114,6 +114,11 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("sort")) {
 	    	    if(dict["sort"] != null) {
 	    	    	sort = DataType.Instance.FillInt(dict["sort"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("code")) {
+	    	    if(dict["code"] != null) {
+	    	    	code = DataType.Instance.FillString(dict["code"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("game_stat")) {
@@ -134,11 +139,6 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("points")) {
 	    	    if(dict["points"] != null) {
 	    	    	points = DataType.Instance.FillInt(dict["points"]);
-	    	    }		
-	    	}
-	    	if(dict.ContainsKey("key")) {
-	    	    if(dict["key"] != null) {
-	    	    	key = DataType.Instance.FillString(dict["key"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("game_id")) {

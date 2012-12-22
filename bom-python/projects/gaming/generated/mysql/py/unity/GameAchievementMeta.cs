@@ -51,11 +51,11 @@ public class GameAchievementMeta : BaseMeta {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public  sort { get; set; }
+    public  code { get; set; }
     public  game_stat { get; set; }
     public  level { get; set; }
     public  data { get; set; }
     public  points { get; set; }
-    public  key { get; set; }
     public  game_id { get; set; }
     public  modifier { get; set; }
     public  type { get; set; }
@@ -74,6 +74,9 @@ public class GameAchievementMeta : BaseMeta {
 	if (sort != null) {
 	    dict = DataUtil.SetDictValue(dict, "sort", sort);
 	}
+	if (code != null) {
+	    dict = DataUtil.SetDictValue(dict, "code", code);
+	}
 	dict = DataUtil.SetDictValue(dict, "game_stat", game_stat);
 	if (level != null) {
 	    dict = DataUtil.SetDictValue(dict, "level", level);
@@ -83,9 +86,6 @@ public class GameAchievementMeta : BaseMeta {
 	}
 	if (points != null) {
 	    dict = DataUtil.SetDictValue(dict, "points", points);
-	}
-	if (key != null) {
-	    dict = DataUtil.SetDictValue(dict, "key", key);
 	}
 	if (game_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
@@ -106,6 +106,11 @@ public class GameAchievementMeta : BaseMeta {
 	    	sort = DataType.Instance.Fill(dict["sort"]);
 	    }		
 	}
+	if(dict.ContainsKey("code")) {
+	    if(dict["code"] != null) {
+	    	code = DataType.Instance.Fill(dict["code"]);
+	    }		
+	}
 	if(dict.ContainsKey("game_stat")) {
 	    if(dict["game_stat"] != null) {
 	    	game_stat = DataType.Instance.Fill(dict["game_stat"]);
@@ -124,11 +129,6 @@ public class GameAchievementMeta : BaseMeta {
 	if(dict.ContainsKey("points")) {
 	    if(dict["points"] != null) {
 	    	points = DataType.Instance.Fill(dict["points"]);
-	    }		
-	}
-	if(dict.ContainsKey("key")) {
-	    if(dict["key"] != null) {
-	    	key = DataType.Instance.Fill(dict["key"]);
 	    }		
 	}
 	if(dict.ContainsKey("game_id")) {

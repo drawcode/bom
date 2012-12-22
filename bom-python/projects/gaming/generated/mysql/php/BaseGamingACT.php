@@ -1873,6 +1873,9 @@ class BaseGamingACT {
         if ($row['date_modified'] != NULL) {                
             $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
         }
+        if ($row['network_fullname'] != NULL) {                
+            $obj->network_fullname = $row['network_fullname'];#dataType.FillDataString(dr, "network_fullname");
+        }
         if ($row['secret'] != NULL) {                
             $obj->secret = $row['secret'];#dataType.FillDataString(dr, "secret");
         }
@@ -1882,8 +1885,14 @@ class BaseGamingACT {
         if ($row['date_created'] != NULL) {                
             $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
         }
+        if ($row['network_auth'] != NULL) {                
+            $obj->network_auth = $row['network_auth'];#dataType.FillDataString(dr, "network_auth");
+        }
         if ($row['type'] != NULL) {                
             $obj->type = $row['type'];#dataType.FillDataString(dr, "type");
+        }
+        if ($row['network_user_id'] != NULL) {                
+            $obj->network_user_id = $row['network_user_id'];#dataType.FillDataString(dr, "network_user_id");
         }
 
         return $obj;
@@ -1929,6 +1938,40 @@ class BaseGamingACT {
         );
     }
                
+    public function CountProfileGameNetworkByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {       
+        return $this->data->CountProfileGameNetworkByProfileIdByGameId(
+            $profile_id
+            , $game_id
+        );
+    }
+               
+    public function CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+        $profile_id
+        , $game_id
+        , $game_network_id
+    ) {       
+        return $this->data->CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            $profile_id
+            , $game_id
+            , $game_network_id
+        );
+    }
+               
+    public function CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+        $network_username
+        , $game_id
+        , $game_network_id
+    ) {       
+        return $this->data->CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            $network_username
+            , $game_id
+            , $game_network_id
+        );
+    }
+               
     public function BrowseProfileGameNetworkListByFilter($filter_obj) {
         $result = new ProfileGameNetworkResult();
         $result->page = $filter_obj->page;
@@ -1954,11 +1997,57 @@ class BaseGamingACT {
         return $this->data->SetProfileGameNetworkByUuid($set_type, $obj);
     }
             
+    public function SetProfileGameNetworkByProfileIdByGameId($set_type, $obj) {           
+        return $this->data->SetProfileGameNetworkByProfileIdByGameId($set_type, $obj);
+    }
+            
+    public function SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId($set_type, $obj) {           
+        return $this->data->SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId($set_type, $obj);
+    }
+            
+    public function SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId($set_type, $obj) {           
+        return $this->data->SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId($set_type, $obj);
+    }
+            
     public function DelProfileGameNetworkByUuid(
         $uuid
     ) {
         return $this->data->DelProfileGameNetworkByUuid(
             $uuid
+        );
+    }
+        
+    public function DelProfileGameNetworkByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        return $this->data->DelProfileGameNetworkByProfileIdByGameId(
+            $profile_id
+            , $game_id
+        );
+    }
+        
+    public function DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+        $profile_id
+        , $game_id
+        , $game_network_id
+    ) {
+        return $this->data->DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            $profile_id
+            , $game_id
+            , $game_network_id
+        );
+    }
+        
+    public function DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+        $network_username
+        , $game_id
+        , $game_network_id
+    ) {
+        return $this->data->DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            $network_username
+            , $game_id
+            , $game_network_id
         );
     }
         
@@ -2045,6 +2134,52 @@ class BaseGamingACT {
         $rows = $this->data->GetProfileGameNetworkListByProfileIdByGameId(
             $profile_id
             , $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $profile_game_network  = $this->FillProfileGameNetwork($row);
+                $results[] = $profile_game_network;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+        $profile_id
+        , $game_id
+        , $game_network_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+            $profile_id
+            , $game_id
+            , $game_network_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $profile_game_network  = $this->FillProfileGameNetwork($row);
+                $results[] = $profile_game_network;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+        $network_username
+        , $game_id
+        , $game_network_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+            $network_username
+            , $game_id
+            , $game_network_id
         );
         
         if($rows != NULL) {
@@ -5659,8 +5794,8 @@ class BaseGamingACT {
         if ($row['username'] != NULL) {                
             $obj->username = $row['username'];#dataType.FillDataString(dr, "username");
         }
-        if ($row['key'] != NULL) {                
-            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
         }
         if ($row['timestamp'] != NULL) {                
             $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
@@ -5682,6 +5817,9 @@ class BaseGamingACT {
         }
         if ($row['rank_total_count'] != NULL) {                
             $obj->rank_total_count = $row['rank_total_count'];#dataType.FillDataInt(dr, "rank_total_count");
+        }
+        if ($row['absolute_value'] != NULL) {                
+            $obj->absolute_value = $row['absolute_value'];#dataType.FillDataFloat(dr, "absolute_value");
         }
         if ($row['data'] != NULL) {                
             $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
@@ -5728,14 +5866,6 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardByKey(
-        $key
-    ) {       
-        return $this->data->CountGameStatisticLeaderboardByKey(
-            $key
-        );
-    }
-               
     public function CountGameStatisticLeaderboardByGameId(
         $game_id
     ) {       
@@ -5744,38 +5874,46 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardByKeyByGameId(
-        $key
+    public function CountGameStatisticLeaderboardByCode(
+        $code
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardByCode(
+            $code
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardByCodeByGameId(
+        $code
         , $game_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByKeyByGameId(
-            $key
+        return $this->data->CountGameStatisticLeaderboardByCodeByGameId(
+            $code
             , $game_id
         );
     }
                
-    public function CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
-        $key
-        , $profile_id
+    public function CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+        $code
         , $game_id
+        , $profile_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
-            $key
+        return $this->data->CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            $code
+            , $game_id
             , $profile_id
-            , $game_id
         );
     }
                
-    public function CountGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(
-        $key
-        , $profile_id
+    public function CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+        $code
         , $game_id
+        , $profile_id
         , $timestamp
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(
-            $key
-            , $profile_id
+        return $this->data->CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            $code
             , $game_id
+            , $profile_id
             , $timestamp
         );
     }
@@ -5819,20 +5957,20 @@ class BaseGamingACT {
         return $this->data->SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByKeyByProfileId($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByKeyByProfileId($set_type, $obj);
+    public function SetGameStatisticLeaderboardByCode($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardByCode($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardByCodeByGameId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardByCodeByGameId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardByCodeByGameIdByProfileId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardByCodeByGameIdByProfileId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByKeyByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByKeyByProfileIdByGameId($set_type, $obj);
+    public function SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp($set_type, $obj);
     }
             
     public function DelGameStatisticLeaderboardByUuid(
@@ -5843,25 +5981,47 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameStatisticLeaderboardByKeyByGameId(
-        $key
+    public function DelGameStatisticLeaderboardByCode(
+        $code
+    ) {
+        return $this->data->DelGameStatisticLeaderboardByCode(
+            $code
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardByCodeByGameId(
+        $code
         , $game_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardByKeyByGameId(
-            $key
+        return $this->data->DelGameStatisticLeaderboardByCodeByGameId(
+            $code
             , $game_id
         );
     }
         
-    public function DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
-        $key
-        , $profile_id
+    public function DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+        $code
         , $game_id
+        , $profile_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
-            $key
-            , $profile_id
+        return $this->data->DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            $code
             , $game_id
+            , $profile_id
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+        $code
+        , $game_id
+        , $profile_id
+        , $timestamp
+    ) {
+        return $this->data->DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            $code
+            , $game_id
+            , $profile_id
+            , $timestamp
         );
     }
         
@@ -5911,25 +6071,6 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByKey(
-        $key
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByKey(
-            $key
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_statistic_leaderboard  = $this->FillGameStatisticLeaderboard($row);
-                $results[] = $game_statistic_leaderboard;
-            }
-        }
-        
-        return $results;
-    }
-        
     public function GetGameStatisticLeaderboardListByGameId(
         $game_id
     ) {
@@ -5949,14 +6090,33 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByKeyByGameId(
-        $key
+    public function GetGameStatisticLeaderboardListByCode(
+        $code
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardListByCode(
+            $code
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard  = $this->FillGameStatisticLeaderboard($row);
+                $results[] = $game_statistic_leaderboard;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardListByCodeByGameId(
+        $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByKeyByGameId(
-            $key
+        $rows = $this->data->GetGameStatisticLeaderboardListByCodeByGameId(
+            $code
             , $game_id
         );
         
@@ -5970,40 +6130,17 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
-        $key
+    public function GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+        $code
         , $game_id
-        , $network
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
-            $key
-            , $game_id
-            , $network
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_statistic_leaderboard  = $this->FillGameStatisticLeaderboard($row);
-                $results[] = $game_statistic_leaderboard;
-            }
-        }
-        
-        return $results;
-    }
-        
-    public function GetGameStatisticLeaderboardListByKeyByProfileIdByGameId(
-        $key
         , $profile_id
-        , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByKeyByProfileIdByGameId(
-            $key
+        $rows = $this->data->GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+            $code
+            , $game_id
             , $profile_id
-            , $game_id
         );
         
         if($rows != NULL) {
@@ -6016,18 +6153,18 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
-        $key
-        , $profile_id
+    public function GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+        $code
         , $game_id
+        , $profile_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
-            $key
-            , $profile_id
+        $rows = $this->data->GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+            $code
             , $game_id
+            , $profile_id
             , $timestamp
         );
         
@@ -6095,8 +6232,8 @@ class BaseGamingACT {
         if ($row['username'] != NULL) {                
             $obj->username = $row['username'];#dataType.FillDataString(dr, "username");
         }
-        if ($row['key'] != NULL) {                
-            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
         }
         if ($row['timestamp'] != NULL) {                
             $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
@@ -6118,6 +6255,9 @@ class BaseGamingACT {
         }
         if ($row['rank_total_count'] != NULL) {                
             $obj->rank_total_count = $row['rank_total_count'];#dataType.FillDataInt(dr, "rank_total_count");
+        }
+        if ($row['absolute_value'] != NULL) {                
+            $obj->absolute_value = $row['absolute_value'];#dataType.FillDataFloat(dr, "absolute_value");
         }
         if ($row['data'] != NULL) {                
             $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
@@ -6164,14 +6304,6 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByKey(
-        $key
-    ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByKey(
-            $key
-        );
-    }
-               
     public function CountGameStatisticLeaderboardRollupByGameId(
         $game_id
     ) {       
@@ -6180,38 +6312,46 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByKeyByGameId(
-        $key
+    public function CountGameStatisticLeaderboardRollupByCode(
+        $code
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardRollupByCode(
+            $code
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardRollupByCodeByGameId(
+        $code
         , $game_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByKeyByGameId(
-            $key
+        return $this->data->CountGameStatisticLeaderboardRollupByCodeByGameId(
+            $code
             , $game_id
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-        $key
-        , $profile_id
+    public function CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+        $code
         , $game_id
+        , $profile_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-            $key
+        return $this->data->CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            $code
+            , $game_id
             , $profile_id
-            , $game_id
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
-        $key
-        , $profile_id
+    public function CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+        $code
         , $game_id
+        , $profile_id
         , $timestamp
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
-            $key
-            , $profile_id
+        return $this->data->CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            $code
             , $game_id
+            , $profile_id
             , $timestamp
         );
     }
@@ -6255,20 +6395,20 @@ class BaseGamingACT {
         return $this->data->SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByKeyByProfileId($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByKeyByProfileId($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupByCode($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByCode($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupByCodeByGameId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByCodeByGameId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp($set_type, $obj);
     }
             
     public function DelGameStatisticLeaderboardRollupByUuid(
@@ -6279,25 +6419,47 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameStatisticLeaderboardRollupByKeyByGameId(
-        $key
+    public function DelGameStatisticLeaderboardRollupByCode(
+        $code
+    ) {
+        return $this->data->DelGameStatisticLeaderboardRollupByCode(
+            $code
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardRollupByCodeByGameId(
+        $code
         , $game_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardRollupByKeyByGameId(
-            $key
+        return $this->data->DelGameStatisticLeaderboardRollupByCodeByGameId(
+            $code
             , $game_id
         );
     }
         
-    public function DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-        $key
-        , $profile_id
+    public function DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+        $code
         , $game_id
+        , $profile_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-            $key
-            , $profile_id
+        return $this->data->DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            $code
             , $game_id
+            , $profile_id
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+        $code
+        , $game_id
+        , $profile_id
+        , $timestamp
+    ) {
+        return $this->data->DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            $code
+            , $game_id
+            , $profile_id
+            , $timestamp
         );
     }
         
@@ -6347,25 +6509,6 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByKey(
-        $key
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKey(
-            $key
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
-                $results[] = $game_statistic_leaderboard_rollup;
-            }
-        }
-        
-        return $results;
-    }
-        
     public function GetGameStatisticLeaderboardRollupListByGameId(
         $game_id
     ) {
@@ -6385,14 +6528,33 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByKeyByGameId(
-        $key
+    public function GetGameStatisticLeaderboardRollupListByCode(
+        $code
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByCode(
+            $code
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
+                $results[] = $game_statistic_leaderboard_rollup;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardRollupListByCodeByGameId(
+        $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKeyByGameId(
-            $key
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByCodeByGameId(
+            $code
             , $game_id
         );
         
@@ -6406,40 +6568,17 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
-        $key
+    public function GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+        $code
         , $game_id
-        , $network
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
-            $key
-            , $game_id
-            , $network
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_statistic_leaderboard_rollup  = $this->FillGameStatisticLeaderboardRollup($row);
-                $results[] = $game_statistic_leaderboard_rollup;
-            }
-        }
-        
-        return $results;
-    }
-        
-    public function GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
-        $key
         , $profile_id
-        , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
-            $key
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+            $code
+            , $game_id
             , $profile_id
-            , $game_id
         );
         
         if($rows != NULL) {
@@ -6452,18 +6591,18 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
-        $key
-        , $profile_id
+    public function GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+        $code
         , $game_id
+        , $profile_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
-            $key
-            , $profile_id
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+            $code
             , $game_id
+            , $profile_id
             , $timestamp
         );
         
@@ -6916,14 +7055,14 @@ class BaseGamingACT {
         if ($row['username'] != NULL) {                
             $obj->username = $row['username'];#dataType.FillDataString(dr, "username");
         }
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
+        }
         if ($row['timestamp'] != NULL) {                
             $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
         }
         if ($row['profile_id'] != NULL) {                
             $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
-        }
-        if ($row['key'] != NULL) {                
-            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
         }
         if ($row['active'] != NULL) {                
             $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
@@ -6973,11 +7112,11 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileStatisticByKey(
-        $key
+    public function CountGameProfileStatisticByCode(
+        $code
     ) {       
-        return $this->data->CountGameProfileStatisticByKey(
-            $key
+        return $this->data->CountGameProfileStatisticByCode(
+            $code
         );
     }
                
@@ -6989,12 +7128,12 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileStatisticByKeyByGameId(
-        $key
+    public function CountGameProfileStatisticByCodeByGameId(
+        $code
         , $game_id
     ) {       
-        return $this->data->CountGameProfileStatisticByKeyByGameId(
-            $key
+        return $this->data->CountGameProfileStatisticByCodeByGameId(
+            $code
             , $game_id
         );
     }
@@ -7009,26 +7148,26 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileStatisticByKeyByProfileIdByGameId(
-        $key
+    public function CountGameProfileStatisticByCodeByProfileIdByGameId(
+        $code
         , $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameProfileStatisticByKeyByProfileIdByGameId(
-            $key
+        return $this->data->CountGameProfileStatisticByCodeByProfileIdByGameId(
+            $code
             , $profile_id
             , $game_id
         );
     }
                
-    public function CountGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(
-        $key
+    public function CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+        $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {       
-        return $this->data->CountGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(
-            $key
+        return $this->data->CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+            $code
             , $profile_id
             , $game_id
             , $timestamp
@@ -7064,20 +7203,20 @@ class BaseGamingACT {
         return $this->data->SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByProfileIdByKey($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByProfileIdByKey($set_type, $obj);
+    public function SetGameProfileStatisticByProfileIdByCode($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticByProfileIdByCode($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByProfileIdByKeyByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByProfileIdByKeyByTimestamp($set_type, $obj);
+    public function SetGameProfileStatisticByProfileIdByCodeByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticByProfileIdByCodeByTimestamp($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByProfileIdByGameIdByKey($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByProfileIdByGameIdByKey($set_type, $obj);
+    public function SetGameProfileStatisticByCodeByProfileIdByGameId($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticByCodeByProfileIdByGameId($set_type, $obj);
     }
             
     public function DelGameProfileStatisticByUuid(
@@ -7088,12 +7227,12 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameProfileStatisticByKeyByGameId(
-        $key
+    public function DelGameProfileStatisticByCodeByGameId(
+        $code
         , $game_id
     ) {
-        return $this->data->DelGameProfileStatisticByKeyByGameId(
-            $key
+        return $this->data->DelGameProfileStatisticByCodeByGameId(
+            $code
             , $game_id
         );
     }
@@ -7108,13 +7247,13 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameProfileStatisticByKeyByProfileIdByGameId(
-        $key
+    public function DelGameProfileStatisticByCodeByProfileIdByGameId(
+        $code
         , $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameProfileStatisticByKeyByProfileIdByGameId(
-            $key
+        return $this->data->DelGameProfileStatisticByCodeByProfileIdByGameId(
+            $code
             , $profile_id
             , $game_id
         );
@@ -7139,13 +7278,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByKey(
-        $key
+    public function GetGameProfileStatisticListByCode(
+        $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByKey(
-            $key
+        $rows = $this->data->GetGameProfileStatisticListByCode(
+            $code
         );
         
         if($rows != NULL) {
@@ -7177,14 +7316,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByKeyByGameId(
-        $key
+    public function GetGameProfileStatisticListByCodeByGameId(
+        $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByKeyByGameId(
-            $key
+        $rows = $this->data->GetGameProfileStatisticListByCodeByGameId(
+            $code
             , $game_id
         );
         
@@ -7242,15 +7381,15 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByKeyByProfileIdByGameId(
-        $key
+    public function GetGameProfileStatisticListByCodeByProfileIdByGameId(
+        $code
         , $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByKeyByProfileIdByGameId(
-            $key
+        $rows = $this->data->GetGameProfileStatisticListByCodeByProfileIdByGameId(
+            $code
             , $profile_id
             , $game_id
         );
@@ -7265,16 +7404,16 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByKeyByProfileIdByGameIdByTimestamp(
-        $key
+    public function GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+        $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByKeyByProfileIdByGameIdByTimestamp(
-            $key
+        $rows = $this->data->GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+            $code
             , $profile_id
             , $game_id
             , $timestamp
@@ -7323,9 +7462,6 @@ class BaseGamingACT {
         }
         if ($row['store_count'] != NULL) {                
             $obj->store_count = $row['store_count'];#dataType.FillDataInt(dr, "store_count");
-        }
-        if ($row['key'] != NULL) {                
-            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
         }
         if ($row['game_id'] != NULL) {                
             $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
@@ -7389,29 +7525,11 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticMetaByKey(
-        $key
-    ) {       
-        return $this->data->CountGameStatisticMetaByKey(
-            $key
-        );
-    }
-               
     public function CountGameStatisticMetaByGameId(
         $game_id
     ) {       
         return $this->data->CountGameStatisticMetaByGameId(
             $game_id
-        );
-    }
-               
-    public function CountGameStatisticMetaByKeyByGameId(
-        $key
-        , $game_id
-    ) {       
-        return $this->data->CountGameStatisticMetaByKeyByGameId(
-            $key
-            , $game_id
         );
     }
                
@@ -7444,10 +7562,6 @@ class BaseGamingACT {
         return $this->data->SetGameStatisticMetaByCodeByGameId($set_type, $obj);
     }
             
-    public function SetGameStatisticMetaByKeyByGameId($set_type, $obj) {           
-        return $this->data->SetGameStatisticMetaByKeyByGameId($set_type, $obj);
-    }
-            
     public function DelGameStatisticMetaByUuid(
         $uuid
     ) {
@@ -7462,16 +7576,6 @@ class BaseGamingACT {
     ) {
         return $this->data->DelGameStatisticMetaByCodeByGameId(
             $code
-            , $game_id
-        );
-    }
-        
-    public function DelGameStatisticMetaByKeyByGameId(
-        $key
-        , $game_id
-    ) {
-        return $this->data->DelGameStatisticMetaByKeyByGameId(
-            $key
             , $game_id
         );
     }
@@ -7514,27 +7618,6 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticMetaListByCodeByGameId(
-        $code
-        , $game_id
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameStatisticMetaListByCodeByGameId(
-            $code
-            , $game_id
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_statistic_meta  = $this->FillGameStatisticMeta($row);
-                $results[] = $game_statistic_meta;
-            }
-        }
-        
-        return $results;
-    }
-        
     public function GetGameStatisticMetaListByName(
         $name
     ) {
@@ -7542,25 +7625,6 @@ class BaseGamingACT {
         $results = array();
         $rows = $this->data->GetGameStatisticMetaListByName(
             $name
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_statistic_meta  = $this->FillGameStatisticMeta($row);
-                $results[] = $game_statistic_meta;
-            }
-        }
-        
-        return $results;
-    }
-        
-    public function GetGameStatisticMetaListByKey(
-        $key
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameStatisticMetaListByKey(
-            $key
         );
         
         if($rows != NULL) {
@@ -7592,14 +7656,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticMetaListByKeyByGameId(
-        $key
+    public function GetGameStatisticMetaListByCodeByGameId(
+        $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticMetaListByKeyByGameId(
-            $key
+        $rows = $this->data->GetGameStatisticMetaListByCodeByGameId(
+            $code
             , $game_id
         );
         
@@ -7620,14 +7684,14 @@ class BaseGamingACT {
         if ($row['status'] != NULL) {                
             $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
         }
-        if ($row['timestamp'] != NULL) {                
-            $obj->timestamp = $row['timestamp'];#dataType.FillDataDate(dr, "timestamp");
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
         }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
         }
-        if ($row['key'] != NULL) {                
-            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
+        if ($row['timestamp'] != NULL) {                
+            $obj->timestamp = $row['timestamp'];#dataType.FillDataDate(dr, "timestamp");
         }
         if ($row['date_modified'] != NULL) {                
             $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
@@ -7665,26 +7729,26 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-        $key
+    public function CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+        $code
         , $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-            $key
+        return $this->data->CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            $code
             , $profile_id
             , $game_id
         );
     }
                
-    public function CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-        $key
+    public function CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+        $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {       
-        return $this->data->CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-            $key
+        return $this->data->CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            $code
             , $profile_id
             , $game_id
             , $timestamp
@@ -7716,12 +7780,12 @@ class BaseGamingACT {
         return $this->data->SetGameProfileStatisticTimestampByUuid($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticTimestampByKeyByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticTimestampByKeyByProfileIdByGameId($set_type, $obj);
+    public function SetGameProfileStatisticTimestampByCodeByProfileIdByGameId($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticTimestampByCodeByProfileIdByGameId($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
             
     public function DelGameProfileStatisticTimestampByUuid(
@@ -7732,26 +7796,26 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-        $key
+    public function DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+        $code
         , $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-            $key
+        return $this->data->DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            $code
             , $profile_id
             , $game_id
         );
     }
         
-    public function DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-        $key
+    public function DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+        $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {
-        return $this->data->DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-            $key
+        return $this->data->DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            $code
             , $profile_id
             , $game_id
             , $timestamp
@@ -7777,15 +7841,15 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
-        $key
+    public function GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+        $code
         , $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
-            $key
+        $rows = $this->data->GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+            $code
             , $profile_id
             , $game_id
         );
@@ -7800,16 +7864,16 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp(
-        $key
+    public function GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+        $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp(
-            $key
+        $rows = $this->data->GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+            $code
             , $profile_id
             , $game_id
             , $timestamp
@@ -8207,9 +8271,6 @@ class BaseGamingACT {
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
         }
-        if ($row['key'] != NULL) {                
-            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
-        }
         if ($row['game_id'] != NULL) {                
             $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
         }
@@ -8272,29 +8333,11 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameLevelByKey(
-        $key
-    ) {       
-        return $this->data->CountGameLevelByKey(
-            $key
-        );
-    }
-               
     public function CountGameLevelByGameId(
         $game_id
     ) {       
         return $this->data->CountGameLevelByGameId(
             $game_id
-        );
-    }
-               
-    public function CountGameLevelByKeyByGameId(
-        $key
-        , $game_id
-    ) {       
-        return $this->data->CountGameLevelByKeyByGameId(
-            $key
-            , $game_id
         );
     }
                
@@ -8327,10 +8370,6 @@ class BaseGamingACT {
         return $this->data->SetGameLevelByCodeByGameId($set_type, $obj);
     }
             
-    public function SetGameLevelByKeyByGameId($set_type, $obj) {           
-        return $this->data->SetGameLevelByKeyByGameId($set_type, $obj);
-    }
-            
     public function DelGameLevelByUuid(
         $uuid
     ) {
@@ -8345,16 +8384,6 @@ class BaseGamingACT {
     ) {
         return $this->data->DelGameLevelByCodeByGameId(
             $code
-            , $game_id
-        );
-    }
-        
-    public function DelGameLevelByKeyByGameId(
-        $key
-        , $game_id
-    ) {
-        return $this->data->DelGameLevelByKeyByGameId(
-            $key
             , $game_id
         );
     }
@@ -8437,25 +8466,6 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLevelListByKey(
-        $key
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameLevelListByKey(
-            $key
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_level  = $this->FillGameLevel($row);
-                $results[] = $game_level;
-            }
-        }
-        
-        return $results;
-    }
-        
     public function GetGameLevelListByGameId(
         $game_id
     ) {
@@ -8463,27 +8473,6 @@ class BaseGamingACT {
         $results = array();
         $rows = $this->data->GetGameLevelListByGameId(
             $game_id
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_level  = $this->FillGameLevel($row);
-                $results[] = $game_level;
-            }
-        }
-        
-        return $results;
-    }
-        
-    public function GetGameLevelListByKeyByGameId(
-        $key
-        , $game_id
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameLevelListByKeyByGameId(
-            $key
-            , $game_id
         );
         
         if($rows != NULL) {
@@ -8506,6 +8495,9 @@ class BaseGamingACT {
         if ($row['username'] != NULL) {                
             $obj->username = $row['username'];#dataType.FillDataString(dr, "username");
         }
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
+        }
         if ($row['timestamp'] != NULL) {                
             $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
         }
@@ -8514,9 +8506,6 @@ class BaseGamingACT {
         }
         if ($row['profile_id'] != NULL) {                
             $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
-        }
-        if ($row['key'] != NULL) {                
-            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
         }
         if ($row['active'] != NULL) {                
             $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
@@ -8563,13 +8552,13 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileAchievementByProfileIdByKey(
+    public function CountGameProfileAchievementByProfileIdByCode(
         $profile_id
-        , $key
+        , $code
     ) {       
-        return $this->data->CountGameProfileAchievementByProfileIdByKey(
+        return $this->data->CountGameProfileAchievementByProfileIdByCode(
             $profile_id
-            , $key
+            , $code
         );
     }
                
@@ -8581,26 +8570,26 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileAchievementByKeyByProfileIdByGameId(
-        $key
+    public function CountGameProfileAchievementByCodeByProfileIdByGameId(
+        $code
         , $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameProfileAchievementByKeyByProfileIdByGameId(
-            $key
+        return $this->data->CountGameProfileAchievementByCodeByProfileIdByGameId(
+            $code
             , $profile_id
             , $game_id
         );
     }
                
-    public function CountGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(
-        $key
+    public function CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+        $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {       
-        return $this->data->CountGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(
-            $key
+        return $this->data->CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+            $code
             , $profile_id
             , $game_id
             , $timestamp
@@ -8632,20 +8621,20 @@ class BaseGamingACT {
         return $this->data->SetGameProfileAchievementByUuid($set_type, $obj);
     }
             
-    public function SetGameProfileAchievementByUuidByKey($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByUuidByKey($set_type, $obj);
+    public function SetGameProfileAchievementByUuidByCode($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementByUuidByCode($set_type, $obj);
     }
             
-    public function SetGameProfileAchievementByProfileIdByKey($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByProfileIdByKey($set_type, $obj);
+    public function SetGameProfileAchievementByProfileIdByCode($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementByProfileIdByCode($set_type, $obj);
     }
             
-    public function SetGameProfileAchievementByKeyByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByKeyByProfileIdByGameId($set_type, $obj);
+    public function SetGameProfileAchievementByCodeByProfileIdByGameId($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementByCodeByProfileIdByGameId($set_type, $obj);
     }
             
-    public function SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp($set_type, $obj);
     }
             
     public function DelGameProfileAchievementByUuid(
@@ -8656,23 +8645,23 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameProfileAchievementByProfileIdByKey(
+    public function DelGameProfileAchievementByProfileIdByCode(
         $profile_id
-        , $key
+        , $code
     ) {
-        return $this->data->DelGameProfileAchievementByProfileIdByKey(
+        return $this->data->DelGameProfileAchievementByProfileIdByCode(
             $profile_id
-            , $key
+            , $code
         );
     }
         
-    public function DelGameProfileAchievementByUuidByKey(
+    public function DelGameProfileAchievementByUuidByCode(
         $uuid
-        , $key
+        , $code
     ) {
-        return $this->data->DelGameProfileAchievementByUuidByKey(
+        return $this->data->DelGameProfileAchievementByUuidByCode(
             $uuid
-            , $key
+            , $code
         );
     }
         
@@ -8695,15 +8684,15 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByProfileIdByKey(
+    public function GetGameProfileAchievementListByProfileIdByCode(
         $profile_id
-        , $key
+        , $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByProfileIdByKey(
+        $rows = $this->data->GetGameProfileAchievementListByProfileIdByCode(
             $profile_id
-            , $key
+            , $code
         );
         
         if($rows != NULL) {
@@ -8735,13 +8724,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByKey(
-        $key
+    public function GetGameProfileAchievementListByCode(
+        $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByKey(
-            $key
+        $rows = $this->data->GetGameProfileAchievementListByCode(
+            $code
         );
         
         if($rows != NULL) {
@@ -8773,14 +8762,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByKeyByGameId(
-        $key
+    public function GetGameProfileAchievementListByCodeByGameId(
+        $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByKeyByGameId(
-            $key
+        $rows = $this->data->GetGameProfileAchievementListByCodeByGameId(
+            $code
             , $game_id
         );
         
@@ -8838,15 +8827,15 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByKeyByProfileIdByGameId(
-        $key
+    public function GetGameProfileAchievementListByCodeByProfileIdByGameId(
+        $code
         , $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByKeyByProfileIdByGameId(
-            $key
+        $rows = $this->data->GetGameProfileAchievementListByCodeByProfileIdByGameId(
+            $code
             , $profile_id
             , $game_id
         );
@@ -8861,16 +8850,16 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByKeyByProfileIdByGameIdByTimestamp(
-        $key
+    public function GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+        $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByKeyByProfileIdByGameIdByTimestamp(
-            $key
+        $rows = $this->data->GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+            $code
             , $profile_id
             , $game_id
             , $timestamp
@@ -8922,9 +8911,6 @@ class BaseGamingACT {
         }
         if ($row['points'] != NULL) {                
             $obj->points = $row['points'];#dataType.FillDataInt(dr, "points");
-        }
-        if ($row['key'] != NULL) {                
-            $obj->key = $row['key'];#dataType.FillDataString(dr, "key");
         }
         if ($row['game_id'] != NULL) {                
             $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
@@ -8991,29 +8977,11 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameAchievementMetaByKey(
-        $key
-    ) {       
-        return $this->data->CountGameAchievementMetaByKey(
-            $key
-        );
-    }
-               
     public function CountGameAchievementMetaByGameId(
         $game_id
     ) {       
         return $this->data->CountGameAchievementMetaByGameId(
             $game_id
-        );
-    }
-               
-    public function CountGameAchievementMetaByKeyByGameId(
-        $key
-        , $game_id
-    ) {       
-        return $this->data->CountGameAchievementMetaByKeyByGameId(
-            $key
-            , $game_id
         );
     }
                
@@ -9046,10 +9014,6 @@ class BaseGamingACT {
         return $this->data->SetGameAchievementMetaByCodeByGameId($set_type, $obj);
     }
             
-    public function SetGameAchievementMetaByKeyByGameId($set_type, $obj) {           
-        return $this->data->SetGameAchievementMetaByKeyByGameId($set_type, $obj);
-    }
-            
     public function DelGameAchievementMetaByUuid(
         $uuid
     ) {
@@ -9064,16 +9028,6 @@ class BaseGamingACT {
     ) {
         return $this->data->DelGameAchievementMetaByCodeByGameId(
             $code
-            , $game_id
-        );
-    }
-        
-    public function DelGameAchievementMetaByKeyByGameId(
-        $key
-        , $game_id
-    ) {
-        return $this->data->DelGameAchievementMetaByKeyByGameId(
-            $key
             , $game_id
         );
     }
@@ -9156,25 +9110,6 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAchievementMetaListByKey(
-        $key
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameAchievementMetaListByKey(
-            $key
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_achievement_meta  = $this->FillGameAchievementMeta($row);
-                $results[] = $game_achievement_meta;
-            }
-        }
-        
-        return $results;
-    }
-        
     public function GetGameAchievementMetaListByGameId(
         $game_id
     ) {
@@ -9182,27 +9117,6 @@ class BaseGamingACT {
         $results = array();
         $rows = $this->data->GetGameAchievementMetaListByGameId(
             $game_id
-        );
-        
-        if($rows != NULL) {
-            foreach ($rows as $row) {
-                $game_achievement_meta  = $this->FillGameAchievementMeta($row);
-                $results[] = $game_achievement_meta;
-            }
-        }
-        
-        return $results;
-    }
-        
-    public function GetGameAchievementMetaListByKeyByGameId(
-        $key
-        , $game_id
-    ) {
-
-        $results = array();
-        $rows = $this->data->GetGameAchievementMetaListByKeyByGameId(
-            $key
-            , $game_id
         );
         
         if($rows != NULL) {

@@ -63,7 +63,7 @@ class GameStatisticLeaderboardRollup(BaseEntity):
     super(GameStatisticLeaderboardRollup, self).__init__()
     #self.__dict__.update(entries)
     self.username = None
-    self.rank_change = None
+    self.code = None
     self.network = None
     self.timestamp = None
     self.level = None
@@ -71,9 +71,10 @@ class GameStatisticLeaderboardRollup(BaseEntity):
     self.profile_id = None
     self.rank_total_count = None
     self.rank = None
-    self.key = None
+    self.rank_change = None
     self.type = None
     self.game_id = None
+    self.absolute_value = None
     self.data = None
     self.stat_value = None
         

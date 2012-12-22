@@ -51,13 +51,16 @@ public class ProfileGameNetwork : BaseEntity {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public  hash { get; set; }
+    public  network_fullname { get; set; }
     public  profile_id { get; set; }
     public  token { get; set; }
     public  game_network_id { get; set; }
     public  secret { get; set; }
     public  network_username { get; set; }
     public  game_id { get; set; }
+    public  network_auth { get; set; }
     public  data { get; set; }
+    public  network_user_id { get; set; }
 
     public ProfileGameNetwork() {
         Reset();
@@ -71,6 +74,9 @@ public class ProfileGameNetwork : BaseEntity {
         dict = base.ToDictionary();
 	if (hash != null) {
 	    dict = DataUtil.SetDictValue(dict, "hash", hash);
+	}
+	if (network_fullname != null) {
+	    dict = DataUtil.SetDictValue(dict, "network_fullname", network_fullname);
 	}
 	if (profile_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
@@ -90,8 +96,14 @@ public class ProfileGameNetwork : BaseEntity {
 	if (game_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
 	}
+	if (network_auth != null) {
+	    dict = DataUtil.SetDictValue(dict, "network_auth", network_auth);
+	}
 	if (data != null) {
 	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
+	if (network_user_id != null) {
+	    dict = DataUtil.SetDictValue(dict, "network_user_id", network_user_id);
 	}
          return dict;
     }
@@ -100,6 +112,11 @@ public class ProfileGameNetwork : BaseEntity {
 	if(dict.ContainsKey("hash")) {
 	    if(dict["hash"] != null) {
 	    	hash = DataType.Instance.Fill(dict["hash"]);
+	    }		
+	}
+	if(dict.ContainsKey("network_fullname")) {
+	    if(dict["network_fullname"] != null) {
+	    	network_fullname = DataType.Instance.Fill(dict["network_fullname"]);
 	    }		
 	}
 	if(dict.ContainsKey("profile_id")) {
@@ -132,9 +149,19 @@ public class ProfileGameNetwork : BaseEntity {
 	    	game_id = DataType.Instance.Fill(dict["game_id"]);
 	    }		
 	}
+	if(dict.ContainsKey("network_auth")) {
+	    if(dict["network_auth"] != null) {
+	    	network_auth = DataType.Instance.Fill(dict["network_auth"]);
+	    }		
+	}
 	if(dict.ContainsKey("data")) {
 	    if(dict["data"] != null) {
 	    	data = DataType.Instance.Fill(dict["data"]);
+	    }		
+	}
+	if(dict.ContainsKey("network_user_id")) {
+	    if(dict["network_user_id"] != null) {
+	    	network_user_id = DataType.Instance.Fill(dict["network_user_id"]);
 	    }		
 	}
     }

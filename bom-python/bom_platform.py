@@ -577,7 +577,7 @@ class BomPlatform():
 				return self.bom_model_properties_extended(name)[property]['type']
 		
 		def bom_model_properties_type(self, name, property):
-				return self.bom_model_properties(name)[property]['type']
+				return self.bom_model_properties_extended(name)[property]['type']
 						
 		def bom_model_properties_extended_item(self, name, method, type):
 				if method.has_key('inherited'):
@@ -609,8 +609,11 @@ class BomPlatform():
 						model = index['inherited']
 				#model = self.bom_model_properties_extended(model)
 				for s in index['fields']:
+						#try:
 						fields[s] = self.bom_type.bom_type_from_custom_type(
-								self.bom_model_properties_type(model, s), "data", self.current_data_type) 
+								self.bom_model_properties_type(model, s), "data", self.current_data_type)
+						#except Exception as err:
+						#		pass
 						#+= bom_model_properties_type(model, s) + ' ' + s + ', '
 				return fields
 		

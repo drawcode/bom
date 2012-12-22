@@ -63,13 +63,16 @@ class ProfileGameNetwork(BaseEntity):
     super(ProfileGameNetwork, self).__init__()
     #self.__dict__.update(entries)
     self.hash = None
+    self.network_fullname = None
     self.profile_id = None
     self.token = None
     self.game_network_id = None
     self.secret = None
     self.network_username = None
     self.game_id = None
+    self.network_auth = None
     self.data = None
+    self.network_user_id = None
         
   def to_dict_obj(self):
     return self.to_dict(self)

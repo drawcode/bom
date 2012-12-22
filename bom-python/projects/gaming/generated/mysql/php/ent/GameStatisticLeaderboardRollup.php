@@ -36,7 +36,7 @@ class GameStatisticLeaderboardRollup extends BaseEntity {
     }
     
     public $username;
-    public $rank_change;
+    public $code;
     public $network;
     public $timestamp;
     public $level;
@@ -44,9 +44,10 @@ class GameStatisticLeaderboardRollup extends BaseEntity {
     public $profile_id;
     public $rank_total_count;
     public $rank;
-    public $key;
+    public $rank_change;
     public $type;
     public $game_id;
+    public $absolute_value;
     public $data;
     public $stat_value;
 

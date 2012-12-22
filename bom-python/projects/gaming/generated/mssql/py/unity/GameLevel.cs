@@ -51,8 +51,8 @@ public class GameLevel : BaseMeta {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public  sort { get; set; }
+    public  code { get; set; }
     public  data { get; set; }
-    public  key { get; set; }
     public  game_id { get; set; }
     public  type { get; set; }
     public  order { get; set; }
@@ -70,11 +70,11 @@ public class GameLevel : BaseMeta {
 	if (sort != null) {
 	    dict = DataUtil.SetDictValue(dict, "sort", sort);
 	}
+	if (code != null) {
+	    dict = DataUtil.SetDictValue(dict, "code", code);
+	}
 	if (data != null) {
 	    dict = DataUtil.SetDictValue(dict, "data", data);
-	}
-	if (key != null) {
-	    dict = DataUtil.SetDictValue(dict, "key", key);
 	}
 	if (game_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
@@ -94,14 +94,14 @@ public class GameLevel : BaseMeta {
 	    	sort = DataType.Instance.Fill(dict["sort"]);
 	    }		
 	}
+	if(dict.ContainsKey("code")) {
+	    if(dict["code"] != null) {
+	    	code = DataType.Instance.Fill(dict["code"]);
+	    }		
+	}
 	if(dict.ContainsKey("data")) {
 	    if(dict["data"] != null) {
 	    	data = DataType.Instance.Fill(dict["data"]);
-	    }		
-	}
-	if(dict.ContainsKey("key")) {
-	    if(dict["key"] != null) {
-	    	key = DataType.Instance.Fill(dict["key"]);
 	    }		
 	}
 	if(dict.ContainsKey("game_id")) {

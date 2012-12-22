@@ -78,7 +78,6 @@ namespace gaming.ent {
         public int store_count { get; set; }
         public string data { get; set; }
         public float points { get; set; }
-        public string key { get; set; }
         public string game_id { get; set; }
         public string type { get; set; }
         public string order { get; set; }
@@ -91,9 +90,6 @@ namespace gaming.ent {
 	    	    dict = DataUtil.SetDictValue(dict, "data", data);
 	    	}
 	    	dict = DataUtil.SetDictValue(dict, "points", points);
-	    	if (key != null) {
-	    	    dict = DataUtil.SetDictValue(dict, "key", key);
-	    	}
 	    	if (game_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
 	    	}
@@ -125,11 +121,6 @@ namespace gaming.ent {
 	    	if(dict.ContainsKey("points")) {
 	    	    if(dict["points"] != null) {
 	    	    	points = DataType.Instance.FillFloat(dict["points"]);
-	    	    }		
-	    	}
-	    	if(dict.ContainsKey("key")) {
-	    	    if(dict["key"] != null) {
-	    	    	key = DataType.Instance.FillString(dict["key"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("game_id")) {

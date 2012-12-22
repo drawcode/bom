@@ -66,7 +66,6 @@ class GameStatisticMeta(BaseMeta):
     self.store_count = None
     self.data = None
     self.points = None
-    self.key = None
     self.game_id = None
     self.type = None
     self.order = None

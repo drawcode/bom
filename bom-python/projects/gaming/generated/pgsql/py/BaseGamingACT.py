@@ -1463,14 +1463,20 @@ class BaseGamingACT(object):
             obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
         if (row['date_modified'] != None) :                 
             obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['network_fullname'] != None) :                 
+            obj.network_fullname = row['network_fullname'] #dataType.FillData(dr, "network_fullname");                
         if (row['secret'] != None) :                 
             obj.secret = row['secret'] #dataType.FillData(dr, "secret");                
         if (row['token'] != None) :                 
             obj.token = row['token'] #dataType.FillData(dr, "token");                
         if (row['date_created'] != None) :                 
             obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['network_auth'] != None) :                 
+            obj.network_auth = row['network_auth'] #dataType.FillData(dr, "network_auth");                
         if (row['type'] != None) :                 
             obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['network_user_id'] != None) :                 
+            obj.network_user_id = row['network_user_id'] #dataType.FillData(dr, "network_user_id");                
 
         return obj
         
@@ -1509,6 +1515,37 @@ class BaseGamingACT(object):
             , game_id
         )
                
+    def CountProfileGameNetworkByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.data.CountProfileGameNetworkByProfileIdByGameId(
+            profile_id
+            , game_id
+        )
+               
+    def CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+        , profile_id
+        , game_id
+        , game_network_id
+    ) :         
+        return self.data.CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            profile_id
+            , game_id
+            , game_network_id
+        )
+               
+    def CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+        , network_username
+        , game_id
+        , game_network_id
+    ) :         
+        return self.data.CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            network_username
+            , game_id
+            , game_network_id
+        )
+               
     def BrowseProfileGameNetworkListByFilter(self, filter_obj) :
         result = ProfileGameNetworkResult()
         result.page = filter_obj.page
@@ -1529,11 +1566,51 @@ class BaseGamingACT(object):
     def SetProfileGameNetworkByUuid(self, set_type, obj) :            
             return self.data.SetProfileGameNetworkByUuid(set_type, obj)
             
+    def SetProfileGameNetworkByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetProfileGameNetworkByProfileIdByGameId(set_type, obj)
+            
+    def SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self, set_type, obj) :            
+            return self.data.SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(set_type, obj)
+            
+    def SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self, set_type, obj) :            
+            return self.data.SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(set_type, obj)
+            
     def DelProfileGameNetworkByUuid(self
         , uuid
     ) :
         return self.data.DelProfileGameNetworkByUuid(
             uuid
+        )
+        
+    def DelProfileGameNetworkByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return self.data.DelProfileGameNetworkByProfileIdByGameId(
+            profile_id
+            , game_id
+        )
+        
+    def DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+        , profile_id
+        , game_id
+        , game_network_id
+    ) :
+        return self.data.DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            profile_id
+            , game_id
+            , game_network_id
+        )
+        
+    def DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+        , network_username
+        , game_id
+        , game_network_id
+    ) :
+        return self.data.DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            network_username
+            , game_id
+            , game_network_id
         )
         
     def GetProfileGameNetworkList(self
@@ -1603,6 +1680,44 @@ class BaseGamingACT(object):
         rows = self.data.GetProfileGameNetworkListByProfileIdByGameId(
             profile_id
             , game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_game_network  = self.FillProfileGameNetwork(row)
+                results.append(profile_game_network)
+            return results        
+        
+    def GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(self
+        , profile_id
+        , game_id
+        , game_network_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+            profile_id
+            , game_id
+            , game_network_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_game_network  = self.FillProfileGameNetwork(row)
+                results.append(profile_game_network)
+            return results        
+        
+    def GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(self
+        , network_username
+        , game_id
+        , game_network_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+            network_username
+            , game_id
+            , game_network_id
         )
         
         if(rows != None) :
@@ -4504,8 +4619,8 @@ class BaseGamingACT(object):
             obj.status = row['status'] #dataType.FillData(dr, "status");                
         if (row['username'] != None) :                 
             obj.username = row['username'] #dataType.FillData(dr, "username");                
-        if (row['key'] != None) :                 
-            obj.key = row['key'] #dataType.FillData(dr, "key");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
         if (row['timestamp'] != None) :                 
             obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
         if (row['profile_id'] != None) :                 
@@ -4520,6 +4635,8 @@ class BaseGamingACT(object):
             obj.active = row['active'] #dataType.FillData(dr, "active");                
         if (row['rank_total_count'] != None) :                 
             obj.rank_total_count = row['rank_total_count'] #dataType.FillData(dr, "rank_total_count");                
+        if (row['absolute_value'] != None) :                 
+            obj.absolute_value = row['absolute_value'] #dataType.FillData(dr, "absolute_value");                
         if (row['data'] != None) :                 
             obj.data = row['data'] #dataType.FillData(dr, "data");                
         if (row['stat_value'] != None) :                 
@@ -4553,13 +4670,6 @@ class BaseGamingACT(object):
             uuid
         )
                
-    def CountGameStatisticLeaderboardByKey(self
-        , key
-    ) :         
-        return self.data.CountGameStatisticLeaderboardByKey(
-            key
-        )
-               
     def CountGameStatisticLeaderboardByGameId(self
         , game_id
     ) :         
@@ -4567,36 +4677,43 @@ class BaseGamingACT(object):
             game_id
         )
                
-    def CountGameStatisticLeaderboardByKeyByGameId(self
-        , key
+    def CountGameStatisticLeaderboardByCode(self
+        , code
+    ) :         
+        return self.data.CountGameStatisticLeaderboardByCode(
+            code
+        )
+               
+    def CountGameStatisticLeaderboardByCodeByGameId(self
+        , code
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardByKeyByGameId(
-            key
+        return self.data.CountGameStatisticLeaderboardByCodeByGameId(
+            code
             , game_id
         )
                
-    def CountGameStatisticLeaderboardByKeyByProfileIdByGameId(self
-        , key
-        , profile_id
+    def CountGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+        , code
         , game_id
+        , profile_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
-            key
+        return self.data.CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            code
+            , game_id
             , profile_id
-            , game_id
         )
                
-    def CountGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self
-        , key
-        , profile_id
+    def CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+        , code
         , game_id
+        , profile_id
         , timestamp
     ) :         
-        return self.data.CountGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(
-            key
-            , profile_id
+        return self.data.CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            code
             , game_id
+            , profile_id
             , timestamp
         )
                
@@ -4632,17 +4749,17 @@ class BaseGamingACT(object):
     def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
             return self.data.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameStatisticLeaderboardByKeyByProfileId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardByKeyByProfileId(set_type, obj)
+    def SetGameStatisticLeaderboardByCode(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardByCode(set_type, obj)
             
-    def SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardByCodeByGameId(set_type, obj)
             
-    def SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardByCodeByGameIdByProfileId(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardByCodeByGameIdByProfileId(set_type, obj)
             
-    def SetGameStatisticLeaderboardByKeyByProfileIdByGameId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(set_type, obj)
+    def SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(set_type, obj)
             
     def DelGameStatisticLeaderboardByUuid(self
         , uuid
@@ -4651,24 +4768,44 @@ class BaseGamingACT(object):
             uuid
         )
         
-    def DelGameStatisticLeaderboardByKeyByGameId(self
-        , key
+    def DelGameStatisticLeaderboardByCode(self
+        , code
+    ) :
+        return self.data.DelGameStatisticLeaderboardByCode(
+            code
+        )
+        
+    def DelGameStatisticLeaderboardByCodeByGameId(self
+        , code
         , game_id
     ) :
-        return self.data.DelGameStatisticLeaderboardByKeyByGameId(
-            key
+        return self.data.DelGameStatisticLeaderboardByCodeByGameId(
+            code
             , game_id
         )
         
-    def DelGameStatisticLeaderboardByKeyByProfileIdByGameId(self
-        , key
-        , profile_id
+    def DelGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+        , code
         , game_id
+        , profile_id
     ) :
-        return self.data.DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
-            key
-            , profile_id
+        return self.data.DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            code
             , game_id
+            , profile_id
+        )
+        
+    def DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        return self.data.DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            code
+            , game_id
+            , profile_id
+            , timestamp
         )
         
     def DelGameStatisticLeaderboardByProfileIdByGameId(self
@@ -4708,21 +4845,6 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListByKey(self
-        , key
-    ) :
-
-        results = []
-        rows = self.data.GetGameStatisticLeaderboardListByKey(
-            key
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
-            return results        
-        
     def GetGameStatisticLeaderboardListByGameId(self
         , game_id
     ) :
@@ -4738,14 +4860,29 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListByKeyByGameId(self
-        , key
+    def GetGameStatisticLeaderboardListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
+                results.append(game_statistic_leaderboard)
+            return results        
+        
+    def GetGameStatisticLeaderboardListByCodeByGameId(self
+        , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListByKeyByGameId(
-            key
+        rows = self.data.GetGameStatisticLeaderboardListByCodeByGameId(
+            code
             , game_id
         )
         
@@ -4755,36 +4892,17 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(self
-        , key
+    def GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(self
+        , code
         , game_id
-        , network
-    ) :
-
-        results = []
-        rows = self.data.GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
-            key
-            , game_id
-            , network
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
-            return results        
-        
-    def GetGameStatisticLeaderboardListByKeyByProfileIdByGameId(self
-        , key
         , profile_id
-        , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListByKeyByProfileIdByGameId(
-            key
+        rows = self.data.GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+            code
+            , game_id
             , profile_id
-            , game_id
         )
         
         if(rows != None) :
@@ -4793,18 +4911,18 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
-        , profile_id
+    def GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(self
+        , code
         , game_id
+        , profile_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
-            key
-            , profile_id
+        rows = self.data.GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+            code
             , game_id
+            , profile_id
             , timestamp
         )
         
@@ -4858,8 +4976,8 @@ class BaseGamingACT(object):
             obj.status = row['status'] #dataType.FillData(dr, "status");                
         if (row['username'] != None) :                 
             obj.username = row['username'] #dataType.FillData(dr, "username");                
-        if (row['key'] != None) :                 
-            obj.key = row['key'] #dataType.FillData(dr, "key");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
         if (row['timestamp'] != None) :                 
             obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
         if (row['profile_id'] != None) :                 
@@ -4874,6 +4992,8 @@ class BaseGamingACT(object):
             obj.active = row['active'] #dataType.FillData(dr, "active");                
         if (row['rank_total_count'] != None) :                 
             obj.rank_total_count = row['rank_total_count'] #dataType.FillData(dr, "rank_total_count");                
+        if (row['absolute_value'] != None) :                 
+            obj.absolute_value = row['absolute_value'] #dataType.FillData(dr, "absolute_value");                
         if (row['data'] != None) :                 
             obj.data = row['data'] #dataType.FillData(dr, "data");                
         if (row['stat_value'] != None) :                 
@@ -4907,13 +5027,6 @@ class BaseGamingACT(object):
             uuid
         )
                
-    def CountGameStatisticLeaderboardRollupByKey(self
-        , key
-    ) :         
-        return self.data.CountGameStatisticLeaderboardRollupByKey(
-            key
-        )
-               
     def CountGameStatisticLeaderboardRollupByGameId(self
         , game_id
     ) :         
@@ -4921,36 +5034,43 @@ class BaseGamingACT(object):
             game_id
         )
                
-    def CountGameStatisticLeaderboardRollupByKeyByGameId(self
-        , key
+    def CountGameStatisticLeaderboardRollupByCode(self
+        , code
+    ) :         
+        return self.data.CountGameStatisticLeaderboardRollupByCode(
+            code
+        )
+               
+    def CountGameStatisticLeaderboardRollupByCodeByGameId(self
+        , code
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupByKeyByGameId(
-            key
+        return self.data.CountGameStatisticLeaderboardRollupByCodeByGameId(
+            code
             , game_id
         )
                
-    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
-        , key
-        , profile_id
+    def CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+        , code
         , game_id
+        , profile_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-            key
+        return self.data.CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            code
+            , game_id
             , profile_id
-            , game_id
         )
                
-    def CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self
-        , key
-        , profile_id
+    def CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+        , code
         , game_id
+        , profile_id
         , timestamp
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
-            key
-            , profile_id
+        return self.data.CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            code
             , game_id
+            , profile_id
             , timestamp
         )
                
@@ -4986,17 +5106,17 @@ class BaseGamingACT(object):
     def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
             return self.data.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupByKeyByProfileId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupByKeyByProfileId(set_type, obj)
+    def SetGameStatisticLeaderboardRollupByCode(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByCode(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardRollupByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByCodeByGameId(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(set_type, obj)
+    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(set_type, obj)
             
     def DelGameStatisticLeaderboardRollupByUuid(self
         , uuid
@@ -5005,24 +5125,44 @@ class BaseGamingACT(object):
             uuid
         )
         
-    def DelGameStatisticLeaderboardRollupByKeyByGameId(self
-        , key
+    def DelGameStatisticLeaderboardRollupByCode(self
+        , code
+    ) :
+        return self.data.DelGameStatisticLeaderboardRollupByCode(
+            code
+        )
+        
+    def DelGameStatisticLeaderboardRollupByCodeByGameId(self
+        , code
         , game_id
     ) :
-        return self.data.DelGameStatisticLeaderboardRollupByKeyByGameId(
-            key
+        return self.data.DelGameStatisticLeaderboardRollupByCodeByGameId(
+            code
             , game_id
         )
         
-    def DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(self
-        , key
-        , profile_id
+    def DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+        , code
         , game_id
+        , profile_id
     ) :
-        return self.data.DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-            key
-            , profile_id
+        return self.data.DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            code
             , game_id
+            , profile_id
+        )
+        
+    def DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        return self.data.DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            code
+            , game_id
+            , profile_id
+            , timestamp
         )
         
     def DelGameStatisticLeaderboardRollupByProfileIdByGameId(self
@@ -5062,21 +5202,6 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListByKey(self
-        , key
-    ) :
-
-        results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListByKey(
-            key
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
-            return results        
-        
     def GetGameStatisticLeaderboardRollupListByGameId(self
         , game_id
     ) :
@@ -5092,14 +5217,29 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListByKeyByGameId(self
-        , key
+    def GetGameStatisticLeaderboardRollupListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetGameStatisticLeaderboardRollupListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
+                results.append(game_statistic_leaderboard_rollup)
+            return results        
+        
+    def GetGameStatisticLeaderboardRollupListByCodeByGameId(self
+        , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListByKeyByGameId(
-            key
+        rows = self.data.GetGameStatisticLeaderboardRollupListByCodeByGameId(
+            code
             , game_id
         )
         
@@ -5109,36 +5249,17 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(self
-        , key
+    def GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(self
+        , code
         , game_id
-        , network
-    ) :
-
-        results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
-            key
-            , game_id
-            , network
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
-            return results        
-        
-    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(self
-        , key
         , profile_id
-        , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
-            key
+        rows = self.data.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+            code
+            , game_id
             , profile_id
-            , game_id
         )
         
         if(rows != None) :
@@ -5147,18 +5268,18 @@ class BaseGamingACT(object):
                 results.append(game_statistic_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
-        , profile_id
+    def GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(self
+        , code
         , game_id
+        , profile_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
-            key
-            , profile_id
+        rows = self.data.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+            code
             , game_id
+            , profile_id
             , timestamp
         )
         
@@ -5516,12 +5637,12 @@ class BaseGamingACT(object):
             obj.status = row['status'] #dataType.FillData(dr, "status");                
         if (row['username'] != None) :                 
             obj.username = row['username'] #dataType.FillData(dr, "username");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
         if (row['timestamp'] != None) :                 
             obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
         if (row['profile_id'] != None) :                 
             obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
-        if (row['key'] != None) :                 
-            obj.key = row['key'] #dataType.FillData(dr, "key");                
         if (row['active'] != None) :                 
             obj.active = row['active'] #dataType.FillData(dr, "active");                
         if (row['game_id'] != None) :                 
@@ -5557,11 +5678,11 @@ class BaseGamingACT(object):
             uuid
         )
                
-    def CountGameProfileStatisticByKey(self
-        , key
+    def CountGameProfileStatisticByCode(self
+        , code
     ) :         
-        return self.data.CountGameProfileStatisticByKey(
-            key
+        return self.data.CountGameProfileStatisticByCode(
+            code
         )
                
     def CountGameProfileStatisticByGameId(self
@@ -5571,12 +5692,12 @@ class BaseGamingACT(object):
             game_id
         )
                
-    def CountGameProfileStatisticByKeyByGameId(self
-        , key
+    def CountGameProfileStatisticByCodeByGameId(self
+        , code
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticByKeyByGameId(
-            key
+        return self.data.CountGameProfileStatisticByCodeByGameId(
+            code
             , game_id
         )
                
@@ -5589,25 +5710,25 @@ class BaseGamingACT(object):
             , game_id
         )
                
-    def CountGameProfileStatisticByKeyByProfileIdByGameId(self
-        , key
+    def CountGameProfileStatisticByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticByKeyByProfileIdByGameId(
-            key
+        return self.data.CountGameProfileStatisticByCodeByProfileIdByGameId(
+            code
             , profile_id
             , game_id
         )
                
-    def CountGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.data.CountGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(
-            key
+        return self.data.CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+            code
             , profile_id
             , game_id
             , timestamp
@@ -5636,17 +5757,17 @@ class BaseGamingACT(object):
     def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
             return self.data.SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticByProfileIdByKey(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticByProfileIdByKey(set_type, obj)
+    def SetGameProfileStatisticByProfileIdByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByProfileIdByCode(set_type, obj)
             
-    def SetGameProfileStatisticByProfileIdByKeyByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticByProfileIdByKeyByTimestamp(set_type, obj)
+    def SetGameProfileStatisticByProfileIdByCodeByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByProfileIdByCodeByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticByProfileIdByGameIdByKey(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticByProfileIdByGameIdByKey(set_type, obj)
+    def SetGameProfileStatisticByCodeByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByCodeByProfileIdByGameId(set_type, obj)
             
     def DelGameProfileStatisticByUuid(self
         , uuid
@@ -5655,12 +5776,12 @@ class BaseGamingACT(object):
             uuid
         )
         
-    def DelGameProfileStatisticByKeyByGameId(self
-        , key
+    def DelGameProfileStatisticByCodeByGameId(self
+        , code
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticByKeyByGameId(
-            key
+        return self.data.DelGameProfileStatisticByCodeByGameId(
+            code
             , game_id
         )
         
@@ -5673,13 +5794,13 @@ class BaseGamingACT(object):
             , game_id
         )
         
-    def DelGameProfileStatisticByKeyByProfileIdByGameId(self
-        , key
+    def DelGameProfileStatisticByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticByKeyByProfileIdByGameId(
-            key
+        return self.data.DelGameProfileStatisticByCodeByProfileIdByGameId(
+            code
             , profile_id
             , game_id
         )
@@ -5699,13 +5820,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListByKey(self
-        , key
+    def GetGameProfileStatisticListByCode(self
+        , code
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListByKey(
-            key
+        rows = self.data.GetGameProfileStatisticListByCode(
+            code
         )
         
         if(rows != None) :
@@ -5729,14 +5850,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListByKeyByGameId(self
-        , key
+    def GetGameProfileStatisticListByCodeByGameId(self
+        , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListByKeyByGameId(
-            key
+        rows = self.data.GetGameProfileStatisticListByCodeByGameId(
+            code
             , game_id
         )
         
@@ -5782,15 +5903,15 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListByKeyByProfileIdByGameId(self
-        , key
+    def GetGameProfileStatisticListByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListByKeyByProfileIdByGameId(
-            key
+        rows = self.data.GetGameProfileStatisticListByCodeByProfileIdByGameId(
+            code
             , profile_id
             , game_id
         )
@@ -5801,16 +5922,16 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListByKeyByProfileIdByGameIdByTimestamp(
-            key
+        rows = self.data.GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+            code
             , profile_id
             , game_id
             , timestamp
@@ -5846,8 +5967,6 @@ class BaseGamingACT(object):
             obj.points = row['points'] #dataType.FillData(dr, "points");                
         if (row['store_count'] != None) :                 
             obj.store_count = row['store_count'] #dataType.FillData(dr, "store_count");                
-        if (row['key'] != None) :                 
-            obj.key = row['key'] #dataType.FillData(dr, "key");                
         if (row['game_id'] != None) :                 
             obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
         if (row['active'] != None) :                 
@@ -5898,27 +6017,11 @@ class BaseGamingACT(object):
             name
         )
                
-    def CountGameStatisticMetaByKey(self
-        , key
-    ) :         
-        return self.data.CountGameStatisticMetaByKey(
-            key
-        )
-               
     def CountGameStatisticMetaByGameId(self
         , game_id
     ) :         
         return self.data.CountGameStatisticMetaByGameId(
             game_id
-        )
-               
-    def CountGameStatisticMetaByKeyByGameId(self
-        , key
-        , game_id
-    ) :         
-        return self.data.CountGameStatisticMetaByKeyByGameId(
-            key
-            , game_id
         )
                
     def BrowseGameStatisticMetaListByFilter(self, filter_obj) :
@@ -5944,9 +6047,6 @@ class BaseGamingACT(object):
     def SetGameStatisticMetaByCodeByGameId(self, set_type, obj) :            
             return self.data.SetGameStatisticMetaByCodeByGameId(set_type, obj)
             
-    def SetGameStatisticMetaByKeyByGameId(self, set_type, obj) :            
-            return self.data.SetGameStatisticMetaByKeyByGameId(set_type, obj)
-            
     def DelGameStatisticMetaByUuid(self
         , uuid
     ) :
@@ -5960,15 +6060,6 @@ class BaseGamingACT(object):
     ) :
         return self.data.DelGameStatisticMetaByCodeByGameId(
             code
-            , game_id
-        )
-        
-    def DelGameStatisticMetaByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        return self.data.DelGameStatisticMetaByKeyByGameId(
-            key
             , game_id
         )
         
@@ -6002,23 +6093,6 @@ class BaseGamingACT(object):
                 results.append(game_statistic_meta)
             return results        
         
-    def GetGameStatisticMetaListByCodeByGameId(self
-        , code
-        , game_id
-    ) :
-
-        results = []
-        rows = self.data.GetGameStatisticMetaListByCodeByGameId(
-            code
-            , game_id
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_statistic_meta  = self.FillGameStatisticMeta(row)
-                results.append(game_statistic_meta)
-            return results        
-        
     def GetGameStatisticMetaListByName(self
         , name
     ) :
@@ -6026,21 +6100,6 @@ class BaseGamingACT(object):
         results = []
         rows = self.data.GetGameStatisticMetaListByName(
             name
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_statistic_meta  = self.FillGameStatisticMeta(row)
-                results.append(game_statistic_meta)
-            return results        
-        
-    def GetGameStatisticMetaListByKey(self
-        , key
-    ) :
-
-        results = []
-        rows = self.data.GetGameStatisticMetaListByKey(
-            key
         )
         
         if(rows != None) :
@@ -6064,14 +6123,14 @@ class BaseGamingACT(object):
                 results.append(game_statistic_meta)
             return results        
         
-    def GetGameStatisticMetaListByKeyByGameId(self
-        , key
+    def GetGameStatisticMetaListByCodeByGameId(self
+        , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticMetaListByKeyByGameId(
-            key
+        rows = self.data.GetGameStatisticMetaListByCodeByGameId(
+            code
             , game_id
         )
         
@@ -6087,12 +6146,12 @@ class BaseGamingACT(object):
 
         if (row['status'] != None) :                 
             obj.status = row['status'] #dataType.FillData(dr, "status");                
-        if (row['timestamp'] != None) :                 
-            obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
         if (row['uuid'] != None) :                 
             obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
-        if (row['key'] != None) :                 
-            obj.key = row['key'] #dataType.FillData(dr, "key");                
+        if (row['timestamp'] != None) :                 
+            obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
         if (row['date_modified'] != None) :                 
             obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
         if (row['active'] != None) :                 
@@ -6120,25 +6179,25 @@ class BaseGamingACT(object):
             uuid
         )
                
-    def CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(self
-        , key
+    def CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-            key
+        return self.data.CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            code
             , profile_id
             , game_id
         )
                
-    def CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.data.CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-            key
+        return self.data.CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            code
             , profile_id
             , game_id
             , timestamp
@@ -6164,11 +6223,11 @@ class BaseGamingACT(object):
     def SetGameProfileStatisticTimestampByUuid(self, set_type, obj) :            
             return self.data.SetGameProfileStatisticTimestampByUuid(set_type, obj)
             
-    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(set_type, obj)
+    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(set_type, obj)
             
-    def SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
             
     def DelGameProfileStatisticTimestampByUuid(self
         , uuid
@@ -6177,25 +6236,25 @@ class BaseGamingACT(object):
             uuid
         )
         
-    def DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(self
-        , key
+    def DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-            key
+        return self.data.DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            code
             , profile_id
             , game_id
         )
         
-    def DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        return self.data.DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-            key
+        return self.data.DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            code
             , profile_id
             , game_id
             , timestamp
@@ -6216,15 +6275,15 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_timestamp)
             return results        
         
-    def GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(self
-        , key
+    def GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
-            key
+        rows = self.data.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+            code
             , profile_id
             , game_id
         )
@@ -6235,16 +6294,16 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_timestamp)
             return results        
         
-    def GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp(
-            key
+        rows = self.data.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+            code
             , profile_id
             , game_id
             , timestamp
@@ -6559,8 +6618,6 @@ class BaseGamingACT(object):
             obj.data = row['data'] #dataType.FillData(dr, "data");                
         if (row['uuid'] != None) :                 
             obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
-        if (row['key'] != None) :                 
-            obj.key = row['key'] #dataType.FillData(dr, "key");                
         if (row['game_id'] != None) :                 
             obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
         if (row['active'] != None) :                 
@@ -6611,27 +6668,11 @@ class BaseGamingACT(object):
             name
         )
                
-    def CountGameLevelByKey(self
-        , key
-    ) :         
-        return self.data.CountGameLevelByKey(
-            key
-        )
-               
     def CountGameLevelByGameId(self
         , game_id
     ) :         
         return self.data.CountGameLevelByGameId(
             game_id
-        )
-               
-    def CountGameLevelByKeyByGameId(self
-        , key
-        , game_id
-    ) :         
-        return self.data.CountGameLevelByKeyByGameId(
-            key
-            , game_id
         )
                
     def BrowseGameLevelListByFilter(self, filter_obj) :
@@ -6657,9 +6698,6 @@ class BaseGamingACT(object):
     def SetGameLevelByCodeByGameId(self, set_type, obj) :            
             return self.data.SetGameLevelByCodeByGameId(set_type, obj)
             
-    def SetGameLevelByKeyByGameId(self, set_type, obj) :            
-            return self.data.SetGameLevelByKeyByGameId(set_type, obj)
-            
     def DelGameLevelByUuid(self
         , uuid
     ) :
@@ -6673,15 +6711,6 @@ class BaseGamingACT(object):
     ) :
         return self.data.DelGameLevelByCodeByGameId(
             code
-            , game_id
-        )
-        
-    def DelGameLevelByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        return self.data.DelGameLevelByKeyByGameId(
-            key
             , game_id
         )
         
@@ -6747,21 +6776,6 @@ class BaseGamingACT(object):
                 results.append(game_level)
             return results        
         
-    def GetGameLevelListByKey(self
-        , key
-    ) :
-
-        results = []
-        rows = self.data.GetGameLevelListByKey(
-            key
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_level  = self.FillGameLevel(row)
-                results.append(game_level)
-            return results        
-        
     def GetGameLevelListByGameId(self
         , game_id
     ) :
@@ -6769,23 +6783,6 @@ class BaseGamingACT(object):
         results = []
         rows = self.data.GetGameLevelListByGameId(
             game_id
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_level  = self.FillGameLevel(row)
-                results.append(game_level)
-            return results        
-        
-    def GetGameLevelListByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-
-        results = []
-        rows = self.data.GetGameLevelListByKeyByGameId(
-            key
-            , game_id
         )
         
         if(rows != None) :
@@ -6802,14 +6799,14 @@ class BaseGamingACT(object):
             obj.status = row['status'] #dataType.FillData(dr, "status");                
         if (row['username'] != None) :                 
             obj.username = row['username'] #dataType.FillData(dr, "username");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
         if (row['timestamp'] != None) :                 
             obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
         if (row['completed'] != None) :                 
             obj.completed = row['completed'] #dataType.FillData(dr, "completed");                
         if (row['profile_id'] != None) :                 
             obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
-        if (row['key'] != None) :                 
-            obj.key = row['key'] #dataType.FillData(dr, "key");                
         if (row['active'] != None) :                 
             obj.active = row['active'] #dataType.FillData(dr, "active");                
         if (row['game_id'] != None) :                 
@@ -6843,13 +6840,13 @@ class BaseGamingACT(object):
             uuid
         )
                
-    def CountGameProfileAchievementByProfileIdByKey(self
+    def CountGameProfileAchievementByProfileIdByCode(self
         , profile_id
-        , key
+        , code
     ) :         
-        return self.data.CountGameProfileAchievementByProfileIdByKey(
+        return self.data.CountGameProfileAchievementByProfileIdByCode(
             profile_id
-            , key
+            , code
         )
                
     def CountGameProfileAchievementByUsername(self
@@ -6859,25 +6856,25 @@ class BaseGamingACT(object):
             username
         )
                
-    def CountGameProfileAchievementByKeyByProfileIdByGameId(self
-        , key
+    def CountGameProfileAchievementByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileAchievementByKeyByProfileIdByGameId(
-            key
+        return self.data.CountGameProfileAchievementByCodeByProfileIdByGameId(
+            code
             , profile_id
             , game_id
         )
                
-    def CountGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.data.CountGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(
-            key
+        return self.data.CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+            code
             , profile_id
             , game_id
             , timestamp
@@ -6903,17 +6900,17 @@ class BaseGamingACT(object):
     def SetGameProfileAchievementByUuid(self, set_type, obj) :            
             return self.data.SetGameProfileAchievementByUuid(set_type, obj)
             
-    def SetGameProfileAchievementByUuidByKey(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementByUuidByKey(set_type, obj)
+    def SetGameProfileAchievementByUuidByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByUuidByCode(set_type, obj)
             
-    def SetGameProfileAchievementByProfileIdByKey(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementByProfileIdByKey(set_type, obj)
+    def SetGameProfileAchievementByProfileIdByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByProfileIdByCode(set_type, obj)
             
-    def SetGameProfileAchievementByKeyByProfileIdByGameId(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementByKeyByProfileIdByGameId(set_type, obj)
+    def SetGameProfileAchievementByCodeByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByCodeByProfileIdByGameId(set_type, obj)
             
-    def SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
             
     def DelGameProfileAchievementByUuid(self
         , uuid
@@ -6922,22 +6919,22 @@ class BaseGamingACT(object):
             uuid
         )
         
-    def DelGameProfileAchievementByProfileIdByKey(self
+    def DelGameProfileAchievementByProfileIdByCode(self
         , profile_id
-        , key
+        , code
     ) :
-        return self.data.DelGameProfileAchievementByProfileIdByKey(
+        return self.data.DelGameProfileAchievementByProfileIdByCode(
             profile_id
-            , key
+            , code
         )
         
-    def DelGameProfileAchievementByUuidByKey(self
+    def DelGameProfileAchievementByUuidByCode(self
         , uuid
-        , key
+        , code
     ) :
-        return self.data.DelGameProfileAchievementByUuidByKey(
+        return self.data.DelGameProfileAchievementByUuidByCode(
             uuid
-            , key
+            , code
         )
         
     def GetGameProfileAchievementListByUuid(self
@@ -6955,15 +6952,15 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListByProfileIdByKey(self
+    def GetGameProfileAchievementListByProfileIdByCode(self
         , profile_id
-        , key
+        , code
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListByProfileIdByKey(
+        rows = self.data.GetGameProfileAchievementListByProfileIdByCode(
             profile_id
-            , key
+            , code
         )
         
         if(rows != None) :
@@ -6987,13 +6984,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListByKey(self
-        , key
+    def GetGameProfileAchievementListByCode(self
+        , code
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListByKey(
-            key
+        rows = self.data.GetGameProfileAchievementListByCode(
+            code
         )
         
         if(rows != None) :
@@ -7017,14 +7014,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListByKeyByGameId(self
-        , key
+    def GetGameProfileAchievementListByCodeByGameId(self
+        , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListByKeyByGameId(
-            key
+        rows = self.data.GetGameProfileAchievementListByCodeByGameId(
+            code
             , game_id
         )
         
@@ -7070,15 +7067,15 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListByKeyByProfileIdByGameId(self
-        , key
+    def GetGameProfileAchievementListByCodeByProfileIdByGameId(self
+        , code
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListByKeyByProfileIdByGameId(
-            key
+        rows = self.data.GetGameProfileAchievementListByCodeByProfileIdByGameId(
+            code
             , profile_id
             , game_id
         )
@@ -7089,16 +7086,16 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListByKeyByProfileIdByGameIdByTimestamp(self
-        , key
+    def GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(self
+        , code
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListByKeyByProfileIdByGameIdByTimestamp(
-            key
+        rows = self.data.GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+            code
             , profile_id
             , game_id
             , timestamp
@@ -7136,8 +7133,6 @@ class BaseGamingACT(object):
             obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
         if (row['points'] != None) :                 
             obj.points = row['points'] #dataType.FillData(dr, "points");                
-        if (row['key'] != None) :                 
-            obj.key = row['key'] #dataType.FillData(dr, "key");                
         if (row['game_id'] != None) :                 
             obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
         if (row['active'] != None) :                 
@@ -7190,27 +7185,11 @@ class BaseGamingACT(object):
             name
         )
                
-    def CountGameAchievementMetaByKey(self
-        , key
-    ) :         
-        return self.data.CountGameAchievementMetaByKey(
-            key
-        )
-               
     def CountGameAchievementMetaByGameId(self
         , game_id
     ) :         
         return self.data.CountGameAchievementMetaByGameId(
             game_id
-        )
-               
-    def CountGameAchievementMetaByKeyByGameId(self
-        , key
-        , game_id
-    ) :         
-        return self.data.CountGameAchievementMetaByKeyByGameId(
-            key
-            , game_id
         )
                
     def BrowseGameAchievementMetaListByFilter(self, filter_obj) :
@@ -7236,9 +7215,6 @@ class BaseGamingACT(object):
     def SetGameAchievementMetaByCodeByGameId(self, set_type, obj) :            
             return self.data.SetGameAchievementMetaByCodeByGameId(set_type, obj)
             
-    def SetGameAchievementMetaByKeyByGameId(self, set_type, obj) :            
-            return self.data.SetGameAchievementMetaByKeyByGameId(set_type, obj)
-            
     def DelGameAchievementMetaByUuid(self
         , uuid
     ) :
@@ -7252,15 +7228,6 @@ class BaseGamingACT(object):
     ) :
         return self.data.DelGameAchievementMetaByCodeByGameId(
             code
-            , game_id
-        )
-        
-    def DelGameAchievementMetaByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-        return self.data.DelGameAchievementMetaByKeyByGameId(
-            key
             , game_id
         )
         
@@ -7326,21 +7293,6 @@ class BaseGamingACT(object):
                 results.append(game_achievement_meta)
             return results        
         
-    def GetGameAchievementMetaListByKey(self
-        , key
-    ) :
-
-        results = []
-        rows = self.data.GetGameAchievementMetaListByKey(
-            key
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_achievement_meta  = self.FillGameAchievementMeta(row)
-                results.append(game_achievement_meta)
-            return results        
-        
     def GetGameAchievementMetaListByGameId(self
         , game_id
     ) :
@@ -7348,23 +7300,6 @@ class BaseGamingACT(object):
         results = []
         rows = self.data.GetGameAchievementMetaListByGameId(
             game_id
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_achievement_meta  = self.FillGameAchievementMeta(row)
-                results.append(game_achievement_meta)
-            return results        
-        
-    def GetGameAchievementMetaListByKeyByGameId(self
-        , key
-        , game_id
-    ) :
-
-        results = []
-        rows = self.data.GetGameAchievementMetaListByKeyByGameId(
-            key
-            , game_id
         )
         
         if(rows != None) :

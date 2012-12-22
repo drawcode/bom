@@ -62,9 +62,9 @@ class GameProfileStatisticTimestamp(BaseEntity):
   def __init__(self):
     super(GameProfileStatisticTimestamp, self).__init__()
     #self.__dict__.update(entries)
-    self.game_id = None
     self.profile_id = None
-    self.key = None
+    self.game_id = None
+    self.code = None
     self.timestamp = None
         
   def to_dict_obj(self):

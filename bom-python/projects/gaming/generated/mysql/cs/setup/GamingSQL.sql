@@ -302,11 +302,14 @@ CREATE TABLE `profile_game_network`
     , `uuid` BINARY(16) 
     , `date_modified` TIMESTAMP
                     DEFAULT NOW()
+    , `network_fullname` VARCHAR (500)
     , `secret` VARCHAR (500)
     , `token` VARCHAR (500)
     , `date_created` TIMESTAMP
                     DEFAULT '0000-00-00 00:00:00'
+    , `network_auth` VARCHAR (500)
     , `type` VARCHAR (500)
+    , `network_user_id` VARCHAR (500)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `profile_game_network` ADD PRIMARY KEY (`uuid`);
@@ -654,7 +657,7 @@ CREATE TABLE `game_statistic_leaderboard`
 (
     `status` VARCHAR (255)
     , `username` VARCHAR (500)
-    , `key` BINARY(16)
+    , `code` VARCHAR (500)
     , `timestamp` decimal
     , `profile_id` BINARY(16)
     , `rank` INTEGER
@@ -663,6 +666,7 @@ CREATE TABLE `game_statistic_leaderboard`
     , `active` int
                 DEFAULT 1
     , `rank_total_count` INTEGER
+    , `absolute_value` decimal
     , `data` TEXT
     , `stat_value` decimal
     , `network` VARCHAR (500)
@@ -683,7 +687,7 @@ CREATE TABLE `game_statistic_leaderboard_rollup`
 (
     `status` VARCHAR (255)
     , `username` VARCHAR (500)
-    , `key` BINARY(16)
+    , `code` VARCHAR (500)
     , `timestamp` decimal
     , `profile_id` BINARY(16)
     , `rank` INTEGER
@@ -692,6 +696,7 @@ CREATE TABLE `game_statistic_leaderboard_rollup`
     , `active` int
                 DEFAULT 1
     , `rank_total_count` INTEGER
+    , `absolute_value` decimal
     , `data` TEXT
     , `stat_value` decimal
     , `network` VARCHAR (500)
@@ -757,9 +762,9 @@ CREATE TABLE `game_profile_statistic`
 (
     `status` VARCHAR (255)
     , `username` VARCHAR (500)
+    , `code` VARCHAR (500)
     , `timestamp` decimal
     , `profile_id` BINARY(16)
-    , `key` VARCHAR (50)
     , `active` int
                 DEFAULT 1
     , `game_id` BINARY(16)
@@ -791,7 +796,6 @@ CREATE TABLE `game_statistic_meta`
     , `uuid` BINARY(16) 
     , `points` decimal
     , `store_count` INTEGER
-    , `key` VARCHAR (50)
     , `game_id` BINARY(16)
     , `active` int
                 DEFAULT 1
@@ -808,10 +812,10 @@ ALTER TABLE `game_statistic_meta` ADD PRIMARY KEY (`uuid`);
 CREATE TABLE `game_profile_statistic_timestamp` 
 (
     `status` VARCHAR (255)
+    , `code` VARCHAR (500)
+    , `uuid` BINARY(16) 
     , `timestamp` TIMESTAMP
                     DEFAULT '0000-00-00 00:00:00'
-    , `uuid` BINARY(16) 
-    , `key` VARCHAR (50)
     , `date_modified` TIMESTAMP
                     DEFAULT NOW()
     , `active` int
@@ -859,14 +863,13 @@ CREATE TABLE `game_level`
 (
     `status` VARCHAR (255)
     , `sort` INTEGER
-    , `code` VARCHAR (255)
+    , `code` VARCHAR (500)
     , `display_name` VARCHAR (255)
     , `name` VARCHAR (255)
     , `date_modified` TIMESTAMP
                     DEFAULT NOW()
     , `data` TEXT
     , `uuid` BINARY(16) 
-    , `key` VARCHAR (50)
     , `game_id` BINARY(16)
     , `active` int
                 DEFAULT 1
@@ -884,11 +887,11 @@ CREATE TABLE `game_profile_achievement`
 (
     `status` VARCHAR (255)
     , `username` VARCHAR (500)
+    , `code` VARCHAR (500)
     , `timestamp` decimal
     , `completed` int
                 DEFAULT 1
     , `profile_id` BINARY(16)
-    , `key` VARCHAR (50)
     , `active` int
                 DEFAULT 1
     , `game_id` BINARY(16)
@@ -910,7 +913,7 @@ CREATE TABLE `game_achievement_meta`
 (
     `status` VARCHAR (255)
     , `sort` INTEGER
-    , `code` VARCHAR (255)
+    , `code` VARCHAR (500)
     , `display_name` VARCHAR (255)
     , `name` VARCHAR (255)
     , `game_stat` int
@@ -921,7 +924,6 @@ CREATE TABLE `game_achievement_meta`
     , `level` VARCHAR (500)
     , `uuid` BINARY(16) 
     , `points` INTEGER
-    , `key` VARCHAR (50)
     , `game_id` BINARY(16)
     , `active` int
                 DEFAULT 1
@@ -1022,12 +1024,12 @@ CREATE INDEX `IX_profile_game_data_attribute_profile_id_game_id_code` ON `profil
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code` ON `game_statistic_leaderboard` 
 (
                     
-    `key` ASC
+    `code` ASC
 );
                 
 CALL drop_index_if_exists('IX_game_statistic_leaderboard_profile_id','game_statistic_leaderboard');
@@ -1054,14 +1056,14 @@ CREATE INDEX `IX_game_statistic_leaderboard_game_id` ON `game_statistic_leaderbo
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_game_id_level','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_game_id_level','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_game_id_level` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_level` ON `game_statistic_leaderboard` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
                     
     , `level` ASC
 );
@@ -1086,121 +1088,121 @@ CREATE INDEX `IX_game_statistic_leaderboard_username_game_id` ON `game_statistic
     , `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_username','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_username','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_username` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_username` ON `game_statistic_leaderboard` 
 (
                     
     `username` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_username_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_username_game_id','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_username_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_username_game_id` ON `game_statistic_leaderboard` 
 (
                     
     `username` ASC
                     
     , `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_username_game_id_type','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_username_game_id_type','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_username_game_id_type` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_username_game_id_type` ON `game_statistic_leaderboard` 
 (
                     
     `username` ASC
                     
     , `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_profile_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_profile_id','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_profile_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id` ON `game_statistic_leaderboard` 
 (
                     
     `profile_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_profile_id_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_profile_id_game_id','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_profile_id_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id_game_id` ON `game_statistic_leaderboard` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_profile_id_game_id_type','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_profile_id_game_id_type','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_profile_id_game_id_type` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id_game_id_type` ON `game_statistic_leaderboard` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_game_id','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_game_id` ON `game_statistic_leaderboard` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_game_id_profile_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_game_id_profile_id','game_statistic_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_key_game_id_profile_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_profile_id` ON `game_statistic_leaderboard` 
+(
+                    
+    `profile_id` ASC
+                    
+    , `game_id` ASC
+                    
+    , `code` ASC
+);
+                
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_game_id_type','game_statistic_leaderboard');
+                
+CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_type` ON `game_statistic_leaderboard` 
 (
                     
     `game_id` ASC
                     
-    , `profile_id` ASC
-                    
-    , `key` ASC
-);
-                
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_key_game_id_type','game_statistic_leaderboard');
-                
-CREATE INDEX `IX_game_statistic_leaderboard_key_game_id_type` ON `game_statistic_leaderboard` 
-(
-                    
-    `game_id` ASC
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
         
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code` ON `game_statistic_leaderboard_rollup` 
 (
                     
-    `key` ASC
+    `code` ASC
 );
                 
 CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_profile_id','game_statistic_leaderboard_rollup');
@@ -1227,14 +1229,14 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_game_id` ON `game_statistic_l
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_game_id_level','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_game_id_level','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_game_id_level` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id_level` ON `game_statistic_leaderboard_rollup` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
                     
     , `level` ASC
 );
@@ -1259,110 +1261,110 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_username_game_id` ON `game_st
     , `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_username','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_username','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_username` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username` ON `game_statistic_leaderboard_rollup` 
 (
                     
     `username` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_username_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_username_game_id','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_username_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username_game_id` ON `game_statistic_leaderboard_rollup` 
 (
                     
     `username` ASC
                     
     , `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_username_game_id_type','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_username_game_id_type','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_username_game_id_type` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username_game_id_type` ON `game_statistic_leaderboard_rollup` 
 (
                     
     `username` ASC
                     
     , `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_profile_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_profile_id','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_profile_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id` ON `game_statistic_leaderboard_rollup` 
 (
                     
     `profile_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_profile_id_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_profile_id_game_id','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_profile_id_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id_game_id` ON `game_statistic_leaderboard_rollup` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_profile_id_game_id_type','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_profile_id_game_id_type` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type` ON `game_statistic_leaderboard_rollup` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_game_id','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id` ON `game_statistic_leaderboard_rollup` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_game_id_profile_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_game_id_profile_id','game_statistic_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_game_id_profile_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id_profile_id` ON `game_statistic_leaderboard_rollup` 
+(
+                    
+    `profile_id` ASC
+                    
+    , `game_id` ASC
+                    
+    , `code` ASC
+);
+                
+CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_game_id_type','game_statistic_leaderboard_rollup');
+                
+CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id_type` ON `game_statistic_leaderboard_rollup` 
 (
                     
     `game_id` ASC
                     
-    , `profile_id` ASC
-                    
-    , `key` ASC
-);
-                
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_key_game_id_type','game_statistic_leaderboard_rollup');
-                
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_key_game_id_type` ON `game_statistic_leaderboard_rollup` 
-(
-                    
-    `game_id` ASC
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
         
 -- INDEX CREATES
@@ -1426,12 +1428,12 @@ CREATE INDEX `IX_game_live_recent_queue_profile_id_game_id` ON `game_live_recent
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code` ON `game_profile_statistic` 
 (
                     
-    `key` ASC
+    `code` ASC
 );
                 
 CALL drop_index_if_exists('IX_game_profile_statistic_profile_id','game_profile_statistic');
@@ -1458,24 +1460,24 @@ CREATE INDEX `IX_game_profile_statistic_game_id` ON `game_profile_statistic`
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_game_id','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_game_id','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_game_id` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_game_id` ON `game_profile_statistic` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_game_id_level','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_game_id_level','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_game_id_level` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_game_id_level` ON `game_profile_statistic` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
                     
     , `level` ASC
 );
@@ -1500,111 +1502,111 @@ CREATE INDEX `IX_game_profile_statistic_username_game_id` ON `game_profile_stati
     , `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_username','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_username','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_username` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_username` ON `game_profile_statistic` 
 (
                     
     `username` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_username_game_id','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_username_game_id','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_username_game_id` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_username_game_id` ON `game_profile_statistic` 
 (
                     
     `username` ASC
                     
     , `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_username_game_id_type','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_username_game_id_type','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_username_game_id_type` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_username_game_id_type` ON `game_profile_statistic` 
 (
                     
     `username` ASC
                     
     , `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_profile_id','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_profile_id','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_profile_id` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_profile_id` ON `game_profile_statistic` 
 (
                     
     `profile_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_profile_id_game_id','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_profile_id_game_id','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_profile_id_game_id` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_profile_id_game_id` ON `game_profile_statistic` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_profile_id_game_id_type','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_profile_id_game_id_type','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_profile_id_game_id_type` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_profile_id_game_id_type` ON `game_profile_statistic` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_key_game_id_profile_id','game_profile_statistic');
+CALL drop_index_if_exists('IX_game_profile_statistic_code_game_id_profile_id','game_profile_statistic');
                 
-CREATE INDEX `IX_game_profile_statistic_key_game_id_profile_id` ON `game_profile_statistic` 
+CREATE INDEX `IX_game_profile_statistic_code_game_id_profile_id` ON `game_profile_statistic` 
+(
+                    
+    `profile_id` ASC
+                    
+    , `game_id` ASC
+                    
+    , `code` ASC
+);
+                
+CALL drop_index_if_exists('IX_game_profile_statistic_code_game_id_type','game_profile_statistic');
+                
+CREATE INDEX `IX_game_profile_statistic_code_game_id_type` ON `game_profile_statistic` 
 (
                     
     `game_id` ASC
                     
-    , `profile_id` ASC
-                    
-    , `key` ASC
-);
-                
-CALL drop_index_if_exists('IX_game_profile_statistic_key_game_id_type','game_profile_statistic');
-                
-CREATE INDEX `IX_game_profile_statistic_key_game_id_type` ON `game_profile_statistic` 
-(
-                    
-    `game_id` ASC
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
         
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_statistic_meta_key','game_statistic_meta');
+CALL drop_index_if_exists('IX_game_statistic_meta_code','game_statistic_meta');
                 
-CREATE INDEX `IX_game_statistic_meta_key` ON `game_statistic_meta` 
+CREATE INDEX `IX_game_statistic_meta_code` ON `game_statistic_meta` 
 (
                     
-    `key` ASC
+    `code` ASC
 );
                 
 CALL drop_index_if_exists('IX_game_statistic_meta_game_id','game_statistic_meta');
@@ -1615,24 +1617,24 @@ CREATE INDEX `IX_game_statistic_meta_game_id` ON `game_statistic_meta`
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_meta_key_game_id','game_statistic_meta');
+CALL drop_index_if_exists('IX_game_statistic_meta_code_game_id','game_statistic_meta');
                 
-CREATE INDEX `IX_game_statistic_meta_key_game_id` ON `game_statistic_meta` 
+CREATE INDEX `IX_game_statistic_meta_code_game_id` ON `game_statistic_meta` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_meta_key_type','game_statistic_meta');
+CALL drop_index_if_exists('IX_game_statistic_meta_code_type','game_statistic_meta');
                 
-CREATE INDEX `IX_game_statistic_meta_key_type` ON `game_statistic_meta` 
+CREATE INDEX `IX_game_statistic_meta_code_type` ON `game_statistic_meta` 
 (
                     
-    `type` ASC
+    `code` ASC
                     
-    , `key` ASC
+    , `type` ASC
 );
                 
 CALL drop_index_if_exists('IX_game_statistic_meta_game_id_type','game_statistic_meta');
@@ -1645,33 +1647,31 @@ CREATE INDEX `IX_game_statistic_meta_game_id_type` ON `game_statistic_meta`
     , `type` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_meta_key_game_id_type','game_statistic_meta');
+CALL drop_index_if_exists('IX_game_statistic_meta_code_game_id_type','game_statistic_meta');
                 
-CREATE INDEX `IX_game_statistic_meta_key_game_id_type` ON `game_statistic_meta` 
+CREATE INDEX `IX_game_statistic_meta_code_game_id_type` ON `game_statistic_meta` 
 (
                     
     `game_id` ASC
                     
-    , `type` ASC
+    , `code` ASC
                     
-    , `key` ASC
+    , `type` ASC
 );
         
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_profile_statistic_timestamp_key_profile_id_game_id_timestamp','game_profile_statistic_timestamp');
+CALL drop_index_if_exists('IX_game_profile_statistic_timestamp_code_profile_id_game_id','game_profile_statistic_timestamp');
                 
-CREATE INDEX `IX_game_profile_statistic_timestamp_key_profile_id_game_id_timestamp` ON `game_profile_statistic_timestamp` 
+CREATE INDEX `IX_game_profile_statistic_timestamp_code_profile_id_game_id` ON `game_profile_statistic_timestamp` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
                     
-    , `key` ASC
-                    
-    , `timestamp` ASC
+    , `code` ASC
 );
         
 -- INDEX CREATES
@@ -1788,45 +1788,45 @@ CREATE INDEX `IX_game_key_meta_key_game_id_type` ON `game_key_meta`
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_level_key','game_level');
+CALL drop_index_if_exists('IX_game_level_code','game_level');
                 
-CREATE INDEX `IX_game_level_key` ON `game_level` 
+CREATE INDEX `IX_game_level_code` ON `game_level` 
 (
                     
-    `key` ASC
+    `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_level_key_game_id','game_level');
+CALL drop_index_if_exists('IX_game_level_code_game_id','game_level');
                 
-CREATE INDEX `IX_game_level_key_game_id` ON `game_level` 
+CREATE INDEX `IX_game_level_code_game_id` ON `game_level` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_level_key_game_id_type','game_level');
+CALL drop_index_if_exists('IX_game_level_code_game_id_type','game_level');
                 
-CREATE INDEX `IX_game_level_key_game_id_type` ON `game_level` 
+CREATE INDEX `IX_game_level_code_game_id_type` ON `game_level` 
 (
                     
     `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
         
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code` ON `game_profile_achievement` 
 (
                     
-    `key` ASC
+    `code` ASC
 );
                 
 CALL drop_index_if_exists('IX_game_profile_achievement_profile_id','game_profile_achievement');
@@ -1853,24 +1853,24 @@ CREATE INDEX `IX_game_profile_achievement_game_id` ON `game_profile_achievement`
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_game_id','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_game_id','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_game_id` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_game_id` ON `game_profile_achievement` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_game_id_level','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_game_id_level','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_game_id_level` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_game_id_level` ON `game_profile_achievement` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
                     
     , `level` ASC
 );
@@ -1895,111 +1895,111 @@ CREATE INDEX `IX_game_profile_achievement_username_game_id` ON `game_profile_ach
     , `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_username','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_username','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_username` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_username` ON `game_profile_achievement` 
 (
                     
     `username` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_username_game_id','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_username_game_id','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_username_game_id` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_username_game_id` ON `game_profile_achievement` 
 (
                     
     `username` ASC
                     
     , `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_username_game_id_type','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_username_game_id_type','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_username_game_id_type` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_username_game_id_type` ON `game_profile_achievement` 
 (
                     
     `username` ASC
                     
     , `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_profile_id','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_profile_id','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_profile_id` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_profile_id` ON `game_profile_achievement` 
 (
                     
     `profile_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_profile_id_game_id','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_profile_id_game_id','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_profile_id_game_id` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_profile_id_game_id` ON `game_profile_achievement` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_profile_id_game_id_type','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_profile_id_game_id_type','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_profile_id_game_id_type` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_profile_id_game_id_type` ON `game_profile_achievement` 
 (
                     
-    `game_id` ASC
+    `profile_id` ASC
                     
-    , `profile_id` ASC
+    , `game_id` ASC
+                    
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_profile_achievement_key_game_id_profile_id','game_profile_achievement');
+CALL drop_index_if_exists('IX_game_profile_achievement_code_game_id_profile_id','game_profile_achievement');
                 
-CREATE INDEX `IX_game_profile_achievement_key_game_id_profile_id` ON `game_profile_achievement` 
+CREATE INDEX `IX_game_profile_achievement_code_game_id_profile_id` ON `game_profile_achievement` 
+(
+                    
+    `profile_id` ASC
+                    
+    , `game_id` ASC
+                    
+    , `code` ASC
+);
+                
+CALL drop_index_if_exists('IX_game_profile_achievement_code_game_id_type','game_profile_achievement');
+                
+CREATE INDEX `IX_game_profile_achievement_code_game_id_type` ON `game_profile_achievement` 
 (
                     
     `game_id` ASC
                     
-    , `profile_id` ASC
-                    
-    , `key` ASC
-);
-                
-CALL drop_index_if_exists('IX_game_profile_achievement_key_game_id_type','game_profile_achievement');
-                
-CREATE INDEX `IX_game_profile_achievement_key_game_id_type` ON `game_profile_achievement` 
-(
-                    
-    `game_id` ASC
+    , `code` ASC
                     
     , `type` ASC
-                    
-    , `key` ASC
 );
         
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_achievement_meta_key','game_achievement_meta');
+CALL drop_index_if_exists('IX_game_achievement_meta_code','game_achievement_meta');
                 
-CREATE INDEX `IX_game_achievement_meta_key` ON `game_achievement_meta` 
+CREATE INDEX `IX_game_achievement_meta_code` ON `game_achievement_meta` 
 (
                     
-    `key` ASC
+    `code` ASC
 );
                 
 CALL drop_index_if_exists('IX_game_achievement_meta_game_id','game_achievement_meta');
@@ -2010,36 +2010,36 @@ CREATE INDEX `IX_game_achievement_meta_game_id` ON `game_achievement_meta`
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_achievement_meta_key_game_id','game_achievement_meta');
+CALL drop_index_if_exists('IX_game_achievement_meta_code_game_id','game_achievement_meta');
                 
-CREATE INDEX `IX_game_achievement_meta_key_game_id` ON `game_achievement_meta` 
+CREATE INDEX `IX_game_achievement_meta_code_game_id` ON `game_achievement_meta` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_achievement_meta_key_game_id_level','game_achievement_meta');
+CALL drop_index_if_exists('IX_game_achievement_meta_code_game_id_level','game_achievement_meta');
                 
-CREATE INDEX `IX_game_achievement_meta_key_game_id_level` ON `game_achievement_meta` 
+CREATE INDEX `IX_game_achievement_meta_code_game_id_level` ON `game_achievement_meta` 
 (
                     
     `game_id` ASC
                     
-    , `key` ASC
+    , `code` ASC
                     
     , `level` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_achievement_meta_key_type','game_achievement_meta');
+CALL drop_index_if_exists('IX_game_achievement_meta_code_type','game_achievement_meta');
                 
-CREATE INDEX `IX_game_achievement_meta_key_type` ON `game_achievement_meta` 
+CREATE INDEX `IX_game_achievement_meta_code_type` ON `game_achievement_meta` 
 (
                     
-    `type` ASC
+    `code` ASC
                     
-    , `key` ASC
+    , `type` ASC
 );
                 
 CALL drop_index_if_exists('IX_game_achievement_meta_game_id_type','game_achievement_meta');
@@ -2052,16 +2052,16 @@ CREATE INDEX `IX_game_achievement_meta_game_id_type` ON `game_achievement_meta`
     , `type` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_achievement_meta_key_game_id_type','game_achievement_meta');
+CALL drop_index_if_exists('IX_game_achievement_meta_code_game_id_type','game_achievement_meta');
                 
-CREATE INDEX `IX_game_achievement_meta_key_game_id_type` ON `game_achievement_meta` 
+CREATE INDEX `IX_game_achievement_meta_code_game_id_type` ON `game_achievement_meta` 
 (
                     
     `game_id` ASC
                     
-    , `type` ASC
+    , `code` ASC
                     
-    , `key` ASC
+    , `type` ASC
 );
 
 -- -----------------------------------------------------------------------------
@@ -6665,6 +6665,64 @@ BEGIN
 END$$
 delimiter ;
 
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_count_profile_id_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_count_profile_id_game_id`
+(
+    in_profile_id BINARY(16) 
+    , in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_game_network`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `game_id` = in_game_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_count_profile_id_game_id_game_network_`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_count_profile_id_game_id_game_network_`
+(
+    in_profile_id BINARY(16) 
+    , in_game_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_game_network`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `game_id` = in_game_id
+    AND `game_network_id` = in_game_network_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_count_network_username_game_id_game_ne`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_count_network_username_game_id_game_ne`
+(
+    in_network_username VARCHAR (500) 
+    , in_game_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_game_network`
+    WHERE 1=1
+    AND lower(`network_username`) = lower(in_network_username)
+    AND `game_id` = in_game_id
+    AND `game_network_id` = in_game_network_id
+    ;
+END$$
+delimiter ;
+
 -- ------------------------------------
 -- BROWSE
 
@@ -6709,10 +6767,13 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `data`');
     SET @sfields = CONCAT(@sfields, ', `uuid`');
     SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `network_fullname`');
     SET @sfields = CONCAT(@sfields, ', `secret`');
     SET @sfields = CONCAT(@sfields, ', `token`');
     SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `network_auth`');
     SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `network_user_id`');
     
     SET @stable = CONCAT('', ' FROM `profile_game_network` WHERE 1=1 ');
     
@@ -6759,10 +6820,13 @@ CREATE PROCEDURE `usp_profile_game_network_set_uuid`
     , in_data TEXT 
     , in_uuid BINARY(16) 
     , in_date_modified TIMESTAMP 
+    , in_network_fullname VARCHAR (500) 
     , in_secret VARCHAR (500) 
     , in_token VARCHAR (500) 
     , in_date_created TIMESTAMP 
+    , in_network_auth VARCHAR (500) 
     , in_type VARCHAR (500) 
+    , in_network_user_id VARCHAR (500) 
 )
 BEGIN
     BEGIN
@@ -6807,10 +6871,13 @@ BEGIN
                         , `data` = in_data
                         , `uuid` = in_uuid
                         , `date_modified` = in_date_modified
+                        , `network_fullname` = in_network_fullname
                         , `secret` = in_secret
                         , `token` = in_token
                         , `date_created` = in_date_created
+                        , `network_auth` = in_network_auth
                         , `type` = in_type
+                        , `network_user_id` = in_network_user_id
                     WHERE 1=1
                     AND `uuid` = in_uuid
                     ;
@@ -6834,10 +6901,13 @@ BEGIN
                         , `data`
                         , `uuid`
                         , `date_modified`
+                        , `network_fullname`
                         , `secret`
                         , `token`
                         , `date_created`
+                        , `network_auth`
                         , `type`
+                        , `network_user_id`
                     )
                     VALUES
                     (
@@ -6851,10 +6921,425 @@ BEGIN
                         , in_data
                         , in_uuid
                         , in_date_modified
+                        , in_network_fullname
                         , in_secret
                         , in_token
                         , in_date_created
+                        , in_network_auth
                         , in_type
+                        , in_network_user_id
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_set_profile_id_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_set_profile_id_game_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_hash VARCHAR (500) 
+    , in_profile_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+    , in_network_username VARCHAR (500) 
+    , in_active int 
+    , in_game_id BINARY(16) 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_network_fullname VARCHAR (500) 
+    , in_secret VARCHAR (500) 
+    , in_token VARCHAR (500) 
+    , in_date_created TIMESTAMP 
+    , in_network_auth VARCHAR (500) 
+    , in_type VARCHAR (500) 
+    , in_network_user_id VARCHAR (500) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_game_network`  
+                    WHERE 1=1
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_game_network` 
+                    SET
+                        `status` = in_status
+                        , `hash` = in_hash
+                        , `profile_id` = in_profile_id
+                        , `game_network_id` = in_game_network_id
+                        , `network_username` = in_network_username
+                        , `active` = in_active
+                        , `game_id` = in_game_id
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `network_fullname` = in_network_fullname
+                        , `secret` = in_secret
+                        , `token` = in_token
+                        , `date_created` = in_date_created
+                        , `network_auth` = in_network_auth
+                        , `type` = in_type
+                        , `network_user_id` = in_network_user_id
+                    WHERE 1=1
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_game_network`
+                    (
+                        `status`
+                        , `hash`
+                        , `profile_id`
+                        , `game_network_id`
+                        , `network_username`
+                        , `active`
+                        , `game_id`
+                        , `data`
+                        , `uuid`
+                        , `date_modified`
+                        , `network_fullname`
+                        , `secret`
+                        , `token`
+                        , `date_created`
+                        , `network_auth`
+                        , `type`
+                        , `network_user_id`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_hash
+                        , in_profile_id
+                        , in_game_network_id
+                        , in_network_username
+                        , in_active
+                        , in_game_id
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_network_fullname
+                        , in_secret
+                        , in_token
+                        , in_date_created
+                        , in_network_auth
+                        , in_type
+                        , in_network_user_id
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_set_profile_id_game_id_game_network_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_set_profile_id_game_id_game_network_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_hash VARCHAR (500) 
+    , in_profile_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+    , in_network_username VARCHAR (500) 
+    , in_active int 
+    , in_game_id BINARY(16) 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_network_fullname VARCHAR (500) 
+    , in_secret VARCHAR (500) 
+    , in_token VARCHAR (500) 
+    , in_date_created TIMESTAMP 
+    , in_network_auth VARCHAR (500) 
+    , in_type VARCHAR (500) 
+    , in_network_user_id VARCHAR (500) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_game_network`  
+                    WHERE 1=1
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    AND `game_network_id` = in_game_network_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_game_network` 
+                    SET
+                        `status` = in_status
+                        , `hash` = in_hash
+                        , `profile_id` = in_profile_id
+                        , `game_network_id` = in_game_network_id
+                        , `network_username` = in_network_username
+                        , `active` = in_active
+                        , `game_id` = in_game_id
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `network_fullname` = in_network_fullname
+                        , `secret` = in_secret
+                        , `token` = in_token
+                        , `date_created` = in_date_created
+                        , `network_auth` = in_network_auth
+                        , `type` = in_type
+                        , `network_user_id` = in_network_user_id
+                    WHERE 1=1
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    AND `game_network_id` = in_game_network_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_game_network`
+                    (
+                        `status`
+                        , `hash`
+                        , `profile_id`
+                        , `game_network_id`
+                        , `network_username`
+                        , `active`
+                        , `game_id`
+                        , `data`
+                        , `uuid`
+                        , `date_modified`
+                        , `network_fullname`
+                        , `secret`
+                        , `token`
+                        , `date_created`
+                        , `network_auth`
+                        , `type`
+                        , `network_user_id`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_hash
+                        , in_profile_id
+                        , in_game_network_id
+                        , in_network_username
+                        , in_active
+                        , in_game_id
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_network_fullname
+                        , in_secret
+                        , in_token
+                        , in_date_created
+                        , in_network_auth
+                        , in_type
+                        , in_network_user_id
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_set_network_username_game_id_game_netw`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_set_network_username_game_id_game_netw`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_hash VARCHAR (500) 
+    , in_profile_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+    , in_network_username VARCHAR (500) 
+    , in_active int 
+    , in_game_id BINARY(16) 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_network_fullname VARCHAR (500) 
+    , in_secret VARCHAR (500) 
+    , in_token VARCHAR (500) 
+    , in_date_created TIMESTAMP 
+    , in_network_auth VARCHAR (500) 
+    , in_type VARCHAR (500) 
+    , in_network_user_id VARCHAR (500) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_game_network`  
+                    WHERE 1=1
+                    AND lower(`network_username`) = lower(in_network_username)
+                    AND `game_id` = in_game_id
+                    AND `game_network_id` = in_game_network_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_game_network` 
+                    SET
+                        `status` = in_status
+                        , `hash` = in_hash
+                        , `profile_id` = in_profile_id
+                        , `game_network_id` = in_game_network_id
+                        , `network_username` = in_network_username
+                        , `active` = in_active
+                        , `game_id` = in_game_id
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `network_fullname` = in_network_fullname
+                        , `secret` = in_secret
+                        , `token` = in_token
+                        , `date_created` = in_date_created
+                        , `network_auth` = in_network_auth
+                        , `type` = in_type
+                        , `network_user_id` = in_network_user_id
+                    WHERE 1=1
+                    AND lower(`network_username`) = lower(in_network_username)
+                    AND `game_id` = in_game_id
+                    AND `game_network_id` = in_game_network_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_game_network`
+                    (
+                        `status`
+                        , `hash`
+                        , `profile_id`
+                        , `game_network_id`
+                        , `network_username`
+                        , `active`
+                        , `game_id`
+                        , `data`
+                        , `uuid`
+                        , `date_modified`
+                        , `network_fullname`
+                        , `secret`
+                        , `token`
+                        , `date_created`
+                        , `network_auth`
+                        , `type`
+                        , `network_user_id`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_hash
+                        , in_profile_id
+                        , in_game_network_id
+                        , in_network_username
+                        , in_active
+                        , in_game_id
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_network_fullname
+                        , in_secret
+                        , in_token
+                        , in_date_created
+                        , in_network_auth
+                        , in_type
+                        , in_network_user_id
                     )
                     ;
                     SET @id = 1;                  
@@ -6889,6 +7374,64 @@ BEGIN
     ;
 END$$
 delimiter ;
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_del_profile_id_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_del_profile_id_game_id`
+(
+    in_profile_id BINARY(16) 
+    , in_game_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_game_network`
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_del_profile_id_game_id_game_network_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_del_profile_id_game_id_game_network_id`
+(
+    in_profile_id BINARY(16) 
+    , in_game_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_game_network`
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    AND "game_network_id" = in_game_network_id
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_del_network_username_game_id_game_netw`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_del_network_username_game_id_game_netw`
+(
+    in_network_username VARCHAR (500) 
+    , in_game_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_game_network`
+    WHERE 1=1                        
+    AND lower("network_username") = lower(in_network_username)
+    AND "game_id" = in_game_id
+    AND "game_network_id" = in_game_network_id
+    ;
+END$$
+delimiter ;
 -- ------------------------------------
 -- GET
 
@@ -6914,10 +7457,13 @@ BEGIN
         , `data`
         , `uuid`
         , `date_modified`
+        , `network_fullname`
         , `secret`
         , `token`
         , `date_created`
+        , `network_auth`
         , `type`
+        , `network_user_id`
     FROM `profile_game_network`
     WHERE 1=1
     ;
@@ -6943,10 +7489,13 @@ BEGIN
         , `data`
         , `uuid`
         , `date_modified`
+        , `network_fullname`
         , `secret`
         , `token`
         , `date_created`
+        , `network_auth`
         , `type`
+        , `network_user_id`
     FROM `profile_game_network`
     WHERE 1=1
     AND `uuid` = in_uuid
@@ -6973,10 +7522,13 @@ BEGIN
         , `data`
         , `uuid`
         , `date_modified`
+        , `network_fullname`
         , `secret`
         , `token`
         , `date_created`
+        , `network_auth`
         , `type`
+        , `network_user_id`
     FROM `profile_game_network`
     WHERE 1=1
     AND `game_id` = in_game_id
@@ -7003,10 +7555,13 @@ BEGIN
         , `data`
         , `uuid`
         , `date_modified`
+        , `network_fullname`
         , `secret`
         , `token`
         , `date_created`
+        , `network_auth`
         , `type`
+        , `network_user_id`
     FROM `profile_game_network`
     WHERE 1=1
     AND `profile_id` = in_profile_id
@@ -7034,14 +7589,91 @@ BEGIN
         , `data`
         , `uuid`
         , `date_modified`
+        , `network_fullname`
         , `secret`
         , `token`
         , `date_created`
+        , `network_auth`
         , `type`
+        , `network_user_id`
     FROM `profile_game_network`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_get_profile_id_game_id_game_network_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_get_profile_id_game_id_game_network_id`
+(
+    in_profile_id BINARY(16) 
+    , in_game_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `hash`
+        , `profile_id`
+        , `game_network_id`
+        , `network_username`
+        , `active`
+        , `game_id`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `network_fullname`
+        , `secret`
+        , `token`
+        , `date_created`
+        , `network_auth`
+        , `type`
+        , `network_user_id`
+    FROM `profile_game_network`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `game_id` = in_game_id
+    AND `game_network_id` = in_game_network_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_game_network_get_network_username_game_id_game_netw`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_game_network_get_network_username_game_id_game_netw`
+(
+    in_network_username VARCHAR (500) 
+    , in_game_id BINARY(16) 
+    , in_game_network_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `hash`
+        , `profile_id`
+        , `game_network_id`
+        , `network_username`
+        , `active`
+        , `game_id`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `network_fullname`
+        , `secret`
+        , `token`
+        , `date_created`
+        , `network_auth`
+        , `type`
+        , `network_user_id`
+    FROM `profile_game_network`
+    WHERE 1=1
+    AND lower(`network_username`) = lower(in_network_username)
+    AND `game_id` = in_game_id
+    AND `game_network_id` = in_game_network_id
     ;
 END$$
 delimiter ;
@@ -19630,22 +20262,6 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_key`;
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_key`
-(
-    in_key BINARY(16) 
-)
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM `game_statistic_leaderboard`
-    WHERE 1=1
-    AND `key` = in_key
-    ;
-END$$
-delimiter ;
-
 DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_statistic_leaderboard_count_game_id`
@@ -19662,11 +20278,27 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_key_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code`
 (
-    in_key BINARY(16) 
+    in_code VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_statistic_leaderboard`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id`
+(
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
@@ -19674,39 +20306,39 @@ BEGIN
         COUNT(*) as count
     FROM `game_statistic_leaderboard`
     WHERE 1=1
-    AND `key` = in_key
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_code_game_id_profile_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id_profile_id`
 (
-    in_key BINARY(16) 
-    , in_profile_id BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
     FROM `game_statistic_leaderboard`
     WHERE 1=1
-    AND `key` = in_key
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     AND `profile_id` = in_profile_id
-    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_key_profile_id_game_id_tim`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_code_game_id_profile_id_ti`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_key_profile_id_game_id_tim`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id_profile_id_ti`
 (
-    in_key BINARY(16) 
-    , in_profile_id BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
     , in_timestamp decimal 
 )
 BEGIN
@@ -19714,9 +20346,9 @@ BEGIN
         COUNT(*) as count
     FROM `game_statistic_leaderboard`
     WHERE 1=1
-    AND `key` = in_key
-    AND `profile_id` = in_profile_id
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
+    AND `profile_id` = in_profile_id
     AND `timestamp` = in_timestamp
     ;
 END$$
@@ -19776,7 +20408,7 @@ BEGIN
     
     SET @sfields = CONCAT('', '`status`');
     SET @sfields = CONCAT(@sfields, ', `username`');
-    SET @sfields = CONCAT(@sfields, ', `key`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
     SET @sfields = CONCAT(@sfields, ', `timestamp`');
     SET @sfields = CONCAT(@sfields, ', `profile_id`');
     SET @sfields = CONCAT(@sfields, ', `rank`');
@@ -19784,6 +20416,7 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `game_id`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `rank_total_count`');
+    SET @sfields = CONCAT(@sfields, ', `absolute_value`');
     SET @sfields = CONCAT(@sfields, ', `data`');
     SET @sfields = CONCAT(@sfields, ', `stat_value`');
     SET @sfields = CONCAT(@sfields, ', `network`');
@@ -19831,7 +20464,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_set_uuid`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -19839,6 +20472,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_set_uuid`
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -19884,7 +20518,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -19892,6 +20526,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -19916,7 +20551,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -19924,6 +20559,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -19938,7 +20574,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -19946,6 +20582,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -19973,7 +20610,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_tim
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -19981,6 +20618,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_tim
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -20029,7 +20667,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -20037,6 +20675,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -20064,7 +20703,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -20072,6 +20711,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -20086,7 +20726,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -20094,6 +20734,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -20114,14 +20755,14 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_key_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_key_profile_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_set_code`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -20129,6 +20770,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_set_key_profile_id`
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -20159,8 +20801,7 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_statistic_leaderboard`  
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     ;
                 END;
             END IF;
@@ -20175,7 +20816,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -20183,6 +20824,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -20193,8 +20835,7 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     ;
                     SET @id = 1;
                 END;
@@ -20208,7 +20849,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -20216,6 +20857,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -20230,7 +20872,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -20238,6 +20880,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -20258,14 +20901,14 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_key_profile_id_timestamp`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_key_profile_id_timestamp`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_set_code_game_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -20273,6 +20916,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_set_key_profile_id_timestamp`
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -20303,9 +20947,8 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_statistic_leaderboard`  
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
-                    AND `timestamp` = in_timestamp
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
                     ;
                 END;
             END IF;
@@ -20320,7 +20963,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -20328,6 +20971,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -20338,9 +20982,8 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
-                    AND `timestamp` = in_timestamp
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
                     ;
                     SET @id = 1;
                 END;
@@ -20354,7 +20997,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -20362,6 +21005,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -20376,7 +21020,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -20384,6 +21028,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -20404,14 +21049,14 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_key_profile_id_game_id_times`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_code_game_id_profile_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_key_profile_id_game_id_times`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_set_code_game_id_profile_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -20419,6 +21064,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_set_key_profile_id_game_id_time
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -20449,10 +21095,9 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_statistic_leaderboard`  
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
-                    AND `timestamp` = in_timestamp
+                    AND `profile_id` = in_profile_id
                     ;
                 END;
             END IF;
@@ -20467,7 +21112,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -20475,6 +21120,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -20485,10 +21131,9 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
-                    AND `timestamp` = in_timestamp
+                    AND `profile_id` = in_profile_id
                     ;
                     SET @id = 1;
                 END;
@@ -20502,7 +21147,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -20510,6 +21155,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -20524,7 +21170,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -20532,6 +21178,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -20552,14 +21199,14 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_code_game_id_profile_id_time`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_set_code_game_id_profile_id_time`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -20567,6 +21214,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_set_key_profile_id_game_id`
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -20597,9 +21245,10 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_statistic_leaderboard`  
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
+                    AND `profile_id` = in_profile_id
+                    AND `timestamp` = in_timestamp
                     ;
                 END;
             END IF;
@@ -20614,7 +21263,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -20622,6 +21271,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -20632,9 +21282,10 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
+                    AND `profile_id` = in_profile_id
+                    AND `timestamp` = in_timestamp
                     ;
                     SET @id = 1;
                 END;
@@ -20648,7 +21299,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -20656,6 +21307,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -20670,7 +21322,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -20678,6 +21330,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -20721,12 +21374,28 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_del_key_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code`
 (
-    in_key BINARY(16) 
+    in_code VARCHAR (500) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_statistic_leaderboard`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id`
+(
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 
@@ -20734,28 +21403,50 @@ BEGIN
     DELETE 
     FROM `game_statistic_leaderboard`
     WHERE 1=1                        
-    AND "key" = in_key
+    AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_code_game_id_profile_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_del_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id_profile_id`
 (
-    in_key BINARY(16) 
-    , in_profile_id BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
 )
 
 BEGIN
     DELETE 
     FROM `game_statistic_leaderboard`
     WHERE 1=1                        
-    AND "key" = in_key
-    AND "profile_id" = in_profile_id
+    AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_code_game_id_profile_id_time`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id_profile_id_time`
+(
+    in_code VARCHAR (500) 
+    , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+    , in_timestamp decimal 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_statistic_leaderboard`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "timestamp" = in_timestamp
     ;
 END$$
 delimiter ;
@@ -20794,7 +21485,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -20802,6 +21493,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -20828,7 +21520,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -20836,6 +21528,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -20852,41 +21545,6 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_key`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_key`
-(
-    in_key BINARY(16) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `username`
-        , `key`
-        , `timestamp`
-        , `profile_id`
-        , `rank`
-        , `rank_change`
-        , `game_id`
-        , `active`
-        , `rank_total_count`
-        , `data`
-        , `stat_value`
-        , `network`
-        , `uuid`
-        , `date_modified`
-        , `level`
-        , `stat_value_formatted`
-        , `date_created`
-        , `type`
-    FROM `game_statistic_leaderboard`
-    WHERE 1=1
-    AND `key` = in_key
-    ;
-END$$
-delimiter ;
-
 DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_game_id`;
 
 delimiter $$
@@ -20898,7 +21556,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -20906,6 +21564,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -20922,19 +21581,55 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_key_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_get_code`
 (
-    in_key BINARY(16) 
+    in_code VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `username`
+        , `code`
+        , `timestamp`
+        , `profile_id`
+        , `rank`
+        , `rank_change`
+        , `game_id`
+        , `active`
+        , `rank_total_count`
+        , `absolute_value`
+        , `data`
+        , `stat_value`
+        , `network`
+        , `uuid`
+        , `date_modified`
+        , `level`
+        , `stat_value_formatted`
+        , `date_created`
+        , `type`
+    FROM `game_statistic_leaderboard`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_leaderboard_get_code_game_id`
+(
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -20942,6 +21637,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -20953,65 +21649,26 @@ BEGIN
         , `type`
     FROM `game_statistic_leaderboard`
     WHERE 1=1
-    AND `key` = in_key
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_key_game_id_network`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_code_game_id_profile_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_key_game_id_network`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_get_code_game_id_profile_id`
 (
-    in_key BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
-    , in_network VARCHAR (500) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `username`
-        , `key`
-        , `timestamp`
-        , `profile_id`
-        , `rank`
-        , `rank_change`
-        , `game_id`
-        , `active`
-        , `rank_total_count`
-        , `data`
-        , `stat_value`
-        , `network`
-        , `uuid`
-        , `date_modified`
-        , `level`
-        , `stat_value_formatted`
-        , `date_created`
-        , `type`
-    FROM `game_statistic_leaderboard`
-    WHERE 1=1
-    AND `key` = in_key
-    AND `game_id` = in_game_id
-    AND lower(`network`) = lower(in_network)
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_key_profile_id_game_id`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_key_profile_id_game_id`
-(
-    in_key BINARY(16) 
     , in_profile_id BINARY(16) 
-    , in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -21019,6 +21676,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -21030,28 +21688,28 @@ BEGIN
         , `type`
     FROM `game_statistic_leaderboard`
     WHERE 1=1
-    AND `key` = in_key
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     AND `profile_id` = in_profile_id
-    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_key_profile_id_game_id_times`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_code_game_id_profile_id_time`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_key_profile_id_game_id_times`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_get_code_game_id_profile_id_time`
 (
-    in_key BINARY(16) 
-    , in_profile_id BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
     , in_timestamp decimal 
 )
 BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -21059,6 +21717,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -21070,9 +21729,9 @@ BEGIN
         , `type`
     FROM `game_statistic_leaderboard`
     WHERE 1=1
-    AND `key` = in_key
-    AND `profile_id` = in_profile_id
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
+    AND `profile_id` = in_profile_id
     AND `timestamp` = in_timestamp
     ;
 END$$
@@ -21090,7 +21749,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -21098,6 +21757,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -21128,7 +21788,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -21136,6 +21796,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -21192,22 +21853,6 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_key`;
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_key`
-(
-    in_key BINARY(16) 
-)
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
-    WHERE 1=1
-    AND `key` = in_key
-    ;
-END$$
-delimiter ;
-
 DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_game_id`
@@ -21224,11 +21869,27 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_key_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code`
 (
-    in_key BINARY(16) 
+    in_code VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `game_statistic_leaderboard_rollup`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_code_game_id`;
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id`
+(
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
@@ -21236,39 +21897,39 @@ BEGIN
         COUNT(*) as count
     FROM `game_statistic_leaderboard_rollup`
     WHERE 1=1
-    AND `key` = in_key
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_key_profile_id_game`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_code_game_id_profil`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_key_profile_id_game`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id_profil`
 (
-    in_key BINARY(16) 
-    , in_profile_id BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
     FROM `game_statistic_leaderboard_rollup`
     WHERE 1=1
-    AND `key` = in_key
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     AND `profile_id` = in_profile_id
-    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_key_profile_id_game`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_code_game_id_profil`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_key_profile_id_game`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id_profil`
 (
-    in_key BINARY(16) 
-    , in_profile_id BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
     , in_timestamp decimal 
 )
 BEGIN
@@ -21276,9 +21937,9 @@ BEGIN
         COUNT(*) as count
     FROM `game_statistic_leaderboard_rollup`
     WHERE 1=1
-    AND `key` = in_key
-    AND `profile_id` = in_profile_id
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
+    AND `profile_id` = in_profile_id
     AND `timestamp` = in_timestamp
     ;
 END$$
@@ -21338,7 +21999,7 @@ BEGIN
     
     SET @sfields = CONCAT('', '`status`');
     SET @sfields = CONCAT(@sfields, ', `username`');
-    SET @sfields = CONCAT(@sfields, ', `key`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
     SET @sfields = CONCAT(@sfields, ', `timestamp`');
     SET @sfields = CONCAT(@sfields, ', `profile_id`');
     SET @sfields = CONCAT(@sfields, ', `rank`');
@@ -21346,6 +22007,7 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `game_id`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `rank_total_count`');
+    SET @sfields = CONCAT(@sfields, ', `absolute_value`');
     SET @sfields = CONCAT(@sfields, ', `data`');
     SET @sfields = CONCAT(@sfields, ', `stat_value`');
     SET @sfields = CONCAT(@sfields, ', `network`');
@@ -21393,7 +22055,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_uuid`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -21401,6 +22063,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_uuid`
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -21446,7 +22109,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -21454,6 +22117,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -21478,7 +22142,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -21486,6 +22150,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -21500,7 +22165,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -21508,6 +22173,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -21535,7 +22201,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -21543,6 +22209,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -21591,7 +22258,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -21599,6 +22266,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -21626,7 +22294,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -21634,6 +22302,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -21648,7 +22317,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -21656,6 +22325,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -21676,14 +22346,14 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_key_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_key_profile_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_code`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -21691,6 +22361,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_key_profile_id`
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -21721,8 +22392,7 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_statistic_leaderboard_rollup`  
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     ;
                 END;
             END IF;
@@ -21737,7 +22407,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -21745,6 +22415,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -21755,8 +22426,7 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     ;
                     SET @id = 1;
                 END;
@@ -21770,7 +22440,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -21778,6 +22448,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -21792,7 +22463,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -21800,6 +22471,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -21820,14 +22492,14 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_key_profile_id_timest`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_key_profile_id_timest`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_code_game_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -21835,6 +22507,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_key_profile_id_times
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -21865,9 +22538,8 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_statistic_leaderboard_rollup`  
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
-                    AND `timestamp` = in_timestamp
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
                     ;
                 END;
             END IF;
@@ -21882,7 +22554,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -21890,6 +22562,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -21900,9 +22573,8 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
-                    AND `timestamp` = in_timestamp
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
                     ;
                     SET @id = 1;
                 END;
@@ -21916,7 +22588,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -21924,6 +22596,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -21938,7 +22611,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -21946,6 +22619,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -21966,14 +22640,14 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_i`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_i`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -21981,6 +22655,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -22011,10 +22686,9 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_statistic_leaderboard_rollup`  
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
-                    AND `timestamp` = in_timestamp
+                    AND `profile_id` = in_profile_id
                     ;
                 END;
             END IF;
@@ -22029,7 +22703,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -22037,6 +22711,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -22047,10 +22722,9 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
-                    AND `timestamp` = in_timestamp
+                    AND `profile_id` = in_profile_id
                     ;
                     SET @id = 1;
                 END;
@@ -22064,7 +22738,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -22072,6 +22746,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -22086,7 +22761,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -22094,6 +22769,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -22114,14 +22790,14 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_i`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_i`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
-    , in_key BINARY(16) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
     , in_rank INTEGER 
@@ -22129,6 +22805,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_key_profile_id_game_
     , in_game_id BINARY(16) 
     , in_active int 
     , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
     , in_data TEXT 
     , in_stat_value decimal 
     , in_network VARCHAR (500) 
@@ -22159,9 +22836,10 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_statistic_leaderboard_rollup`  
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
+                    AND `profile_id` = in_profile_id
+                    AND `timestamp` = in_timestamp
                     ;
                 END;
             END IF;
@@ -22176,7 +22854,7 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
-                        , `key` = in_key
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
                         , `rank` = in_rank
@@ -22184,6 +22862,7 @@ BEGIN
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
                         , `data` = in_data
                         , `stat_value` = in_stat_value
                         , `network` = in_network
@@ -22194,9 +22873,10 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND `key` = in_key
-                    AND `profile_id` = in_profile_id
+                    AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
+                    AND `profile_id` = in_profile_id
+                    AND `timestamp` = in_timestamp
                     ;
                     SET @id = 1;
                 END;
@@ -22210,7 +22890,7 @@ BEGIN
                     (
                         `status`
                         , `username`
-                        , `key`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
                         , `rank`
@@ -22218,6 +22898,7 @@ BEGIN
                         , `game_id`
                         , `active`
                         , `rank_total_count`
+                        , `absolute_value`
                         , `data`
                         , `stat_value`
                         , `network`
@@ -22232,7 +22913,7 @@ BEGIN
                     (
                         in_status
                         , in_username
-                        , in_key
+                        , in_code
                         , in_timestamp
                         , in_profile_id
                         , in_rank
@@ -22240,6 +22921,7 @@ BEGIN
                         , in_game_id
                         , in_active
                         , in_rank_total_count
+                        , in_absolute_value
                         , in_data
                         , in_stat_value
                         , in_network
@@ -22283,12 +22965,28 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_key_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code`
 (
-    in_key BINARY(16) 
+    in_code VARCHAR (500) 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_statistic_leaderboard_rollup`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id`
+(
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 
@@ -22296,28 +22994,50 @@ BEGIN
     DELETE 
     FROM `game_statistic_leaderboard_rollup`
     WHERE 1=1                        
-    AND "key" = in_key
+    AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_key_profile_id_game_i`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_key_profile_id_game_i`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_`
 (
-    in_key BINARY(16) 
-    , in_profile_id BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
 )
 
 BEGIN
     DELETE 
     FROM `game_statistic_leaderboard_rollup`
     WHERE 1=1                        
-    AND "key" = in_key
-    AND "profile_id" = in_profile_id
+    AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_`
+(
+    in_code VARCHAR (500) 
+    , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+    , in_timestamp decimal 
+)
+
+BEGIN
+    DELETE 
+    FROM `game_statistic_leaderboard_rollup`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "timestamp" = in_timestamp
     ;
 END$$
 delimiter ;
@@ -22356,7 +23076,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -22364,6 +23084,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -22390,7 +23111,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -22398,6 +23119,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -22414,41 +23136,6 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_key`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_key`
-(
-    in_key BINARY(16) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `username`
-        , `key`
-        , `timestamp`
-        , `profile_id`
-        , `rank`
-        , `rank_change`
-        , `game_id`
-        , `active`
-        , `rank_total_count`
-        , `data`
-        , `stat_value`
-        , `network`
-        , `uuid`
-        , `date_modified`
-        , `level`
-        , `stat_value_formatted`
-        , `date_created`
-        , `type`
-    FROM `game_statistic_leaderboard_rollup`
-    WHERE 1=1
-    AND `key` = in_key
-    ;
-END$$
-delimiter ;
-
 DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_game_id`;
 
 delimiter $$
@@ -22460,7 +23147,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -22468,6 +23155,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -22484,19 +23172,55 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_key_game_id`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_code`
 (
-    in_key BINARY(16) 
+    in_code VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `username`
+        , `code`
+        , `timestamp`
+        , `profile_id`
+        , `rank`
+        , `rank_change`
+        , `game_id`
+        , `active`
+        , `rank_total_count`
+        , `absolute_value`
+        , `data`
+        , `stat_value`
+        , `network`
+        , `uuid`
+        , `date_modified`
+        , `level`
+        , `stat_value_formatted`
+        , `date_created`
+        , `type`
+    FROM `game_statistic_leaderboard_rollup`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_code_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_code_game_id`
+(
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -22504,6 +23228,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -22515,65 +23240,26 @@ BEGIN
         , `type`
     FROM `game_statistic_leaderboard_rollup`
     WHERE 1=1
-    AND `key` = in_key
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_key_game_id_network`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_key_game_id_network`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_`
 (
-    in_key BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
-    , in_network VARCHAR (500) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `username`
-        , `key`
-        , `timestamp`
-        , `profile_id`
-        , `rank`
-        , `rank_change`
-        , `game_id`
-        , `active`
-        , `rank_total_count`
-        , `data`
-        , `stat_value`
-        , `network`
-        , `uuid`
-        , `date_modified`
-        , `level`
-        , `stat_value_formatted`
-        , `date_created`
-        , `type`
-    FROM `game_statistic_leaderboard_rollup`
-    WHERE 1=1
-    AND `key` = in_key
-    AND `game_id` = in_game_id
-    AND lower(`network`) = lower(in_network)
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_key_profile_id_game_i`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_key_profile_id_game_i`
-(
-    in_key BINARY(16) 
     , in_profile_id BINARY(16) 
-    , in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -22581,6 +23267,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -22592,28 +23279,28 @@ BEGIN
         , `type`
     FROM `game_statistic_leaderboard_rollup`
     WHERE 1=1
-    AND `key` = in_key
+    AND lower(`code`) = lower(in_code)
+    AND `game_id` = in_game_id
     AND `profile_id` = in_profile_id
-    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_key_profile_id_game_i`;
+DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_key_profile_id_game_i`
+CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_`
 (
-    in_key BINARY(16) 
-    , in_profile_id BINARY(16) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
+    , in_profile_id BINARY(16) 
     , in_timestamp decimal 
 )
 BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -22621,6 +23308,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -22632,9 +23320,9 @@ BEGIN
         , `type`
     FROM `game_statistic_leaderboard_rollup`
     WHERE 1=1
-    AND `key` = in_key
-    AND `profile_id` = in_profile_id
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
+    AND `profile_id` = in_profile_id
     AND `timestamp` = in_timestamp
     ;
 END$$
@@ -22652,7 +23340,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -22660,6 +23348,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -22690,7 +23379,7 @@ BEGIN
     SELECT
         `status`
         , `username`
-        , `key`
+        , `code`
         , `timestamp`
         , `profile_id`
         , `rank`
@@ -22698,6 +23387,7 @@ BEGIN
         , `game_id`
         , `active`
         , `rank_total_count`
+        , `absolute_value`
         , `data`
         , `stat_value`
         , `network`
@@ -23813,18 +24503,18 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_count_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_count_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_count_key`
+CREATE PROCEDURE `usp_game_profile_statistic_count_code`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
     FROM `game_profile_statistic`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
@@ -23845,11 +24535,11 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_count_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_count_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_count_key_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_count_code_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
@@ -23857,7 +24547,7 @@ BEGIN
         COUNT(*) as count
     FROM `game_profile_statistic`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
     ;
 END$$
@@ -23881,11 +24571,11 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_count_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_count_code_profile_id_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_count_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_count_code_profile_id_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
 )
@@ -23894,18 +24584,18 @@ BEGIN
         COUNT(*) as count
     FROM `game_profile_statistic`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_count_key_profile_id_game_id_timesta`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_count_code_profile_id_game_id_timest`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_count_key_profile_id_game_id_timesta`
+CREATE PROCEDURE `usp_game_profile_statistic_count_code_profile_id_game_id_timest`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
     , in_timestamp decimal 
@@ -23915,7 +24605,7 @@ BEGIN
         COUNT(*) as count
     FROM `game_profile_statistic`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     AND `timestamp` = in_timestamp
@@ -23959,9 +24649,9 @@ BEGIN
     
     SET @sfields = CONCAT('', '`status`');
     SET @sfields = CONCAT(@sfields, ', `username`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
     SET @sfields = CONCAT(@sfields, ', `timestamp`');
     SET @sfields = CONCAT(@sfields, ', `profile_id`');
-    SET @sfields = CONCAT(@sfields, ', `key`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `game_id`');
     SET @sfields = CONCAT(@sfields, ', `data`');
@@ -24010,9 +24700,9 @@ CREATE PROCEDURE `usp_game_profile_statistic_set_uuid`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_data TEXT 
@@ -24059,9 +24749,9 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `data` = in_data
@@ -24087,9 +24777,9 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `data`
@@ -24105,9 +24795,9 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_data
@@ -24136,9 +24826,9 @@ CREATE PROCEDURE `usp_game_profile_statistic_set_uuid_profile_id_game_id_timesta
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_data TEXT 
@@ -24188,9 +24878,9 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `data` = in_data
@@ -24219,9 +24909,9 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `data`
@@ -24237,9 +24927,9 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_data
@@ -24261,16 +24951,16 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_set_profile_id_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_set_profile_id_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_set_profile_id_key`
+CREATE PROCEDURE `usp_game_profile_statistic_set_profile_id_code`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_data TEXT 
@@ -24303,7 +24993,7 @@ BEGIN
                     FROM  `game_profile_statistic`  
                     WHERE 1=1
                     AND `profile_id` = in_profile_id
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     ;
                 END;
             END IF;
@@ -24318,9 +25008,9 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `data` = in_data
@@ -24333,7 +25023,7 @@ BEGIN
                         , `type` = in_type
                     WHERE 1=1
                     AND `profile_id` = in_profile_id
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     ;
                     SET @id = 1;
                 END;
@@ -24347,9 +25037,9 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `data`
@@ -24365,9 +25055,9 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_data
@@ -24389,16 +25079,16 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_set_profile_id_key_timestamp`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_set_profile_id_code_timestamp`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_set_profile_id_key_timestamp`
+CREATE PROCEDURE `usp_game_profile_statistic_set_profile_id_code_timestamp`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_data TEXT 
@@ -24431,7 +25121,7 @@ BEGIN
                     FROM  `game_profile_statistic`  
                     WHERE 1=1
                     AND `profile_id` = in_profile_id
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `timestamp` = in_timestamp
                     ;
                 END;
@@ -24447,9 +25137,9 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `data` = in_data
@@ -24462,7 +25152,7 @@ BEGIN
                         , `type` = in_type
                     WHERE 1=1
                     AND `profile_id` = in_profile_id
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `timestamp` = in_timestamp
                     ;
                     SET @id = 1;
@@ -24477,9 +25167,9 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `data`
@@ -24495,9 +25185,9 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_data
@@ -24519,16 +25209,16 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_set_key_profile_id_game_id_timestamp`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_set_code_profile_id_game_id_timestam`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_set_key_profile_id_game_id_timestamp`
+CREATE PROCEDURE `usp_game_profile_statistic_set_code_profile_id_game_id_timestam`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_data TEXT 
@@ -24560,7 +25250,7 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_profile_statistic`  
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
@@ -24578,9 +25268,9 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `data` = in_data
@@ -24592,7 +25282,7 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
@@ -24609,9 +25299,9 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `data`
@@ -24627,9 +25317,9 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_data
@@ -24651,16 +25341,16 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_set_profile_id_game_id_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_set_code_profile_id_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_set_profile_id_game_id_key`
+CREATE PROCEDURE `usp_game_profile_statistic_set_code_profile_id_game_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_data TEXT 
@@ -24692,9 +25382,9 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_profile_statistic`  
                     WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
-                    AND lower(`key`) = lower(in_key)
                     ;
                 END;
             END IF;
@@ -24709,9 +25399,9 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `data` = in_data
@@ -24723,9 +25413,9 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
-                    AND lower(`key`) = lower(in_key)
                     ;
                     SET @id = 1;
                 END;
@@ -24739,9 +25429,9 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `data`
@@ -24757,9 +25447,9 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_data
@@ -24804,12 +25494,12 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_del_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_del_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_del_key_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_del_code_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 
@@ -24817,7 +25507,7 @@ BEGIN
     DELETE 
     FROM `game_profile_statistic`
     WHERE 1=1                        
-    AND lower("key") = lower(in_key)
+    AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
     ;
 END$$
@@ -24840,12 +25530,12 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_del_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_del_code_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_del_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_del_code_profile_id_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
 )
@@ -24854,7 +25544,7 @@ BEGIN
     DELETE 
     FROM `game_profile_statistic`
     WHERE 1=1                        
-    AND lower("key") = lower(in_key)
+    AND lower("code") = lower(in_code)
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
     ;
@@ -24878,9 +25568,9 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `data`
@@ -24898,20 +25588,20 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_get_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_get_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_get_key`
+CREATE PROCEDURE `usp_game_profile_statistic_get_code`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `data`
@@ -24924,7 +25614,7 @@ BEGIN
         , `type`
     FROM `game_profile_statistic`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
@@ -24940,9 +25630,9 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `data`
@@ -24960,21 +25650,21 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_get_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_get_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_get_key_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_get_code_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `data`
@@ -24987,7 +25677,7 @@ BEGIN
         , `type`
     FROM `game_profile_statistic`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
     ;
 END$$
@@ -25005,9 +25695,9 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `data`
@@ -25039,9 +25729,9 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `data`
@@ -25061,12 +25751,12 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_get_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_get_code_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_get_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_get_code_profile_id_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
 )
@@ -25074,9 +25764,9 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `data`
@@ -25089,19 +25779,19 @@ BEGIN
         , `type`
     FROM `game_profile_statistic`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_get_key_profile_id_game_id_timestamp`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_get_code_profile_id_game_id_timestam`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_get_key_profile_id_game_id_timestamp`
+CREATE PROCEDURE `usp_game_profile_statistic_get_code_profile_id_game_id_timestam`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
     , in_timestamp decimal 
@@ -25110,9 +25800,9 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `data`
@@ -25125,7 +25815,7 @@ BEGIN
         , `type`
     FROM `game_profile_statistic`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     AND `timestamp` = in_timestamp
@@ -25221,22 +25911,6 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_count_key`;
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_meta_count_key`
-(
-    in_key VARCHAR (50) 
-)
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM `game_statistic_meta`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
-    ;
-END$$
-delimiter ;
-
 DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_count_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_statistic_meta_count_game_id`
@@ -25248,24 +25922,6 @@ BEGIN
         COUNT(*) as count
     FROM `game_statistic_meta`
     WHERE 1=1
-    AND `game_id` = in_game_id
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_count_key_game_id`;
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_meta_count_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM `game_statistic_meta`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
     AND `game_id` = in_game_id
     ;
 END$$
@@ -25315,7 +25971,6 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `uuid`');
     SET @sfields = CONCAT(@sfields, ', `points`');
     SET @sfields = CONCAT(@sfields, ', `store_count`');
-    SET @sfields = CONCAT(@sfields, ', `key`');
     SET @sfields = CONCAT(@sfields, ', `game_id`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `date_created`');
@@ -25368,7 +26023,6 @@ CREATE PROCEDURE `usp_game_statistic_meta_set_uuid`
     , in_uuid BINARY(16) 
     , in_points decimal 
     , in_store_count INTEGER 
-    , in_key VARCHAR (50) 
     , in_game_id BINARY(16) 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -25419,7 +26073,6 @@ BEGIN
                         , `uuid` = in_uuid
                         , `points` = in_points
                         , `store_count` = in_store_count
-                        , `key` = in_key
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -25449,7 +26102,6 @@ BEGIN
                         , `uuid`
                         , `points`
                         , `store_count`
-                        , `key`
                         , `game_id`
                         , `active`
                         , `date_created`
@@ -25469,7 +26121,6 @@ BEGIN
                         , in_uuid
                         , in_points
                         , in_store_count
-                        , in_key
                         , in_game_id
                         , in_active
                         , in_date_created
@@ -25502,7 +26153,6 @@ CREATE PROCEDURE `usp_game_statistic_meta_set_code_game_id`
     , in_uuid BINARY(16) 
     , in_points decimal 
     , in_store_count INTEGER 
-    , in_key VARCHAR (50) 
     , in_game_id BINARY(16) 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -25554,7 +26204,6 @@ BEGIN
                         , `uuid` = in_uuid
                         , `points` = in_points
                         , `store_count` = in_store_count
-                        , `key` = in_key
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -25585,7 +26234,6 @@ BEGIN
                         , `uuid`
                         , `points`
                         , `store_count`
-                        , `key`
                         , `game_id`
                         , `active`
                         , `date_created`
@@ -25605,143 +26253,6 @@ BEGIN
                         , in_uuid
                         , in_points
                         , in_store_count
-                        , in_key
-                        , in_game_id
-                        , in_active
-                        , in_date_created
-                        , in_type
-                        , in_order
-                        , in_description
-                    )
-                    ;
-                    SET @id = 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT @id as id;
-    END;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_set_key_game_id`;
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_meta_set_key_game_id`
-(
-    in_set_type varchar(50)                      
-    , in_status VARCHAR (255) 
-    , in_sort INTEGER 
-    , in_code VARCHAR (255) 
-    , in_display_name VARCHAR (255) 
-    , in_name VARCHAR (255) 
-    , in_date_modified TIMESTAMP 
-    , in_data TEXT 
-    , in_uuid BINARY(16) 
-    , in_points decimal 
-    , in_store_count INTEGER 
-    , in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-    , in_active int 
-    , in_date_created TIMESTAMP 
-    , in_type VARCHAR (40) 
-    , in_order VARCHAR (40) 
-    , in_description VARCHAR (255) 
-)
-BEGIN
-    BEGIN
-        SET @countItems = 0;
-        SET @id = 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                SET in_set_type = 'full';
-            END IF;
-        END;
-
-	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	# GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_meta`  
-                    WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
-                    AND `game_id` = in_game_id
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_statistic_meta` 
-                    SET
-                        `status` = in_status
-                        , `sort` = in_sort
-                        , `code` = in_code
-                        , `display_name` = in_display_name
-                        , `name` = in_name
-                        , `date_modified` = in_date_modified
-                        , `data` = in_data
-                        , `uuid` = in_uuid
-                        , `points` = in_points
-                        , `store_count` = in_store_count
-                        , `key` = in_key
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `date_created` = in_date_created
-                        , `type` = in_type
-                        , `order` = in_order
-                        , `description` = in_description
-                    WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
-                    AND `game_id` = in_game_id
-                    ;
-                    SET @id = 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            # INSERT
-            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO `game_statistic_meta`
-                    (
-                        `status`
-                        , `sort`
-                        , `code`
-                        , `display_name`
-                        , `name`
-                        , `date_modified`
-                        , `data`
-                        , `uuid`
-                        , `points`
-                        , `store_count`
-                        , `key`
-                        , `game_id`
-                        , `active`
-                        , `date_created`
-                        , `type`
-                        , `order`
-                        , `description`
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_sort
-                        , in_code
-                        , in_display_name
-                        , in_name
-                        , in_date_modified
-                        , in_data
-                        , in_uuid
-                        , in_points
-                        , in_store_count
-                        , in_key
                         , in_game_id
                         , in_active
                         , in_date_created
@@ -25800,24 +26311,6 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_del_key_game_id`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_meta_del_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-
-BEGIN
-    DELETE 
-    FROM `game_statistic_meta`
-    WHERE 1=1                        
-    AND lower("key") = lower(in_key)
-    AND "game_id" = in_game_id
-    ;
-END$$
-delimiter ;
 -- ------------------------------------
 -- GET
 
@@ -25844,7 +26337,6 @@ BEGIN
         , `uuid`
         , `points`
         , `store_count`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -25877,7 +26369,6 @@ BEGIN
         , `uuid`
         , `points`
         , `store_count`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -25887,6 +26378,70 @@ BEGIN
     FROM `game_statistic_meta`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_meta_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `sort`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `points`
+        , `store_count`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `order`
+        , `description`
+    FROM `game_statistic_meta`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_get_game_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_game_statistic_meta_get_game_id`
+(
+    in_game_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `sort`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `points`
+        , `store_count`
+        , `game_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `order`
+        , `description`
+    FROM `game_statistic_meta`
+    WHERE 1=1
+    AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
@@ -25911,7 +26466,6 @@ BEGIN
         , `uuid`
         , `points`
         , `store_count`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -25921,140 +26475,6 @@ BEGIN
     FROM `game_statistic_meta`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
-    AND `game_id` = in_game_id
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_get_name`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_meta_get_name`
-(
-    in_name VARCHAR (255) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `sort`
-        , `code`
-        , `display_name`
-        , `name`
-        , `date_modified`
-        , `data`
-        , `uuid`
-        , `points`
-        , `store_count`
-        , `key`
-        , `game_id`
-        , `active`
-        , `date_created`
-        , `type`
-        , `order`
-        , `description`
-    FROM `game_statistic_meta`
-    WHERE 1=1
-    AND lower(`name`) = lower(in_name)
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_get_key`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_meta_get_key`
-(
-    in_key VARCHAR (50) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `sort`
-        , `code`
-        , `display_name`
-        , `name`
-        , `date_modified`
-        , `data`
-        , `uuid`
-        , `points`
-        , `store_count`
-        , `key`
-        , `game_id`
-        , `active`
-        , `date_created`
-        , `type`
-        , `order`
-        , `description`
-    FROM `game_statistic_meta`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_get_game_id`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_meta_get_game_id`
-(
-    in_game_id BINARY(16) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `sort`
-        , `code`
-        , `display_name`
-        , `name`
-        , `date_modified`
-        , `data`
-        , `uuid`
-        , `points`
-        , `store_count`
-        , `key`
-        , `game_id`
-        , `active`
-        , `date_created`
-        , `type`
-        , `order`
-        , `description`
-    FROM `game_statistic_meta`
-    WHERE 1=1
-    AND `game_id` = in_game_id
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_meta_get_key_game_id`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_meta_get_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `sort`
-        , `code`
-        , `display_name`
-        , `name`
-        , `date_modified`
-        , `data`
-        , `uuid`
-        , `points`
-        , `store_count`
-        , `key`
-        , `game_id`
-        , `active`
-        , `date_created`
-        , `type`
-        , `order`
-        , `description`
-    FROM `game_statistic_meta`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
     AND `game_id` = in_game_id
     ;
 END$$
@@ -26098,11 +26518,11 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_count_key_profile_id_game_`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_count_code_profile_id_game`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_timestamp_count_key_profile_id_game_`
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_count_code_profile_id_game`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
 )
@@ -26111,18 +26531,18 @@ BEGIN
         COUNT(*) as count
     FROM `game_profile_statistic_timestamp`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_count_key_profile_id_game_`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_count_code_profile_id_game`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_timestamp_count_key_profile_id_game_`
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_count_code_profile_id_game`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
     , in_timestamp TIMESTAMP 
@@ -26132,7 +26552,7 @@ BEGIN
         COUNT(*) as count
     FROM `game_profile_statistic_timestamp`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     AND `timestamp` = in_timestamp
@@ -26175,9 +26595,9 @@ BEGIN
     END IF;
     
     SET @sfields = CONCAT('', '`status`');
-    SET @sfields = CONCAT(@sfields, ', `timestamp`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
     SET @sfields = CONCAT(@sfields, ', `uuid`');
-    SET @sfields = CONCAT(@sfields, ', `key`');
+    SET @sfields = CONCAT(@sfields, ', `timestamp`');
     SET @sfields = CONCAT(@sfields, ', `date_modified`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `date_created`');
@@ -26221,9 +26641,9 @@ CREATE PROCEDURE `usp_game_profile_statistic_timestamp_set_uuid`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
-    , in_timestamp TIMESTAMP 
+    , in_code VARCHAR (500) 
     , in_uuid BINARY(16) 
-    , in_key VARCHAR (50) 
+    , in_timestamp TIMESTAMP 
     , in_date_modified TIMESTAMP 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -26265,9 +26685,9 @@ BEGIN
                     UPDATE `game_profile_statistic_timestamp` 
                     SET
                         `status` = in_status
-                        , `timestamp` = in_timestamp
+                        , `code` = in_code
                         , `uuid` = in_uuid
-                        , `key` = in_key
+                        , `timestamp` = in_timestamp
                         , `date_modified` = in_date_modified
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -26288,9 +26708,9 @@ BEGIN
                     INSERT INTO `game_profile_statistic_timestamp`
                     (
                         `status`
-                        , `timestamp`
+                        , `code`
                         , `uuid`
-                        , `key`
+                        , `timestamp`
                         , `date_modified`
                         , `active`
                         , `date_created`
@@ -26301,9 +26721,9 @@ BEGIN
                     VALUES
                     (
                         in_status
-                        , in_timestamp
+                        , in_code
                         , in_uuid
-                        , in_key
+                        , in_timestamp
                         , in_date_modified
                         , in_active
                         , in_date_created
@@ -26321,15 +26741,15 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_set_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_set_code_profile_id_game_i`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_timestamp_set_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_set_code_profile_id_game_i`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
-    , in_timestamp TIMESTAMP 
+    , in_code VARCHAR (500) 
     , in_uuid BINARY(16) 
-    , in_key VARCHAR (50) 
+    , in_timestamp TIMESTAMP 
     , in_date_modified TIMESTAMP 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -26357,7 +26777,7 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_profile_statistic_timestamp`  
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     ;
@@ -26373,9 +26793,9 @@ BEGIN
                     UPDATE `game_profile_statistic_timestamp` 
                     SET
                         `status` = in_status
-                        , `timestamp` = in_timestamp
+                        , `code` = in_code
                         , `uuid` = in_uuid
-                        , `key` = in_key
+                        , `timestamp` = in_timestamp
                         , `date_modified` = in_date_modified
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -26383,7 +26803,7 @@ BEGIN
                         , `profile_id` = in_profile_id
                         , `type` = in_type
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     ;
@@ -26398,9 +26818,9 @@ BEGIN
                     INSERT INTO `game_profile_statistic_timestamp`
                     (
                         `status`
-                        , `timestamp`
+                        , `code`
                         , `uuid`
-                        , `key`
+                        , `timestamp`
                         , `date_modified`
                         , `active`
                         , `date_created`
@@ -26411,9 +26831,9 @@ BEGIN
                     VALUES
                     (
                         in_status
-                        , in_timestamp
+                        , in_code
                         , in_uuid
-                        , in_key
+                        , in_timestamp
                         , in_date_modified
                         , in_active
                         , in_date_created
@@ -26431,15 +26851,15 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_set_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_set_code_profile_id_game_i`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_timestamp_set_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_set_code_profile_id_game_i`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
-    , in_timestamp TIMESTAMP 
+    , in_code VARCHAR (500) 
     , in_uuid BINARY(16) 
-    , in_key VARCHAR (50) 
+    , in_timestamp TIMESTAMP 
     , in_date_modified TIMESTAMP 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -26467,7 +26887,7 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_profile_statistic_timestamp`  
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
@@ -26484,9 +26904,9 @@ BEGIN
                     UPDATE `game_profile_statistic_timestamp` 
                     SET
                         `status` = in_status
-                        , `timestamp` = in_timestamp
+                        , `code` = in_code
                         , `uuid` = in_uuid
-                        , `key` = in_key
+                        , `timestamp` = in_timestamp
                         , `date_modified` = in_date_modified
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -26494,7 +26914,7 @@ BEGIN
                         , `profile_id` = in_profile_id
                         , `type` = in_type
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
@@ -26510,9 +26930,9 @@ BEGIN
                     INSERT INTO `game_profile_statistic_timestamp`
                     (
                         `status`
-                        , `timestamp`
+                        , `code`
                         , `uuid`
-                        , `key`
+                        , `timestamp`
                         , `date_modified`
                         , `active`
                         , `date_created`
@@ -26523,9 +26943,9 @@ BEGIN
                     VALUES
                     (
                         in_status
-                        , in_timestamp
+                        , in_code
                         , in_uuid
-                        , in_key
+                        , in_timestamp
                         , in_date_modified
                         , in_active
                         , in_date_created
@@ -26566,12 +26986,12 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_del_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_del_code_profile_id_game_i`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_timestamp_del_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_del_code_profile_id_game_i`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
 )
@@ -26580,18 +27000,18 @@ BEGIN
     DELETE 
     FROM `game_profile_statistic_timestamp`
     WHERE 1=1                        
-    AND lower("key") = lower(in_key)
+    AND lower("code") = lower(in_code)
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_del_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_del_code_profile_id_game_i`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_timestamp_del_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_del_code_profile_id_game_i`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
     , in_timestamp TIMESTAMP 
@@ -26601,7 +27021,7 @@ BEGIN
     DELETE 
     FROM `game_profile_statistic_timestamp`
     WHERE 1=1                        
-    AND lower("key") = lower(in_key)
+    AND lower("code") = lower(in_code)
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
     AND "timestamp" = in_timestamp
@@ -26625,9 +27045,9 @@ CREATE PROCEDURE `usp_game_profile_statistic_timestamp_get_uuid`
 BEGIN
     SELECT
         `status`
-        , `timestamp`
+        , `code`
         , `uuid`
-        , `key`
+        , `timestamp`
         , `date_modified`
         , `active`
         , `date_created`
@@ -26641,21 +27061,21 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_get_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_get_code_profile_id_game_i`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_timestamp_get_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_get_code_profile_id_game_i`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         `status`
-        , `timestamp`
+        , `code`
         , `uuid`
-        , `key`
+        , `timestamp`
         , `date_modified`
         , `active`
         , `date_created`
@@ -26664,19 +27084,19 @@ BEGIN
         , `type`
     FROM `game_profile_statistic_timestamp`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_get_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_statistic_timestamp_get_code_profile_id_game_i`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_statistic_timestamp_get_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_statistic_timestamp_get_code_profile_id_game_i`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
     , in_timestamp TIMESTAMP 
@@ -26684,9 +27104,9 @@ CREATE PROCEDURE `usp_game_profile_statistic_timestamp_get_key_profile_id_game_i
 BEGIN
     SELECT
         `status`
-        , `timestamp`
+        , `code`
         , `uuid`
-        , `key`
+        , `timestamp`
         , `date_modified`
         , `active`
         , `date_created`
@@ -26695,7 +27115,7 @@ BEGIN
         , `type`
     FROM `game_profile_statistic_timestamp`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     AND `timestamp` = in_timestamp
@@ -27895,7 +28315,7 @@ DROP PROCEDURE IF EXISTS `usp_game_level_count_code`;
 delimiter $$
 CREATE PROCEDURE `usp_game_level_count_code`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
@@ -27911,7 +28331,7 @@ DROP PROCEDURE IF EXISTS `usp_game_level_count_code_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_level_count_code_game_id`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
@@ -27941,22 +28361,6 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_level_count_key`;
-delimiter $$
-CREATE PROCEDURE `usp_game_level_count_key`
-(
-    in_key VARCHAR (50) 
-)
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM `game_level`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
-    ;
-END$$
-delimiter ;
-
 DROP PROCEDURE IF EXISTS `usp_game_level_count_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_level_count_game_id`
@@ -27968,24 +28372,6 @@ BEGIN
         COUNT(*) as count
     FROM `game_level`
     WHERE 1=1
-    AND `game_id` = in_game_id
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_level_count_key_game_id`;
-delimiter $$
-CREATE PROCEDURE `usp_game_level_count_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM `game_level`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
     AND `game_id` = in_game_id
     ;
 END$$
@@ -28033,7 +28419,6 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `date_modified`');
     SET @sfields = CONCAT(@sfields, ', `data`');
     SET @sfields = CONCAT(@sfields, ', `uuid`');
-    SET @sfields = CONCAT(@sfields, ', `key`');
     SET @sfields = CONCAT(@sfields, ', `game_id`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `date_created`');
@@ -28078,13 +28463,12 @@ CREATE PROCEDURE `usp_game_level_set_uuid`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_sort INTEGER 
-    , in_code VARCHAR (255) 
+    , in_code VARCHAR (500) 
     , in_display_name VARCHAR (255) 
     , in_name VARCHAR (255) 
     , in_date_modified TIMESTAMP 
     , in_data TEXT 
     , in_uuid BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_game_id BINARY(16) 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -28133,7 +28517,6 @@ BEGIN
                         , `date_modified` = in_date_modified
                         , `data` = in_data
                         , `uuid` = in_uuid
-                        , `key` = in_key
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -28161,7 +28544,6 @@ BEGIN
                         , `date_modified`
                         , `data`
                         , `uuid`
-                        , `key`
                         , `game_id`
                         , `active`
                         , `date_created`
@@ -28179,7 +28561,6 @@ BEGIN
                         , in_date_modified
                         , in_data
                         , in_uuid
-                        , in_key
                         , in_game_id
                         , in_active
                         , in_date_created
@@ -28204,13 +28585,12 @@ CREATE PROCEDURE `usp_game_level_set_code_game_id`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_sort INTEGER 
-    , in_code VARCHAR (255) 
+    , in_code VARCHAR (500) 
     , in_display_name VARCHAR (255) 
     , in_name VARCHAR (255) 
     , in_date_modified TIMESTAMP 
     , in_data TEXT 
     , in_uuid BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_game_id BINARY(16) 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -28260,7 +28640,6 @@ BEGIN
                         , `date_modified` = in_date_modified
                         , `data` = in_data
                         , `uuid` = in_uuid
-                        , `key` = in_key
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -28289,7 +28668,6 @@ BEGIN
                         , `date_modified`
                         , `data`
                         , `uuid`
-                        , `key`
                         , `game_id`
                         , `active`
                         , `date_created`
@@ -28307,135 +28685,6 @@ BEGIN
                         , in_date_modified
                         , in_data
                         , in_uuid
-                        , in_key
-                        , in_game_id
-                        , in_active
-                        , in_date_created
-                        , in_type
-                        , in_order
-                        , in_description
-                    )
-                    ;
-                    SET @id = 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT @id as id;
-    END;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_level_set_key_game_id`;
-delimiter $$
-CREATE PROCEDURE `usp_game_level_set_key_game_id`
-(
-    in_set_type varchar(50)                      
-    , in_status VARCHAR (255) 
-    , in_sort INTEGER 
-    , in_code VARCHAR (255) 
-    , in_display_name VARCHAR (255) 
-    , in_name VARCHAR (255) 
-    , in_date_modified TIMESTAMP 
-    , in_data TEXT 
-    , in_uuid BINARY(16) 
-    , in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-    , in_active int 
-    , in_date_created TIMESTAMP 
-    , in_type VARCHAR (40) 
-    , in_order VARCHAR (40) 
-    , in_description VARCHAR (255) 
-)
-BEGIN
-    BEGIN
-        SET @countItems = 0;
-        SET @id = 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                SET in_set_type = 'full';
-            END IF;
-        END;
-
-	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	# GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO @countItems
-                    FROM  `game_level`  
-                    WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
-                    AND `game_id` = in_game_id
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_level` 
-                    SET
-                        `status` = in_status
-                        , `sort` = in_sort
-                        , `code` = in_code
-                        , `display_name` = in_display_name
-                        , `name` = in_name
-                        , `date_modified` = in_date_modified
-                        , `data` = in_data
-                        , `uuid` = in_uuid
-                        , `key` = in_key
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `date_created` = in_date_created
-                        , `type` = in_type
-                        , `order` = in_order
-                        , `description` = in_description
-                    WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
-                    AND `game_id` = in_game_id
-                    ;
-                    SET @id = 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            # INSERT
-            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO `game_level`
-                    (
-                        `status`
-                        , `sort`
-                        , `code`
-                        , `display_name`
-                        , `name`
-                        , `date_modified`
-                        , `data`
-                        , `uuid`
-                        , `key`
-                        , `game_id`
-                        , `active`
-                        , `date_created`
-                        , `type`
-                        , `order`
-                        , `description`
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_sort
-                        , in_code
-                        , in_display_name
-                        , in_name
-                        , in_date_modified
-                        , in_data
-                        , in_uuid
-                        , in_key
                         , in_game_id
                         , in_active
                         , in_date_created
@@ -28481,7 +28730,7 @@ DROP PROCEDURE IF EXISTS `usp_game_level_del_code_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_level_del_code_game_id`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 
@@ -28490,24 +28739,6 @@ BEGIN
     FROM `game_level`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
-    AND "game_id" = in_game_id
-    ;
-END$$
-delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_level_del_key_game_id`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_level_del_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-
-BEGIN
-    DELETE 
-    FROM `game_level`
-    WHERE 1=1                        
-    AND lower("key") = lower(in_key)
     AND "game_id" = in_game_id
     ;
 END$$
@@ -28536,7 +28767,6 @@ BEGIN
         , `date_modified`
         , `data`
         , `uuid`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -28555,7 +28785,7 @@ DROP PROCEDURE IF EXISTS `usp_game_level_get_code`;
 delimiter $$
 CREATE PROCEDURE `usp_game_level_get_code`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
@@ -28567,7 +28797,6 @@ BEGIN
         , `date_modified`
         , `data`
         , `uuid`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -28586,7 +28815,7 @@ DROP PROCEDURE IF EXISTS `usp_game_level_get_code_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_level_get_code_game_id`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
@@ -28599,7 +28828,6 @@ BEGIN
         , `date_modified`
         , `data`
         , `uuid`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -28631,7 +28859,6 @@ BEGIN
         , `date_modified`
         , `data`
         , `uuid`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -28641,37 +28868,6 @@ BEGIN
     FROM `game_level`
     WHERE 1=1
     AND lower(`name`) = lower(in_name)
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_level_get_key`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_level_get_key`
-(
-    in_key VARCHAR (50) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `sort`
-        , `code`
-        , `display_name`
-        , `name`
-        , `date_modified`
-        , `data`
-        , `uuid`
-        , `key`
-        , `game_id`
-        , `active`
-        , `date_created`
-        , `type`
-        , `order`
-        , `description`
-    FROM `game_level`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
     ;
 END$$
 delimiter ;
@@ -28693,7 +28889,6 @@ BEGIN
         , `date_modified`
         , `data`
         , `uuid`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -28702,39 +28897,6 @@ BEGIN
         , `description`
     FROM `game_level`
     WHERE 1=1
-    AND `game_id` = in_game_id
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_level_get_key_game_id`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_level_get_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `sort`
-        , `code`
-        , `display_name`
-        , `name`
-        , `date_modified`
-        , `data`
-        , `uuid`
-        , `key`
-        , `game_id`
-        , `active`
-        , `date_created`
-        , `type`
-        , `order`
-        , `description`
-    FROM `game_level`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
     AND `game_id` = in_game_id
     ;
 END$$
@@ -28778,12 +28940,12 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_count_profile_id_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_count_profile_id_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_count_profile_id_key`
+CREATE PROCEDURE `usp_game_profile_achievement_count_profile_id_code`
 (
     in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
+    , in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
@@ -28791,7 +28953,7 @@ BEGIN
     FROM `game_profile_achievement`
     WHERE 1=1
     AND `profile_id` = in_profile_id
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
@@ -28812,11 +28974,11 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_count_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_count_code_profile_id_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_count_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_achievement_count_code_profile_id_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
 )
@@ -28825,18 +28987,18 @@ BEGIN
         COUNT(*) as count
     FROM `game_profile_achievement`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_count_key_profile_id_game_id_times`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_count_code_profile_id_game_id_time`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_count_key_profile_id_game_id_times`
+CREATE PROCEDURE `usp_game_profile_achievement_count_code_profile_id_game_id_time`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
     , in_timestamp decimal 
@@ -28846,7 +29008,7 @@ BEGIN
         COUNT(*) as count
     FROM `game_profile_achievement`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     AND `timestamp` = in_timestamp
@@ -28890,10 +29052,10 @@ BEGIN
     
     SET @sfields = CONCAT('', '`status`');
     SET @sfields = CONCAT(@sfields, ', `username`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
     SET @sfields = CONCAT(@sfields, ', `timestamp`');
     SET @sfields = CONCAT(@sfields, ', `completed`');
     SET @sfields = CONCAT(@sfields, ', `profile_id`');
-    SET @sfields = CONCAT(@sfields, ', `key`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `game_id`');
     SET @sfields = CONCAT(@sfields, ', `achievement_value`');
@@ -28941,10 +29103,10 @@ CREATE PROCEDURE `usp_game_profile_achievement_set_uuid`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_completed int 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_achievement_value decimal 
@@ -28990,10 +29152,10 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `completed` = in_completed
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `achievement_value` = in_achievement_value
@@ -29018,10 +29180,10 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `completed`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `achievement_value`
@@ -29036,10 +29198,10 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_completed
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_achievement_value
@@ -29060,17 +29222,17 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_set_uuid_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_set_uuid_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_set_uuid_key`
+CREATE PROCEDURE `usp_game_profile_achievement_set_uuid_code`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_completed int 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_achievement_value decimal 
@@ -29102,7 +29264,7 @@ BEGIN
                     FROM  `game_profile_achievement`  
                     WHERE 1=1
                     AND `uuid` = in_uuid
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     ;
                 END;
             END IF;
@@ -29117,10 +29279,10 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `completed` = in_completed
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `achievement_value` = in_achievement_value
@@ -29132,7 +29294,7 @@ BEGIN
                         , `type` = in_type
                     WHERE 1=1
                     AND `uuid` = in_uuid
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     ;
                     SET @id = 1;
                 END;
@@ -29146,10 +29308,10 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `completed`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `achievement_value`
@@ -29164,10 +29326,10 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_completed
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_achievement_value
@@ -29188,17 +29350,17 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_set_profile_id_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_set_profile_id_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_set_profile_id_key`
+CREATE PROCEDURE `usp_game_profile_achievement_set_profile_id_code`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_completed int 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_achievement_value decimal 
@@ -29230,7 +29392,7 @@ BEGIN
                     FROM  `game_profile_achievement`  
                     WHERE 1=1
                     AND `profile_id` = in_profile_id
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     ;
                 END;
             END IF;
@@ -29245,10 +29407,10 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `completed` = in_completed
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `achievement_value` = in_achievement_value
@@ -29260,7 +29422,7 @@ BEGIN
                         , `type` = in_type
                     WHERE 1=1
                     AND `profile_id` = in_profile_id
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     ;
                     SET @id = 1;
                 END;
@@ -29274,10 +29436,10 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `completed`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `achievement_value`
@@ -29292,10 +29454,10 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_completed
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_achievement_value
@@ -29316,17 +29478,17 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_set_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_set_code_profile_id_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_set_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_achievement_set_code_profile_id_game_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_completed int 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_achievement_value decimal 
@@ -29357,7 +29519,7 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_profile_achievement`  
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     ;
@@ -29374,10 +29536,10 @@ BEGIN
                     SET
                         `status` = in_status
                         , `username` = in_username
+                        , `code` = in_code
                         , `timestamp` = in_timestamp
                         , `completed` = in_completed
                         , `profile_id` = in_profile_id
-                        , `key` = in_key
                         , `active` = in_active
                         , `game_id` = in_game_id
                         , `achievement_value` = in_achievement_value
@@ -29388,7 +29550,7 @@ BEGIN
                         , `date_created` = in_date_created
                         , `type` = in_type
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     ;
@@ -29404,10 +29566,10 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `completed`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `achievement_value`
@@ -29422,10 +29584,10 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_completed
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_achievement_value
@@ -29446,17 +29608,17 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_set_key_profile_id_game_id_timesta`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_set_code_profile_id_game_id_timest`;
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_set_key_profile_id_game_id_timesta`
+CREATE PROCEDURE `usp_game_profile_achievement_set_code_profile_id_game_id_timest`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
     , in_timestamp decimal 
     , in_completed int 
     , in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
     , in_active int 
     , in_game_id BINARY(16) 
     , in_achievement_value decimal 
@@ -29487,43 +29649,43 @@ BEGIN
                     SELECT COUNT(*) INTO @countItems
                     FROM  `game_profile_achievement`  
                     WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
-                    AND `profile_id` = in_profile_id
-                    AND `game_id` = in_game_id
-                    AND `timestamp` = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_profile_achievement` 
-                    SET
-                        `status` = in_status
-                        , `username` = in_username
-                        , `timestamp` = in_timestamp
-                        , `completed` = in_completed
-                        , `profile_id` = in_profile_id
-                        , `key` = in_key
-                        , `active` = in_active
-                        , `game_id` = in_game_id
-                        , `achievement_value` = in_achievement_value
-                        , `data` = in_data
-                        , `uuid` = in_uuid
-                        , `date_modified` = in_date_modified
-                        , `level` = in_level
-                        , `date_created` = in_date_created
-                        , `type` = in_type
-                    WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
+                    AND lower(`code`) = lower(in_code)
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
                     ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_profile_achievement` 
+                    SET
+                        `status` = in_status
+                        , `username` = in_username
+                        , `code` = in_code
+                        , `timestamp` = in_timestamp
+                        , `completed` = in_completed
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `game_id` = in_game_id
+                        , `achievement_value` = in_achievement_value
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `level` = in_level
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    AND `timestamp` = in_timestamp
+                    ;
                     SET @id = 1;
                 END;
             END IF;
@@ -29536,10 +29698,10 @@ BEGIN
                     (
                         `status`
                         , `username`
+                        , `code`
                         , `timestamp`
                         , `completed`
                         , `profile_id`
-                        , `key`
                         , `active`
                         , `game_id`
                         , `achievement_value`
@@ -29554,10 +29716,10 @@ BEGIN
                     (
                         in_status
                         , in_username
+                        , in_code
                         , in_timestamp
                         , in_completed
                         , in_profile_id
-                        , in_key
                         , in_active
                         , in_game_id
                         , in_achievement_value
@@ -29601,13 +29763,13 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_del_profile_id_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_del_profile_id_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_del_profile_id_key`
+CREATE PROCEDURE `usp_game_profile_achievement_del_profile_id_code`
 (
     in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
+    , in_code VARCHAR (500) 
 )
 
 BEGIN
@@ -29615,17 +29777,17 @@ BEGIN
     FROM `game_profile_achievement`
     WHERE 1=1                        
     AND "profile_id" = in_profile_id
-    AND lower("key") = lower(in_key)
+    AND lower("code") = lower(in_code)
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_del_uuid_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_del_uuid_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_del_uuid_key`
+CREATE PROCEDURE `usp_game_profile_achievement_del_uuid_code`
 (
     in_uuid BINARY(16) 
-    , in_key VARCHAR (50) 
+    , in_code VARCHAR (500) 
 )
 
 BEGIN
@@ -29633,7 +29795,7 @@ BEGIN
     FROM `game_profile_achievement`
     WHERE 1=1                        
     AND "uuid" = in_uuid
-    AND lower("key") = lower(in_key)
+    AND lower("code") = lower(in_code)
     ;
 END$$
 delimiter ;
@@ -29655,10 +29817,10 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29675,22 +29837,22 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_profile_id_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_profile_id_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_get_profile_id_key`
+CREATE PROCEDURE `usp_game_profile_achievement_get_profile_id_code`
 (
     in_profile_id BINARY(16) 
-    , in_key VARCHAR (50) 
+    , in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29703,7 +29865,7 @@ BEGIN
     FROM `game_profile_achievement`
     WHERE 1=1
     AND `profile_id` = in_profile_id
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
@@ -29719,10 +29881,10 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29739,21 +29901,21 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_key`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_get_key`
+CREATE PROCEDURE `usp_game_profile_achievement_get_code`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29765,7 +29927,7 @@ BEGIN
         , `type`
     FROM `game_profile_achievement`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
@@ -29781,10 +29943,10 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29801,22 +29963,22 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_key_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_get_key_game_id`
+CREATE PROCEDURE `usp_game_profile_achievement_get_code_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29828,7 +29990,7 @@ BEGIN
         , `type`
     FROM `game_profile_achievement`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
     ;
 END$$
@@ -29846,10 +30008,10 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29880,10 +30042,10 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29902,12 +30064,12 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_key_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_code_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_get_key_profile_id_game_id`
+CREATE PROCEDURE `usp_game_profile_achievement_get_code_profile_id_game_id`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
 )
@@ -29915,10 +30077,10 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29930,19 +30092,19 @@ BEGIN
         , `type`
     FROM `game_profile_achievement`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_key_profile_id_game_id_timesta`;
+DROP PROCEDURE IF EXISTS `usp_game_profile_achievement_get_code_profile_id_game_id_timest`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_profile_achievement_get_key_profile_id_game_id_timesta`
+CREATE PROCEDURE `usp_game_profile_achievement_get_code_profile_id_game_id_timest`
 (
-    in_key VARCHAR (50) 
+    in_code VARCHAR (500) 
     , in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
     , in_timestamp decimal 
@@ -29951,10 +30113,10 @@ BEGIN
     SELECT
         `status`
         , `username`
+        , `code`
         , `timestamp`
         , `completed`
         , `profile_id`
-        , `key`
         , `active`
         , `game_id`
         , `achievement_value`
@@ -29966,7 +30128,7 @@ BEGIN
         , `type`
     FROM `game_profile_achievement`
     WHERE 1=1
-    AND lower(`key`) = lower(in_key)
+    AND lower(`code`) = lower(in_code)
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
     AND `timestamp` = in_timestamp
@@ -30016,7 +30178,7 @@ DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_count_code`;
 delimiter $$
 CREATE PROCEDURE `usp_game_achievement_meta_count_code`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
@@ -30032,7 +30194,7 @@ DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_count_code_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_achievement_meta_count_code_game_id`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
@@ -30062,22 +30224,6 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_count_key`;
-delimiter $$
-CREATE PROCEDURE `usp_game_achievement_meta_count_key`
-(
-    in_key VARCHAR (50) 
-)
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM `game_achievement_meta`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
-    ;
-END$$
-delimiter ;
-
 DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_count_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_achievement_meta_count_game_id`
@@ -30089,24 +30235,6 @@ BEGIN
         COUNT(*) as count
     FROM `game_achievement_meta`
     WHERE 1=1
-    AND `game_id` = in_game_id
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_count_key_game_id`;
-delimiter $$
-CREATE PROCEDURE `usp_game_achievement_meta_count_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM `game_achievement_meta`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
     AND `game_id` = in_game_id
     ;
 END$$
@@ -30157,7 +30285,6 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `level`');
     SET @sfields = CONCAT(@sfields, ', `uuid`');
     SET @sfields = CONCAT(@sfields, ', `points`');
-    SET @sfields = CONCAT(@sfields, ', `key`');
     SET @sfields = CONCAT(@sfields, ', `game_id`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `date_created`');
@@ -30203,7 +30330,7 @@ CREATE PROCEDURE `usp_game_achievement_meta_set_uuid`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_sort INTEGER 
-    , in_code VARCHAR (255) 
+    , in_code VARCHAR (500) 
     , in_display_name VARCHAR (255) 
     , in_name VARCHAR (255) 
     , in_game_stat int 
@@ -30212,7 +30339,6 @@ CREATE PROCEDURE `usp_game_achievement_meta_set_uuid`
     , in_level VARCHAR (500) 
     , in_uuid BINARY(16) 
     , in_points INTEGER 
-    , in_key VARCHAR (50) 
     , in_game_id BINARY(16) 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -30265,7 +30391,6 @@ BEGIN
                         , `level` = in_level
                         , `uuid` = in_uuid
                         , `points` = in_points
-                        , `key` = in_key
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -30297,7 +30422,6 @@ BEGIN
                         , `level`
                         , `uuid`
                         , `points`
-                        , `key`
                         , `game_id`
                         , `active`
                         , `date_created`
@@ -30319,7 +30443,6 @@ BEGIN
                         , in_level
                         , in_uuid
                         , in_points
-                        , in_key
                         , in_game_id
                         , in_active
                         , in_date_created
@@ -30345,7 +30468,7 @@ CREATE PROCEDURE `usp_game_achievement_meta_set_code_game_id`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_sort INTEGER 
-    , in_code VARCHAR (255) 
+    , in_code VARCHAR (500) 
     , in_display_name VARCHAR (255) 
     , in_name VARCHAR (255) 
     , in_game_stat int 
@@ -30354,7 +30477,6 @@ CREATE PROCEDURE `usp_game_achievement_meta_set_code_game_id`
     , in_level VARCHAR (500) 
     , in_uuid BINARY(16) 
     , in_points INTEGER 
-    , in_key VARCHAR (50) 
     , in_game_id BINARY(16) 
     , in_active int 
     , in_date_created TIMESTAMP 
@@ -30408,7 +30530,6 @@ BEGIN
                         , `level` = in_level
                         , `uuid` = in_uuid
                         , `points` = in_points
-                        , `key` = in_key
                         , `game_id` = in_game_id
                         , `active` = in_active
                         , `date_created` = in_date_created
@@ -30441,7 +30562,6 @@ BEGIN
                         , `level`
                         , `uuid`
                         , `points`
-                        , `key`
                         , `game_id`
                         , `active`
                         , `date_created`
@@ -30463,151 +30583,6 @@ BEGIN
                         , in_level
                         , in_uuid
                         , in_points
-                        , in_key
-                        , in_game_id
-                        , in_active
-                        , in_date_created
-                        , in_modifier
-                        , in_type
-                        , in_leaderboard
-                        , in_description
-                    )
-                    ;
-                    SET @id = 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT @id as id;
-    END;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_set_key_game_id`;
-delimiter $$
-CREATE PROCEDURE `usp_game_achievement_meta_set_key_game_id`
-(
-    in_set_type varchar(50)                      
-    , in_status VARCHAR (255) 
-    , in_sort INTEGER 
-    , in_code VARCHAR (255) 
-    , in_display_name VARCHAR (255) 
-    , in_name VARCHAR (255) 
-    , in_game_stat int 
-    , in_date_modified TIMESTAMP 
-    , in_data TEXT 
-    , in_level VARCHAR (500) 
-    , in_uuid BINARY(16) 
-    , in_points INTEGER 
-    , in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-    , in_active int 
-    , in_date_created TIMESTAMP 
-    , in_modifier decimal 
-    , in_type VARCHAR (40) 
-    , in_leaderboard int 
-    , in_description VARCHAR (255) 
-)
-BEGIN
-    BEGIN
-        SET @countItems = 0;
-        SET @id = 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                SET in_set_type = 'full';
-            END IF;
-        END;
-
-	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	# GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO @countItems
-                    FROM  `game_achievement_meta`  
-                    WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
-                    AND `game_id` = in_game_id
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_achievement_meta` 
-                    SET
-                        `status` = in_status
-                        , `sort` = in_sort
-                        , `code` = in_code
-                        , `display_name` = in_display_name
-                        , `name` = in_name
-                        , `game_stat` = in_game_stat
-                        , `date_modified` = in_date_modified
-                        , `data` = in_data
-                        , `level` = in_level
-                        , `uuid` = in_uuid
-                        , `points` = in_points
-                        , `key` = in_key
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `date_created` = in_date_created
-                        , `modifier` = in_modifier
-                        , `type` = in_type
-                        , `leaderboard` = in_leaderboard
-                        , `description` = in_description
-                    WHERE 1=1
-                    AND lower(`key`) = lower(in_key)
-                    AND `game_id` = in_game_id
-                    ;
-                    SET @id = 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            # INSERT
-            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO `game_achievement_meta`
-                    (
-                        `status`
-                        , `sort`
-                        , `code`
-                        , `display_name`
-                        , `name`
-                        , `game_stat`
-                        , `date_modified`
-                        , `data`
-                        , `level`
-                        , `uuid`
-                        , `points`
-                        , `key`
-                        , `game_id`
-                        , `active`
-                        , `date_created`
-                        , `modifier`
-                        , `type`
-                        , `leaderboard`
-                        , `description`
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_sort
-                        , in_code
-                        , in_display_name
-                        , in_name
-                        , in_game_stat
-                        , in_date_modified
-                        , in_data
-                        , in_level
-                        , in_uuid
-                        , in_points
-                        , in_key
                         , in_game_id
                         , in_active
                         , in_date_created
@@ -30654,7 +30629,7 @@ DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_del_code_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_achievement_meta_del_code_game_id`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 
@@ -30663,24 +30638,6 @@ BEGIN
     FROM `game_achievement_meta`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
-    AND "game_id" = in_game_id
-    ;
-END$$
-delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_del_key_game_id`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_achievement_meta_del_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-
-BEGIN
-    DELETE 
-    FROM `game_achievement_meta`
-    WHERE 1=1                        
-    AND lower("key") = lower(in_key)
     AND "game_id" = in_game_id
     ;
 END$$
@@ -30712,7 +30669,6 @@ BEGIN
         , `level`
         , `uuid`
         , `points`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -30732,7 +30688,7 @@ DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_get_code`;
 delimiter $$
 CREATE PROCEDURE `usp_game_achievement_meta_get_code`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
@@ -30747,7 +30703,6 @@ BEGIN
         , `level`
         , `uuid`
         , `points`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -30767,7 +30722,7 @@ DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_get_code_game_id`;
 delimiter $$
 CREATE PROCEDURE `usp_game_achievement_meta_get_code_game_id`
 (
-    in_code VARCHAR (255) 
+    in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
 )
 BEGIN
@@ -30783,7 +30738,6 @@ BEGIN
         , `level`
         , `uuid`
         , `points`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -30819,7 +30773,6 @@ BEGIN
         , `level`
         , `uuid`
         , `points`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -30830,41 +30783,6 @@ BEGIN
     FROM `game_achievement_meta`
     WHERE 1=1
     AND lower(`name`) = lower(in_name)
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_get_key`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_achievement_meta_get_key`
-(
-    in_key VARCHAR (50) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `sort`
-        , `code`
-        , `display_name`
-        , `name`
-        , `game_stat`
-        , `date_modified`
-        , `data`
-        , `level`
-        , `uuid`
-        , `points`
-        , `key`
-        , `game_id`
-        , `active`
-        , `date_created`
-        , `modifier`
-        , `type`
-        , `leaderboard`
-        , `description`
-    FROM `game_achievement_meta`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
     ;
 END$$
 delimiter ;
@@ -30889,7 +30807,6 @@ BEGIN
         , `level`
         , `uuid`
         , `points`
-        , `key`
         , `game_id`
         , `active`
         , `date_created`
@@ -30899,43 +30816,6 @@ BEGIN
         , `description`
     FROM `game_achievement_meta`
     WHERE 1=1
-    AND `game_id` = in_game_id
-    ;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_achievement_meta_get_key_game_id`;
-
-delimiter $$
-CREATE PROCEDURE `usp_game_achievement_meta_get_key_game_id`
-(
-    in_key VARCHAR (50) 
-    , in_game_id BINARY(16) 
-)
-BEGIN
-    SELECT
-        `status`
-        , `sort`
-        , `code`
-        , `display_name`
-        , `name`
-        , `game_stat`
-        , `date_modified`
-        , `data`
-        , `level`
-        , `uuid`
-        , `points`
-        , `key`
-        , `game_id`
-        , `active`
-        , `date_created`
-        , `modifier`
-        , `type`
-        , `leaderboard`
-        , `description`
-    FROM `game_achievement_meta`
-    WHERE 1=1
-    AND lower(`key`) = lower(in_key)
     AND `game_id` = in_game_id
     ;
 END$$

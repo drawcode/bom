@@ -1644,14 +1644,20 @@ namespace gaming {
                     obj.uuid = dataType.FillDataString(dr, "uuid");                
             if (dr["date_modified"] != null)                    
                     obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["network_fullname"] != null)                    
+                    obj.network_fullname = dataType.FillDataString(dr, "network_fullname");                
             if (dr["secret"] != null)                    
                     obj.secret = dataType.FillDataString(dr, "secret");                
             if (dr["token"] != null)                    
                     obj.token = dataType.FillDataString(dr, "token");                
             if (dr["date_created"] != null)                    
                     obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["network_auth"] != null)                    
+                    obj.network_auth = dataType.FillDataString(dr, "network_auth");                
             if (dr["type"] != null)                    
                     obj.type = dataType.FillDataString(dr, "type");                
+            if (dr["network_user_id"] != null)                    
+                    obj.network_user_id = dataType.FillDataString(dr, "network_user_id");                
 
             return obj;
         }
@@ -1691,6 +1697,37 @@ namespace gaming {
                 , game_id
             );
         }       
+        public virtual int CountProfileGameNetworkByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return data.CountProfileGameNetworkByProfileIdByGameId(
+                profile_id
+                , game_id
+            );
+        }       
+        public virtual int CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            string profile_id
+            , string game_id
+            , string game_network_id
+        )  {            
+            return data.CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+                profile_id
+                , game_id
+                , game_network_id
+            );
+        }       
+        public virtual int CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            string network_username
+            , string game_id
+            , string game_network_id
+        )  {            
+            return data.CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+                network_username
+                , game_id
+                , game_network_id
+            );
+        }       
         public virtual ProfileGameNetworkResult BrowseProfileGameNetworkListByFilter(SearchFilter obj)  {
             ProfileGameNetworkResult result = new ProfileGameNetworkResult();
             result.page = obj.page;
@@ -1711,11 +1748,51 @@ namespace gaming {
         public virtual bool SetProfileGameNetworkByUuid(string set_type, ProfileGameNetwork obj)  {            
             return data.SetProfileGameNetworkByUuid(set_type, obj);
         }    
+        public virtual bool SetProfileGameNetworkByProfileIdByGameId(string set_type, ProfileGameNetwork obj)  {            
+            return data.SetProfileGameNetworkByProfileIdByGameId(set_type, obj);
+        }    
+        public virtual bool SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(string set_type, ProfileGameNetwork obj)  {            
+            return data.SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(set_type, obj);
+        }    
+        public virtual bool SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(string set_type, ProfileGameNetwork obj)  {            
+            return data.SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(set_type, obj);
+        }    
         public virtual bool DelProfileGameNetworkByUuid(
             string uuid
         )  {
             return data.DelProfileGameNetworkByUuid(
                 uuid
+            );
+        }                     
+        public virtual bool DelProfileGameNetworkByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            return data.DelProfileGameNetworkByProfileIdByGameId(
+                profile_id
+                , game_id
+            );
+        }                     
+        public virtual bool DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            string profile_id
+            , string game_id
+            , string game_network_id
+        )  {
+            return data.DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+                profile_id
+                , game_id
+                , game_network_id
+            );
+        }                     
+        public virtual bool DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            string network_username
+            , string game_id
+            , string game_network_id
+        )  {
+            return data.DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+                network_username
+                , game_id
+                , game_network_id
             );
         }                     
         public virtual List<ProfileGameNetwork> GetProfileGameNetworkList(
@@ -1800,6 +1877,52 @@ namespace gaming {
             DataSet ds = data.GetProfileGameNetworkListByProfileIdByGameId(
                 profile_id
                 , game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       ProfileGameNetwork profile_game_network  = FillProfileGameNetwork(dr);
+                        list.Add(profile_game_network);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<ProfileGameNetwork> GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+            string profile_id
+            , string game_id
+            , string game_network_id
+        )  {
+            List<ProfileGameNetwork> list = new List<ProfileGameNetwork>();
+            DataSet ds = data.GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+                profile_id
+                , game_id
+                , game_network_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       ProfileGameNetwork profile_game_network  = FillProfileGameNetwork(dr);
+                        list.Add(profile_game_network);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<ProfileGameNetwork> GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+            string network_username
+            , string game_id
+            , string game_network_id
+        )  {
+            List<ProfileGameNetwork> list = new List<ProfileGameNetwork>();
+            DataSet ds = data.GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+                network_username
+                , game_id
+                , game_network_id
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -4986,8 +5109,8 @@ namespace gaming {
                     obj.status = dataType.FillDataString(dr, "status");                
             if (dr["username"] != null)                    
                     obj.username = dataType.FillDataString(dr, "username");                
-            if (dr["key"] != null)                    
-                    obj.key = dataType.FillDataString(dr, "key");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
             if (dr["timestamp"] != null)                    
                     obj.timestamp = dataType.FillDataFloat(dr, "timestamp");                
             if (dr["profile_id"] != null)                    
@@ -5002,6 +5125,8 @@ namespace gaming {
                     obj.active = dataType.FillDataBool(dr, "active");                
             if (dr["rank_total_count"] != null)                    
                     obj.rank_total_count = dataType.FillDataInt(dr, "rank_total_count");                
+            if (dr["absolute_value"] != null)                    
+                    obj.absolute_value = dataType.FillDataFloat(dr, "absolute_value");                
             if (dr["data"] != null)                    
                     obj.data = dataType.FillDataString(dr, "data");                
             if (dr["stat_value"] != null)                    
@@ -5036,13 +5161,6 @@ namespace gaming {
                 uuid
             );
         }       
-        public virtual int CountGameStatisticLeaderboardByKey(
-            string key
-        )  {            
-            return data.CountGameStatisticLeaderboardByKey(
-                key
-            );
-        }       
         public virtual int CountGameStatisticLeaderboardByGameId(
             string game_id
         )  {            
@@ -5050,36 +5168,43 @@ namespace gaming {
                 game_id
             );
         }       
-        public virtual int CountGameStatisticLeaderboardByKeyByGameId(
-            string key
+        public virtual int CountGameStatisticLeaderboardByCode(
+            string code
+        )  {            
+            return data.CountGameStatisticLeaderboardByCode(
+                code
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardByCodeByGameId(
+            string code
             , string game_id
         )  {            
-            return data.CountGameStatisticLeaderboardByKeyByGameId(
-                key
+            return data.CountGameStatisticLeaderboardByCodeByGameId(
+                code
                 , game_id
             );
         }       
-        public virtual int CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
-            string key
-            , string profile_id
+        public virtual int CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            string code
             , string game_id
+            , string profile_id
         )  {            
-            return data.CountGameStatisticLeaderboardByKeyByProfileIdByGameId(
-                key
+            return data.CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+                code
+                , game_id
                 , profile_id
-                , game_id
             );
         }       
-        public virtual int CountGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(
-            string key
-            , string profile_id
+        public virtual int CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            string code
             , string game_id
+            , string profile_id
             , float timestamp
         )  {            
-            return data.CountGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(
-                key
-                , profile_id
+            return data.CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+                code
                 , game_id
+                , profile_id
                 , timestamp
             );
         }       
@@ -5115,17 +5240,17 @@ namespace gaming {
         public virtual bool SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {            
             return data.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardByKeyByProfileId(string set_type, GameStatisticLeaderboard obj)  {            
-            return data.SetGameStatisticLeaderboardByKeyByProfileId(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByCode(string set_type, GameStatisticLeaderboard obj)  {            
+            return data.SetGameStatisticLeaderboardByCode(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {            
-            return data.SetGameStatisticLeaderboardByKeyByProfileIdByTimestamp(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByCodeByGameId(string set_type, GameStatisticLeaderboard obj)  {            
+            return data.SetGameStatisticLeaderboardByCodeByGameId(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {            
-            return data.SetGameStatisticLeaderboardByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByCodeByGameIdByProfileId(string set_type, GameStatisticLeaderboard obj)  {            
+            return data.SetGameStatisticLeaderboardByCodeByGameIdByProfileId(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboard obj)  {            
-            return data.SetGameStatisticLeaderboardByKeyByProfileIdByGameId(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {            
+            return data.SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(set_type, obj);
         }    
         public virtual bool DelGameStatisticLeaderboardByUuid(
             string uuid
@@ -5134,24 +5259,44 @@ namespace gaming {
                 uuid
             );
         }                     
-        public virtual bool DelGameStatisticLeaderboardByKeyByGameId(
-            string key
+        public virtual bool DelGameStatisticLeaderboardByCode(
+            string code
+        )  {
+            return data.DelGameStatisticLeaderboardByCode(
+                code
+            );
+        }                     
+        public virtual bool DelGameStatisticLeaderboardByCodeByGameId(
+            string code
             , string game_id
         )  {
-            return data.DelGameStatisticLeaderboardByKeyByGameId(
-                key
+            return data.DelGameStatisticLeaderboardByCodeByGameId(
+                code
                 , game_id
             );
         }                     
-        public virtual bool DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
-            string key
-            , string profile_id
+        public virtual bool DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            string code
             , string game_id
+            , string profile_id
         )  {
-            return data.DelGameStatisticLeaderboardByKeyByProfileIdByGameId(
-                key
-                , profile_id
+            return data.DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+                code
                 , game_id
+                , profile_id
+            );
+        }                     
+        public virtual bool DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            string code
+            , string game_id
+            , string profile_id
+            , float timestamp
+        )  {
+            return data.DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+                code
+                , game_id
+                , profile_id
+                , timestamp
             );
         }                     
         public virtual bool DelGameStatisticLeaderboardByProfileIdByGameId(
@@ -5199,25 +5344,6 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByKey(
-            string key
-        )  {
-            List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
-            DataSet ds = data.GetGameStatisticLeaderboardListByKey(
-                key
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameStatisticLeaderboard game_statistic_leaderboard  = FillGameStatisticLeaderboard(dr);
-                        list.Add(game_statistic_leaderboard);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
         public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByGameId(
             string game_id
         )  {
@@ -5237,13 +5363,32 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByKeyByGameId(
-            string key
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByCode(
+            string code
+        )  {
+            List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
+            DataSet ds = data.GetGameStatisticLeaderboardListByCode(
+                code
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboard game_statistic_leaderboard  = FillGameStatisticLeaderboard(dr);
+                        list.Add(game_statistic_leaderboard);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
-            DataSet ds = data.GetGameStatisticLeaderboardListByKeyByGameId(
-                key
+            DataSet ds = data.GetGameStatisticLeaderboardListByCodeByGameId(
+                code
                 , game_id
             );
             if(ds != null) {
@@ -5258,39 +5403,16 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
-            string key
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+            string code
             , string game_id
-            , string network
-        )  {
-            List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
-            DataSet ds = data.GetGameStatisticLeaderboardListByKeyByGameIdByNetwork(
-                key
-                , game_id
-                , network
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameStatisticLeaderboard game_statistic_leaderboard  = FillGameStatisticLeaderboard(dr);
-                        list.Add(game_statistic_leaderboard);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByKeyByProfileIdByGameId(
-            string key
             , string profile_id
-            , string game_id
         )  {
             List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
-            DataSet ds = data.GetGameStatisticLeaderboardListByKeyByProfileIdByGameId(
-                key
+            DataSet ds = data.GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+                code
+                , game_id
                 , profile_id
-                , game_id
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -5304,17 +5426,17 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
-            string key
-            , string profile_id
+        public virtual List<GameStatisticLeaderboard> GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+            string code
             , string game_id
+            , string profile_id
             , float timestamp
         )  {
             List<GameStatisticLeaderboard> list = new List<GameStatisticLeaderboard>();
-            DataSet ds = data.GetGameStatisticLeaderboardListByKeyByProfileIdByGameIdByTimestamp(
-                key
-                , profile_id
+            DataSet ds = data.GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+                code
                 , game_id
+                , profile_id
                 , timestamp
             );
             if(ds != null) {
@@ -5381,8 +5503,8 @@ namespace gaming {
                     obj.status = dataType.FillDataString(dr, "status");                
             if (dr["username"] != null)                    
                     obj.username = dataType.FillDataString(dr, "username");                
-            if (dr["key"] != null)                    
-                    obj.key = dataType.FillDataString(dr, "key");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
             if (dr["timestamp"] != null)                    
                     obj.timestamp = dataType.FillDataFloat(dr, "timestamp");                
             if (dr["profile_id"] != null)                    
@@ -5397,6 +5519,8 @@ namespace gaming {
                     obj.active = dataType.FillDataBool(dr, "active");                
             if (dr["rank_total_count"] != null)                    
                     obj.rank_total_count = dataType.FillDataInt(dr, "rank_total_count");                
+            if (dr["absolute_value"] != null)                    
+                    obj.absolute_value = dataType.FillDataFloat(dr, "absolute_value");                
             if (dr["data"] != null)                    
                     obj.data = dataType.FillDataString(dr, "data");                
             if (dr["stat_value"] != null)                    
@@ -5431,13 +5555,6 @@ namespace gaming {
                 uuid
             );
         }       
-        public virtual int CountGameStatisticLeaderboardRollupByKey(
-            string key
-        )  {            
-            return data.CountGameStatisticLeaderboardRollupByKey(
-                key
-            );
-        }       
         public virtual int CountGameStatisticLeaderboardRollupByGameId(
             string game_id
         )  {            
@@ -5445,36 +5562,43 @@ namespace gaming {
                 game_id
             );
         }       
-        public virtual int CountGameStatisticLeaderboardRollupByKeyByGameId(
-            string key
+        public virtual int CountGameStatisticLeaderboardRollupByCode(
+            string code
+        )  {            
+            return data.CountGameStatisticLeaderboardRollupByCode(
+                code
+            );
+        }       
+        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameId(
+            string code
             , string game_id
         )  {            
-            return data.CountGameStatisticLeaderboardRollupByKeyByGameId(
-                key
+            return data.CountGameStatisticLeaderboardRollupByCodeByGameId(
+                code
                 , game_id
             );
         }       
-        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-            string key
-            , string profile_id
+        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            string code
             , string game_id
+            , string profile_id
         )  {            
-            return data.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-                key
+            return data.CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+                code
+                , game_id
                 , profile_id
-                , game_id
             );
         }       
-        public virtual int CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
-            string key
-            , string profile_id
+        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            string code
             , string game_id
+            , string profile_id
             , float timestamp
         )  {            
-            return data.CountGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(
-                key
-                , profile_id
+            return data.CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+                code
                 , game_id
+                , profile_id
                 , timestamp
             );
         }       
@@ -5510,17 +5634,17 @@ namespace gaming {
         public virtual bool SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {            
             return data.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {            
-            return data.SetGameStatisticLeaderboardRollupByKeyByProfileId(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardRollupByCode(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByCode(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {            
-            return data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByTimestamp(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameId(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByCodeByGameId(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {            
-            return data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(set_type, obj);
         }    
-        public virtual bool SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(string set_type, GameStatisticLeaderboardRollup obj)  {            
-            return data.SetGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(set_type, obj);
+        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {            
+            return data.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(set_type, obj);
         }    
         public virtual bool DelGameStatisticLeaderboardRollupByUuid(
             string uuid
@@ -5529,24 +5653,44 @@ namespace gaming {
                 uuid
             );
         }                     
-        public virtual bool DelGameStatisticLeaderboardRollupByKeyByGameId(
-            string key
+        public virtual bool DelGameStatisticLeaderboardRollupByCode(
+            string code
+        )  {
+            return data.DelGameStatisticLeaderboardRollupByCode(
+                code
+            );
+        }                     
+        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameId(
+            string code
             , string game_id
         )  {
-            return data.DelGameStatisticLeaderboardRollupByKeyByGameId(
-                key
+            return data.DelGameStatisticLeaderboardRollupByCodeByGameId(
+                code
                 , game_id
             );
         }                     
-        public virtual bool DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-            string key
-            , string profile_id
+        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            string code
             , string game_id
+            , string profile_id
         )  {
-            return data.DelGameStatisticLeaderboardRollupByKeyByProfileIdByGameId(
-                key
-                , profile_id
+            return data.DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+                code
                 , game_id
+                , profile_id
+            );
+        }                     
+        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            string code
+            , string game_id
+            , string profile_id
+            , float timestamp
+        )  {
+            return data.DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+                code
+                , game_id
+                , profile_id
+                , timestamp
             );
         }                     
         public virtual bool DelGameStatisticLeaderboardRollupByProfileIdByGameId(
@@ -5594,25 +5738,6 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKey(
-            string key
-        )  {
-            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
-            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKey(
-                key
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
-                        list.Add(game_statistic_leaderboard_rollup);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
         public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByGameId(
             string game_id
         )  {
@@ -5632,13 +5757,32 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByGameId(
-            string key
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByCode(
+            string code
+        )  {
+            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByCode(
+                code
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
+                        list.Add(game_statistic_leaderboard_rollup);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
-            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKeyByGameId(
-                key
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByCodeByGameId(
+                code
                 , game_id
             );
             if(ds != null) {
@@ -5653,39 +5797,16 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
-            string key
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+            string code
             , string game_id
-            , string network
-        )  {
-            List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
-            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKeyByGameIdByNetwork(
-                key
-                , game_id
-                , network
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameStatisticLeaderboardRollup game_statistic_leaderboard_rollup  = FillGameStatisticLeaderboardRollup(dr);
-                        list.Add(game_statistic_leaderboard_rollup);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
-        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
-            string key
             , string profile_id
-            , string game_id
         )  {
             List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
-            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameId(
-                key
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+                code
+                , game_id
                 , profile_id
-                , game_id
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -5699,17 +5820,17 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
-            string key
-            , string profile_id
+        public virtual List<GameStatisticLeaderboardRollup> GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+            string code
             , string game_id
+            , string profile_id
             , float timestamp
         )  {
             List<GameStatisticLeaderboardRollup> list = new List<GameStatisticLeaderboardRollup>();
-            DataSet ds = data.GetGameStatisticLeaderboardRollupListByKeyByProfileIdByGameIdByTimestamp(
-                key
-                , profile_id
+            DataSet ds = data.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+                code
                 , game_id
+                , profile_id
                 , timestamp
             );
             if(ds != null) {
@@ -6114,12 +6235,12 @@ namespace gaming {
                     obj.status = dataType.FillDataString(dr, "status");                
             if (dr["username"] != null)                    
                     obj.username = dataType.FillDataString(dr, "username");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
             if (dr["timestamp"] != null)                    
                     obj.timestamp = dataType.FillDataFloat(dr, "timestamp");                
             if (dr["profile_id"] != null)                    
                     obj.profile_id = dataType.FillDataString(dr, "profile_id");                
-            if (dr["key"] != null)                    
-                    obj.key = dataType.FillDataString(dr, "key");                
             if (dr["active"] != null)                    
                     obj.active = dataType.FillDataBool(dr, "active");                
             if (dr["game_id"] != null)                    
@@ -6156,11 +6277,11 @@ namespace gaming {
                 uuid
             );
         }       
-        public virtual int CountGameProfileStatisticByKey(
-            string key
+        public virtual int CountGameProfileStatisticByCode(
+            string code
         )  {            
-            return data.CountGameProfileStatisticByKey(
-                key
+            return data.CountGameProfileStatisticByCode(
+                code
             );
         }       
         public virtual int CountGameProfileStatisticByGameId(
@@ -6170,12 +6291,12 @@ namespace gaming {
                 game_id
             );
         }       
-        public virtual int CountGameProfileStatisticByKeyByGameId(
-            string key
+        public virtual int CountGameProfileStatisticByCodeByGameId(
+            string code
             , string game_id
         )  {            
-            return data.CountGameProfileStatisticByKeyByGameId(
-                key
+            return data.CountGameProfileStatisticByCodeByGameId(
+                code
                 , game_id
             );
         }       
@@ -6188,25 +6309,25 @@ namespace gaming {
                 , game_id
             );
         }       
-        public virtual int CountGameProfileStatisticByKeyByProfileIdByGameId(
-            string key
+        public virtual int CountGameProfileStatisticByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {            
-            return data.CountGameProfileStatisticByKeyByProfileIdByGameId(
-                key
+            return data.CountGameProfileStatisticByCodeByProfileIdByGameId(
+                code
                 , profile_id
                 , game_id
             );
         }       
-        public virtual int CountGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual int CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , float timestamp
         )  {            
-            return data.CountGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(
-                key
+            return data.CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+                code
                 , profile_id
                 , game_id
                 , timestamp
@@ -6235,17 +6356,17 @@ namespace gaming {
         public virtual bool SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatistic obj)  {            
             return data.SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(set_type, obj);
         }    
-        public virtual bool SetGameProfileStatisticByProfileIdByKey(string set_type, GameProfileStatistic obj)  {            
-            return data.SetGameProfileStatisticByProfileIdByKey(set_type, obj);
+        public virtual bool SetGameProfileStatisticByProfileIdByCode(string set_type, GameProfileStatistic obj)  {            
+            return data.SetGameProfileStatisticByProfileIdByCode(set_type, obj);
         }    
-        public virtual bool SetGameProfileStatisticByProfileIdByKeyByTimestamp(string set_type, GameProfileStatistic obj)  {            
-            return data.SetGameProfileStatisticByProfileIdByKeyByTimestamp(set_type, obj);
+        public virtual bool SetGameProfileStatisticByProfileIdByCodeByTimestamp(string set_type, GameProfileStatistic obj)  {            
+            return data.SetGameProfileStatisticByProfileIdByCodeByTimestamp(set_type, obj);
         }    
-        public virtual bool SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatistic obj)  {            
-            return data.SetGameProfileStatisticByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
+        public virtual bool SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatistic obj)  {            
+            return data.SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(set_type, obj);
         }    
-        public virtual bool SetGameProfileStatisticByProfileIdByGameIdByKey(string set_type, GameProfileStatistic obj)  {            
-            return data.SetGameProfileStatisticByProfileIdByGameIdByKey(set_type, obj);
+        public virtual bool SetGameProfileStatisticByCodeByProfileIdByGameId(string set_type, GameProfileStatistic obj)  {            
+            return data.SetGameProfileStatisticByCodeByProfileIdByGameId(set_type, obj);
         }    
         public virtual bool DelGameProfileStatisticByUuid(
             string uuid
@@ -6254,12 +6375,12 @@ namespace gaming {
                 uuid
             );
         }                     
-        public virtual bool DelGameProfileStatisticByKeyByGameId(
-            string key
+        public virtual bool DelGameProfileStatisticByCodeByGameId(
+            string code
             , string game_id
         )  {
-            return data.DelGameProfileStatisticByKeyByGameId(
-                key
+            return data.DelGameProfileStatisticByCodeByGameId(
+                code
                 , game_id
             );
         }                     
@@ -6272,13 +6393,13 @@ namespace gaming {
                 , game_id
             );
         }                     
-        public virtual bool DelGameProfileStatisticByKeyByProfileIdByGameId(
-            string key
+        public virtual bool DelGameProfileStatisticByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
-            return data.DelGameProfileStatisticByKeyByProfileIdByGameId(
-                key
+            return data.DelGameProfileStatisticByCodeByProfileIdByGameId(
+                code
                 , profile_id
                 , game_id
             );
@@ -6302,12 +6423,12 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileStatistic> GetGameProfileStatisticListByKey(
-            string key
+        public virtual List<GameProfileStatistic> GetGameProfileStatisticListByCode(
+            string code
         )  {
             List<GameProfileStatistic> list = new List<GameProfileStatistic>();
-            DataSet ds = data.GetGameProfileStatisticListByKey(
-                key
+            DataSet ds = data.GetGameProfileStatisticListByCode(
+                code
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -6340,13 +6461,13 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileStatistic> GetGameProfileStatisticListByKeyByGameId(
-            string key
+        public virtual List<GameProfileStatistic> GetGameProfileStatisticListByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<GameProfileStatistic> list = new List<GameProfileStatistic>();
-            DataSet ds = data.GetGameProfileStatisticListByKeyByGameId(
-                key
+            DataSet ds = data.GetGameProfileStatisticListByCodeByGameId(
+                code
                 , game_id
             );
             if(ds != null) {
@@ -6405,14 +6526,14 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileStatistic> GetGameProfileStatisticListByKeyByProfileIdByGameId(
-            string key
+        public virtual List<GameProfileStatistic> GetGameProfileStatisticListByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<GameProfileStatistic> list = new List<GameProfileStatistic>();
-            DataSet ds = data.GetGameProfileStatisticListByKeyByProfileIdByGameId(
-                key
+            DataSet ds = data.GetGameProfileStatisticListByCodeByProfileIdByGameId(
+                code
                 , profile_id
                 , game_id
             );
@@ -6428,15 +6549,15 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileStatistic> GetGameProfileStatisticListByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual List<GameProfileStatistic> GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , float timestamp
         )  {
             List<GameProfileStatistic> list = new List<GameProfileStatistic>();
-            DataSet ds = data.GetGameProfileStatisticListByKeyByProfileIdByGameIdByTimestamp(
-                key
+            DataSet ds = data.GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+                code
                 , profile_id
                 , game_id
                 , timestamp
@@ -6477,8 +6598,6 @@ namespace gaming {
                     obj.points = dataType.FillDataFloat(dr, "points");                
             if (dr["store_count"] != null)                    
                     obj.store_count = dataType.FillDataInt(dr, "store_count");                
-            if (dr["key"] != null)                    
-                    obj.key = dataType.FillDataString(dr, "key");                
             if (dr["game_id"] != null)                    
                     obj.game_id = dataType.FillDataString(dr, "game_id");                
             if (dr["active"] != null)                    
@@ -6530,27 +6649,11 @@ namespace gaming {
                 name
             );
         }       
-        public virtual int CountGameStatisticMetaByKey(
-            string key
-        )  {            
-            return data.CountGameStatisticMetaByKey(
-                key
-            );
-        }       
         public virtual int CountGameStatisticMetaByGameId(
             string game_id
         )  {            
             return data.CountGameStatisticMetaByGameId(
                 game_id
-            );
-        }       
-        public virtual int CountGameStatisticMetaByKeyByGameId(
-            string key
-            , string game_id
-        )  {            
-            return data.CountGameStatisticMetaByKeyByGameId(
-                key
-                , game_id
             );
         }       
         public virtual GameStatisticMetaResult BrowseGameStatisticMetaListByFilter(SearchFilter obj)  {
@@ -6576,9 +6679,6 @@ namespace gaming {
         public virtual bool SetGameStatisticMetaByCodeByGameId(string set_type, GameStatisticMeta obj)  {            
             return data.SetGameStatisticMetaByCodeByGameId(set_type, obj);
         }    
-        public virtual bool SetGameStatisticMetaByKeyByGameId(string set_type, GameStatisticMeta obj)  {            
-            return data.SetGameStatisticMetaByKeyByGameId(set_type, obj);
-        }    
         public virtual bool DelGameStatisticMetaByUuid(
             string uuid
         )  {
@@ -6592,15 +6692,6 @@ namespace gaming {
         )  {
             return data.DelGameStatisticMetaByCodeByGameId(
                 code
-                , game_id
-            );
-        }                     
-        public virtual bool DelGameStatisticMetaByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            return data.DelGameStatisticMetaByKeyByGameId(
-                key
                 , game_id
             );
         }                     
@@ -6642,52 +6733,12 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticMeta> GetGameStatisticMetaListByCodeByGameId(
-            string code
-            , string game_id
-        )  {
-            List<GameStatisticMeta> list = new List<GameStatisticMeta>();
-            DataSet ds = data.GetGameStatisticMetaListByCodeByGameId(
-                code
-                , game_id
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameStatisticMeta game_statistic_meta  = FillGameStatisticMeta(dr);
-                        list.Add(game_statistic_meta);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
         public virtual List<GameStatisticMeta> GetGameStatisticMetaListByName(
             string name
         )  {
             List<GameStatisticMeta> list = new List<GameStatisticMeta>();
             DataSet ds = data.GetGameStatisticMetaListByName(
                 name
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameStatisticMeta game_statistic_meta  = FillGameStatisticMeta(dr);
-                        list.Add(game_statistic_meta);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
-        public virtual List<GameStatisticMeta> GetGameStatisticMetaListByKey(
-            string key
-        )  {
-            List<GameStatisticMeta> list = new List<GameStatisticMeta>();
-            DataSet ds = data.GetGameStatisticMetaListByKey(
-                key
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -6720,13 +6771,13 @@ namespace gaming {
         }
         
         
-        public virtual List<GameStatisticMeta> GetGameStatisticMetaListByKeyByGameId(
-            string key
+        public virtual List<GameStatisticMeta> GetGameStatisticMetaListByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<GameStatisticMeta> list = new List<GameStatisticMeta>();
-            DataSet ds = data.GetGameStatisticMetaListByKeyByGameId(
-                key
+            DataSet ds = data.GetGameStatisticMetaListByCodeByGameId(
+                code
                 , game_id
             );
             if(ds != null) {
@@ -6747,12 +6798,12 @@ namespace gaming {
 
             if (dr["status"] != null)                    
                     obj.status = dataType.FillDataString(dr, "status");                
-            if (dr["timestamp"] != null)                    
-                    obj.timestamp = dataType.FillDataDateTime(dr, "timestamp");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
             if (dr["uuid"] != null)                    
                     obj.uuid = dataType.FillDataString(dr, "uuid");                
-            if (dr["key"] != null)                    
-                    obj.key = dataType.FillDataString(dr, "key");                
+            if (dr["timestamp"] != null)                    
+                    obj.timestamp = dataType.FillDataDateTime(dr, "timestamp");                
             if (dr["date_modified"] != null)                    
                     obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
             if (dr["active"] != null)                    
@@ -6781,25 +6832,25 @@ namespace gaming {
                 uuid
             );
         }       
-        public virtual int CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-            string key
+        public virtual int CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {            
-            return data.CountGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-                key
+            return data.CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+                code
                 , profile_id
                 , game_id
             );
         }       
-        public virtual int CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual int CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , DateTime timestamp
         )  {            
-            return data.CountGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-                key
+            return data.CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+                code
                 , profile_id
                 , game_id
                 , timestamp
@@ -6825,11 +6876,11 @@ namespace gaming {
         public virtual bool SetGameProfileStatisticTimestampByUuid(string set_type, GameProfileStatisticTimestamp obj)  {            
             return data.SetGameProfileStatisticTimestampByUuid(set_type, obj);
         }    
-        public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(string set_type, GameProfileStatisticTimestamp obj)  {            
-            return data.SetGameProfileStatisticTimestampByKeyByProfileIdByGameId(set_type, obj);
+        public virtual bool SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(string set_type, GameProfileStatisticTimestamp obj)  {            
+            return data.SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(set_type, obj);
         }    
-        public virtual bool SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {            
-            return data.SetGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
+        public virtual bool SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {            
+            return data.SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(set_type, obj);
         }    
         public virtual bool DelGameProfileStatisticTimestampByUuid(
             string uuid
@@ -6838,25 +6889,25 @@ namespace gaming {
                 uuid
             );
         }                     
-        public virtual bool DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-            string key
+        public virtual bool DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
-            return data.DelGameProfileStatisticTimestampByKeyByProfileIdByGameId(
-                key
+            return data.DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+                code
                 , profile_id
                 , game_id
             );
         }                     
-        public virtual bool DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual bool DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , DateTime timestamp
         )  {
-            return data.DelGameProfileStatisticTimestampByKeyByProfileIdByGameIdByTimestamp(
-                key
+            return data.DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+                code
                 , profile_id
                 , game_id
                 , timestamp
@@ -6881,14 +6932,14 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
-            string key
+        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<GameProfileStatisticTimestamp> list = new List<GameProfileStatisticTimestamp>();
-            DataSet ds = data.GetGameProfileStatisticTimestampListByKeyByProfileIdByGameId(
-                key
+            DataSet ds = data.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+                code
                 , profile_id
                 , game_id
             );
@@ -6904,15 +6955,15 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , DateTime timestamp
         )  {
             List<GameProfileStatisticTimestamp> list = new List<GameProfileStatisticTimestamp>();
-            DataSet ds = data.GetGameProfileStatisticTimestampListByKeyByProfileIdByGameIdByTimestamp(
-                key
+            DataSet ds = data.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+                code
                 , profile_id
                 , game_id
                 , timestamp
@@ -7265,8 +7316,6 @@ namespace gaming {
                     obj.data = dataType.FillDataString(dr, "data");                
             if (dr["uuid"] != null)                    
                     obj.uuid = dataType.FillDataString(dr, "uuid");                
-            if (dr["key"] != null)                    
-                    obj.key = dataType.FillDataString(dr, "key");                
             if (dr["game_id"] != null)                    
                     obj.game_id = dataType.FillDataString(dr, "game_id");                
             if (dr["active"] != null)                    
@@ -7318,27 +7367,11 @@ namespace gaming {
                 name
             );
         }       
-        public virtual int CountGameLevelByKey(
-            string key
-        )  {            
-            return data.CountGameLevelByKey(
-                key
-            );
-        }       
         public virtual int CountGameLevelByGameId(
             string game_id
         )  {            
             return data.CountGameLevelByGameId(
                 game_id
-            );
-        }       
-        public virtual int CountGameLevelByKeyByGameId(
-            string key
-            , string game_id
-        )  {            
-            return data.CountGameLevelByKeyByGameId(
-                key
-                , game_id
             );
         }       
         public virtual GameLevelResult BrowseGameLevelListByFilter(SearchFilter obj)  {
@@ -7364,9 +7397,6 @@ namespace gaming {
         public virtual bool SetGameLevelByCodeByGameId(string set_type, GameLevel obj)  {            
             return data.SetGameLevelByCodeByGameId(set_type, obj);
         }    
-        public virtual bool SetGameLevelByKeyByGameId(string set_type, GameLevel obj)  {            
-            return data.SetGameLevelByKeyByGameId(set_type, obj);
-        }    
         public virtual bool DelGameLevelByUuid(
             string uuid
         )  {
@@ -7380,15 +7410,6 @@ namespace gaming {
         )  {
             return data.DelGameLevelByCodeByGameId(
                 code
-                , game_id
-            );
-        }                     
-        public virtual bool DelGameLevelByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            return data.DelGameLevelByKeyByGameId(
-                key
                 , game_id
             );
         }                     
@@ -7470,52 +7491,12 @@ namespace gaming {
         }
         
         
-        public virtual List<GameLevel> GetGameLevelListByKey(
-            string key
-        )  {
-            List<GameLevel> list = new List<GameLevel>();
-            DataSet ds = data.GetGameLevelListByKey(
-                key
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameLevel game_level  = FillGameLevel(dr);
-                        list.Add(game_level);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
         public virtual List<GameLevel> GetGameLevelListByGameId(
             string game_id
         )  {
             List<GameLevel> list = new List<GameLevel>();
             DataSet ds = data.GetGameLevelListByGameId(
                 game_id
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameLevel game_level  = FillGameLevel(dr);
-                        list.Add(game_level);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
-        public virtual List<GameLevel> GetGameLevelListByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<GameLevel> list = new List<GameLevel>();
-            DataSet ds = data.GetGameLevelListByKeyByGameId(
-                key
-                , game_id
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -7537,14 +7518,14 @@ namespace gaming {
                     obj.status = dataType.FillDataString(dr, "status");                
             if (dr["username"] != null)                    
                     obj.username = dataType.FillDataString(dr, "username");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
             if (dr["timestamp"] != null)                    
                     obj.timestamp = dataType.FillDataFloat(dr, "timestamp");                
             if (dr["completed"] != null)                    
                     obj.completed = dataType.FillDataBool(dr, "completed");                
             if (dr["profile_id"] != null)                    
                     obj.profile_id = dataType.FillDataString(dr, "profile_id");                
-            if (dr["key"] != null)                    
-                    obj.key = dataType.FillDataString(dr, "key");                
             if (dr["active"] != null)                    
                     obj.active = dataType.FillDataBool(dr, "active");                
             if (dr["game_id"] != null)                    
@@ -7579,13 +7560,13 @@ namespace gaming {
                 uuid
             );
         }       
-        public virtual int CountGameProfileAchievementByProfileIdByKey(
+        public virtual int CountGameProfileAchievementByProfileIdByCode(
             string profile_id
-            , string key
+            , string code
         )  {            
-            return data.CountGameProfileAchievementByProfileIdByKey(
+            return data.CountGameProfileAchievementByProfileIdByCode(
                 profile_id
-                , key
+                , code
             );
         }       
         public virtual int CountGameProfileAchievementByUsername(
@@ -7595,25 +7576,25 @@ namespace gaming {
                 username
             );
         }       
-        public virtual int CountGameProfileAchievementByKeyByProfileIdByGameId(
-            string key
+        public virtual int CountGameProfileAchievementByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {            
-            return data.CountGameProfileAchievementByKeyByProfileIdByGameId(
-                key
+            return data.CountGameProfileAchievementByCodeByProfileIdByGameId(
+                code
                 , profile_id
                 , game_id
             );
         }       
-        public virtual int CountGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual int CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , float timestamp
         )  {            
-            return data.CountGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(
-                key
+            return data.CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+                code
                 , profile_id
                 , game_id
                 , timestamp
@@ -7639,17 +7620,17 @@ namespace gaming {
         public virtual bool SetGameProfileAchievementByUuid(string set_type, GameProfileAchievement obj)  {            
             return data.SetGameProfileAchievementByUuid(set_type, obj);
         }    
-        public virtual bool SetGameProfileAchievementByUuidByKey(string set_type, GameProfileAchievement obj)  {            
-            return data.SetGameProfileAchievementByUuidByKey(set_type, obj);
+        public virtual bool SetGameProfileAchievementByUuidByCode(string set_type, GameProfileAchievement obj)  {            
+            return data.SetGameProfileAchievementByUuidByCode(set_type, obj);
         }    
-        public virtual bool SetGameProfileAchievementByProfileIdByKey(string set_type, GameProfileAchievement obj)  {            
-            return data.SetGameProfileAchievementByProfileIdByKey(set_type, obj);
+        public virtual bool SetGameProfileAchievementByProfileIdByCode(string set_type, GameProfileAchievement obj)  {            
+            return data.SetGameProfileAchievementByProfileIdByCode(set_type, obj);
         }    
-        public virtual bool SetGameProfileAchievementByKeyByProfileIdByGameId(string set_type, GameProfileAchievement obj)  {            
-            return data.SetGameProfileAchievementByKeyByProfileIdByGameId(set_type, obj);
+        public virtual bool SetGameProfileAchievementByCodeByProfileIdByGameId(string set_type, GameProfileAchievement obj)  {            
+            return data.SetGameProfileAchievementByCodeByProfileIdByGameId(set_type, obj);
         }    
-        public virtual bool SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(string set_type, GameProfileAchievement obj)  {            
-            return data.SetGameProfileAchievementByKeyByProfileIdByGameIdByTimestamp(set_type, obj);
+        public virtual bool SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileAchievement obj)  {            
+            return data.SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(set_type, obj);
         }    
         public virtual bool DelGameProfileAchievementByUuid(
             string uuid
@@ -7658,22 +7639,22 @@ namespace gaming {
                 uuid
             );
         }                     
-        public virtual bool DelGameProfileAchievementByProfileIdByKey(
+        public virtual bool DelGameProfileAchievementByProfileIdByCode(
             string profile_id
-            , string key
+            , string code
         )  {
-            return data.DelGameProfileAchievementByProfileIdByKey(
+            return data.DelGameProfileAchievementByProfileIdByCode(
                 profile_id
-                , key
+                , code
             );
         }                     
-        public virtual bool DelGameProfileAchievementByUuidByKey(
+        public virtual bool DelGameProfileAchievementByUuidByCode(
             string uuid
-            , string key
+            , string code
         )  {
-            return data.DelGameProfileAchievementByUuidByKey(
+            return data.DelGameProfileAchievementByUuidByCode(
                 uuid
-                , key
+                , code
             );
         }                     
         public virtual List<GameProfileAchievement> GetGameProfileAchievementListByUuid(
@@ -7695,14 +7676,14 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByProfileIdByKey(
+        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByProfileIdByCode(
             string profile_id
-            , string key
+            , string code
         )  {
             List<GameProfileAchievement> list = new List<GameProfileAchievement>();
-            DataSet ds = data.GetGameProfileAchievementListByProfileIdByKey(
+            DataSet ds = data.GetGameProfileAchievementListByProfileIdByCode(
                 profile_id
-                , key
+                , code
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -7735,12 +7716,12 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByKey(
-            string key
+        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByCode(
+            string code
         )  {
             List<GameProfileAchievement> list = new List<GameProfileAchievement>();
-            DataSet ds = data.GetGameProfileAchievementListByKey(
-                key
+            DataSet ds = data.GetGameProfileAchievementListByCode(
+                code
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
@@ -7773,13 +7754,13 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByKeyByGameId(
-            string key
+        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByCodeByGameId(
+            string code
             , string game_id
         )  {
             List<GameProfileAchievement> list = new List<GameProfileAchievement>();
-            DataSet ds = data.GetGameProfileAchievementListByKeyByGameId(
-                key
+            DataSet ds = data.GetGameProfileAchievementListByCodeByGameId(
+                code
                 , game_id
             );
             if(ds != null) {
@@ -7838,14 +7819,14 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByKeyByProfileIdByGameId(
-            string key
+        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByCodeByProfileIdByGameId(
+            string code
             , string profile_id
             , string game_id
         )  {
             List<GameProfileAchievement> list = new List<GameProfileAchievement>();
-            DataSet ds = data.GetGameProfileAchievementListByKeyByProfileIdByGameId(
-                key
+            DataSet ds = data.GetGameProfileAchievementListByCodeByProfileIdByGameId(
+                code
                 , profile_id
                 , game_id
             );
@@ -7861,15 +7842,15 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByKeyByProfileIdByGameIdByTimestamp(
-            string key
+        public virtual List<GameProfileAchievement> GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+            string code
             , string profile_id
             , string game_id
             , float timestamp
         )  {
             List<GameProfileAchievement> list = new List<GameProfileAchievement>();
-            DataSet ds = data.GetGameProfileAchievementListByKeyByProfileIdByGameIdByTimestamp(
-                key
+            DataSet ds = data.GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+                code
                 , profile_id
                 , game_id
                 , timestamp
@@ -7912,8 +7893,6 @@ namespace gaming {
                     obj.uuid = dataType.FillDataString(dr, "uuid");                
             if (dr["points"] != null)                    
                     obj.points = dataType.FillDataInt(dr, "points");                
-            if (dr["key"] != null)                    
-                    obj.key = dataType.FillDataString(dr, "key");                
             if (dr["game_id"] != null)                    
                     obj.game_id = dataType.FillDataString(dr, "game_id");                
             if (dr["active"] != null)                    
@@ -7967,27 +7946,11 @@ namespace gaming {
                 name
             );
         }       
-        public virtual int CountGameAchievementMetaByKey(
-            string key
-        )  {            
-            return data.CountGameAchievementMetaByKey(
-                key
-            );
-        }       
         public virtual int CountGameAchievementMetaByGameId(
             string game_id
         )  {            
             return data.CountGameAchievementMetaByGameId(
                 game_id
-            );
-        }       
-        public virtual int CountGameAchievementMetaByKeyByGameId(
-            string key
-            , string game_id
-        )  {            
-            return data.CountGameAchievementMetaByKeyByGameId(
-                key
-                , game_id
             );
         }       
         public virtual GameAchievementMetaResult BrowseGameAchievementMetaListByFilter(SearchFilter obj)  {
@@ -8013,9 +7976,6 @@ namespace gaming {
         public virtual bool SetGameAchievementMetaByCodeByGameId(string set_type, GameAchievementMeta obj)  {            
             return data.SetGameAchievementMetaByCodeByGameId(set_type, obj);
         }    
-        public virtual bool SetGameAchievementMetaByKeyByGameId(string set_type, GameAchievementMeta obj)  {            
-            return data.SetGameAchievementMetaByKeyByGameId(set_type, obj);
-        }    
         public virtual bool DelGameAchievementMetaByUuid(
             string uuid
         )  {
@@ -8029,15 +7989,6 @@ namespace gaming {
         )  {
             return data.DelGameAchievementMetaByCodeByGameId(
                 code
-                , game_id
-            );
-        }                     
-        public virtual bool DelGameAchievementMetaByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            return data.DelGameAchievementMetaByKeyByGameId(
-                key
                 , game_id
             );
         }                     
@@ -8119,52 +8070,12 @@ namespace gaming {
         }
         
         
-        public virtual List<GameAchievementMeta> GetGameAchievementMetaListByKey(
-            string key
-        )  {
-            List<GameAchievementMeta> list = new List<GameAchievementMeta>();
-            DataSet ds = data.GetGameAchievementMetaListByKey(
-                key
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameAchievementMeta game_achievement_meta  = FillGameAchievementMeta(dr);
-                        list.Add(game_achievement_meta);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
         public virtual List<GameAchievementMeta> GetGameAchievementMetaListByGameId(
             string game_id
         )  {
             List<GameAchievementMeta> list = new List<GameAchievementMeta>();
             DataSet ds = data.GetGameAchievementMetaListByGameId(
                 game_id
-            );
-            if(ds != null) {
-                foreach(DataTable dt in ds.Tables){
-                    foreach(DataRow dr in dt.Rows){
-                       GameAchievementMeta game_achievement_meta  = FillGameAchievementMeta(dr);
-                        list.Add(game_achievement_meta);
-                    }
-                }
-            }
-            return list;
-        }
-        
-        
-        public virtual List<GameAchievementMeta> GetGameAchievementMetaListByKeyByGameId(
-            string key
-            , string game_id
-        )  {
-            List<GameAchievementMeta> list = new List<GameAchievementMeta>();
-            DataSet ds = data.GetGameAchievementMetaListByKeyByGameId(
-                key
-                , game_id
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){

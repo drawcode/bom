@@ -39,7 +39,6 @@ class GameStatisticMeta extends BaseMeta {
     public $store_count;
     public $data;
     public $points;
-    public $key;
     public $game_id;
     public $type;
     public $order;

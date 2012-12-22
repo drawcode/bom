@@ -51,11 +51,11 @@ public class GameProfileAchievement : BaseEntity {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public string username { get; set; }
+    public string code { get; set; }
     public string level { get; set; }
     public string type { get; set; }
     public bool completed { get; set; }
     public string profile_id { get; set; }
-    public string key { get; set; }
     public float timestamp { get; set; }
     public string game_id { get; set; }
     public float achievement_value { get; set; }
@@ -74,6 +74,9 @@ public class GameProfileAchievement : BaseEntity {
 	if (username != null) {
 	    dict = DataUtil.SetDictValue(dict, "username", username);
 	}
+	if (code != null) {
+	    dict = DataUtil.SetDictValue(dict, "code", code);
+	}
 	if (level != null) {
 	    dict = DataUtil.SetDictValue(dict, "level", level);
 	}
@@ -83,9 +86,6 @@ public class GameProfileAchievement : BaseEntity {
 	dict = DataUtil.SetDictValue(dict, "completed", completed);
 	if (profile_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
-	}
-	if (key != null) {
-	    dict = DataUtil.SetDictValue(dict, "key", key);
 	}
 	dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
 	if (game_id != null) {
@@ -102,6 +102,11 @@ public class GameProfileAchievement : BaseEntity {
 	if(dict.ContainsKey("username")) {
 	    if(dict["username"] != null) {
 	    	username = DataType.Instance.FillString(dict["username"]);
+	    }		
+	}
+	if(dict.ContainsKey("code")) {
+	    if(dict["code"] != null) {
+	    	code = DataType.Instance.FillString(dict["code"]);
 	    }		
 	}
 	if(dict.ContainsKey("level")) {
@@ -122,11 +127,6 @@ public class GameProfileAchievement : BaseEntity {
 	if(dict.ContainsKey("profile_id")) {
 	    if(dict["profile_id"] != null) {
 	    	profile_id = DataType.Instance.FillString(dict["profile_id"]);
-	    }		
-	}
-	if(dict.ContainsKey("key")) {
-	    if(dict["key"] != null) {
-	    	key = DataType.Instance.FillString(dict["key"]);
 	    }		
 	}
 	if(dict.ContainsKey("timestamp")) {

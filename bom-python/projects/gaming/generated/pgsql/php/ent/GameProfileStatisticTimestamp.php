@@ -35,9 +35,9 @@ class GameProfileStatisticTimestamp extends BaseEntity {
     
     }
     
-    public $game_id;
     public $profile_id;
-    public $key;
+    public $game_id;
+    public $code;
     public $timestamp;
 
     public function __construct() {

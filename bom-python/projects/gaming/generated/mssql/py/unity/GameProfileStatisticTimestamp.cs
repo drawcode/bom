@@ -50,9 +50,9 @@ public class GameProfileStatisticTimestamps<T> : DataObjects<T> where T : new() 
 public class GameProfileStatisticTimestamp : BaseEntity {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
-    public  game_id { get; set; }
     public  profile_id { get; set; }
-    public  key { get; set; }
+    public  game_id { get; set; }
+    public  code { get; set; }
     public  timestamp { get; set; }
 
     public GameProfileStatisticTimestamp() {
@@ -65,33 +65,33 @@ public class GameProfileStatisticTimestamp : BaseEntity {
 
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
-	if (game_id != null) {
-	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
-	}
 	if (profile_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
 	}
-	if (key != null) {
-	    dict = DataUtil.SetDictValue(dict, "key", key);
+	if (game_id != null) {
+	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
+	}
+	if (code != null) {
+	    dict = DataUtil.SetDictValue(dict, "code", code);
 	}
 	dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
          return dict;
     }
 
     public override void FillFromDictionary(Dictionary<string, object> dict){
-	if(dict.ContainsKey("game_id")) {
-	    if(dict["game_id"] != null) {
-	    	game_id = DataType.Instance.Fill(dict["game_id"]);
-	    }		
-	}
 	if(dict.ContainsKey("profile_id")) {
 	    if(dict["profile_id"] != null) {
 	    	profile_id = DataType.Instance.Fill(dict["profile_id"]);
 	    }		
 	}
-	if(dict.ContainsKey("key")) {
-	    if(dict["key"] != null) {
-	    	key = DataType.Instance.Fill(dict["key"]);
+	if(dict.ContainsKey("game_id")) {
+	    if(dict["game_id"] != null) {
+	    	game_id = DataType.Instance.Fill(dict["game_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("code")) {
+	    if(dict["code"] != null) {
+	    	code = DataType.Instance.Fill(dict["code"]);
 	    }		
 	}
 	if(dict.ContainsKey("timestamp")) {

@@ -2,7 +2,7 @@ import math
 import BaseEntity
 from BaseEntity import *
 
-class GameProfileStatisticTimestampResult(object):
+class GameProfileStatisticItemResult(object):
   
   def __init__(self):
     self.page = 1
@@ -57,15 +57,22 @@ class GameProfileStatisticTimestampResult(object):
       o.__dict__[k] = self.dict_to_obj(d[k])
     return o    
         
-class GameProfileStatisticTimestamp(BaseEntity):
+class GameProfileStatisticItem(BaseEntity):
 
   def __init__(self):
-    super(GameProfileStatisticTimestamp, self).__init__()
+    super(GameProfileStatisticItem, self).__init__()
     #self.__dict__.update(entries)
-    self.profile_id = None
-    self.game_id = None
+    self.username = None
     self.code = None
     self.timestamp = None
+    self.level = None
+    self.stat_value_formatted = None
+    self.profile_id = None
+    self.points = None
+    self.type = None
+    self.game_id = None
+    self.data = None
+    self.stat_value = None
         
   def to_dict_obj(self):
     return self.to_dict(self)

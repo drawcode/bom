@@ -13316,39 +13316,75 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticTimestamp(self
+    def CountGameProfileStatisticItem(self
     ) :         
-        return self.act.CountGameProfileStatisticTimestamp(
+        return self.act.CountGameProfileStatisticItem(
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticTimestampUuid(self
+    def CountGameProfileStatisticItemUuid(self
         , uuid
     ) :         
-        return self.act.CountGameProfileStatisticTimestampUuid(
+        return self.act.CountGameProfileStatisticItemUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticTimestampCodeProfileIdGameId(self
+    def CountGameProfileStatisticItemCode(self
+        , code
+    ) :         
+        return self.act.CountGameProfileStatisticItemCode(
+        code
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileStatisticItemGameId(self
+        , game_id
+    ) :         
+        return self.act.CountGameProfileStatisticItemGameId(
+        game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileStatisticItemCodeGameId(self
+        , code
+        , game_id
+    ) :         
+        return self.act.CountGameProfileStatisticItemCodeGameId(
+        code
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileStatisticItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.act.CountGameProfileStatisticItemProfileIdGameId(
+        profile_id
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileStatisticItemCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameProfileStatisticTimestampCodeProfileIdGameId(
+        return self.act.CountGameProfileStatisticItemCodeProfileIdGameId(
         code
         , profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
+    def CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.act.CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+        return self.act.CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
@@ -13356,93 +13392,116 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameProfileStatisticTimestampListFilter(self, filter_obj) :
-        return self.act.BrowseGameProfileStatisticTimestampListFilter(filter_obj)
+    def BrowseGameProfileStatisticItemListFilter(self, filter_obj) :
+        return self.act.BrowseGameProfileStatisticItemListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticTimestampUuidType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticTimestampUuid(set_type, obj)
+    def SetGameProfileStatisticItemUuidType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticItemUuid(set_type, obj)
                
-    def SetGameProfileStatisticTimestampUuid(self, obj) :
-        return self.act.SetGameProfileStatisticTimestampUuid('full', obj)
+    def SetGameProfileStatisticItemUuid(self, obj) :
+        return self.act.SetGameProfileStatisticItemUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticTimestampCodeProfileIdGameIdType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticTimestampCodeProfileIdGameId(set_type, obj)
+    def SetGameProfileStatisticItemUuidProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticTimestampCodeProfileIdGameId(self, obj) :
-        return self.act.SetGameProfileStatisticTimestampCodeProfileIdGameId('full', obj)
+    def SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestampType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameProfileStatisticItemProfileIdCodeType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticItemProfileIdCode(set_type, obj)
                
-    def SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self, obj) :
-        return self.act.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp('full', obj)
+    def SetGameProfileStatisticItemProfileIdCode(self, obj) :
+        return self.act.SetGameProfileStatisticItemProfileIdCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticTimestampUuid(self
+    def SetGameProfileStatisticItemProfileIdCodeTimestampType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticItemProfileIdCodeTimestamp(set_type, obj)
+               
+    def SetGameProfileStatisticItemProfileIdCodeTimestamp(self, obj) :
+        return self.act.SetGameProfileStatisticItemProfileIdCodeTimestamp('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileStatisticItemCodeProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(set_type, obj)
+               
+    def SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileStatisticItemCodeProfileIdGameIdType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticItemCodeProfileIdGameId(set_type, obj)
+               
+    def SetGameProfileStatisticItemCodeProfileIdGameId(self, obj) :
+        return self.act.SetGameProfileStatisticItemCodeProfileIdGameId('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameProfileStatisticItemUuid(self
         , uuid
     ) :          
-        return self.act.DelGameProfileStatisticTimestampUuid(
+        return self.act.DelGameProfileStatisticItemUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticTimestampCodeProfileIdGameId(self
+    def DelGameProfileStatisticItemCodeGameId(self
+        , code
+        , game_id
+    ) :          
+        return self.act.DelGameProfileStatisticItemCodeGameId(
+        code
+        , game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileStatisticItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :          
+        return self.act.DelGameProfileStatisticItemProfileIdGameId(
+        profile_id
+        , game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileStatisticItemCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :          
-        return self.act.DelGameProfileStatisticTimestampCodeProfileIdGameId(
+        return self.act.DelGameProfileStatisticItemCodeProfileIdGameId(
         code
         , profile_id
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
-        , code
-        , profile_id
-        , game_id
-        , timestamp
-    ) :          
-        return self.act.DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
-        code
-        , profile_id
-        , game_id
-        , timestamp
-        )
-#------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticTimestampListUuid(self
+    def GetGameProfileStatisticItemListUuid(self
         , uuid
         ) :
-            return self.act.GetGameProfileStatisticTimestampListUuid(
+            return self.act.GetGameProfileStatisticItemListUuid(
                 uuid
             )
         
-    def GetGameProfileStatisticTimestampUuid(self
+    def GetGameProfileStatisticItemUuid(self
         , uuid
     ) :
-        for item in self.GetGameProfileStatisticTimestampListUuid(
+        for item in self.GetGameProfileStatisticItemListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameProfileStatisticTimestampListUuid(self
+    def CachedGetGameProfileStatisticItemListUuid(self
         , uuid
     ) :
-        return CachedGetGameProfileStatisticTimestampListUuid(
+        return CachedGetGameProfileStatisticItemListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameProfileStatisticTimestampListUuid(self
+    def CachedGetGameProfileStatisticItemListUuid(self
         , overrideCache
         , cacheHours
         , uuid
     ) :
         pass
         """
-        List<GameProfileStatisticTimestamp> objs;
+        List<GameProfileStatisticItem> objs;
 
-        string method_name = "CachedGetGameProfileStatisticTimestampListUuid";
+        string method_name = "CachedGetGameProfileStatisticItemListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13454,11 +13513,11 @@ class BaseGamingAPI(object):
 
         string cache_key = sb.ToString();
 
-        objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+        objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticTimestampListUuid(
+            objs = GetGameProfileStatisticItemListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13467,23 +13526,366 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticTimestampListCodeProfileIdGameId(self
+    def GetGameProfileStatisticItemListCode(self
+        , code
+        ) :
+            return self.act.GetGameProfileStatisticItemListCode(
+                code
+            )
+        
+    def GetGameProfileStatisticItemCode(self
+        , code
+    ) :
+        for item in self.GetGameProfileStatisticItemListCode(
+        code
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileStatisticItemListCode(self
+        , code
+    ) :
+        return CachedGetGameProfileStatisticItemListCode(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+        )
+        
+    def CachedGetGameProfileStatisticItemListCode(self
+        , overrideCache
+        , cacheHours
+        , code
+    ) :
+        pass
+        """
+        List<GameProfileStatisticItem> objs;
+
+        string method_name = "CachedGetGameProfileStatisticItemListCode";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileStatisticItemListCode(
+                code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileStatisticItemListGameId(self
+        , game_id
+        ) :
+            return self.act.GetGameProfileStatisticItemListGameId(
+                game_id
+            )
+        
+    def GetGameProfileStatisticItemGameId(self
+        , game_id
+    ) :
+        for item in self.GetGameProfileStatisticItemListGameId(
+        game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileStatisticItemListGameId(self
+        , game_id
+    ) :
+        return CachedGetGameProfileStatisticItemListGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+        )
+        
+    def CachedGetGameProfileStatisticItemListGameId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+    ) :
+        pass
+        """
+        List<GameProfileStatisticItem> objs;
+
+        string method_name = "CachedGetGameProfileStatisticItemListGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileStatisticItemListGameId(
+                game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileStatisticItemListCodeGameId(self
+        , code
+        , game_id
+        ) :
+            return self.act.GetGameProfileStatisticItemListCodeGameId(
+                code
+                , game_id
+            )
+        
+    def GetGameProfileStatisticItemCodeGameId(self
+        , code
+        , game_id
+    ) :
+        for item in self.GetGameProfileStatisticItemListCodeGameId(
+        code
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileStatisticItemListCodeGameId(self
+        , code
+        , game_id
+    ) :
+        return CachedGetGameProfileStatisticItemListCodeGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , game_id
+        )
+        
+    def CachedGetGameProfileStatisticItemListCodeGameId(self
+        , overrideCache
+        , cacheHours
+        , code
+        , game_id
+    ) :
+        pass
+        """
+        List<GameProfileStatisticItem> objs;
+
+        string method_name = "CachedGetGameProfileStatisticItemListCodeGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileStatisticItemListCodeGameId(
+                code
+                , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileStatisticItemListProfileIdGameId(self
+        , profile_id
+        , game_id
+        ) :
+            return self.act.GetGameProfileStatisticItemListProfileIdGameId(
+                profile_id
+                , game_id
+            )
+        
+    def GetGameProfileStatisticItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+        for item in self.GetGameProfileStatisticItemListProfileIdGameId(
+        profile_id
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileStatisticItemListProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return CachedGetGameProfileStatisticItemListProfileIdGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , game_id
+        )
+        
+    def CachedGetGameProfileStatisticItemListProfileIdGameId(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , game_id
+    ) :
+        pass
+        """
+        List<GameProfileStatisticItem> objs;
+
+        string method_name = "CachedGetGameProfileStatisticItemListProfileIdGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileStatisticItemListProfileIdGameId(
+                profile_id
+                , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileStatisticItemListProfileIdGameIdTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+        ) :
+            return self.act.GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            )
+        
+    def GetGameProfileStatisticItemProfileIdGameIdTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        for item in self.GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+        profile_id
+        , game_id
+        , timestamp
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileStatisticItemListProfileIdGameIdTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        return CachedGetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , game_id
+            , timestamp
+        )
+        
+    def CachedGetGameProfileStatisticItemListProfileIdGameIdTimestamp(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        pass
+        """
+        List<GameProfileStatisticItem> objs;
+
+        string method_name = "CachedGetGameProfileStatisticItemListProfileIdGameIdTimestamp";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("timestamp".ToLower());
+        sb.Append("_");
+        sb.Append(timestamp);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileStatisticItemListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+            return self.act.GetGameProfileStatisticItemListCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
             )
         
-    def GetGameProfileStatisticTimestampCodeProfileIdGameId(self
+    def GetGameProfileStatisticItemCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+        for item in self.GetGameProfileStatisticItemListCodeProfileIdGameId(
         code
         , profile_id
         , game_id
@@ -13491,12 +13893,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(self
+    def CachedGetGameProfileStatisticItemListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        return CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(
+        return CachedGetGameProfileStatisticItemListCodeProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -13504,7 +13906,7 @@ class BaseGamingAPI(object):
             , game_id
         )
         
-    def CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(self
+    def CachedGetGameProfileStatisticItemListCodeProfileIdGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -13513,9 +13915,9 @@ class BaseGamingAPI(object):
     ) :
         pass
         """
-        List<GameProfileStatisticTimestamp> objs;
+        List<GameProfileStatisticItem> objs;
 
-        string method_name = "CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId";
+        string method_name = "CachedGetGameProfileStatisticItemListCodeProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13535,11 +13937,11 @@ class BaseGamingAPI(object):
 
         string cache_key = sb.ToString();
 
-        objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+        objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+            objs = GetGameProfileStatisticItemListCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
@@ -13550,26 +13952,26 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
         ) :
-            return self.act.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+            return self.act.GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
                 , timestamp
             )
         
-    def GetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        for item in self.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+        for item in self.GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
@@ -13578,13 +13980,13 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(self
+    def CachedGetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        return CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+        return CachedGetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -13593,7 +13995,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(self
+    def CachedGetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(self
         , overrideCache
         , cacheHours
         , code
@@ -13603,9 +14005,9 @@ class BaseGamingAPI(object):
     ) :
         pass
         """
-        List<GameProfileStatisticTimestamp> objs;
+        List<GameProfileStatisticItem> objs;
 
-        string method_name = "CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp";
+        string method_name = "CachedGetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13629,11 +14031,11 @@ class BaseGamingAPI(object):
 
         string cache_key = sb.ToString();
 
-        objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+        objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+            objs = GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id

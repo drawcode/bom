@@ -1786,47 +1786,86 @@ namespace gaming {
             else if(IsContext("game-statistic-meta/get/code/game-id")){
                 GetGameStatisticMetaListCodeGameId();
             }
-            if(IsContext("game-profile-statistic-timestamp/count")){
-                CountGameProfileStatisticTimestamp();
+            if(IsContext("game-profile-statistic-item/count")){
+                CountGameProfileStatisticItem();
             }
-            else if(IsContext("game-profile-statistic-timestamp/count/uuid")){
-                CountGameProfileStatisticTimestampUuid();
+            else if(IsContext("game-profile-statistic-item/count/uuid")){
+                CountGameProfileStatisticItemUuid();
             }
-            else if(IsContext("game-profile-statistic-timestamp/count/code/profile-id/game-id")){
-                CountGameProfileStatisticTimestampCodeProfileIdGameId();
+            else if(IsContext("game-profile-statistic-item/count/code")){
+                CountGameProfileStatisticItemCode();
             }
-            else if(IsContext("game-profile-statistic-timestamp/count/code/profile-id/game-id/timestamp")){
-                CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp();
+            else if(IsContext("game-profile-statistic-item/count/game-id")){
+                CountGameProfileStatisticItemGameId();
             }
-            else if(IsContext("game-profile-statistic-timestamp/browse/filter")){
-                BrowseGameProfileStatisticTimestampListFilter();
+            else if(IsContext("game-profile-statistic-item/count/code/game-id")){
+                CountGameProfileStatisticItemCodeGameId();
             }
-            else if(IsContext("game-profile-statistic-timestamp/set/uuid")){
-                SetGameProfileStatisticTimestampUuid();
+            else if(IsContext("game-profile-statistic-item/count/profile-id/game-id")){
+                CountGameProfileStatisticItemProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic-timestamp/set/code/profile-id/game-id")){
-                SetGameProfileStatisticTimestampCodeProfileIdGameId();
+            else if(IsContext("game-profile-statistic-item/count/code/profile-id/game-id")){
+                CountGameProfileStatisticItemCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic-timestamp/set/code/profile-id/game-id/timestamp")){
-                SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp();
+            else if(IsContext("game-profile-statistic-item/count/code/profile-id/game-id/timestamp")){
+                CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic-timestamp/del/uuid")){
-                DelGameProfileStatisticTimestampUuid();
+            else if(IsContext("game-profile-statistic-item/browse/filter")){
+                BrowseGameProfileStatisticItemListFilter();
             }
-            else if(IsContext("game-profile-statistic-timestamp/del/code/profile-id/game-id")){
-                DelGameProfileStatisticTimestampCodeProfileIdGameId();
+            else if(IsContext("game-profile-statistic-item/set/uuid")){
+                SetGameProfileStatisticItemUuid();
             }
-            else if(IsContext("game-profile-statistic-timestamp/del/code/profile-id/game-id/timestamp")){
-                DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp();
+            else if(IsContext("game-profile-statistic-item/set/uuid/profile-id/game-id/timestamp")){
+                SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic-timestamp/get/uuid")){
-                GetGameProfileStatisticTimestampListUuid();
+            else if(IsContext("game-profile-statistic-item/set/profile-id/code")){
+                SetGameProfileStatisticItemProfileIdCode();
             }
-            else if(IsContext("game-profile-statistic-timestamp/get/code/profile-id/game-id")){
-                GetGameProfileStatisticTimestampListCodeProfileIdGameId();
+            else if(IsContext("game-profile-statistic-item/set/profile-id/code/timestamp")){
+                SetGameProfileStatisticItemProfileIdCodeTimestamp();
             }
-            else if(IsContext("game-profile-statistic-timestamp/get/code/profile-id/game-id/timestamp")){
-                GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp();
+            else if(IsContext("game-profile-statistic-item/set/code/profile-id/game-id/timestamp")){
+                SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp();
+            }
+            else if(IsContext("game-profile-statistic-item/set/code/profile-id/game-id")){
+                SetGameProfileStatisticItemCodeProfileIdGameId();
+            }
+            else if(IsContext("game-profile-statistic-item/del/uuid")){
+                DelGameProfileStatisticItemUuid();
+            }
+            else if(IsContext("game-profile-statistic-item/del/code/game-id")){
+                DelGameProfileStatisticItemCodeGameId();
+            }
+            else if(IsContext("game-profile-statistic-item/del/profile-id/game-id")){
+                DelGameProfileStatisticItemProfileIdGameId();
+            }
+            else if(IsContext("game-profile-statistic-item/del/code/profile-id/game-id")){
+                DelGameProfileStatisticItemCodeProfileIdGameId();
+            }
+            else if(IsContext("game-profile-statistic-item/get/uuid")){
+                GetGameProfileStatisticItemListUuid();
+            }
+            else if(IsContext("game-profile-statistic-item/get/code")){
+                GetGameProfileStatisticItemListCode();
+            }
+            else if(IsContext("game-profile-statistic-item/get/game-id")){
+                GetGameProfileStatisticItemListGameId();
+            }
+            else if(IsContext("game-profile-statistic-item/get/code/game-id")){
+                GetGameProfileStatisticItemListCodeGameId();
+            }
+            else if(IsContext("game-profile-statistic-item/get/profile-id/game-id")){
+                GetGameProfileStatisticItemListProfileIdGameId();
+            }
+            else if(IsContext("game-profile-statistic-item/get/profile-id/game-id/timestamp")){
+                GetGameProfileStatisticItemListProfileIdGameIdTimestamp();
+            }
+            else if(IsContext("game-profile-statistic-item/get/code/profile-id/game-id")){
+                GetGameProfileStatisticItemListCodeProfileIdGameId();
+            }
+            else if(IsContext("game-profile-statistic-item/get/code/profile-id/game-id/timestamp")){
+                GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp();
             }
             if(IsContext("game-key-meta/count")){
                 CountGameKeyMeta();
@@ -24107,20 +24146,20 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticTimestamp() {
+        public virtual void CountGameProfileStatisticItem() {
         
 
-            ResponseGameProfileStatisticTimestampInt wrapper = new ResponseGameProfileStatisticTimestampInt();
+            ResponseGameProfileStatisticItemInt wrapper = new ResponseGameProfileStatisticItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/count";
+            wrapper.action = "game-profile-statistic-item/count";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticTimestamp(
+            int i = api.CountGameProfileStatisticItem(
             );
             
             // get data
@@ -24130,21 +24169,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticTimestampUuid() {
+        public virtual void CountGameProfileStatisticItemUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
-            ResponseGameProfileStatisticTimestampInt wrapper = new ResponseGameProfileStatisticTimestampInt();
+            ResponseGameProfileStatisticItemInt wrapper = new ResponseGameProfileStatisticItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/count/uuid";
+            wrapper.action = "game-profile-statistic-item/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticTimestampUuid(
+            int i = api.CountGameProfileStatisticItemUuid(
                 _uuid
             );
             
@@ -24155,23 +24194,127 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticTimestampCodeProfileIdGameId() {
+        public virtual void CountGameProfileStatisticItemCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
-             _profile_id = ()util.GetParamValue(_context, "@profile_id");
-             _game_id = ()util.GetParamValue(_context, "@game_id");
 
-            ResponseGameProfileStatisticTimestampInt wrapper = new ResponseGameProfileStatisticTimestampInt();
+            ResponseGameProfileStatisticItemInt wrapper = new ResponseGameProfileStatisticItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/count/code/profile-id/game-id";
+            wrapper.action = "game-profile-statistic-item/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticTimestampCodeProfileIdGameId(
+            int i = api.CountGameProfileStatisticItemCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileStatisticItemGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemInt wrapper = new ResponseGameProfileStatisticItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/count/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileStatisticItemGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileStatisticItemCodeGameId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemInt wrapper = new ResponseGameProfileStatisticItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/count/code/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileStatisticItemCodeGameId(
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileStatisticItemProfileIdGameId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemInt wrapper = new ResponseGameProfileStatisticItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/count/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileStatisticItemProfileIdGameId(
+                _profile_id
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileStatisticItemCodeProfileIdGameId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemInt wrapper = new ResponseGameProfileStatisticItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/count/code/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileStatisticItemCodeProfileIdGameId(
                 _code
                 , _profile_id
                 , _game_id
@@ -24184,24 +24327,24 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp() {
+        public virtual void CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
-             _timestamp = Convert.To(util.GetParamValue(_context, "@timestamp"));
+             _timestamp = ()util.GetParamValue(_context, "@timestamp");
 
-            ResponseGameProfileStatisticTimestampInt wrapper = new ResponseGameProfileStatisticTimestampInt();
+            ResponseGameProfileStatisticItemInt wrapper = new ResponseGameProfileStatisticItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/count/code/profile-id/game-id/timestamp";
+            wrapper.action = "game-profile-statistic-item/count/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+            int i = api.CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
                 _code
                 , _profile_id
                 , _game_id
@@ -24214,12 +24357,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameProfileStatisticTimestampListFilter()  {
+        public virtual void BrowseGameProfileStatisticItemListFilter()  {
         
-            ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/browse/filter";
+            wrapper.action = "game-profile-statistic-item/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -24231,7 +24374,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameProfileStatisticTimestampResult result = api.BrowseGameProfileStatisticTimestampListFilter(obj);
+            GameProfileStatisticItemResult result = api.BrowseGameProfileStatisticItemListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -24243,37 +24386,59 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticTimestampUuid()  {
+        public virtual void SetGameProfileStatisticItemUuid()  {
         
-            ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/set/uuid";
+            wrapper.action = "game-profile-statistic-item/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
                         
-            GameProfileStatisticTimestamp obj = new GameProfileStatisticTimestamp();
+            GameProfileStatisticItem obj = new GameProfileStatisticItem();
             
             string _status = util.GetParamValue(_context, "@status");
             if(!String.IsNoneOrEmpty(_status))
                 obj.status = ()_status;
             
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
             string _code = util.GetParamValue(_context, "@code");
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
             string _uuid = util.GetParamValue(_context, "@uuid");
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
-            
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = Convert.ToDateTime(_timestamp);
-            else 
-                obj.timestamp = DateTime.Now;
             
             string _date_modified = util.GetParamValue(_context, "@date_modified");
             if(!String.IsNoneOrEmpty(_date_modified))
@@ -24281,9 +24446,17 @@ namespace gaming {
             else 
                 obj.date_modified = DateTime.Now;
             
-            string _active = util.GetParamValue(_context, "@active");
-            if(!String.IsNoneOrEmpty(_active))
-                obj.active = Convert.ToBoolean(_active);
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _points = util.GetParamValue(_context, "@points");
+            if(!String.IsNoneOrEmpty(_points))
+                obj.points = float.Parse(_points);
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
             
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
@@ -24291,56 +24464,70 @@ namespace gaming {
             else 
                 obj.date_created = DateTime.Now;
             
-            string _game_id = util.GetParamValue(_context, "@game_id");
-            if(!String.IsNoneOrEmpty(_game_id))
-                obj.game_id = ()_game_id;
-            
-            string _profile_id = util.GetParamValue(_context, "@profile_id");
-            if(!String.IsNoneOrEmpty(_profile_id))
-                obj.profile_id = ()_profile_id;
-            
             string _type = util.GetParamValue(_context, "@type");
             if(!String.IsNoneOrEmpty(_type))
                 obj.type = ()_type;
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticTimestampUuid(obj);
+            wrapper.data = api.SetGameProfileStatisticItemUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticTimestampCodeProfileIdGameId()  {
+        public virtual void SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp()  {
         
-            ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/set/code/profile-id/game-id";
+            wrapper.action = "game-profile-statistic-item/set/uuid/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
                         
-            GameProfileStatisticTimestamp obj = new GameProfileStatisticTimestamp();
+            GameProfileStatisticItem obj = new GameProfileStatisticItem();
             
             string _status = util.GetParamValue(_context, "@status");
             if(!String.IsNoneOrEmpty(_status))
                 obj.status = ()_status;
             
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
             string _code = util.GetParamValue(_context, "@code");
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
             string _uuid = util.GetParamValue(_context, "@uuid");
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
-            
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = Convert.ToDateTime(_timestamp);
-            else 
-                obj.timestamp = DateTime.Now;
             
             string _date_modified = util.GetParamValue(_context, "@date_modified");
             if(!String.IsNoneOrEmpty(_date_modified))
@@ -24348,9 +24535,17 @@ namespace gaming {
             else 
                 obj.date_modified = DateTime.Now;
             
-            string _active = util.GetParamValue(_context, "@active");
-            if(!String.IsNoneOrEmpty(_active))
-                obj.active = Convert.ToBoolean(_active);
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _points = util.GetParamValue(_context, "@points");
+            if(!String.IsNoneOrEmpty(_points))
+                obj.points = float.Parse(_points);
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
             
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
@@ -24358,56 +24553,70 @@ namespace gaming {
             else 
                 obj.date_created = DateTime.Now;
             
-            string _game_id = util.GetParamValue(_context, "@game_id");
-            if(!String.IsNoneOrEmpty(_game_id))
-                obj.game_id = ()_game_id;
-            
-            string _profile_id = util.GetParamValue(_context, "@profile_id");
-            if(!String.IsNoneOrEmpty(_profile_id))
-                obj.profile_id = ()_profile_id;
-            
             string _type = util.GetParamValue(_context, "@type");
             if(!String.IsNoneOrEmpty(_type))
                 obj.type = ()_type;
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticTimestampCodeProfileIdGameId(obj);
+            wrapper.data = api.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp()  {
+        public virtual void SetGameProfileStatisticItemProfileIdCode()  {
         
-            ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/set/code/profile-id/game-id/timestamp";
+            wrapper.action = "game-profile-statistic-item/set/profile-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
                         
-            GameProfileStatisticTimestamp obj = new GameProfileStatisticTimestamp();
+            GameProfileStatisticItem obj = new GameProfileStatisticItem();
             
             string _status = util.GetParamValue(_context, "@status");
             if(!String.IsNoneOrEmpty(_status))
                 obj.status = ()_status;
             
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
             string _code = util.GetParamValue(_context, "@code");
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
             string _uuid = util.GetParamValue(_context, "@uuid");
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
-            
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = Convert.ToDateTime(_timestamp);
-            else 
-                obj.timestamp = DateTime.Now;
             
             string _date_modified = util.GetParamValue(_context, "@date_modified");
             if(!String.IsNoneOrEmpty(_date_modified))
@@ -24415,9 +24624,17 @@ namespace gaming {
             else 
                 obj.date_modified = DateTime.Now;
             
-            string _active = util.GetParamValue(_context, "@active");
-            if(!String.IsNoneOrEmpty(_active))
-                obj.active = Convert.ToBoolean(_active);
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _points = util.GetParamValue(_context, "@points");
+            if(!String.IsNoneOrEmpty(_points))
+                obj.points = float.Parse(_points);
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
             
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
@@ -24425,13 +24642,94 @@ namespace gaming {
             else 
                 obj.date_created = DateTime.Now;
             
-            string _game_id = util.GetParamValue(_context, "@game_id");
-            if(!String.IsNoneOrEmpty(_game_id))
-                obj.game_id = ()_game_id;
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileStatisticItemProfileIdCode(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileStatisticItemProfileIdCodeTimestamp()  {
+        
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/set/profile-id/code/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileStatisticItem obj = new GameProfileStatisticItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
             
             string _profile_id = util.GetParamValue(_context, "@profile_id");
             if(!String.IsNoneOrEmpty(_profile_id))
                 obj.profile_id = ()_profile_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _points = util.GetParamValue(_context, "@points");
+            if(!String.IsNoneOrEmpty(_points))
+                obj.points = float.Parse(_points);
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
             
             string _type = util.GetParamValue(_context, "@type");
             if(!String.IsNoneOrEmpty(_type))
@@ -24439,26 +24737,204 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(obj);
+            wrapper.data = api.SetGameProfileStatisticItemProfileIdCodeTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticTimestampUuid() {
+        public virtual void SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp()  {
+        
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/set/code/profile-id/game-id/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileStatisticItem obj = new GameProfileStatisticItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _points = util.GetParamValue(_context, "@points");
+            if(!String.IsNoneOrEmpty(_points))
+                obj.points = float.Parse(_points);
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileStatisticItemCodeProfileIdGameId()  {
+        
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/set/code/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileStatisticItem obj = new GameProfileStatisticItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _points = util.GetParamValue(_context, "@points");
+            if(!String.IsNoneOrEmpty(_points))
+                obj.points = float.Parse(_points);
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileStatisticItemCodeProfileIdGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileStatisticItemUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
-            ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/del/uuid";
+            wrapper.action = "game-profile-statistic-item/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticTimestampUuid(
+            bool completed = api.DelGameProfileStatisticItemUuid(
                         
                 _uuid
             );
@@ -24469,23 +24945,77 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticTimestampCodeProfileIdGameId() {
+        public virtual void DelGameProfileStatisticItemCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
-             _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
-            ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/del/code/profile-id/game-id";
+            wrapper.action = "game-profile-statistic-item/del/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticTimestampCodeProfileIdGameId(
+            bool completed = api.DelGameProfileStatisticItemCodeGameId(
+                        
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileStatisticItemProfileIdGameId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/del/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileStatisticItemProfileIdGameId(
+                        
+                _profile_id
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileStatisticItemCodeProfileIdGameId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemBool wrapper = new ResponseGameProfileStatisticItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/del/code/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileStatisticItemCodeProfileIdGameId(
                         
                 _code
                 , _profile_id
@@ -24498,80 +25028,182 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp() {
+                    
+        public virtual void GetGameProfileStatisticItemListUuid() {
         
-             _code = ()util.GetParamValue(_context, "@code");
-             _profile_id = ()util.GetParamValue(_context, "@profile_id");
-             _game_id = ()util.GetParamValue(_context, "@game_id");
-             _timestamp = Convert.To(util.GetParamValue(_context, "@timestamp"));
+             _uuid = ()util.GetParamValue(_context, "@uuid");
 
-            ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/del/code/profile-id/game-id/timestamp";
+            wrapper.action = "game-profile-statistic-item/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
-                        
+            List<GameProfileStatisticItem> objs = api.GetGameProfileStatisticItemListUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileStatisticItemListCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/get/code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileStatisticItem> objs = api.GetGameProfileStatisticItemListCode(
                 _code
-                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileStatisticItemListGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/get/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileStatisticItem> objs = api.GetGameProfileStatisticItemListGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileStatisticItemListCodeGameId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/get/code/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileStatisticItem> objs = api.GetGameProfileStatisticItemListCodeGameId(
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileStatisticItemListProfileIdGameId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/get/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileStatisticItem> objs = api.GetGameProfileStatisticItemListProfileIdGameId(
+                _profile_id
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileStatisticItemListProfileIdGameIdTimestamp() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _timestamp = ()util.GetParamValue(_context, "@timestamp");
+
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-statistic-item/get/profile-id/game-id/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileStatisticItem> objs = api.GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+                _profile_id
                 , _game_id
                 , _timestamp
             );
             
             // get data
-            wrapper.data = completed;
-            
-	    util.SerializeTypeToResponse(_format, _context, wrapper);
-        }
-//------------------------------------------------------------------------------                    
-                    
-        public virtual void GetGameProfileStatisticTimestampListUuid() {
-        
-             _uuid = ()util.GetParamValue(_context, "@uuid");
-
-            ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
-            wrapper.message = "Success";
-            wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/get/uuid";
-            wrapper.info.Add("path", path);
-            wrapper.info.Add("path_info", path_info);
-            wrapper.info.Add("qstring", qstring);
-            wrapper.info.Add("action", action);
-            wrapper.info.Add("action_params", action_params);
-
-            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListUuid(
-                _uuid
-            );
-            
-            // get data
             wrapper.data = objs;
             
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticTimestampListCodeProfileIdGameId() {
+        public virtual void GetGameProfileStatisticItemListCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
-            ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/get/code/profile-id/game-id";
+            wrapper.action = "game-profile-statistic-item/get/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+            List<GameProfileStatisticItem> objs = api.GetGameProfileStatisticItemListCodeProfileIdGameId(
                 _code
                 , _profile_id
                 , _game_id
@@ -24584,24 +25216,24 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp() {
+        public virtual void GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
-             _timestamp = Convert.To(util.GetParamValue(_context, "@timestamp"));
+             _timestamp = ()util.GetParamValue(_context, "@timestamp");
 
-            ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
+            ResponseGameProfileStatisticItemList wrapper = new ResponseGameProfileStatisticItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/get/code/profile-id/game-id/timestamp";
+            wrapper.action = "game-profile-statistic-item/get/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+            List<GameProfileStatisticItem> objs = api.GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
                 _code
                 , _profile_id
                 , _game_id

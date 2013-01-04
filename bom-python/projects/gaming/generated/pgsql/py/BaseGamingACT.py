@@ -6500,178 +6500,319 @@ class BaseGamingACT(object):
             return results        
         
         
-    def FillGameProfileStatisticTimestamp(self, row) :
-        obj = GameProfileStatisticTimestamp()
+    def FillGameProfileStatisticItem(self, row) :
+        obj = GameProfileStatisticItem()
 
         if (row['status'] != None) :                 
             obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['username'] != None) :                 
+            obj.username = row['username'] #dataType.FillData(dr, "username");                
         if (row['code'] != None) :                 
             obj.code = row['code'] #dataType.FillData(dr, "code");                
-        if (row['uuid'] != None) :                 
-            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
-        if (row['timestamp'] != None) :                 
-            obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
-        if (row['date_modified'] != None) :                 
-            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
-        if (row['active'] != None) :                 
-            obj.active = row['active'] #dataType.FillData(dr, "active");                
-        if (row['date_created'] != None) :                 
-            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
-        if (row['game_id'] != None) :                 
-            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['stat_value_formatted'] != None) :                 
+            obj.stat_value_formatted = row['stat_value_formatted'] #dataType.FillData(dr, "stat_value_formatted");                
         if (row['profile_id'] != None) :                 
             obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['stat_value'] != None) :                 
+            obj.stat_value = row['stat_value'] #dataType.FillData(dr, "stat_value");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['level'] != None) :                 
+            obj.level = row['level'] #dataType.FillData(dr, "level");                
+        if (row['points'] != None) :                 
+            obj.points = row['points'] #dataType.FillData(dr, "points");                
+        if (row['timestamp'] != None) :                 
+            obj.timestamp = row['timestamp'] #dataType.FillData(dr, "timestamp");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
         if (row['type'] != None) :                 
             obj.type = row['type'] #dataType.FillData(dr, "type");                
 
         return obj
         
-    def CountGameProfileStatisticTimestamp(self
+    def CountGameProfileStatisticItem(self
     ) :         
-        return self.data.CountGameProfileStatisticTimestamp(
+        return self.data.CountGameProfileStatisticItem(
         )
                
-    def CountGameProfileStatisticTimestampUuid(self
+    def CountGameProfileStatisticItemUuid(self
         , uuid
     ) :         
-        return self.data.CountGameProfileStatisticTimestampUuid(
+        return self.data.CountGameProfileStatisticItemUuid(
             uuid
         )
                
-    def CountGameProfileStatisticTimestampCodeProfileIdGameId(self
+    def CountGameProfileStatisticItemCode(self
+        , code
+    ) :         
+        return self.data.CountGameProfileStatisticItemCode(
+            code
+        )
+               
+    def CountGameProfileStatisticItemGameId(self
+        , game_id
+    ) :         
+        return self.data.CountGameProfileStatisticItemGameId(
+            game_id
+        )
+               
+    def CountGameProfileStatisticItemCodeGameId(self
+        , code
+        , game_id
+    ) :         
+        return self.data.CountGameProfileStatisticItemCodeGameId(
+            code
+            , game_id
+        )
+               
+    def CountGameProfileStatisticItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.data.CountGameProfileStatisticItemProfileIdGameId(
+            profile_id
+            , game_id
+        )
+               
+    def CountGameProfileStatisticItemCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticTimestampCodeProfileIdGameId(
+        return self.data.CountGameProfileStatisticItemCodeProfileIdGameId(
             code
             , profile_id
             , game_id
         )
                
-    def CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
+    def CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.data.CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+        return self.data.CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
             code
             , profile_id
             , game_id
             , timestamp
         )
                
-    def BrowseGameProfileStatisticTimestampListFilter(self, filter_obj) :
-        result = GameProfileStatisticTimestampResult()
+    def BrowseGameProfileStatisticItemListFilter(self, filter_obj) :
+        result = GameProfileStatisticItemResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameProfileStatisticTimestampListFilter(filter_obj)
+        rows = self.data.BrowseGameProfileStatisticItemListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
-                game_profile_statistic_timestamp = self.FillGameProfileStatisticTimestamp(row)
-                result.data.append(game_profile_statistic_timestamp)
+                game_profile_statistic_item = self.FillGameProfileStatisticItem(row)
+                result.data.append(game_profile_statistic_item)
                 if(row["total_rows"] != None) :
                     result.total_rows = int(row["total_rows"])
         
         return result
 
-    def SetGameProfileStatisticTimestampUuid(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticTimestampUuid(set_type, obj)
+    def SetGameProfileStatisticItemUuid(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemUuid(set_type, obj)
             
-    def SetGameProfileStatisticTimestampCodeProfileIdGameId(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticTimestampCodeProfileIdGameId(set_type, obj)
+    def SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameProfileStatisticItemProfileIdCode(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemProfileIdCode(set_type, obj)
             
-    def DelGameProfileStatisticTimestampUuid(self
+    def SetGameProfileStatisticItemProfileIdCodeTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemProfileIdCodeTimestamp(set_type, obj)
+            
+    def SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(set_type, obj)
+            
+    def SetGameProfileStatisticItemCodeProfileIdGameId(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemCodeProfileIdGameId(set_type, obj)
+            
+    def DelGameProfileStatisticItemUuid(self
         , uuid
     ) :
-        return self.data.DelGameProfileStatisticTimestampUuid(
+        return self.data.DelGameProfileStatisticItemUuid(
             uuid
         )
         
-    def DelGameProfileStatisticTimestampCodeProfileIdGameId(self
+    def DelGameProfileStatisticItemCodeGameId(self
+        , code
+        , game_id
+    ) :
+        return self.data.DelGameProfileStatisticItemCodeGameId(
+            code
+            , game_id
+        )
+        
+    def DelGameProfileStatisticItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return self.data.DelGameProfileStatisticItemProfileIdGameId(
+            profile_id
+            , game_id
+        )
+        
+    def DelGameProfileStatisticItemCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticTimestampCodeProfileIdGameId(
+        return self.data.DelGameProfileStatisticItemCodeProfileIdGameId(
             code
             , profile_id
             , game_id
         )
         
-    def DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticItemListUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileStatisticItemListUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_statistic_item  = self.FillGameProfileStatisticItem(row)
+                results.append(game_profile_statistic_item)
+            return results        
+        
+    def GetGameProfileStatisticItemListCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileStatisticItemListCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_statistic_item  = self.FillGameProfileStatisticItem(row)
+                results.append(game_profile_statistic_item)
+            return results        
+        
+    def GetGameProfileStatisticItemListGameId(self
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileStatisticItemListGameId(
+            game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_statistic_item  = self.FillGameProfileStatisticItem(row)
+                results.append(game_profile_statistic_item)
+            return results        
+        
+    def GetGameProfileStatisticItemListCodeGameId(self
+        , code
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileStatisticItemListCodeGameId(
+            code
+            , game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_statistic_item  = self.FillGameProfileStatisticItem(row)
+                results.append(game_profile_statistic_item)
+            return results        
+        
+    def GetGameProfileStatisticItemListProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileStatisticItemListProfileIdGameId(
+            profile_id
+            , game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_statistic_item  = self.FillGameProfileStatisticItem(row)
+                results.append(game_profile_statistic_item)
+            return results        
+        
+    def GetGameProfileStatisticItemListProfileIdGameIdTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_statistic_item  = self.FillGameProfileStatisticItem(row)
+                results.append(game_profile_statistic_item)
+            return results        
+        
+    def GetGameProfileStatisticItemListCodeProfileIdGameId(self
+        , code
+        , profile_id
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileStatisticItemListCodeProfileIdGameId(
+            code
+            , profile_id
+            , game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_statistic_item  = self.FillGameProfileStatisticItem(row)
+                results.append(game_profile_statistic_item)
+            return results        
+        
+    def GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        return self.data.DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+
+        results = []
+        rows = self.data.GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
             code
             , profile_id
             , game_id
             , timestamp
         )
         
-    def GetGameProfileStatisticTimestampListUuid(self
-        , uuid
-    ) :
-
-        results = []
-        rows = self.data.GetGameProfileStatisticTimestampListUuid(
-            uuid
-        )
-        
         if(rows != None) :
             for row in rows :
-                game_profile_statistic_timestamp  = self.FillGameProfileStatisticTimestamp(row)
-                results.append(game_profile_statistic_timestamp)
-            return results        
-        
-    def GetGameProfileStatisticTimestampListCodeProfileIdGameId(self
-        , code
-        , profile_id
-        , game_id
-    ) :
-
-        results = []
-        rows = self.data.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
-            code
-            , profile_id
-            , game_id
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_profile_statistic_timestamp  = self.FillGameProfileStatisticTimestamp(row)
-                results.append(game_profile_statistic_timestamp)
-            return results        
-        
-    def GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(self
-        , code
-        , profile_id
-        , game_id
-        , timestamp
-    ) :
-
-        results = []
-        rows = self.data.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
-            code
-            , profile_id
-            , game_id
-            , timestamp
-        )
-        
-        if(rows != None) :
-            for row in rows :
-                game_profile_statistic_timestamp  = self.FillGameProfileStatisticTimestamp(row)
-                results.append(game_profile_statistic_timestamp)
+                game_profile_statistic_item  = self.FillGameProfileStatisticItem(row)
+                results.append(game_profile_statistic_item)
             return results        
         
         

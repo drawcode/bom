@@ -54,8 +54,8 @@ import GameProfileStatistic
 from GameProfileStatistic import *
 import GameStatisticMeta
 from GameStatisticMeta import *
-import GameProfileStatisticTimestamp
-from GameProfileStatisticTimestamp import *
+import GameProfileStatisticItem
+from GameProfileStatisticItem import *
 import GameKeyMeta
 from GameKeyMeta import *
 import GameLevel
@@ -121,8 +121,8 @@ __all__ = [
     , "GameProfileStatisticResult"
     , "GameStatisticMeta"
     , "GameStatisticMetaResult"
-    , "GameProfileStatisticTimestamp"
-    , "GameProfileStatisticTimestampResult"
+    , "GameProfileStatisticItem"
+    , "GameProfileStatisticItemResult"
     , "GameKeyMeta"
     , "GameKeyMetaResult"
     , "GameLevel"

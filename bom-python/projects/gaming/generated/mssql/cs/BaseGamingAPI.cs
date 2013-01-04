@@ -14200,39 +14200,75 @@ namespace gaming {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestamp(
+        public virtual int CountGameProfileStatisticItem(
         )  {            
-            return act.CountGameProfileStatisticTimestamp(
+            return act.CountGameProfileStatisticItem(
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestampUuid(
+        public virtual int CountGameProfileStatisticItemUuid(
             string uuid
         )  {            
-            return act.CountGameProfileStatisticTimestampUuid(
+            return act.CountGameProfileStatisticItemUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestampCodeProfileIdGameId(
+        public virtual int CountGameProfileStatisticItemCode(
+            string code
+        )  {            
+            return act.CountGameProfileStatisticItemCode(
+            code
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileStatisticItemGameId(
+            string game_id
+        )  {            
+            return act.CountGameProfileStatisticItemGameId(
+            game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileStatisticItemCodeGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.CountGameProfileStatisticItemCodeGameId(
+            code
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileStatisticItemProfileIdGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return act.CountGameProfileStatisticItemProfileIdGameId(
+            profile_id
+            , game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileStatisticItemCodeProfileIdGameId(
             string code
             , string profile_id
             , string game_id
         )  {            
-            return act.CountGameProfileStatisticTimestampCodeProfileIdGameId(
+            return act.CountGameProfileStatisticItemCodeProfileIdGameId(
             code
             , profile_id
             , game_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+        public virtual int CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
             string code
             , string profile_id
             , string game_id
-            , DateTime timestamp
+            , float timestamp
         )  {            
-            return act.CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+            return act.CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
             code
             , profile_id
             , game_id
@@ -14240,92 +14276,134 @@ namespace gaming {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual GameProfileStatisticTimestampResult BrowseGameProfileStatisticTimestampListFilter(SearchFilter obj)  {
-            return act.BrowseGameProfileStatisticTimestampListFilter(obj);
+        public virtual GameProfileStatisticItemResult BrowseGameProfileStatisticItemListFilter(SearchFilter obj)  {
+            return act.BrowseGameProfileStatisticItemListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticTimestampUuid(string set_type, GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampUuid(set_type, obj);
+        public virtual bool SetGameProfileStatisticItemUuid(string set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemUuid(set_type, obj);
         }
         
-        public virtual bool SetGameProfileStatisticTimestampUuid(SetType set_type, GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetGameProfileStatisticItemUuid(SetType set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetGameProfileStatisticTimestampUuid(GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetGameProfileStatisticItemUuid(GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameId(string set_type, GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampCodeProfileIdGameId(set_type, obj);
+        public virtual bool SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(string set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(set_type, obj);
         }
         
-        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameId(SetType set_type, GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampCodeProfileIdGameId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(SetType set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameId(GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampCodeProfileIdGameId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(set_type, obj);
+        public virtual bool SetGameProfileStatisticItemProfileIdCode(string set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemProfileIdCode(set_type, obj);
         }
         
-        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(SetType set_type, GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetGameProfileStatisticItemProfileIdCode(SetType set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemProfileIdCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(GameProfileStatisticTimestamp obj)  {
-            return act.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetGameProfileStatisticItemProfileIdCode(GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemProfileIdCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticTimestampUuid(
+        public virtual bool SetGameProfileStatisticItemProfileIdCodeTimestamp(string set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemProfileIdCodeTimestamp(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileStatisticItemProfileIdCodeTimestamp(SetType set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemProfileIdCodeTimestamp(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileStatisticItemProfileIdCodeTimestamp(GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemProfileIdCodeTimestamp(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(string set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(SetType set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileStatisticItemCodeProfileIdGameId(string set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemCodeProfileIdGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileStatisticItemCodeProfileIdGameId(SetType set_type, GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemCodeProfileIdGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileStatisticItemCodeProfileIdGameId(GameProfileStatisticItem obj)  {
+            return act.SetGameProfileStatisticItemCodeProfileIdGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileStatisticItemUuid(
             string uuid
         )  {            
-            return act.DelGameProfileStatisticTimestampUuid(
+            return act.DelGameProfileStatisticItemUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticTimestampCodeProfileIdGameId(
+        public virtual bool DelGameProfileStatisticItemCodeGameId(
+            string code
+            , string game_id
+        )  {            
+            return act.DelGameProfileStatisticItemCodeGameId(
+            code
+            , game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileStatisticItemProfileIdGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return act.DelGameProfileStatisticItemProfileIdGameId(
+            profile_id
+            , game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileStatisticItemCodeProfileIdGameId(
             string code
             , string profile_id
             , string game_id
         )  {            
-            return act.DelGameProfileStatisticTimestampCodeProfileIdGameId(
+            return act.DelGameProfileStatisticItemCodeProfileIdGameId(
             code
             , profile_id
             , game_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
-            string code
-            , string profile_id
-            , string game_id
-            , DateTime timestamp
-        )  {            
-            return act.DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
-            code
-            , profile_id
-            , game_id
-            , timestamp
-            );
-        }                     
-//------------------------------------------------------------------------------                    
-        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListUuid(
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListUuid(
             string uuid
         )  {
-            return act.GetGameProfileStatisticTimestampListUuid(
+            return act.GetGameProfileStatisticItemListUuid(
             uuid
             );
         }
         
-        public virtual GameProfileStatisticTimestamp GetGameProfileStatisticTimestampUuid(
+        public virtual GameProfileStatisticItem GetGameProfileStatisticItemUuid(
             string uuid
         )  {
-            foreach (GameProfileStatisticTimestamp item in GetGameProfileStatisticTimestampListUuid(
+            foreach (GameProfileStatisticItem item in GetGameProfileStatisticItemListUuid(
             uuid
             ))  {
                 return item;
@@ -14333,24 +14411,24 @@ namespace gaming {
             return null;
         }
         
-        public virtual List<GameProfileStatisticTimestamp> CachedGetGameProfileStatisticTimestampListUuid(
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListUuid(
             string uuid
         ) {
-            return CachedGetGameProfileStatisticTimestampListUuid(
+            return CachedGetGameProfileStatisticItemListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<GameProfileStatisticTimestamp> CachedGetGameProfileStatisticTimestampListUuid(
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
-            List<GameProfileStatisticTimestamp> objs;
+            List<GameProfileStatisticItem> objs;
 
-            string method_name = "CachedGetGameProfileStatisticTimestampListUuid";
+            string method_name = "CachedGetGameProfileStatisticItemListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -14362,11 +14440,11 @@ namespace gaming {
 
             string cache_key = sb.ToString();
 
-            objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+            objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetGameProfileStatisticTimestampListUuid(
+                objs = GetGameProfileStatisticItemListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -14374,24 +14452,372 @@ namespace gaming {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListCode(
+            string code
+        )  {
+            return act.GetGameProfileStatisticItemListCode(
+            code
+            );
+        }
+        
+        public virtual GameProfileStatisticItem GetGameProfileStatisticItemCode(
+            string code
+        )  {
+            foreach (GameProfileStatisticItem item in GetGameProfileStatisticItemListCode(
+            code
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListCode(
+            string code
+        ) {
+            return CachedGetGameProfileStatisticItemListCode(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                );
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListCode(
+            bool overrideCache
+            , int cacheHours
+            , string code
+        ) {
+            List<GameProfileStatisticItem> objs;
+
+            string method_name = "CachedGetGameProfileStatisticItemListCode";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileStatisticItemListCode(
+                    code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListGameId(
+            string game_id
+        )  {
+            return act.GetGameProfileStatisticItemListGameId(
+            game_id
+            );
+        }
+        
+        public virtual GameProfileStatisticItem GetGameProfileStatisticItemGameId(
+            string game_id
+        )  {
+            foreach (GameProfileStatisticItem item in GetGameProfileStatisticItemListGameId(
+            game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListGameId(
+            string game_id
+        ) {
+            return CachedGetGameProfileStatisticItemListGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListGameId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+        ) {
+            List<GameProfileStatisticItem> objs;
+
+            string method_name = "CachedGetGameProfileStatisticItemListGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileStatisticItemListGameId(
+                    game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListCodeGameId(
+            string code
+            , string game_id
+        )  {
+            return act.GetGameProfileStatisticItemListCodeGameId(
+            code
+            , game_id
+            );
+        }
+        
+        public virtual GameProfileStatisticItem GetGameProfileStatisticItemCodeGameId(
+            string code
+            , string game_id
+        )  {
+            foreach (GameProfileStatisticItem item in GetGameProfileStatisticItemListCodeGameId(
+            code
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListCodeGameId(
+            string code
+            , string game_id
+        ) {
+            return CachedGetGameProfileStatisticItemListCodeGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListCodeGameId(
+            bool overrideCache
+            , int cacheHours
+            , string code
+            , string game_id
+        ) {
+            List<GameProfileStatisticItem> objs;
+
+            string method_name = "CachedGetGameProfileStatisticItemListCodeGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileStatisticItemListCodeGameId(
+                    code
+                    , game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListProfileIdGameId(
+            string profile_id
+            , string game_id
+        )  {
+            return act.GetGameProfileStatisticItemListProfileIdGameId(
+            profile_id
+            , game_id
+            );
+        }
+        
+        public virtual GameProfileStatisticItem GetGameProfileStatisticItemProfileIdGameId(
+            string profile_id
+            , string game_id
+        )  {
+            foreach (GameProfileStatisticItem item in GetGameProfileStatisticItemListProfileIdGameId(
+            profile_id
+            , game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListProfileIdGameId(
+            string profile_id
+            , string game_id
+        ) {
+            return CachedGetGameProfileStatisticItemListProfileIdGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListProfileIdGameId(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+            , string game_id
+        ) {
+            List<GameProfileStatisticItem> objs;
+
+            string method_name = "CachedGetGameProfileStatisticItemListProfileIdGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileStatisticItemListProfileIdGameId(
+                    profile_id
+                    , game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            return act.GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+            );
+        }
+        
+        public virtual GameProfileStatisticItem GetGameProfileStatisticItemProfileIdGameIdTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            foreach (GameProfileStatisticItem item in GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+            profile_id
+            , game_id
+            , timestamp
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        ) {
+            return CachedGetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                    , game_id
+                    , timestamp
+                );
+        }
+        
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+            , string game_id
+            , float timestamp
+        ) {
+            List<GameProfileStatisticItem> objs;
+
+            string method_name = "CachedGetGameProfileStatisticItemListProfileIdGameIdTimestamp";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("timestamp".ToLower());
+            sb.Append("_");
+            sb.Append(timestamp);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+                    profile_id
+                    , game_id
+                    , timestamp
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListCodeProfileIdGameId(
             string code
             , string profile_id
             , string game_id
         )  {
-            return act.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+            return act.GetGameProfileStatisticItemListCodeProfileIdGameId(
             code
             , profile_id
             , game_id
             );
         }
         
-        public virtual GameProfileStatisticTimestamp GetGameProfileStatisticTimestampCodeProfileIdGameId(
+        public virtual GameProfileStatisticItem GetGameProfileStatisticItemCodeProfileIdGameId(
             string code
             , string profile_id
             , string game_id
         )  {
-            foreach (GameProfileStatisticTimestamp item in GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+            foreach (GameProfileStatisticItem item in GetGameProfileStatisticItemListCodeProfileIdGameId(
             code
             , profile_id
             , game_id
@@ -14401,12 +14827,12 @@ namespace gaming {
             return null;
         }
         
-        public virtual List<GameProfileStatisticTimestamp> CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListCodeProfileIdGameId(
             string code
             , string profile_id
             , string game_id
         ) {
-            return CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(
+            return CachedGetGameProfileStatisticItemListCodeProfileIdGameId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
@@ -14415,16 +14841,16 @@ namespace gaming {
                 );
         }
         
-        public virtual List<GameProfileStatisticTimestamp> CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListCodeProfileIdGameId(
             bool overrideCache
             , int cacheHours
             , string code
             , string profile_id
             , string game_id
         ) {
-            List<GameProfileStatisticTimestamp> objs;
+            List<GameProfileStatisticItem> objs;
 
-            string method_name = "CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId";
+            string method_name = "CachedGetGameProfileStatisticItemListCodeProfileIdGameId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -14444,11 +14870,11 @@ namespace gaming {
 
             string cache_key = sb.ToString();
 
-            objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+            objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+                objs = GetGameProfileStatisticItemListCodeProfileIdGameId(
                     code
                     , profile_id
                     , game_id
@@ -14458,13 +14884,13 @@ namespace gaming {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
             string code
             , string profile_id
             , string game_id
-            , DateTime timestamp
+            , float timestamp
         )  {
-            return act.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+            return act.GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
             code
             , profile_id
             , game_id
@@ -14472,13 +14898,13 @@ namespace gaming {
             );
         }
         
-        public virtual GameProfileStatisticTimestamp GetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+        public virtual GameProfileStatisticItem GetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
             string code
             , string profile_id
             , string game_id
-            , DateTime timestamp
+            , float timestamp
         )  {
-            foreach (GameProfileStatisticTimestamp item in GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+            foreach (GameProfileStatisticItem item in GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
             code
             , profile_id
             , game_id
@@ -14489,13 +14915,13 @@ namespace gaming {
             return null;
         }
         
-        public virtual List<GameProfileStatisticTimestamp> CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
             string code
             , string profile_id
             , string game_id
-            , DateTime timestamp
+            , float timestamp
         ) {
-            return CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+            return CachedGetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
@@ -14505,17 +14931,17 @@ namespace gaming {
                 );
         }
         
-        public virtual List<GameProfileStatisticTimestamp> CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+        public virtual List<GameProfileStatisticItem> CachedGetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
             bool overrideCache
             , int cacheHours
             , string code
             , string profile_id
             , string game_id
-            , DateTime timestamp
+            , float timestamp
         ) {
-            List<GameProfileStatisticTimestamp> objs;
+            List<GameProfileStatisticItem> objs;
 
-            string method_name = "CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp";
+            string method_name = "CachedGetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -14539,11 +14965,11 @@ namespace gaming {
 
             string cache_key = sb.ToString();
 
-            objs = CacheUtil.Get<List<GameProfileStatisticTimestamp>>(cache_key);
+            objs = CacheUtil.Get<List<GameProfileStatisticItem>>(cache_key);
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+                objs = GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
                     code
                     , profile_id
                     , game_id

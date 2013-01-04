@@ -117,8 +117,8 @@ IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_stati
 DROP TABLE [dbo].[game_statistic_meta]
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_profile_statistic_timestamp]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-DROP TABLE [dbo].[game_profile_statistic_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_profile_statistic_item]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[game_profile_statistic_item]
 GO
 -- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_key_meta]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
@@ -945,26 +945,31 @@ ALTER TABLE [dbo].[game_statistic_meta] ADD
             [uuid]
     )
 GO
-CREATE TABLE [dbo].[game_profile_statistic_timestamp] 
+CREATE TABLE [dbo].[game_profile_statistic_item] 
 (
     [status] varchar (255)
+    , [username] varchar (500)
     , [code] varchar (500)
-    , [uuid] uniqueidentifier NOT NULL
-    , [timestamp] DATETIME
-                CONSTRAINT DF_game_profile_statistic_timestamp_timestamp DEFAULT GETDATE()
-    , [date_modified] DATETIME
-                CONSTRAINT DF_game_profile_statistic_timestamp_date_modified DEFAULT GETDATE()
-    , [active] bit
-                CONSTRAINT DF_game_profile_statistic_timestamp_active_bool DEFAULT 1
-    , [date_created] DATETIME
-                CONSTRAINT DF_game_profile_statistic_timestamp_date_created DEFAULT GETDATE()
-    , [game_id] uniqueidentifier
+    , [stat_value_formatted] varchar (500)
     , [profile_id] uniqueidentifier
+    , [active] bit
+                CONSTRAINT DF_game_profile_statistic_item_active_bool DEFAULT 1
+    , [game_id] uniqueidentifier
+    , [data] ntext
+    , [stat_value] float
+    , [uuid] uniqueidentifier NOT NULL
+    , [date_modified] DATETIME
+                CONSTRAINT DF_game_profile_statistic_item_date_modified DEFAULT GETDATE()
+    , [level] varchar (500)
+    , [points] float
+    , [timestamp] float
+    , [date_created] DATETIME
+                CONSTRAINT DF_game_profile_statistic_item_date_created DEFAULT GETDATE()
     , [type] varchar (500)
 )
 GO
-ALTER TABLE [dbo].[game_profile_statistic_timestamp] ADD 
-    CONSTRAINT [PK_game_profile_statistic_timestamp] PRIMARY KEY CLUSTERED 
+ALTER TABLE [dbo].[game_profile_statistic_item] ADD 
+    CONSTRAINT [PK_game_profile_statistic_item] PRIMARY KEY CLUSTERED 
     (
             [uuid]
     )
@@ -1507,8 +1512,68 @@ GO
 
 -- INDEX DROPS        
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_timestamp]') AND name = N'IX_game_profile_statistic_timestamp_code_profile_id_game_id')
-DROP INDEX [IX_game_profile_statistic_timestamp_code_profile_id_game_id] ON [dbo].[game_profile_statistic_timestamp]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code')
+DROP INDEX [IX_game_profile_statistic_item_code] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_profile_id')
+DROP INDEX [IX_game_profile_statistic_item_profile_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_username')
+DROP INDEX [IX_game_profile_statistic_item_username] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_game_id')
+DROP INDEX [IX_game_profile_statistic_item_game_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_game_id')
+DROP INDEX [IX_game_profile_statistic_item_code_game_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_game_id_level')
+DROP INDEX [IX_game_profile_statistic_item_code_game_id_level] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_profile_id_game_id')
+DROP INDEX [IX_game_profile_statistic_item_profile_id_game_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_username_game_id')
+DROP INDEX [IX_game_profile_statistic_item_username_game_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_username')
+DROP INDEX [IX_game_profile_statistic_item_code_username] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_username_game_id')
+DROP INDEX [IX_game_profile_statistic_item_code_username_game_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_username_game_id_type')
+DROP INDEX [IX_game_profile_statistic_item_code_username_game_id_type] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_profile_id')
+DROP INDEX [IX_game_profile_statistic_item_code_profile_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_profile_id_game_id')
+DROP INDEX [IX_game_profile_statistic_item_code_profile_id_game_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_profile_id_game_id_type')
+DROP INDEX [IX_game_profile_statistic_item_code_profile_id_game_id_type] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_game_id_profile_id')
+DROP INDEX [IX_game_profile_statistic_item_code_game_id_profile_id] ON [dbo].[game_profile_statistic_item]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_profile_statistic_item]') AND name = N'IX_game_profile_statistic_item_code_game_id_type')
+DROP INDEX [IX_game_profile_statistic_item_code_game_id_type] ON [dbo].[game_profile_statistic_item]
 GO
    
 -- -----------------------------------------------------------------------------
@@ -2410,7 +2475,103 @@ GO
         
 -- INDEX CREATES
 
-CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_timestamp_code_profile_id_game_id] ON [dbo].[game_profile_statistic_timestamp] 
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [code] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_profile_id] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [profile_id] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_username] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [username] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_game_id] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [game_id] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_game_id] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [game_id] ASC
+                    
+    , [code] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_game_id_level] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [game_id] ASC
+                    
+    , [code] ASC
+                    
+    , [level] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_profile_id_game_id] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [game_id] ASC
+                    
+    , [profile_id] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_username_game_id] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [username] ASC
+                    
+    , [game_id] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_username] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [username] ASC
+                    
+    , [code] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_username_game_id] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [username] ASC
+                    
+    , [game_id] ASC
+                    
+    , [code] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_username_game_id_type] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [username] ASC
+                    
+    , [game_id] ASC
+                    
+    , [code] ASC
+                    
+    , [type] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_profile_id] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [profile_id] ASC
+                    
+    , [code] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_profile_id_game_id] ON [dbo].[game_profile_statistic_item] 
 (
                     
     [profile_id] ASC
@@ -2418,6 +2579,38 @@ CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_timestamp_code_profile_id_g
     , [game_id] ASC
                     
     , [code] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_profile_id_game_id_type] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [profile_id] ASC
+                    
+    , [game_id] ASC
+                    
+    , [code] ASC
+                    
+    , [type] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_game_id_profile_id] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [profile_id] ASC
+                    
+    , [game_id] ASC
+                    
+    , [code] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_game_profile_statistic_item_code_game_id_type] ON [dbo].[game_profile_statistic_item] 
+(
+                    
+    [game_id] ASC
+                    
+    , [code] ASC
+                    
+    , [type] ASC
 )
 GO
         
@@ -29722,30 +29915,30 @@ GO
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameProfileStatisticTimestamp - game_profile_statistic_timestamp
+-- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_count]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_count
+CREATE PROCEDURE usp_game_profile_statistic_item_count
 AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_count_uuid
+CREATE PROCEDURE usp_game_profile_statistic_item_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -29753,18 +29946,98 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_count_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_count_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_count_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_count_code
+(
+    @code varchar (500) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_count_game_id
+(
+    @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_code_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_count_code_game_id
+(
+    @code varchar (500) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_profile_id_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_count_profile_id_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_code_profile_id_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_count_code_profile_id_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -29774,7 +30047,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [profile_id] = @profile_id
@@ -29782,23 +30055,23 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_count_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_count_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_code_profile_id_game_id_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_count_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_count_code_profile_id_game_id_timestamp
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
-    , @timestamp DATETIME = GETDATE
+    , @timestamp float = NULL
 )
 AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [profile_id] = @profile_id
@@ -29810,15 +30083,15 @@ GO
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameProfileStatisticTimestamp - game_profile_statistic_timestamp
+-- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_browse_filter
+CREATE PROCEDURE usp_game_profile_statistic_item_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -29844,17 +30117,23 @@ BEGIN
     SET @sql = @sql + @sort
     SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
     SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [username]'
     SET @sql = @sql + ', [code]'
-    SET @sql = @sql + ', [uuid]'
-    SET @sql = @sql + ', [timestamp]'
-    SET @sql = @sql + ', [date_modified]'
-    SET @sql = @sql + ', [active]'
-    SET @sql = @sql + ', [date_created]'
-    SET @sql = @sql + ', [game_id]'
+    SET @sql = @sql + ', [stat_value_formatted]'
     SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [game_id]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [stat_value]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [level]'
+    SET @sql = @sql + ', [points]'
+    SET @sql = @sql + ', [timestamp]'
+    SET @sql = @sql + ', [date_created]'
     SET @sql = @sql + ', [type]'
 
-    SET @sql = @sql + ' FROM [dbo].[game_profile_statistic_timestamp] WHERE 1=1 '
+    SET @sql = @sql + ' FROM [dbo].[game_profile_statistic_item] WHERE 1=1 '
     BEGIN
         IF @filter IS NOT NULL AND @filter != ''
         SET @sql = @sql + ' ' + @filter + ' '			
@@ -29885,26 +30164,32 @@ GO
 -- SET
 
 -- ------------------------------------
--- MODEL: GameProfileStatisticTimestamp - game_profile_statistic_timestamp
+-- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_set_uuid
+CREATE PROCEDURE usp_game_profile_statistic_item_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
     , @code varchar (500) = NULL
-    , @uuid uniqueidentifier 
-    , @timestamp DATETIME = GETDATE
-    , @date_modified DATETIME = GETDATE
-    , @active bit = NULL
-    , @date_created DATETIME = GETDATE
-    , @game_id uniqueidentifier = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @points float = NULL
+    , @timestamp float = NULL
+    , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
 AS
@@ -29927,7 +30212,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_profile_statistic_timestamp]  
+                FROM  [dbo].[game_profile_statistic_item]  
                 WHERE 1=1
                 AND [uuid] = @uuid
 	    END
@@ -29938,17 +30223,23 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_profile_statistic_timestamp] 
+                UPDATE [dbo].[game_profile_statistic_item] 
                 SET
                     [status] = @status
+                    , [username] = @username
                     , [code] = @code
-                    , [uuid] = @uuid
-                    , [timestamp] = @timestamp
-                    , [date_modified] = @date_modified
-                    , [active] = @active
-                    , [date_created] = @date_created
-                    , [game_id] = @game_id
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [points] = @points
+                    , [timestamp] = @timestamp
+                    , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
                 AND [uuid] = @uuid
@@ -29959,30 +30250,42 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_profile_statistic_timestamp]
+                INSERT INTO [dbo].[game_profile_statistic_item]
                 (
                     [status]
+                    , [username]
                     , [code]
-                    , [uuid]
-                    , [timestamp]
-                    , [date_modified]
-                    , [active]
-                    , [date_created]
-                    , [game_id]
+                    , [stat_value_formatted]
                     , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [data]
+                    , [stat_value]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [points]
+                    , [timestamp]
+                    , [date_created]
                     , [type]
                 )
                 VALUES
                 (
                     @status
+                    , @username
                     , @code
-                    , @uuid
-                    , @timestamp
-                    , @date_modified
-                    , @active
-                    , @date_created
-                    , @game_id
+                    , @stat_value_formatted
                     , @profile_id
+                    , @active
+                    , @game_id
+                    , @data
+                    , @stat_value
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @points
+                    , @timestamp
+                    , @date_created
                     , @type
                 )                    
                 SET @id=1                    
@@ -29993,23 +30296,29 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_set_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_set_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_uuid_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_uuid_profile_id_game_id_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_set_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_set_uuid_profile_id_game_id_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
     , @code varchar (500) = NULL
-    , @uuid uniqueidentifier 
-    , @timestamp DATETIME = GETDATE
-    , @date_modified DATETIME = GETDATE
-    , @active bit = NULL
-    , @date_created DATETIME = GETDATE
-    , @game_id uniqueidentifier = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @points float = NULL
+    , @timestamp float = NULL
+    , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
 AS
@@ -30032,11 +30341,12 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_profile_statistic_timestamp]  
+                FROM  [dbo].[game_profile_statistic_item]  
                 WHERE 1=1
-                AND LOWER([code]) = LOWER(@code)
+                AND [uuid] = @uuid
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
 	    END
 	END
 
@@ -30045,22 +30355,29 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_profile_statistic_timestamp] 
+                UPDATE [dbo].[game_profile_statistic_item] 
                 SET
                     [status] = @status
+                    , [username] = @username
                     , [code] = @code
-                    , [uuid] = @uuid
-                    , [timestamp] = @timestamp
-                    , [date_modified] = @date_modified
-                    , [active] = @active
-                    , [date_created] = @date_created
-                    , [game_id] = @game_id
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [points] = @points
+                    , [timestamp] = @timestamp
+                    , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
-                AND LOWER([code]) = LOWER(@code)
+                AND [uuid] = @uuid
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
                 SET @id=1
             END
         END
@@ -30068,30 +30385,42 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_profile_statistic_timestamp]
+                INSERT INTO [dbo].[game_profile_statistic_item]
                 (
                     [status]
+                    , [username]
                     , [code]
-                    , [uuid]
-                    , [timestamp]
-                    , [date_modified]
-                    , [active]
-                    , [date_created]
-                    , [game_id]
+                    , [stat_value_formatted]
                     , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [data]
+                    , [stat_value]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [points]
+                    , [timestamp]
+                    , [date_created]
                     , [type]
                 )
                 VALUES
                 (
                     @status
+                    , @username
                     , @code
-                    , @uuid
-                    , @timestamp
-                    , @date_modified
-                    , @active
-                    , @date_created
-                    , @game_id
+                    , @stat_value_formatted
                     , @profile_id
+                    , @active
+                    , @game_id
+                    , @data
+                    , @stat_value
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @points
+                    , @timestamp
+                    , @date_created
                     , @type
                 )                    
                 SET @id=1                    
@@ -30102,23 +30431,29 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_set_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_set_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_profile_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_profile_id_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_set_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_set_profile_id_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
     , @code varchar (500) = NULL
-    , @uuid uniqueidentifier 
-    , @timestamp DATETIME = GETDATE
-    , @date_modified DATETIME = GETDATE
-    , @active bit = NULL
-    , @date_created DATETIME = GETDATE
-    , @game_id uniqueidentifier = NULL
+    , @stat_value_formatted varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @points float = NULL
+    , @timestamp float = NULL
+    , @date_created DATETIME = GETDATE
     , @type varchar (500) = NULL
 )
 AS
@@ -30141,7 +30476,271 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_profile_statistic_timestamp]  
+                FROM  [dbo].[game_profile_statistic_item]  
+                WHERE 1=1
+                AND [profile_id] = @profile_id
+                AND LOWER([code]) = LOWER(@code)
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_profile_statistic_item] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [points] = @points
+                    , [timestamp] = @timestamp
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [profile_id] = @profile_id
+                AND LOWER([code]) = LOWER(@code)
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_profile_statistic_item]
+                (
+                    [status]
+                    , [username]
+                    , [code]
+                    , [stat_value_formatted]
+                    , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [data]
+                    , [stat_value]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [points]
+                    , [timestamp]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @code
+                    , @stat_value_formatted
+                    , @profile_id
+                    , @active
+                    , @game_id
+                    , @data
+                    , @stat_value
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @points
+                    , @timestamp
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_profile_id_code_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_profile_id_code_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_set_profile_id_code_timestamp
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @code varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @points float = NULL
+    , @timestamp float = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_profile_statistic_item]  
+                WHERE 1=1
+                AND [profile_id] = @profile_id
+                AND LOWER([code]) = LOWER(@code)
+                AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_profile_statistic_item] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [points] = @points
+                    , [timestamp] = @timestamp
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [profile_id] = @profile_id
+                AND LOWER([code]) = LOWER(@code)
+                AND [timestamp] = @timestamp
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_profile_statistic_item]
+                (
+                    [status]
+                    , [username]
+                    , [code]
+                    , [stat_value_formatted]
+                    , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [data]
+                    , [stat_value]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [points]
+                    , [timestamp]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @code
+                    , @stat_value_formatted
+                    , @profile_id
+                    , @active
+                    , @game_id
+                    , @data
+                    , @stat_value
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @points
+                    , @timestamp
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_code_profile_id_game_id_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_set_code_profile_id_game_id_timestamp
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @code varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @points float = NULL
+    , @timestamp float = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_profile_statistic_item]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [profile_id] = @profile_id
@@ -30155,17 +30754,23 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_profile_statistic_timestamp] 
+                UPDATE [dbo].[game_profile_statistic_item] 
                 SET
                     [status] = @status
+                    , [username] = @username
                     , [code] = @code
-                    , [uuid] = @uuid
-                    , [timestamp] = @timestamp
-                    , [date_modified] = @date_modified
-                    , [active] = @active
-                    , [date_created] = @date_created
-                    , [game_id] = @game_id
+                    , [stat_value_formatted] = @stat_value_formatted
                     , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [points] = @points
+                    , [timestamp] = @timestamp
+                    , [date_created] = @date_created
                     , [type] = @type
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
@@ -30179,30 +30784,175 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_profile_statistic_timestamp]
+                INSERT INTO [dbo].[game_profile_statistic_item]
                 (
                     [status]
+                    , [username]
                     , [code]
-                    , [uuid]
-                    , [timestamp]
-                    , [date_modified]
-                    , [active]
-                    , [date_created]
-                    , [game_id]
+                    , [stat_value_formatted]
                     , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [data]
+                    , [stat_value]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [points]
+                    , [timestamp]
+                    , [date_created]
                     , [type]
                 )
                 VALUES
                 (
                     @status
+                    , @username
                     , @code
-                    , @uuid
-                    , @timestamp
-                    , @date_modified
-                    , @active
-                    , @date_created
-                    , @game_id
+                    , @stat_value_formatted
                     , @profile_id
+                    , @active
+                    , @game_id
+                    , @data
+                    , @stat_value
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @points
+                    , @timestamp
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_code_profile_id_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_set_code_profile_id_game_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @code varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @game_id uniqueidentifier = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @points float = NULL
+    , @timestamp float = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_profile_statistic_item]  
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_profile_statistic_item] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [points] = @points
+                    , [timestamp] = @timestamp
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_profile_statistic_item]
+                (
+                    [status]
+                    , [username]
+                    , [code]
+                    , [stat_value_formatted]
+                    , [profile_id]
+                    , [active]
+                    , [game_id]
+                    , [data]
+                    , [stat_value]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [points]
+                    , [timestamp]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @code
+                    , @stat_value_formatted
+                    , @profile_id
+                    , @active
+                    , @game_id
+                    , @data
+                    , @stat_value
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @points
+                    , @timestamp
+                    , @date_created
                     , @type
                 )                    
                 SET @id=1                    
@@ -30216,85 +30966,101 @@ GO
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameProfileStatisticTimestamp - game_profile_statistic_timestamp
+-- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_del_uuid
+CREATE PROCEDURE usp_game_profile_statistic_item_del_uuid
 (
     @uuid uniqueidentifier 
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1                        
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_del_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_del_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_code_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_del_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_del_code_game_id
 (
     @code varchar (500) = NULL
-    , @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_profile_id_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_del_profile_id_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1                        
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_del_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_del_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_code_profile_id_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_del_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_del_code_profile_id_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
-    , @timestamp DATETIME = GETDATE
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
-    AND [timestamp] = @timestamp
 END
 GO
 -- ------------------------------------
 -- GET
 
 -- ------------------------------------
--- MODEL: GameProfileStatisticTimestamp - game_profile_statistic_timestamp
+-- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_get_uuid
+CREATE PROCEDURE usp_game_profile_statistic_item_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -30302,27 +31068,211 @@ AS
 BEGIN
     SELECT
         [status]
+        , [username]
         , [code]
-        , [uuid]
-        , [timestamp]
-        , [date_modified]
-        , [active]
-        , [date_created]
-        , [game_id]
+        , [stat_value_formatted]
         , [profile_id]
+        , [active]
+        , [game_id]
+        , [data]
+        , [stat_value]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [points]
+        , [timestamp]
+        , [date_created]
         , [type]
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_get_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_get_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_get_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_get_code
+(
+    @code varchar (500) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [code]
+        , [stat_value_formatted]
+        , [profile_id]
+        , [active]
+        , [game_id]
+        , [data]
+        , [stat_value]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [points]
+        , [timestamp]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_get_game_id
+(
+    @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [code]
+        , [stat_value_formatted]
+        , [profile_id]
+        , [active]
+        , [game_id]
+        , [data]
+        , [stat_value]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [points]
+        , [timestamp]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_code_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_get_code_game_id
+(
+    @code varchar (500) = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [code]
+        , [stat_value_formatted]
+        , [profile_id]
+        , [active]
+        , [game_id]
+        , [data]
+        , [stat_value]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [points]
+        , [timestamp]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_profile_id_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_get_profile_id_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [code]
+        , [stat_value_formatted]
+        , [profile_id]
+        , [active]
+        , [game_id]
+        , [data]
+        , [stat_value]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [points]
+        , [timestamp]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_profile_id_game_id_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_get_profile_id_game_id_timestamp
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+    , @timestamp float = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [username]
+        , [code]
+        , [stat_value_formatted]
+        , [profile_id]
+        , [active]
+        , [game_id]
+        , [data]
+        , [stat_value]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [points]
+        , [timestamp]
+        , [date_created]
+        , [type]
+    FROM [dbo].[game_profile_statistic_item]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+    AND [timestamp] = @timestamp
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_code_profile_id_game_id]
+
+GO
+
+CREATE PROCEDURE usp_game_profile_statistic_item_get_code_profile_id_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -30332,16 +31282,22 @@ AS
 BEGIN
     SELECT
         [status]
+        , [username]
         , [code]
-        , [uuid]
-        , [timestamp]
-        , [date_modified]
-        , [active]
-        , [date_created]
-        , [game_id]
+        , [stat_value_formatted]
         , [profile_id]
+        , [active]
+        , [game_id]
+        , [data]
+        , [stat_value]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [points]
+        , [timestamp]
+        , [date_created]
         , [type]
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [profile_id] = @profile_id
@@ -30349,32 +31305,38 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_timestamp_get_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_timestamp_get_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_code_profile_id_game_id_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_timestamp_get_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_get_code_profile_id_game_id_timestamp
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
-    , @timestamp DATETIME = GETDATE
+    , @timestamp float = NULL
 )
 AS
 BEGIN
     SELECT
         [status]
+        , [username]
         , [code]
-        , [uuid]
-        , [timestamp]
-        , [date_modified]
-        , [active]
-        , [date_created]
-        , [game_id]
+        , [stat_value_formatted]
         , [profile_id]
+        , [active]
+        , [game_id]
+        , [data]
+        , [stat_value]
+        , [uuid]
+        , [date_modified]
+        , [level]
+        , [points]
+        , [timestamp]
+        , [date_created]
         , [type]
-    FROM [dbo].[game_profile_statistic_timestamp]
+    FROM [dbo].[game_profile_statistic_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [profile_id] = @profile_id

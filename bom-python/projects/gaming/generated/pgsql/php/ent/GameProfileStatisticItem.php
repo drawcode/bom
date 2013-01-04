@@ -7,7 +7,7 @@ require_once('BaseEntity.php');
 
 //use ent;
 
-class GameProfileStatisticTimestampResult {
+class GameProfileStatisticItemResult {
 
     public $page = 1;
     public $page_size = 10;
@@ -21,7 +21,7 @@ class GameProfileStatisticTimestampResult {
     }
 
 }
-class GameProfileStatisticTimestamp extends BaseEntity { 
+class GameProfileStatisticItem extends BaseEntity { 
 
     private static $instance; 
 
@@ -35,10 +35,17 @@ class GameProfileStatisticTimestamp extends BaseEntity {
     
     }
     
-    public $profile_id;
-    public $game_id;
+    public $username;
     public $code;
     public $timestamp;
+    public $level;
+    public $stat_value_formatted;
+    public $profile_id;
+    public $points;
+    public $type;
+    public $game_id;
+    public $data;
+    public $stat_value;
 
     public function __construct() {
         

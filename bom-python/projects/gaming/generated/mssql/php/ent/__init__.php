@@ -27,7 +27,7 @@ require_once('GameLiveQueue.php');
 require_once('GameLiveRecentQueue.php');
 require_once('GameProfileStatistic.php');
 require_once('GameStatisticMeta.php');
-require_once('GameProfileStatisticTimestamp.php');
+require_once('GameProfileStatisticItem.php');
 require_once('GameKeyMeta.php');
 require_once('GameLevel.php');
 require_once('GameProfileAchievement.php');

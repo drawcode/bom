@@ -1198,7 +1198,7 @@ namespace gaming {
     
 //------------------------------------------------------------------------------
         
-    public class BaseResponseGameProfileStatisticTimestamp {
+    public class BaseResponseGameProfileStatisticItem {
         public string message = "Success";
         public int code = 0;
         public Dictionary<string, object> info
@@ -1208,33 +1208,33 @@ namespace gaming {
         public string action = "";
     }        
 
-    public class ResponseGameProfileStatisticTimestampString : BaseResponseGameProfileStatisticTimestamp {
+    public class ResponseGameProfileStatisticItemString : BaseResponseGameProfileStatisticItem {
         public string data = "";
     }
     
-    public class ResponseGameProfileStatisticTimestampBool : BaseResponseGameProfileStatisticTimestamp {
+    public class ResponseGameProfileStatisticItemBool : BaseResponseGameProfileStatisticItem {
         public bool data;
     }
     
-    public class ResponseGameProfileStatisticTimestampInt : BaseResponseGameProfileStatisticTimestamp {
+    public class ResponseGameProfileStatisticItemInt : BaseResponseGameProfileStatisticItem {
         public int data;
     }
     
-    public class ResponseGameProfileStatisticTimestampObject : BaseResponseGameProfileStatisticTimestamp {
-        public GameProfileStatisticTimestamp data = new GameProfileStatisticTimestamp();
+    public class ResponseGameProfileStatisticItemObject : BaseResponseGameProfileStatisticItem {
+        public GameProfileStatisticItem data = new GameProfileStatisticItem();
     }
     
-    public class ResponseGameProfileStatisticTimestampResult : BaseResponseGameProfileStatisticTimestamp {
-        public GameProfileStatisticTimestampResult data = new GameProfileStatisticTimestampResult();
+    public class ResponseGameProfileStatisticItemResult : BaseResponseGameProfileStatisticItem {
+        public GameProfileStatisticItemResult data = new GameProfileStatisticItemResult();
     }
     
-    public class ResponseGameProfileStatisticTimestampList : BaseResponseGameProfileStatisticTimestamp {
-        public List<GameProfileStatisticTimestamp> data = new List<GameProfileStatisticTimestamp>();
+    public class ResponseGameProfileStatisticItemList : BaseResponseGameProfileStatisticItem {
+        public List<GameProfileStatisticItem> data = new List<GameProfileStatisticItem>();
     }
     
-    public class ResponseGameProfileStatisticTimestampDict : BaseResponseGameProfileStatisticTimestamp {
-        public Dictionary<string, GameProfileStatisticTimestamp> data
-            = new Dictionary<string, GameProfileStatisticTimestamp>();
+    public class ResponseGameProfileStatisticItemDict : BaseResponseGameProfileStatisticItem {
+        public Dictionary<string, GameProfileStatisticItem> data
+            = new Dictionary<string, GameProfileStatisticItem>();
     }
     
 //------------------------------------------------------------------------------

@@ -103,8 +103,8 @@ if (!window.gaming.game_profile_statistic)
 if (!window.gaming.game_statistic_meta)
     window.gaming.game_statistic_meta = {};
    
-if (!window.gaming.game_profile_statistic_timestamp)
-    window.gaming.game_profile_statistic_timestamp = {};
+if (!window.gaming.game_profile_statistic_item)
+    window.gaming.game_profile_statistic_item = {};
    
 if (!window.gaming.game_key_meta)
     window.gaming.game_key_meta = {};
@@ -156,7 +156,7 @@ gaming.gaming.global = function() {
     this.game_live_recent_queue_service = this.service_base + 'game_live_recent_queue/';
     this.game_profile_statistic_service = this.service_base + 'game_profile_statistic/';
     this.game_statistic_meta_service = this.service_base + 'game_statistic_meta/';
-    this.game_profile_statistic_timestamp_service = this.service_base + 'game_profile_statistic_timestamp/';
+    this.game_profile_statistic_item_service = this.service_base + 'game_profile_statistic_item/';
     this.game_key_meta_service = this.service_base + 'game_key_meta/';
     this.game_level_service = this.service_base + 'game_level/';
     this.game_profile_achievement_service = this.service_base + 'game_profile_achievement/';
@@ -29593,25 +29593,25 @@ gaming.game_statistic_meta.prototype = {
     }
 }
 //-------------------------------------------------
-gaming.game_profile_statistic_timestamp = function() {
+gaming.game_profile_statistic_item = function() {
     this.fn_callback;
     this.fn_callbacks;
     return_gaming_obj = this;
 }        
         
-gaming.game_profile_statistic_timestamp.prototype = {
+gaming.game_profile_statistic_item.prototype = {
     //-------------------------------------------------
     init: function() {
 
     } 
     ,
     //-------------------------------------------------
-    count_game_profile_statistic_timestamp: function
+    count_game_profile_statistic_item: function
     (
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'count'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'count'
                 + ""
                 ;
 
@@ -29624,7 +29624,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_game_profile_statistic_timestamp_callback: function(data) {
+    count_game_profile_statistic_item_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -29635,25 +29635,25 @@ gaming.game_profile_statistic_timestamp.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_callback", true);
+            _log("ERRORS::game_profile_statistic_item_count_game_profile_statistic_item_callback", true);
             // call a method that can be inline callback
-            try {error_count_game_profile_statistic_timestamp(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_timestamp: " + e);}
+            try {error_count_game_profile_statistic_item(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_item: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_count_game_profile_statistic_item_callback", false);
             // call a method that can be inline callback
-            try {handle_count_game_profile_statistic_timestamp(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_timestamp: " + e);}
+            try {handle_count_game_profile_statistic_item(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_item: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_game_profile_statistic_timestamp_uuid: function
+    count_game_profile_statistic_item_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'count'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'count'
                 + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
@@ -29667,7 +29667,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_game_profile_statistic_timestamp_uuid_callback: function(data) {
+    count_game_profile_statistic_item_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -29678,19 +29678,195 @@ gaming.game_profile_statistic_timestamp.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_uuid_callback", true);
+            _log("ERRORS::game_profile_statistic_item_count_game_profile_statistic_item_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_timestamp_uuid: " + e);}
+            try {error_count_game_profile_statistic_item_uuid(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_item_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_uuid_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_count_game_profile_statistic_item_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_timestamp_uuid: " + e);}
+            try {handle_count_game_profile_statistic_item_uuid(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_item_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_game_profile_statistic_timestamp_code_profile_id_game_id: function
+    count_game_profile_statistic_item_code: function
+    (
+        code,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'count'
+                + "/code"
+                + "/@code/" + code            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_item_code_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_count_game_profile_statistic_item_code_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_profile_statistic_item_code(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_item_code: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_count_game_profile_statistic_item_code_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_profile_statistic_item_code(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_item_code: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_item_game_id: function
+    (
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'count'
+                + "/game-id"
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_item_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_count_game_profile_statistic_item_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_profile_statistic_item_game_id(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_item_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_count_game_profile_statistic_item_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_profile_statistic_item_game_id(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_item_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_item_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'count'
+                + "/code/game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_item_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_count_game_profile_statistic_item_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_profile_statistic_item_code_game_id(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_item_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_count_game_profile_statistic_item_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_profile_statistic_item_code_game_id(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_item_code_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_item_profile_id_game_id: function
+    (
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'count'
+                + "/profile-id/game-id"
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_item_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_count_game_profile_statistic_item_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_profile_statistic_item_profile_id_game_id(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_item_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_count_game_profile_statistic_item_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_profile_statistic_item_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_item_profile_id_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_profile_statistic_item_code_profile_id_game_id: function
     (
         code,
         profile_id,
@@ -29698,7 +29874,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'count'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'count'
                 + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
@@ -29714,7 +29890,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_game_profile_statistic_timestamp_code_profile_id_game_id_callback: function(data) {
+    count_game_profile_statistic_item_code_profile_id_game_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -29725,19 +29901,19 @@ gaming.game_profile_statistic_timestamp.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_code_profile_id_game_id_callback", true);
+            _log("ERRORS::game_profile_statistic_item_count_game_profile_statistic_item_code_profile_id_game_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_game_profile_statistic_timestamp_code_profile_id_game_id(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_timestamp_code_profile_id_game_id: " + e);}
+            try {error_count_game_profile_statistic_item_code_profile_id_game_id(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_item_code_profile_id_game_id: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_code_profile_id_game_id_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_count_game_profile_statistic_item_code_profile_id_game_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_game_profile_statistic_timestamp_code_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_timestamp_code_profile_id_game_id: " + e);}
+            try {handle_count_game_profile_statistic_item_code_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_item_code_profile_id_game_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: function
+    count_game_profile_statistic_item_code_profile_id_game_id_timestamp: function
     (
         code,
         profile_id,
@@ -29746,7 +29922,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'count'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'count'
                 + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
@@ -29763,7 +29939,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback: function(data) {
+    count_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -29774,19 +29950,19 @@ gaming.game_profile_statistic_timestamp.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback", true);
+            _log("ERRORS::game_profile_statistic_item_count_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback", true);
             // call a method that can be inline callback
-            try {error_count_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: " + e);}
+            try {error_count_game_profile_statistic_item_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_count_game_profile_statistic_item_code_profile_id_game_id_timestamp: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_count_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_count_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback", false);
             // call a method that can be inline callback
-            try {handle_count_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: " + e);}
+            try {handle_count_game_profile_statistic_item_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_count_game_profile_statistic_item_code_profile_id_game_id_timestamp: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_game_profile_statistic_timestamp_filter: function
+    browse_game_profile_statistic_item_filter: function
     (
         page,
         page_size,
@@ -29794,7 +29970,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'browse'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'browse'
                 + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
@@ -29810,7 +29986,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_game_profile_statistic_timestamp_filter_callback: function(data) {
+    browse_game_profile_statistic_item_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -29820,35 +29996,41 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_browse_game_profile_statistic_timestamp_filter_callback", true);
+            _log("ERRORS::game_profile_statistic_item_browse_game_profile_statistic_item_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_game_profile_statistic_timestamp_filter(data);} catch(e) { _log("Error calling: error_browse_game_profile_statistic_timestamp_filter: " + e);}
+            try {error_browse_game_profile_statistic_item_filter(data);} catch(e) { _log("Error calling: error_browse_game_profile_statistic_item_filter: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_browse_game_profile_statistic_timestamp_filter_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_browse_game_profile_statistic_item_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_game_profile_statistic_timestamp_filter(data);} catch(e) { _log("Error calling: handle_browse_game_profile_statistic_timestamp_filter: " + e);}
+            try {handle_browse_game_profile_statistic_item_filter(data);} catch(e) { _log("Error calling: handle_browse_game_profile_statistic_item_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_game_profile_statistic_timestamp_uuid: function
+    set_game_profile_statistic_item_uuid: function
     (
         status,
+        username,
         code,
-        uuid,
-        timestamp,
-        date_modified,
-        active,
-        date_created,
-        game_id,
+        stat_value_formatted,
         profile_id,
+        active,
+        game_id,
+        data,
+        stat_value,
+        uuid,
+        date_modified,
+        level,
+        points,
+        timestamp,
+        date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'set'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'set'
                 + "/uuid"
                 + "/@uuid/" + uuid            
                         
@@ -29859,14 +30041,20 @@ gaming.game_profile_statistic_timestamp.prototype = {
         var obj = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
             , "@status": status
+            , "@username": username
             , "@code": code
-            , "@uuid": uuid
-            , "@timestamp": timestamp
-            , "@date_modified": date_modified
-            , "@active": active
-            , "@date_created": date_created
-            , "@game_id": game_id
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@points": points
+            , "@timestamp": timestamp
+            , "@date_created": date_created
             , "@type": type
         }
 
@@ -29876,7 +30064,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_game_profile_statistic_timestamp_uuid_callback: function(data) {
+    set_game_profile_statistic_item_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -29886,38 +30074,45 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_set_game_profile_statistic_timestamp_uuid_callback", true);
+            _log("ERRORS::game_profile_statistic_item_set_game_profile_statistic_item_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_timestamp_uuid: " + e);}
+            try {error_set_game_profile_statistic_item_uuid(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_item_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_set_game_profile_statistic_timestamp_uuid_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_set_game_profile_statistic_item_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_timestamp_uuid: " + e);}
+            try {handle_set_game_profile_statistic_item_uuid(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_item_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_game_profile_statistic_timestamp_code_profile_id_game_id: function
+    set_game_profile_statistic_item_uuid_profile_id_game_id_timestamp: function
     (
         status,
+        username,
         code,
-        uuid,
-        timestamp,
-        date_modified,
-        active,
-        date_created,
-        game_id,
+        stat_value_formatted,
         profile_id,
+        active,
+        game_id,
+        data,
+        stat_value,
+        uuid,
+        date_modified,
+        level,
+        points,
+        timestamp,
+        date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'set'
-                + "/code/profile-id/game-id"
-                + "/@code/" + code            
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'set'
+                + "/uuid/profile-id/game-id/timestamp"
+                + "/@uuid/" + uuid            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
+                + "/@timestamp/" + timestamp            
                         
                 ;
 
@@ -29926,14 +30121,20 @@ gaming.game_profile_statistic_timestamp.prototype = {
         var obj = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
             , "@status": status
+            , "@username": username
             , "@code": code
-            , "@uuid": uuid
-            , "@timestamp": timestamp
-            , "@date_modified": date_modified
-            , "@active": active
-            , "@date_created": date_created
-            , "@game_id": game_id
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@points": points
+            , "@timestamp": timestamp
+            , "@date_created": date_created
             , "@type": type
         }
 
@@ -29943,7 +30144,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_game_profile_statistic_timestamp_code_profile_id_game_id_callback: function(data) {
+    set_game_profile_statistic_item_uuid_profile_id_game_id_timestamp_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -29953,34 +30154,197 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_set_game_profile_statistic_timestamp_code_profile_id_game_id_callback", true);
+            _log("ERRORS::game_profile_statistic_item_set_game_profile_statistic_item_uuid_profile_id_game_id_timestamp_callback", true);
             // call a method that can be inline callback
-            try {error_set_game_profile_statistic_timestamp_code_profile_id_game_id(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_timestamp_code_profile_id_game_id: " + e);}
+            try {error_set_game_profile_statistic_item_uuid_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_item_uuid_profile_id_game_id_timestamp: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_set_game_profile_statistic_timestamp_code_profile_id_game_id_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_set_game_profile_statistic_item_uuid_profile_id_game_id_timestamp_callback", false);
             // call a method that can be inline callback
-            try {handle_set_game_profile_statistic_timestamp_code_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_timestamp_code_profile_id_game_id: " + e);}
+            try {handle_set_game_profile_statistic_item_uuid_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_item_uuid_profile_id_game_id_timestamp: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: function
+    set_game_profile_statistic_item_profile_id_code: function
     (
         status,
+        username,
         code,
-        uuid,
-        timestamp,
-        date_modified,
-        active,
-        date_created,
-        game_id,
+        stat_value_formatted,
         profile_id,
+        active,
+        game_id,
+        data,
+        stat_value,
+        uuid,
+        date_modified,
+        level,
+        points,
+        timestamp,
+        date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'set'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'set'
+                + "/profile-id/code"
+                + "/@profile_id/" + profile_id            
+                + "/@code/" + code            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@stat_value_formatted": stat_value_formatted
+            , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@points": points
+            , "@timestamp": timestamp
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_profile_statistic_item_profile_id_code_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_set_game_profile_statistic_item_profile_id_code_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_profile_statistic_item_profile_id_code(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_item_profile_id_code: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_set_game_profile_statistic_item_profile_id_code_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_profile_statistic_item_profile_id_code(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_item_profile_id_code: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    set_game_profile_statistic_item_profile_id_code_timestamp: function
+    (
+        status,
+        username,
+        code,
+        stat_value_formatted,
+        profile_id,
+        active,
+        game_id,
+        data,
+        stat_value,
+        uuid,
+        date_modified,
+        level,
+        points,
+        timestamp,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'set'
+                + "/profile-id/code/timestamp"
+                + "/@profile_id/" + profile_id            
+                + "/@code/" + code            
+                + "/@timestamp/" + timestamp            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@stat_value_formatted": stat_value_formatted
+            , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@points": points
+            , "@timestamp": timestamp
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_profile_statistic_item_profile_id_code_timestamp_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_set_game_profile_statistic_item_profile_id_code_timestamp_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_profile_statistic_item_profile_id_code_timestamp(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_item_profile_id_code_timestamp: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_set_game_profile_statistic_item_profile_id_code_timestamp_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_profile_statistic_item_profile_id_code_timestamp(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_item_profile_id_code_timestamp: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    set_game_profile_statistic_item_code_profile_id_game_id_timestamp: function
+    (
+        status,
+        username,
+        code,
+        stat_value_formatted,
+        profile_id,
+        active,
+        game_id,
+        data,
+        stat_value,
+        uuid,
+        date_modified,
+        level,
+        points,
+        timestamp,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'set'
                 + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
@@ -29994,14 +30358,20 @@ gaming.game_profile_statistic_timestamp.prototype = {
         var obj = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
             , "@status": status
+            , "@username": username
             , "@code": code
-            , "@uuid": uuid
-            , "@timestamp": timestamp
-            , "@date_modified": date_modified
-            , "@active": active
-            , "@date_created": date_created
-            , "@game_id": game_id
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@points": points
+            , "@timestamp": timestamp
+            , "@date_created": date_created
             , "@type": type
         }
 
@@ -30011,7 +30381,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback: function(data) {
+    set_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -30021,25 +30391,104 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_set_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback", true);
+            _log("ERRORS::game_profile_statistic_item_set_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback", true);
             // call a method that can be inline callback
-            try {error_set_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: " + e);}
+            try {error_set_game_profile_statistic_item_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_item_code_profile_id_game_id_timestamp: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_set_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_set_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback", false);
             // call a method that can be inline callback
-            try {handle_set_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: " + e);}
+            try {handle_set_game_profile_statistic_item_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_item_code_profile_id_game_id_timestamp: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_game_profile_statistic_timestamp_uuid: function
+    set_game_profile_statistic_item_code_profile_id_game_id: function
+    (
+        status,
+        username,
+        code,
+        stat_value_formatted,
+        profile_id,
+        active,
+        game_id,
+        data,
+        stat_value,
+        uuid,
+        date_modified,
+        level,
+        points,
+        timestamp,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'set'
+                + "/code/profile-id/game-id"
+                + "/@code/" + code            
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@stat_value_formatted": stat_value_formatted
+            , "@profile_id": profile_id
+            , "@active": active
+            , "@game_id": game_id
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@points": points
+            , "@timestamp": timestamp
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_profile_statistic_item_code_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_set_game_profile_statistic_item_code_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_profile_statistic_item_code_profile_id_game_id(data);} catch(e) { _log("Error calling: error_set_game_profile_statistic_item_code_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_set_game_profile_statistic_item_code_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_profile_statistic_item_code_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_set_game_profile_statistic_item_code_profile_id_game_id: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    del_game_profile_statistic_item_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'del'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'del'
                 + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
@@ -30053,7 +30502,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_game_profile_statistic_timestamp_uuid_callback: function(data) {
+    del_game_profile_statistic_item_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -30063,20 +30512,110 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_del_game_profile_statistic_timestamp_uuid_callback", true);
+            _log("ERRORS::game_profile_statistic_item_del_game_profile_statistic_item_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: error_del_game_profile_statistic_timestamp_uuid: " + e);}
+            try {error_del_game_profile_statistic_item_uuid(data);} catch(e) { _log("Error calling: error_del_game_profile_statistic_item_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_del_game_profile_statistic_timestamp_uuid_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_del_game_profile_statistic_item_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: handle_del_game_profile_statistic_timestamp_uuid: " + e);}
+            try {handle_del_game_profile_statistic_item_uuid(data);} catch(e) { _log("Error calling: handle_del_game_profile_statistic_item_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_game_profile_statistic_timestamp_code_profile_id_game_id: function
+    del_game_profile_statistic_item_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'del'
+                + "/code/game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_profile_statistic_item_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_del_game_profile_statistic_item_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_profile_statistic_item_code_game_id(data);} catch(e) { _log("Error calling: error_del_game_profile_statistic_item_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_del_game_profile_statistic_item_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_profile_statistic_item_code_game_id(data);} catch(e) { _log("Error calling: handle_del_game_profile_statistic_item_code_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_profile_statistic_item_profile_id_game_id: function
+    (
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'del'
+                + "/profile-id/game-id"
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_profile_statistic_item_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_del_game_profile_statistic_item_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_profile_statistic_item_profile_id_game_id(data);} catch(e) { _log("Error calling: error_del_game_profile_statistic_item_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_del_game_profile_statistic_item_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_profile_statistic_item_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_del_game_profile_statistic_item_profile_id_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_profile_statistic_item_code_profile_id_game_id: function
     (
         code,
         profile_id,
@@ -30084,7 +30623,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'del'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'del'
                 + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
@@ -30100,7 +30639,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_game_profile_statistic_timestamp_code_profile_id_game_id_callback: function(data) {
+    del_game_profile_statistic_item_code_profile_id_game_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -30110,75 +30649,26 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_del_game_profile_statistic_timestamp_code_profile_id_game_id_callback", true);
+            _log("ERRORS::game_profile_statistic_item_del_game_profile_statistic_item_code_profile_id_game_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_game_profile_statistic_timestamp_code_profile_id_game_id(data);} catch(e) { _log("Error calling: error_del_game_profile_statistic_timestamp_code_profile_id_game_id: " + e);}
+            try {error_del_game_profile_statistic_item_code_profile_id_game_id(data);} catch(e) { _log("Error calling: error_del_game_profile_statistic_item_code_profile_id_game_id: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_del_game_profile_statistic_timestamp_code_profile_id_game_id_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_del_game_profile_statistic_item_code_profile_id_game_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_game_profile_statistic_timestamp_code_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_del_game_profile_statistic_timestamp_code_profile_id_game_id: " + e);}
+            try {handle_del_game_profile_statistic_item_code_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_del_game_profile_statistic_item_code_profile_id_game_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: function
-    (
-        code,
-        profile_id,
-        game_id,
-        timestamp,
-        fn
-    ){
-        this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'del'
-                + "/code/profile-id/game-id/timestamp"
-                + "/@code/" + code            
-                + "/@profile_id/" + profile_id            
-                + "/@game_id/" + game_id            
-                + "/@timestamp/" + timestamp            
-                ;
-
-        _log("serviceurl::", service_url);
-        
-        $.get(service_url,
-            None
-            , fn
-            , "json");
-    }
-    ,
-    //-------------------------------------------------
-    del_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback: function(data) {
-
-        _log("data", data);
-        _log("data.message", data.message);
-        _log("data.error", data.error);
-        _log("data.data", data.data);
-        _log("data.info", data.info);
-        _log("data.action", data.action);      
-      
-        if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_del_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback", true);
-            // call a method that can be inline callback
-            try {error_del_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_del_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: " + e);}
-        }
-        else {
-            _log("SUCCESS::game_profile_statistic_timestamp_del_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback", false);
-            // call a method that can be inline callback
-            try {handle_del_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_del_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: " + e);}
-        }
-        
-    }
-    ,
-    //-------------------------------------------------
-    get_game_profile_statistic_timestamp_uuid: function
+    get_game_profile_statistic_item_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'get'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'get'
                 + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
@@ -30193,7 +30683,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_game_profile_statistic_timestamp_uuid_callback: function(data) {
+    get_game_profile_statistic_item_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -30203,20 +30693,248 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_uuid_callback", true);
+            _log("ERRORS::game_profile_statistic_item_get_game_profile_statistic_item_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_timestamp_uuid: " + e);}
+            try {error_get_game_profile_statistic_item_uuid(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_item_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_uuid_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_get_game_profile_statistic_item_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_game_profile_statistic_timestamp_uuid(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_timestamp_uuid: " + e);}
+            try {handle_get_game_profile_statistic_item_uuid(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_item_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_game_profile_statistic_timestamp_code_profile_id_game_id: function
+    get_game_profile_statistic_item_code: function
+    (
+        code,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'get'
+                + "/code"
+                + "/@code/" + code            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_code_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_get_game_profile_statistic_item_code_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_profile_statistic_item_code(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_item_code: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_get_game_profile_statistic_item_code_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_profile_statistic_item_code(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_item_code: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_game_id: function
+    (
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'get'
+                + "/game-id"
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_get_game_profile_statistic_item_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_profile_statistic_item_game_id(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_item_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_get_game_profile_statistic_item_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_profile_statistic_item_game_id(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_item_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'get'
+                + "/code/game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_get_game_profile_statistic_item_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_profile_statistic_item_code_game_id(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_item_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_get_game_profile_statistic_item_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_profile_statistic_item_code_game_id(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_item_code_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_profile_id_game_id: function
+    (
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'get'
+                + "/profile-id/game-id"
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_get_game_profile_statistic_item_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_profile_statistic_item_profile_id_game_id(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_item_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_get_game_profile_statistic_item_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_profile_statistic_item_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_item_profile_id_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_profile_id_game_id_timestamp: function
+    (
+        profile_id,
+        game_id,
+        timestamp,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'get'
+                + "/profile-id/game-id/timestamp"
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                + "/@timestamp/" + timestamp            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_profile_id_game_id_timestamp_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_profile_statistic_item_get_game_profile_statistic_item_profile_id_game_id_timestamp_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_profile_statistic_item_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_item_profile_id_game_id_timestamp: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_profile_statistic_item_get_game_profile_statistic_item_profile_id_game_id_timestamp_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_profile_statistic_item_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_item_profile_id_game_id_timestamp: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_profile_statistic_item_code_profile_id_game_id: function
     (
         code,
         profile_id,
@@ -30224,7 +30942,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'get'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'get'
                 + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
@@ -30241,7 +30959,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_game_profile_statistic_timestamp_code_profile_id_game_id_callback: function(data) {
+    get_game_profile_statistic_item_code_profile_id_game_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -30251,20 +30969,20 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_code_profile_id_game_id_callback", true);
+            _log("ERRORS::game_profile_statistic_item_get_game_profile_statistic_item_code_profile_id_game_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_game_profile_statistic_timestamp_code_profile_id_game_id(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_timestamp_code_profile_id_game_id: " + e);}
+            try {error_get_game_profile_statistic_item_code_profile_id_game_id(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_item_code_profile_id_game_id: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_code_profile_id_game_id_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_get_game_profile_statistic_item_code_profile_id_game_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_game_profile_statistic_timestamp_code_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_timestamp_code_profile_id_game_id: " + e);}
+            try {handle_get_game_profile_statistic_item_code_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_item_code_profile_id_game_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: function
+    get_game_profile_statistic_item_code_profile_id_game_id_timestamp: function
     (
         code,
         profile_id,
@@ -30273,7 +30991,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
         fn
     ){
         this.fn_callback = fn;
-        var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'get'
+        var service_url = gaming_gaming_global.game_profile_statistic_item_service + 'get'
                 + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
@@ -30291,7 +31009,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback: function(data) {
+    get_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -30301,14 +31019,14 @@ gaming.game_profile_statistic_timestamp.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback", true);
+            _log("ERRORS::game_profile_statistic_item_get_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback", true);
             // call a method that can be inline callback
-            try {error_get_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: " + e);}
+            try {error_get_game_profile_statistic_item_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_get_game_profile_statistic_item_code_profile_id_game_id_timestamp: " + e);}
         }
         else {
-            _log("SUCCESS::game_profile_statistic_timestamp_get_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp_callback", false);
+            _log("SUCCESS::game_profile_statistic_item_get_game_profile_statistic_item_code_profile_id_game_id_timestamp_callback", false);
             // call a method that can be inline callback
-            try {handle_get_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_timestamp_code_profile_id_game_id_timestamp: " + e);}
+            try {handle_get_game_profile_statistic_item_code_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_get_game_profile_statistic_item_code_profile_id_game_id_timestamp: " + e);}
         }
         
     }

@@ -7189,79 +7189,123 @@ namespace gaming {
         
         
         
-        public virtual GameProfileStatisticTimestamp FillGameProfileStatisticTimestamp(DataRow dr) {
-            GameProfileStatisticTimestamp obj = new GameProfileStatisticTimestamp();
+        public virtual GameProfileStatisticItem FillGameProfileStatisticItem(DataRow dr) {
+            GameProfileStatisticItem obj = new GameProfileStatisticItem();
 
             if (dr["status"] != null)                    
                     obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["username"] != null)                    
+                    obj.username = dataType.FillDataString(dr, "username");                
             if (dr["code"] != null)                    
                     obj.code = dataType.FillDataString(dr, "code");                
-            if (dr["uuid"] != null)                    
-                    obj.uuid = dataType.FillDataString(dr, "uuid");                
-            if (dr["timestamp"] != null)                    
-                    obj.timestamp = dataType.FillDataDateTime(dr, "timestamp");                
-            if (dr["date_modified"] != null)                    
-                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
-            if (dr["active"] != null)                    
-                    obj.active = dataType.FillDataBool(dr, "active");                
-            if (dr["date_created"] != null)                    
-                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
-            if (dr["game_id"] != null)                    
-                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["stat_value_formatted"] != null)                    
+                    obj.stat_value_formatted = dataType.FillDataString(dr, "stat_value_formatted");                
             if (dr["profile_id"] != null)                    
                     obj.profile_id = dataType.FillDataString(dr, "profile_id");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["data"] != null)                    
+                    obj.data = dataType.FillDataString(dr, "data");                
+            if (dr["stat_value"] != null)                    
+                    obj.stat_value = dataType.FillDataFloat(dr, "stat_value");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["level"] != null)                    
+                    obj.level = dataType.FillDataString(dr, "level");                
+            if (dr["points"] != null)                    
+                    obj.points = dataType.FillDataFloat(dr, "points");                
+            if (dr["timestamp"] != null)                    
+                    obj.timestamp = dataType.FillDataFloat(dr, "timestamp");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
             if (dr["type"] != null)                    
                     obj.type = dataType.FillDataString(dr, "type");                
 
             return obj;
         }
         
-        public virtual int CountGameProfileStatisticTimestamp(
+        public virtual int CountGameProfileStatisticItem(
         )  {            
-            return data.CountGameProfileStatisticTimestamp(
+            return data.CountGameProfileStatisticItem(
             );
         }       
-        public virtual int CountGameProfileStatisticTimestampUuid(
+        public virtual int CountGameProfileStatisticItemUuid(
             string uuid
         )  {            
-            return data.CountGameProfileStatisticTimestampUuid(
+            return data.CountGameProfileStatisticItemUuid(
                 uuid
             );
         }       
-        public virtual int CountGameProfileStatisticTimestampCodeProfileIdGameId(
+        public virtual int CountGameProfileStatisticItemCode(
+            string code
+        )  {            
+            return data.CountGameProfileStatisticItemCode(
+                code
+            );
+        }       
+        public virtual int CountGameProfileStatisticItemGameId(
+            string game_id
+        )  {            
+            return data.CountGameProfileStatisticItemGameId(
+                game_id
+            );
+        }       
+        public virtual int CountGameProfileStatisticItemCodeGameId(
+            string code
+            , string game_id
+        )  {            
+            return data.CountGameProfileStatisticItemCodeGameId(
+                code
+                , game_id
+            );
+        }       
+        public virtual int CountGameProfileStatisticItemProfileIdGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return data.CountGameProfileStatisticItemProfileIdGameId(
+                profile_id
+                , game_id
+            );
+        }       
+        public virtual int CountGameProfileStatisticItemCodeProfileIdGameId(
             string code
             , string profile_id
             , string game_id
         )  {            
-            return data.CountGameProfileStatisticTimestampCodeProfileIdGameId(
+            return data.CountGameProfileStatisticItemCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
             );
         }       
-        public virtual int CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+        public virtual int CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
             string code
             , string profile_id
             , string game_id
-            , DateTime timestamp
+            , float timestamp
         )  {            
-            return data.CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
+            return data.CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
                 , timestamp
             );
         }       
-        public virtual GameProfileStatisticTimestampResult BrowseGameProfileStatisticTimestampListFilter(SearchFilter obj)  {
-            GameProfileStatisticTimestampResult result = new GameProfileStatisticTimestampResult();
+        public virtual GameProfileStatisticItemResult BrowseGameProfileStatisticItemListFilter(SearchFilter obj)  {
+            GameProfileStatisticItemResult result = new GameProfileStatisticItemResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseGameProfileStatisticTimestampListFilter(obj);
+            DataSet ds = data.BrowseGameProfileStatisticItemListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
-                       GameProfileStatisticTimestamp game_profile_statistic_timestamp  = FillGameProfileStatisticTimestamp(dr);
-                        result.data.Add(game_profile_statistic_timestamp);
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        result.data.Add(game_profile_statistic_item);
                         if (dr["total_rows"] != null)                    
                             result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
                     }
@@ -7269,58 +7313,72 @@ namespace gaming {
             }
             return result;
         }
-        public virtual bool SetGameProfileStatisticTimestampUuid(string set_type, GameProfileStatisticTimestamp obj)  {            
-            return data.SetGameProfileStatisticTimestampUuid(set_type, obj);
+        public virtual bool SetGameProfileStatisticItemUuid(string set_type, GameProfileStatisticItem obj)  {            
+            return data.SetGameProfileStatisticItemUuid(set_type, obj);
         }    
-        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameId(string set_type, GameProfileStatisticTimestamp obj)  {            
-            return data.SetGameProfileStatisticTimestampCodeProfileIdGameId(set_type, obj);
+        public virtual bool SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(string set_type, GameProfileStatisticItem obj)  {            
+            return data.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(set_type, obj);
         }    
-        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {            
-            return data.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(set_type, obj);
+        public virtual bool SetGameProfileStatisticItemProfileIdCode(string set_type, GameProfileStatisticItem obj)  {            
+            return data.SetGameProfileStatisticItemProfileIdCode(set_type, obj);
         }    
-        public virtual bool DelGameProfileStatisticTimestampUuid(
+        public virtual bool SetGameProfileStatisticItemProfileIdCodeTimestamp(string set_type, GameProfileStatisticItem obj)  {            
+            return data.SetGameProfileStatisticItemProfileIdCodeTimestamp(set_type, obj);
+        }    
+        public virtual bool SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(string set_type, GameProfileStatisticItem obj)  {            
+            return data.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(set_type, obj);
+        }    
+        public virtual bool SetGameProfileStatisticItemCodeProfileIdGameId(string set_type, GameProfileStatisticItem obj)  {            
+            return data.SetGameProfileStatisticItemCodeProfileIdGameId(set_type, obj);
+        }    
+        public virtual bool DelGameProfileStatisticItemUuid(
             string uuid
         )  {
-            return data.DelGameProfileStatisticTimestampUuid(
+            return data.DelGameProfileStatisticItemUuid(
                 uuid
             );
         }                     
-        public virtual bool DelGameProfileStatisticTimestampCodeProfileIdGameId(
+        public virtual bool DelGameProfileStatisticItemCodeGameId(
+            string code
+            , string game_id
+        )  {
+            return data.DelGameProfileStatisticItemCodeGameId(
+                code
+                , game_id
+            );
+        }                     
+        public virtual bool DelGameProfileStatisticItemProfileIdGameId(
+            string profile_id
+            , string game_id
+        )  {
+            return data.DelGameProfileStatisticItemProfileIdGameId(
+                profile_id
+                , game_id
+            );
+        }                     
+        public virtual bool DelGameProfileStatisticItemCodeProfileIdGameId(
             string code
             , string profile_id
             , string game_id
         )  {
-            return data.DelGameProfileStatisticTimestampCodeProfileIdGameId(
+            return data.DelGameProfileStatisticItemCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
             );
         }                     
-        public virtual bool DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
-            string code
-            , string profile_id
-            , string game_id
-            , DateTime timestamp
-        )  {
-            return data.DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
-                code
-                , profile_id
-                , game_id
-                , timestamp
-            );
-        }                     
-        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListUuid(
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListUuid(
             string uuid
         )  {
-            List<GameProfileStatisticTimestamp> list = new List<GameProfileStatisticTimestamp>();
-            DataSet ds = data.GetGameProfileStatisticTimestampListUuid(
+            List<GameProfileStatisticItem> list = new List<GameProfileStatisticItem>();
+            DataSet ds = data.GetGameProfileStatisticItemListUuid(
                 uuid
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
-                       GameProfileStatisticTimestamp game_profile_statistic_timestamp  = FillGameProfileStatisticTimestamp(dr);
-                        list.Add(game_profile_statistic_timestamp);
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        list.Add(game_profile_statistic_item);
                     }
                 }
             }
@@ -7328,22 +7386,18 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListCode(
             string code
-            , string profile_id
-            , string game_id
         )  {
-            List<GameProfileStatisticTimestamp> list = new List<GameProfileStatisticTimestamp>();
-            DataSet ds = data.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
+            List<GameProfileStatisticItem> list = new List<GameProfileStatisticItem>();
+            DataSet ds = data.GetGameProfileStatisticItemListCode(
                 code
-                , profile_id
-                , game_id
             );
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
-                       GameProfileStatisticTimestamp game_profile_statistic_timestamp  = FillGameProfileStatisticTimestamp(dr);
-                        list.Add(game_profile_statistic_timestamp);
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        list.Add(game_profile_statistic_item);
                     }
                 }
             }
@@ -7351,14 +7405,121 @@ namespace gaming {
         }
         
         
-        public virtual List<GameProfileStatisticTimestamp> GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListGameId(
+            string game_id
+        )  {
+            List<GameProfileStatisticItem> list = new List<GameProfileStatisticItem>();
+            DataSet ds = data.GetGameProfileStatisticItemListGameId(
+                game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        list.Add(game_profile_statistic_item);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListCodeGameId(
+            string code
+            , string game_id
+        )  {
+            List<GameProfileStatisticItem> list = new List<GameProfileStatisticItem>();
+            DataSet ds = data.GetGameProfileStatisticItemListCodeGameId(
+                code
+                , game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        list.Add(game_profile_statistic_item);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListProfileIdGameId(
+            string profile_id
+            , string game_id
+        )  {
+            List<GameProfileStatisticItem> list = new List<GameProfileStatisticItem>();
+            DataSet ds = data.GetGameProfileStatisticItemListProfileIdGameId(
+                profile_id
+                , game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        list.Add(game_profile_statistic_item);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+            string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<GameProfileStatisticItem> list = new List<GameProfileStatisticItem>();
+            DataSet ds = data.GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        list.Add(game_profile_statistic_item);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListCodeProfileIdGameId(
             string code
             , string profile_id
             , string game_id
-            , DateTime timestamp
         )  {
-            List<GameProfileStatisticTimestamp> list = new List<GameProfileStatisticTimestamp>();
-            DataSet ds = data.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
+            List<GameProfileStatisticItem> list = new List<GameProfileStatisticItem>();
+            DataSet ds = data.GetGameProfileStatisticItemListCodeProfileIdGameId(
+                code
+                , profile_id
+                , game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        list.Add(game_profile_statistic_item);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileStatisticItem> GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
+            string code
+            , string profile_id
+            , string game_id
+            , float timestamp
+        )  {
+            List<GameProfileStatisticItem> list = new List<GameProfileStatisticItem>();
+            DataSet ds = data.GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
@@ -7367,8 +7528,8 @@ namespace gaming {
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
-                       GameProfileStatisticTimestamp game_profile_statistic_timestamp  = FillGameProfileStatisticTimestamp(dr);
-                        list.Add(game_profile_statistic_timestamp);
+                       GameProfileStatisticItem game_profile_statistic_item  = FillGameProfileStatisticItem(dr);
+                        list.Add(game_profile_statistic_item);
                     }
                 }
             }

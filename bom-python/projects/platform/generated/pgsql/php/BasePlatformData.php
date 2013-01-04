@@ -47,7 +47,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountAppByUuid(self
+    def CountAppUuid(self
         , uuid
     ) :
         parameters = []
@@ -66,7 +66,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountAppByCode(self
+    def CountAppCode(self
         , code
     ) :
         parameters = []
@@ -85,7 +85,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountAppByTypeId(self
+    def CountAppTypeId(self
         , type_id
     ) :
         parameters = []
@@ -104,7 +104,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountAppByCodeByTypeId(self
+    def CountAppCodeTypeId(self
         , code
         , type_id
     ) :
@@ -125,7 +125,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountAppByPlatformByTypeId(self
+    def CountAppPlatformTypeId(self
         , platform
         , type_id
     ) :
@@ -146,7 +146,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountAppByPlatform(self
+    def CountAppPlatform(self
         , platform
     ) :
         parameters = []
@@ -165,7 +165,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseAppListByFilter(self, filter_obj) :
+    def BrowseAppListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -185,7 +185,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetAppByUuid(self, set_type, obj) :
+    def SetAppUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -215,7 +215,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetAppByCode(self, set_type, obj) :
+    def SetAppCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -245,7 +245,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelAppByUuid(self
+    def DelAppUuid(self
         , uuid
     ) :
         parameters = []
@@ -264,7 +264,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelAppByCode(self
+    def DelAppCode(self
         , code
     ) :
         parameters = []
@@ -302,7 +302,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetAppListByUuid(self
+    def GetAppListUuid(self
         , uuid
     ) :
             
@@ -323,7 +323,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetAppListByCode(self
+    def GetAppListCode(self
         , code
     ) :
             
@@ -344,7 +344,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetAppListByTypeId(self
+    def GetAppListTypeId(self
         , type_id
     ) :
             
@@ -365,7 +365,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetAppListByCodeByTypeId(self
+    def GetAppListCodeTypeId(self
         , code
         , type_id
     ) :
@@ -388,7 +388,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetAppListByPlatformByTypeId(self
+    def GetAppListPlatformTypeId(self
         , platform
         , type_id
     ) :
@@ -411,7 +411,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetAppListByPlatform(self
+    def GetAppListPlatform(self
         , platform
     ) :
             
@@ -449,7 +449,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountAppTypeByUuid(self
+    def CountAppTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -468,7 +468,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountAppTypeByCode(self
+    def CountAppTypeCode(self
         , code
     ) :
         parameters = []
@@ -487,7 +487,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseAppTypeListByFilter(self, filter_obj) :
+    def BrowseAppTypeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -507,7 +507,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetAppTypeByUuid(self, set_type, obj) :
+    def SetAppTypeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -535,7 +535,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetAppTypeByCode(self, set_type, obj) :
+    def SetAppTypeCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -563,7 +563,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelAppTypeByUuid(self
+    def DelAppTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -582,7 +582,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelAppTypeByCode(self
+    def DelAppTypeCode(self
         , code
     ) :
         parameters = []
@@ -620,7 +620,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetAppTypeListByUuid(self
+    def GetAppTypeListUuid(self
         , uuid
     ) :
             
@@ -641,7 +641,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetAppTypeListByCode(self
+    def GetAppTypeListCode(self
         , code
     ) :
             
@@ -679,7 +679,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteByUuid(self
+    def CountSiteUuid(self
         , uuid
     ) :
         parameters = []
@@ -698,7 +698,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteByCode(self
+    def CountSiteCode(self
         , code
     ) :
         parameters = []
@@ -717,7 +717,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteByTypeId(self
+    def CountSiteTypeId(self
         , type_id
     ) :
         parameters = []
@@ -736,7 +736,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteByCodeByTypeId(self
+    def CountSiteCodeTypeId(self
         , code
         , type_id
     ) :
@@ -757,7 +757,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteByDomainByTypeId(self
+    def CountSiteDomainTypeId(self
         , domain
         , type_id
     ) :
@@ -778,7 +778,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteByDomain(self
+    def CountSiteDomain(self
         , domain
     ) :
         parameters = []
@@ -797,7 +797,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseSiteListByFilter(self, filter_obj) :
+    def BrowseSiteListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -817,7 +817,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetSiteByUuid(self, set_type, obj) :
+    def SetSiteUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -847,7 +847,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetSiteByCode(self, set_type, obj) :
+    def SetSiteCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -877,7 +877,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelSiteByUuid(self
+    def DelSiteUuid(self
         , uuid
     ) :
         parameters = []
@@ -896,7 +896,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelSiteByCode(self
+    def DelSiteCode(self
         , code
     ) :
         parameters = []
@@ -934,7 +934,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteListByUuid(self
+    def GetSiteListUuid(self
         , uuid
     ) :
             
@@ -955,7 +955,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteListByCode(self
+    def GetSiteListCode(self
         , code
     ) :
             
@@ -976,7 +976,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteListByTypeId(self
+    def GetSiteListTypeId(self
         , type_id
     ) :
             
@@ -997,7 +997,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteListByCodeByTypeId(self
+    def GetSiteListCodeTypeId(self
         , code
         , type_id
     ) :
@@ -1020,7 +1020,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteListByDomainByTypeId(self
+    def GetSiteListDomainTypeId(self
         , domain
         , type_id
     ) :
@@ -1043,7 +1043,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteListByDomain(self
+    def GetSiteListDomain(self
         , domain
     ) :
             
@@ -1081,7 +1081,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteTypeByUuid(self
+    def CountSiteTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -1100,7 +1100,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteTypeByCode(self
+    def CountSiteTypeCode(self
         , code
     ) :
         parameters = []
@@ -1119,7 +1119,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseSiteTypeListByFilter(self, filter_obj) :
+    def BrowseSiteTypeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1139,7 +1139,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetSiteTypeByUuid(self, set_type, obj) :
+    def SetSiteTypeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1167,7 +1167,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetSiteTypeByCode(self, set_type, obj) :
+    def SetSiteTypeCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1195,7 +1195,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelSiteTypeByUuid(self
+    def DelSiteTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -1214,7 +1214,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelSiteTypeByCode(self
+    def DelSiteTypeCode(self
         , code
     ) :
         parameters = []
@@ -1252,7 +1252,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteTypeListByUuid(self
+    def GetSiteTypeListUuid(self
         , uuid
     ) :
             
@@ -1273,7 +1273,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteTypeListByCode(self
+    def GetSiteTypeListCode(self
         , code
     ) :
             
@@ -1311,7 +1311,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgByUuid(self
+    def CountOrgUuid(self
         , uuid
     ) :
         parameters = []
@@ -1330,7 +1330,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgByCode(self
+    def CountOrgCode(self
         , code
     ) :
         parameters = []
@@ -1349,7 +1349,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgByName(self
+    def CountOrgName(self
         , name
     ) :
         parameters = []
@@ -1368,7 +1368,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOrgListByFilter(self, filter_obj) :
+    def BrowseOrgListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1388,7 +1388,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOrgByUuid(self, set_type, obj) :
+    def SetOrgUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1417,7 +1417,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOrgByUuid(self
+    def DelOrgUuid(self
         , uuid
     ) :
         parameters = []
@@ -1455,7 +1455,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgListByUuid(self
+    def GetOrgListUuid(self
         , uuid
     ) :
             
@@ -1476,7 +1476,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgListByCode(self
+    def GetOrgListCode(self
         , code
     ) :
             
@@ -1497,7 +1497,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgListByName(self
+    def GetOrgListName(self
         , name
     ) :
             
@@ -1535,7 +1535,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgTypeByUuid(self
+    def CountOrgTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -1554,7 +1554,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgTypeByCode(self
+    def CountOrgTypeCode(self
         , code
     ) :
         parameters = []
@@ -1573,7 +1573,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOrgTypeListByFilter(self, filter_obj) :
+    def BrowseOrgTypeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1593,7 +1593,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOrgTypeByUuid(self, set_type, obj) :
+    def SetOrgTypeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1621,7 +1621,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetOrgTypeByCode(self, set_type, obj) :
+    def SetOrgTypeCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1649,7 +1649,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOrgTypeByUuid(self
+    def DelOrgTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -1668,7 +1668,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelOrgTypeByCode(self
+    def DelOrgTypeCode(self
         , code
     ) :
         parameters = []
@@ -1706,7 +1706,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgTypeListByUuid(self
+    def GetOrgTypeListUuid(self
         , uuid
     ) :
             
@@ -1727,7 +1727,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgTypeListByCode(self
+    def GetOrgTypeListCode(self
         , code
     ) :
             
@@ -1765,7 +1765,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentItemByUuid(self
+    def CountContentItemUuid(self
         , uuid
     ) :
         parameters = []
@@ -1784,7 +1784,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentItemByCode(self
+    def CountContentItemCode(self
         , code
     ) :
         parameters = []
@@ -1803,7 +1803,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentItemByName(self
+    def CountContentItemName(self
         , name
     ) :
         parameters = []
@@ -1822,7 +1822,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentItemByPath(self
+    def CountContentItemPath(self
         , path
     ) :
         parameters = []
@@ -1841,7 +1841,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseContentItemListByFilter(self, filter_obj) :
+    def BrowseContentItemListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1861,7 +1861,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetContentItemByUuid(self, set_type, obj) :
+    def SetContentItemUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1894,7 +1894,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelContentItemByUuid(self
+    def DelContentItemUuid(self
         , uuid
     ) :
         parameters = []
@@ -1913,7 +1913,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelContentItemByPath(self
+    def DelContentItemPath(self
         , path
     ) :
         parameters = []
@@ -1951,7 +1951,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentItemListByUuid(self
+    def GetContentItemListUuid(self
         , uuid
     ) :
             
@@ -1972,7 +1972,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentItemListByCode(self
+    def GetContentItemListCode(self
         , code
     ) :
             
@@ -1993,7 +1993,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentItemListByName(self
+    def GetContentItemListName(self
         , name
     ) :
             
@@ -2014,7 +2014,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentItemListByPath(self
+    def GetContentItemListPath(self
         , path
     ) :
             
@@ -2052,7 +2052,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentItemTypeByUuid(self
+    def CountContentItemTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -2071,7 +2071,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentItemTypeByCode(self
+    def CountContentItemTypeCode(self
         , code
     ) :
         parameters = []
@@ -2090,7 +2090,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseContentItemTypeListByFilter(self, filter_obj) :
+    def BrowseContentItemTypeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2110,7 +2110,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetContentItemTypeByUuid(self, set_type, obj) :
+    def SetContentItemTypeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2138,7 +2138,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetContentItemTypeByCode(self, set_type, obj) :
+    def SetContentItemTypeCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2166,7 +2166,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelContentItemTypeByUuid(self
+    def DelContentItemTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -2185,7 +2185,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelContentItemTypeByCode(self
+    def DelContentItemTypeCode(self
         , code
     ) :
         parameters = []
@@ -2223,7 +2223,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentItemTypeListByUuid(self
+    def GetContentItemTypeListUuid(self
         , uuid
     ) :
             
@@ -2244,7 +2244,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentItemTypeListByCode(self
+    def GetContentItemTypeListCode(self
         , code
     ) :
             
@@ -2282,7 +2282,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentPageByUuid(self
+    def CountContentPageUuid(self
         , uuid
     ) :
         parameters = []
@@ -2301,7 +2301,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentPageByCode(self
+    def CountContentPageCode(self
         , code
     ) :
         parameters = []
@@ -2320,7 +2320,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentPageByName(self
+    def CountContentPageName(self
         , name
     ) :
         parameters = []
@@ -2339,7 +2339,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountContentPageByPath(self
+    def CountContentPagePath(self
         , path
     ) :
         parameters = []
@@ -2358,7 +2358,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseContentPageListByFilter(self, filter_obj) :
+    def BrowseContentPageListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2378,7 +2378,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetContentPageByUuid(self, set_type, obj) :
+    def SetContentPageUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2411,7 +2411,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelContentPageByUuid(self
+    def DelContentPageUuid(self
         , uuid
     ) :
         parameters = []
@@ -2430,7 +2430,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelContentPageByPathBySiteId(self
+    def DelContentPagePathSiteId(self
         , path
         , site_id
     ) :
@@ -2451,7 +2451,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelContentPageByPath(self
+    def DelContentPagePath(self
         , path
     ) :
         parameters = []
@@ -2489,7 +2489,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentPageListByUuid(self
+    def GetContentPageListUuid(self
         , uuid
     ) :
             
@@ -2510,7 +2510,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentPageListByCode(self
+    def GetContentPageListCode(self
         , code
     ) :
             
@@ -2531,7 +2531,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentPageListByName(self
+    def GetContentPageListName(self
         , name
     ) :
             
@@ -2552,7 +2552,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentPageListByPath(self
+    def GetContentPageListPath(self
         , path
     ) :
             
@@ -2573,7 +2573,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentPageListBySiteId(self
+    def GetContentPageListSiteId(self
         , site_id
     ) :
             
@@ -2594,7 +2594,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetContentPageListBySiteIdByPath(self
+    def GetContentPageListSiteIdPath(self
         , site_id
         , path
     ) :
@@ -2634,7 +2634,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountMessageByUuid(self
+    def CountMessageUuid(self
         , uuid
     ) :
         parameters = []
@@ -2653,7 +2653,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseMessageListByFilter(self, filter_obj) :
+    def BrowseMessageListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2673,7 +2673,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetMessageByUuid(self, set_type, obj) :
+    def SetMessageUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2706,7 +2706,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelMessageByUuid(self
+    def DelMessageUuid(self
         , uuid
     ) :
         parameters = []
@@ -2744,7 +2744,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetMessageListByUuid(self
+    def GetMessageListUuid(self
         , uuid
     ) :
             
@@ -2782,7 +2782,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferByUuid(self
+    def CountOfferUuid(self
         , uuid
     ) :
         parameters = []
@@ -2801,7 +2801,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferByCode(self
+    def CountOfferCode(self
         , code
     ) :
         parameters = []
@@ -2820,7 +2820,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferByName(self
+    def CountOfferName(self
         , name
     ) :
         parameters = []
@@ -2839,7 +2839,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferByOrgId(self
+    def CountOfferOrgId(self
         , org_id
     ) :
         parameters = []
@@ -2858,7 +2858,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOfferListByFilter(self, filter_obj) :
+    def BrowseOfferListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2878,7 +2878,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOfferByUuid(self, set_type, obj) :
+    def SetOfferUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2910,7 +2910,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOfferByUuid(self
+    def DelOfferUuid(self
         , uuid
     ) :
         parameters = []
@@ -2929,7 +2929,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelOfferByOrgId(self
+    def DelOfferOrgId(self
         , org_id
     ) :
         parameters = []
@@ -2967,7 +2967,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferListByUuid(self
+    def GetOfferListUuid(self
         , uuid
     ) :
             
@@ -2988,7 +2988,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferListByCode(self
+    def GetOfferListCode(self
         , code
     ) :
             
@@ -3009,7 +3009,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferListByName(self
+    def GetOfferListName(self
         , name
     ) :
             
@@ -3030,7 +3030,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferListByOrgId(self
+    def GetOfferListOrgId(self
         , org_id
     ) :
             
@@ -3068,7 +3068,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferTypeByUuid(self
+    def CountOfferTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -3087,7 +3087,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferTypeByCode(self
+    def CountOfferTypeCode(self
         , code
     ) :
         parameters = []
@@ -3106,7 +3106,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferTypeByName(self
+    def CountOfferTypeName(self
         , name
     ) :
         parameters = []
@@ -3125,7 +3125,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOfferTypeListByFilter(self, filter_obj) :
+    def BrowseOfferTypeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3145,7 +3145,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOfferTypeByUuid(self, set_type, obj) :
+    def SetOfferTypeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3173,7 +3173,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOfferTypeByUuid(self
+    def DelOfferTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -3211,7 +3211,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferTypeListByUuid(self
+    def GetOfferTypeListUuid(self
         , uuid
     ) :
             
@@ -3232,7 +3232,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferTypeListByCode(self
+    def GetOfferTypeListCode(self
         , code
     ) :
             
@@ -3253,7 +3253,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferTypeListByName(self
+    def GetOfferTypeListName(self
         , name
     ) :
             
@@ -3291,7 +3291,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferLocationByUuid(self
+    def CountOfferLocationUuid(self
         , uuid
     ) :
         parameters = []
@@ -3310,7 +3310,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferLocationByOfferId(self
+    def CountOfferLocationOfferId(self
         , offer_id
     ) :
         parameters = []
@@ -3329,7 +3329,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferLocationByCity(self
+    def CountOfferLocationCity(self
         , city
     ) :
         parameters = []
@@ -3348,7 +3348,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferLocationByCountryCode(self
+    def CountOfferLocationCountryCode(self
         , country_code
     ) :
         parameters = []
@@ -3367,7 +3367,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferLocationByPostalCode(self
+    def CountOfferLocationPostalCode(self
         , postal_code
     ) :
         parameters = []
@@ -3386,7 +3386,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOfferLocationListByFilter(self, filter_obj) :
+    def BrowseOfferLocationListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3406,7 +3406,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOfferLocationByUuid(self, set_type, obj) :
+    def SetOfferLocationUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3451,7 +3451,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOfferLocationByUuid(self
+    def DelOfferLocationUuid(self
         , uuid
     ) :
         parameters = []
@@ -3489,7 +3489,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferLocationListByUuid(self
+    def GetOfferLocationListUuid(self
         , uuid
     ) :
             
@@ -3510,7 +3510,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferLocationListByOfferId(self
+    def GetOfferLocationListOfferId(self
         , offer_id
     ) :
             
@@ -3531,7 +3531,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferLocationListByCity(self
+    def GetOfferLocationListCity(self
         , city
     ) :
             
@@ -3552,7 +3552,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferLocationListByCountryCode(self
+    def GetOfferLocationListCountryCode(self
         , country_code
     ) :
             
@@ -3573,7 +3573,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferLocationListByPostalCode(self
+    def GetOfferLocationListPostalCode(self
         , postal_code
     ) :
             
@@ -3611,7 +3611,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryByUuid(self
+    def CountOfferCategoryUuid(self
         , uuid
     ) :
         parameters = []
@@ -3630,7 +3630,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryByCode(self
+    def CountOfferCategoryCode(self
         , code
     ) :
         parameters = []
@@ -3649,7 +3649,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryByName(self
+    def CountOfferCategoryName(self
         , name
     ) :
         parameters = []
@@ -3668,7 +3668,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryByOrgId(self
+    def CountOfferCategoryOrgId(self
         , org_id
     ) :
         parameters = []
@@ -3687,7 +3687,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryByTypeId(self
+    def CountOfferCategoryTypeId(self
         , type_id
     ) :
         parameters = []
@@ -3706,7 +3706,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryByOrgIdByTypeId(self
+    def CountOfferCategoryOrgIdTypeId(self
         , org_id
         , type_id
     ) :
@@ -3727,7 +3727,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOfferCategoryListByFilter(self, filter_obj) :
+    def BrowseOfferCategoryListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3747,7 +3747,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOfferCategoryByUuid(self, set_type, obj) :
+    def SetOfferCategoryUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3777,7 +3777,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOfferCategoryByUuid(self
+    def DelOfferCategoryUuid(self
         , uuid
     ) :
         parameters = []
@@ -3796,7 +3796,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelOfferCategoryByCodeByOrgId(self
+    def DelOfferCategoryCodeOrgId(self
         , code
         , org_id
     ) :
@@ -3817,7 +3817,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelOfferCategoryByCodeByOrgIdByTypeId(self
+    def DelOfferCategoryCodeOrgIdTypeId(self
         , code
         , org_id
         , type_id
@@ -3859,7 +3859,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryListByUuid(self
+    def GetOfferCategoryListUuid(self
         , uuid
     ) :
             
@@ -3880,7 +3880,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryListByCode(self
+    def GetOfferCategoryListCode(self
         , code
     ) :
             
@@ -3901,7 +3901,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryListByName(self
+    def GetOfferCategoryListName(self
         , name
     ) :
             
@@ -3922,7 +3922,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryListByOrgId(self
+    def GetOfferCategoryListOrgId(self
         , org_id
     ) :
             
@@ -3943,7 +3943,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryListByTypeId(self
+    def GetOfferCategoryListTypeId(self
         , type_id
     ) :
             
@@ -3964,7 +3964,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryListByOrgIdByTypeId(self
+    def GetOfferCategoryListOrgIdTypeId(self
         , org_id
         , type_id
     ) :
@@ -4004,7 +4004,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryTreeByUuid(self
+    def CountOfferCategoryTreeUuid(self
         , uuid
     ) :
         parameters = []
@@ -4023,7 +4023,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryTreeByParentId(self
+    def CountOfferCategoryTreeParentId(self
         , parent_id
     ) :
         parameters = []
@@ -4042,7 +4042,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryTreeByCategoryId(self
+    def CountOfferCategoryTreeCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -4061,7 +4061,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryTreeByParentIdByCategoryId(self
+    def CountOfferCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -4082,7 +4082,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOfferCategoryTreeListByFilter(self, filter_obj) :
+    def BrowseOfferCategoryTreeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -4102,7 +4102,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOfferCategoryTreeByUuid(self, set_type, obj) :
+    def SetOfferCategoryTreeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4128,7 +4128,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOfferCategoryTreeByUuid(self
+    def DelOfferCategoryTreeUuid(self
         , uuid
     ) :
         parameters = []
@@ -4147,7 +4147,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelOfferCategoryTreeByParentId(self
+    def DelOfferCategoryTreeParentId(self
         , parent_id
     ) :
         parameters = []
@@ -4166,7 +4166,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelOfferCategoryTreeByCategoryId(self
+    def DelOfferCategoryTreeCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -4185,7 +4185,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelOfferCategoryTreeByParentIdByCategoryId(self
+    def DelOfferCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -4225,7 +4225,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryTreeListByUuid(self
+    def GetOfferCategoryTreeListUuid(self
         , uuid
     ) :
             
@@ -4246,7 +4246,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryTreeListByParentId(self
+    def GetOfferCategoryTreeListParentId(self
         , parent_id
     ) :
             
@@ -4267,7 +4267,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryTreeListByCategoryId(self
+    def GetOfferCategoryTreeListCategoryId(self
         , category_id
     ) :
             
@@ -4288,7 +4288,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryTreeListByParentIdByCategoryId(self
+    def GetOfferCategoryTreeListParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -4328,7 +4328,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryAssocByUuid(self
+    def CountOfferCategoryAssocUuid(self
         , uuid
     ) :
         parameters = []
@@ -4347,7 +4347,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryAssocByOfferId(self
+    def CountOfferCategoryAssocOfferId(self
         , offer_id
     ) :
         parameters = []
@@ -4366,7 +4366,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryAssocByCategoryId(self
+    def CountOfferCategoryAssocCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -4385,7 +4385,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferCategoryAssocByOfferIdByCategoryId(self
+    def CountOfferCategoryAssocOfferIdCategoryId(self
         , offer_id
         , category_id
     ) :
@@ -4406,7 +4406,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOfferCategoryAssocListByFilter(self, filter_obj) :
+    def BrowseOfferCategoryAssocListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -4426,7 +4426,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOfferCategoryAssocByUuid(self, set_type, obj) :
+    def SetOfferCategoryAssocUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4452,7 +4452,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOfferCategoryAssocByUuid(self
+    def DelOfferCategoryAssocUuid(self
         , uuid
     ) :
         parameters = []
@@ -4490,7 +4490,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryAssocListByUuid(self
+    def GetOfferCategoryAssocListUuid(self
         , uuid
     ) :
             
@@ -4511,7 +4511,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryAssocListByOfferId(self
+    def GetOfferCategoryAssocListOfferId(self
         , offer_id
     ) :
             
@@ -4532,7 +4532,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryAssocListByCategoryId(self
+    def GetOfferCategoryAssocListCategoryId(self
         , category_id
     ) :
             
@@ -4553,7 +4553,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferCategoryAssocListByOfferIdByCategoryId(self
+    def GetOfferCategoryAssocListOfferIdCategoryId(self
         , offer_id
         , category_id
     ) :
@@ -4593,7 +4593,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferGameLocationByUuid(self
+    def CountOfferGameLocationUuid(self
         , uuid
     ) :
         parameters = []
@@ -4612,7 +4612,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferGameLocationByGameLocationId(self
+    def CountOfferGameLocationGameLocationId(self
         , game_location_id
     ) :
         parameters = []
@@ -4631,7 +4631,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferGameLocationByOfferId(self
+    def CountOfferGameLocationOfferId(self
         , offer_id
     ) :
         parameters = []
@@ -4650,7 +4650,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOfferGameLocationByOfferIdByGameLocationId(self
+    def CountOfferGameLocationOfferIdGameLocationId(self
         , offer_id
         , game_location_id
     ) :
@@ -4671,7 +4671,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOfferGameLocationListByFilter(self, filter_obj) :
+    def BrowseOfferGameLocationListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -4691,7 +4691,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOfferGameLocationByUuid(self, set_type, obj) :
+    def SetOfferGameLocationUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4718,7 +4718,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOfferGameLocationByUuid(self
+    def DelOfferGameLocationUuid(self
         , uuid
     ) :
         parameters = []
@@ -4756,7 +4756,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferGameLocationListByUuid(self
+    def GetOfferGameLocationListUuid(self
         , uuid
     ) :
             
@@ -4777,7 +4777,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferGameLocationListByGameLocationId(self
+    def GetOfferGameLocationListGameLocationId(self
         , game_location_id
     ) :
             
@@ -4798,7 +4798,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferGameLocationListByOfferId(self
+    def GetOfferGameLocationListOfferId(self
         , offer_id
     ) :
             
@@ -4819,7 +4819,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOfferGameLocationListByOfferIdByGameLocationId(self
+    def GetOfferGameLocationListOfferIdGameLocationId(self
         , offer_id
         , game_location_id
     ) :
@@ -4859,7 +4859,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventInfoByUuid(self
+    def CountEventInfoUuid(self
         , uuid
     ) :
         parameters = []
@@ -4878,7 +4878,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventInfoByCode(self
+    def CountEventInfoCode(self
         , code
     ) :
         parameters = []
@@ -4897,7 +4897,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventInfoByName(self
+    def CountEventInfoName(self
         , name
     ) :
         parameters = []
@@ -4916,7 +4916,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventInfoByOrgId(self
+    def CountEventInfoOrgId(self
         , org_id
     ) :
         parameters = []
@@ -4935,7 +4935,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseEventInfoListByFilter(self, filter_obj) :
+    def BrowseEventInfoListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -4955,7 +4955,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetEventInfoByUuid(self, set_type, obj) :
+    def SetEventInfoUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4986,7 +4986,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelEventInfoByUuid(self
+    def DelEventInfoUuid(self
         , uuid
     ) :
         parameters = []
@@ -5005,7 +5005,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelEventInfoByOrgId(self
+    def DelEventInfoOrgId(self
         , org_id
     ) :
         parameters = []
@@ -5043,7 +5043,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventInfoListByUuid(self
+    def GetEventInfoListUuid(self
         , uuid
     ) :
             
@@ -5064,7 +5064,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventInfoListByCode(self
+    def GetEventInfoListCode(self
         , code
     ) :
             
@@ -5085,7 +5085,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventInfoListByName(self
+    def GetEventInfoListName(self
         , name
     ) :
             
@@ -5106,7 +5106,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventInfoListByOrgId(self
+    def GetEventInfoListOrgId(self
         , org_id
     ) :
             
@@ -5144,7 +5144,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventLocationByUuid(self
+    def CountEventLocationUuid(self
         , uuid
     ) :
         parameters = []
@@ -5163,7 +5163,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventLocationByEventId(self
+    def CountEventLocationEventId(self
         , event_id
     ) :
         parameters = []
@@ -5182,7 +5182,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventLocationByCity(self
+    def CountEventLocationCity(self
         , city
     ) :
         parameters = []
@@ -5201,7 +5201,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventLocationByCountryCode(self
+    def CountEventLocationCountryCode(self
         , country_code
     ) :
         parameters = []
@@ -5220,7 +5220,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventLocationByPostalCode(self
+    def CountEventLocationPostalCode(self
         , postal_code
     ) :
         parameters = []
@@ -5239,7 +5239,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseEventLocationListByFilter(self, filter_obj) :
+    def BrowseEventLocationListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -5259,7 +5259,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetEventLocationByUuid(self, set_type, obj) :
+    def SetEventLocationUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -5304,7 +5304,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelEventLocationByUuid(self
+    def DelEventLocationUuid(self
         , uuid
     ) :
         parameters = []
@@ -5342,7 +5342,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventLocationListByUuid(self
+    def GetEventLocationListUuid(self
         , uuid
     ) :
             
@@ -5363,7 +5363,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventLocationListByEventId(self
+    def GetEventLocationListEventId(self
         , event_id
     ) :
             
@@ -5384,7 +5384,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventLocationListByCity(self
+    def GetEventLocationListCity(self
         , city
     ) :
             
@@ -5405,7 +5405,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventLocationListByCountryCode(self
+    def GetEventLocationListCountryCode(self
         , country_code
     ) :
             
@@ -5426,7 +5426,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventLocationListByPostalCode(self
+    def GetEventLocationListPostalCode(self
         , postal_code
     ) :
             
@@ -5464,7 +5464,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryByUuid(self
+    def CountEventCategoryUuid(self
         , uuid
     ) :
         parameters = []
@@ -5483,7 +5483,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryByCode(self
+    def CountEventCategoryCode(self
         , code
     ) :
         parameters = []
@@ -5502,7 +5502,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryByName(self
+    def CountEventCategoryName(self
         , name
     ) :
         parameters = []
@@ -5521,7 +5521,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryByOrgId(self
+    def CountEventCategoryOrgId(self
         , org_id
     ) :
         parameters = []
@@ -5540,7 +5540,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryByTypeId(self
+    def CountEventCategoryTypeId(self
         , type_id
     ) :
         parameters = []
@@ -5559,7 +5559,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryByOrgIdByTypeId(self
+    def CountEventCategoryOrgIdTypeId(self
         , org_id
         , type_id
     ) :
@@ -5580,7 +5580,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseEventCategoryListByFilter(self, filter_obj) :
+    def BrowseEventCategoryListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -5600,7 +5600,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetEventCategoryByUuid(self, set_type, obj) :
+    def SetEventCategoryUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -5630,7 +5630,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelEventCategoryByUuid(self
+    def DelEventCategoryUuid(self
         , uuid
     ) :
         parameters = []
@@ -5649,7 +5649,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelEventCategoryByCodeByOrgId(self
+    def DelEventCategoryCodeOrgId(self
         , code
         , org_id
     ) :
@@ -5670,7 +5670,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelEventCategoryByCodeByOrgIdByTypeId(self
+    def DelEventCategoryCodeOrgIdTypeId(self
         , code
         , org_id
         , type_id
@@ -5712,7 +5712,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryListByUuid(self
+    def GetEventCategoryListUuid(self
         , uuid
     ) :
             
@@ -5733,7 +5733,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryListByCode(self
+    def GetEventCategoryListCode(self
         , code
     ) :
             
@@ -5754,7 +5754,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryListByName(self
+    def GetEventCategoryListName(self
         , name
     ) :
             
@@ -5775,7 +5775,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryListByOrgId(self
+    def GetEventCategoryListOrgId(self
         , org_id
     ) :
             
@@ -5796,7 +5796,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryListByTypeId(self
+    def GetEventCategoryListTypeId(self
         , type_id
     ) :
             
@@ -5817,7 +5817,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryListByOrgIdByTypeId(self
+    def GetEventCategoryListOrgIdTypeId(self
         , org_id
         , type_id
     ) :
@@ -5857,7 +5857,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryTreeByUuid(self
+    def CountEventCategoryTreeUuid(self
         , uuid
     ) :
         parameters = []
@@ -5876,7 +5876,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryTreeByParentId(self
+    def CountEventCategoryTreeParentId(self
         , parent_id
     ) :
         parameters = []
@@ -5895,7 +5895,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryTreeByCategoryId(self
+    def CountEventCategoryTreeCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -5914,7 +5914,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryTreeByParentIdByCategoryId(self
+    def CountEventCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -5935,7 +5935,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseEventCategoryTreeListByFilter(self, filter_obj) :
+    def BrowseEventCategoryTreeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -5955,7 +5955,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetEventCategoryTreeByUuid(self, set_type, obj) :
+    def SetEventCategoryTreeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -5981,7 +5981,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelEventCategoryTreeByUuid(self
+    def DelEventCategoryTreeUuid(self
         , uuid
     ) :
         parameters = []
@@ -6000,7 +6000,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelEventCategoryTreeByParentId(self
+    def DelEventCategoryTreeParentId(self
         , parent_id
     ) :
         parameters = []
@@ -6019,7 +6019,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelEventCategoryTreeByCategoryId(self
+    def DelEventCategoryTreeCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -6038,7 +6038,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelEventCategoryTreeByParentIdByCategoryId(self
+    def DelEventCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -6078,7 +6078,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryTreeListByUuid(self
+    def GetEventCategoryTreeListUuid(self
         , uuid
     ) :
             
@@ -6099,7 +6099,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryTreeListByParentId(self
+    def GetEventCategoryTreeListParentId(self
         , parent_id
     ) :
             
@@ -6120,7 +6120,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryTreeListByCategoryId(self
+    def GetEventCategoryTreeListCategoryId(self
         , category_id
     ) :
             
@@ -6141,7 +6141,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryTreeListByParentIdByCategoryId(self
+    def GetEventCategoryTreeListParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -6181,7 +6181,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryAssocByUuid(self
+    def CountEventCategoryAssocUuid(self
         , uuid
     ) :
         parameters = []
@@ -6200,7 +6200,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryAssocByEventId(self
+    def CountEventCategoryAssocEventId(self
         , event_id
     ) :
         parameters = []
@@ -6219,7 +6219,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryAssocByCategoryId(self
+    def CountEventCategoryAssocCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -6238,7 +6238,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountEventCategoryAssocByEventIdByCategoryId(self
+    def CountEventCategoryAssocEventIdCategoryId(self
         , event_id
         , category_id
     ) :
@@ -6259,7 +6259,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseEventCategoryAssocListByFilter(self, filter_obj) :
+    def BrowseEventCategoryAssocListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6279,7 +6279,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetEventCategoryAssocByUuid(self, set_type, obj) :
+    def SetEventCategoryAssocUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6305,7 +6305,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelEventCategoryAssocByUuid(self
+    def DelEventCategoryAssocUuid(self
         , uuid
     ) :
         parameters = []
@@ -6343,7 +6343,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryAssocListByUuid(self
+    def GetEventCategoryAssocListUuid(self
         , uuid
     ) :
             
@@ -6364,7 +6364,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryAssocListByEventId(self
+    def GetEventCategoryAssocListEventId(self
         , event_id
     ) :
             
@@ -6385,7 +6385,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryAssocListByCategoryId(self
+    def GetEventCategoryAssocListCategoryId(self
         , category_id
     ) :
             
@@ -6406,7 +6406,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetEventCategoryAssocListByEventIdByCategoryId(self
+    def GetEventCategoryAssocListEventIdCategoryId(self
         , event_id
         , category_id
     ) :
@@ -6446,7 +6446,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelByUuid(self
+    def CountChannelUuid(self
         , uuid
     ) :
         parameters = []
@@ -6465,7 +6465,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelByCode(self
+    def CountChannelCode(self
         , code
     ) :
         parameters = []
@@ -6484,7 +6484,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelByName(self
+    def CountChannelName(self
         , name
     ) :
         parameters = []
@@ -6503,7 +6503,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelByOrgId(self
+    def CountChannelOrgId(self
         , org_id
     ) :
         parameters = []
@@ -6522,7 +6522,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelByTypeId(self
+    def CountChannelTypeId(self
         , type_id
     ) :
         parameters = []
@@ -6541,7 +6541,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelByOrgIdByTypeId(self
+    def CountChannelOrgIdTypeId(self
         , org_id
         , type_id
     ) :
@@ -6562,7 +6562,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseChannelListByFilter(self, filter_obj) :
+    def BrowseChannelListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6582,7 +6582,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetChannelByUuid(self, set_type, obj) :
+    def SetChannelUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6612,7 +6612,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelChannelByUuid(self
+    def DelChannelUuid(self
         , uuid
     ) :
         parameters = []
@@ -6631,7 +6631,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelChannelByCodeByOrgId(self
+    def DelChannelCodeOrgId(self
         , code
         , org_id
     ) :
@@ -6652,7 +6652,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelChannelByCodeByOrgIdByTypeId(self
+    def DelChannelCodeOrgIdTypeId(self
         , code
         , org_id
         , type_id
@@ -6694,7 +6694,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelListByUuid(self
+    def GetChannelListUuid(self
         , uuid
     ) :
             
@@ -6715,7 +6715,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelListByCode(self
+    def GetChannelListCode(self
         , code
     ) :
             
@@ -6736,7 +6736,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelListByName(self
+    def GetChannelListName(self
         , name
     ) :
             
@@ -6757,7 +6757,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelListByOrgId(self
+    def GetChannelListOrgId(self
         , org_id
     ) :
             
@@ -6778,7 +6778,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelListByTypeId(self
+    def GetChannelListTypeId(self
         , type_id
     ) :
             
@@ -6799,7 +6799,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelListByOrgIdByTypeId(self
+    def GetChannelListOrgIdTypeId(self
         , org_id
         , type_id
     ) :
@@ -6839,7 +6839,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelTypeByUuid(self
+    def CountChannelTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -6858,7 +6858,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelTypeByCode(self
+    def CountChannelTypeCode(self
         , code
     ) :
         parameters = []
@@ -6877,7 +6877,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountChannelTypeByName(self
+    def CountChannelTypeName(self
         , name
     ) :
         parameters = []
@@ -6896,7 +6896,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseChannelTypeListByFilter(self, filter_obj) :
+    def BrowseChannelTypeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6916,7 +6916,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetChannelTypeByUuid(self, set_type, obj) :
+    def SetChannelTypeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6944,7 +6944,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelChannelTypeByUuid(self
+    def DelChannelTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -6982,7 +6982,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelTypeListByUuid(self
+    def GetChannelTypeListUuid(self
         , uuid
     ) :
             
@@ -7003,7 +7003,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelTypeListByCode(self
+    def GetChannelTypeListCode(self
         , code
     ) :
             
@@ -7024,7 +7024,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetChannelTypeListByName(self
+    def GetChannelTypeListName(self
         , name
     ) :
             
@@ -7062,7 +7062,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountQuestionByUuid(self
+    def CountQuestionUuid(self
         , uuid
     ) :
         parameters = []
@@ -7081,7 +7081,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountQuestionByCode(self
+    def CountQuestionCode(self
         , code
     ) :
         parameters = []
@@ -7100,7 +7100,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountQuestionByName(self
+    def CountQuestionName(self
         , name
     ) :
         parameters = []
@@ -7119,7 +7119,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountQuestionByChannelId(self
+    def CountQuestionChannelId(self
         , channel_id
     ) :
         parameters = []
@@ -7138,7 +7138,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountQuestionByOrgId(self
+    def CountQuestionOrgId(self
         , org_id
     ) :
         parameters = []
@@ -7157,7 +7157,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountQuestionByChannelIdByOrgId(self
+    def CountQuestionChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
@@ -7178,7 +7178,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountQuestionByChannelIdByCode(self
+    def CountQuestionChannelIdCode(self
         , channel_id
         , code
     ) :
@@ -7199,7 +7199,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseQuestionListByFilter(self, filter_obj) :
+    def BrowseQuestionListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -7219,7 +7219,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetQuestionByUuid(self, set_type, obj) :
+    def SetQuestionUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7250,7 +7250,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetQuestionByChannelIdByCode(self, set_type, obj) :
+    def SetQuestionChannelIdCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7281,7 +7281,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelQuestionByUuid(self
+    def DelQuestionUuid(self
         , uuid
     ) :
         parameters = []
@@ -7300,7 +7300,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelQuestionByChannelIdByOrgId(self
+    def DelQuestionChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
@@ -7340,7 +7340,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetQuestionListByUuid(self
+    def GetQuestionListUuid(self
         , uuid
     ) :
             
@@ -7361,7 +7361,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetQuestionListByCode(self
+    def GetQuestionListCode(self
         , code
     ) :
             
@@ -7382,7 +7382,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetQuestionListByName(self
+    def GetQuestionListName(self
         , name
     ) :
             
@@ -7403,7 +7403,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetQuestionListByType(self
+    def GetQuestionListType(self
         , type
     ) :
             
@@ -7424,7 +7424,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetQuestionListByChannelId(self
+    def GetQuestionListChannelId(self
         , channel_id
     ) :
             
@@ -7445,7 +7445,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetQuestionListByOrgId(self
+    def GetQuestionListOrgId(self
         , org_id
     ) :
             
@@ -7466,7 +7466,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetQuestionListByChannelIdByOrgId(self
+    def GetQuestionListChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
@@ -7489,7 +7489,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetQuestionListByChannelIdByCode(self
+    def GetQuestionListChannelIdCode(self
         , channel_id
         , code
     ) :
@@ -7529,7 +7529,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileOfferByUuid(self
+    def CountProfileOfferUuid(self
         , uuid
     ) :
         parameters = []
@@ -7548,7 +7548,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileOfferByProfileId(self
+    def CountProfileOfferProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -7567,7 +7567,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseProfileOfferListByFilter(self, filter_obj) :
+    def BrowseProfileOfferListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -7587,7 +7587,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetProfileOfferByUuid(self, set_type, obj) :
+    def SetProfileOfferUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7616,7 +7616,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelProfileOfferByUuid(self
+    def DelProfileOfferUuid(self
         , uuid
     ) :
         parameters = []
@@ -7635,7 +7635,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelProfileOfferByProfileId(self
+    def DelProfileOfferProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -7673,7 +7673,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileOfferListByUuid(self
+    def GetProfileOfferListUuid(self
         , uuid
     ) :
             
@@ -7694,7 +7694,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileOfferListByProfileId(self
+    def GetProfileOfferListProfileId(self
         , profile_id
     ) :
             
@@ -7732,7 +7732,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileAppByUuid(self
+    def CountProfileAppUuid(self
         , uuid
     ) :
         parameters = []
@@ -7751,7 +7751,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileAppByProfileIdByAppId(self
+    def CountProfileAppProfileIdAppId(self
         , profile_id
         , app_id
     ) :
@@ -7772,7 +7772,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseProfileAppListByFilter(self, filter_obj) :
+    def BrowseProfileAppListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -7792,7 +7792,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetProfileAppByUuid(self, set_type, obj) :
+    def SetProfileAppUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7818,7 +7818,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetProfileAppByProfileIdByAppId(self, set_type, obj) :
+    def SetProfileAppProfileIdAppId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7844,7 +7844,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelProfileAppByUuid(self
+    def DelProfileAppUuid(self
         , uuid
     ) :
         parameters = []
@@ -7863,7 +7863,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelProfileAppByProfileIdByAppId(self
+    def DelProfileAppProfileIdAppId(self
         , profile_id
         , app_id
     ) :
@@ -7903,7 +7903,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileAppListByUuid(self
+    def GetProfileAppListUuid(self
         , uuid
     ) :
             
@@ -7924,7 +7924,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileAppListByAppId(self
+    def GetProfileAppListAppId(self
         , app_id
     ) :
             
@@ -7945,7 +7945,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileAppListByProfileId(self
+    def GetProfileAppListProfileId(self
         , profile_id
     ) :
             
@@ -7966,7 +7966,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileAppListByProfileIdByAppId(self
+    def GetProfileAppListProfileIdAppId(self
         , profile_id
         , app_id
     ) :
@@ -8006,7 +8006,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileOrgByUuid(self
+    def CountProfileOrgUuid(self
         , uuid
     ) :
         parameters = []
@@ -8025,7 +8025,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileOrgByOrgId(self
+    def CountProfileOrgOrgId(self
         , org_id
     ) :
         parameters = []
@@ -8044,7 +8044,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileOrgByProfileId(self
+    def CountProfileOrgProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -8063,7 +8063,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseProfileOrgListByFilter(self, filter_obj) :
+    def BrowseProfileOrgListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -8083,7 +8083,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetProfileOrgByUuid(self, set_type, obj) :
+    def SetProfileOrgUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8110,7 +8110,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelProfileOrgByUuid(self
+    def DelProfileOrgUuid(self
         , uuid
     ) :
         parameters = []
@@ -8148,7 +8148,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileOrgListByUuid(self
+    def GetProfileOrgListUuid(self
         , uuid
     ) :
             
@@ -8169,7 +8169,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileOrgListByOrgId(self
+    def GetProfileOrgListOrgId(self
         , org_id
     ) :
             
@@ -8190,7 +8190,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileOrgListByProfileId(self
+    def GetProfileOrgListProfileId(self
         , profile_id
     ) :
             
@@ -8228,7 +8228,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileQuestionByUuid(self
+    def CountProfileQuestionUuid(self
         , uuid
     ) :
         parameters = []
@@ -8247,7 +8247,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileQuestionByChannelId(self
+    def CountProfileQuestionChannelId(self
         , channel_id
     ) :
         parameters = []
@@ -8266,7 +8266,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileQuestionByOrgId(self
+    def CountProfileQuestionOrgId(self
         , org_id
     ) :
         parameters = []
@@ -8285,7 +8285,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileQuestionByProfileId(self
+    def CountProfileQuestionProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -8304,7 +8304,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileQuestionByQuestionId(self
+    def CountProfileQuestionQuestionId(self
         , question_id
     ) :
         parameters = []
@@ -8323,7 +8323,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileQuestionByChannelIdByOrgId(self
+    def CountProfileQuestionChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
@@ -8344,7 +8344,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileQuestionByChannelIdByProfileId(self
+    def CountProfileQuestionChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :
@@ -8365,7 +8365,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileQuestionByQuestionIdByProfileId(self
+    def CountProfileQuestionQuestionIdProfileId(self
         , question_id
         , profile_id
     ) :
@@ -8386,7 +8386,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseProfileQuestionListByFilter(self, filter_obj) :
+    def BrowseProfileQuestionListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -8406,7 +8406,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetProfileQuestionByUuid(self, set_type, obj) :
+    def SetProfileQuestionUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8436,7 +8436,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetProfileQuestionByChannelIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionChannelIdProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8466,7 +8466,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetProfileQuestionByQuestionIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionQuestionIdProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8496,7 +8496,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetProfileQuestionByChannelIdByQuestionIdByProfileId(self, set_type, obj) :
+    def SetProfileQuestionChannelIdQuestionIdProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8526,7 +8526,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelProfileQuestionByUuid(self
+    def DelProfileQuestionUuid(self
         , uuid
     ) :
         parameters = []
@@ -8545,7 +8545,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelProfileQuestionByChannelIdByOrgId(self
+    def DelProfileQuestionChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
@@ -8585,7 +8585,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileQuestionListByUuid(self
+    def GetProfileQuestionListUuid(self
         , uuid
     ) :
             
@@ -8606,7 +8606,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileQuestionListByChannelId(self
+    def GetProfileQuestionListChannelId(self
         , channel_id
     ) :
             
@@ -8627,7 +8627,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileQuestionListByOrgId(self
+    def GetProfileQuestionListOrgId(self
         , org_id
     ) :
             
@@ -8648,7 +8648,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileQuestionListByProfileId(self
+    def GetProfileQuestionListProfileId(self
         , profile_id
     ) :
             
@@ -8669,7 +8669,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileQuestionListByQuestionId(self
+    def GetProfileQuestionListQuestionId(self
         , question_id
     ) :
             
@@ -8690,7 +8690,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileQuestionListByChannelIdByOrgId(self
+    def GetProfileQuestionListChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
@@ -8713,7 +8713,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileQuestionListByChannelIdByProfileId(self
+    def GetProfileQuestionListChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :
@@ -8736,7 +8736,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileQuestionListByQuestionIdByProfileId(self
+    def GetProfileQuestionListQuestionIdProfileId(self
         , question_id
         , profile_id
     ) :
@@ -8776,7 +8776,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileChannelByUuid(self
+    def CountProfileChannelUuid(self
         , uuid
     ) :
         parameters = []
@@ -8795,7 +8795,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileChannelByChannelId(self
+    def CountProfileChannelChannelId(self
         , channel_id
     ) :
         parameters = []
@@ -8814,7 +8814,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileChannelByProfileId(self
+    def CountProfileChannelProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -8833,7 +8833,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountProfileChannelByChannelIdByProfileId(self
+    def CountProfileChannelChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :
@@ -8854,7 +8854,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseProfileChannelListByFilter(self, filter_obj) :
+    def BrowseProfileChannelListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -8874,7 +8874,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetProfileChannelByUuid(self, set_type, obj) :
+    def SetProfileChannelUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8900,7 +8900,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetProfileChannelByChannelIdByProfileId(self, set_type, obj) :
+    def SetProfileChannelChannelIdProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8926,7 +8926,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelProfileChannelByUuid(self
+    def DelProfileChannelUuid(self
         , uuid
     ) :
         parameters = []
@@ -8945,7 +8945,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelProfileChannelByChannelIdByProfileId(self
+    def DelProfileChannelChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :
@@ -8985,7 +8985,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileChannelListByUuid(self
+    def GetProfileChannelListUuid(self
         , uuid
     ) :
             
@@ -9006,7 +9006,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileChannelListByChannelId(self
+    def GetProfileChannelListChannelId(self
         , channel_id
     ) :
             
@@ -9027,7 +9027,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileChannelListByProfileId(self
+    def GetProfileChannelListProfileId(self
         , profile_id
     ) :
             
@@ -9048,7 +9048,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetProfileChannelListByChannelIdByProfileId(self
+    def GetProfileChannelListChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :
@@ -9088,7 +9088,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgSiteByUuid(self
+    def CountOrgSiteUuid(self
         , uuid
     ) :
         parameters = []
@@ -9107,7 +9107,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgSiteByOrgId(self
+    def CountOrgSiteOrgId(self
         , org_id
     ) :
         parameters = []
@@ -9126,7 +9126,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgSiteBySiteId(self
+    def CountOrgSiteSiteId(self
         , site_id
     ) :
         parameters = []
@@ -9145,7 +9145,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountOrgSiteByOrgIdBySiteId(self
+    def CountOrgSiteOrgIdSiteId(self
         , org_id
         , site_id
     ) :
@@ -9166,7 +9166,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseOrgSiteListByFilter(self, filter_obj) :
+    def BrowseOrgSiteListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -9186,7 +9186,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetOrgSiteByUuid(self, set_type, obj) :
+    def SetOrgSiteUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9212,7 +9212,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetOrgSiteByOrgIdBySiteId(self, set_type, obj) :
+    def SetOrgSiteOrgIdSiteId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9238,7 +9238,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelOrgSiteByUuid(self
+    def DelOrgSiteUuid(self
         , uuid
     ) :
         parameters = []
@@ -9257,7 +9257,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelOrgSiteByOrgIdBySiteId(self
+    def DelOrgSiteOrgIdSiteId(self
         , org_id
         , site_id
     ) :
@@ -9297,7 +9297,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgSiteListByUuid(self
+    def GetOrgSiteListUuid(self
         , uuid
     ) :
             
@@ -9318,7 +9318,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgSiteListByOrgId(self
+    def GetOrgSiteListOrgId(self
         , org_id
     ) :
             
@@ -9339,7 +9339,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgSiteListBySiteId(self
+    def GetOrgSiteListSiteId(self
         , site_id
     ) :
             
@@ -9360,7 +9360,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetOrgSiteListByOrgIdBySiteId(self
+    def GetOrgSiteListOrgIdSiteId(self
         , org_id
         , site_id
     ) :
@@ -9400,7 +9400,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteAppByUuid(self
+    def CountSiteAppUuid(self
         , uuid
     ) :
         parameters = []
@@ -9419,7 +9419,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteAppByAppId(self
+    def CountSiteAppAppId(self
         , app_id
     ) :
         parameters = []
@@ -9438,7 +9438,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteAppBySiteId(self
+    def CountSiteAppSiteId(self
         , site_id
     ) :
         parameters = []
@@ -9457,7 +9457,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountSiteAppByAppIdBySiteId(self
+    def CountSiteAppAppIdSiteId(self
         , app_id
         , site_id
     ) :
@@ -9478,7 +9478,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseSiteAppListByFilter(self, filter_obj) :
+    def BrowseSiteAppListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -9498,7 +9498,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetSiteAppByUuid(self, set_type, obj) :
+    def SetSiteAppUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9524,7 +9524,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetSiteAppByAppIdBySiteId(self, set_type, obj) :
+    def SetSiteAppAppIdSiteId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9550,7 +9550,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelSiteAppByUuid(self
+    def DelSiteAppUuid(self
         , uuid
     ) :
         parameters = []
@@ -9569,7 +9569,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelSiteAppByAppIdBySiteId(self
+    def DelSiteAppAppIdSiteId(self
         , app_id
         , site_id
     ) :
@@ -9609,7 +9609,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteAppListByUuid(self
+    def GetSiteAppListUuid(self
         , uuid
     ) :
             
@@ -9630,7 +9630,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteAppListByAppId(self
+    def GetSiteAppListAppId(self
         , app_id
     ) :
             
@@ -9651,7 +9651,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteAppListBySiteId(self
+    def GetSiteAppListSiteId(self
         , site_id
     ) :
             
@@ -9672,7 +9672,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetSiteAppListByAppIdBySiteId(self
+    def GetSiteAppListAppIdSiteId(self
         , app_id
         , site_id
     ) :
@@ -9712,7 +9712,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountPhotoByUuid(self
+    def CountPhotoUuid(self
         , uuid
     ) :
         parameters = []
@@ -9731,7 +9731,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountPhotoByExternalId(self
+    def CountPhotoExternalId(self
         , external_id
     ) :
         parameters = []
@@ -9750,7 +9750,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountPhotoByUrl(self
+    def CountPhotoUrl(self
         , url
     ) :
         parameters = []
@@ -9769,7 +9769,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountPhotoByUrlByExternalId(self
+    def CountPhotoUrlExternalId(self
         , url
         , external_id
     ) :
@@ -9790,7 +9790,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountPhotoByUuidByExternalId(self
+    def CountPhotoUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -9811,7 +9811,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowsePhotoListByFilter(self, filter_obj) :
+    def BrowsePhotoListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -9831,7 +9831,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetPhotoByUuid(self, set_type, obj) :
+    def SetPhotoUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9866,7 +9866,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetPhotoByExternalId(self, set_type, obj) :
+    def SetPhotoExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9901,7 +9901,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetPhotoByUrl(self, set_type, obj) :
+    def SetPhotoUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9936,7 +9936,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetPhotoByUrlByExternalId(self, set_type, obj) :
+    def SetPhotoUrlExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9971,7 +9971,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetPhotoByUuidByExternalId(self, set_type, obj) :
+    def SetPhotoUuidExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10006,7 +10006,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelPhotoByUuid(self
+    def DelPhotoUuid(self
         , uuid
     ) :
         parameters = []
@@ -10025,7 +10025,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelPhotoByExternalId(self
+    def DelPhotoExternalId(self
         , external_id
     ) :
         parameters = []
@@ -10044,7 +10044,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelPhotoByUrl(self
+    def DelPhotoUrl(self
         , url
     ) :
         parameters = []
@@ -10063,7 +10063,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelPhotoByUrlByExternalId(self
+    def DelPhotoUrlExternalId(self
         , url
         , external_id
     ) :
@@ -10084,7 +10084,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelPhotoByUuidByExternalId(self
+    def DelPhotoUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -10124,7 +10124,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetPhotoListByUuid(self
+    def GetPhotoListUuid(self
         , uuid
     ) :
             
@@ -10145,7 +10145,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetPhotoListByExternalId(self
+    def GetPhotoListExternalId(self
         , external_id
     ) :
             
@@ -10166,7 +10166,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetPhotoListByUrl(self
+    def GetPhotoListUrl(self
         , url
     ) :
             
@@ -10187,7 +10187,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetPhotoListByUrlByExternalId(self
+    def GetPhotoListUrlExternalId(self
         , url
         , external_id
     ) :
@@ -10210,7 +10210,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetPhotoListByUuidByExternalId(self
+    def GetPhotoListUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -10250,7 +10250,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountVideoByUuid(self
+    def CountVideoUuid(self
         , uuid
     ) :
         parameters = []
@@ -10269,7 +10269,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountVideoByExternalId(self
+    def CountVideoExternalId(self
         , external_id
     ) :
         parameters = []
@@ -10288,7 +10288,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountVideoByUrl(self
+    def CountVideoUrl(self
         , url
     ) :
         parameters = []
@@ -10307,7 +10307,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountVideoByUrlByExternalId(self
+    def CountVideoUrlExternalId(self
         , url
         , external_id
     ) :
@@ -10328,7 +10328,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def CountVideoByUuidByExternalId(self
+    def CountVideoUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -10349,7 +10349,7 @@ class BasePlatformData(object):
         finally :
             pass
             
-    def BrowseVideoListByFilter(self, filter_obj) :
+    def BrowseVideoListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -10369,7 +10369,7 @@ class BasePlatformData(object):
         finally :
             pass
 
-    def SetVideoByUuid(self, set_type, obj) :
+    def SetVideoUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10404,7 +10404,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetVideoByExternalId(self, set_type, obj) :
+    def SetVideoExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10439,7 +10439,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetVideoByUrl(self, set_type, obj) :
+    def SetVideoUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10474,7 +10474,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetVideoByUrlByExternalId(self, set_type, obj) :
+    def SetVideoUrlExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10509,7 +10509,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def SetVideoByUuidByExternalId(self, set_type, obj) :
+    def SetVideoUuidExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10544,7 +10544,7 @@ class BasePlatformData(object):
                 
         return False
 
-    def DelVideoByUuid(self
+    def DelVideoUuid(self
         , uuid
     ) :
         parameters = []
@@ -10563,7 +10563,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelVideoByExternalId(self
+    def DelVideoExternalId(self
         , external_id
     ) :
         parameters = []
@@ -10582,7 +10582,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelVideoByUrl(self
+    def DelVideoUrl(self
         , url
     ) :
         parameters = []
@@ -10601,7 +10601,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelVideoByUrlByExternalId(self
+    def DelVideoUrlExternalId(self
         , url
         , external_id
     ) :
@@ -10622,7 +10622,7 @@ class BasePlatformData(object):
         finally :
             pass
              
-    def DelVideoByUuidByExternalId(self
+    def DelVideoUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -10662,7 +10662,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetVideoListByUuid(self
+    def GetVideoListUuid(self
         , uuid
     ) :
             
@@ -10683,7 +10683,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetVideoListByExternalId(self
+    def GetVideoListExternalId(self
         , external_id
     ) :
             
@@ -10704,7 +10704,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetVideoListByUrl(self
+    def GetVideoListUrl(self
         , url
     ) :
             
@@ -10725,7 +10725,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetVideoListByUrlByExternalId(self
+    def GetVideoListUrlExternalId(self
         , url
         , external_id
     ) :
@@ -10748,7 +10748,7 @@ class BasePlatformData(object):
                 
         return None
 
-    def GetVideoListByUuidByExternalId(self
+    def GetVideoListUuidExternalId(self
         , uuid
         , external_id
     ) :

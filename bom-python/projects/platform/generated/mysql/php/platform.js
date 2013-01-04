@@ -266,7 +266,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -309,7 +309,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -352,7 +352,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -396,7 +396,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-code/by-type-id"
+                + "/code/type-id"
                 + "/@code/" + code            
                 + "/@type_id/" + type_id            
                 ;
@@ -441,7 +441,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-platform/by-type-id"
+                + "/platform/type-id"
                 + "/@platform/" + platform            
                 + "/@type_id/" + type_id            
                 ;
@@ -485,7 +485,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-platform"
+                + "/platform"
                 + "/@platform/" + platform            
                 ;
 
@@ -530,7 +530,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -586,7 +586,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -655,7 +655,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -713,7 +713,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -756,7 +756,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -841,7 +841,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -885,7 +885,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -929,7 +929,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -974,7 +974,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-code/by-type-id"
+                + "/code/type-id"
                 + "/@code/" + code            
                 + "/@type_id/" + type_id            
                 ;
@@ -1020,7 +1020,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-platform/by-type-id"
+                + "/platform/type-id"
                 + "/@platform/" + platform            
                 + "/@type_id/" + type_id            
                 ;
@@ -1065,7 +1065,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-platform"
+                + "/platform"
                 + "/@platform/" + platform            
                 ;
 
@@ -1163,7 +1163,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1206,7 +1206,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1251,7 +1251,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -1305,7 +1305,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -1370,7 +1370,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -1426,7 +1426,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1469,7 +1469,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1554,7 +1554,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1598,7 +1598,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1696,7 +1696,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1739,7 +1739,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1782,7 +1782,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -1826,7 +1826,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-code/by-type-id"
+                + "/code/type-id"
                 + "/@code/" + code            
                 + "/@type_id/" + type_id            
                 ;
@@ -1871,7 +1871,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-domain/by-type-id"
+                + "/domain/type-id"
                 + "/@domain/" + domain            
                 + "/@type_id/" + type_id            
                 ;
@@ -1915,7 +1915,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-domain"
+                + "/domain"
                 + "/@domain/" + domain            
                 ;
 
@@ -1960,7 +1960,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -2016,7 +2016,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -2085,7 +2085,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -2143,7 +2143,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2186,7 +2186,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2271,7 +2271,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2315,7 +2315,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2359,7 +2359,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -2404,7 +2404,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-code/by-type-id"
+                + "/code/type-id"
                 + "/@code/" + code            
                 + "/@type_id/" + type_id            
                 ;
@@ -2450,7 +2450,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-domain/by-type-id"
+                + "/domain/type-id"
                 + "/@domain/" + domain            
                 + "/@type_id/" + type_id            
                 ;
@@ -2495,7 +2495,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-domain"
+                + "/domain"
                 + "/@domain/" + domain            
                 ;
 
@@ -2593,7 +2593,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2636,7 +2636,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2681,7 +2681,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -2735,7 +2735,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -2800,7 +2800,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -2856,7 +2856,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2899,7 +2899,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2984,7 +2984,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3028,7 +3028,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3126,7 +3126,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3169,7 +3169,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3212,7 +3212,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -3257,7 +3257,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -3312,7 +3312,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -3369,7 +3369,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3454,7 +3454,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3498,7 +3498,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3542,7 +3542,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -3640,7 +3640,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3683,7 +3683,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3728,7 +3728,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -3782,7 +3782,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -3847,7 +3847,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -3903,7 +3903,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3946,7 +3946,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4031,7 +4031,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4075,7 +4075,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4173,7 +4173,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4216,7 +4216,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4259,7 +4259,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -4302,7 +4302,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'count'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -4347,7 +4347,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -4406,7 +4406,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -4467,7 +4467,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4510,7 +4510,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'del'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -4595,7 +4595,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4639,7 +4639,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4683,7 +4683,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -4727,7 +4727,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'get'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -4825,7 +4825,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4868,7 +4868,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4913,7 +4913,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -4967,7 +4967,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -5032,7 +5032,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -5088,7 +5088,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5131,7 +5131,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5216,7 +5216,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5260,7 +5260,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5358,7 +5358,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5401,7 +5401,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5444,7 +5444,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -5487,7 +5487,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'count'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -5532,7 +5532,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -5591,7 +5591,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -5652,7 +5652,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5696,7 +5696,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'del'
-                + "/by-path/by-site-id"
+                + "/path/site-id"
                 + "/@path/" + path            
                 + "/@site_id/" + site_id            
                 ;
@@ -5740,7 +5740,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'del'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -5825,7 +5825,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5869,7 +5869,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5913,7 +5913,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -5957,7 +5957,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -6001,7 +6001,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -6046,7 +6046,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-site-id/by-path"
+                + "/site-id/path"
                 + "/@site_id/" + site_id            
                 + "/@path/" + path            
                 ;
@@ -6145,7 +6145,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6190,7 +6190,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -6249,7 +6249,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -6310,7 +6310,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6395,7 +6395,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6493,7 +6493,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6536,7 +6536,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -6579,7 +6579,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -6622,7 +6622,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -6667,7 +6667,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -6725,7 +6725,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -6785,7 +6785,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6828,7 +6828,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'del'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -6913,7 +6913,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6957,7 +6957,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -7001,7 +7001,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -7045,7 +7045,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -7143,7 +7143,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7186,7 +7186,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -7229,7 +7229,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -7274,7 +7274,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -7328,7 +7328,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -7384,7 +7384,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7469,7 +7469,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7513,7 +7513,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -7557,7 +7557,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -7655,7 +7655,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7698,7 +7698,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -7741,7 +7741,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-city"
+                + "/city"
                 + "/@city/" + city            
                 ;
 
@@ -7784,7 +7784,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-country-code"
+                + "/country-code"
                 + "/@country_code/" + country_code            
                 ;
 
@@ -7827,7 +7827,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-postal-code"
+                + "/postal-code"
                 + "/@postal_code/" + postal_code            
                 ;
 
@@ -7872,7 +7872,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -7943,7 +7943,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -8016,7 +8016,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8101,7 +8101,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8145,7 +8145,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -8189,7 +8189,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-city"
+                + "/city"
                 + "/@city/" + city            
                 ;
 
@@ -8233,7 +8233,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-country-code"
+                + "/country-code"
                 + "/@country_code/" + country_code            
                 ;
 
@@ -8277,7 +8277,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-postal-code"
+                + "/postal-code"
                 + "/@postal_code/" + postal_code            
                 ;
 
@@ -8375,7 +8375,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8418,7 +8418,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -8461,7 +8461,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -8504,7 +8504,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -8547,7 +8547,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -8591,7 +8591,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -8637,7 +8637,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -8693,7 +8693,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -8751,7 +8751,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8795,7 +8795,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'del'
-                + "/by-code/by-org-id"
+                + "/code/org-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 ;
@@ -8841,7 +8841,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'del'
-                + "/by-code/by-org-id/by-type-id"
+                + "/code/org-id/type-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
@@ -8928,7 +8928,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8972,7 +8972,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -9016,7 +9016,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -9060,7 +9060,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -9104,7 +9104,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -9149,7 +9149,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -9248,7 +9248,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9291,7 +9291,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'count'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -9334,7 +9334,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -9378,7 +9378,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'count'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -9424,7 +9424,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -9476,7 +9476,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -9530,7 +9530,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9573,7 +9573,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'del'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -9616,7 +9616,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'del'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -9660,7 +9660,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'del'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -9746,7 +9746,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9790,7 +9790,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'get'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -9834,7 +9834,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -9879,7 +9879,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'get'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -9978,7 +9978,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10021,7 +10021,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'count'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -10064,7 +10064,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -10108,7 +10108,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'count'
-                + "/by-offer-id/by-category-id"
+                + "/offer-id/category-id"
                 + "/@offer_id/" + offer_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -10154,7 +10154,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -10206,7 +10206,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -10260,7 +10260,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10345,7 +10345,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10389,7 +10389,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'get'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -10433,7 +10433,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -10478,7 +10478,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'get'
-                + "/by-offer-id/by-category-id"
+                + "/offer-id/category-id"
                 + "/@offer_id/" + offer_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -10577,7 +10577,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10620,7 +10620,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'count'
-                + "/by-game-location-id"
+                + "/game-location-id"
                 + "/@game_location_id/" + game_location_id            
                 ;
 
@@ -10663,7 +10663,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'count'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -10707,7 +10707,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'count'
-                + "/by-offer-id/by-game-location-id"
+                + "/offer-id/game-location-id"
                 + "/@offer_id/" + offer_id            
                 + "/@game_location_id/" + game_location_id            
                 ;
@@ -10753,7 +10753,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -10806,7 +10806,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -10861,7 +10861,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10946,7 +10946,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10990,7 +10990,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'get'
-                + "/by-game-location-id"
+                + "/game-location-id"
                 + "/@game_location_id/" + game_location_id            
                 ;
 
@@ -11034,7 +11034,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'get'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -11079,7 +11079,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'get'
-                + "/by-offer-id/by-game-location-id"
+                + "/offer-id/game-location-id"
                 + "/@offer_id/" + offer_id            
                 + "/@game_location_id/" + game_location_id            
                 ;
@@ -11178,7 +11178,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11221,7 +11221,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -11264,7 +11264,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -11307,7 +11307,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -11352,7 +11352,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -11409,7 +11409,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -11468,7 +11468,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11511,7 +11511,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'del'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -11596,7 +11596,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11640,7 +11640,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -11684,7 +11684,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -11728,7 +11728,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -11826,7 +11826,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11869,7 +11869,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-event-id"
+                + "/event-id"
                 + "/@event_id/" + event_id            
                 ;
 
@@ -11912,7 +11912,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-city"
+                + "/city"
                 + "/@city/" + city            
                 ;
 
@@ -11955,7 +11955,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-country-code"
+                + "/country-code"
                 + "/@country_code/" + country_code            
                 ;
 
@@ -11998,7 +11998,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-postal-code"
+                + "/postal-code"
                 + "/@postal_code/" + postal_code            
                 ;
 
@@ -12043,7 +12043,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -12114,7 +12114,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -12187,7 +12187,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12272,7 +12272,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12316,7 +12316,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-event-id"
+                + "/event-id"
                 + "/@event_id/" + event_id            
                 ;
 
@@ -12360,7 +12360,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-city"
+                + "/city"
                 + "/@city/" + city            
                 ;
 
@@ -12404,7 +12404,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-country-code"
+                + "/country-code"
                 + "/@country_code/" + country_code            
                 ;
 
@@ -12448,7 +12448,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-postal-code"
+                + "/postal-code"
                 + "/@postal_code/" + postal_code            
                 ;
 
@@ -12546,7 +12546,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12589,7 +12589,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -12632,7 +12632,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -12675,7 +12675,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -12718,7 +12718,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -12762,7 +12762,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -12808,7 +12808,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -12864,7 +12864,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -12922,7 +12922,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12966,7 +12966,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'del'
-                + "/by-code/by-org-id"
+                + "/code/org-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 ;
@@ -13012,7 +13012,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'del'
-                + "/by-code/by-org-id/by-type-id"
+                + "/code/org-id/type-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
@@ -13099,7 +13099,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13143,7 +13143,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -13187,7 +13187,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -13231,7 +13231,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -13275,7 +13275,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -13320,7 +13320,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -13419,7 +13419,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13462,7 +13462,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'count'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -13505,7 +13505,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -13549,7 +13549,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'count'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -13595,7 +13595,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -13647,7 +13647,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -13701,7 +13701,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13744,7 +13744,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'del'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -13787,7 +13787,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'del'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -13831,7 +13831,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'del'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -13917,7 +13917,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13961,7 +13961,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'get'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -14005,7 +14005,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -14050,7 +14050,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'get'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -14149,7 +14149,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14192,7 +14192,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'count'
-                + "/by-event-id"
+                + "/event-id"
                 + "/@event_id/" + event_id            
                 ;
 
@@ -14235,7 +14235,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -14279,7 +14279,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'count'
-                + "/by-event-id/by-category-id"
+                + "/event-id/category-id"
                 + "/@event_id/" + event_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -14325,7 +14325,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -14377,7 +14377,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -14431,7 +14431,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14516,7 +14516,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14560,7 +14560,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'get'
-                + "/by-event-id"
+                + "/event-id"
                 + "/@event_id/" + event_id            
                 ;
 
@@ -14604,7 +14604,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -14649,7 +14649,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'get'
-                + "/by-event-id/by-category-id"
+                + "/event-id/category-id"
                 + "/@event_id/" + event_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -14748,7 +14748,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14791,7 +14791,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -14834,7 +14834,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -14877,7 +14877,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -14920,7 +14920,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -14964,7 +14964,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -15010,7 +15010,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -15066,7 +15066,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -15124,7 +15124,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15168,7 +15168,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'del'
-                + "/by-code/by-org-id"
+                + "/code/org-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 ;
@@ -15214,7 +15214,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'del'
-                + "/by-code/by-org-id/by-type-id"
+                + "/code/org-id/type-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
@@ -15301,7 +15301,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15345,7 +15345,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -15389,7 +15389,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -15433,7 +15433,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -15477,7 +15477,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -15522,7 +15522,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -15621,7 +15621,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15664,7 +15664,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -15707,7 +15707,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -15752,7 +15752,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -15806,7 +15806,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -15862,7 +15862,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15947,7 +15947,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15991,7 +15991,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -16035,7 +16035,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -16133,7 +16133,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -16176,7 +16176,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -16219,7 +16219,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -16262,7 +16262,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -16305,7 +16305,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -16349,7 +16349,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -16394,7 +16394,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-channel-id/by-code"
+                + "/channel-id/code"
                 + "/@channel_id/" + channel_id            
                 + "/@code/" + code            
                 ;
@@ -16440,7 +16440,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -16497,7 +16497,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -16568,7 +16568,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'set'
-                + "/by-channel-id/by-code"
+                + "/channel-id/code"
                 + "/@channel_id/" + channel_id            
                 + "/@code/" + code            
                         
@@ -16628,7 +16628,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -16672,7 +16672,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'del'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -16758,7 +16758,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -16802,7 +16802,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -16846,7 +16846,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -16890,7 +16890,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-type"
+                + "/type"
                 + "/@type/" + type            
                 ;
 
@@ -16934,7 +16934,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -16978,7 +16978,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -17023,7 +17023,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -17069,7 +17069,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-channel-id/by-code"
+                + "/channel-id/code"
                 + "/@channel_id/" + channel_id            
                 + "/@code/" + code            
                 ;
@@ -17168,7 +17168,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17211,7 +17211,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -17256,7 +17256,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -17311,7 +17311,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -17368,7 +17368,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17411,7 +17411,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'del'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -17496,7 +17496,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17540,7 +17540,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -17638,7 +17638,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17682,7 +17682,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'count'
-                + "/by-profile-id/by-app-id"
+                + "/profile-id/app-id"
                 + "/@profile_id/" + profile_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -17728,7 +17728,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -17780,7 +17780,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -17841,7 +17841,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'set'
-                + "/by-profile-id/by-app-id"
+                + "/profile-id/app-id"
                 + "/@profile_id/" + profile_id            
                 + "/@app_id/" + app_id            
                         
@@ -17896,7 +17896,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17940,7 +17940,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'del'
-                + "/by-profile-id/by-app-id"
+                + "/profile-id/app-id"
                 + "/@profile_id/" + profile_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -18026,7 +18026,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18070,7 +18070,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'get'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -18114,7 +18114,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -18159,7 +18159,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'get'
-                + "/by-profile-id/by-app-id"
+                + "/profile-id/app-id"
                 + "/@profile_id/" + profile_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -18258,7 +18258,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18301,7 +18301,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -18344,7 +18344,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -18389,7 +18389,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -18442,7 +18442,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -18497,7 +18497,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18582,7 +18582,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18626,7 +18626,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -18670,7 +18670,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -18768,7 +18768,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18811,7 +18811,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -18854,7 +18854,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -18897,7 +18897,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -18940,7 +18940,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-question-id"
+                + "/question-id"
                 + "/@question_id/" + question_id            
                 ;
 
@@ -18984,7 +18984,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -19029,7 +19029,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -19074,7 +19074,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-question-id/by-profile-id"
+                + "/question-id/profile-id"
                 + "/@question_id/" + question_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -19120,7 +19120,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -19176,7 +19176,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -19245,7 +19245,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'set'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                         
@@ -19315,7 +19315,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'set'
-                + "/by-question-id/by-profile-id"
+                + "/question-id/profile-id"
                 + "/@question_id/" + question_id            
                 + "/@profile_id/" + profile_id            
                         
@@ -19385,7 +19385,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'set'
-                + "/by-channel-id/by-question-id/by-profile-id"
+                + "/channel-id/question-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@question_id/" + question_id            
                 + "/@profile_id/" + profile_id            
@@ -19445,7 +19445,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -19489,7 +19489,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'del'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -19575,7 +19575,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -19619,7 +19619,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -19663,7 +19663,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -19707,7 +19707,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -19751,7 +19751,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-question-id"
+                + "/question-id"
                 + "/@question_id/" + question_id            
                 ;
 
@@ -19796,7 +19796,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -19842,7 +19842,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -19888,7 +19888,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-question-id/by-profile-id"
+                + "/question-id/profile-id"
                 + "/@question_id/" + question_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -19987,7 +19987,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20030,7 +20030,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'count'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -20073,7 +20073,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -20117,7 +20117,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'count'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -20163,7 +20163,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -20215,7 +20215,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -20276,7 +20276,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'set'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                         
@@ -20331,7 +20331,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20375,7 +20375,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'del'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -20461,7 +20461,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20505,7 +20505,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'get'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -20549,7 +20549,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -20594,7 +20594,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'get'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -20693,7 +20693,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20736,7 +20736,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -20779,7 +20779,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'count'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -20823,7 +20823,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'count'
-                + "/by-org-id/by-site-id"
+                + "/org-id/site-id"
                 + "/@org_id/" + org_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -20869,7 +20869,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -20921,7 +20921,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -20982,7 +20982,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'set'
-                + "/by-org-id/by-site-id"
+                + "/org-id/site-id"
                 + "/@org_id/" + org_id            
                 + "/@site_id/" + site_id            
                         
@@ -21037,7 +21037,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21081,7 +21081,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'del'
-                + "/by-org-id/by-site-id"
+                + "/org-id/site-id"
                 + "/@org_id/" + org_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -21167,7 +21167,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21211,7 +21211,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -21255,7 +21255,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'get'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -21300,7 +21300,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'get'
-                + "/by-org-id/by-site-id"
+                + "/org-id/site-id"
                 + "/@org_id/" + org_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -21399,7 +21399,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21442,7 +21442,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'count'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -21485,7 +21485,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'count'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -21529,7 +21529,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'count'
-                + "/by-app-id/by-site-id"
+                + "/app-id/site-id"
                 + "/@app_id/" + app_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -21575,7 +21575,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -21627,7 +21627,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -21688,7 +21688,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'set'
-                + "/by-app-id/by-site-id"
+                + "/app-id/site-id"
                 + "/@app_id/" + app_id            
                 + "/@site_id/" + site_id            
                         
@@ -21743,7 +21743,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21787,7 +21787,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'del'
-                + "/by-app-id/by-site-id"
+                + "/app-id/site-id"
                 + "/@app_id/" + app_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -21873,7 +21873,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21917,7 +21917,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'get'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -21961,7 +21961,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'get'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -22006,7 +22006,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'get'
-                + "/by-app-id/by-site-id"
+                + "/app-id/site-id"
                 + "/@app_id/" + app_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -22105,7 +22105,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -22148,7 +22148,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -22191,7 +22191,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -22235,7 +22235,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -22280,7 +22280,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -22326,7 +22326,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -22387,7 +22387,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -22466,7 +22466,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                         
                 ;
@@ -22545,7 +22545,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -22624,7 +22624,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                         
@@ -22704,7 +22704,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                         
@@ -22768,7 +22768,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -22811,7 +22811,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -22854,7 +22854,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -22898,7 +22898,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -22943,7 +22943,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -23029,7 +23029,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -23073,7 +23073,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -23117,7 +23117,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -23162,7 +23162,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -23208,7 +23208,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -23307,7 +23307,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -23350,7 +23350,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -23393,7 +23393,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -23437,7 +23437,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -23482,7 +23482,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -23528,7 +23528,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -23589,7 +23589,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -23668,7 +23668,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                         
                 ;
@@ -23747,7 +23747,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -23826,7 +23826,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                         
@@ -23906,7 +23906,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                         
@@ -23970,7 +23970,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -24013,7 +24013,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -24056,7 +24056,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -24100,7 +24100,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -24145,7 +24145,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -24231,7 +24231,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -24275,7 +24275,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -24319,7 +24319,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -24364,7 +24364,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -24410,7 +24410,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;

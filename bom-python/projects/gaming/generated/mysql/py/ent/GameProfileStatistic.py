@@ -64,11 +64,12 @@ class GameProfileStatistic(BaseEntity):
     #self.__dict__.update(entries)
     self.username = None
     self.code = None
+    self.timestamp = None
     self.level = None
-    self.type = None
+    self.stat_value_formatted = None
     self.profile_id = None
     self.points = None
-    self.timestamp = None
+    self.type = None
     self.game_id = None
     self.data = None
     self.stat_value = None

@@ -44,7 +44,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountAppByUuid(
+    public function CountAppUuid(
         $uuid
     ) {
         $parameters = array();
@@ -66,7 +66,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountAppByCode(
+    public function CountAppCode(
         $code
     ) {
         $parameters = array();
@@ -88,7 +88,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountAppByTypeId(
+    public function CountAppTypeId(
         $type_id
     ) {
         $parameters = array();
@@ -110,7 +110,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountAppByCodeByTypeId(
+    public function CountAppCodeTypeId(
         $code
         , $type_id
     ) {
@@ -135,7 +135,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountAppByPlatformByTypeId(
+    public function CountAppPlatformTypeId(
         $platform
         , $type_id
     ) {
@@ -160,7 +160,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountAppByPlatform(
+    public function CountAppPlatform(
         $platform
     ) {
         $parameters = array();
@@ -182,7 +182,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseAppListByFilter($filter_obj) {
+    public function BrowseAppListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -203,7 +203,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetAppByUuid($set_type, $obj) {
+    public function SetAppUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -250,7 +250,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetAppByCode($set_type, $obj) {
+    public function SetAppCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -297,7 +297,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelAppByUuid(
+    public function DelAppUuid(
         $uuid
     ) {
         $parameters = array();
@@ -320,7 +320,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelAppByCode(
+    public function DelAppCode(
         $code
     ) {
         $parameters = array();
@@ -363,7 +363,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetAppListByUuid(
+    public function GetAppListUuid(
         $uuid
     ) {
             
@@ -386,7 +386,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetAppListByCode(
+    public function GetAppListCode(
         $code
     ) {
             
@@ -409,7 +409,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetAppListByTypeId(
+    public function GetAppListTypeId(
         $type_id
     ) {
             
@@ -432,7 +432,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetAppListByCodeByTypeId(
+    public function GetAppListCodeTypeId(
         $code
         , $type_id
     ) {
@@ -458,7 +458,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetAppListByPlatformByTypeId(
+    public function GetAppListPlatformTypeId(
         $platform
         , $type_id
     ) {
@@ -484,7 +484,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetAppListByPlatform(
+    public function GetAppListPlatform(
         $platform
     ) {
             
@@ -526,7 +526,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountAppTypeByUuid(
+    public function CountAppTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -548,7 +548,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountAppTypeByCode(
+    public function CountAppTypeCode(
         $code
     ) {
         $parameters = array();
@@ -570,7 +570,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseAppTypeListByFilter($filter_obj) {
+    public function BrowseAppTypeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -591,7 +591,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetAppTypeByUuid($set_type, $obj) {
+    public function SetAppTypeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -634,7 +634,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetAppTypeByCode($set_type, $obj) {
+    public function SetAppTypeCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -677,7 +677,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelAppTypeByUuid(
+    public function DelAppTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -700,7 +700,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelAppTypeByCode(
+    public function DelAppTypeCode(
         $code
     ) {
         $parameters = array();
@@ -743,7 +743,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetAppTypeListByUuid(
+    public function GetAppTypeListUuid(
         $uuid
     ) {
             
@@ -766,7 +766,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetAppTypeListByCode(
+    public function GetAppTypeListCode(
         $code
     ) {
             
@@ -808,7 +808,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteByUuid(
+    public function CountSiteUuid(
         $uuid
     ) {
         $parameters = array();
@@ -830,7 +830,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteByCode(
+    public function CountSiteCode(
         $code
     ) {
         $parameters = array();
@@ -852,7 +852,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteByTypeId(
+    public function CountSiteTypeId(
         $type_id
     ) {
         $parameters = array();
@@ -874,7 +874,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteByCodeByTypeId(
+    public function CountSiteCodeTypeId(
         $code
         , $type_id
     ) {
@@ -899,7 +899,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteByDomainByTypeId(
+    public function CountSiteDomainTypeId(
         $domain
         , $type_id
     ) {
@@ -924,7 +924,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteByDomain(
+    public function CountSiteDomain(
         $domain
     ) {
         $parameters = array();
@@ -946,7 +946,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseSiteListByFilter($filter_obj) {
+    public function BrowseSiteListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -967,7 +967,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetSiteByUuid($set_type, $obj) {
+    public function SetSiteUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1014,7 +1014,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetSiteByCode($set_type, $obj) {
+    public function SetSiteCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1061,7 +1061,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelSiteByUuid(
+    public function DelSiteUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1084,7 +1084,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelSiteByCode(
+    public function DelSiteCode(
         $code
     ) {
         $parameters = array();
@@ -1127,7 +1127,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteListByUuid(
+    public function GetSiteListUuid(
         $uuid
     ) {
             
@@ -1150,7 +1150,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteListByCode(
+    public function GetSiteListCode(
         $code
     ) {
             
@@ -1173,7 +1173,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteListByTypeId(
+    public function GetSiteListTypeId(
         $type_id
     ) {
             
@@ -1196,7 +1196,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteListByCodeByTypeId(
+    public function GetSiteListCodeTypeId(
         $code
         , $type_id
     ) {
@@ -1222,7 +1222,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteListByDomainByTypeId(
+    public function GetSiteListDomainTypeId(
         $domain
         , $type_id
     ) {
@@ -1248,7 +1248,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteListByDomain(
+    public function GetSiteListDomain(
         $domain
     ) {
             
@@ -1290,7 +1290,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteTypeByUuid(
+    public function CountSiteTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1312,7 +1312,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteTypeByCode(
+    public function CountSiteTypeCode(
         $code
     ) {
         $parameters = array();
@@ -1334,7 +1334,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseSiteTypeListByFilter($filter_obj) {
+    public function BrowseSiteTypeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -1355,7 +1355,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetSiteTypeByUuid($set_type, $obj) {
+    public function SetSiteTypeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1398,7 +1398,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetSiteTypeByCode($set_type, $obj) {
+    public function SetSiteTypeCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1441,7 +1441,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelSiteTypeByUuid(
+    public function DelSiteTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1464,7 +1464,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelSiteTypeByCode(
+    public function DelSiteTypeCode(
         $code
     ) {
         $parameters = array();
@@ -1507,7 +1507,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteTypeListByUuid(
+    public function GetSiteTypeListUuid(
         $uuid
     ) {
             
@@ -1530,7 +1530,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteTypeListByCode(
+    public function GetSiteTypeListCode(
         $code
     ) {
             
@@ -1572,7 +1572,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgByUuid(
+    public function CountOrgUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1594,7 +1594,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgByCode(
+    public function CountOrgCode(
         $code
     ) {
         $parameters = array();
@@ -1616,7 +1616,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgByName(
+    public function CountOrgName(
         $name
     ) {
         $parameters = array();
@@ -1638,7 +1638,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOrgListByFilter($filter_obj) {
+    public function BrowseOrgListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -1659,7 +1659,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOrgByUuid($set_type, $obj) {
+    public function SetOrgUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1704,7 +1704,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOrgByUuid(
+    public function DelOrgUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1747,7 +1747,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgListByUuid(
+    public function GetOrgListUuid(
         $uuid
     ) {
             
@@ -1770,7 +1770,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgListByCode(
+    public function GetOrgListCode(
         $code
     ) {
             
@@ -1793,7 +1793,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgListByName(
+    public function GetOrgListName(
         $name
     ) {
             
@@ -1835,7 +1835,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgTypeByUuid(
+    public function CountOrgTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1857,7 +1857,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgTypeByCode(
+    public function CountOrgTypeCode(
         $code
     ) {
         $parameters = array();
@@ -1879,7 +1879,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOrgTypeListByFilter($filter_obj) {
+    public function BrowseOrgTypeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -1900,7 +1900,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOrgTypeByUuid($set_type, $obj) {
+    public function SetOrgTypeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1943,7 +1943,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetOrgTypeByCode($set_type, $obj) {
+    public function SetOrgTypeCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1986,7 +1986,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOrgTypeByUuid(
+    public function DelOrgTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2009,7 +2009,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelOrgTypeByCode(
+    public function DelOrgTypeCode(
         $code
     ) {
         $parameters = array();
@@ -2052,7 +2052,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgTypeListByUuid(
+    public function GetOrgTypeListUuid(
         $uuid
     ) {
             
@@ -2075,7 +2075,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgTypeListByCode(
+    public function GetOrgTypeListCode(
         $code
     ) {
             
@@ -2117,7 +2117,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentItemByUuid(
+    public function CountContentItemUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2139,7 +2139,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentItemByCode(
+    public function CountContentItemCode(
         $code
     ) {
         $parameters = array();
@@ -2161,7 +2161,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentItemByName(
+    public function CountContentItemName(
         $name
     ) {
         $parameters = array();
@@ -2183,7 +2183,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentItemByPath(
+    public function CountContentItemPath(
         $path
     ) {
         $parameters = array();
@@ -2205,7 +2205,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseContentItemListByFilter($filter_obj) {
+    public function BrowseContentItemListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2226,7 +2226,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetContentItemByUuid($set_type, $obj) {
+    public function SetContentItemUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2279,7 +2279,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelContentItemByUuid(
+    public function DelContentItemUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2302,7 +2302,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelContentItemByPath(
+    public function DelContentItemPath(
         $path
     ) {
         $parameters = array();
@@ -2345,7 +2345,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentItemListByUuid(
+    public function GetContentItemListUuid(
         $uuid
     ) {
             
@@ -2368,7 +2368,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentItemListByCode(
+    public function GetContentItemListCode(
         $code
     ) {
             
@@ -2391,7 +2391,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentItemListByName(
+    public function GetContentItemListName(
         $name
     ) {
             
@@ -2414,7 +2414,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentItemListByPath(
+    public function GetContentItemListPath(
         $path
     ) {
             
@@ -2456,7 +2456,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentItemTypeByUuid(
+    public function CountContentItemTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2478,7 +2478,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentItemTypeByCode(
+    public function CountContentItemTypeCode(
         $code
     ) {
         $parameters = array();
@@ -2500,7 +2500,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseContentItemTypeListByFilter($filter_obj) {
+    public function BrowseContentItemTypeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2521,7 +2521,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetContentItemTypeByUuid($set_type, $obj) {
+    public function SetContentItemTypeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2564,7 +2564,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetContentItemTypeByCode($set_type, $obj) {
+    public function SetContentItemTypeCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2607,7 +2607,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelContentItemTypeByUuid(
+    public function DelContentItemTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2630,7 +2630,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelContentItemTypeByCode(
+    public function DelContentItemTypeCode(
         $code
     ) {
         $parameters = array();
@@ -2673,7 +2673,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentItemTypeListByUuid(
+    public function GetContentItemTypeListUuid(
         $uuid
     ) {
             
@@ -2696,7 +2696,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentItemTypeListByCode(
+    public function GetContentItemTypeListCode(
         $code
     ) {
             
@@ -2738,7 +2738,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentPageByUuid(
+    public function CountContentPageUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2760,7 +2760,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentPageByCode(
+    public function CountContentPageCode(
         $code
     ) {
         $parameters = array();
@@ -2782,7 +2782,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentPageByName(
+    public function CountContentPageName(
         $name
     ) {
         $parameters = array();
@@ -2804,7 +2804,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountContentPageByPath(
+    public function CountContentPagePath(
         $path
     ) {
         $parameters = array();
@@ -2826,7 +2826,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseContentPageListByFilter($filter_obj) {
+    public function BrowseContentPageListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2847,7 +2847,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetContentPageByUuid($set_type, $obj) {
+    public function SetContentPageUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2900,7 +2900,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelContentPageByUuid(
+    public function DelContentPageUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2923,7 +2923,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelContentPageByPathBySiteId(
+    public function DelContentPagePathSiteId(
         $path
         , $site_id
     ) {
@@ -2949,7 +2949,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelContentPageByPath(
+    public function DelContentPagePath(
         $path
     ) {
         $parameters = array();
@@ -2992,7 +2992,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentPageListByUuid(
+    public function GetContentPageListUuid(
         $uuid
     ) {
             
@@ -3015,7 +3015,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentPageListByCode(
+    public function GetContentPageListCode(
         $code
     ) {
             
@@ -3038,7 +3038,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentPageListByName(
+    public function GetContentPageListName(
         $name
     ) {
             
@@ -3061,7 +3061,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentPageListByPath(
+    public function GetContentPageListPath(
         $path
     ) {
             
@@ -3084,7 +3084,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentPageListBySiteId(
+    public function GetContentPageListSiteId(
         $site_id
     ) {
             
@@ -3107,7 +3107,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetContentPageListBySiteIdByPath(
+    public function GetContentPageListSiteIdPath(
         $site_id
         , $path
     ) {
@@ -3152,7 +3152,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountMessageByUuid(
+    public function CountMessageUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3174,7 +3174,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseMessageListByFilter($filter_obj) {
+    public function BrowseMessageListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -3195,7 +3195,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetMessageByUuid($set_type, $obj) {
+    public function SetMessageUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3248,7 +3248,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelMessageByUuid(
+    public function DelMessageUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3291,7 +3291,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetMessageListByUuid(
+    public function GetMessageListUuid(
         $uuid
     ) {
             
@@ -3333,7 +3333,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferByUuid(
+    public function CountOfferUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3355,7 +3355,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferByCode(
+    public function CountOfferCode(
         $code
     ) {
         $parameters = array();
@@ -3377,7 +3377,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferByName(
+    public function CountOfferName(
         $name
     ) {
         $parameters = array();
@@ -3399,7 +3399,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferByOrgId(
+    public function CountOfferOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -3421,7 +3421,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOfferListByFilter($filter_obj) {
+    public function BrowseOfferListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -3442,7 +3442,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOfferByUuid($set_type, $obj) {
+    public function SetOfferUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3493,7 +3493,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOfferByUuid(
+    public function DelOfferUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3516,7 +3516,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelOfferByOrgId(
+    public function DelOfferOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -3559,7 +3559,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferListByUuid(
+    public function GetOfferListUuid(
         $uuid
     ) {
             
@@ -3582,7 +3582,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferListByCode(
+    public function GetOfferListCode(
         $code
     ) {
             
@@ -3605,7 +3605,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferListByName(
+    public function GetOfferListName(
         $name
     ) {
             
@@ -3628,7 +3628,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferListByOrgId(
+    public function GetOfferListOrgId(
         $org_id
     ) {
             
@@ -3670,7 +3670,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferTypeByUuid(
+    public function CountOfferTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3692,7 +3692,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferTypeByCode(
+    public function CountOfferTypeCode(
         $code
     ) {
         $parameters = array();
@@ -3714,7 +3714,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferTypeByName(
+    public function CountOfferTypeName(
         $name
     ) {
         $parameters = array();
@@ -3736,7 +3736,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOfferTypeListByFilter($filter_obj) {
+    public function BrowseOfferTypeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -3757,7 +3757,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOfferTypeByUuid($set_type, $obj) {
+    public function SetOfferTypeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3800,7 +3800,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOfferTypeByUuid(
+    public function DelOfferTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3843,7 +3843,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferTypeListByUuid(
+    public function GetOfferTypeListUuid(
         $uuid
     ) {
             
@@ -3866,7 +3866,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferTypeListByCode(
+    public function GetOfferTypeListCode(
         $code
     ) {
             
@@ -3889,7 +3889,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferTypeListByName(
+    public function GetOfferTypeListName(
         $name
     ) {
             
@@ -3931,7 +3931,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferLocationByUuid(
+    public function CountOfferLocationUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3953,7 +3953,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferLocationByOfferId(
+    public function CountOfferLocationOfferId(
         $offer_id
     ) {
         $parameters = array();
@@ -3975,7 +3975,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferLocationByCity(
+    public function CountOfferLocationCity(
         $city
     ) {
         $parameters = array();
@@ -3997,7 +3997,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferLocationByCountryCode(
+    public function CountOfferLocationCountryCode(
         $country_code
     ) {
         $parameters = array();
@@ -4019,7 +4019,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferLocationByPostalCode(
+    public function CountOfferLocationPostalCode(
         $postal_code
     ) {
         $parameters = array();
@@ -4041,7 +4041,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOfferLocationListByFilter($filter_obj) {
+    public function BrowseOfferLocationListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -4062,7 +4062,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOfferLocationByUuid($set_type, $obj) {
+    public function SetOfferLocationUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -4139,7 +4139,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOfferLocationByUuid(
+    public function DelOfferLocationUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4182,7 +4182,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferLocationListByUuid(
+    public function GetOfferLocationListUuid(
         $uuid
     ) {
             
@@ -4205,7 +4205,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferLocationListByOfferId(
+    public function GetOfferLocationListOfferId(
         $offer_id
     ) {
             
@@ -4228,7 +4228,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferLocationListByCity(
+    public function GetOfferLocationListCity(
         $city
     ) {
             
@@ -4251,7 +4251,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferLocationListByCountryCode(
+    public function GetOfferLocationListCountryCode(
         $country_code
     ) {
             
@@ -4274,7 +4274,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferLocationListByPostalCode(
+    public function GetOfferLocationListPostalCode(
         $postal_code
     ) {
             
@@ -4316,7 +4316,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryByUuid(
+    public function CountOfferCategoryUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4338,7 +4338,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryByCode(
+    public function CountOfferCategoryCode(
         $code
     ) {
         $parameters = array();
@@ -4360,7 +4360,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryByName(
+    public function CountOfferCategoryName(
         $name
     ) {
         $parameters = array();
@@ -4382,7 +4382,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryByOrgId(
+    public function CountOfferCategoryOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -4404,7 +4404,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryByTypeId(
+    public function CountOfferCategoryTypeId(
         $type_id
     ) {
         $parameters = array();
@@ -4426,7 +4426,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryByOrgIdByTypeId(
+    public function CountOfferCategoryOrgIdTypeId(
         $org_id
         , $type_id
     ) {
@@ -4451,7 +4451,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOfferCategoryListByFilter($filter_obj) {
+    public function BrowseOfferCategoryListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -4472,7 +4472,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOfferCategoryByUuid($set_type, $obj) {
+    public function SetOfferCategoryUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -4519,7 +4519,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOfferCategoryByUuid(
+    public function DelOfferCategoryUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4542,7 +4542,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelOfferCategoryByCodeByOrgId(
+    public function DelOfferCategoryCodeOrgId(
         $code
         , $org_id
     ) {
@@ -4568,7 +4568,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelOfferCategoryByCodeByOrgIdByTypeId(
+    public function DelOfferCategoryCodeOrgIdTypeId(
         $code
         , $org_id
         , $type_id
@@ -4617,7 +4617,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryListByUuid(
+    public function GetOfferCategoryListUuid(
         $uuid
     ) {
             
@@ -4640,7 +4640,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryListByCode(
+    public function GetOfferCategoryListCode(
         $code
     ) {
             
@@ -4663,7 +4663,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryListByName(
+    public function GetOfferCategoryListName(
         $name
     ) {
             
@@ -4686,7 +4686,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryListByOrgId(
+    public function GetOfferCategoryListOrgId(
         $org_id
     ) {
             
@@ -4709,7 +4709,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryListByTypeId(
+    public function GetOfferCategoryListTypeId(
         $type_id
     ) {
             
@@ -4732,7 +4732,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryListByOrgIdByTypeId(
+    public function GetOfferCategoryListOrgIdTypeId(
         $org_id
         , $type_id
     ) {
@@ -4777,7 +4777,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryTreeByUuid(
+    public function CountOfferCategoryTreeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4799,7 +4799,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryTreeByParentId(
+    public function CountOfferCategoryTreeParentId(
         $parent_id
     ) {
         $parameters = array();
@@ -4821,7 +4821,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryTreeByCategoryId(
+    public function CountOfferCategoryTreeCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -4843,7 +4843,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryTreeByParentIdByCategoryId(
+    public function CountOfferCategoryTreeParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -4868,7 +4868,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOfferCategoryTreeListByFilter($filter_obj) {
+    public function BrowseOfferCategoryTreeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -4889,7 +4889,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOfferCategoryTreeByUuid($set_type, $obj) {
+    public function SetOfferCategoryTreeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -4928,7 +4928,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOfferCategoryTreeByUuid(
+    public function DelOfferCategoryTreeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4951,7 +4951,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelOfferCategoryTreeByParentId(
+    public function DelOfferCategoryTreeParentId(
         $parent_id
     ) {
         $parameters = array();
@@ -4974,7 +4974,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelOfferCategoryTreeByCategoryId(
+    public function DelOfferCategoryTreeCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -4997,7 +4997,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelOfferCategoryTreeByParentIdByCategoryId(
+    public function DelOfferCategoryTreeParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -5043,7 +5043,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryTreeListByUuid(
+    public function GetOfferCategoryTreeListUuid(
         $uuid
     ) {
             
@@ -5066,7 +5066,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryTreeListByParentId(
+    public function GetOfferCategoryTreeListParentId(
         $parent_id
     ) {
             
@@ -5089,7 +5089,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryTreeListByCategoryId(
+    public function GetOfferCategoryTreeListCategoryId(
         $category_id
     ) {
             
@@ -5112,7 +5112,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryTreeListByParentIdByCategoryId(
+    public function GetOfferCategoryTreeListParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -5157,7 +5157,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryAssocByUuid(
+    public function CountOfferCategoryAssocUuid(
         $uuid
     ) {
         $parameters = array();
@@ -5179,7 +5179,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryAssocByOfferId(
+    public function CountOfferCategoryAssocOfferId(
         $offer_id
     ) {
         $parameters = array();
@@ -5201,7 +5201,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryAssocByCategoryId(
+    public function CountOfferCategoryAssocCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -5223,7 +5223,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferCategoryAssocByOfferIdByCategoryId(
+    public function CountOfferCategoryAssocOfferIdCategoryId(
         $offer_id
         , $category_id
     ) {
@@ -5248,7 +5248,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOfferCategoryAssocListByFilter($filter_obj) {
+    public function BrowseOfferCategoryAssocListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -5269,7 +5269,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOfferCategoryAssocByUuid($set_type, $obj) {
+    public function SetOfferCategoryAssocUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5308,7 +5308,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOfferCategoryAssocByUuid(
+    public function DelOfferCategoryAssocUuid(
         $uuid
     ) {
         $parameters = array();
@@ -5351,7 +5351,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryAssocListByUuid(
+    public function GetOfferCategoryAssocListUuid(
         $uuid
     ) {
             
@@ -5374,7 +5374,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryAssocListByOfferId(
+    public function GetOfferCategoryAssocListOfferId(
         $offer_id
     ) {
             
@@ -5397,7 +5397,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryAssocListByCategoryId(
+    public function GetOfferCategoryAssocListCategoryId(
         $category_id
     ) {
             
@@ -5420,7 +5420,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferCategoryAssocListByOfferIdByCategoryId(
+    public function GetOfferCategoryAssocListOfferIdCategoryId(
         $offer_id
         , $category_id
     ) {
@@ -5465,7 +5465,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferGameLocationByUuid(
+    public function CountOfferGameLocationUuid(
         $uuid
     ) {
         $parameters = array();
@@ -5487,7 +5487,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferGameLocationByGameLocationId(
+    public function CountOfferGameLocationGameLocationId(
         $game_location_id
     ) {
         $parameters = array();
@@ -5509,7 +5509,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferGameLocationByOfferId(
+    public function CountOfferGameLocationOfferId(
         $offer_id
     ) {
         $parameters = array();
@@ -5531,7 +5531,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOfferGameLocationByOfferIdByGameLocationId(
+    public function CountOfferGameLocationOfferIdGameLocationId(
         $offer_id
         , $game_location_id
     ) {
@@ -5556,7 +5556,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOfferGameLocationListByFilter($filter_obj) {
+    public function BrowseOfferGameLocationListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -5577,7 +5577,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOfferGameLocationByUuid($set_type, $obj) {
+    public function SetOfferGameLocationUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5618,7 +5618,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOfferGameLocationByUuid(
+    public function DelOfferGameLocationUuid(
         $uuid
     ) {
         $parameters = array();
@@ -5661,7 +5661,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferGameLocationListByUuid(
+    public function GetOfferGameLocationListUuid(
         $uuid
     ) {
             
@@ -5684,7 +5684,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferGameLocationListByGameLocationId(
+    public function GetOfferGameLocationListGameLocationId(
         $game_location_id
     ) {
             
@@ -5707,7 +5707,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferGameLocationListByOfferId(
+    public function GetOfferGameLocationListOfferId(
         $offer_id
     ) {
             
@@ -5730,7 +5730,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOfferGameLocationListByOfferIdByGameLocationId(
+    public function GetOfferGameLocationListOfferIdGameLocationId(
         $offer_id
         , $game_location_id
     ) {
@@ -5775,7 +5775,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventInfoByUuid(
+    public function CountEventInfoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -5797,7 +5797,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventInfoByCode(
+    public function CountEventInfoCode(
         $code
     ) {
         $parameters = array();
@@ -5819,7 +5819,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventInfoByName(
+    public function CountEventInfoName(
         $name
     ) {
         $parameters = array();
@@ -5841,7 +5841,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventInfoByOrgId(
+    public function CountEventInfoOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -5863,7 +5863,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseEventInfoListByFilter($filter_obj) {
+    public function BrowseEventInfoListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -5884,7 +5884,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetEventInfoByUuid($set_type, $obj) {
+    public function SetEventInfoUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5933,7 +5933,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelEventInfoByUuid(
+    public function DelEventInfoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -5956,7 +5956,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelEventInfoByOrgId(
+    public function DelEventInfoOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -5999,7 +5999,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventInfoListByUuid(
+    public function GetEventInfoListUuid(
         $uuid
     ) {
             
@@ -6022,7 +6022,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventInfoListByCode(
+    public function GetEventInfoListCode(
         $code
     ) {
             
@@ -6045,7 +6045,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventInfoListByName(
+    public function GetEventInfoListName(
         $name
     ) {
             
@@ -6068,7 +6068,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventInfoListByOrgId(
+    public function GetEventInfoListOrgId(
         $org_id
     ) {
             
@@ -6110,7 +6110,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventLocationByUuid(
+    public function CountEventLocationUuid(
         $uuid
     ) {
         $parameters = array();
@@ -6132,7 +6132,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventLocationByEventId(
+    public function CountEventLocationEventId(
         $event_id
     ) {
         $parameters = array();
@@ -6154,7 +6154,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventLocationByCity(
+    public function CountEventLocationCity(
         $city
     ) {
         $parameters = array();
@@ -6176,7 +6176,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventLocationByCountryCode(
+    public function CountEventLocationCountryCode(
         $country_code
     ) {
         $parameters = array();
@@ -6198,7 +6198,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventLocationByPostalCode(
+    public function CountEventLocationPostalCode(
         $postal_code
     ) {
         $parameters = array();
@@ -6220,7 +6220,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseEventLocationListByFilter($filter_obj) {
+    public function BrowseEventLocationListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -6241,7 +6241,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetEventLocationByUuid($set_type, $obj) {
+    public function SetEventLocationUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6318,7 +6318,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelEventLocationByUuid(
+    public function DelEventLocationUuid(
         $uuid
     ) {
         $parameters = array();
@@ -6361,7 +6361,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventLocationListByUuid(
+    public function GetEventLocationListUuid(
         $uuid
     ) {
             
@@ -6384,7 +6384,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventLocationListByEventId(
+    public function GetEventLocationListEventId(
         $event_id
     ) {
             
@@ -6407,7 +6407,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventLocationListByCity(
+    public function GetEventLocationListCity(
         $city
     ) {
             
@@ -6430,7 +6430,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventLocationListByCountryCode(
+    public function GetEventLocationListCountryCode(
         $country_code
     ) {
             
@@ -6453,7 +6453,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventLocationListByPostalCode(
+    public function GetEventLocationListPostalCode(
         $postal_code
     ) {
             
@@ -6495,7 +6495,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryByUuid(
+    public function CountEventCategoryUuid(
         $uuid
     ) {
         $parameters = array();
@@ -6517,7 +6517,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryByCode(
+    public function CountEventCategoryCode(
         $code
     ) {
         $parameters = array();
@@ -6539,7 +6539,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryByName(
+    public function CountEventCategoryName(
         $name
     ) {
         $parameters = array();
@@ -6561,7 +6561,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryByOrgId(
+    public function CountEventCategoryOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -6583,7 +6583,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryByTypeId(
+    public function CountEventCategoryTypeId(
         $type_id
     ) {
         $parameters = array();
@@ -6605,7 +6605,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryByOrgIdByTypeId(
+    public function CountEventCategoryOrgIdTypeId(
         $org_id
         , $type_id
     ) {
@@ -6630,7 +6630,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseEventCategoryListByFilter($filter_obj) {
+    public function BrowseEventCategoryListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -6651,7 +6651,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetEventCategoryByUuid($set_type, $obj) {
+    public function SetEventCategoryUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6698,7 +6698,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelEventCategoryByUuid(
+    public function DelEventCategoryUuid(
         $uuid
     ) {
         $parameters = array();
@@ -6721,7 +6721,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelEventCategoryByCodeByOrgId(
+    public function DelEventCategoryCodeOrgId(
         $code
         , $org_id
     ) {
@@ -6747,7 +6747,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelEventCategoryByCodeByOrgIdByTypeId(
+    public function DelEventCategoryCodeOrgIdTypeId(
         $code
         , $org_id
         , $type_id
@@ -6796,7 +6796,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryListByUuid(
+    public function GetEventCategoryListUuid(
         $uuid
     ) {
             
@@ -6819,7 +6819,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryListByCode(
+    public function GetEventCategoryListCode(
         $code
     ) {
             
@@ -6842,7 +6842,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryListByName(
+    public function GetEventCategoryListName(
         $name
     ) {
             
@@ -6865,7 +6865,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryListByOrgId(
+    public function GetEventCategoryListOrgId(
         $org_id
     ) {
             
@@ -6888,7 +6888,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryListByTypeId(
+    public function GetEventCategoryListTypeId(
         $type_id
     ) {
             
@@ -6911,7 +6911,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryListByOrgIdByTypeId(
+    public function GetEventCategoryListOrgIdTypeId(
         $org_id
         , $type_id
     ) {
@@ -6956,7 +6956,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryTreeByUuid(
+    public function CountEventCategoryTreeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -6978,7 +6978,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryTreeByParentId(
+    public function CountEventCategoryTreeParentId(
         $parent_id
     ) {
         $parameters = array();
@@ -7000,7 +7000,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryTreeByCategoryId(
+    public function CountEventCategoryTreeCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -7022,7 +7022,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryTreeByParentIdByCategoryId(
+    public function CountEventCategoryTreeParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -7047,7 +7047,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseEventCategoryTreeListByFilter($filter_obj) {
+    public function BrowseEventCategoryTreeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -7068,7 +7068,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetEventCategoryTreeByUuid($set_type, $obj) {
+    public function SetEventCategoryTreeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -7107,7 +7107,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelEventCategoryTreeByUuid(
+    public function DelEventCategoryTreeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7130,7 +7130,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelEventCategoryTreeByParentId(
+    public function DelEventCategoryTreeParentId(
         $parent_id
     ) {
         $parameters = array();
@@ -7153,7 +7153,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelEventCategoryTreeByCategoryId(
+    public function DelEventCategoryTreeCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -7176,7 +7176,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelEventCategoryTreeByParentIdByCategoryId(
+    public function DelEventCategoryTreeParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -7222,7 +7222,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryTreeListByUuid(
+    public function GetEventCategoryTreeListUuid(
         $uuid
     ) {
             
@@ -7245,7 +7245,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryTreeListByParentId(
+    public function GetEventCategoryTreeListParentId(
         $parent_id
     ) {
             
@@ -7268,7 +7268,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryTreeListByCategoryId(
+    public function GetEventCategoryTreeListCategoryId(
         $category_id
     ) {
             
@@ -7291,7 +7291,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryTreeListByParentIdByCategoryId(
+    public function GetEventCategoryTreeListParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -7336,7 +7336,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryAssocByUuid(
+    public function CountEventCategoryAssocUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7358,7 +7358,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryAssocByEventId(
+    public function CountEventCategoryAssocEventId(
         $event_id
     ) {
         $parameters = array();
@@ -7380,7 +7380,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryAssocByCategoryId(
+    public function CountEventCategoryAssocCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -7402,7 +7402,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountEventCategoryAssocByEventIdByCategoryId(
+    public function CountEventCategoryAssocEventIdCategoryId(
         $event_id
         , $category_id
     ) {
@@ -7427,7 +7427,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseEventCategoryAssocListByFilter($filter_obj) {
+    public function BrowseEventCategoryAssocListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -7448,7 +7448,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetEventCategoryAssocByUuid($set_type, $obj) {
+    public function SetEventCategoryAssocUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -7487,7 +7487,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelEventCategoryAssocByUuid(
+    public function DelEventCategoryAssocUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7530,7 +7530,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryAssocListByUuid(
+    public function GetEventCategoryAssocListUuid(
         $uuid
     ) {
             
@@ -7553,7 +7553,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryAssocListByEventId(
+    public function GetEventCategoryAssocListEventId(
         $event_id
     ) {
             
@@ -7576,7 +7576,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryAssocListByCategoryId(
+    public function GetEventCategoryAssocListCategoryId(
         $category_id
     ) {
             
@@ -7599,7 +7599,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetEventCategoryAssocListByEventIdByCategoryId(
+    public function GetEventCategoryAssocListEventIdCategoryId(
         $event_id
         , $category_id
     ) {
@@ -7644,7 +7644,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelByUuid(
+    public function CountChannelUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7666,7 +7666,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelByCode(
+    public function CountChannelCode(
         $code
     ) {
         $parameters = array();
@@ -7688,7 +7688,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelByName(
+    public function CountChannelName(
         $name
     ) {
         $parameters = array();
@@ -7710,7 +7710,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelByOrgId(
+    public function CountChannelOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -7732,7 +7732,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelByTypeId(
+    public function CountChannelTypeId(
         $type_id
     ) {
         $parameters = array();
@@ -7754,7 +7754,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelByOrgIdByTypeId(
+    public function CountChannelOrgIdTypeId(
         $org_id
         , $type_id
     ) {
@@ -7779,7 +7779,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseChannelListByFilter($filter_obj) {
+    public function BrowseChannelListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -7800,7 +7800,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetChannelByUuid($set_type, $obj) {
+    public function SetChannelUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -7847,7 +7847,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelChannelByUuid(
+    public function DelChannelUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7870,7 +7870,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelChannelByCodeByOrgId(
+    public function DelChannelCodeOrgId(
         $code
         , $org_id
     ) {
@@ -7896,7 +7896,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelChannelByCodeByOrgIdByTypeId(
+    public function DelChannelCodeOrgIdTypeId(
         $code
         , $org_id
         , $type_id
@@ -7945,7 +7945,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelListByUuid(
+    public function GetChannelListUuid(
         $uuid
     ) {
             
@@ -7968,7 +7968,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelListByCode(
+    public function GetChannelListCode(
         $code
     ) {
             
@@ -7991,7 +7991,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelListByName(
+    public function GetChannelListName(
         $name
     ) {
             
@@ -8014,7 +8014,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelListByOrgId(
+    public function GetChannelListOrgId(
         $org_id
     ) {
             
@@ -8037,7 +8037,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelListByTypeId(
+    public function GetChannelListTypeId(
         $type_id
     ) {
             
@@ -8060,7 +8060,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelListByOrgIdByTypeId(
+    public function GetChannelListOrgIdTypeId(
         $org_id
         , $type_id
     ) {
@@ -8105,7 +8105,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelTypeByUuid(
+    public function CountChannelTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -8127,7 +8127,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelTypeByCode(
+    public function CountChannelTypeCode(
         $code
     ) {
         $parameters = array();
@@ -8149,7 +8149,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountChannelTypeByName(
+    public function CountChannelTypeName(
         $name
     ) {
         $parameters = array();
@@ -8171,7 +8171,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseChannelTypeListByFilter($filter_obj) {
+    public function BrowseChannelTypeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -8192,7 +8192,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetChannelTypeByUuid($set_type, $obj) {
+    public function SetChannelTypeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8235,7 +8235,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelChannelTypeByUuid(
+    public function DelChannelTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -8278,7 +8278,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelTypeListByUuid(
+    public function GetChannelTypeListUuid(
         $uuid
     ) {
             
@@ -8301,7 +8301,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelTypeListByCode(
+    public function GetChannelTypeListCode(
         $code
     ) {
             
@@ -8324,7 +8324,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetChannelTypeListByName(
+    public function GetChannelTypeListName(
         $name
     ) {
             
@@ -8366,7 +8366,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountQuestionByUuid(
+    public function CountQuestionUuid(
         $uuid
     ) {
         $parameters = array();
@@ -8388,7 +8388,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountQuestionByCode(
+    public function CountQuestionCode(
         $code
     ) {
         $parameters = array();
@@ -8410,7 +8410,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountQuestionByName(
+    public function CountQuestionName(
         $name
     ) {
         $parameters = array();
@@ -8432,7 +8432,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountQuestionByChannelId(
+    public function CountQuestionChannelId(
         $channel_id
     ) {
         $parameters = array();
@@ -8454,7 +8454,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountQuestionByOrgId(
+    public function CountQuestionOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -8476,7 +8476,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountQuestionByChannelIdByOrgId(
+    public function CountQuestionChannelIdOrgId(
         $channel_id
         , $org_id
     ) {
@@ -8501,7 +8501,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountQuestionByChannelIdByCode(
+    public function CountQuestionChannelIdCode(
         $channel_id
         , $code
     ) {
@@ -8526,7 +8526,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseQuestionListByFilter($filter_obj) {
+    public function BrowseQuestionListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -8547,7 +8547,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetQuestionByUuid($set_type, $obj) {
+    public function SetQuestionUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8596,7 +8596,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetQuestionByChannelIdByCode($set_type, $obj) {
+    public function SetQuestionChannelIdCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8646,7 +8646,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelQuestionByUuid(
+    public function DelQuestionUuid(
         $uuid
     ) {
         $parameters = array();
@@ -8669,7 +8669,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelQuestionByChannelIdByOrgId(
+    public function DelQuestionChannelIdOrgId(
         $channel_id
         , $org_id
     ) {
@@ -8715,7 +8715,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetQuestionListByUuid(
+    public function GetQuestionListUuid(
         $uuid
     ) {
             
@@ -8738,7 +8738,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetQuestionListByCode(
+    public function GetQuestionListCode(
         $code
     ) {
             
@@ -8761,7 +8761,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetQuestionListByName(
+    public function GetQuestionListName(
         $name
     ) {
             
@@ -8784,7 +8784,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetQuestionListByType(
+    public function GetQuestionListType(
         $type
     ) {
             
@@ -8807,7 +8807,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetQuestionListByChannelId(
+    public function GetQuestionListChannelId(
         $channel_id
     ) {
             
@@ -8830,7 +8830,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetQuestionListByOrgId(
+    public function GetQuestionListOrgId(
         $org_id
     ) {
             
@@ -8853,7 +8853,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetQuestionListByChannelIdByOrgId(
+    public function GetQuestionListChannelIdOrgId(
         $channel_id
         , $org_id
     ) {
@@ -8879,7 +8879,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetQuestionListByChannelIdByCode(
+    public function GetQuestionListChannelIdCode(
         $channel_id
         , $code
     ) {
@@ -8924,7 +8924,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileOfferByUuid(
+    public function CountProfileOfferUuid(
         $uuid
     ) {
         $parameters = array();
@@ -8946,7 +8946,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileOfferByProfileId(
+    public function CountProfileOfferProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -8968,7 +8968,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseProfileOfferListByFilter($filter_obj) {
+    public function BrowseProfileOfferListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -8989,7 +8989,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetProfileOfferByUuid($set_type, $obj) {
+    public function SetProfileOfferUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9034,7 +9034,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelProfileOfferByUuid(
+    public function DelProfileOfferUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9057,7 +9057,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelProfileOfferByProfileId(
+    public function DelProfileOfferProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -9100,7 +9100,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileOfferListByUuid(
+    public function GetProfileOfferListUuid(
         $uuid
     ) {
             
@@ -9123,7 +9123,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileOfferListByProfileId(
+    public function GetProfileOfferListProfileId(
         $profile_id
     ) {
             
@@ -9165,7 +9165,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileAppByUuid(
+    public function CountProfileAppUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9187,7 +9187,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileAppByProfileIdByAppId(
+    public function CountProfileAppProfileIdAppId(
         $profile_id
         , $app_id
     ) {
@@ -9212,7 +9212,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseProfileAppListByFilter($filter_obj) {
+    public function BrowseProfileAppListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -9233,7 +9233,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetProfileAppByUuid($set_type, $obj) {
+    public function SetProfileAppUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9272,7 +9272,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetProfileAppByProfileIdByAppId($set_type, $obj) {
+    public function SetProfileAppProfileIdAppId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9312,7 +9312,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelProfileAppByUuid(
+    public function DelProfileAppUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9335,7 +9335,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelProfileAppByProfileIdByAppId(
+    public function DelProfileAppProfileIdAppId(
         $profile_id
         , $app_id
     ) {
@@ -9381,7 +9381,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileAppListByUuid(
+    public function GetProfileAppListUuid(
         $uuid
     ) {
             
@@ -9404,7 +9404,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileAppListByAppId(
+    public function GetProfileAppListAppId(
         $app_id
     ) {
             
@@ -9427,7 +9427,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileAppListByProfileId(
+    public function GetProfileAppListProfileId(
         $profile_id
     ) {
             
@@ -9450,7 +9450,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileAppListByProfileIdByAppId(
+    public function GetProfileAppListProfileIdAppId(
         $profile_id
         , $app_id
     ) {
@@ -9495,7 +9495,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileOrgByUuid(
+    public function CountProfileOrgUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9517,7 +9517,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileOrgByOrgId(
+    public function CountProfileOrgOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -9539,7 +9539,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileOrgByProfileId(
+    public function CountProfileOrgProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -9561,7 +9561,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseProfileOrgListByFilter($filter_obj) {
+    public function BrowseProfileOrgListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -9582,7 +9582,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetProfileOrgByUuid($set_type, $obj) {
+    public function SetProfileOrgUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9623,7 +9623,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelProfileOrgByUuid(
+    public function DelProfileOrgUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9666,7 +9666,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileOrgListByUuid(
+    public function GetProfileOrgListUuid(
         $uuid
     ) {
             
@@ -9689,7 +9689,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileOrgListByOrgId(
+    public function GetProfileOrgListOrgId(
         $org_id
     ) {
             
@@ -9712,7 +9712,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileOrgListByProfileId(
+    public function GetProfileOrgListProfileId(
         $profile_id
     ) {
             
@@ -9754,7 +9754,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileQuestionByUuid(
+    public function CountProfileQuestionUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9776,7 +9776,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileQuestionByChannelId(
+    public function CountProfileQuestionChannelId(
         $channel_id
     ) {
         $parameters = array();
@@ -9798,7 +9798,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileQuestionByOrgId(
+    public function CountProfileQuestionOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -9820,7 +9820,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileQuestionByProfileId(
+    public function CountProfileQuestionProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -9842,7 +9842,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileQuestionByQuestionId(
+    public function CountProfileQuestionQuestionId(
         $question_id
     ) {
         $parameters = array();
@@ -9864,7 +9864,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileQuestionByChannelIdByOrgId(
+    public function CountProfileQuestionChannelIdOrgId(
         $channel_id
         , $org_id
     ) {
@@ -9889,7 +9889,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileQuestionByChannelIdByProfileId(
+    public function CountProfileQuestionChannelIdProfileId(
         $channel_id
         , $profile_id
     ) {
@@ -9914,7 +9914,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileQuestionByQuestionIdByProfileId(
+    public function CountProfileQuestionQuestionIdProfileId(
         $question_id
         , $profile_id
     ) {
@@ -9939,7 +9939,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseProfileQuestionListByFilter($filter_obj) {
+    public function BrowseProfileQuestionListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -9960,7 +9960,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetProfileQuestionByUuid($set_type, $obj) {
+    public function SetProfileQuestionUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10007,7 +10007,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetProfileQuestionByChannelIdByProfileId($set_type, $obj) {
+    public function SetProfileQuestionChannelIdProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10055,7 +10055,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetProfileQuestionByQuestionIdByProfileId($set_type, $obj) {
+    public function SetProfileQuestionQuestionIdProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10103,7 +10103,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetProfileQuestionByChannelIdByQuestionIdByProfileId($set_type, $obj) {
+    public function SetProfileQuestionChannelIdQuestionIdProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10152,7 +10152,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelProfileQuestionByUuid(
+    public function DelProfileQuestionUuid(
         $uuid
     ) {
         $parameters = array();
@@ -10175,7 +10175,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelProfileQuestionByChannelIdByOrgId(
+    public function DelProfileQuestionChannelIdOrgId(
         $channel_id
         , $org_id
     ) {
@@ -10221,7 +10221,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileQuestionListByUuid(
+    public function GetProfileQuestionListUuid(
         $uuid
     ) {
             
@@ -10244,7 +10244,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileQuestionListByChannelId(
+    public function GetProfileQuestionListChannelId(
         $channel_id
     ) {
             
@@ -10267,7 +10267,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileQuestionListByOrgId(
+    public function GetProfileQuestionListOrgId(
         $org_id
     ) {
             
@@ -10290,7 +10290,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileQuestionListByProfileId(
+    public function GetProfileQuestionListProfileId(
         $profile_id
     ) {
             
@@ -10313,7 +10313,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileQuestionListByQuestionId(
+    public function GetProfileQuestionListQuestionId(
         $question_id
     ) {
             
@@ -10336,7 +10336,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileQuestionListByChannelIdByOrgId(
+    public function GetProfileQuestionListChannelIdOrgId(
         $channel_id
         , $org_id
     ) {
@@ -10362,7 +10362,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileQuestionListByChannelIdByProfileId(
+    public function GetProfileQuestionListChannelIdProfileId(
         $channel_id
         , $profile_id
     ) {
@@ -10388,7 +10388,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileQuestionListByQuestionIdByProfileId(
+    public function GetProfileQuestionListQuestionIdProfileId(
         $question_id
         , $profile_id
     ) {
@@ -10433,7 +10433,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileChannelByUuid(
+    public function CountProfileChannelUuid(
         $uuid
     ) {
         $parameters = array();
@@ -10455,7 +10455,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileChannelByChannelId(
+    public function CountProfileChannelChannelId(
         $channel_id
     ) {
         $parameters = array();
@@ -10477,7 +10477,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileChannelByProfileId(
+    public function CountProfileChannelProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -10499,7 +10499,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountProfileChannelByChannelIdByProfileId(
+    public function CountProfileChannelChannelIdProfileId(
         $channel_id
         , $profile_id
     ) {
@@ -10524,7 +10524,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseProfileChannelListByFilter($filter_obj) {
+    public function BrowseProfileChannelListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -10545,7 +10545,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetProfileChannelByUuid($set_type, $obj) {
+    public function SetProfileChannelUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10584,7 +10584,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetProfileChannelByChannelIdByProfileId($set_type, $obj) {
+    public function SetProfileChannelChannelIdProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10624,7 +10624,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelProfileChannelByUuid(
+    public function DelProfileChannelUuid(
         $uuid
     ) {
         $parameters = array();
@@ -10647,7 +10647,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelProfileChannelByChannelIdByProfileId(
+    public function DelProfileChannelChannelIdProfileId(
         $channel_id
         , $profile_id
     ) {
@@ -10693,7 +10693,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileChannelListByUuid(
+    public function GetProfileChannelListUuid(
         $uuid
     ) {
             
@@ -10716,7 +10716,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileChannelListByChannelId(
+    public function GetProfileChannelListChannelId(
         $channel_id
     ) {
             
@@ -10739,7 +10739,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileChannelListByProfileId(
+    public function GetProfileChannelListProfileId(
         $profile_id
     ) {
             
@@ -10762,7 +10762,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetProfileChannelListByChannelIdByProfileId(
+    public function GetProfileChannelListChannelIdProfileId(
         $channel_id
         , $profile_id
     ) {
@@ -10807,7 +10807,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgSiteByUuid(
+    public function CountOrgSiteUuid(
         $uuid
     ) {
         $parameters = array();
@@ -10829,7 +10829,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgSiteByOrgId(
+    public function CountOrgSiteOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -10851,7 +10851,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgSiteBySiteId(
+    public function CountOrgSiteSiteId(
         $site_id
     ) {
         $parameters = array();
@@ -10873,7 +10873,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountOrgSiteByOrgIdBySiteId(
+    public function CountOrgSiteOrgIdSiteId(
         $org_id
         , $site_id
     ) {
@@ -10898,7 +10898,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseOrgSiteListByFilter($filter_obj) {
+    public function BrowseOrgSiteListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -10919,7 +10919,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetOrgSiteByUuid($set_type, $obj) {
+    public function SetOrgSiteUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10958,7 +10958,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetOrgSiteByOrgIdBySiteId($set_type, $obj) {
+    public function SetOrgSiteOrgIdSiteId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10998,7 +10998,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelOrgSiteByUuid(
+    public function DelOrgSiteUuid(
         $uuid
     ) {
         $parameters = array();
@@ -11021,7 +11021,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelOrgSiteByOrgIdBySiteId(
+    public function DelOrgSiteOrgIdSiteId(
         $org_id
         , $site_id
     ) {
@@ -11067,7 +11067,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgSiteListByUuid(
+    public function GetOrgSiteListUuid(
         $uuid
     ) {
             
@@ -11090,7 +11090,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgSiteListByOrgId(
+    public function GetOrgSiteListOrgId(
         $org_id
     ) {
             
@@ -11113,7 +11113,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgSiteListBySiteId(
+    public function GetOrgSiteListSiteId(
         $site_id
     ) {
             
@@ -11136,7 +11136,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetOrgSiteListByOrgIdBySiteId(
+    public function GetOrgSiteListOrgIdSiteId(
         $org_id
         , $site_id
     ) {
@@ -11181,7 +11181,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteAppByUuid(
+    public function CountSiteAppUuid(
         $uuid
     ) {
         $parameters = array();
@@ -11203,7 +11203,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteAppByAppId(
+    public function CountSiteAppAppId(
         $app_id
     ) {
         $parameters = array();
@@ -11225,7 +11225,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteAppBySiteId(
+    public function CountSiteAppSiteId(
         $site_id
     ) {
         $parameters = array();
@@ -11247,7 +11247,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountSiteAppByAppIdBySiteId(
+    public function CountSiteAppAppIdSiteId(
         $app_id
         , $site_id
     ) {
@@ -11272,7 +11272,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseSiteAppListByFilter($filter_obj) {
+    public function BrowseSiteAppListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -11293,7 +11293,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetSiteAppByUuid($set_type, $obj) {
+    public function SetSiteAppUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11332,7 +11332,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetSiteAppByAppIdBySiteId($set_type, $obj) {
+    public function SetSiteAppAppIdSiteId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11372,7 +11372,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelSiteAppByUuid(
+    public function DelSiteAppUuid(
         $uuid
     ) {
         $parameters = array();
@@ -11395,7 +11395,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelSiteAppByAppIdBySiteId(
+    public function DelSiteAppAppIdSiteId(
         $app_id
         , $site_id
     ) {
@@ -11441,7 +11441,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteAppListByUuid(
+    public function GetSiteAppListUuid(
         $uuid
     ) {
             
@@ -11464,7 +11464,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteAppListByAppId(
+    public function GetSiteAppListAppId(
         $app_id
     ) {
             
@@ -11487,7 +11487,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteAppListBySiteId(
+    public function GetSiteAppListSiteId(
         $site_id
     ) {
             
@@ -11510,7 +11510,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetSiteAppListByAppIdBySiteId(
+    public function GetSiteAppListAppIdSiteId(
         $app_id
         , $site_id
     ) {
@@ -11555,7 +11555,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountPhotoByUuid(
+    public function CountPhotoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -11577,7 +11577,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountPhotoByExternalId(
+    public function CountPhotoExternalId(
         $external_id
     ) {
         $parameters = array();
@@ -11599,7 +11599,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountPhotoByUrl(
+    public function CountPhotoUrl(
         $url
     ) {
         $parameters = array();
@@ -11621,7 +11621,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountPhotoByUrlByExternalId(
+    public function CountPhotoUrlExternalId(
         $url
         , $external_id
     ) {
@@ -11646,7 +11646,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountPhotoByUuidByExternalId(
+    public function CountPhotoUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -11671,7 +11671,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowsePhotoListByFilter($filter_obj) {
+    public function BrowsePhotoListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -11692,7 +11692,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetPhotoByUuid($set_type, $obj) {
+    public function SetPhotoUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11749,7 +11749,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetPhotoByExternalId($set_type, $obj) {
+    public function SetPhotoExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11806,7 +11806,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetPhotoByUrl($set_type, $obj) {
+    public function SetPhotoUrl($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11863,7 +11863,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetPhotoByUrlByExternalId($set_type, $obj) {
+    public function SetPhotoUrlExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11921,7 +11921,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetPhotoByUuidByExternalId($set_type, $obj) {
+    public function SetPhotoUuidExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11979,7 +11979,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelPhotoByUuid(
+    public function DelPhotoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -12002,7 +12002,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelPhotoByExternalId(
+    public function DelPhotoExternalId(
         $external_id
     ) {
         $parameters = array();
@@ -12025,7 +12025,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelPhotoByUrl(
+    public function DelPhotoUrl(
         $url
     ) {
         $parameters = array();
@@ -12048,7 +12048,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelPhotoByUrlByExternalId(
+    public function DelPhotoUrlExternalId(
         $url
         , $external_id
     ) {
@@ -12074,7 +12074,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelPhotoByUuidByExternalId(
+    public function DelPhotoUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -12120,7 +12120,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetPhotoListByUuid(
+    public function GetPhotoListUuid(
         $uuid
     ) {
             
@@ -12143,7 +12143,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetPhotoListByExternalId(
+    public function GetPhotoListExternalId(
         $external_id
     ) {
             
@@ -12166,7 +12166,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetPhotoListByUrl(
+    public function GetPhotoListUrl(
         $url
     ) {
             
@@ -12189,7 +12189,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetPhotoListByUrlByExternalId(
+    public function GetPhotoListUrlExternalId(
         $url
         , $external_id
     ) {
@@ -12215,7 +12215,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetPhotoListByUuidByExternalId(
+    public function GetPhotoListUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -12260,7 +12260,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountVideoByUuid(
+    public function CountVideoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -12282,7 +12282,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountVideoByExternalId(
+    public function CountVideoExternalId(
         $external_id
     ) {
         $parameters = array();
@@ -12304,7 +12304,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountVideoByUrl(
+    public function CountVideoUrl(
         $url
     ) {
         $parameters = array();
@@ -12326,7 +12326,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountVideoByUrlByExternalId(
+    public function CountVideoUrlExternalId(
         $url
         , $external_id
     ) {
@@ -12351,7 +12351,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function CountVideoByUuidByExternalId(
+    public function CountVideoUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -12376,7 +12376,7 @@ class BasePlatformData {
         
         return 0;
     }
-    public function BrowseVideoListByFilter($filter_obj) {
+    public function BrowseVideoListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -12397,7 +12397,7 @@ class BasePlatformData {
         }
     }
 
-    public function SetVideoByUuid($set_type, $obj) {
+    public function SetVideoUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12454,7 +12454,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetVideoByExternalId($set_type, $obj) {
+    public function SetVideoExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12511,7 +12511,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetVideoByUrl($set_type, $obj) {
+    public function SetVideoUrl($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12568,7 +12568,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetVideoByUrlByExternalId($set_type, $obj) {
+    public function SetVideoUrlExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12626,7 +12626,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function SetVideoByUuidByExternalId($set_type, $obj) {
+    public function SetVideoUuidExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12684,7 +12684,7 @@ class BasePlatformData {
         return FALSE;
     }
     
-    public function DelVideoByUuid(
+    public function DelVideoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -12707,7 +12707,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelVideoByExternalId(
+    public function DelVideoExternalId(
         $external_id
     ) {
         $parameters = array();
@@ -12730,7 +12730,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelVideoByUrl(
+    public function DelVideoUrl(
         $url
     ) {
         $parameters = array();
@@ -12753,7 +12753,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelVideoByUrlByExternalId(
+    public function DelVideoUrlExternalId(
         $url
         , $external_id
     ) {
@@ -12779,7 +12779,7 @@ class BasePlatformData {
         
         return FALSE;
     }
-    public function DelVideoByUuidByExternalId(
+    public function DelVideoUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -12825,7 +12825,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetVideoListByUuid(
+    public function GetVideoListUuid(
         $uuid
     ) {
             
@@ -12848,7 +12848,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetVideoListByExternalId(
+    public function GetVideoListExternalId(
         $external_id
     ) {
             
@@ -12871,7 +12871,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetVideoListByUrl(
+    public function GetVideoListUrl(
         $url
     ) {
             
@@ -12894,7 +12894,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetVideoListByUrlByExternalId(
+    public function GetVideoListUrlExternalId(
         $url
         , $external_id
     ) {
@@ -12920,7 +12920,7 @@ class BasePlatformData {
                 
         return NULL;
     }
-    public function GetVideoListByUuidByExternalId(
+    public function GetVideoListUuidExternalId(
         $uuid
         , $external_id
     ) {

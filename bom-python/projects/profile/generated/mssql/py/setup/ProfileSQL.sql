@@ -461,12 +461,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_count_by_uuid
+CREATE PROCEDURE usp_profile_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -480,12 +480,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_count_by_username_by_hash]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_count_by_username_by_hash]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_count_username_hash]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_count_username_hash]
 
 GO
 
-CREATE PROCEDURE usp_profile_count_by_username_by_hash
+CREATE PROCEDURE usp_profile_count_username_hash
 (
     @username varchar (255) = NULL
     , @hash varchar (255) = NULL
@@ -501,12 +501,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_count_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_count_by_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_count_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_count_username]
 
 GO
 
-CREATE PROCEDURE usp_profile_count_by_username
+CREATE PROCEDURE usp_profile_count_username
 (
     @username varchar (255) = NULL
 )
@@ -526,12 +526,12 @@ GO
 -- MODEL: Profile - profile
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_browse_by_filter
+CREATE PROCEDURE usp_profile_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -602,12 +602,12 @@ GO
 -- MODEL: Profile - profile
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_set_by_uuid
+CREATE PROCEDURE usp_profile_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -711,12 +711,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_set_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_set_by_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_set_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_set_username]
 
 GO
 
-CREATE PROCEDURE usp_profile_set_by_username
+CREATE PROCEDURE usp_profile_set_username
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -826,12 +826,12 @@ GO
 -- MODEL: Profile - profile
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_del_by_uuid
+CREATE PROCEDURE usp_profile_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -844,12 +844,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_del_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_del_by_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_del_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_del_username]
 
 GO
 
-CREATE PROCEDURE usp_profile_del_by_username
+CREATE PROCEDURE usp_profile_del_username
 (
     @username varchar (255) = NULL
 )
@@ -868,12 +868,12 @@ GO
 -- MODEL: Profile - profile
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_get_by_uuid
+CREATE PROCEDURE usp_profile_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -897,12 +897,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_get_by_username_by_hash]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_get_by_username_by_hash]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_get_username_hash]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_get_username_hash]
 
 GO
 
-CREATE PROCEDURE usp_profile_get_by_username_by_hash
+CREATE PROCEDURE usp_profile_get_username_hash
 (
     @username varchar (255) = NULL
     , @hash varchar (255) = NULL
@@ -928,12 +928,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_get_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_get_by_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_get_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_get_username]
 
 GO
 
-CREATE PROCEDURE usp_profile_get_by_username
+CREATE PROCEDURE usp_profile_get_username
 (
     @username varchar (255) = NULL
 )
@@ -981,12 +981,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_type_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_type_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_type_count_by_uuid
+CREATE PROCEDURE usp_profile_type_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -1000,12 +1000,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_count_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_type_count_by_type_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_count_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_type_count_type_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_type_count_by_type_id
+CREATE PROCEDURE usp_profile_type_count_type_id
 (
     @type_id uniqueidentifier = NULL
 )
@@ -1025,12 +1025,12 @@ GO
 -- MODEL: ProfileType - profile_type
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_type_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_type_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_type_browse_by_filter
+CREATE PROCEDURE usp_profile_type_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -1100,12 +1100,12 @@ GO
 -- MODEL: ProfileType - profile_type
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_type_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_type_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_type_set_by_uuid
+CREATE PROCEDURE usp_profile_type_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -1211,12 +1211,12 @@ GO
 -- MODEL: ProfileType - profile_type
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_type_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_type_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_type_del_by_uuid
+CREATE PROCEDURE usp_profile_type_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -1235,12 +1235,12 @@ GO
 -- MODEL: ProfileType - profile_type
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_type_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_type_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_type_get_by_uuid
+CREATE PROCEDURE usp_profile_type_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -1263,12 +1263,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_type_get_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_type_get_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_type_get_by_code
+CREATE PROCEDURE usp_profile_type_get_code
 (
     @code varchar (255) = NULL
 )
@@ -1291,12 +1291,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_get_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_type_get_by_type_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_type_get_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_type_get_type_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_type_get_by_type_id
+CREATE PROCEDURE usp_profile_type_get_type_id
 (
     @type_id uniqueidentifier = NULL
 )
@@ -1343,12 +1343,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_count_by_uuid
+CREATE PROCEDURE usp_profile_attribute_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -1362,12 +1362,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_count_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_count_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_count_by_code
+CREATE PROCEDURE usp_profile_attribute_count_code
 (
     @code varchar (255) = NULL
 )
@@ -1381,12 +1381,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_count_by_type]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_count_type]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_count_by_type
+CREATE PROCEDURE usp_profile_attribute_count_type
 (
     @type int = NULL
 )
@@ -1400,12 +1400,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_by_group]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_count_by_group]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_group]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_count_group]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_count_by_group
+CREATE PROCEDURE usp_profile_attribute_count_group
 (
     @group int = NULL
 )
@@ -1419,12 +1419,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_by_code_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_count_by_code_by_type]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_count_code_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_count_code_type]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_count_by_code_by_type
+CREATE PROCEDURE usp_profile_attribute_count_code_type
 (
     @code varchar (255) = NULL
     , @type int = NULL
@@ -1446,12 +1446,12 @@ GO
 -- MODEL: ProfileAttribute - profile_attribute
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_browse_by_filter
+CREATE PROCEDURE usp_profile_attribute_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -1524,12 +1524,12 @@ GO
 -- MODEL: ProfileAttribute - profile_attribute
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_set_by_uuid
+CREATE PROCEDURE usp_profile_attribute_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -1641,12 +1641,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_set_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_set_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_set_by_code
+CREATE PROCEDURE usp_profile_attribute_set_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -1764,12 +1764,12 @@ GO
 -- MODEL: ProfileAttribute - profile_attribute
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_del_by_uuid
+CREATE PROCEDURE usp_profile_attribute_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -1782,12 +1782,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_del_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_del_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_del_by_code
+CREATE PROCEDURE usp_profile_attribute_del_code
 (
     @code varchar (255) = NULL
 )
@@ -1806,12 +1806,12 @@ GO
 -- MODEL: ProfileAttribute - profile_attribute
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_get_by_uuid
+CREATE PROCEDURE usp_profile_attribute_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -1837,12 +1837,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_get_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_get_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_get_by_code
+CREATE PROCEDURE usp_profile_attribute_get_code
 (
     @code varchar (255) = NULL
 )
@@ -1868,12 +1868,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_get_by_type]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_get_type]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_get_by_type
+CREATE PROCEDURE usp_profile_attribute_get_type
 (
     @type int = NULL
 )
@@ -1899,12 +1899,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_by_group]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_get_by_group]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_group]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_get_group]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_get_by_group
+CREATE PROCEDURE usp_profile_attribute_get_group
 (
     @group int = NULL
 )
@@ -1930,12 +1930,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_by_code_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_get_by_code_by_type]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_get_code_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_get_code_type]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_get_by_code_by_type
+CREATE PROCEDURE usp_profile_attribute_get_code_type
 (
     @code varchar (255) = NULL
     , @type int = NULL
@@ -1987,12 +1987,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_count_by_uuid
+CREATE PROCEDURE usp_profile_attribute_text_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -2006,12 +2006,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_count_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_count_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_count_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_count_by_profile_id
+CREATE PROCEDURE usp_profile_attribute_text_count_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -2025,12 +2025,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_count_by_profile_id_by_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_count_by_profile_id_by_attribute_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_count_profile_id_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_count_profile_id_attribute_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_count_by_profile_id_by_attribute_id
+CREATE PROCEDURE usp_profile_attribute_text_count_profile_id_attribute_id
 (
     @profile_id uniqueidentifier = NULL
     , @attribute_id uniqueidentifier = NULL
@@ -2052,12 +2052,12 @@ GO
 -- MODEL: ProfileAttributeText - profile_attribute_text
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_browse_by_filter
+CREATE PROCEDURE usp_profile_attribute_text_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -2129,12 +2129,12 @@ GO
 -- MODEL: ProfileAttributeText - profile_attribute_text
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_set_by_uuid
+CREATE PROCEDURE usp_profile_attribute_text_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -2242,12 +2242,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_set_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_set_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_set_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_set_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_set_by_profile_id
+CREATE PROCEDURE usp_profile_attribute_text_set_profile_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -2355,12 +2355,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_set_by_profile_id_by_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_set_by_profile_id_by_attribute_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_set_profile_id_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_set_profile_id_attribute_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_set_by_profile_id_by_attribute_id
+CREATE PROCEDURE usp_profile_attribute_text_set_profile_id_attribute_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -2476,12 +2476,12 @@ GO
 -- MODEL: ProfileAttributeText - profile_attribute_text
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_del_by_uuid
+CREATE PROCEDURE usp_profile_attribute_text_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -2494,12 +2494,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_del_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_del_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_del_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_del_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_del_by_profile_id
+CREATE PROCEDURE usp_profile_attribute_text_del_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -2512,12 +2512,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_del_by_profile_id_by_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_del_by_profile_id_by_attribute_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_del_profile_id_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_del_profile_id_attribute_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_del_by_profile_id_by_attribute_id
+CREATE PROCEDURE usp_profile_attribute_text_del_profile_id_attribute_id
 (
     @profile_id uniqueidentifier = NULL
     , @attribute_id uniqueidentifier = NULL
@@ -2538,12 +2538,12 @@ GO
 -- MODEL: ProfileAttributeText - profile_attribute_text
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_get_by_uuid
+CREATE PROCEDURE usp_profile_attribute_text_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -2568,12 +2568,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_get_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_get_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_get_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_get_by_profile_id
+CREATE PROCEDURE usp_profile_attribute_text_get_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -2598,12 +2598,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_get_by_profile_id_by_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_text_get_by_profile_id_by_attribute_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_text_get_profile_id_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_text_get_profile_id_attribute_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_text_get_by_profile_id_by_attribute_id
+CREATE PROCEDURE usp_profile_attribute_text_get_profile_id_attribute_id
 (
     @profile_id uniqueidentifier = NULL
     , @attribute_id uniqueidentifier = NULL
@@ -2654,12 +2654,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_count_by_uuid
+CREATE PROCEDURE usp_profile_attribute_data_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -2673,12 +2673,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_count_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_count_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_count_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_count_by_profile_id
+CREATE PROCEDURE usp_profile_attribute_data_count_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -2692,12 +2692,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_count_by_profile_id_by_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_count_by_profile_id_by_attribute_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_count_profile_id_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_count_profile_id_attribute_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_count_by_profile_id_by_attribute_id
+CREATE PROCEDURE usp_profile_attribute_data_count_profile_id_attribute_id
 (
     @profile_id uniqueidentifier = NULL
     , @attribute_id uniqueidentifier = NULL
@@ -2719,12 +2719,12 @@ GO
 -- MODEL: ProfileAttributeData - profile_attribute_data
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_browse_by_filter
+CREATE PROCEDURE usp_profile_attribute_data_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -2796,12 +2796,12 @@ GO
 -- MODEL: ProfileAttributeData - profile_attribute_data
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_set_by_uuid
+CREATE PROCEDURE usp_profile_attribute_data_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -2909,12 +2909,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_set_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_set_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_set_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_set_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_set_by_profile_id
+CREATE PROCEDURE usp_profile_attribute_data_set_profile_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -3022,12 +3022,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_set_by_profile_id_by_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_set_by_profile_id_by_attribute_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_set_profile_id_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_set_profile_id_attribute_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_set_by_profile_id_by_attribute_id
+CREATE PROCEDURE usp_profile_attribute_data_set_profile_id_attribute_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -3143,12 +3143,12 @@ GO
 -- MODEL: ProfileAttributeData - profile_attribute_data
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_del_by_uuid
+CREATE PROCEDURE usp_profile_attribute_data_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -3161,12 +3161,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_del_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_del_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_del_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_del_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_del_by_profile_id
+CREATE PROCEDURE usp_profile_attribute_data_del_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -3179,12 +3179,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_del_by_profile_id_by_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_del_by_profile_id_by_attribute_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_del_profile_id_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_del_profile_id_attribute_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_del_by_profile_id_by_attribute_id
+CREATE PROCEDURE usp_profile_attribute_data_del_profile_id_attribute_id
 (
     @profile_id uniqueidentifier = NULL
     , @attribute_id uniqueidentifier = NULL
@@ -3205,12 +3205,12 @@ GO
 -- MODEL: ProfileAttributeData - profile_attribute_data
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_get_by_uuid
+CREATE PROCEDURE usp_profile_attribute_data_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -3235,12 +3235,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_get_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_get_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_get_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_get_by_profile_id
+CREATE PROCEDURE usp_profile_attribute_data_get_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -3265,12 +3265,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_get_by_profile_id_by_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_attribute_data_get_by_profile_id_by_attribute_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_attribute_data_get_profile_id_attribute_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_attribute_data_get_profile_id_attribute_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_attribute_data_get_by_profile_id_by_attribute_id
+CREATE PROCEDURE usp_profile_attribute_data_get_profile_id_attribute_id
 (
     @profile_id uniqueidentifier = NULL
     , @attribute_id uniqueidentifier = NULL
@@ -3321,12 +3321,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_count_by_uuid
+CREATE PROCEDURE usp_profile_device_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -3340,12 +3340,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_by_profile_id_by_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_count_by_profile_id_by_device_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_profile_id_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_count_profile_id_device_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_count_by_profile_id_by_device_id
+CREATE PROCEDURE usp_profile_device_count_profile_id_device_id
 (
     @profile_id uniqueidentifier 
     , @device_id varchar (128) 
@@ -3361,12 +3361,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_by_profile_id_by_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_count_by_profile_id_by_token]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_profile_id_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_count_profile_id_token]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_count_by_profile_id_by_token
+CREATE PROCEDURE usp_profile_device_count_profile_id_token
 (
     @profile_id uniqueidentifier 
     , @token varchar (128) = NULL
@@ -3382,12 +3382,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_count_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_count_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_count_by_profile_id
+CREATE PROCEDURE usp_profile_device_count_profile_id
 (
     @profile_id uniqueidentifier 
 )
@@ -3401,12 +3401,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_by_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_count_by_device_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_count_device_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_count_by_device_id
+CREATE PROCEDURE usp_profile_device_count_device_id
 (
     @device_id varchar (128) 
 )
@@ -3420,12 +3420,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_by_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_count_by_token]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_count_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_count_token]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_count_by_token
+CREATE PROCEDURE usp_profile_device_count_token
 (
     @token varchar (128) = NULL
 )
@@ -3445,12 +3445,12 @@ GO
 -- MODEL: ProfileDevice - profile_device
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_browse_by_filter
+CREATE PROCEDURE usp_profile_device_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -3523,12 +3523,12 @@ GO
 -- MODEL: ProfileDevice - profile_device
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_set_by_uuid
+CREATE PROCEDURE usp_profile_device_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -3646,12 +3646,12 @@ GO
 -- MODEL: ProfileDevice - profile_device
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_del_by_uuid
+CREATE PROCEDURE usp_profile_device_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -3664,12 +3664,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_del_by_profile_id_by_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_del_by_profile_id_by_device_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_del_profile_id_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_del_profile_id_device_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_del_by_profile_id_by_device_id
+CREATE PROCEDURE usp_profile_device_del_profile_id_device_id
 (
     @profile_id uniqueidentifier 
     , @device_id varchar (128) 
@@ -3684,12 +3684,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_del_by_profile_id_by_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_del_by_profile_id_by_token]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_del_profile_id_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_del_profile_id_token]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_del_by_profile_id_by_token
+CREATE PROCEDURE usp_profile_device_del_profile_id_token
 (
     @profile_id uniqueidentifier 
     , @token varchar (128) = NULL
@@ -3704,12 +3704,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_del_by_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_del_by_token]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_del_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_del_token]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_del_by_token
+CREATE PROCEDURE usp_profile_device_del_token
 (
     @token varchar (128) = NULL
 )
@@ -3728,12 +3728,12 @@ GO
 -- MODEL: ProfileDevice - profile_device
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_get_by_uuid
+CREATE PROCEDURE usp_profile_device_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -3759,12 +3759,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_by_profile_id_by_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_get_by_profile_id_by_device_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_profile_id_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_get_profile_id_device_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_get_by_profile_id_by_device_id
+CREATE PROCEDURE usp_profile_device_get_profile_id_device_id
 (
     @profile_id uniqueidentifier 
     , @device_id varchar (128) 
@@ -3792,12 +3792,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_by_profile_id_by_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_get_by_profile_id_by_token]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_profile_id_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_get_profile_id_token]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_get_by_profile_id_by_token
+CREATE PROCEDURE usp_profile_device_get_profile_id_token
 (
     @profile_id uniqueidentifier 
     , @token varchar (128) = NULL
@@ -3825,12 +3825,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_get_by_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_get_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_get_by_profile_id
+CREATE PROCEDURE usp_profile_device_get_profile_id
 (
     @profile_id uniqueidentifier 
 )
@@ -3856,12 +3856,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_by_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_get_by_device_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_device_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_get_device_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_get_by_device_id
+CREATE PROCEDURE usp_profile_device_get_device_id
 (
     @device_id varchar (128) 
 )
@@ -3887,12 +3887,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_by_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_device_get_by_token]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_device_get_token]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_device_get_token]
 
 GO
 
-CREATE PROCEDURE usp_profile_device_get_by_token
+CREATE PROCEDURE usp_profile_device_get_token
 (
     @token varchar (128) = NULL
 )
@@ -3942,12 +3942,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_country_count_by_uuid
+CREATE PROCEDURE usp_country_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -3961,12 +3961,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_count_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_count_code]
 
 GO
 
-CREATE PROCEDURE usp_country_count_by_code
+CREATE PROCEDURE usp_country_count_code
 (
     @code varchar (255) = NULL
 )
@@ -3986,12 +3986,12 @@ GO
 -- MODEL: Country - country
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_country_browse_by_filter
+CREATE PROCEDURE usp_country_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -4060,12 +4060,12 @@ GO
 -- MODEL: Country - country
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_country_set_by_uuid
+CREATE PROCEDURE usp_country_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -4161,12 +4161,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_set_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_set_code]
 
 GO
 
-CREATE PROCEDURE usp_country_set_by_code
+CREATE PROCEDURE usp_country_set_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -4268,12 +4268,12 @@ GO
 -- MODEL: Country - country
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_country_del_by_uuid
+CREATE PROCEDURE usp_country_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4286,12 +4286,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_del_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_del_code]
 
 GO
 
-CREATE PROCEDURE usp_country_del_by_code
+CREATE PROCEDURE usp_country_del_code
 (
     @code varchar (255) = NULL
 )
@@ -4333,12 +4333,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_country_get_by_uuid
+CREATE PROCEDURE usp_country_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4360,12 +4360,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_country_get_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_country_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_country_get_code]
 
 GO
 
-CREATE PROCEDURE usp_country_get_by_code
+CREATE PROCEDURE usp_country_get_code
 (
     @code varchar (255) = NULL
 )
@@ -4411,12 +4411,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_state_count_by_uuid
+CREATE PROCEDURE usp_state_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4430,12 +4430,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_count_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_count_code]
 
 GO
 
-CREATE PROCEDURE usp_state_count_by_code
+CREATE PROCEDURE usp_state_count_code
 (
     @code varchar (255) = NULL
 )
@@ -4455,12 +4455,12 @@ GO
 -- MODEL: State - state
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_state_browse_by_filter
+CREATE PROCEDURE usp_state_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -4529,12 +4529,12 @@ GO
 -- MODEL: State - state
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_state_set_by_uuid
+CREATE PROCEDURE usp_state_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -4630,12 +4630,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_set_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_set_code]
 
 GO
 
-CREATE PROCEDURE usp_state_set_by_code
+CREATE PROCEDURE usp_state_set_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -4737,12 +4737,12 @@ GO
 -- MODEL: State - state
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_state_del_by_uuid
+CREATE PROCEDURE usp_state_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4755,12 +4755,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_del_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_del_code]
 
 GO
 
-CREATE PROCEDURE usp_state_del_by_code
+CREATE PROCEDURE usp_state_del_code
 (
     @code varchar (255) = NULL
 )
@@ -4802,12 +4802,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_state_get_by_uuid
+CREATE PROCEDURE usp_state_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4829,12 +4829,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_state_get_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_state_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_state_get_code]
 
 GO
 
-CREATE PROCEDURE usp_state_get_by_code
+CREATE PROCEDURE usp_state_get_code
 (
     @code varchar (255) = NULL
 )
@@ -4880,12 +4880,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_city_count_by_uuid
+CREATE PROCEDURE usp_city_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4899,12 +4899,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_count_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_count_code]
 
 GO
 
-CREATE PROCEDURE usp_city_count_by_code
+CREATE PROCEDURE usp_city_count_code
 (
     @code varchar (255) = NULL
 )
@@ -4924,12 +4924,12 @@ GO
 -- MODEL: City - city
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_city_browse_by_filter
+CREATE PROCEDURE usp_city_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -4998,12 +4998,12 @@ GO
 -- MODEL: City - city
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_city_set_by_uuid
+CREATE PROCEDURE usp_city_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -5099,12 +5099,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_set_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_set_code]
 
 GO
 
-CREATE PROCEDURE usp_city_set_by_code
+CREATE PROCEDURE usp_city_set_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -5206,12 +5206,12 @@ GO
 -- MODEL: City - city
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_city_del_by_uuid
+CREATE PROCEDURE usp_city_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5224,12 +5224,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_del_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_del_code]
 
 GO
 
-CREATE PROCEDURE usp_city_del_by_code
+CREATE PROCEDURE usp_city_del_code
 (
     @code varchar (255) = NULL
 )
@@ -5271,12 +5271,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_city_get_by_uuid
+CREATE PROCEDURE usp_city_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5298,12 +5298,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_city_get_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_city_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_city_get_code]
 
 GO
 
-CREATE PROCEDURE usp_city_get_by_code
+CREATE PROCEDURE usp_city_get_code
 (
     @code varchar (255) = NULL
 )
@@ -5349,12 +5349,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_count_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_count_uuid]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_count_by_uuid
+CREATE PROCEDURE usp_postal_code_count_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5368,12 +5368,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_count_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_count_code]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_count_by_code
+CREATE PROCEDURE usp_postal_code_count_code
 (
     @code varchar (255) = NULL
 )
@@ -5393,12 +5393,12 @@ GO
 -- MODEL: PostalCode - postal_code
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_browse_by_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_browse_filter]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_browse_by_filter
+CREATE PROCEDURE usp_postal_code_browse_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -5467,12 +5467,12 @@ GO
 -- MODEL: PostalCode - postal_code
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_set_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_set_uuid]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_set_by_uuid
+CREATE PROCEDURE usp_postal_code_set_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -5568,12 +5568,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_set_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_set_code]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_set_by_code
+CREATE PROCEDURE usp_postal_code_set_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (50) = NULL
@@ -5675,12 +5675,12 @@ GO
 -- MODEL: PostalCode - postal_code
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_del_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_del_uuid]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_del_by_uuid
+CREATE PROCEDURE usp_postal_code_del_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5693,12 +5693,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_del_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_del_code]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_del_by_code
+CREATE PROCEDURE usp_postal_code_del_code
 (
     @code varchar (255) = NULL
 )
@@ -5740,12 +5740,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_get_by_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_get_uuid]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_get_by_uuid
+CREATE PROCEDURE usp_postal_code_get_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5767,12 +5767,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_postal_code_get_by_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_postal_code_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_postal_code_get_code]
 
 GO
 
-CREATE PROCEDURE usp_postal_code_get_by_code
+CREATE PROCEDURE usp_postal_code_get_code
 (
     @code varchar (255) = NULL
 )

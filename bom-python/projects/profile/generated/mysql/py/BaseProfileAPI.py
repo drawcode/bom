@@ -27,87 +27,87 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileByUuid(self
+    def CountProfileUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileByUuid(
+        return self.act.CountProfileUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileByUsernameByHash(self
+    def CountProfileUsernameHash(self
         , username
         , hash
     ) :         
-        return self.act.CountProfileByUsernameByHash(
+        return self.act.CountProfileUsernameHash(
         username
         , hash
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileByUsername(self
+    def CountProfileUsername(self
         , username
     ) :         
-        return self.act.CountProfileByUsername(
+        return self.act.CountProfileUsername(
         username
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileListByFilter(filter_obj)
+    def BrowseProfileListFilter(self, filter_obj) :
+        return self.act.BrowseProfileListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileByUuidType(self, set_type, obj) :
-        return self.act.SetProfileByUuid(set_type, obj)
+    def SetProfileUuidType(self, set_type, obj) :
+        return self.act.SetProfileUuid(set_type, obj)
                
-    def SetProfileByUuid(self, obj) :
-        return self.act.SetProfileByUuid('full', obj)
+    def SetProfileUuid(self, obj) :
+        return self.act.SetProfileUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileByUsernameType(self, set_type, obj) :
-        return self.act.SetProfileByUsername(set_type, obj)
+    def SetProfileUsernameType(self, set_type, obj) :
+        return self.act.SetProfileUsername(set_type, obj)
                
-    def SetProfileByUsername(self, obj) :
-        return self.act.SetProfileByUsername('full', obj)
+    def SetProfileUsername(self, obj) :
+        return self.act.SetProfileUsername('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileByUuid(self
+    def DelProfileUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileByUuid(
+        return self.act.DelProfileUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileByUsername(self
+    def DelProfileUsername(self
         , username
     ) :          
-        return self.act.DelProfileByUsername(
+        return self.act.DelProfileUsername(
         username
         )
 #------------------------------------------------------------------------------                    
-    def GetProfileListByUuid(self
+    def GetProfileListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileListByUuid(
+            return self.act.GetProfileListUuid(
                 uuid
             )
         
-    def GetProfileByUuid(self
+    def GetProfileUuid(self
         , uuid
     ) :
-        for item in self.GetProfileListByUuid(
+        for item in self.GetProfileListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileListByUuid(self
+    def CachedGetProfileListUuid(self
         , uuid
     ) :
-        return CachedGetProfileListByUuid(
+        return CachedGetProfileListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileListByUuid(self
+    def CachedGetProfileListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -116,7 +116,7 @@ class BaseProfileAPI(object):
         """
         List<Profile> objs;
 
-        string method_name = "CachedGetProfileListByUuid";
+        string method_name = "CachedGetProfileListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -132,7 +132,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileListByUuid(
+            objs = GetProfileListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -141,38 +141,38 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileListByUsernameByHash(self
+    def GetProfileListUsernameHash(self
         , username
         , hash
         ) :
-            return self.act.GetProfileListByUsernameByHash(
+            return self.act.GetProfileListUsernameHash(
                 username
                 , hash
             )
         
-    def GetProfileByUsernameByHash(self
+    def GetProfileUsernameHash(self
         , username
         , hash
     ) :
-        for item in self.GetProfileListByUsernameByHash(
+        for item in self.GetProfileListUsernameHash(
         username
         , hash
         ) :
             return item
         return None
     
-    def CachedGetProfileListByUsernameByHash(self
+    def CachedGetProfileListUsernameHash(self
         , username
         , hash
     ) :
-        return CachedGetProfileListByUsernameByHash(
+        return CachedGetProfileListUsernameHash(
             false
             , self.CACHE_DEFAULT_HOURS
             , username
             , hash
         )
         
-    def CachedGetProfileListByUsernameByHash(self
+    def CachedGetProfileListUsernameHash(self
         , overrideCache
         , cacheHours
         , username
@@ -182,7 +182,7 @@ class BaseProfileAPI(object):
         """
         List<Profile> objs;
 
-        string method_name = "CachedGetProfileListByUsernameByHash";
+        string method_name = "CachedGetProfileListUsernameHash";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -202,7 +202,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileListByUsernameByHash(
+            objs = GetProfileListUsernameHash(
                 username
                 , hash
             );
@@ -212,32 +212,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileListByUsername(self
+    def GetProfileListUsername(self
         , username
         ) :
-            return self.act.GetProfileListByUsername(
+            return self.act.GetProfileListUsername(
                 username
             )
         
-    def GetProfileByUsername(self
+    def GetProfileUsername(self
         , username
     ) :
-        for item in self.GetProfileListByUsername(
+        for item in self.GetProfileListUsername(
         username
         ) :
             return item
         return None
     
-    def CachedGetProfileListByUsername(self
+    def CachedGetProfileListUsername(self
         , username
     ) :
-        return CachedGetProfileListByUsername(
+        return CachedGetProfileListUsername(
             false
             , self.CACHE_DEFAULT_HOURS
             , username
         )
         
-    def CachedGetProfileListByUsername(self
+    def CachedGetProfileListUsername(self
         , overrideCache
         , cacheHours
         , username
@@ -246,7 +246,7 @@ class BaseProfileAPI(object):
         """
         List<Profile> objs;
 
-        string method_name = "CachedGetProfileListByUsername";
+        string method_name = "CachedGetProfileListUsername";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -262,7 +262,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileListByUsername(
+            objs = GetProfileListUsername(
                 username
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -277,64 +277,64 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileTypeByUuid(self
+    def CountProfileTypeUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileTypeByUuid(
+        return self.act.CountProfileTypeUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileTypeByTypeId(self
+    def CountProfileTypeTypeId(self
         , type_id
     ) :         
-        return self.act.CountProfileTypeByTypeId(
+        return self.act.CountProfileTypeTypeId(
         type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileTypeListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileTypeListByFilter(filter_obj)
+    def BrowseProfileTypeListFilter(self, filter_obj) :
+        return self.act.BrowseProfileTypeListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileTypeByUuidType(self, set_type, obj) :
-        return self.act.SetProfileTypeByUuid(set_type, obj)
+    def SetProfileTypeUuidType(self, set_type, obj) :
+        return self.act.SetProfileTypeUuid(set_type, obj)
                
-    def SetProfileTypeByUuid(self, obj) :
-        return self.act.SetProfileTypeByUuid('full', obj)
+    def SetProfileTypeUuid(self, obj) :
+        return self.act.SetProfileTypeUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileTypeByUuid(self
+    def DelProfileTypeUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileTypeByUuid(
+        return self.act.DelProfileTypeUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def GetProfileTypeListByUuid(self
+    def GetProfileTypeListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileTypeListByUuid(
+            return self.act.GetProfileTypeListUuid(
                 uuid
             )
         
-    def GetProfileTypeByUuid(self
+    def GetProfileTypeUuid(self
         , uuid
     ) :
-        for item in self.GetProfileTypeListByUuid(
+        for item in self.GetProfileTypeListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileTypeListByUuid(self
+    def CachedGetProfileTypeListUuid(self
         , uuid
     ) :
-        return CachedGetProfileTypeListByUuid(
+        return CachedGetProfileTypeListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileTypeListByUuid(self
+    def CachedGetProfileTypeListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -343,7 +343,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileType> objs;
 
-        string method_name = "CachedGetProfileTypeListByUuid";
+        string method_name = "CachedGetProfileTypeListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -359,7 +359,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileTypeListByUuid(
+            objs = GetProfileTypeListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -368,32 +368,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileTypeListByCode(self
+    def GetProfileTypeListCode(self
         , code
         ) :
-            return self.act.GetProfileTypeListByCode(
+            return self.act.GetProfileTypeListCode(
                 code
             )
         
-    def GetProfileTypeByCode(self
+    def GetProfileTypeCode(self
         , code
     ) :
-        for item in self.GetProfileTypeListByCode(
+        for item in self.GetProfileTypeListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetProfileTypeListByCode(self
+    def CachedGetProfileTypeListCode(self
         , code
     ) :
-        return CachedGetProfileTypeListByCode(
+        return CachedGetProfileTypeListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetProfileTypeListByCode(self
+    def CachedGetProfileTypeListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -402,7 +402,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileType> objs;
 
-        string method_name = "CachedGetProfileTypeListByCode";
+        string method_name = "CachedGetProfileTypeListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -418,7 +418,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileTypeListByCode(
+            objs = GetProfileTypeListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -427,32 +427,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileTypeListByTypeId(self
+    def GetProfileTypeListTypeId(self
         , type_id
         ) :
-            return self.act.GetProfileTypeListByTypeId(
+            return self.act.GetProfileTypeListTypeId(
                 type_id
             )
         
-    def GetProfileTypeByTypeId(self
+    def GetProfileTypeTypeId(self
         , type_id
     ) :
-        for item in self.GetProfileTypeListByTypeId(
+        for item in self.GetProfileTypeListTypeId(
         type_id
         ) :
             return item
         return None
     
-    def CachedGetProfileTypeListByTypeId(self
+    def CachedGetProfileTypeListTypeId(self
         , type_id
     ) :
-        return CachedGetProfileTypeListByTypeId(
+        return CachedGetProfileTypeListTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , type_id
         )
         
-    def CachedGetProfileTypeListByTypeId(self
+    def CachedGetProfileTypeListTypeId(self
         , overrideCache
         , cacheHours
         , type_id
@@ -461,7 +461,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileType> objs;
 
-        string method_name = "CachedGetProfileTypeListByTypeId";
+        string method_name = "CachedGetProfileTypeListTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -477,7 +477,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileTypeListByTypeId(
+            objs = GetProfileTypeListTypeId(
                 type_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -492,103 +492,103 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeByUuid(self
+    def CountProfileAttributeUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileAttributeByUuid(
+        return self.act.CountProfileAttributeUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeByCode(self
+    def CountProfileAttributeCode(self
         , code
     ) :         
-        return self.act.CountProfileAttributeByCode(
+        return self.act.CountProfileAttributeCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeByType(self
+    def CountProfileAttributeType(self
         , type
     ) :         
-        return self.act.CountProfileAttributeByType(
+        return self.act.CountProfileAttributeType(
         type
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeByGroup(self
+    def CountProfileAttributeGroup(self
         , group
     ) :         
-        return self.act.CountProfileAttributeByGroup(
+        return self.act.CountProfileAttributeGroup(
         group
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeByCodeByType(self
+    def CountProfileAttributeCodeType(self
         , code
         , type
     ) :         
-        return self.act.CountProfileAttributeByCodeByType(
+        return self.act.CountProfileAttributeCodeType(
         code
         , type
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileAttributeListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileAttributeListByFilter(filter_obj)
+    def BrowseProfileAttributeListFilter(self, filter_obj) :
+        return self.act.BrowseProfileAttributeListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeByUuidType(self, set_type, obj) :
-        return self.act.SetProfileAttributeByUuid(set_type, obj)
+    def SetProfileAttributeUuidType(self, set_type, obj) :
+        return self.act.SetProfileAttributeUuid(set_type, obj)
                
-    def SetProfileAttributeByUuid(self, obj) :
-        return self.act.SetProfileAttributeByUuid('full', obj)
+    def SetProfileAttributeUuid(self, obj) :
+        return self.act.SetProfileAttributeUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeByCodeType(self, set_type, obj) :
-        return self.act.SetProfileAttributeByCode(set_type, obj)
+    def SetProfileAttributeCodeType(self, set_type, obj) :
+        return self.act.SetProfileAttributeCode(set_type, obj)
                
-    def SetProfileAttributeByCode(self, obj) :
-        return self.act.SetProfileAttributeByCode('full', obj)
+    def SetProfileAttributeCode(self, obj) :
+        return self.act.SetProfileAttributeCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileAttributeByUuid(self
+    def DelProfileAttributeUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileAttributeByUuid(
+        return self.act.DelProfileAttributeUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileAttributeByCode(self
+    def DelProfileAttributeCode(self
         , code
     ) :          
-        return self.act.DelProfileAttributeByCode(
+        return self.act.DelProfileAttributeCode(
         code
         )
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeListByUuid(self
+    def GetProfileAttributeListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileAttributeListByUuid(
+            return self.act.GetProfileAttributeListUuid(
                 uuid
             )
         
-    def GetProfileAttributeByUuid(self
+    def GetProfileAttributeUuid(self
         , uuid
     ) :
-        for item in self.GetProfileAttributeListByUuid(
+        for item in self.GetProfileAttributeListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeListByUuid(self
+    def CachedGetProfileAttributeListUuid(self
         , uuid
     ) :
-        return CachedGetProfileAttributeListByUuid(
+        return CachedGetProfileAttributeListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileAttributeListByUuid(self
+    def CachedGetProfileAttributeListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -597,7 +597,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttribute> objs;
 
-        string method_name = "CachedGetProfileAttributeListByUuid";
+        string method_name = "CachedGetProfileAttributeListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -613,7 +613,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeListByUuid(
+            objs = GetProfileAttributeListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -622,32 +622,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeListByCode(self
+    def GetProfileAttributeListCode(self
         , code
         ) :
-            return self.act.GetProfileAttributeListByCode(
+            return self.act.GetProfileAttributeListCode(
                 code
             )
         
-    def GetProfileAttributeByCode(self
+    def GetProfileAttributeCode(self
         , code
     ) :
-        for item in self.GetProfileAttributeListByCode(
+        for item in self.GetProfileAttributeListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeListByCode(self
+    def CachedGetProfileAttributeListCode(self
         , code
     ) :
-        return CachedGetProfileAttributeListByCode(
+        return CachedGetProfileAttributeListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetProfileAttributeListByCode(self
+    def CachedGetProfileAttributeListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -656,7 +656,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttribute> objs;
 
-        string method_name = "CachedGetProfileAttributeListByCode";
+        string method_name = "CachedGetProfileAttributeListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -672,7 +672,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeListByCode(
+            objs = GetProfileAttributeListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -681,32 +681,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeListByType(self
+    def GetProfileAttributeListType(self
         , type
         ) :
-            return self.act.GetProfileAttributeListByType(
+            return self.act.GetProfileAttributeListType(
                 type
             )
         
-    def GetProfileAttributeByType(self
+    def GetProfileAttributeType(self
         , type
     ) :
-        for item in self.GetProfileAttributeListByType(
+        for item in self.GetProfileAttributeListType(
         type
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeListByType(self
+    def CachedGetProfileAttributeListType(self
         , type
     ) :
-        return CachedGetProfileAttributeListByType(
+        return CachedGetProfileAttributeListType(
             false
             , self.CACHE_DEFAULT_HOURS
             , type
         )
         
-    def CachedGetProfileAttributeListByType(self
+    def CachedGetProfileAttributeListType(self
         , overrideCache
         , cacheHours
         , type
@@ -715,7 +715,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttribute> objs;
 
-        string method_name = "CachedGetProfileAttributeListByType";
+        string method_name = "CachedGetProfileAttributeListType";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -731,7 +731,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeListByType(
+            objs = GetProfileAttributeListType(
                 type
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -740,32 +740,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeListByGroup(self
+    def GetProfileAttributeListGroup(self
         , group
         ) :
-            return self.act.GetProfileAttributeListByGroup(
+            return self.act.GetProfileAttributeListGroup(
                 group
             )
         
-    def GetProfileAttributeByGroup(self
+    def GetProfileAttributeGroup(self
         , group
     ) :
-        for item in self.GetProfileAttributeListByGroup(
+        for item in self.GetProfileAttributeListGroup(
         group
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeListByGroup(self
+    def CachedGetProfileAttributeListGroup(self
         , group
     ) :
-        return CachedGetProfileAttributeListByGroup(
+        return CachedGetProfileAttributeListGroup(
             false
             , self.CACHE_DEFAULT_HOURS
             , group
         )
         
-    def CachedGetProfileAttributeListByGroup(self
+    def CachedGetProfileAttributeListGroup(self
         , overrideCache
         , cacheHours
         , group
@@ -774,7 +774,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttribute> objs;
 
-        string method_name = "CachedGetProfileAttributeListByGroup";
+        string method_name = "CachedGetProfileAttributeListGroup";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -790,7 +790,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeListByGroup(
+            objs = GetProfileAttributeListGroup(
                 group
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -799,38 +799,38 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeListByCodeByType(self
+    def GetProfileAttributeListCodeType(self
         , code
         , type
         ) :
-            return self.act.GetProfileAttributeListByCodeByType(
+            return self.act.GetProfileAttributeListCodeType(
                 code
                 , type
             )
         
-    def GetProfileAttributeByCodeByType(self
+    def GetProfileAttributeCodeType(self
         , code
         , type
     ) :
-        for item in self.GetProfileAttributeListByCodeByType(
+        for item in self.GetProfileAttributeListCodeType(
         code
         , type
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeListByCodeByType(self
+    def CachedGetProfileAttributeListCodeType(self
         , code
         , type
     ) :
-        return CachedGetProfileAttributeListByCodeByType(
+        return CachedGetProfileAttributeListCodeType(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , type
         )
         
-    def CachedGetProfileAttributeListByCodeByType(self
+    def CachedGetProfileAttributeListCodeType(self
         , overrideCache
         , cacheHours
         , code
@@ -840,7 +840,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttribute> objs;
 
-        string method_name = "CachedGetProfileAttributeListByCodeByType";
+        string method_name = "CachedGetProfileAttributeListCodeType";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -860,7 +860,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeListByCodeByType(
+            objs = GetProfileAttributeListCodeType(
                 code
                 , type
             );
@@ -876,102 +876,102 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeTextByUuid(self
+    def CountProfileAttributeTextUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileAttributeTextByUuid(
+        return self.act.CountProfileAttributeTextUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeTextByProfileId(self
+    def CountProfileAttributeTextProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileAttributeTextByProfileId(
+        return self.act.CountProfileAttributeTextProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeTextByProfileIdByAttributeId(self
+    def CountProfileAttributeTextProfileIdAttributeId(self
         , profile_id
         , attribute_id
     ) :         
-        return self.act.CountProfileAttributeTextByProfileIdByAttributeId(
+        return self.act.CountProfileAttributeTextProfileIdAttributeId(
         profile_id
         , attribute_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileAttributeTextListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileAttributeTextListByFilter(filter_obj)
+    def BrowseProfileAttributeTextListFilter(self, filter_obj) :
+        return self.act.BrowseProfileAttributeTextListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeTextByUuidType(self, set_type, obj) :
-        return self.act.SetProfileAttributeTextByUuid(set_type, obj)
+    def SetProfileAttributeTextUuidType(self, set_type, obj) :
+        return self.act.SetProfileAttributeTextUuid(set_type, obj)
                
-    def SetProfileAttributeTextByUuid(self, obj) :
-        return self.act.SetProfileAttributeTextByUuid('full', obj)
+    def SetProfileAttributeTextUuid(self, obj) :
+        return self.act.SetProfileAttributeTextUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeTextByProfileIdType(self, set_type, obj) :
-        return self.act.SetProfileAttributeTextByProfileId(set_type, obj)
+    def SetProfileAttributeTextProfileIdType(self, set_type, obj) :
+        return self.act.SetProfileAttributeTextProfileId(set_type, obj)
                
-    def SetProfileAttributeTextByProfileId(self, obj) :
-        return self.act.SetProfileAttributeTextByProfileId('full', obj)
+    def SetProfileAttributeTextProfileId(self, obj) :
+        return self.act.SetProfileAttributeTextProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeTextByProfileIdByAttributeIdType(self, set_type, obj) :
-        return self.act.SetProfileAttributeTextByProfileIdByAttributeId(set_type, obj)
+    def SetProfileAttributeTextProfileIdAttributeIdType(self, set_type, obj) :
+        return self.act.SetProfileAttributeTextProfileIdAttributeId(set_type, obj)
                
-    def SetProfileAttributeTextByProfileIdByAttributeId(self, obj) :
-        return self.act.SetProfileAttributeTextByProfileIdByAttributeId('full', obj)
+    def SetProfileAttributeTextProfileIdAttributeId(self, obj) :
+        return self.act.SetProfileAttributeTextProfileIdAttributeId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileAttributeTextByUuid(self
+    def DelProfileAttributeTextUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileAttributeTextByUuid(
+        return self.act.DelProfileAttributeTextUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileAttributeTextByProfileId(self
+    def DelProfileAttributeTextProfileId(self
         , profile_id
     ) :          
-        return self.act.DelProfileAttributeTextByProfileId(
+        return self.act.DelProfileAttributeTextProfileId(
         profile_id
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileAttributeTextByProfileIdByAttributeId(self
+    def DelProfileAttributeTextProfileIdAttributeId(self
         , profile_id
         , attribute_id
     ) :          
-        return self.act.DelProfileAttributeTextByProfileIdByAttributeId(
+        return self.act.DelProfileAttributeTextProfileIdAttributeId(
         profile_id
         , attribute_id
         )
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeTextListByUuid(self
+    def GetProfileAttributeTextListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileAttributeTextListByUuid(
+            return self.act.GetProfileAttributeTextListUuid(
                 uuid
             )
         
-    def GetProfileAttributeTextByUuid(self
+    def GetProfileAttributeTextUuid(self
         , uuid
     ) :
-        for item in self.GetProfileAttributeTextListByUuid(
+        for item in self.GetProfileAttributeTextListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeTextListByUuid(self
+    def CachedGetProfileAttributeTextListUuid(self
         , uuid
     ) :
-        return CachedGetProfileAttributeTextListByUuid(
+        return CachedGetProfileAttributeTextListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileAttributeTextListByUuid(self
+    def CachedGetProfileAttributeTextListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -980,7 +980,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttributeText> objs;
 
-        string method_name = "CachedGetProfileAttributeTextListByUuid";
+        string method_name = "CachedGetProfileAttributeTextListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -996,7 +996,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeTextListByUuid(
+            objs = GetProfileAttributeTextListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1005,32 +1005,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeTextListByProfileId(self
+    def GetProfileAttributeTextListProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileAttributeTextListByProfileId(
+            return self.act.GetProfileAttributeTextListProfileId(
                 profile_id
             )
         
-    def GetProfileAttributeTextByProfileId(self
+    def GetProfileAttributeTextProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileAttributeTextListByProfileId(
+        for item in self.GetProfileAttributeTextListProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeTextListByProfileId(self
+    def CachedGetProfileAttributeTextListProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileAttributeTextListByProfileId(
+        return CachedGetProfileAttributeTextListProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileAttributeTextListByProfileId(self
+    def CachedGetProfileAttributeTextListProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -1039,7 +1039,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttributeText> objs;
 
-        string method_name = "CachedGetProfileAttributeTextListByProfileId";
+        string method_name = "CachedGetProfileAttributeTextListProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1055,7 +1055,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeTextListByProfileId(
+            objs = GetProfileAttributeTextListProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1064,38 +1064,38 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeTextListByProfileIdByAttributeId(self
+    def GetProfileAttributeTextListProfileIdAttributeId(self
         , profile_id
         , attribute_id
         ) :
-            return self.act.GetProfileAttributeTextListByProfileIdByAttributeId(
+            return self.act.GetProfileAttributeTextListProfileIdAttributeId(
                 profile_id
                 , attribute_id
             )
         
-    def GetProfileAttributeTextByProfileIdByAttributeId(self
+    def GetProfileAttributeTextProfileIdAttributeId(self
         , profile_id
         , attribute_id
     ) :
-        for item in self.GetProfileAttributeTextListByProfileIdByAttributeId(
+        for item in self.GetProfileAttributeTextListProfileIdAttributeId(
         profile_id
         , attribute_id
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeTextListByProfileIdByAttributeId(self
+    def CachedGetProfileAttributeTextListProfileIdAttributeId(self
         , profile_id
         , attribute_id
     ) :
-        return CachedGetProfileAttributeTextListByProfileIdByAttributeId(
+        return CachedGetProfileAttributeTextListProfileIdAttributeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , attribute_id
         )
         
-    def CachedGetProfileAttributeTextListByProfileIdByAttributeId(self
+    def CachedGetProfileAttributeTextListProfileIdAttributeId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -1105,7 +1105,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttributeText> objs;
 
-        string method_name = "CachedGetProfileAttributeTextListByProfileIdByAttributeId";
+        string method_name = "CachedGetProfileAttributeTextListProfileIdAttributeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1125,7 +1125,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeTextListByProfileIdByAttributeId(
+            objs = GetProfileAttributeTextListProfileIdAttributeId(
                 profile_id
                 , attribute_id
             );
@@ -1141,102 +1141,102 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeDataByUuid(self
+    def CountProfileAttributeDataUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileAttributeDataByUuid(
+        return self.act.CountProfileAttributeDataUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeDataByProfileId(self
+    def CountProfileAttributeDataProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileAttributeDataByProfileId(
+        return self.act.CountProfileAttributeDataProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAttributeDataByProfileIdByAttributeId(self
+    def CountProfileAttributeDataProfileIdAttributeId(self
         , profile_id
         , attribute_id
     ) :         
-        return self.act.CountProfileAttributeDataByProfileIdByAttributeId(
+        return self.act.CountProfileAttributeDataProfileIdAttributeId(
         profile_id
         , attribute_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileAttributeDataListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileAttributeDataListByFilter(filter_obj)
+    def BrowseProfileAttributeDataListFilter(self, filter_obj) :
+        return self.act.BrowseProfileAttributeDataListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeDataByUuidType(self, set_type, obj) :
-        return self.act.SetProfileAttributeDataByUuid(set_type, obj)
+    def SetProfileAttributeDataUuidType(self, set_type, obj) :
+        return self.act.SetProfileAttributeDataUuid(set_type, obj)
                
-    def SetProfileAttributeDataByUuid(self, obj) :
-        return self.act.SetProfileAttributeDataByUuid('full', obj)
+    def SetProfileAttributeDataUuid(self, obj) :
+        return self.act.SetProfileAttributeDataUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeDataByProfileIdType(self, set_type, obj) :
-        return self.act.SetProfileAttributeDataByProfileId(set_type, obj)
+    def SetProfileAttributeDataProfileIdType(self, set_type, obj) :
+        return self.act.SetProfileAttributeDataProfileId(set_type, obj)
                
-    def SetProfileAttributeDataByProfileId(self, obj) :
-        return self.act.SetProfileAttributeDataByProfileId('full', obj)
+    def SetProfileAttributeDataProfileId(self, obj) :
+        return self.act.SetProfileAttributeDataProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAttributeDataByProfileIdByAttributeIdType(self, set_type, obj) :
-        return self.act.SetProfileAttributeDataByProfileIdByAttributeId(set_type, obj)
+    def SetProfileAttributeDataProfileIdAttributeIdType(self, set_type, obj) :
+        return self.act.SetProfileAttributeDataProfileIdAttributeId(set_type, obj)
                
-    def SetProfileAttributeDataByProfileIdByAttributeId(self, obj) :
-        return self.act.SetProfileAttributeDataByProfileIdByAttributeId('full', obj)
+    def SetProfileAttributeDataProfileIdAttributeId(self, obj) :
+        return self.act.SetProfileAttributeDataProfileIdAttributeId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileAttributeDataByUuid(self
+    def DelProfileAttributeDataUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileAttributeDataByUuid(
+        return self.act.DelProfileAttributeDataUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileAttributeDataByProfileId(self
+    def DelProfileAttributeDataProfileId(self
         , profile_id
     ) :          
-        return self.act.DelProfileAttributeDataByProfileId(
+        return self.act.DelProfileAttributeDataProfileId(
         profile_id
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileAttributeDataByProfileIdByAttributeId(self
+    def DelProfileAttributeDataProfileIdAttributeId(self
         , profile_id
         , attribute_id
     ) :          
-        return self.act.DelProfileAttributeDataByProfileIdByAttributeId(
+        return self.act.DelProfileAttributeDataProfileIdAttributeId(
         profile_id
         , attribute_id
         )
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeDataListByUuid(self
+    def GetProfileAttributeDataListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileAttributeDataListByUuid(
+            return self.act.GetProfileAttributeDataListUuid(
                 uuid
             )
         
-    def GetProfileAttributeDataByUuid(self
+    def GetProfileAttributeDataUuid(self
         , uuid
     ) :
-        for item in self.GetProfileAttributeDataListByUuid(
+        for item in self.GetProfileAttributeDataListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeDataListByUuid(self
+    def CachedGetProfileAttributeDataListUuid(self
         , uuid
     ) :
-        return CachedGetProfileAttributeDataListByUuid(
+        return CachedGetProfileAttributeDataListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileAttributeDataListByUuid(self
+    def CachedGetProfileAttributeDataListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -1245,7 +1245,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttributeData> objs;
 
-        string method_name = "CachedGetProfileAttributeDataListByUuid";
+        string method_name = "CachedGetProfileAttributeDataListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1261,7 +1261,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeDataListByUuid(
+            objs = GetProfileAttributeDataListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1270,32 +1270,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeDataListByProfileId(self
+    def GetProfileAttributeDataListProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileAttributeDataListByProfileId(
+            return self.act.GetProfileAttributeDataListProfileId(
                 profile_id
             )
         
-    def GetProfileAttributeDataByProfileId(self
+    def GetProfileAttributeDataProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileAttributeDataListByProfileId(
+        for item in self.GetProfileAttributeDataListProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeDataListByProfileId(self
+    def CachedGetProfileAttributeDataListProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileAttributeDataListByProfileId(
+        return CachedGetProfileAttributeDataListProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileAttributeDataListByProfileId(self
+    def CachedGetProfileAttributeDataListProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -1304,7 +1304,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttributeData> objs;
 
-        string method_name = "CachedGetProfileAttributeDataListByProfileId";
+        string method_name = "CachedGetProfileAttributeDataListProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1320,7 +1320,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeDataListByProfileId(
+            objs = GetProfileAttributeDataListProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1329,38 +1329,38 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAttributeDataListByProfileIdByAttributeId(self
+    def GetProfileAttributeDataListProfileIdAttributeId(self
         , profile_id
         , attribute_id
         ) :
-            return self.act.GetProfileAttributeDataListByProfileIdByAttributeId(
+            return self.act.GetProfileAttributeDataListProfileIdAttributeId(
                 profile_id
                 , attribute_id
             )
         
-    def GetProfileAttributeDataByProfileIdByAttributeId(self
+    def GetProfileAttributeDataProfileIdAttributeId(self
         , profile_id
         , attribute_id
     ) :
-        for item in self.GetProfileAttributeDataListByProfileIdByAttributeId(
+        for item in self.GetProfileAttributeDataListProfileIdAttributeId(
         profile_id
         , attribute_id
         ) :
             return item
         return None
     
-    def CachedGetProfileAttributeDataListByProfileIdByAttributeId(self
+    def CachedGetProfileAttributeDataListProfileIdAttributeId(self
         , profile_id
         , attribute_id
     ) :
-        return CachedGetProfileAttributeDataListByProfileIdByAttributeId(
+        return CachedGetProfileAttributeDataListProfileIdAttributeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , attribute_id
         )
         
-    def CachedGetProfileAttributeDataListByProfileIdByAttributeId(self
+    def CachedGetProfileAttributeDataListProfileIdAttributeId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -1370,7 +1370,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileAttributeData> objs;
 
-        string method_name = "CachedGetProfileAttributeDataListByProfileIdByAttributeId";
+        string method_name = "CachedGetProfileAttributeDataListProfileIdAttributeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1390,7 +1390,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAttributeDataListByProfileIdByAttributeId(
+            objs = GetProfileAttributeDataListProfileIdAttributeId(
                 profile_id
                 , attribute_id
             );
@@ -1406,125 +1406,125 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileDeviceByUuid(self
+    def CountProfileDeviceUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileDeviceByUuid(
+        return self.act.CountProfileDeviceUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileDeviceByProfileIdByDeviceId(self
+    def CountProfileDeviceProfileIdDeviceId(self
         , profile_id
         , device_id
     ) :         
-        return self.act.CountProfileDeviceByProfileIdByDeviceId(
+        return self.act.CountProfileDeviceProfileIdDeviceId(
         profile_id
         , device_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileDeviceByProfileIdByToken(self
+    def CountProfileDeviceProfileIdToken(self
         , profile_id
         , token
     ) :         
-        return self.act.CountProfileDeviceByProfileIdByToken(
+        return self.act.CountProfileDeviceProfileIdToken(
         profile_id
         , token
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileDeviceByProfileId(self
+    def CountProfileDeviceProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileDeviceByProfileId(
+        return self.act.CountProfileDeviceProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileDeviceByDeviceId(self
+    def CountProfileDeviceDeviceId(self
         , device_id
     ) :         
-        return self.act.CountProfileDeviceByDeviceId(
+        return self.act.CountProfileDeviceDeviceId(
         device_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileDeviceByToken(self
+    def CountProfileDeviceToken(self
         , token
     ) :         
-        return self.act.CountProfileDeviceByToken(
+        return self.act.CountProfileDeviceToken(
         token
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileDeviceListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileDeviceListByFilter(filter_obj)
+    def BrowseProfileDeviceListFilter(self, filter_obj) :
+        return self.act.BrowseProfileDeviceListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileDeviceByUuidType(self, set_type, obj) :
-        return self.act.SetProfileDeviceByUuid(set_type, obj)
+    def SetProfileDeviceUuidType(self, set_type, obj) :
+        return self.act.SetProfileDeviceUuid(set_type, obj)
                
-    def SetProfileDeviceByUuid(self, obj) :
-        return self.act.SetProfileDeviceByUuid('full', obj)
+    def SetProfileDeviceUuid(self, obj) :
+        return self.act.SetProfileDeviceUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileDeviceByUuid(self
+    def DelProfileDeviceUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileDeviceByUuid(
+        return self.act.DelProfileDeviceUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileDeviceByProfileIdByDeviceId(self
+    def DelProfileDeviceProfileIdDeviceId(self
         , profile_id
         , device_id
     ) :          
-        return self.act.DelProfileDeviceByProfileIdByDeviceId(
+        return self.act.DelProfileDeviceProfileIdDeviceId(
         profile_id
         , device_id
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileDeviceByProfileIdByToken(self
+    def DelProfileDeviceProfileIdToken(self
         , profile_id
         , token
     ) :          
-        return self.act.DelProfileDeviceByProfileIdByToken(
+        return self.act.DelProfileDeviceProfileIdToken(
         profile_id
         , token
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileDeviceByToken(self
+    def DelProfileDeviceToken(self
         , token
     ) :          
-        return self.act.DelProfileDeviceByToken(
+        return self.act.DelProfileDeviceToken(
         token
         )
 #------------------------------------------------------------------------------                    
-    def GetProfileDeviceListByUuid(self
+    def GetProfileDeviceListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileDeviceListByUuid(
+            return self.act.GetProfileDeviceListUuid(
                 uuid
             )
         
-    def GetProfileDeviceByUuid(self
+    def GetProfileDeviceUuid(self
         , uuid
     ) :
-        for item in self.GetProfileDeviceListByUuid(
+        for item in self.GetProfileDeviceListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileDeviceListByUuid(self
+    def CachedGetProfileDeviceListUuid(self
         , uuid
     ) :
-        return CachedGetProfileDeviceListByUuid(
+        return CachedGetProfileDeviceListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileDeviceListByUuid(self
+    def CachedGetProfileDeviceListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -1533,7 +1533,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileDevice> objs;
 
-        string method_name = "CachedGetProfileDeviceListByUuid";
+        string method_name = "CachedGetProfileDeviceListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1549,7 +1549,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileDeviceListByUuid(
+            objs = GetProfileDeviceListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1558,38 +1558,38 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileDeviceListByProfileIdByDeviceId(self
+    def GetProfileDeviceListProfileIdDeviceId(self
         , profile_id
         , device_id
         ) :
-            return self.act.GetProfileDeviceListByProfileIdByDeviceId(
+            return self.act.GetProfileDeviceListProfileIdDeviceId(
                 profile_id
                 , device_id
             )
         
-    def GetProfileDeviceByProfileIdByDeviceId(self
+    def GetProfileDeviceProfileIdDeviceId(self
         , profile_id
         , device_id
     ) :
-        for item in self.GetProfileDeviceListByProfileIdByDeviceId(
+        for item in self.GetProfileDeviceListProfileIdDeviceId(
         profile_id
         , device_id
         ) :
             return item
         return None
     
-    def CachedGetProfileDeviceListByProfileIdByDeviceId(self
+    def CachedGetProfileDeviceListProfileIdDeviceId(self
         , profile_id
         , device_id
     ) :
-        return CachedGetProfileDeviceListByProfileIdByDeviceId(
+        return CachedGetProfileDeviceListProfileIdDeviceId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , device_id
         )
         
-    def CachedGetProfileDeviceListByProfileIdByDeviceId(self
+    def CachedGetProfileDeviceListProfileIdDeviceId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -1599,7 +1599,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileDevice> objs;
 
-        string method_name = "CachedGetProfileDeviceListByProfileIdByDeviceId";
+        string method_name = "CachedGetProfileDeviceListProfileIdDeviceId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1619,7 +1619,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileDeviceListByProfileIdByDeviceId(
+            objs = GetProfileDeviceListProfileIdDeviceId(
                 profile_id
                 , device_id
             );
@@ -1629,38 +1629,38 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileDeviceListByProfileIdByToken(self
+    def GetProfileDeviceListProfileIdToken(self
         , profile_id
         , token
         ) :
-            return self.act.GetProfileDeviceListByProfileIdByToken(
+            return self.act.GetProfileDeviceListProfileIdToken(
                 profile_id
                 , token
             )
         
-    def GetProfileDeviceByProfileIdByToken(self
+    def GetProfileDeviceProfileIdToken(self
         , profile_id
         , token
     ) :
-        for item in self.GetProfileDeviceListByProfileIdByToken(
+        for item in self.GetProfileDeviceListProfileIdToken(
         profile_id
         , token
         ) :
             return item
         return None
     
-    def CachedGetProfileDeviceListByProfileIdByToken(self
+    def CachedGetProfileDeviceListProfileIdToken(self
         , profile_id
         , token
     ) :
-        return CachedGetProfileDeviceListByProfileIdByToken(
+        return CachedGetProfileDeviceListProfileIdToken(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , token
         )
         
-    def CachedGetProfileDeviceListByProfileIdByToken(self
+    def CachedGetProfileDeviceListProfileIdToken(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -1670,7 +1670,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileDevice> objs;
 
-        string method_name = "CachedGetProfileDeviceListByProfileIdByToken";
+        string method_name = "CachedGetProfileDeviceListProfileIdToken";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1690,7 +1690,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileDeviceListByProfileIdByToken(
+            objs = GetProfileDeviceListProfileIdToken(
                 profile_id
                 , token
             );
@@ -1700,32 +1700,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileDeviceListByProfileId(self
+    def GetProfileDeviceListProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileDeviceListByProfileId(
+            return self.act.GetProfileDeviceListProfileId(
                 profile_id
             )
         
-    def GetProfileDeviceByProfileId(self
+    def GetProfileDeviceProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileDeviceListByProfileId(
+        for item in self.GetProfileDeviceListProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileDeviceListByProfileId(self
+    def CachedGetProfileDeviceListProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileDeviceListByProfileId(
+        return CachedGetProfileDeviceListProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileDeviceListByProfileId(self
+    def CachedGetProfileDeviceListProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -1734,7 +1734,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileDevice> objs;
 
-        string method_name = "CachedGetProfileDeviceListByProfileId";
+        string method_name = "CachedGetProfileDeviceListProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1750,7 +1750,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileDeviceListByProfileId(
+            objs = GetProfileDeviceListProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1759,32 +1759,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileDeviceListByDeviceId(self
+    def GetProfileDeviceListDeviceId(self
         , device_id
         ) :
-            return self.act.GetProfileDeviceListByDeviceId(
+            return self.act.GetProfileDeviceListDeviceId(
                 device_id
             )
         
-    def GetProfileDeviceByDeviceId(self
+    def GetProfileDeviceDeviceId(self
         , device_id
     ) :
-        for item in self.GetProfileDeviceListByDeviceId(
+        for item in self.GetProfileDeviceListDeviceId(
         device_id
         ) :
             return item
         return None
     
-    def CachedGetProfileDeviceListByDeviceId(self
+    def CachedGetProfileDeviceListDeviceId(self
         , device_id
     ) :
-        return CachedGetProfileDeviceListByDeviceId(
+        return CachedGetProfileDeviceListDeviceId(
             false
             , self.CACHE_DEFAULT_HOURS
             , device_id
         )
         
-    def CachedGetProfileDeviceListByDeviceId(self
+    def CachedGetProfileDeviceListDeviceId(self
         , overrideCache
         , cacheHours
         , device_id
@@ -1793,7 +1793,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileDevice> objs;
 
-        string method_name = "CachedGetProfileDeviceListByDeviceId";
+        string method_name = "CachedGetProfileDeviceListDeviceId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1809,7 +1809,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileDeviceListByDeviceId(
+            objs = GetProfileDeviceListDeviceId(
                 device_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1818,32 +1818,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileDeviceListByToken(self
+    def GetProfileDeviceListToken(self
         , token
         ) :
-            return self.act.GetProfileDeviceListByToken(
+            return self.act.GetProfileDeviceListToken(
                 token
             )
         
-    def GetProfileDeviceByToken(self
+    def GetProfileDeviceToken(self
         , token
     ) :
-        for item in self.GetProfileDeviceListByToken(
+        for item in self.GetProfileDeviceListToken(
         token
         ) :
             return item
         return None
     
-    def CachedGetProfileDeviceListByToken(self
+    def CachedGetProfileDeviceListToken(self
         , token
     ) :
-        return CachedGetProfileDeviceListByToken(
+        return CachedGetProfileDeviceListToken(
             false
             , self.CACHE_DEFAULT_HOURS
             , token
         )
         
-    def CachedGetProfileDeviceListByToken(self
+    def CachedGetProfileDeviceListToken(self
         , overrideCache
         , cacheHours
         , token
@@ -1852,7 +1852,7 @@ class BaseProfileAPI(object):
         """
         List<ProfileDevice> objs;
 
-        string method_name = "CachedGetProfileDeviceListByToken";
+        string method_name = "CachedGetProfileDeviceListToken";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1868,7 +1868,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileDeviceListByToken(
+            objs = GetProfileDeviceListToken(
                 token
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1883,48 +1883,48 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountCountryByUuid(self
+    def CountCountryUuid(self
         , uuid
     ) :         
-        return self.act.CountCountryByUuid(
+        return self.act.CountCountryUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountCountryByCode(self
+    def CountCountryCode(self
         , code
     ) :         
-        return self.act.CountCountryByCode(
+        return self.act.CountCountryCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseCountryListByFilter(self, filter_obj) :
-        return self.act.BrowseCountryListByFilter(filter_obj)
+    def BrowseCountryListFilter(self, filter_obj) :
+        return self.act.BrowseCountryListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetCountryByUuidType(self, set_type, obj) :
-        return self.act.SetCountryByUuid(set_type, obj)
+    def SetCountryUuidType(self, set_type, obj) :
+        return self.act.SetCountryUuid(set_type, obj)
                
-    def SetCountryByUuid(self, obj) :
-        return self.act.SetCountryByUuid('full', obj)
+    def SetCountryUuid(self, obj) :
+        return self.act.SetCountryUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetCountryByCodeType(self, set_type, obj) :
-        return self.act.SetCountryByCode(set_type, obj)
+    def SetCountryCodeType(self, set_type, obj) :
+        return self.act.SetCountryCode(set_type, obj)
                
-    def SetCountryByCode(self, obj) :
-        return self.act.SetCountryByCode('full', obj)
+    def SetCountryCode(self, obj) :
+        return self.act.SetCountryCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelCountryByUuid(self
+    def DelCountryUuid(self
         , uuid
     ) :          
-        return self.act.DelCountryByUuid(
+        return self.act.DelCountryUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelCountryByCode(self
+    def DelCountryCode(self
         , code
     ) :          
-        return self.act.DelCountryByCode(
+        return self.act.DelCountryCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -1975,32 +1975,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetCountryListByUuid(self
+    def GetCountryListUuid(self
         , uuid
         ) :
-            return self.act.GetCountryListByUuid(
+            return self.act.GetCountryListUuid(
                 uuid
             )
         
-    def GetCountryByUuid(self
+    def GetCountryUuid(self
         , uuid
     ) :
-        for item in self.GetCountryListByUuid(
+        for item in self.GetCountryListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetCountryListByUuid(self
+    def CachedGetCountryListUuid(self
         , uuid
     ) :
-        return CachedGetCountryListByUuid(
+        return CachedGetCountryListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetCountryListByUuid(self
+    def CachedGetCountryListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2009,7 +2009,7 @@ class BaseProfileAPI(object):
         """
         List<Country> objs;
 
-        string method_name = "CachedGetCountryListByUuid";
+        string method_name = "CachedGetCountryListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2025,7 +2025,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetCountryListByUuid(
+            objs = GetCountryListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2034,32 +2034,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetCountryListByCode(self
+    def GetCountryListCode(self
         , code
         ) :
-            return self.act.GetCountryListByCode(
+            return self.act.GetCountryListCode(
                 code
             )
         
-    def GetCountryByCode(self
+    def GetCountryCode(self
         , code
     ) :
-        for item in self.GetCountryListByCode(
+        for item in self.GetCountryListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetCountryListByCode(self
+    def CachedGetCountryListCode(self
         , code
     ) :
-        return CachedGetCountryListByCode(
+        return CachedGetCountryListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetCountryListByCode(self
+    def CachedGetCountryListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -2068,7 +2068,7 @@ class BaseProfileAPI(object):
         """
         List<Country> objs;
 
-        string method_name = "CachedGetCountryListByCode";
+        string method_name = "CachedGetCountryListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2084,7 +2084,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetCountryListByCode(
+            objs = GetCountryListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2099,48 +2099,48 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountStateByUuid(self
+    def CountStateUuid(self
         , uuid
     ) :         
-        return self.act.CountStateByUuid(
+        return self.act.CountStateUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountStateByCode(self
+    def CountStateCode(self
         , code
     ) :         
-        return self.act.CountStateByCode(
+        return self.act.CountStateCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseStateListByFilter(self, filter_obj) :
-        return self.act.BrowseStateListByFilter(filter_obj)
+    def BrowseStateListFilter(self, filter_obj) :
+        return self.act.BrowseStateListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetStateByUuidType(self, set_type, obj) :
-        return self.act.SetStateByUuid(set_type, obj)
+    def SetStateUuidType(self, set_type, obj) :
+        return self.act.SetStateUuid(set_type, obj)
                
-    def SetStateByUuid(self, obj) :
-        return self.act.SetStateByUuid('full', obj)
+    def SetStateUuid(self, obj) :
+        return self.act.SetStateUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetStateByCodeType(self, set_type, obj) :
-        return self.act.SetStateByCode(set_type, obj)
+    def SetStateCodeType(self, set_type, obj) :
+        return self.act.SetStateCode(set_type, obj)
                
-    def SetStateByCode(self, obj) :
-        return self.act.SetStateByCode('full', obj)
+    def SetStateCode(self, obj) :
+        return self.act.SetStateCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelStateByUuid(self
+    def DelStateUuid(self
         , uuid
     ) :          
-        return self.act.DelStateByUuid(
+        return self.act.DelStateUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelStateByCode(self
+    def DelStateCode(self
         , code
     ) :          
-        return self.act.DelStateByCode(
+        return self.act.DelStateCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -2191,32 +2191,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetStateListByUuid(self
+    def GetStateListUuid(self
         , uuid
         ) :
-            return self.act.GetStateListByUuid(
+            return self.act.GetStateListUuid(
                 uuid
             )
         
-    def GetStateByUuid(self
+    def GetStateUuid(self
         , uuid
     ) :
-        for item in self.GetStateListByUuid(
+        for item in self.GetStateListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetStateListByUuid(self
+    def CachedGetStateListUuid(self
         , uuid
     ) :
-        return CachedGetStateListByUuid(
+        return CachedGetStateListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetStateListByUuid(self
+    def CachedGetStateListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2225,7 +2225,7 @@ class BaseProfileAPI(object):
         """
         List<State> objs;
 
-        string method_name = "CachedGetStateListByUuid";
+        string method_name = "CachedGetStateListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2241,7 +2241,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetStateListByUuid(
+            objs = GetStateListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2250,32 +2250,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetStateListByCode(self
+    def GetStateListCode(self
         , code
         ) :
-            return self.act.GetStateListByCode(
+            return self.act.GetStateListCode(
                 code
             )
         
-    def GetStateByCode(self
+    def GetStateCode(self
         , code
     ) :
-        for item in self.GetStateListByCode(
+        for item in self.GetStateListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetStateListByCode(self
+    def CachedGetStateListCode(self
         , code
     ) :
-        return CachedGetStateListByCode(
+        return CachedGetStateListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetStateListByCode(self
+    def CachedGetStateListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -2284,7 +2284,7 @@ class BaseProfileAPI(object):
         """
         List<State> objs;
 
-        string method_name = "CachedGetStateListByCode";
+        string method_name = "CachedGetStateListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2300,7 +2300,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetStateListByCode(
+            objs = GetStateListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2315,48 +2315,48 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountCityByUuid(self
+    def CountCityUuid(self
         , uuid
     ) :         
-        return self.act.CountCityByUuid(
+        return self.act.CountCityUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountCityByCode(self
+    def CountCityCode(self
         , code
     ) :         
-        return self.act.CountCityByCode(
+        return self.act.CountCityCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseCityListByFilter(self, filter_obj) :
-        return self.act.BrowseCityListByFilter(filter_obj)
+    def BrowseCityListFilter(self, filter_obj) :
+        return self.act.BrowseCityListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetCityByUuidType(self, set_type, obj) :
-        return self.act.SetCityByUuid(set_type, obj)
+    def SetCityUuidType(self, set_type, obj) :
+        return self.act.SetCityUuid(set_type, obj)
                
-    def SetCityByUuid(self, obj) :
-        return self.act.SetCityByUuid('full', obj)
+    def SetCityUuid(self, obj) :
+        return self.act.SetCityUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetCityByCodeType(self, set_type, obj) :
-        return self.act.SetCityByCode(set_type, obj)
+    def SetCityCodeType(self, set_type, obj) :
+        return self.act.SetCityCode(set_type, obj)
                
-    def SetCityByCode(self, obj) :
-        return self.act.SetCityByCode('full', obj)
+    def SetCityCode(self, obj) :
+        return self.act.SetCityCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelCityByUuid(self
+    def DelCityUuid(self
         , uuid
     ) :          
-        return self.act.DelCityByUuid(
+        return self.act.DelCityUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelCityByCode(self
+    def DelCityCode(self
         , code
     ) :          
-        return self.act.DelCityByCode(
+        return self.act.DelCityCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -2407,32 +2407,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetCityListByUuid(self
+    def GetCityListUuid(self
         , uuid
         ) :
-            return self.act.GetCityListByUuid(
+            return self.act.GetCityListUuid(
                 uuid
             )
         
-    def GetCityByUuid(self
+    def GetCityUuid(self
         , uuid
     ) :
-        for item in self.GetCityListByUuid(
+        for item in self.GetCityListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetCityListByUuid(self
+    def CachedGetCityListUuid(self
         , uuid
     ) :
-        return CachedGetCityListByUuid(
+        return CachedGetCityListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetCityListByUuid(self
+    def CachedGetCityListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2441,7 +2441,7 @@ class BaseProfileAPI(object):
         """
         List<City> objs;
 
-        string method_name = "CachedGetCityListByUuid";
+        string method_name = "CachedGetCityListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2457,7 +2457,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetCityListByUuid(
+            objs = GetCityListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2466,32 +2466,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetCityListByCode(self
+    def GetCityListCode(self
         , code
         ) :
-            return self.act.GetCityListByCode(
+            return self.act.GetCityListCode(
                 code
             )
         
-    def GetCityByCode(self
+    def GetCityCode(self
         , code
     ) :
-        for item in self.GetCityListByCode(
+        for item in self.GetCityListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetCityListByCode(self
+    def CachedGetCityListCode(self
         , code
     ) :
-        return CachedGetCityListByCode(
+        return CachedGetCityListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetCityListByCode(self
+    def CachedGetCityListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -2500,7 +2500,7 @@ class BaseProfileAPI(object):
         """
         List<City> objs;
 
-        string method_name = "CachedGetCityListByCode";
+        string method_name = "CachedGetCityListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2516,7 +2516,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetCityListByCode(
+            objs = GetCityListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2531,48 +2531,48 @@ class BaseProfileAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountPostalCodeByUuid(self
+    def CountPostalCodeUuid(self
         , uuid
     ) :         
-        return self.act.CountPostalCodeByUuid(
+        return self.act.CountPostalCodeUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountPostalCodeByCode(self
+    def CountPostalCodeCode(self
         , code
     ) :         
-        return self.act.CountPostalCodeByCode(
+        return self.act.CountPostalCodeCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowsePostalCodeListByFilter(self, filter_obj) :
-        return self.act.BrowsePostalCodeListByFilter(filter_obj)
+    def BrowsePostalCodeListFilter(self, filter_obj) :
+        return self.act.BrowsePostalCodeListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetPostalCodeByUuidType(self, set_type, obj) :
-        return self.act.SetPostalCodeByUuid(set_type, obj)
+    def SetPostalCodeUuidType(self, set_type, obj) :
+        return self.act.SetPostalCodeUuid(set_type, obj)
                
-    def SetPostalCodeByUuid(self, obj) :
-        return self.act.SetPostalCodeByUuid('full', obj)
+    def SetPostalCodeUuid(self, obj) :
+        return self.act.SetPostalCodeUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPostalCodeByCodeType(self, set_type, obj) :
-        return self.act.SetPostalCodeByCode(set_type, obj)
+    def SetPostalCodeCodeType(self, set_type, obj) :
+        return self.act.SetPostalCodeCode(set_type, obj)
                
-    def SetPostalCodeByCode(self, obj) :
-        return self.act.SetPostalCodeByCode('full', obj)
+    def SetPostalCodeCode(self, obj) :
+        return self.act.SetPostalCodeCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelPostalCodeByUuid(self
+    def DelPostalCodeUuid(self
         , uuid
     ) :          
-        return self.act.DelPostalCodeByUuid(
+        return self.act.DelPostalCodeUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelPostalCodeByCode(self
+    def DelPostalCodeCode(self
         , code
     ) :          
-        return self.act.DelPostalCodeByCode(
+        return self.act.DelPostalCodeCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -2623,32 +2623,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetPostalCodeListByUuid(self
+    def GetPostalCodeListUuid(self
         , uuid
         ) :
-            return self.act.GetPostalCodeListByUuid(
+            return self.act.GetPostalCodeListUuid(
                 uuid
             )
         
-    def GetPostalCodeByUuid(self
+    def GetPostalCodeUuid(self
         , uuid
     ) :
-        for item in self.GetPostalCodeListByUuid(
+        for item in self.GetPostalCodeListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetPostalCodeListByUuid(self
+    def CachedGetPostalCodeListUuid(self
         , uuid
     ) :
-        return CachedGetPostalCodeListByUuid(
+        return CachedGetPostalCodeListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetPostalCodeListByUuid(self
+    def CachedGetPostalCodeListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2657,7 +2657,7 @@ class BaseProfileAPI(object):
         """
         List<PostalCode> objs;
 
-        string method_name = "CachedGetPostalCodeListByUuid";
+        string method_name = "CachedGetPostalCodeListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2673,7 +2673,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetPostalCodeListByUuid(
+            objs = GetPostalCodeListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2682,32 +2682,32 @@ class BaseProfileAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetPostalCodeListByCode(self
+    def GetPostalCodeListCode(self
         , code
         ) :
-            return self.act.GetPostalCodeListByCode(
+            return self.act.GetPostalCodeListCode(
                 code
             )
         
-    def GetPostalCodeByCode(self
+    def GetPostalCodeCode(self
         , code
     ) :
-        for item in self.GetPostalCodeListByCode(
+        for item in self.GetPostalCodeListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetPostalCodeListByCode(self
+    def CachedGetPostalCodeListCode(self
         , code
     ) :
-        return CachedGetPostalCodeListByCode(
+        return CachedGetPostalCodeListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetPostalCodeListByCode(self
+    def CachedGetPostalCodeListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -2716,7 +2716,7 @@ class BaseProfileAPI(object):
         """
         List<PostalCode> objs;
 
-        string method_name = "CachedGetPostalCodeListByCode";
+        string method_name = "CachedGetPostalCodeListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2732,7 +2732,7 @@ class BaseProfileAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetPostalCodeListByCode(
+            objs = GetPostalCodeListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);

@@ -60,57 +60,57 @@ namespace platform {
             return data.CountApp(
             );
         }       
-        public virtual int CountAppByUuid(
+        public virtual int CountAppUuid(
             string uuid
         )  {            
-            return data.CountAppByUuid(
+            return data.CountAppUuid(
                 uuid
             );
         }       
-        public virtual int CountAppByCode(
+        public virtual int CountAppCode(
             string code
         )  {            
-            return data.CountAppByCode(
+            return data.CountAppCode(
                 code
             );
         }       
-        public virtual int CountAppByTypeId(
+        public virtual int CountAppTypeId(
             string type_id
         )  {            
-            return data.CountAppByTypeId(
+            return data.CountAppTypeId(
                 type_id
             );
         }       
-        public virtual int CountAppByCodeByTypeId(
+        public virtual int CountAppCodeTypeId(
             string code
             , string type_id
         )  {            
-            return data.CountAppByCodeByTypeId(
+            return data.CountAppCodeTypeId(
                 code
                 , type_id
             );
         }       
-        public virtual int CountAppByPlatformByTypeId(
+        public virtual int CountAppPlatformTypeId(
             string platform
             , string type_id
         )  {            
-            return data.CountAppByPlatformByTypeId(
+            return data.CountAppPlatformTypeId(
                 platform
                 , type_id
             );
         }       
-        public virtual int CountAppByPlatform(
+        public virtual int CountAppPlatform(
             string platform
         )  {            
-            return data.CountAppByPlatform(
+            return data.CountAppPlatform(
                 platform
             );
         }       
-        public virtual AppResult BrowseAppListByFilter(SearchFilter obj)  {
+        public virtual AppResult BrowseAppListFilter(SearchFilter obj)  {
             AppResult result = new AppResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseAppListByFilter(obj);
+            DataSet ds = data.BrowseAppListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -123,23 +123,23 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetAppByUuid(string set_type, App obj)  {            
-            return data.SetAppByUuid(set_type, obj);
+        public virtual bool SetAppUuid(string set_type, App obj)  {            
+            return data.SetAppUuid(set_type, obj);
         }    
-        public virtual bool SetAppByCode(string set_type, App obj)  {            
-            return data.SetAppByCode(set_type, obj);
+        public virtual bool SetAppCode(string set_type, App obj)  {            
+            return data.SetAppCode(set_type, obj);
         }    
-        public virtual bool DelAppByUuid(
+        public virtual bool DelAppUuid(
             string uuid
         )  {
-            return data.DelAppByUuid(
+            return data.DelAppUuid(
                 uuid
             );
         }                     
-        public virtual bool DelAppByCode(
+        public virtual bool DelAppCode(
             string code
         )  {
-            return data.DelAppByCode(
+            return data.DelAppCode(
                 code
             );
         }                     
@@ -160,11 +160,11 @@ namespace platform {
         }
         
         
-        public virtual List<App> GetAppListByUuid(
+        public virtual List<App> GetAppListUuid(
             string uuid
         )  {
             List<App> list = new List<App>();
-            DataSet ds = data.GetAppListByUuid(
+            DataSet ds = data.GetAppListUuid(
                 uuid
             );
             if(ds != null) {
@@ -179,11 +179,11 @@ namespace platform {
         }
         
         
-        public virtual List<App> GetAppListByCode(
+        public virtual List<App> GetAppListCode(
             string code
         )  {
             List<App> list = new List<App>();
-            DataSet ds = data.GetAppListByCode(
+            DataSet ds = data.GetAppListCode(
                 code
             );
             if(ds != null) {
@@ -198,11 +198,11 @@ namespace platform {
         }
         
         
-        public virtual List<App> GetAppListByTypeId(
+        public virtual List<App> GetAppListTypeId(
             string type_id
         )  {
             List<App> list = new List<App>();
-            DataSet ds = data.GetAppListByTypeId(
+            DataSet ds = data.GetAppListTypeId(
                 type_id
             );
             if(ds != null) {
@@ -217,12 +217,12 @@ namespace platform {
         }
         
         
-        public virtual List<App> GetAppListByCodeByTypeId(
+        public virtual List<App> GetAppListCodeTypeId(
             string code
             , string type_id
         )  {
             List<App> list = new List<App>();
-            DataSet ds = data.GetAppListByCodeByTypeId(
+            DataSet ds = data.GetAppListCodeTypeId(
                 code
                 , type_id
             );
@@ -238,12 +238,12 @@ namespace platform {
         }
         
         
-        public virtual List<App> GetAppListByPlatformByTypeId(
+        public virtual List<App> GetAppListPlatformTypeId(
             string platform
             , string type_id
         )  {
             List<App> list = new List<App>();
-            DataSet ds = data.GetAppListByPlatformByTypeId(
+            DataSet ds = data.GetAppListPlatformTypeId(
                 platform
                 , type_id
             );
@@ -259,11 +259,11 @@ namespace platform {
         }
         
         
-        public virtual List<App> GetAppListByPlatform(
+        public virtual List<App> GetAppListPlatform(
             string platform
         )  {
             List<App> list = new List<App>();
-            DataSet ds = data.GetAppListByPlatform(
+            DataSet ds = data.GetAppListPlatform(
                 platform
             );
             if(ds != null) {
@@ -311,25 +311,25 @@ namespace platform {
             return data.CountAppType(
             );
         }       
-        public virtual int CountAppTypeByUuid(
+        public virtual int CountAppTypeUuid(
             string uuid
         )  {            
-            return data.CountAppTypeByUuid(
+            return data.CountAppTypeUuid(
                 uuid
             );
         }       
-        public virtual int CountAppTypeByCode(
+        public virtual int CountAppTypeCode(
             string code
         )  {            
-            return data.CountAppTypeByCode(
+            return data.CountAppTypeCode(
                 code
             );
         }       
-        public virtual AppTypeResult BrowseAppTypeListByFilter(SearchFilter obj)  {
+        public virtual AppTypeResult BrowseAppTypeListFilter(SearchFilter obj)  {
             AppTypeResult result = new AppTypeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseAppTypeListByFilter(obj);
+            DataSet ds = data.BrowseAppTypeListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -342,23 +342,23 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetAppTypeByUuid(string set_type, AppType obj)  {            
-            return data.SetAppTypeByUuid(set_type, obj);
+        public virtual bool SetAppTypeUuid(string set_type, AppType obj)  {            
+            return data.SetAppTypeUuid(set_type, obj);
         }    
-        public virtual bool SetAppTypeByCode(string set_type, AppType obj)  {            
-            return data.SetAppTypeByCode(set_type, obj);
+        public virtual bool SetAppTypeCode(string set_type, AppType obj)  {            
+            return data.SetAppTypeCode(set_type, obj);
         }    
-        public virtual bool DelAppTypeByUuid(
+        public virtual bool DelAppTypeUuid(
             string uuid
         )  {
-            return data.DelAppTypeByUuid(
+            return data.DelAppTypeUuid(
                 uuid
             );
         }                     
-        public virtual bool DelAppTypeByCode(
+        public virtual bool DelAppTypeCode(
             string code
         )  {
-            return data.DelAppTypeByCode(
+            return data.DelAppTypeCode(
                 code
             );
         }                     
@@ -379,11 +379,11 @@ namespace platform {
         }
         
         
-        public virtual List<AppType> GetAppTypeListByUuid(
+        public virtual List<AppType> GetAppTypeListUuid(
             string uuid
         )  {
             List<AppType> list = new List<AppType>();
-            DataSet ds = data.GetAppTypeListByUuid(
+            DataSet ds = data.GetAppTypeListUuid(
                 uuid
             );
             if(ds != null) {
@@ -398,11 +398,11 @@ namespace platform {
         }
         
         
-        public virtual List<AppType> GetAppTypeListByCode(
+        public virtual List<AppType> GetAppTypeListCode(
             string code
         )  {
             List<AppType> list = new List<AppType>();
-            DataSet ds = data.GetAppTypeListByCode(
+            DataSet ds = data.GetAppTypeListCode(
                 code
             );
             if(ds != null) {
@@ -454,57 +454,57 @@ namespace platform {
             return data.CountSite(
             );
         }       
-        public virtual int CountSiteByUuid(
+        public virtual int CountSiteUuid(
             string uuid
         )  {            
-            return data.CountSiteByUuid(
+            return data.CountSiteUuid(
                 uuid
             );
         }       
-        public virtual int CountSiteByCode(
+        public virtual int CountSiteCode(
             string code
         )  {            
-            return data.CountSiteByCode(
+            return data.CountSiteCode(
                 code
             );
         }       
-        public virtual int CountSiteByTypeId(
+        public virtual int CountSiteTypeId(
             string type_id
         )  {            
-            return data.CountSiteByTypeId(
+            return data.CountSiteTypeId(
                 type_id
             );
         }       
-        public virtual int CountSiteByCodeByTypeId(
+        public virtual int CountSiteCodeTypeId(
             string code
             , string type_id
         )  {            
-            return data.CountSiteByCodeByTypeId(
+            return data.CountSiteCodeTypeId(
                 code
                 , type_id
             );
         }       
-        public virtual int CountSiteByDomainByTypeId(
+        public virtual int CountSiteDomainTypeId(
             string domain
             , string type_id
         )  {            
-            return data.CountSiteByDomainByTypeId(
+            return data.CountSiteDomainTypeId(
                 domain
                 , type_id
             );
         }       
-        public virtual int CountSiteByDomain(
+        public virtual int CountSiteDomain(
             string domain
         )  {            
-            return data.CountSiteByDomain(
+            return data.CountSiteDomain(
                 domain
             );
         }       
-        public virtual SiteResult BrowseSiteListByFilter(SearchFilter obj)  {
+        public virtual SiteResult BrowseSiteListFilter(SearchFilter obj)  {
             SiteResult result = new SiteResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseSiteListByFilter(obj);
+            DataSet ds = data.BrowseSiteListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -517,23 +517,23 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetSiteByUuid(string set_type, Site obj)  {            
-            return data.SetSiteByUuid(set_type, obj);
+        public virtual bool SetSiteUuid(string set_type, Site obj)  {            
+            return data.SetSiteUuid(set_type, obj);
         }    
-        public virtual bool SetSiteByCode(string set_type, Site obj)  {            
-            return data.SetSiteByCode(set_type, obj);
+        public virtual bool SetSiteCode(string set_type, Site obj)  {            
+            return data.SetSiteCode(set_type, obj);
         }    
-        public virtual bool DelSiteByUuid(
+        public virtual bool DelSiteUuid(
             string uuid
         )  {
-            return data.DelSiteByUuid(
+            return data.DelSiteUuid(
                 uuid
             );
         }                     
-        public virtual bool DelSiteByCode(
+        public virtual bool DelSiteCode(
             string code
         )  {
-            return data.DelSiteByCode(
+            return data.DelSiteCode(
                 code
             );
         }                     
@@ -554,11 +554,11 @@ namespace platform {
         }
         
         
-        public virtual List<Site> GetSiteListByUuid(
+        public virtual List<Site> GetSiteListUuid(
             string uuid
         )  {
             List<Site> list = new List<Site>();
-            DataSet ds = data.GetSiteListByUuid(
+            DataSet ds = data.GetSiteListUuid(
                 uuid
             );
             if(ds != null) {
@@ -573,11 +573,11 @@ namespace platform {
         }
         
         
-        public virtual List<Site> GetSiteListByCode(
+        public virtual List<Site> GetSiteListCode(
             string code
         )  {
             List<Site> list = new List<Site>();
-            DataSet ds = data.GetSiteListByCode(
+            DataSet ds = data.GetSiteListCode(
                 code
             );
             if(ds != null) {
@@ -592,11 +592,11 @@ namespace platform {
         }
         
         
-        public virtual List<Site> GetSiteListByTypeId(
+        public virtual List<Site> GetSiteListTypeId(
             string type_id
         )  {
             List<Site> list = new List<Site>();
-            DataSet ds = data.GetSiteListByTypeId(
+            DataSet ds = data.GetSiteListTypeId(
                 type_id
             );
             if(ds != null) {
@@ -611,12 +611,12 @@ namespace platform {
         }
         
         
-        public virtual List<Site> GetSiteListByCodeByTypeId(
+        public virtual List<Site> GetSiteListCodeTypeId(
             string code
             , string type_id
         )  {
             List<Site> list = new List<Site>();
-            DataSet ds = data.GetSiteListByCodeByTypeId(
+            DataSet ds = data.GetSiteListCodeTypeId(
                 code
                 , type_id
             );
@@ -632,12 +632,12 @@ namespace platform {
         }
         
         
-        public virtual List<Site> GetSiteListByDomainByTypeId(
+        public virtual List<Site> GetSiteListDomainTypeId(
             string domain
             , string type_id
         )  {
             List<Site> list = new List<Site>();
-            DataSet ds = data.GetSiteListByDomainByTypeId(
+            DataSet ds = data.GetSiteListDomainTypeId(
                 domain
                 , type_id
             );
@@ -653,11 +653,11 @@ namespace platform {
         }
         
         
-        public virtual List<Site> GetSiteListByDomain(
+        public virtual List<Site> GetSiteListDomain(
             string domain
         )  {
             List<Site> list = new List<Site>();
-            DataSet ds = data.GetSiteListByDomain(
+            DataSet ds = data.GetSiteListDomain(
                 domain
             );
             if(ds != null) {
@@ -705,25 +705,25 @@ namespace platform {
             return data.CountSiteType(
             );
         }       
-        public virtual int CountSiteTypeByUuid(
+        public virtual int CountSiteTypeUuid(
             string uuid
         )  {            
-            return data.CountSiteTypeByUuid(
+            return data.CountSiteTypeUuid(
                 uuid
             );
         }       
-        public virtual int CountSiteTypeByCode(
+        public virtual int CountSiteTypeCode(
             string code
         )  {            
-            return data.CountSiteTypeByCode(
+            return data.CountSiteTypeCode(
                 code
             );
         }       
-        public virtual SiteTypeResult BrowseSiteTypeListByFilter(SearchFilter obj)  {
+        public virtual SiteTypeResult BrowseSiteTypeListFilter(SearchFilter obj)  {
             SiteTypeResult result = new SiteTypeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseSiteTypeListByFilter(obj);
+            DataSet ds = data.BrowseSiteTypeListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -736,23 +736,23 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetSiteTypeByUuid(string set_type, SiteType obj)  {            
-            return data.SetSiteTypeByUuid(set_type, obj);
+        public virtual bool SetSiteTypeUuid(string set_type, SiteType obj)  {            
+            return data.SetSiteTypeUuid(set_type, obj);
         }    
-        public virtual bool SetSiteTypeByCode(string set_type, SiteType obj)  {            
-            return data.SetSiteTypeByCode(set_type, obj);
+        public virtual bool SetSiteTypeCode(string set_type, SiteType obj)  {            
+            return data.SetSiteTypeCode(set_type, obj);
         }    
-        public virtual bool DelSiteTypeByUuid(
+        public virtual bool DelSiteTypeUuid(
             string uuid
         )  {
-            return data.DelSiteTypeByUuid(
+            return data.DelSiteTypeUuid(
                 uuid
             );
         }                     
-        public virtual bool DelSiteTypeByCode(
+        public virtual bool DelSiteTypeCode(
             string code
         )  {
-            return data.DelSiteTypeByCode(
+            return data.DelSiteTypeCode(
                 code
             );
         }                     
@@ -773,11 +773,11 @@ namespace platform {
         }
         
         
-        public virtual List<SiteType> GetSiteTypeListByUuid(
+        public virtual List<SiteType> GetSiteTypeListUuid(
             string uuid
         )  {
             List<SiteType> list = new List<SiteType>();
-            DataSet ds = data.GetSiteTypeListByUuid(
+            DataSet ds = data.GetSiteTypeListUuid(
                 uuid
             );
             if(ds != null) {
@@ -792,11 +792,11 @@ namespace platform {
         }
         
         
-        public virtual List<SiteType> GetSiteTypeListByCode(
+        public virtual List<SiteType> GetSiteTypeListCode(
             string code
         )  {
             List<SiteType> list = new List<SiteType>();
-            DataSet ds = data.GetSiteTypeListByCode(
+            DataSet ds = data.GetSiteTypeListCode(
                 code
             );
             if(ds != null) {
@@ -846,32 +846,32 @@ namespace platform {
             return data.CountOrg(
             );
         }       
-        public virtual int CountOrgByUuid(
+        public virtual int CountOrgUuid(
             string uuid
         )  {            
-            return data.CountOrgByUuid(
+            return data.CountOrgUuid(
                 uuid
             );
         }       
-        public virtual int CountOrgByCode(
+        public virtual int CountOrgCode(
             string code
         )  {            
-            return data.CountOrgByCode(
+            return data.CountOrgCode(
                 code
             );
         }       
-        public virtual int CountOrgByName(
+        public virtual int CountOrgName(
             string name
         )  {            
-            return data.CountOrgByName(
+            return data.CountOrgName(
                 name
             );
         }       
-        public virtual OrgResult BrowseOrgListByFilter(SearchFilter obj)  {
+        public virtual OrgResult BrowseOrgListFilter(SearchFilter obj)  {
             OrgResult result = new OrgResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOrgListByFilter(obj);
+            DataSet ds = data.BrowseOrgListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -884,13 +884,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOrgByUuid(string set_type, Org obj)  {            
-            return data.SetOrgByUuid(set_type, obj);
+        public virtual bool SetOrgUuid(string set_type, Org obj)  {            
+            return data.SetOrgUuid(set_type, obj);
         }    
-        public virtual bool DelOrgByUuid(
+        public virtual bool DelOrgUuid(
             string uuid
         )  {
-            return data.DelOrgByUuid(
+            return data.DelOrgUuid(
                 uuid
             );
         }                     
@@ -911,11 +911,11 @@ namespace platform {
         }
         
         
-        public virtual List<Org> GetOrgListByUuid(
+        public virtual List<Org> GetOrgListUuid(
             string uuid
         )  {
             List<Org> list = new List<Org>();
-            DataSet ds = data.GetOrgListByUuid(
+            DataSet ds = data.GetOrgListUuid(
                 uuid
             );
             if(ds != null) {
@@ -930,11 +930,11 @@ namespace platform {
         }
         
         
-        public virtual List<Org> GetOrgListByCode(
+        public virtual List<Org> GetOrgListCode(
             string code
         )  {
             List<Org> list = new List<Org>();
-            DataSet ds = data.GetOrgListByCode(
+            DataSet ds = data.GetOrgListCode(
                 code
             );
             if(ds != null) {
@@ -949,11 +949,11 @@ namespace platform {
         }
         
         
-        public virtual List<Org> GetOrgListByName(
+        public virtual List<Org> GetOrgListName(
             string name
         )  {
             List<Org> list = new List<Org>();
-            DataSet ds = data.GetOrgListByName(
+            DataSet ds = data.GetOrgListName(
                 name
             );
             if(ds != null) {
@@ -1001,25 +1001,25 @@ namespace platform {
             return data.CountOrgType(
             );
         }       
-        public virtual int CountOrgTypeByUuid(
+        public virtual int CountOrgTypeUuid(
             string uuid
         )  {            
-            return data.CountOrgTypeByUuid(
+            return data.CountOrgTypeUuid(
                 uuid
             );
         }       
-        public virtual int CountOrgTypeByCode(
+        public virtual int CountOrgTypeCode(
             string code
         )  {            
-            return data.CountOrgTypeByCode(
+            return data.CountOrgTypeCode(
                 code
             );
         }       
-        public virtual OrgTypeResult BrowseOrgTypeListByFilter(SearchFilter obj)  {
+        public virtual OrgTypeResult BrowseOrgTypeListFilter(SearchFilter obj)  {
             OrgTypeResult result = new OrgTypeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOrgTypeListByFilter(obj);
+            DataSet ds = data.BrowseOrgTypeListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1032,23 +1032,23 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOrgTypeByUuid(string set_type, OrgType obj)  {            
-            return data.SetOrgTypeByUuid(set_type, obj);
+        public virtual bool SetOrgTypeUuid(string set_type, OrgType obj)  {            
+            return data.SetOrgTypeUuid(set_type, obj);
         }    
-        public virtual bool SetOrgTypeByCode(string set_type, OrgType obj)  {            
-            return data.SetOrgTypeByCode(set_type, obj);
+        public virtual bool SetOrgTypeCode(string set_type, OrgType obj)  {            
+            return data.SetOrgTypeCode(set_type, obj);
         }    
-        public virtual bool DelOrgTypeByUuid(
+        public virtual bool DelOrgTypeUuid(
             string uuid
         )  {
-            return data.DelOrgTypeByUuid(
+            return data.DelOrgTypeUuid(
                 uuid
             );
         }                     
-        public virtual bool DelOrgTypeByCode(
+        public virtual bool DelOrgTypeCode(
             string code
         )  {
-            return data.DelOrgTypeByCode(
+            return data.DelOrgTypeCode(
                 code
             );
         }                     
@@ -1069,11 +1069,11 @@ namespace platform {
         }
         
         
-        public virtual List<OrgType> GetOrgTypeListByUuid(
+        public virtual List<OrgType> GetOrgTypeListUuid(
             string uuid
         )  {
             List<OrgType> list = new List<OrgType>();
-            DataSet ds = data.GetOrgTypeListByUuid(
+            DataSet ds = data.GetOrgTypeListUuid(
                 uuid
             );
             if(ds != null) {
@@ -1088,11 +1088,11 @@ namespace platform {
         }
         
         
-        public virtual List<OrgType> GetOrgTypeListByCode(
+        public virtual List<OrgType> GetOrgTypeListCode(
             string code
         )  {
             List<OrgType> list = new List<OrgType>();
-            DataSet ds = data.GetOrgTypeListByCode(
+            DataSet ds = data.GetOrgTypeListCode(
                 code
             );
             if(ds != null) {
@@ -1150,39 +1150,39 @@ namespace platform {
             return data.CountContentItem(
             );
         }       
-        public virtual int CountContentItemByUuid(
+        public virtual int CountContentItemUuid(
             string uuid
         )  {            
-            return data.CountContentItemByUuid(
+            return data.CountContentItemUuid(
                 uuid
             );
         }       
-        public virtual int CountContentItemByCode(
+        public virtual int CountContentItemCode(
             string code
         )  {            
-            return data.CountContentItemByCode(
+            return data.CountContentItemCode(
                 code
             );
         }       
-        public virtual int CountContentItemByName(
+        public virtual int CountContentItemName(
             string name
         )  {            
-            return data.CountContentItemByName(
+            return data.CountContentItemName(
                 name
             );
         }       
-        public virtual int CountContentItemByPath(
+        public virtual int CountContentItemPath(
             string path
         )  {            
-            return data.CountContentItemByPath(
+            return data.CountContentItemPath(
                 path
             );
         }       
-        public virtual ContentItemResult BrowseContentItemListByFilter(SearchFilter obj)  {
+        public virtual ContentItemResult BrowseContentItemListFilter(SearchFilter obj)  {
             ContentItemResult result = new ContentItemResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseContentItemListByFilter(obj);
+            DataSet ds = data.BrowseContentItemListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1195,20 +1195,20 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetContentItemByUuid(string set_type, ContentItem obj)  {            
-            return data.SetContentItemByUuid(set_type, obj);
+        public virtual bool SetContentItemUuid(string set_type, ContentItem obj)  {            
+            return data.SetContentItemUuid(set_type, obj);
         }    
-        public virtual bool DelContentItemByUuid(
+        public virtual bool DelContentItemUuid(
             string uuid
         )  {
-            return data.DelContentItemByUuid(
+            return data.DelContentItemUuid(
                 uuid
             );
         }                     
-        public virtual bool DelContentItemByPath(
+        public virtual bool DelContentItemPath(
             string path
         )  {
-            return data.DelContentItemByPath(
+            return data.DelContentItemPath(
                 path
             );
         }                     
@@ -1229,11 +1229,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentItem> GetContentItemListByUuid(
+        public virtual List<ContentItem> GetContentItemListUuid(
             string uuid
         )  {
             List<ContentItem> list = new List<ContentItem>();
-            DataSet ds = data.GetContentItemListByUuid(
+            DataSet ds = data.GetContentItemListUuid(
                 uuid
             );
             if(ds != null) {
@@ -1248,11 +1248,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentItem> GetContentItemListByCode(
+        public virtual List<ContentItem> GetContentItemListCode(
             string code
         )  {
             List<ContentItem> list = new List<ContentItem>();
-            DataSet ds = data.GetContentItemListByCode(
+            DataSet ds = data.GetContentItemListCode(
                 code
             );
             if(ds != null) {
@@ -1267,11 +1267,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentItem> GetContentItemListByName(
+        public virtual List<ContentItem> GetContentItemListName(
             string name
         )  {
             List<ContentItem> list = new List<ContentItem>();
-            DataSet ds = data.GetContentItemListByName(
+            DataSet ds = data.GetContentItemListName(
                 name
             );
             if(ds != null) {
@@ -1286,11 +1286,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentItem> GetContentItemListByPath(
+        public virtual List<ContentItem> GetContentItemListPath(
             string path
         )  {
             List<ContentItem> list = new List<ContentItem>();
-            DataSet ds = data.GetContentItemListByPath(
+            DataSet ds = data.GetContentItemListPath(
                 path
             );
             if(ds != null) {
@@ -1338,25 +1338,25 @@ namespace platform {
             return data.CountContentItemType(
             );
         }       
-        public virtual int CountContentItemTypeByUuid(
+        public virtual int CountContentItemTypeUuid(
             string uuid
         )  {            
-            return data.CountContentItemTypeByUuid(
+            return data.CountContentItemTypeUuid(
                 uuid
             );
         }       
-        public virtual int CountContentItemTypeByCode(
+        public virtual int CountContentItemTypeCode(
             string code
         )  {            
-            return data.CountContentItemTypeByCode(
+            return data.CountContentItemTypeCode(
                 code
             );
         }       
-        public virtual ContentItemTypeResult BrowseContentItemTypeListByFilter(SearchFilter obj)  {
+        public virtual ContentItemTypeResult BrowseContentItemTypeListFilter(SearchFilter obj)  {
             ContentItemTypeResult result = new ContentItemTypeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseContentItemTypeListByFilter(obj);
+            DataSet ds = data.BrowseContentItemTypeListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1369,23 +1369,23 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetContentItemTypeByUuid(string set_type, ContentItemType obj)  {            
-            return data.SetContentItemTypeByUuid(set_type, obj);
+        public virtual bool SetContentItemTypeUuid(string set_type, ContentItemType obj)  {            
+            return data.SetContentItemTypeUuid(set_type, obj);
         }    
-        public virtual bool SetContentItemTypeByCode(string set_type, ContentItemType obj)  {            
-            return data.SetContentItemTypeByCode(set_type, obj);
+        public virtual bool SetContentItemTypeCode(string set_type, ContentItemType obj)  {            
+            return data.SetContentItemTypeCode(set_type, obj);
         }    
-        public virtual bool DelContentItemTypeByUuid(
+        public virtual bool DelContentItemTypeUuid(
             string uuid
         )  {
-            return data.DelContentItemTypeByUuid(
+            return data.DelContentItemTypeUuid(
                 uuid
             );
         }                     
-        public virtual bool DelContentItemTypeByCode(
+        public virtual bool DelContentItemTypeCode(
             string code
         )  {
-            return data.DelContentItemTypeByCode(
+            return data.DelContentItemTypeCode(
                 code
             );
         }                     
@@ -1406,11 +1406,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentItemType> GetContentItemTypeListByUuid(
+        public virtual List<ContentItemType> GetContentItemTypeListUuid(
             string uuid
         )  {
             List<ContentItemType> list = new List<ContentItemType>();
-            DataSet ds = data.GetContentItemTypeListByUuid(
+            DataSet ds = data.GetContentItemTypeListUuid(
                 uuid
             );
             if(ds != null) {
@@ -1425,11 +1425,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentItemType> GetContentItemTypeListByCode(
+        public virtual List<ContentItemType> GetContentItemTypeListCode(
             string code
         )  {
             List<ContentItemType> list = new List<ContentItemType>();
-            DataSet ds = data.GetContentItemTypeListByCode(
+            DataSet ds = data.GetContentItemTypeListCode(
                 code
             );
             if(ds != null) {
@@ -1487,39 +1487,39 @@ namespace platform {
             return data.CountContentPage(
             );
         }       
-        public virtual int CountContentPageByUuid(
+        public virtual int CountContentPageUuid(
             string uuid
         )  {            
-            return data.CountContentPageByUuid(
+            return data.CountContentPageUuid(
                 uuid
             );
         }       
-        public virtual int CountContentPageByCode(
+        public virtual int CountContentPageCode(
             string code
         )  {            
-            return data.CountContentPageByCode(
+            return data.CountContentPageCode(
                 code
             );
         }       
-        public virtual int CountContentPageByName(
+        public virtual int CountContentPageName(
             string name
         )  {            
-            return data.CountContentPageByName(
+            return data.CountContentPageName(
                 name
             );
         }       
-        public virtual int CountContentPageByPath(
+        public virtual int CountContentPagePath(
             string path
         )  {            
-            return data.CountContentPageByPath(
+            return data.CountContentPagePath(
                 path
             );
         }       
-        public virtual ContentPageResult BrowseContentPageListByFilter(SearchFilter obj)  {
+        public virtual ContentPageResult BrowseContentPageListFilter(SearchFilter obj)  {
             ContentPageResult result = new ContentPageResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseContentPageListByFilter(obj);
+            DataSet ds = data.BrowseContentPageListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1532,29 +1532,29 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetContentPageByUuid(string set_type, ContentPage obj)  {            
-            return data.SetContentPageByUuid(set_type, obj);
+        public virtual bool SetContentPageUuid(string set_type, ContentPage obj)  {            
+            return data.SetContentPageUuid(set_type, obj);
         }    
-        public virtual bool DelContentPageByUuid(
+        public virtual bool DelContentPageUuid(
             string uuid
         )  {
-            return data.DelContentPageByUuid(
+            return data.DelContentPageUuid(
                 uuid
             );
         }                     
-        public virtual bool DelContentPageByPathBySiteId(
+        public virtual bool DelContentPagePathSiteId(
             string path
             , string site_id
         )  {
-            return data.DelContentPageByPathBySiteId(
+            return data.DelContentPagePathSiteId(
                 path
                 , site_id
             );
         }                     
-        public virtual bool DelContentPageByPath(
+        public virtual bool DelContentPagePath(
             string path
         )  {
-            return data.DelContentPageByPath(
+            return data.DelContentPagePath(
                 path
             );
         }                     
@@ -1575,11 +1575,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentPage> GetContentPageListByUuid(
+        public virtual List<ContentPage> GetContentPageListUuid(
             string uuid
         )  {
             List<ContentPage> list = new List<ContentPage>();
-            DataSet ds = data.GetContentPageListByUuid(
+            DataSet ds = data.GetContentPageListUuid(
                 uuid
             );
             if(ds != null) {
@@ -1594,11 +1594,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentPage> GetContentPageListByCode(
+        public virtual List<ContentPage> GetContentPageListCode(
             string code
         )  {
             List<ContentPage> list = new List<ContentPage>();
-            DataSet ds = data.GetContentPageListByCode(
+            DataSet ds = data.GetContentPageListCode(
                 code
             );
             if(ds != null) {
@@ -1613,11 +1613,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentPage> GetContentPageListByName(
+        public virtual List<ContentPage> GetContentPageListName(
             string name
         )  {
             List<ContentPage> list = new List<ContentPage>();
-            DataSet ds = data.GetContentPageListByName(
+            DataSet ds = data.GetContentPageListName(
                 name
             );
             if(ds != null) {
@@ -1632,11 +1632,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentPage> GetContentPageListByPath(
+        public virtual List<ContentPage> GetContentPageListPath(
             string path
         )  {
             List<ContentPage> list = new List<ContentPage>();
-            DataSet ds = data.GetContentPageListByPath(
+            DataSet ds = data.GetContentPageListPath(
                 path
             );
             if(ds != null) {
@@ -1651,11 +1651,11 @@ namespace platform {
         }
         
         
-        public virtual List<ContentPage> GetContentPageListBySiteId(
+        public virtual List<ContentPage> GetContentPageListSiteId(
             string site_id
         )  {
             List<ContentPage> list = new List<ContentPage>();
-            DataSet ds = data.GetContentPageListBySiteId(
+            DataSet ds = data.GetContentPageListSiteId(
                 site_id
             );
             if(ds != null) {
@@ -1670,12 +1670,12 @@ namespace platform {
         }
         
         
-        public virtual List<ContentPage> GetContentPageListBySiteIdByPath(
+        public virtual List<ContentPage> GetContentPageListSiteIdPath(
             string site_id
             , string path
         )  {
             List<ContentPage> list = new List<ContentPage>();
-            DataSet ds = data.GetContentPageListBySiteIdByPath(
+            DataSet ds = data.GetContentPageListSiteIdPath(
                 site_id
                 , path
             );
@@ -1734,18 +1734,18 @@ namespace platform {
             return data.CountMessage(
             );
         }       
-        public virtual int CountMessageByUuid(
+        public virtual int CountMessageUuid(
             string uuid
         )  {            
-            return data.CountMessageByUuid(
+            return data.CountMessageUuid(
                 uuid
             );
         }       
-        public virtual MessageResult BrowseMessageListByFilter(SearchFilter obj)  {
+        public virtual MessageResult BrowseMessageListFilter(SearchFilter obj)  {
             MessageResult result = new MessageResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseMessageListByFilter(obj);
+            DataSet ds = data.BrowseMessageListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1758,13 +1758,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetMessageByUuid(string set_type, Message obj)  {            
-            return data.SetMessageByUuid(set_type, obj);
+        public virtual bool SetMessageUuid(string set_type, Message obj)  {            
+            return data.SetMessageUuid(set_type, obj);
         }    
-        public virtual bool DelMessageByUuid(
+        public virtual bool DelMessageUuid(
             string uuid
         )  {
-            return data.DelMessageByUuid(
+            return data.DelMessageUuid(
                 uuid
             );
         }                     
@@ -1785,11 +1785,11 @@ namespace platform {
         }
         
         
-        public virtual List<Message> GetMessageListByUuid(
+        public virtual List<Message> GetMessageListUuid(
             string uuid
         )  {
             List<Message> list = new List<Message>();
-            DataSet ds = data.GetMessageListByUuid(
+            DataSet ds = data.GetMessageListUuid(
                 uuid
             );
             if(ds != null) {
@@ -1845,39 +1845,39 @@ namespace platform {
             return data.CountOffer(
             );
         }       
-        public virtual int CountOfferByUuid(
+        public virtual int CountOfferUuid(
             string uuid
         )  {            
-            return data.CountOfferByUuid(
+            return data.CountOfferUuid(
                 uuid
             );
         }       
-        public virtual int CountOfferByCode(
+        public virtual int CountOfferCode(
             string code
         )  {            
-            return data.CountOfferByCode(
+            return data.CountOfferCode(
                 code
             );
         }       
-        public virtual int CountOfferByName(
+        public virtual int CountOfferName(
             string name
         )  {            
-            return data.CountOfferByName(
+            return data.CountOfferName(
                 name
             );
         }       
-        public virtual int CountOfferByOrgId(
+        public virtual int CountOfferOrgId(
             string org_id
         )  {            
-            return data.CountOfferByOrgId(
+            return data.CountOfferOrgId(
                 org_id
             );
         }       
-        public virtual OfferResult BrowseOfferListByFilter(SearchFilter obj)  {
+        public virtual OfferResult BrowseOfferListFilter(SearchFilter obj)  {
             OfferResult result = new OfferResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOfferListByFilter(obj);
+            DataSet ds = data.BrowseOfferListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1890,20 +1890,20 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOfferByUuid(string set_type, Offer obj)  {            
-            return data.SetOfferByUuid(set_type, obj);
+        public virtual bool SetOfferUuid(string set_type, Offer obj)  {            
+            return data.SetOfferUuid(set_type, obj);
         }    
-        public virtual bool DelOfferByUuid(
+        public virtual bool DelOfferUuid(
             string uuid
         )  {
-            return data.DelOfferByUuid(
+            return data.DelOfferUuid(
                 uuid
             );
         }                     
-        public virtual bool DelOfferByOrgId(
+        public virtual bool DelOfferOrgId(
             string org_id
         )  {
-            return data.DelOfferByOrgId(
+            return data.DelOfferOrgId(
                 org_id
             );
         }                     
@@ -1924,11 +1924,11 @@ namespace platform {
         }
         
         
-        public virtual List<Offer> GetOfferListByUuid(
+        public virtual List<Offer> GetOfferListUuid(
             string uuid
         )  {
             List<Offer> list = new List<Offer>();
-            DataSet ds = data.GetOfferListByUuid(
+            DataSet ds = data.GetOfferListUuid(
                 uuid
             );
             if(ds != null) {
@@ -1943,11 +1943,11 @@ namespace platform {
         }
         
         
-        public virtual List<Offer> GetOfferListByCode(
+        public virtual List<Offer> GetOfferListCode(
             string code
         )  {
             List<Offer> list = new List<Offer>();
-            DataSet ds = data.GetOfferListByCode(
+            DataSet ds = data.GetOfferListCode(
                 code
             );
             if(ds != null) {
@@ -1962,11 +1962,11 @@ namespace platform {
         }
         
         
-        public virtual List<Offer> GetOfferListByName(
+        public virtual List<Offer> GetOfferListName(
             string name
         )  {
             List<Offer> list = new List<Offer>();
-            DataSet ds = data.GetOfferListByName(
+            DataSet ds = data.GetOfferListName(
                 name
             );
             if(ds != null) {
@@ -1981,11 +1981,11 @@ namespace platform {
         }
         
         
-        public virtual List<Offer> GetOfferListByOrgId(
+        public virtual List<Offer> GetOfferListOrgId(
             string org_id
         )  {
             List<Offer> list = new List<Offer>();
-            DataSet ds = data.GetOfferListByOrgId(
+            DataSet ds = data.GetOfferListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -2033,32 +2033,32 @@ namespace platform {
             return data.CountOfferType(
             );
         }       
-        public virtual int CountOfferTypeByUuid(
+        public virtual int CountOfferTypeUuid(
             string uuid
         )  {            
-            return data.CountOfferTypeByUuid(
+            return data.CountOfferTypeUuid(
                 uuid
             );
         }       
-        public virtual int CountOfferTypeByCode(
+        public virtual int CountOfferTypeCode(
             string code
         )  {            
-            return data.CountOfferTypeByCode(
+            return data.CountOfferTypeCode(
                 code
             );
         }       
-        public virtual int CountOfferTypeByName(
+        public virtual int CountOfferTypeName(
             string name
         )  {            
-            return data.CountOfferTypeByName(
+            return data.CountOfferTypeName(
                 name
             );
         }       
-        public virtual OfferTypeResult BrowseOfferTypeListByFilter(SearchFilter obj)  {
+        public virtual OfferTypeResult BrowseOfferTypeListFilter(SearchFilter obj)  {
             OfferTypeResult result = new OfferTypeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOfferTypeListByFilter(obj);
+            DataSet ds = data.BrowseOfferTypeListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -2071,13 +2071,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOfferTypeByUuid(string set_type, OfferType obj)  {            
-            return data.SetOfferTypeByUuid(set_type, obj);
+        public virtual bool SetOfferTypeUuid(string set_type, OfferType obj)  {            
+            return data.SetOfferTypeUuid(set_type, obj);
         }    
-        public virtual bool DelOfferTypeByUuid(
+        public virtual bool DelOfferTypeUuid(
             string uuid
         )  {
-            return data.DelOfferTypeByUuid(
+            return data.DelOfferTypeUuid(
                 uuid
             );
         }                     
@@ -2098,11 +2098,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferType> GetOfferTypeListByUuid(
+        public virtual List<OfferType> GetOfferTypeListUuid(
             string uuid
         )  {
             List<OfferType> list = new List<OfferType>();
-            DataSet ds = data.GetOfferTypeListByUuid(
+            DataSet ds = data.GetOfferTypeListUuid(
                 uuid
             );
             if(ds != null) {
@@ -2117,11 +2117,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferType> GetOfferTypeListByCode(
+        public virtual List<OfferType> GetOfferTypeListCode(
             string code
         )  {
             List<OfferType> list = new List<OfferType>();
-            DataSet ds = data.GetOfferTypeListByCode(
+            DataSet ds = data.GetOfferTypeListCode(
                 code
             );
             if(ds != null) {
@@ -2136,11 +2136,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferType> GetOfferTypeListByName(
+        public virtual List<OfferType> GetOfferTypeListName(
             string name
         )  {
             List<OfferType> list = new List<OfferType>();
-            DataSet ds = data.GetOfferTypeListByName(
+            DataSet ds = data.GetOfferTypeListName(
                 name
             );
             if(ds != null) {
@@ -2222,46 +2222,46 @@ namespace platform {
             return data.CountOfferLocation(
             );
         }       
-        public virtual int CountOfferLocationByUuid(
+        public virtual int CountOfferLocationUuid(
             string uuid
         )  {            
-            return data.CountOfferLocationByUuid(
+            return data.CountOfferLocationUuid(
                 uuid
             );
         }       
-        public virtual int CountOfferLocationByOfferId(
+        public virtual int CountOfferLocationOfferId(
             string offer_id
         )  {            
-            return data.CountOfferLocationByOfferId(
+            return data.CountOfferLocationOfferId(
                 offer_id
             );
         }       
-        public virtual int CountOfferLocationByCity(
+        public virtual int CountOfferLocationCity(
             string city
         )  {            
-            return data.CountOfferLocationByCity(
+            return data.CountOfferLocationCity(
                 city
             );
         }       
-        public virtual int CountOfferLocationByCountryCode(
+        public virtual int CountOfferLocationCountryCode(
             string country_code
         )  {            
-            return data.CountOfferLocationByCountryCode(
+            return data.CountOfferLocationCountryCode(
                 country_code
             );
         }       
-        public virtual int CountOfferLocationByPostalCode(
+        public virtual int CountOfferLocationPostalCode(
             string postal_code
         )  {            
-            return data.CountOfferLocationByPostalCode(
+            return data.CountOfferLocationPostalCode(
                 postal_code
             );
         }       
-        public virtual OfferLocationResult BrowseOfferLocationListByFilter(SearchFilter obj)  {
+        public virtual OfferLocationResult BrowseOfferLocationListFilter(SearchFilter obj)  {
             OfferLocationResult result = new OfferLocationResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOfferLocationListByFilter(obj);
+            DataSet ds = data.BrowseOfferLocationListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -2274,13 +2274,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOfferLocationByUuid(string set_type, OfferLocation obj)  {            
-            return data.SetOfferLocationByUuid(set_type, obj);
+        public virtual bool SetOfferLocationUuid(string set_type, OfferLocation obj)  {            
+            return data.SetOfferLocationUuid(set_type, obj);
         }    
-        public virtual bool DelOfferLocationByUuid(
+        public virtual bool DelOfferLocationUuid(
             string uuid
         )  {
-            return data.DelOfferLocationByUuid(
+            return data.DelOfferLocationUuid(
                 uuid
             );
         }                     
@@ -2301,11 +2301,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferLocation> GetOfferLocationListByUuid(
+        public virtual List<OfferLocation> GetOfferLocationListUuid(
             string uuid
         )  {
             List<OfferLocation> list = new List<OfferLocation>();
-            DataSet ds = data.GetOfferLocationListByUuid(
+            DataSet ds = data.GetOfferLocationListUuid(
                 uuid
             );
             if(ds != null) {
@@ -2320,11 +2320,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferLocation> GetOfferLocationListByOfferId(
+        public virtual List<OfferLocation> GetOfferLocationListOfferId(
             string offer_id
         )  {
             List<OfferLocation> list = new List<OfferLocation>();
-            DataSet ds = data.GetOfferLocationListByOfferId(
+            DataSet ds = data.GetOfferLocationListOfferId(
                 offer_id
             );
             if(ds != null) {
@@ -2339,11 +2339,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferLocation> GetOfferLocationListByCity(
+        public virtual List<OfferLocation> GetOfferLocationListCity(
             string city
         )  {
             List<OfferLocation> list = new List<OfferLocation>();
-            DataSet ds = data.GetOfferLocationListByCity(
+            DataSet ds = data.GetOfferLocationListCity(
                 city
             );
             if(ds != null) {
@@ -2358,11 +2358,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferLocation> GetOfferLocationListByCountryCode(
+        public virtual List<OfferLocation> GetOfferLocationListCountryCode(
             string country_code
         )  {
             List<OfferLocation> list = new List<OfferLocation>();
-            DataSet ds = data.GetOfferLocationListByCountryCode(
+            DataSet ds = data.GetOfferLocationListCountryCode(
                 country_code
             );
             if(ds != null) {
@@ -2377,11 +2377,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferLocation> GetOfferLocationListByPostalCode(
+        public virtual List<OfferLocation> GetOfferLocationListPostalCode(
             string postal_code
         )  {
             List<OfferLocation> list = new List<OfferLocation>();
-            DataSet ds = data.GetOfferLocationListByPostalCode(
+            DataSet ds = data.GetOfferLocationListPostalCode(
                 postal_code
             );
             if(ds != null) {
@@ -2433,55 +2433,55 @@ namespace platform {
             return data.CountOfferCategory(
             );
         }       
-        public virtual int CountOfferCategoryByUuid(
+        public virtual int CountOfferCategoryUuid(
             string uuid
         )  {            
-            return data.CountOfferCategoryByUuid(
+            return data.CountOfferCategoryUuid(
                 uuid
             );
         }       
-        public virtual int CountOfferCategoryByCode(
+        public virtual int CountOfferCategoryCode(
             string code
         )  {            
-            return data.CountOfferCategoryByCode(
+            return data.CountOfferCategoryCode(
                 code
             );
         }       
-        public virtual int CountOfferCategoryByName(
+        public virtual int CountOfferCategoryName(
             string name
         )  {            
-            return data.CountOfferCategoryByName(
+            return data.CountOfferCategoryName(
                 name
             );
         }       
-        public virtual int CountOfferCategoryByOrgId(
+        public virtual int CountOfferCategoryOrgId(
             string org_id
         )  {            
-            return data.CountOfferCategoryByOrgId(
+            return data.CountOfferCategoryOrgId(
                 org_id
             );
         }       
-        public virtual int CountOfferCategoryByTypeId(
+        public virtual int CountOfferCategoryTypeId(
             string type_id
         )  {            
-            return data.CountOfferCategoryByTypeId(
+            return data.CountOfferCategoryTypeId(
                 type_id
             );
         }       
-        public virtual int CountOfferCategoryByOrgIdByTypeId(
+        public virtual int CountOfferCategoryOrgIdTypeId(
             string org_id
             , string type_id
         )  {            
-            return data.CountOfferCategoryByOrgIdByTypeId(
+            return data.CountOfferCategoryOrgIdTypeId(
                 org_id
                 , type_id
             );
         }       
-        public virtual OfferCategoryResult BrowseOfferCategoryListByFilter(SearchFilter obj)  {
+        public virtual OfferCategoryResult BrowseOfferCategoryListFilter(SearchFilter obj)  {
             OfferCategoryResult result = new OfferCategoryResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOfferCategoryListByFilter(obj);
+            DataSet ds = data.BrowseOfferCategoryListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -2494,31 +2494,31 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOfferCategoryByUuid(string set_type, OfferCategory obj)  {            
-            return data.SetOfferCategoryByUuid(set_type, obj);
+        public virtual bool SetOfferCategoryUuid(string set_type, OfferCategory obj)  {            
+            return data.SetOfferCategoryUuid(set_type, obj);
         }    
-        public virtual bool DelOfferCategoryByUuid(
+        public virtual bool DelOfferCategoryUuid(
             string uuid
         )  {
-            return data.DelOfferCategoryByUuid(
+            return data.DelOfferCategoryUuid(
                 uuid
             );
         }                     
-        public virtual bool DelOfferCategoryByCodeByOrgId(
+        public virtual bool DelOfferCategoryCodeOrgId(
             string code
             , string org_id
         )  {
-            return data.DelOfferCategoryByCodeByOrgId(
+            return data.DelOfferCategoryCodeOrgId(
                 code
                 , org_id
             );
         }                     
-        public virtual bool DelOfferCategoryByCodeByOrgIdByTypeId(
+        public virtual bool DelOfferCategoryCodeOrgIdTypeId(
             string code
             , string org_id
             , string type_id
         )  {
-            return data.DelOfferCategoryByCodeByOrgIdByTypeId(
+            return data.DelOfferCategoryCodeOrgIdTypeId(
                 code
                 , org_id
                 , type_id
@@ -2541,11 +2541,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategory> GetOfferCategoryListByUuid(
+        public virtual List<OfferCategory> GetOfferCategoryListUuid(
             string uuid
         )  {
             List<OfferCategory> list = new List<OfferCategory>();
-            DataSet ds = data.GetOfferCategoryListByUuid(
+            DataSet ds = data.GetOfferCategoryListUuid(
                 uuid
             );
             if(ds != null) {
@@ -2560,11 +2560,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategory> GetOfferCategoryListByCode(
+        public virtual List<OfferCategory> GetOfferCategoryListCode(
             string code
         )  {
             List<OfferCategory> list = new List<OfferCategory>();
-            DataSet ds = data.GetOfferCategoryListByCode(
+            DataSet ds = data.GetOfferCategoryListCode(
                 code
             );
             if(ds != null) {
@@ -2579,11 +2579,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategory> GetOfferCategoryListByName(
+        public virtual List<OfferCategory> GetOfferCategoryListName(
             string name
         )  {
             List<OfferCategory> list = new List<OfferCategory>();
-            DataSet ds = data.GetOfferCategoryListByName(
+            DataSet ds = data.GetOfferCategoryListName(
                 name
             );
             if(ds != null) {
@@ -2598,11 +2598,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategory> GetOfferCategoryListByOrgId(
+        public virtual List<OfferCategory> GetOfferCategoryListOrgId(
             string org_id
         )  {
             List<OfferCategory> list = new List<OfferCategory>();
-            DataSet ds = data.GetOfferCategoryListByOrgId(
+            DataSet ds = data.GetOfferCategoryListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -2617,11 +2617,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategory> GetOfferCategoryListByTypeId(
+        public virtual List<OfferCategory> GetOfferCategoryListTypeId(
             string type_id
         )  {
             List<OfferCategory> list = new List<OfferCategory>();
-            DataSet ds = data.GetOfferCategoryListByTypeId(
+            DataSet ds = data.GetOfferCategoryListTypeId(
                 type_id
             );
             if(ds != null) {
@@ -2636,12 +2636,12 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategory> GetOfferCategoryListByOrgIdByTypeId(
+        public virtual List<OfferCategory> GetOfferCategoryListOrgIdTypeId(
             string org_id
             , string type_id
         )  {
             List<OfferCategory> list = new List<OfferCategory>();
-            DataSet ds = data.GetOfferCategoryListByOrgIdByTypeId(
+            DataSet ds = data.GetOfferCategoryListOrgIdTypeId(
                 org_id
                 , type_id
             );
@@ -2686,41 +2686,41 @@ namespace platform {
             return data.CountOfferCategoryTree(
             );
         }       
-        public virtual int CountOfferCategoryTreeByUuid(
+        public virtual int CountOfferCategoryTreeUuid(
             string uuid
         )  {            
-            return data.CountOfferCategoryTreeByUuid(
+            return data.CountOfferCategoryTreeUuid(
                 uuid
             );
         }       
-        public virtual int CountOfferCategoryTreeByParentId(
+        public virtual int CountOfferCategoryTreeParentId(
             string parent_id
         )  {            
-            return data.CountOfferCategoryTreeByParentId(
+            return data.CountOfferCategoryTreeParentId(
                 parent_id
             );
         }       
-        public virtual int CountOfferCategoryTreeByCategoryId(
+        public virtual int CountOfferCategoryTreeCategoryId(
             string category_id
         )  {            
-            return data.CountOfferCategoryTreeByCategoryId(
+            return data.CountOfferCategoryTreeCategoryId(
                 category_id
             );
         }       
-        public virtual int CountOfferCategoryTreeByParentIdByCategoryId(
+        public virtual int CountOfferCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {            
-            return data.CountOfferCategoryTreeByParentIdByCategoryId(
+            return data.CountOfferCategoryTreeParentIdCategoryId(
                 parent_id
                 , category_id
             );
         }       
-        public virtual OfferCategoryTreeResult BrowseOfferCategoryTreeListByFilter(SearchFilter obj)  {
+        public virtual OfferCategoryTreeResult BrowseOfferCategoryTreeListFilter(SearchFilter obj)  {
             OfferCategoryTreeResult result = new OfferCategoryTreeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOfferCategoryTreeListByFilter(obj);
+            DataSet ds = data.BrowseOfferCategoryTreeListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -2733,35 +2733,35 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOfferCategoryTreeByUuid(string set_type, OfferCategoryTree obj)  {            
-            return data.SetOfferCategoryTreeByUuid(set_type, obj);
+        public virtual bool SetOfferCategoryTreeUuid(string set_type, OfferCategoryTree obj)  {            
+            return data.SetOfferCategoryTreeUuid(set_type, obj);
         }    
-        public virtual bool DelOfferCategoryTreeByUuid(
+        public virtual bool DelOfferCategoryTreeUuid(
             string uuid
         )  {
-            return data.DelOfferCategoryTreeByUuid(
+            return data.DelOfferCategoryTreeUuid(
                 uuid
             );
         }                     
-        public virtual bool DelOfferCategoryTreeByParentId(
+        public virtual bool DelOfferCategoryTreeParentId(
             string parent_id
         )  {
-            return data.DelOfferCategoryTreeByParentId(
+            return data.DelOfferCategoryTreeParentId(
                 parent_id
             );
         }                     
-        public virtual bool DelOfferCategoryTreeByCategoryId(
+        public virtual bool DelOfferCategoryTreeCategoryId(
             string category_id
         )  {
-            return data.DelOfferCategoryTreeByCategoryId(
+            return data.DelOfferCategoryTreeCategoryId(
                 category_id
             );
         }                     
-        public virtual bool DelOfferCategoryTreeByParentIdByCategoryId(
+        public virtual bool DelOfferCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {
-            return data.DelOfferCategoryTreeByParentIdByCategoryId(
+            return data.DelOfferCategoryTreeParentIdCategoryId(
                 parent_id
                 , category_id
             );
@@ -2783,11 +2783,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListByUuid(
+        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListUuid(
             string uuid
         )  {
             List<OfferCategoryTree> list = new List<OfferCategoryTree>();
-            DataSet ds = data.GetOfferCategoryTreeListByUuid(
+            DataSet ds = data.GetOfferCategoryTreeListUuid(
                 uuid
             );
             if(ds != null) {
@@ -2802,11 +2802,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListByParentId(
+        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListParentId(
             string parent_id
         )  {
             List<OfferCategoryTree> list = new List<OfferCategoryTree>();
-            DataSet ds = data.GetOfferCategoryTreeListByParentId(
+            DataSet ds = data.GetOfferCategoryTreeListParentId(
                 parent_id
             );
             if(ds != null) {
@@ -2821,11 +2821,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListByCategoryId(
+        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListCategoryId(
             string category_id
         )  {
             List<OfferCategoryTree> list = new List<OfferCategoryTree>();
-            DataSet ds = data.GetOfferCategoryTreeListByCategoryId(
+            DataSet ds = data.GetOfferCategoryTreeListCategoryId(
                 category_id
             );
             if(ds != null) {
@@ -2840,12 +2840,12 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListByParentIdByCategoryId(
+        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListParentIdCategoryId(
             string parent_id
             , string category_id
         )  {
             List<OfferCategoryTree> list = new List<OfferCategoryTree>();
-            DataSet ds = data.GetOfferCategoryTreeListByParentIdByCategoryId(
+            DataSet ds = data.GetOfferCategoryTreeListParentIdCategoryId(
                 parent_id
                 , category_id
             );
@@ -2890,41 +2890,41 @@ namespace platform {
             return data.CountOfferCategoryAssoc(
             );
         }       
-        public virtual int CountOfferCategoryAssocByUuid(
+        public virtual int CountOfferCategoryAssocUuid(
             string uuid
         )  {            
-            return data.CountOfferCategoryAssocByUuid(
+            return data.CountOfferCategoryAssocUuid(
                 uuid
             );
         }       
-        public virtual int CountOfferCategoryAssocByOfferId(
+        public virtual int CountOfferCategoryAssocOfferId(
             string offer_id
         )  {            
-            return data.CountOfferCategoryAssocByOfferId(
+            return data.CountOfferCategoryAssocOfferId(
                 offer_id
             );
         }       
-        public virtual int CountOfferCategoryAssocByCategoryId(
+        public virtual int CountOfferCategoryAssocCategoryId(
             string category_id
         )  {            
-            return data.CountOfferCategoryAssocByCategoryId(
+            return data.CountOfferCategoryAssocCategoryId(
                 category_id
             );
         }       
-        public virtual int CountOfferCategoryAssocByOfferIdByCategoryId(
+        public virtual int CountOfferCategoryAssocOfferIdCategoryId(
             string offer_id
             , string category_id
         )  {            
-            return data.CountOfferCategoryAssocByOfferIdByCategoryId(
+            return data.CountOfferCategoryAssocOfferIdCategoryId(
                 offer_id
                 , category_id
             );
         }       
-        public virtual OfferCategoryAssocResult BrowseOfferCategoryAssocListByFilter(SearchFilter obj)  {
+        public virtual OfferCategoryAssocResult BrowseOfferCategoryAssocListFilter(SearchFilter obj)  {
             OfferCategoryAssocResult result = new OfferCategoryAssocResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOfferCategoryAssocListByFilter(obj);
+            DataSet ds = data.BrowseOfferCategoryAssocListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -2937,13 +2937,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOfferCategoryAssocByUuid(string set_type, OfferCategoryAssoc obj)  {            
-            return data.SetOfferCategoryAssocByUuid(set_type, obj);
+        public virtual bool SetOfferCategoryAssocUuid(string set_type, OfferCategoryAssoc obj)  {            
+            return data.SetOfferCategoryAssocUuid(set_type, obj);
         }    
-        public virtual bool DelOfferCategoryAssocByUuid(
+        public virtual bool DelOfferCategoryAssocUuid(
             string uuid
         )  {
-            return data.DelOfferCategoryAssocByUuid(
+            return data.DelOfferCategoryAssocUuid(
                 uuid
             );
         }                     
@@ -2964,11 +2964,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListByUuid(
+        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListUuid(
             string uuid
         )  {
             List<OfferCategoryAssoc> list = new List<OfferCategoryAssoc>();
-            DataSet ds = data.GetOfferCategoryAssocListByUuid(
+            DataSet ds = data.GetOfferCategoryAssocListUuid(
                 uuid
             );
             if(ds != null) {
@@ -2983,11 +2983,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListByOfferId(
+        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListOfferId(
             string offer_id
         )  {
             List<OfferCategoryAssoc> list = new List<OfferCategoryAssoc>();
-            DataSet ds = data.GetOfferCategoryAssocListByOfferId(
+            DataSet ds = data.GetOfferCategoryAssocListOfferId(
                 offer_id
             );
             if(ds != null) {
@@ -3002,11 +3002,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListByCategoryId(
+        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListCategoryId(
             string category_id
         )  {
             List<OfferCategoryAssoc> list = new List<OfferCategoryAssoc>();
-            DataSet ds = data.GetOfferCategoryAssocListByCategoryId(
+            DataSet ds = data.GetOfferCategoryAssocListCategoryId(
                 category_id
             );
             if(ds != null) {
@@ -3021,12 +3021,12 @@ namespace platform {
         }
         
         
-        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListByOfferIdByCategoryId(
+        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListOfferIdCategoryId(
             string offer_id
             , string category_id
         )  {
             List<OfferCategoryAssoc> list = new List<OfferCategoryAssoc>();
-            DataSet ds = data.GetOfferCategoryAssocListByOfferIdByCategoryId(
+            DataSet ds = data.GetOfferCategoryAssocListOfferIdCategoryId(
                 offer_id
                 , category_id
             );
@@ -3073,41 +3073,41 @@ namespace platform {
             return data.CountOfferGameLocation(
             );
         }       
-        public virtual int CountOfferGameLocationByUuid(
+        public virtual int CountOfferGameLocationUuid(
             string uuid
         )  {            
-            return data.CountOfferGameLocationByUuid(
+            return data.CountOfferGameLocationUuid(
                 uuid
             );
         }       
-        public virtual int CountOfferGameLocationByGameLocationId(
+        public virtual int CountOfferGameLocationGameLocationId(
             string game_location_id
         )  {            
-            return data.CountOfferGameLocationByGameLocationId(
+            return data.CountOfferGameLocationGameLocationId(
                 game_location_id
             );
         }       
-        public virtual int CountOfferGameLocationByOfferId(
+        public virtual int CountOfferGameLocationOfferId(
             string offer_id
         )  {            
-            return data.CountOfferGameLocationByOfferId(
+            return data.CountOfferGameLocationOfferId(
                 offer_id
             );
         }       
-        public virtual int CountOfferGameLocationByOfferIdByGameLocationId(
+        public virtual int CountOfferGameLocationOfferIdGameLocationId(
             string offer_id
             , string game_location_id
         )  {            
-            return data.CountOfferGameLocationByOfferIdByGameLocationId(
+            return data.CountOfferGameLocationOfferIdGameLocationId(
                 offer_id
                 , game_location_id
             );
         }       
-        public virtual OfferGameLocationResult BrowseOfferGameLocationListByFilter(SearchFilter obj)  {
+        public virtual OfferGameLocationResult BrowseOfferGameLocationListFilter(SearchFilter obj)  {
             OfferGameLocationResult result = new OfferGameLocationResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOfferGameLocationListByFilter(obj);
+            DataSet ds = data.BrowseOfferGameLocationListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -3120,13 +3120,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOfferGameLocationByUuid(string set_type, OfferGameLocation obj)  {            
-            return data.SetOfferGameLocationByUuid(set_type, obj);
+        public virtual bool SetOfferGameLocationUuid(string set_type, OfferGameLocation obj)  {            
+            return data.SetOfferGameLocationUuid(set_type, obj);
         }    
-        public virtual bool DelOfferGameLocationByUuid(
+        public virtual bool DelOfferGameLocationUuid(
             string uuid
         )  {
-            return data.DelOfferGameLocationByUuid(
+            return data.DelOfferGameLocationUuid(
                 uuid
             );
         }                     
@@ -3147,11 +3147,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferGameLocation> GetOfferGameLocationListByUuid(
+        public virtual List<OfferGameLocation> GetOfferGameLocationListUuid(
             string uuid
         )  {
             List<OfferGameLocation> list = new List<OfferGameLocation>();
-            DataSet ds = data.GetOfferGameLocationListByUuid(
+            DataSet ds = data.GetOfferGameLocationListUuid(
                 uuid
             );
             if(ds != null) {
@@ -3166,11 +3166,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferGameLocation> GetOfferGameLocationListByGameLocationId(
+        public virtual List<OfferGameLocation> GetOfferGameLocationListGameLocationId(
             string game_location_id
         )  {
             List<OfferGameLocation> list = new List<OfferGameLocation>();
-            DataSet ds = data.GetOfferGameLocationListByGameLocationId(
+            DataSet ds = data.GetOfferGameLocationListGameLocationId(
                 game_location_id
             );
             if(ds != null) {
@@ -3185,11 +3185,11 @@ namespace platform {
         }
         
         
-        public virtual List<OfferGameLocation> GetOfferGameLocationListByOfferId(
+        public virtual List<OfferGameLocation> GetOfferGameLocationListOfferId(
             string offer_id
         )  {
             List<OfferGameLocation> list = new List<OfferGameLocation>();
-            DataSet ds = data.GetOfferGameLocationListByOfferId(
+            DataSet ds = data.GetOfferGameLocationListOfferId(
                 offer_id
             );
             if(ds != null) {
@@ -3204,12 +3204,12 @@ namespace platform {
         }
         
         
-        public virtual List<OfferGameLocation> GetOfferGameLocationListByOfferIdByGameLocationId(
+        public virtual List<OfferGameLocation> GetOfferGameLocationListOfferIdGameLocationId(
             string offer_id
             , string game_location_id
         )  {
             List<OfferGameLocation> list = new List<OfferGameLocation>();
-            DataSet ds = data.GetOfferGameLocationListByOfferIdByGameLocationId(
+            DataSet ds = data.GetOfferGameLocationListOfferIdGameLocationId(
                 offer_id
                 , game_location_id
             );
@@ -3264,39 +3264,39 @@ namespace platform {
             return data.CountEventInfo(
             );
         }       
-        public virtual int CountEventInfoByUuid(
+        public virtual int CountEventInfoUuid(
             string uuid
         )  {            
-            return data.CountEventInfoByUuid(
+            return data.CountEventInfoUuid(
                 uuid
             );
         }       
-        public virtual int CountEventInfoByCode(
+        public virtual int CountEventInfoCode(
             string code
         )  {            
-            return data.CountEventInfoByCode(
+            return data.CountEventInfoCode(
                 code
             );
         }       
-        public virtual int CountEventInfoByName(
+        public virtual int CountEventInfoName(
             string name
         )  {            
-            return data.CountEventInfoByName(
+            return data.CountEventInfoName(
                 name
             );
         }       
-        public virtual int CountEventInfoByOrgId(
+        public virtual int CountEventInfoOrgId(
             string org_id
         )  {            
-            return data.CountEventInfoByOrgId(
+            return data.CountEventInfoOrgId(
                 org_id
             );
         }       
-        public virtual EventInfoResult BrowseEventInfoListByFilter(SearchFilter obj)  {
+        public virtual EventInfoResult BrowseEventInfoListFilter(SearchFilter obj)  {
             EventInfoResult result = new EventInfoResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseEventInfoListByFilter(obj);
+            DataSet ds = data.BrowseEventInfoListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -3309,20 +3309,20 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetEventInfoByUuid(string set_type, EventInfo obj)  {            
-            return data.SetEventInfoByUuid(set_type, obj);
+        public virtual bool SetEventInfoUuid(string set_type, EventInfo obj)  {            
+            return data.SetEventInfoUuid(set_type, obj);
         }    
-        public virtual bool DelEventInfoByUuid(
+        public virtual bool DelEventInfoUuid(
             string uuid
         )  {
-            return data.DelEventInfoByUuid(
+            return data.DelEventInfoUuid(
                 uuid
             );
         }                     
-        public virtual bool DelEventInfoByOrgId(
+        public virtual bool DelEventInfoOrgId(
             string org_id
         )  {
-            return data.DelEventInfoByOrgId(
+            return data.DelEventInfoOrgId(
                 org_id
             );
         }                     
@@ -3343,11 +3343,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventInfo> GetEventInfoListByUuid(
+        public virtual List<EventInfo> GetEventInfoListUuid(
             string uuid
         )  {
             List<EventInfo> list = new List<EventInfo>();
-            DataSet ds = data.GetEventInfoListByUuid(
+            DataSet ds = data.GetEventInfoListUuid(
                 uuid
             );
             if(ds != null) {
@@ -3362,11 +3362,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventInfo> GetEventInfoListByCode(
+        public virtual List<EventInfo> GetEventInfoListCode(
             string code
         )  {
             List<EventInfo> list = new List<EventInfo>();
-            DataSet ds = data.GetEventInfoListByCode(
+            DataSet ds = data.GetEventInfoListCode(
                 code
             );
             if(ds != null) {
@@ -3381,11 +3381,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventInfo> GetEventInfoListByName(
+        public virtual List<EventInfo> GetEventInfoListName(
             string name
         )  {
             List<EventInfo> list = new List<EventInfo>();
-            DataSet ds = data.GetEventInfoListByName(
+            DataSet ds = data.GetEventInfoListName(
                 name
             );
             if(ds != null) {
@@ -3400,11 +3400,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventInfo> GetEventInfoListByOrgId(
+        public virtual List<EventInfo> GetEventInfoListOrgId(
             string org_id
         )  {
             List<EventInfo> list = new List<EventInfo>();
-            DataSet ds = data.GetEventInfoListByOrgId(
+            DataSet ds = data.GetEventInfoListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -3486,46 +3486,46 @@ namespace platform {
             return data.CountEventLocation(
             );
         }       
-        public virtual int CountEventLocationByUuid(
+        public virtual int CountEventLocationUuid(
             string uuid
         )  {            
-            return data.CountEventLocationByUuid(
+            return data.CountEventLocationUuid(
                 uuid
             );
         }       
-        public virtual int CountEventLocationByEventId(
+        public virtual int CountEventLocationEventId(
             string event_id
         )  {            
-            return data.CountEventLocationByEventId(
+            return data.CountEventLocationEventId(
                 event_id
             );
         }       
-        public virtual int CountEventLocationByCity(
+        public virtual int CountEventLocationCity(
             string city
         )  {            
-            return data.CountEventLocationByCity(
+            return data.CountEventLocationCity(
                 city
             );
         }       
-        public virtual int CountEventLocationByCountryCode(
+        public virtual int CountEventLocationCountryCode(
             string country_code
         )  {            
-            return data.CountEventLocationByCountryCode(
+            return data.CountEventLocationCountryCode(
                 country_code
             );
         }       
-        public virtual int CountEventLocationByPostalCode(
+        public virtual int CountEventLocationPostalCode(
             string postal_code
         )  {            
-            return data.CountEventLocationByPostalCode(
+            return data.CountEventLocationPostalCode(
                 postal_code
             );
         }       
-        public virtual EventLocationResult BrowseEventLocationListByFilter(SearchFilter obj)  {
+        public virtual EventLocationResult BrowseEventLocationListFilter(SearchFilter obj)  {
             EventLocationResult result = new EventLocationResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseEventLocationListByFilter(obj);
+            DataSet ds = data.BrowseEventLocationListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -3538,13 +3538,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetEventLocationByUuid(string set_type, EventLocation obj)  {            
-            return data.SetEventLocationByUuid(set_type, obj);
+        public virtual bool SetEventLocationUuid(string set_type, EventLocation obj)  {            
+            return data.SetEventLocationUuid(set_type, obj);
         }    
-        public virtual bool DelEventLocationByUuid(
+        public virtual bool DelEventLocationUuid(
             string uuid
         )  {
-            return data.DelEventLocationByUuid(
+            return data.DelEventLocationUuid(
                 uuid
             );
         }                     
@@ -3565,11 +3565,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventLocation> GetEventLocationListByUuid(
+        public virtual List<EventLocation> GetEventLocationListUuid(
             string uuid
         )  {
             List<EventLocation> list = new List<EventLocation>();
-            DataSet ds = data.GetEventLocationListByUuid(
+            DataSet ds = data.GetEventLocationListUuid(
                 uuid
             );
             if(ds != null) {
@@ -3584,11 +3584,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventLocation> GetEventLocationListByEventId(
+        public virtual List<EventLocation> GetEventLocationListEventId(
             string event_id
         )  {
             List<EventLocation> list = new List<EventLocation>();
-            DataSet ds = data.GetEventLocationListByEventId(
+            DataSet ds = data.GetEventLocationListEventId(
                 event_id
             );
             if(ds != null) {
@@ -3603,11 +3603,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventLocation> GetEventLocationListByCity(
+        public virtual List<EventLocation> GetEventLocationListCity(
             string city
         )  {
             List<EventLocation> list = new List<EventLocation>();
-            DataSet ds = data.GetEventLocationListByCity(
+            DataSet ds = data.GetEventLocationListCity(
                 city
             );
             if(ds != null) {
@@ -3622,11 +3622,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventLocation> GetEventLocationListByCountryCode(
+        public virtual List<EventLocation> GetEventLocationListCountryCode(
             string country_code
         )  {
             List<EventLocation> list = new List<EventLocation>();
-            DataSet ds = data.GetEventLocationListByCountryCode(
+            DataSet ds = data.GetEventLocationListCountryCode(
                 country_code
             );
             if(ds != null) {
@@ -3641,11 +3641,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventLocation> GetEventLocationListByPostalCode(
+        public virtual List<EventLocation> GetEventLocationListPostalCode(
             string postal_code
         )  {
             List<EventLocation> list = new List<EventLocation>();
-            DataSet ds = data.GetEventLocationListByPostalCode(
+            DataSet ds = data.GetEventLocationListPostalCode(
                 postal_code
             );
             if(ds != null) {
@@ -3697,55 +3697,55 @@ namespace platform {
             return data.CountEventCategory(
             );
         }       
-        public virtual int CountEventCategoryByUuid(
+        public virtual int CountEventCategoryUuid(
             string uuid
         )  {            
-            return data.CountEventCategoryByUuid(
+            return data.CountEventCategoryUuid(
                 uuid
             );
         }       
-        public virtual int CountEventCategoryByCode(
+        public virtual int CountEventCategoryCode(
             string code
         )  {            
-            return data.CountEventCategoryByCode(
+            return data.CountEventCategoryCode(
                 code
             );
         }       
-        public virtual int CountEventCategoryByName(
+        public virtual int CountEventCategoryName(
             string name
         )  {            
-            return data.CountEventCategoryByName(
+            return data.CountEventCategoryName(
                 name
             );
         }       
-        public virtual int CountEventCategoryByOrgId(
+        public virtual int CountEventCategoryOrgId(
             string org_id
         )  {            
-            return data.CountEventCategoryByOrgId(
+            return data.CountEventCategoryOrgId(
                 org_id
             );
         }       
-        public virtual int CountEventCategoryByTypeId(
+        public virtual int CountEventCategoryTypeId(
             string type_id
         )  {            
-            return data.CountEventCategoryByTypeId(
+            return data.CountEventCategoryTypeId(
                 type_id
             );
         }       
-        public virtual int CountEventCategoryByOrgIdByTypeId(
+        public virtual int CountEventCategoryOrgIdTypeId(
             string org_id
             , string type_id
         )  {            
-            return data.CountEventCategoryByOrgIdByTypeId(
+            return data.CountEventCategoryOrgIdTypeId(
                 org_id
                 , type_id
             );
         }       
-        public virtual EventCategoryResult BrowseEventCategoryListByFilter(SearchFilter obj)  {
+        public virtual EventCategoryResult BrowseEventCategoryListFilter(SearchFilter obj)  {
             EventCategoryResult result = new EventCategoryResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseEventCategoryListByFilter(obj);
+            DataSet ds = data.BrowseEventCategoryListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -3758,31 +3758,31 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetEventCategoryByUuid(string set_type, EventCategory obj)  {            
-            return data.SetEventCategoryByUuid(set_type, obj);
+        public virtual bool SetEventCategoryUuid(string set_type, EventCategory obj)  {            
+            return data.SetEventCategoryUuid(set_type, obj);
         }    
-        public virtual bool DelEventCategoryByUuid(
+        public virtual bool DelEventCategoryUuid(
             string uuid
         )  {
-            return data.DelEventCategoryByUuid(
+            return data.DelEventCategoryUuid(
                 uuid
             );
         }                     
-        public virtual bool DelEventCategoryByCodeByOrgId(
+        public virtual bool DelEventCategoryCodeOrgId(
             string code
             , string org_id
         )  {
-            return data.DelEventCategoryByCodeByOrgId(
+            return data.DelEventCategoryCodeOrgId(
                 code
                 , org_id
             );
         }                     
-        public virtual bool DelEventCategoryByCodeByOrgIdByTypeId(
+        public virtual bool DelEventCategoryCodeOrgIdTypeId(
             string code
             , string org_id
             , string type_id
         )  {
-            return data.DelEventCategoryByCodeByOrgIdByTypeId(
+            return data.DelEventCategoryCodeOrgIdTypeId(
                 code
                 , org_id
                 , type_id
@@ -3805,11 +3805,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategory> GetEventCategoryListByUuid(
+        public virtual List<EventCategory> GetEventCategoryListUuid(
             string uuid
         )  {
             List<EventCategory> list = new List<EventCategory>();
-            DataSet ds = data.GetEventCategoryListByUuid(
+            DataSet ds = data.GetEventCategoryListUuid(
                 uuid
             );
             if(ds != null) {
@@ -3824,11 +3824,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategory> GetEventCategoryListByCode(
+        public virtual List<EventCategory> GetEventCategoryListCode(
             string code
         )  {
             List<EventCategory> list = new List<EventCategory>();
-            DataSet ds = data.GetEventCategoryListByCode(
+            DataSet ds = data.GetEventCategoryListCode(
                 code
             );
             if(ds != null) {
@@ -3843,11 +3843,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategory> GetEventCategoryListByName(
+        public virtual List<EventCategory> GetEventCategoryListName(
             string name
         )  {
             List<EventCategory> list = new List<EventCategory>();
-            DataSet ds = data.GetEventCategoryListByName(
+            DataSet ds = data.GetEventCategoryListName(
                 name
             );
             if(ds != null) {
@@ -3862,11 +3862,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategory> GetEventCategoryListByOrgId(
+        public virtual List<EventCategory> GetEventCategoryListOrgId(
             string org_id
         )  {
             List<EventCategory> list = new List<EventCategory>();
-            DataSet ds = data.GetEventCategoryListByOrgId(
+            DataSet ds = data.GetEventCategoryListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -3881,11 +3881,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategory> GetEventCategoryListByTypeId(
+        public virtual List<EventCategory> GetEventCategoryListTypeId(
             string type_id
         )  {
             List<EventCategory> list = new List<EventCategory>();
-            DataSet ds = data.GetEventCategoryListByTypeId(
+            DataSet ds = data.GetEventCategoryListTypeId(
                 type_id
             );
             if(ds != null) {
@@ -3900,12 +3900,12 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategory> GetEventCategoryListByOrgIdByTypeId(
+        public virtual List<EventCategory> GetEventCategoryListOrgIdTypeId(
             string org_id
             , string type_id
         )  {
             List<EventCategory> list = new List<EventCategory>();
-            DataSet ds = data.GetEventCategoryListByOrgIdByTypeId(
+            DataSet ds = data.GetEventCategoryListOrgIdTypeId(
                 org_id
                 , type_id
             );
@@ -3950,41 +3950,41 @@ namespace platform {
             return data.CountEventCategoryTree(
             );
         }       
-        public virtual int CountEventCategoryTreeByUuid(
+        public virtual int CountEventCategoryTreeUuid(
             string uuid
         )  {            
-            return data.CountEventCategoryTreeByUuid(
+            return data.CountEventCategoryTreeUuid(
                 uuid
             );
         }       
-        public virtual int CountEventCategoryTreeByParentId(
+        public virtual int CountEventCategoryTreeParentId(
             string parent_id
         )  {            
-            return data.CountEventCategoryTreeByParentId(
+            return data.CountEventCategoryTreeParentId(
                 parent_id
             );
         }       
-        public virtual int CountEventCategoryTreeByCategoryId(
+        public virtual int CountEventCategoryTreeCategoryId(
             string category_id
         )  {            
-            return data.CountEventCategoryTreeByCategoryId(
+            return data.CountEventCategoryTreeCategoryId(
                 category_id
             );
         }       
-        public virtual int CountEventCategoryTreeByParentIdByCategoryId(
+        public virtual int CountEventCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {            
-            return data.CountEventCategoryTreeByParentIdByCategoryId(
+            return data.CountEventCategoryTreeParentIdCategoryId(
                 parent_id
                 , category_id
             );
         }       
-        public virtual EventCategoryTreeResult BrowseEventCategoryTreeListByFilter(SearchFilter obj)  {
+        public virtual EventCategoryTreeResult BrowseEventCategoryTreeListFilter(SearchFilter obj)  {
             EventCategoryTreeResult result = new EventCategoryTreeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseEventCategoryTreeListByFilter(obj);
+            DataSet ds = data.BrowseEventCategoryTreeListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -3997,35 +3997,35 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetEventCategoryTreeByUuid(string set_type, EventCategoryTree obj)  {            
-            return data.SetEventCategoryTreeByUuid(set_type, obj);
+        public virtual bool SetEventCategoryTreeUuid(string set_type, EventCategoryTree obj)  {            
+            return data.SetEventCategoryTreeUuid(set_type, obj);
         }    
-        public virtual bool DelEventCategoryTreeByUuid(
+        public virtual bool DelEventCategoryTreeUuid(
             string uuid
         )  {
-            return data.DelEventCategoryTreeByUuid(
+            return data.DelEventCategoryTreeUuid(
                 uuid
             );
         }                     
-        public virtual bool DelEventCategoryTreeByParentId(
+        public virtual bool DelEventCategoryTreeParentId(
             string parent_id
         )  {
-            return data.DelEventCategoryTreeByParentId(
+            return data.DelEventCategoryTreeParentId(
                 parent_id
             );
         }                     
-        public virtual bool DelEventCategoryTreeByCategoryId(
+        public virtual bool DelEventCategoryTreeCategoryId(
             string category_id
         )  {
-            return data.DelEventCategoryTreeByCategoryId(
+            return data.DelEventCategoryTreeCategoryId(
                 category_id
             );
         }                     
-        public virtual bool DelEventCategoryTreeByParentIdByCategoryId(
+        public virtual bool DelEventCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {
-            return data.DelEventCategoryTreeByParentIdByCategoryId(
+            return data.DelEventCategoryTreeParentIdCategoryId(
                 parent_id
                 , category_id
             );
@@ -4047,11 +4047,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategoryTree> GetEventCategoryTreeListByUuid(
+        public virtual List<EventCategoryTree> GetEventCategoryTreeListUuid(
             string uuid
         )  {
             List<EventCategoryTree> list = new List<EventCategoryTree>();
-            DataSet ds = data.GetEventCategoryTreeListByUuid(
+            DataSet ds = data.GetEventCategoryTreeListUuid(
                 uuid
             );
             if(ds != null) {
@@ -4066,11 +4066,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategoryTree> GetEventCategoryTreeListByParentId(
+        public virtual List<EventCategoryTree> GetEventCategoryTreeListParentId(
             string parent_id
         )  {
             List<EventCategoryTree> list = new List<EventCategoryTree>();
-            DataSet ds = data.GetEventCategoryTreeListByParentId(
+            DataSet ds = data.GetEventCategoryTreeListParentId(
                 parent_id
             );
             if(ds != null) {
@@ -4085,11 +4085,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategoryTree> GetEventCategoryTreeListByCategoryId(
+        public virtual List<EventCategoryTree> GetEventCategoryTreeListCategoryId(
             string category_id
         )  {
             List<EventCategoryTree> list = new List<EventCategoryTree>();
-            DataSet ds = data.GetEventCategoryTreeListByCategoryId(
+            DataSet ds = data.GetEventCategoryTreeListCategoryId(
                 category_id
             );
             if(ds != null) {
@@ -4104,12 +4104,12 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategoryTree> GetEventCategoryTreeListByParentIdByCategoryId(
+        public virtual List<EventCategoryTree> GetEventCategoryTreeListParentIdCategoryId(
             string parent_id
             , string category_id
         )  {
             List<EventCategoryTree> list = new List<EventCategoryTree>();
-            DataSet ds = data.GetEventCategoryTreeListByParentIdByCategoryId(
+            DataSet ds = data.GetEventCategoryTreeListParentIdCategoryId(
                 parent_id
                 , category_id
             );
@@ -4154,41 +4154,41 @@ namespace platform {
             return data.CountEventCategoryAssoc(
             );
         }       
-        public virtual int CountEventCategoryAssocByUuid(
+        public virtual int CountEventCategoryAssocUuid(
             string uuid
         )  {            
-            return data.CountEventCategoryAssocByUuid(
+            return data.CountEventCategoryAssocUuid(
                 uuid
             );
         }       
-        public virtual int CountEventCategoryAssocByEventId(
+        public virtual int CountEventCategoryAssocEventId(
             string event_id
         )  {            
-            return data.CountEventCategoryAssocByEventId(
+            return data.CountEventCategoryAssocEventId(
                 event_id
             );
         }       
-        public virtual int CountEventCategoryAssocByCategoryId(
+        public virtual int CountEventCategoryAssocCategoryId(
             string category_id
         )  {            
-            return data.CountEventCategoryAssocByCategoryId(
+            return data.CountEventCategoryAssocCategoryId(
                 category_id
             );
         }       
-        public virtual int CountEventCategoryAssocByEventIdByCategoryId(
+        public virtual int CountEventCategoryAssocEventIdCategoryId(
             string event_id
             , string category_id
         )  {            
-            return data.CountEventCategoryAssocByEventIdByCategoryId(
+            return data.CountEventCategoryAssocEventIdCategoryId(
                 event_id
                 , category_id
             );
         }       
-        public virtual EventCategoryAssocResult BrowseEventCategoryAssocListByFilter(SearchFilter obj)  {
+        public virtual EventCategoryAssocResult BrowseEventCategoryAssocListFilter(SearchFilter obj)  {
             EventCategoryAssocResult result = new EventCategoryAssocResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseEventCategoryAssocListByFilter(obj);
+            DataSet ds = data.BrowseEventCategoryAssocListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -4201,13 +4201,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetEventCategoryAssocByUuid(string set_type, EventCategoryAssoc obj)  {            
-            return data.SetEventCategoryAssocByUuid(set_type, obj);
+        public virtual bool SetEventCategoryAssocUuid(string set_type, EventCategoryAssoc obj)  {            
+            return data.SetEventCategoryAssocUuid(set_type, obj);
         }    
-        public virtual bool DelEventCategoryAssocByUuid(
+        public virtual bool DelEventCategoryAssocUuid(
             string uuid
         )  {
-            return data.DelEventCategoryAssocByUuid(
+            return data.DelEventCategoryAssocUuid(
                 uuid
             );
         }                     
@@ -4228,11 +4228,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListByUuid(
+        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListUuid(
             string uuid
         )  {
             List<EventCategoryAssoc> list = new List<EventCategoryAssoc>();
-            DataSet ds = data.GetEventCategoryAssocListByUuid(
+            DataSet ds = data.GetEventCategoryAssocListUuid(
                 uuid
             );
             if(ds != null) {
@@ -4247,11 +4247,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListByEventId(
+        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListEventId(
             string event_id
         )  {
             List<EventCategoryAssoc> list = new List<EventCategoryAssoc>();
-            DataSet ds = data.GetEventCategoryAssocListByEventId(
+            DataSet ds = data.GetEventCategoryAssocListEventId(
                 event_id
             );
             if(ds != null) {
@@ -4266,11 +4266,11 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListByCategoryId(
+        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListCategoryId(
             string category_id
         )  {
             List<EventCategoryAssoc> list = new List<EventCategoryAssoc>();
-            DataSet ds = data.GetEventCategoryAssocListByCategoryId(
+            DataSet ds = data.GetEventCategoryAssocListCategoryId(
                 category_id
             );
             if(ds != null) {
@@ -4285,12 +4285,12 @@ namespace platform {
         }
         
         
-        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListByEventIdByCategoryId(
+        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListEventIdCategoryId(
             string event_id
             , string category_id
         )  {
             List<EventCategoryAssoc> list = new List<EventCategoryAssoc>();
-            DataSet ds = data.GetEventCategoryAssocListByEventIdByCategoryId(
+            DataSet ds = data.GetEventCategoryAssocListEventIdCategoryId(
                 event_id
                 , category_id
             );
@@ -4343,55 +4343,55 @@ namespace platform {
             return data.CountChannel(
             );
         }       
-        public virtual int CountChannelByUuid(
+        public virtual int CountChannelUuid(
             string uuid
         )  {            
-            return data.CountChannelByUuid(
+            return data.CountChannelUuid(
                 uuid
             );
         }       
-        public virtual int CountChannelByCode(
+        public virtual int CountChannelCode(
             string code
         )  {            
-            return data.CountChannelByCode(
+            return data.CountChannelCode(
                 code
             );
         }       
-        public virtual int CountChannelByName(
+        public virtual int CountChannelName(
             string name
         )  {            
-            return data.CountChannelByName(
+            return data.CountChannelName(
                 name
             );
         }       
-        public virtual int CountChannelByOrgId(
+        public virtual int CountChannelOrgId(
             string org_id
         )  {            
-            return data.CountChannelByOrgId(
+            return data.CountChannelOrgId(
                 org_id
             );
         }       
-        public virtual int CountChannelByTypeId(
+        public virtual int CountChannelTypeId(
             string type_id
         )  {            
-            return data.CountChannelByTypeId(
+            return data.CountChannelTypeId(
                 type_id
             );
         }       
-        public virtual int CountChannelByOrgIdByTypeId(
+        public virtual int CountChannelOrgIdTypeId(
             string org_id
             , string type_id
         )  {            
-            return data.CountChannelByOrgIdByTypeId(
+            return data.CountChannelOrgIdTypeId(
                 org_id
                 , type_id
             );
         }       
-        public virtual ChannelResult BrowseChannelListByFilter(SearchFilter obj)  {
+        public virtual ChannelResult BrowseChannelListFilter(SearchFilter obj)  {
             ChannelResult result = new ChannelResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseChannelListByFilter(obj);
+            DataSet ds = data.BrowseChannelListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -4404,31 +4404,31 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetChannelByUuid(string set_type, Channel obj)  {            
-            return data.SetChannelByUuid(set_type, obj);
+        public virtual bool SetChannelUuid(string set_type, Channel obj)  {            
+            return data.SetChannelUuid(set_type, obj);
         }    
-        public virtual bool DelChannelByUuid(
+        public virtual bool DelChannelUuid(
             string uuid
         )  {
-            return data.DelChannelByUuid(
+            return data.DelChannelUuid(
                 uuid
             );
         }                     
-        public virtual bool DelChannelByCodeByOrgId(
+        public virtual bool DelChannelCodeOrgId(
             string code
             , string org_id
         )  {
-            return data.DelChannelByCodeByOrgId(
+            return data.DelChannelCodeOrgId(
                 code
                 , org_id
             );
         }                     
-        public virtual bool DelChannelByCodeByOrgIdByTypeId(
+        public virtual bool DelChannelCodeOrgIdTypeId(
             string code
             , string org_id
             , string type_id
         )  {
-            return data.DelChannelByCodeByOrgIdByTypeId(
+            return data.DelChannelCodeOrgIdTypeId(
                 code
                 , org_id
                 , type_id
@@ -4451,11 +4451,11 @@ namespace platform {
         }
         
         
-        public virtual List<Channel> GetChannelListByUuid(
+        public virtual List<Channel> GetChannelListUuid(
             string uuid
         )  {
             List<Channel> list = new List<Channel>();
-            DataSet ds = data.GetChannelListByUuid(
+            DataSet ds = data.GetChannelListUuid(
                 uuid
             );
             if(ds != null) {
@@ -4470,11 +4470,11 @@ namespace platform {
         }
         
         
-        public virtual List<Channel> GetChannelListByCode(
+        public virtual List<Channel> GetChannelListCode(
             string code
         )  {
             List<Channel> list = new List<Channel>();
-            DataSet ds = data.GetChannelListByCode(
+            DataSet ds = data.GetChannelListCode(
                 code
             );
             if(ds != null) {
@@ -4489,11 +4489,11 @@ namespace platform {
         }
         
         
-        public virtual List<Channel> GetChannelListByName(
+        public virtual List<Channel> GetChannelListName(
             string name
         )  {
             List<Channel> list = new List<Channel>();
-            DataSet ds = data.GetChannelListByName(
+            DataSet ds = data.GetChannelListName(
                 name
             );
             if(ds != null) {
@@ -4508,11 +4508,11 @@ namespace platform {
         }
         
         
-        public virtual List<Channel> GetChannelListByOrgId(
+        public virtual List<Channel> GetChannelListOrgId(
             string org_id
         )  {
             List<Channel> list = new List<Channel>();
-            DataSet ds = data.GetChannelListByOrgId(
+            DataSet ds = data.GetChannelListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -4527,11 +4527,11 @@ namespace platform {
         }
         
         
-        public virtual List<Channel> GetChannelListByTypeId(
+        public virtual List<Channel> GetChannelListTypeId(
             string type_id
         )  {
             List<Channel> list = new List<Channel>();
-            DataSet ds = data.GetChannelListByTypeId(
+            DataSet ds = data.GetChannelListTypeId(
                 type_id
             );
             if(ds != null) {
@@ -4546,12 +4546,12 @@ namespace platform {
         }
         
         
-        public virtual List<Channel> GetChannelListByOrgIdByTypeId(
+        public virtual List<Channel> GetChannelListOrgIdTypeId(
             string org_id
             , string type_id
         )  {
             List<Channel> list = new List<Channel>();
-            DataSet ds = data.GetChannelListByOrgIdByTypeId(
+            DataSet ds = data.GetChannelListOrgIdTypeId(
                 org_id
                 , type_id
             );
@@ -4600,32 +4600,32 @@ namespace platform {
             return data.CountChannelType(
             );
         }       
-        public virtual int CountChannelTypeByUuid(
+        public virtual int CountChannelTypeUuid(
             string uuid
         )  {            
-            return data.CountChannelTypeByUuid(
+            return data.CountChannelTypeUuid(
                 uuid
             );
         }       
-        public virtual int CountChannelTypeByCode(
+        public virtual int CountChannelTypeCode(
             string code
         )  {            
-            return data.CountChannelTypeByCode(
+            return data.CountChannelTypeCode(
                 code
             );
         }       
-        public virtual int CountChannelTypeByName(
+        public virtual int CountChannelTypeName(
             string name
         )  {            
-            return data.CountChannelTypeByName(
+            return data.CountChannelTypeName(
                 name
             );
         }       
-        public virtual ChannelTypeResult BrowseChannelTypeListByFilter(SearchFilter obj)  {
+        public virtual ChannelTypeResult BrowseChannelTypeListFilter(SearchFilter obj)  {
             ChannelTypeResult result = new ChannelTypeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseChannelTypeListByFilter(obj);
+            DataSet ds = data.BrowseChannelTypeListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -4638,13 +4638,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetChannelTypeByUuid(string set_type, ChannelType obj)  {            
-            return data.SetChannelTypeByUuid(set_type, obj);
+        public virtual bool SetChannelTypeUuid(string set_type, ChannelType obj)  {            
+            return data.SetChannelTypeUuid(set_type, obj);
         }    
-        public virtual bool DelChannelTypeByUuid(
+        public virtual bool DelChannelTypeUuid(
             string uuid
         )  {
-            return data.DelChannelTypeByUuid(
+            return data.DelChannelTypeUuid(
                 uuid
             );
         }                     
@@ -4665,11 +4665,11 @@ namespace platform {
         }
         
         
-        public virtual List<ChannelType> GetChannelTypeListByUuid(
+        public virtual List<ChannelType> GetChannelTypeListUuid(
             string uuid
         )  {
             List<ChannelType> list = new List<ChannelType>();
-            DataSet ds = data.GetChannelTypeListByUuid(
+            DataSet ds = data.GetChannelTypeListUuid(
                 uuid
             );
             if(ds != null) {
@@ -4684,11 +4684,11 @@ namespace platform {
         }
         
         
-        public virtual List<ChannelType> GetChannelTypeListByCode(
+        public virtual List<ChannelType> GetChannelTypeListCode(
             string code
         )  {
             List<ChannelType> list = new List<ChannelType>();
-            DataSet ds = data.GetChannelTypeListByCode(
+            DataSet ds = data.GetChannelTypeListCode(
                 code
             );
             if(ds != null) {
@@ -4703,11 +4703,11 @@ namespace platform {
         }
         
         
-        public virtual List<ChannelType> GetChannelTypeListByName(
+        public virtual List<ChannelType> GetChannelTypeListName(
             string name
         )  {
             List<ChannelType> list = new List<ChannelType>();
-            DataSet ds = data.GetChannelTypeListByName(
+            DataSet ds = data.GetChannelTypeListName(
                 name
             );
             if(ds != null) {
@@ -4761,64 +4761,64 @@ namespace platform {
             return data.CountQuestion(
             );
         }       
-        public virtual int CountQuestionByUuid(
+        public virtual int CountQuestionUuid(
             string uuid
         )  {            
-            return data.CountQuestionByUuid(
+            return data.CountQuestionUuid(
                 uuid
             );
         }       
-        public virtual int CountQuestionByCode(
+        public virtual int CountQuestionCode(
             string code
         )  {            
-            return data.CountQuestionByCode(
+            return data.CountQuestionCode(
                 code
             );
         }       
-        public virtual int CountQuestionByName(
+        public virtual int CountQuestionName(
             string name
         )  {            
-            return data.CountQuestionByName(
+            return data.CountQuestionName(
                 name
             );
         }       
-        public virtual int CountQuestionByChannelId(
+        public virtual int CountQuestionChannelId(
             string channel_id
         )  {            
-            return data.CountQuestionByChannelId(
+            return data.CountQuestionChannelId(
                 channel_id
             );
         }       
-        public virtual int CountQuestionByOrgId(
+        public virtual int CountQuestionOrgId(
             string org_id
         )  {            
-            return data.CountQuestionByOrgId(
+            return data.CountQuestionOrgId(
                 org_id
             );
         }       
-        public virtual int CountQuestionByChannelIdByOrgId(
+        public virtual int CountQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {            
-            return data.CountQuestionByChannelIdByOrgId(
+            return data.CountQuestionChannelIdOrgId(
                 channel_id
                 , org_id
             );
         }       
-        public virtual int CountQuestionByChannelIdByCode(
+        public virtual int CountQuestionChannelIdCode(
             string channel_id
             , string code
         )  {            
-            return data.CountQuestionByChannelIdByCode(
+            return data.CountQuestionChannelIdCode(
                 channel_id
                 , code
             );
         }       
-        public virtual QuestionResult BrowseQuestionListByFilter(SearchFilter obj)  {
+        public virtual QuestionResult BrowseQuestionListFilter(SearchFilter obj)  {
             QuestionResult result = new QuestionResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseQuestionListByFilter(obj);
+            DataSet ds = data.BrowseQuestionListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -4831,24 +4831,24 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetQuestionByUuid(string set_type, Question obj)  {            
-            return data.SetQuestionByUuid(set_type, obj);
+        public virtual bool SetQuestionUuid(string set_type, Question obj)  {            
+            return data.SetQuestionUuid(set_type, obj);
         }    
-        public virtual bool SetQuestionByChannelIdByCode(string set_type, Question obj)  {            
-            return data.SetQuestionByChannelIdByCode(set_type, obj);
+        public virtual bool SetQuestionChannelIdCode(string set_type, Question obj)  {            
+            return data.SetQuestionChannelIdCode(set_type, obj);
         }    
-        public virtual bool DelQuestionByUuid(
+        public virtual bool DelQuestionUuid(
             string uuid
         )  {
-            return data.DelQuestionByUuid(
+            return data.DelQuestionUuid(
                 uuid
             );
         }                     
-        public virtual bool DelQuestionByChannelIdByOrgId(
+        public virtual bool DelQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {
-            return data.DelQuestionByChannelIdByOrgId(
+            return data.DelQuestionChannelIdOrgId(
                 channel_id
                 , org_id
             );
@@ -4870,11 +4870,11 @@ namespace platform {
         }
         
         
-        public virtual List<Question> GetQuestionListByUuid(
+        public virtual List<Question> GetQuestionListUuid(
             string uuid
         )  {
             List<Question> list = new List<Question>();
-            DataSet ds = data.GetQuestionListByUuid(
+            DataSet ds = data.GetQuestionListUuid(
                 uuid
             );
             if(ds != null) {
@@ -4889,11 +4889,11 @@ namespace platform {
         }
         
         
-        public virtual List<Question> GetQuestionListByCode(
+        public virtual List<Question> GetQuestionListCode(
             string code
         )  {
             List<Question> list = new List<Question>();
-            DataSet ds = data.GetQuestionListByCode(
+            DataSet ds = data.GetQuestionListCode(
                 code
             );
             if(ds != null) {
@@ -4908,11 +4908,11 @@ namespace platform {
         }
         
         
-        public virtual List<Question> GetQuestionListByName(
+        public virtual List<Question> GetQuestionListName(
             string name
         )  {
             List<Question> list = new List<Question>();
-            DataSet ds = data.GetQuestionListByName(
+            DataSet ds = data.GetQuestionListName(
                 name
             );
             if(ds != null) {
@@ -4927,11 +4927,11 @@ namespace platform {
         }
         
         
-        public virtual List<Question> GetQuestionListByType(
+        public virtual List<Question> GetQuestionListType(
             string type
         )  {
             List<Question> list = new List<Question>();
-            DataSet ds = data.GetQuestionListByType(
+            DataSet ds = data.GetQuestionListType(
                 type
             );
             if(ds != null) {
@@ -4946,11 +4946,11 @@ namespace platform {
         }
         
         
-        public virtual List<Question> GetQuestionListByChannelId(
+        public virtual List<Question> GetQuestionListChannelId(
             string channel_id
         )  {
             List<Question> list = new List<Question>();
-            DataSet ds = data.GetQuestionListByChannelId(
+            DataSet ds = data.GetQuestionListChannelId(
                 channel_id
             );
             if(ds != null) {
@@ -4965,11 +4965,11 @@ namespace platform {
         }
         
         
-        public virtual List<Question> GetQuestionListByOrgId(
+        public virtual List<Question> GetQuestionListOrgId(
             string org_id
         )  {
             List<Question> list = new List<Question>();
-            DataSet ds = data.GetQuestionListByOrgId(
+            DataSet ds = data.GetQuestionListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -4984,12 +4984,12 @@ namespace platform {
         }
         
         
-        public virtual List<Question> GetQuestionListByChannelIdByOrgId(
+        public virtual List<Question> GetQuestionListChannelIdOrgId(
             string channel_id
             , string org_id
         )  {
             List<Question> list = new List<Question>();
-            DataSet ds = data.GetQuestionListByChannelIdByOrgId(
+            DataSet ds = data.GetQuestionListChannelIdOrgId(
                 channel_id
                 , org_id
             );
@@ -5005,12 +5005,12 @@ namespace platform {
         }
         
         
-        public virtual List<Question> GetQuestionListByChannelIdByCode(
+        public virtual List<Question> GetQuestionListChannelIdCode(
             string channel_id
             , string code
         )  {
             List<Question> list = new List<Question>();
-            DataSet ds = data.GetQuestionListByChannelIdByCode(
+            DataSet ds = data.GetQuestionListChannelIdCode(
                 channel_id
                 , code
             );
@@ -5061,25 +5061,25 @@ namespace platform {
             return data.CountProfileOffer(
             );
         }       
-        public virtual int CountProfileOfferByUuid(
+        public virtual int CountProfileOfferUuid(
             string uuid
         )  {            
-            return data.CountProfileOfferByUuid(
+            return data.CountProfileOfferUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileOfferByProfileId(
+        public virtual int CountProfileOfferProfileId(
             string profile_id
         )  {            
-            return data.CountProfileOfferByProfileId(
+            return data.CountProfileOfferProfileId(
                 profile_id
             );
         }       
-        public virtual ProfileOfferResult BrowseProfileOfferListByFilter(SearchFilter obj)  {
+        public virtual ProfileOfferResult BrowseProfileOfferListFilter(SearchFilter obj)  {
             ProfileOfferResult result = new ProfileOfferResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileOfferListByFilter(obj);
+            DataSet ds = data.BrowseProfileOfferListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -5092,20 +5092,20 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetProfileOfferByUuid(string set_type, ProfileOffer obj)  {            
-            return data.SetProfileOfferByUuid(set_type, obj);
+        public virtual bool SetProfileOfferUuid(string set_type, ProfileOffer obj)  {            
+            return data.SetProfileOfferUuid(set_type, obj);
         }    
-        public virtual bool DelProfileOfferByUuid(
+        public virtual bool DelProfileOfferUuid(
             string uuid
         )  {
-            return data.DelProfileOfferByUuid(
+            return data.DelProfileOfferUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileOfferByProfileId(
+        public virtual bool DelProfileOfferProfileId(
             string profile_id
         )  {
-            return data.DelProfileOfferByProfileId(
+            return data.DelProfileOfferProfileId(
                 profile_id
             );
         }                     
@@ -5126,11 +5126,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileOffer> GetProfileOfferListByUuid(
+        public virtual List<ProfileOffer> GetProfileOfferListUuid(
             string uuid
         )  {
             List<ProfileOffer> list = new List<ProfileOffer>();
-            DataSet ds = data.GetProfileOfferListByUuid(
+            DataSet ds = data.GetProfileOfferListUuid(
                 uuid
             );
             if(ds != null) {
@@ -5145,11 +5145,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileOffer> GetProfileOfferListByProfileId(
+        public virtual List<ProfileOffer> GetProfileOfferListProfileId(
             string profile_id
         )  {
             List<ProfileOffer> list = new List<ProfileOffer>();
-            DataSet ds = data.GetProfileOfferListByProfileId(
+            DataSet ds = data.GetProfileOfferListProfileId(
                 profile_id
             );
             if(ds != null) {
@@ -5193,27 +5193,27 @@ namespace platform {
             return data.CountProfileApp(
             );
         }       
-        public virtual int CountProfileAppByUuid(
+        public virtual int CountProfileAppUuid(
             string uuid
         )  {            
-            return data.CountProfileAppByUuid(
+            return data.CountProfileAppUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileAppByProfileIdByAppId(
+        public virtual int CountProfileAppProfileIdAppId(
             string profile_id
             , string app_id
         )  {            
-            return data.CountProfileAppByProfileIdByAppId(
+            return data.CountProfileAppProfileIdAppId(
                 profile_id
                 , app_id
             );
         }       
-        public virtual ProfileAppResult BrowseProfileAppListByFilter(SearchFilter obj)  {
+        public virtual ProfileAppResult BrowseProfileAppListFilter(SearchFilter obj)  {
             ProfileAppResult result = new ProfileAppResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileAppListByFilter(obj);
+            DataSet ds = data.BrowseProfileAppListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -5226,24 +5226,24 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetProfileAppByUuid(string set_type, ProfileApp obj)  {            
-            return data.SetProfileAppByUuid(set_type, obj);
+        public virtual bool SetProfileAppUuid(string set_type, ProfileApp obj)  {            
+            return data.SetProfileAppUuid(set_type, obj);
         }    
-        public virtual bool SetProfileAppByProfileIdByAppId(string set_type, ProfileApp obj)  {            
-            return data.SetProfileAppByProfileIdByAppId(set_type, obj);
+        public virtual bool SetProfileAppProfileIdAppId(string set_type, ProfileApp obj)  {            
+            return data.SetProfileAppProfileIdAppId(set_type, obj);
         }    
-        public virtual bool DelProfileAppByUuid(
+        public virtual bool DelProfileAppUuid(
             string uuid
         )  {
-            return data.DelProfileAppByUuid(
+            return data.DelProfileAppUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileAppByProfileIdByAppId(
+        public virtual bool DelProfileAppProfileIdAppId(
             string profile_id
             , string app_id
         )  {
-            return data.DelProfileAppByProfileIdByAppId(
+            return data.DelProfileAppProfileIdAppId(
                 profile_id
                 , app_id
             );
@@ -5265,11 +5265,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileApp> GetProfileAppListByUuid(
+        public virtual List<ProfileApp> GetProfileAppListUuid(
             string uuid
         )  {
             List<ProfileApp> list = new List<ProfileApp>();
-            DataSet ds = data.GetProfileAppListByUuid(
+            DataSet ds = data.GetProfileAppListUuid(
                 uuid
             );
             if(ds != null) {
@@ -5284,11 +5284,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileApp> GetProfileAppListByAppId(
+        public virtual List<ProfileApp> GetProfileAppListAppId(
             string app_id
         )  {
             List<ProfileApp> list = new List<ProfileApp>();
-            DataSet ds = data.GetProfileAppListByAppId(
+            DataSet ds = data.GetProfileAppListAppId(
                 app_id
             );
             if(ds != null) {
@@ -5303,11 +5303,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileApp> GetProfileAppListByProfileId(
+        public virtual List<ProfileApp> GetProfileAppListProfileId(
             string profile_id
         )  {
             List<ProfileApp> list = new List<ProfileApp>();
-            DataSet ds = data.GetProfileAppListByProfileId(
+            DataSet ds = data.GetProfileAppListProfileId(
                 profile_id
             );
             if(ds != null) {
@@ -5322,12 +5322,12 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileApp> GetProfileAppListByProfileIdByAppId(
+        public virtual List<ProfileApp> GetProfileAppListProfileIdAppId(
             string profile_id
             , string app_id
         )  {
             List<ProfileApp> list = new List<ProfileApp>();
-            DataSet ds = data.GetProfileAppListByProfileIdByAppId(
+            DataSet ds = data.GetProfileAppListProfileIdAppId(
                 profile_id
                 , app_id
             );
@@ -5374,32 +5374,32 @@ namespace platform {
             return data.CountProfileOrg(
             );
         }       
-        public virtual int CountProfileOrgByUuid(
+        public virtual int CountProfileOrgUuid(
             string uuid
         )  {            
-            return data.CountProfileOrgByUuid(
+            return data.CountProfileOrgUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileOrgByOrgId(
+        public virtual int CountProfileOrgOrgId(
             string org_id
         )  {            
-            return data.CountProfileOrgByOrgId(
+            return data.CountProfileOrgOrgId(
                 org_id
             );
         }       
-        public virtual int CountProfileOrgByProfileId(
+        public virtual int CountProfileOrgProfileId(
             string profile_id
         )  {            
-            return data.CountProfileOrgByProfileId(
+            return data.CountProfileOrgProfileId(
                 profile_id
             );
         }       
-        public virtual ProfileOrgResult BrowseProfileOrgListByFilter(SearchFilter obj)  {
+        public virtual ProfileOrgResult BrowseProfileOrgListFilter(SearchFilter obj)  {
             ProfileOrgResult result = new ProfileOrgResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileOrgListByFilter(obj);
+            DataSet ds = data.BrowseProfileOrgListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -5412,13 +5412,13 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetProfileOrgByUuid(string set_type, ProfileOrg obj)  {            
-            return data.SetProfileOrgByUuid(set_type, obj);
+        public virtual bool SetProfileOrgUuid(string set_type, ProfileOrg obj)  {            
+            return data.SetProfileOrgUuid(set_type, obj);
         }    
-        public virtual bool DelProfileOrgByUuid(
+        public virtual bool DelProfileOrgUuid(
             string uuid
         )  {
-            return data.DelProfileOrgByUuid(
+            return data.DelProfileOrgUuid(
                 uuid
             );
         }                     
@@ -5439,11 +5439,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileOrg> GetProfileOrgListByUuid(
+        public virtual List<ProfileOrg> GetProfileOrgListUuid(
             string uuid
         )  {
             List<ProfileOrg> list = new List<ProfileOrg>();
-            DataSet ds = data.GetProfileOrgListByUuid(
+            DataSet ds = data.GetProfileOrgListUuid(
                 uuid
             );
             if(ds != null) {
@@ -5458,11 +5458,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileOrg> GetProfileOrgListByOrgId(
+        public virtual List<ProfileOrg> GetProfileOrgListOrgId(
             string org_id
         )  {
             List<ProfileOrg> list = new List<ProfileOrg>();
-            DataSet ds = data.GetProfileOrgListByOrgId(
+            DataSet ds = data.GetProfileOrgListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -5477,11 +5477,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileOrg> GetProfileOrgListByProfileId(
+        public virtual List<ProfileOrg> GetProfileOrgListProfileId(
             string profile_id
         )  {
             List<ProfileOrg> list = new List<ProfileOrg>();
-            DataSet ds = data.GetProfileOrgListByProfileId(
+            DataSet ds = data.GetProfileOrgListProfileId(
                 profile_id
             );
             if(ds != null) {
@@ -5533,73 +5533,73 @@ namespace platform {
             return data.CountProfileQuestion(
             );
         }       
-        public virtual int CountProfileQuestionByUuid(
+        public virtual int CountProfileQuestionUuid(
             string uuid
         )  {            
-            return data.CountProfileQuestionByUuid(
+            return data.CountProfileQuestionUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileQuestionByChannelId(
+        public virtual int CountProfileQuestionChannelId(
             string channel_id
         )  {            
-            return data.CountProfileQuestionByChannelId(
+            return data.CountProfileQuestionChannelId(
                 channel_id
             );
         }       
-        public virtual int CountProfileQuestionByOrgId(
+        public virtual int CountProfileQuestionOrgId(
             string org_id
         )  {            
-            return data.CountProfileQuestionByOrgId(
+            return data.CountProfileQuestionOrgId(
                 org_id
             );
         }       
-        public virtual int CountProfileQuestionByProfileId(
+        public virtual int CountProfileQuestionProfileId(
             string profile_id
         )  {            
-            return data.CountProfileQuestionByProfileId(
+            return data.CountProfileQuestionProfileId(
                 profile_id
             );
         }       
-        public virtual int CountProfileQuestionByQuestionId(
+        public virtual int CountProfileQuestionQuestionId(
             string question_id
         )  {            
-            return data.CountProfileQuestionByQuestionId(
+            return data.CountProfileQuestionQuestionId(
                 question_id
             );
         }       
-        public virtual int CountProfileQuestionByChannelIdByOrgId(
+        public virtual int CountProfileQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {            
-            return data.CountProfileQuestionByChannelIdByOrgId(
+            return data.CountProfileQuestionChannelIdOrgId(
                 channel_id
                 , org_id
             );
         }       
-        public virtual int CountProfileQuestionByChannelIdByProfileId(
+        public virtual int CountProfileQuestionChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {            
-            return data.CountProfileQuestionByChannelIdByProfileId(
+            return data.CountProfileQuestionChannelIdProfileId(
                 channel_id
                 , profile_id
             );
         }       
-        public virtual int CountProfileQuestionByQuestionIdByProfileId(
+        public virtual int CountProfileQuestionQuestionIdProfileId(
             string question_id
             , string profile_id
         )  {            
-            return data.CountProfileQuestionByQuestionIdByProfileId(
+            return data.CountProfileQuestionQuestionIdProfileId(
                 question_id
                 , profile_id
             );
         }       
-        public virtual ProfileQuestionResult BrowseProfileQuestionListByFilter(SearchFilter obj)  {
+        public virtual ProfileQuestionResult BrowseProfileQuestionListFilter(SearchFilter obj)  {
             ProfileQuestionResult result = new ProfileQuestionResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileQuestionListByFilter(obj);
+            DataSet ds = data.BrowseProfileQuestionListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -5612,30 +5612,30 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetProfileQuestionByUuid(string set_type, ProfileQuestion obj)  {            
-            return data.SetProfileQuestionByUuid(set_type, obj);
+        public virtual bool SetProfileQuestionUuid(string set_type, ProfileQuestion obj)  {            
+            return data.SetProfileQuestionUuid(set_type, obj);
         }    
-        public virtual bool SetProfileQuestionByChannelIdByProfileId(string set_type, ProfileQuestion obj)  {            
-            return data.SetProfileQuestionByChannelIdByProfileId(set_type, obj);
+        public virtual bool SetProfileQuestionChannelIdProfileId(string set_type, ProfileQuestion obj)  {            
+            return data.SetProfileQuestionChannelIdProfileId(set_type, obj);
         }    
-        public virtual bool SetProfileQuestionByQuestionIdByProfileId(string set_type, ProfileQuestion obj)  {            
-            return data.SetProfileQuestionByQuestionIdByProfileId(set_type, obj);
+        public virtual bool SetProfileQuestionQuestionIdProfileId(string set_type, ProfileQuestion obj)  {            
+            return data.SetProfileQuestionQuestionIdProfileId(set_type, obj);
         }    
-        public virtual bool SetProfileQuestionByChannelIdByQuestionIdByProfileId(string set_type, ProfileQuestion obj)  {            
-            return data.SetProfileQuestionByChannelIdByQuestionIdByProfileId(set_type, obj);
+        public virtual bool SetProfileQuestionChannelIdQuestionIdProfileId(string set_type, ProfileQuestion obj)  {            
+            return data.SetProfileQuestionChannelIdQuestionIdProfileId(set_type, obj);
         }    
-        public virtual bool DelProfileQuestionByUuid(
+        public virtual bool DelProfileQuestionUuid(
             string uuid
         )  {
-            return data.DelProfileQuestionByUuid(
+            return data.DelProfileQuestionUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileQuestionByChannelIdByOrgId(
+        public virtual bool DelProfileQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {
-            return data.DelProfileQuestionByChannelIdByOrgId(
+            return data.DelProfileQuestionChannelIdOrgId(
                 channel_id
                 , org_id
             );
@@ -5657,11 +5657,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileQuestion> GetProfileQuestionListByUuid(
+        public virtual List<ProfileQuestion> GetProfileQuestionListUuid(
             string uuid
         )  {
             List<ProfileQuestion> list = new List<ProfileQuestion>();
-            DataSet ds = data.GetProfileQuestionListByUuid(
+            DataSet ds = data.GetProfileQuestionListUuid(
                 uuid
             );
             if(ds != null) {
@@ -5676,11 +5676,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileQuestion> GetProfileQuestionListByChannelId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListChannelId(
             string channel_id
         )  {
             List<ProfileQuestion> list = new List<ProfileQuestion>();
-            DataSet ds = data.GetProfileQuestionListByChannelId(
+            DataSet ds = data.GetProfileQuestionListChannelId(
                 channel_id
             );
             if(ds != null) {
@@ -5695,11 +5695,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileQuestion> GetProfileQuestionListByOrgId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListOrgId(
             string org_id
         )  {
             List<ProfileQuestion> list = new List<ProfileQuestion>();
-            DataSet ds = data.GetProfileQuestionListByOrgId(
+            DataSet ds = data.GetProfileQuestionListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -5714,11 +5714,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileQuestion> GetProfileQuestionListByProfileId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListProfileId(
             string profile_id
         )  {
             List<ProfileQuestion> list = new List<ProfileQuestion>();
-            DataSet ds = data.GetProfileQuestionListByProfileId(
+            DataSet ds = data.GetProfileQuestionListProfileId(
                 profile_id
             );
             if(ds != null) {
@@ -5733,11 +5733,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileQuestion> GetProfileQuestionListByQuestionId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListQuestionId(
             string question_id
         )  {
             List<ProfileQuestion> list = new List<ProfileQuestion>();
-            DataSet ds = data.GetProfileQuestionListByQuestionId(
+            DataSet ds = data.GetProfileQuestionListQuestionId(
                 question_id
             );
             if(ds != null) {
@@ -5752,12 +5752,12 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileQuestion> GetProfileQuestionListByChannelIdByOrgId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListChannelIdOrgId(
             string channel_id
             , string org_id
         )  {
             List<ProfileQuestion> list = new List<ProfileQuestion>();
-            DataSet ds = data.GetProfileQuestionListByChannelIdByOrgId(
+            DataSet ds = data.GetProfileQuestionListChannelIdOrgId(
                 channel_id
                 , org_id
             );
@@ -5773,12 +5773,12 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileQuestion> GetProfileQuestionListByChannelIdByProfileId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {
             List<ProfileQuestion> list = new List<ProfileQuestion>();
-            DataSet ds = data.GetProfileQuestionListByChannelIdByProfileId(
+            DataSet ds = data.GetProfileQuestionListChannelIdProfileId(
                 channel_id
                 , profile_id
             );
@@ -5794,12 +5794,12 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileQuestion> GetProfileQuestionListByQuestionIdByProfileId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListQuestionIdProfileId(
             string question_id
             , string profile_id
         )  {
             List<ProfileQuestion> list = new List<ProfileQuestion>();
-            DataSet ds = data.GetProfileQuestionListByQuestionIdByProfileId(
+            DataSet ds = data.GetProfileQuestionListQuestionIdProfileId(
                 question_id
                 , profile_id
             );
@@ -5844,41 +5844,41 @@ namespace platform {
             return data.CountProfileChannel(
             );
         }       
-        public virtual int CountProfileChannelByUuid(
+        public virtual int CountProfileChannelUuid(
             string uuid
         )  {            
-            return data.CountProfileChannelByUuid(
+            return data.CountProfileChannelUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileChannelByChannelId(
+        public virtual int CountProfileChannelChannelId(
             string channel_id
         )  {            
-            return data.CountProfileChannelByChannelId(
+            return data.CountProfileChannelChannelId(
                 channel_id
             );
         }       
-        public virtual int CountProfileChannelByProfileId(
+        public virtual int CountProfileChannelProfileId(
             string profile_id
         )  {            
-            return data.CountProfileChannelByProfileId(
+            return data.CountProfileChannelProfileId(
                 profile_id
             );
         }       
-        public virtual int CountProfileChannelByChannelIdByProfileId(
+        public virtual int CountProfileChannelChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {            
-            return data.CountProfileChannelByChannelIdByProfileId(
+            return data.CountProfileChannelChannelIdProfileId(
                 channel_id
                 , profile_id
             );
         }       
-        public virtual ProfileChannelResult BrowseProfileChannelListByFilter(SearchFilter obj)  {
+        public virtual ProfileChannelResult BrowseProfileChannelListFilter(SearchFilter obj)  {
             ProfileChannelResult result = new ProfileChannelResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileChannelListByFilter(obj);
+            DataSet ds = data.BrowseProfileChannelListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -5891,24 +5891,24 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetProfileChannelByUuid(string set_type, ProfileChannel obj)  {            
-            return data.SetProfileChannelByUuid(set_type, obj);
+        public virtual bool SetProfileChannelUuid(string set_type, ProfileChannel obj)  {            
+            return data.SetProfileChannelUuid(set_type, obj);
         }    
-        public virtual bool SetProfileChannelByChannelIdByProfileId(string set_type, ProfileChannel obj)  {            
-            return data.SetProfileChannelByChannelIdByProfileId(set_type, obj);
+        public virtual bool SetProfileChannelChannelIdProfileId(string set_type, ProfileChannel obj)  {            
+            return data.SetProfileChannelChannelIdProfileId(set_type, obj);
         }    
-        public virtual bool DelProfileChannelByUuid(
+        public virtual bool DelProfileChannelUuid(
             string uuid
         )  {
-            return data.DelProfileChannelByUuid(
+            return data.DelProfileChannelUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileChannelByChannelIdByProfileId(
+        public virtual bool DelProfileChannelChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {
-            return data.DelProfileChannelByChannelIdByProfileId(
+            return data.DelProfileChannelChannelIdProfileId(
                 channel_id
                 , profile_id
             );
@@ -5930,11 +5930,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileChannel> GetProfileChannelListByUuid(
+        public virtual List<ProfileChannel> GetProfileChannelListUuid(
             string uuid
         )  {
             List<ProfileChannel> list = new List<ProfileChannel>();
-            DataSet ds = data.GetProfileChannelListByUuid(
+            DataSet ds = data.GetProfileChannelListUuid(
                 uuid
             );
             if(ds != null) {
@@ -5949,11 +5949,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileChannel> GetProfileChannelListByChannelId(
+        public virtual List<ProfileChannel> GetProfileChannelListChannelId(
             string channel_id
         )  {
             List<ProfileChannel> list = new List<ProfileChannel>();
-            DataSet ds = data.GetProfileChannelListByChannelId(
+            DataSet ds = data.GetProfileChannelListChannelId(
                 channel_id
             );
             if(ds != null) {
@@ -5968,11 +5968,11 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileChannel> GetProfileChannelListByProfileId(
+        public virtual List<ProfileChannel> GetProfileChannelListProfileId(
             string profile_id
         )  {
             List<ProfileChannel> list = new List<ProfileChannel>();
-            DataSet ds = data.GetProfileChannelListByProfileId(
+            DataSet ds = data.GetProfileChannelListProfileId(
                 profile_id
             );
             if(ds != null) {
@@ -5987,12 +5987,12 @@ namespace platform {
         }
         
         
-        public virtual List<ProfileChannel> GetProfileChannelListByChannelIdByProfileId(
+        public virtual List<ProfileChannel> GetProfileChannelListChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {
             List<ProfileChannel> list = new List<ProfileChannel>();
-            DataSet ds = data.GetProfileChannelListByChannelIdByProfileId(
+            DataSet ds = data.GetProfileChannelListChannelIdProfileId(
                 channel_id
                 , profile_id
             );
@@ -6037,41 +6037,41 @@ namespace platform {
             return data.CountOrgSite(
             );
         }       
-        public virtual int CountOrgSiteByUuid(
+        public virtual int CountOrgSiteUuid(
             string uuid
         )  {            
-            return data.CountOrgSiteByUuid(
+            return data.CountOrgSiteUuid(
                 uuid
             );
         }       
-        public virtual int CountOrgSiteByOrgId(
+        public virtual int CountOrgSiteOrgId(
             string org_id
         )  {            
-            return data.CountOrgSiteByOrgId(
+            return data.CountOrgSiteOrgId(
                 org_id
             );
         }       
-        public virtual int CountOrgSiteBySiteId(
+        public virtual int CountOrgSiteSiteId(
             string site_id
         )  {            
-            return data.CountOrgSiteBySiteId(
+            return data.CountOrgSiteSiteId(
                 site_id
             );
         }       
-        public virtual int CountOrgSiteByOrgIdBySiteId(
+        public virtual int CountOrgSiteOrgIdSiteId(
             string org_id
             , string site_id
         )  {            
-            return data.CountOrgSiteByOrgIdBySiteId(
+            return data.CountOrgSiteOrgIdSiteId(
                 org_id
                 , site_id
             );
         }       
-        public virtual OrgSiteResult BrowseOrgSiteListByFilter(SearchFilter obj)  {
+        public virtual OrgSiteResult BrowseOrgSiteListFilter(SearchFilter obj)  {
             OrgSiteResult result = new OrgSiteResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseOrgSiteListByFilter(obj);
+            DataSet ds = data.BrowseOrgSiteListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -6084,24 +6084,24 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetOrgSiteByUuid(string set_type, OrgSite obj)  {            
-            return data.SetOrgSiteByUuid(set_type, obj);
+        public virtual bool SetOrgSiteUuid(string set_type, OrgSite obj)  {            
+            return data.SetOrgSiteUuid(set_type, obj);
         }    
-        public virtual bool SetOrgSiteByOrgIdBySiteId(string set_type, OrgSite obj)  {            
-            return data.SetOrgSiteByOrgIdBySiteId(set_type, obj);
+        public virtual bool SetOrgSiteOrgIdSiteId(string set_type, OrgSite obj)  {            
+            return data.SetOrgSiteOrgIdSiteId(set_type, obj);
         }    
-        public virtual bool DelOrgSiteByUuid(
+        public virtual bool DelOrgSiteUuid(
             string uuid
         )  {
-            return data.DelOrgSiteByUuid(
+            return data.DelOrgSiteUuid(
                 uuid
             );
         }                     
-        public virtual bool DelOrgSiteByOrgIdBySiteId(
+        public virtual bool DelOrgSiteOrgIdSiteId(
             string org_id
             , string site_id
         )  {
-            return data.DelOrgSiteByOrgIdBySiteId(
+            return data.DelOrgSiteOrgIdSiteId(
                 org_id
                 , site_id
             );
@@ -6123,11 +6123,11 @@ namespace platform {
         }
         
         
-        public virtual List<OrgSite> GetOrgSiteListByUuid(
+        public virtual List<OrgSite> GetOrgSiteListUuid(
             string uuid
         )  {
             List<OrgSite> list = new List<OrgSite>();
-            DataSet ds = data.GetOrgSiteListByUuid(
+            DataSet ds = data.GetOrgSiteListUuid(
                 uuid
             );
             if(ds != null) {
@@ -6142,11 +6142,11 @@ namespace platform {
         }
         
         
-        public virtual List<OrgSite> GetOrgSiteListByOrgId(
+        public virtual List<OrgSite> GetOrgSiteListOrgId(
             string org_id
         )  {
             List<OrgSite> list = new List<OrgSite>();
-            DataSet ds = data.GetOrgSiteListByOrgId(
+            DataSet ds = data.GetOrgSiteListOrgId(
                 org_id
             );
             if(ds != null) {
@@ -6161,11 +6161,11 @@ namespace platform {
         }
         
         
-        public virtual List<OrgSite> GetOrgSiteListBySiteId(
+        public virtual List<OrgSite> GetOrgSiteListSiteId(
             string site_id
         )  {
             List<OrgSite> list = new List<OrgSite>();
-            DataSet ds = data.GetOrgSiteListBySiteId(
+            DataSet ds = data.GetOrgSiteListSiteId(
                 site_id
             );
             if(ds != null) {
@@ -6180,12 +6180,12 @@ namespace platform {
         }
         
         
-        public virtual List<OrgSite> GetOrgSiteListByOrgIdBySiteId(
+        public virtual List<OrgSite> GetOrgSiteListOrgIdSiteId(
             string org_id
             , string site_id
         )  {
             List<OrgSite> list = new List<OrgSite>();
-            DataSet ds = data.GetOrgSiteListByOrgIdBySiteId(
+            DataSet ds = data.GetOrgSiteListOrgIdSiteId(
                 org_id
                 , site_id
             );
@@ -6230,41 +6230,41 @@ namespace platform {
             return data.CountSiteApp(
             );
         }       
-        public virtual int CountSiteAppByUuid(
+        public virtual int CountSiteAppUuid(
             string uuid
         )  {            
-            return data.CountSiteAppByUuid(
+            return data.CountSiteAppUuid(
                 uuid
             );
         }       
-        public virtual int CountSiteAppByAppId(
+        public virtual int CountSiteAppAppId(
             string app_id
         )  {            
-            return data.CountSiteAppByAppId(
+            return data.CountSiteAppAppId(
                 app_id
             );
         }       
-        public virtual int CountSiteAppBySiteId(
+        public virtual int CountSiteAppSiteId(
             string site_id
         )  {            
-            return data.CountSiteAppBySiteId(
+            return data.CountSiteAppSiteId(
                 site_id
             );
         }       
-        public virtual int CountSiteAppByAppIdBySiteId(
+        public virtual int CountSiteAppAppIdSiteId(
             string app_id
             , string site_id
         )  {            
-            return data.CountSiteAppByAppIdBySiteId(
+            return data.CountSiteAppAppIdSiteId(
                 app_id
                 , site_id
             );
         }       
-        public virtual SiteAppResult BrowseSiteAppListByFilter(SearchFilter obj)  {
+        public virtual SiteAppResult BrowseSiteAppListFilter(SearchFilter obj)  {
             SiteAppResult result = new SiteAppResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseSiteAppListByFilter(obj);
+            DataSet ds = data.BrowseSiteAppListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -6277,24 +6277,24 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetSiteAppByUuid(string set_type, SiteApp obj)  {            
-            return data.SetSiteAppByUuid(set_type, obj);
+        public virtual bool SetSiteAppUuid(string set_type, SiteApp obj)  {            
+            return data.SetSiteAppUuid(set_type, obj);
         }    
-        public virtual bool SetSiteAppByAppIdBySiteId(string set_type, SiteApp obj)  {            
-            return data.SetSiteAppByAppIdBySiteId(set_type, obj);
+        public virtual bool SetSiteAppAppIdSiteId(string set_type, SiteApp obj)  {            
+            return data.SetSiteAppAppIdSiteId(set_type, obj);
         }    
-        public virtual bool DelSiteAppByUuid(
+        public virtual bool DelSiteAppUuid(
             string uuid
         )  {
-            return data.DelSiteAppByUuid(
+            return data.DelSiteAppUuid(
                 uuid
             );
         }                     
-        public virtual bool DelSiteAppByAppIdBySiteId(
+        public virtual bool DelSiteAppAppIdSiteId(
             string app_id
             , string site_id
         )  {
-            return data.DelSiteAppByAppIdBySiteId(
+            return data.DelSiteAppAppIdSiteId(
                 app_id
                 , site_id
             );
@@ -6316,11 +6316,11 @@ namespace platform {
         }
         
         
-        public virtual List<SiteApp> GetSiteAppListByUuid(
+        public virtual List<SiteApp> GetSiteAppListUuid(
             string uuid
         )  {
             List<SiteApp> list = new List<SiteApp>();
-            DataSet ds = data.GetSiteAppListByUuid(
+            DataSet ds = data.GetSiteAppListUuid(
                 uuid
             );
             if(ds != null) {
@@ -6335,11 +6335,11 @@ namespace platform {
         }
         
         
-        public virtual List<SiteApp> GetSiteAppListByAppId(
+        public virtual List<SiteApp> GetSiteAppListAppId(
             string app_id
         )  {
             List<SiteApp> list = new List<SiteApp>();
-            DataSet ds = data.GetSiteAppListByAppId(
+            DataSet ds = data.GetSiteAppListAppId(
                 app_id
             );
             if(ds != null) {
@@ -6354,11 +6354,11 @@ namespace platform {
         }
         
         
-        public virtual List<SiteApp> GetSiteAppListBySiteId(
+        public virtual List<SiteApp> GetSiteAppListSiteId(
             string site_id
         )  {
             List<SiteApp> list = new List<SiteApp>();
-            DataSet ds = data.GetSiteAppListBySiteId(
+            DataSet ds = data.GetSiteAppListSiteId(
                 site_id
             );
             if(ds != null) {
@@ -6373,12 +6373,12 @@ namespace platform {
         }
         
         
-        public virtual List<SiteApp> GetSiteAppListByAppIdBySiteId(
+        public virtual List<SiteApp> GetSiteAppListAppIdSiteId(
             string app_id
             , string site_id
         )  {
             List<SiteApp> list = new List<SiteApp>();
-            DataSet ds = data.GetSiteAppListByAppIdBySiteId(
+            DataSet ds = data.GetSiteAppListAppIdSiteId(
                 app_id
                 , site_id
             );
@@ -6441,50 +6441,50 @@ namespace platform {
             return data.CountPhoto(
             );
         }       
-        public virtual int CountPhotoByUuid(
+        public virtual int CountPhotoUuid(
             string uuid
         )  {            
-            return data.CountPhotoByUuid(
+            return data.CountPhotoUuid(
                 uuid
             );
         }       
-        public virtual int CountPhotoByExternalId(
+        public virtual int CountPhotoExternalId(
             string external_id
         )  {            
-            return data.CountPhotoByExternalId(
+            return data.CountPhotoExternalId(
                 external_id
             );
         }       
-        public virtual int CountPhotoByUrl(
+        public virtual int CountPhotoUrl(
             string url
         )  {            
-            return data.CountPhotoByUrl(
+            return data.CountPhotoUrl(
                 url
             );
         }       
-        public virtual int CountPhotoByUrlByExternalId(
+        public virtual int CountPhotoUrlExternalId(
             string url
             , string external_id
         )  {            
-            return data.CountPhotoByUrlByExternalId(
+            return data.CountPhotoUrlExternalId(
                 url
                 , external_id
             );
         }       
-        public virtual int CountPhotoByUuidByExternalId(
+        public virtual int CountPhotoUuidExternalId(
             string uuid
             , string external_id
         )  {            
-            return data.CountPhotoByUuidByExternalId(
+            return data.CountPhotoUuidExternalId(
                 uuid
                 , external_id
             );
         }       
-        public virtual PhotoResult BrowsePhotoListByFilter(SearchFilter obj)  {
+        public virtual PhotoResult BrowsePhotoListFilter(SearchFilter obj)  {
             PhotoResult result = new PhotoResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowsePhotoListByFilter(obj);
+            DataSet ds = data.BrowsePhotoListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -6497,56 +6497,56 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetPhotoByUuid(string set_type, Photo obj)  {            
-            return data.SetPhotoByUuid(set_type, obj);
+        public virtual bool SetPhotoUuid(string set_type, Photo obj)  {            
+            return data.SetPhotoUuid(set_type, obj);
         }    
-        public virtual bool SetPhotoByExternalId(string set_type, Photo obj)  {            
-            return data.SetPhotoByExternalId(set_type, obj);
+        public virtual bool SetPhotoExternalId(string set_type, Photo obj)  {            
+            return data.SetPhotoExternalId(set_type, obj);
         }    
-        public virtual bool SetPhotoByUrl(string set_type, Photo obj)  {            
-            return data.SetPhotoByUrl(set_type, obj);
+        public virtual bool SetPhotoUrl(string set_type, Photo obj)  {            
+            return data.SetPhotoUrl(set_type, obj);
         }    
-        public virtual bool SetPhotoByUrlByExternalId(string set_type, Photo obj)  {            
-            return data.SetPhotoByUrlByExternalId(set_type, obj);
+        public virtual bool SetPhotoUrlExternalId(string set_type, Photo obj)  {            
+            return data.SetPhotoUrlExternalId(set_type, obj);
         }    
-        public virtual bool SetPhotoByUuidByExternalId(string set_type, Photo obj)  {            
-            return data.SetPhotoByUuidByExternalId(set_type, obj);
+        public virtual bool SetPhotoUuidExternalId(string set_type, Photo obj)  {            
+            return data.SetPhotoUuidExternalId(set_type, obj);
         }    
-        public virtual bool DelPhotoByUuid(
+        public virtual bool DelPhotoUuid(
             string uuid
         )  {
-            return data.DelPhotoByUuid(
+            return data.DelPhotoUuid(
                 uuid
             );
         }                     
-        public virtual bool DelPhotoByExternalId(
+        public virtual bool DelPhotoExternalId(
             string external_id
         )  {
-            return data.DelPhotoByExternalId(
+            return data.DelPhotoExternalId(
                 external_id
             );
         }                     
-        public virtual bool DelPhotoByUrl(
+        public virtual bool DelPhotoUrl(
             string url
         )  {
-            return data.DelPhotoByUrl(
+            return data.DelPhotoUrl(
                 url
             );
         }                     
-        public virtual bool DelPhotoByUrlByExternalId(
+        public virtual bool DelPhotoUrlExternalId(
             string url
             , string external_id
         )  {
-            return data.DelPhotoByUrlByExternalId(
+            return data.DelPhotoUrlExternalId(
                 url
                 , external_id
             );
         }                     
-        public virtual bool DelPhotoByUuidByExternalId(
+        public virtual bool DelPhotoUuidExternalId(
             string uuid
             , string external_id
         )  {
-            return data.DelPhotoByUuidByExternalId(
+            return data.DelPhotoUuidExternalId(
                 uuid
                 , external_id
             );
@@ -6568,11 +6568,11 @@ namespace platform {
         }
         
         
-        public virtual List<Photo> GetPhotoListByUuid(
+        public virtual List<Photo> GetPhotoListUuid(
             string uuid
         )  {
             List<Photo> list = new List<Photo>();
-            DataSet ds = data.GetPhotoListByUuid(
+            DataSet ds = data.GetPhotoListUuid(
                 uuid
             );
             if(ds != null) {
@@ -6587,11 +6587,11 @@ namespace platform {
         }
         
         
-        public virtual List<Photo> GetPhotoListByExternalId(
+        public virtual List<Photo> GetPhotoListExternalId(
             string external_id
         )  {
             List<Photo> list = new List<Photo>();
-            DataSet ds = data.GetPhotoListByExternalId(
+            DataSet ds = data.GetPhotoListExternalId(
                 external_id
             );
             if(ds != null) {
@@ -6606,11 +6606,11 @@ namespace platform {
         }
         
         
-        public virtual List<Photo> GetPhotoListByUrl(
+        public virtual List<Photo> GetPhotoListUrl(
             string url
         )  {
             List<Photo> list = new List<Photo>();
-            DataSet ds = data.GetPhotoListByUrl(
+            DataSet ds = data.GetPhotoListUrl(
                 url
             );
             if(ds != null) {
@@ -6625,12 +6625,12 @@ namespace platform {
         }
         
         
-        public virtual List<Photo> GetPhotoListByUrlByExternalId(
+        public virtual List<Photo> GetPhotoListUrlExternalId(
             string url
             , string external_id
         )  {
             List<Photo> list = new List<Photo>();
-            DataSet ds = data.GetPhotoListByUrlByExternalId(
+            DataSet ds = data.GetPhotoListUrlExternalId(
                 url
                 , external_id
             );
@@ -6646,12 +6646,12 @@ namespace platform {
         }
         
         
-        public virtual List<Photo> GetPhotoListByUuidByExternalId(
+        public virtual List<Photo> GetPhotoListUuidExternalId(
             string uuid
             , string external_id
         )  {
             List<Photo> list = new List<Photo>();
-            DataSet ds = data.GetPhotoListByUuidByExternalId(
+            DataSet ds = data.GetPhotoListUuidExternalId(
                 uuid
                 , external_id
             );
@@ -6714,50 +6714,50 @@ namespace platform {
             return data.CountVideo(
             );
         }       
-        public virtual int CountVideoByUuid(
+        public virtual int CountVideoUuid(
             string uuid
         )  {            
-            return data.CountVideoByUuid(
+            return data.CountVideoUuid(
                 uuid
             );
         }       
-        public virtual int CountVideoByExternalId(
+        public virtual int CountVideoExternalId(
             string external_id
         )  {            
-            return data.CountVideoByExternalId(
+            return data.CountVideoExternalId(
                 external_id
             );
         }       
-        public virtual int CountVideoByUrl(
+        public virtual int CountVideoUrl(
             string url
         )  {            
-            return data.CountVideoByUrl(
+            return data.CountVideoUrl(
                 url
             );
         }       
-        public virtual int CountVideoByUrlByExternalId(
+        public virtual int CountVideoUrlExternalId(
             string url
             , string external_id
         )  {            
-            return data.CountVideoByUrlByExternalId(
+            return data.CountVideoUrlExternalId(
                 url
                 , external_id
             );
         }       
-        public virtual int CountVideoByUuidByExternalId(
+        public virtual int CountVideoUuidExternalId(
             string uuid
             , string external_id
         )  {            
-            return data.CountVideoByUuidByExternalId(
+            return data.CountVideoUuidExternalId(
                 uuid
                 , external_id
             );
         }       
-        public virtual VideoResult BrowseVideoListByFilter(SearchFilter obj)  {
+        public virtual VideoResult BrowseVideoListFilter(SearchFilter obj)  {
             VideoResult result = new VideoResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseVideoListByFilter(obj);
+            DataSet ds = data.BrowseVideoListFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -6770,56 +6770,56 @@ namespace platform {
             }
             return result;
         }
-        public virtual bool SetVideoByUuid(string set_type, Video obj)  {            
-            return data.SetVideoByUuid(set_type, obj);
+        public virtual bool SetVideoUuid(string set_type, Video obj)  {            
+            return data.SetVideoUuid(set_type, obj);
         }    
-        public virtual bool SetVideoByExternalId(string set_type, Video obj)  {            
-            return data.SetVideoByExternalId(set_type, obj);
+        public virtual bool SetVideoExternalId(string set_type, Video obj)  {            
+            return data.SetVideoExternalId(set_type, obj);
         }    
-        public virtual bool SetVideoByUrl(string set_type, Video obj)  {            
-            return data.SetVideoByUrl(set_type, obj);
+        public virtual bool SetVideoUrl(string set_type, Video obj)  {            
+            return data.SetVideoUrl(set_type, obj);
         }    
-        public virtual bool SetVideoByUrlByExternalId(string set_type, Video obj)  {            
-            return data.SetVideoByUrlByExternalId(set_type, obj);
+        public virtual bool SetVideoUrlExternalId(string set_type, Video obj)  {            
+            return data.SetVideoUrlExternalId(set_type, obj);
         }    
-        public virtual bool SetVideoByUuidByExternalId(string set_type, Video obj)  {            
-            return data.SetVideoByUuidByExternalId(set_type, obj);
+        public virtual bool SetVideoUuidExternalId(string set_type, Video obj)  {            
+            return data.SetVideoUuidExternalId(set_type, obj);
         }    
-        public virtual bool DelVideoByUuid(
+        public virtual bool DelVideoUuid(
             string uuid
         )  {
-            return data.DelVideoByUuid(
+            return data.DelVideoUuid(
                 uuid
             );
         }                     
-        public virtual bool DelVideoByExternalId(
+        public virtual bool DelVideoExternalId(
             string external_id
         )  {
-            return data.DelVideoByExternalId(
+            return data.DelVideoExternalId(
                 external_id
             );
         }                     
-        public virtual bool DelVideoByUrl(
+        public virtual bool DelVideoUrl(
             string url
         )  {
-            return data.DelVideoByUrl(
+            return data.DelVideoUrl(
                 url
             );
         }                     
-        public virtual bool DelVideoByUrlByExternalId(
+        public virtual bool DelVideoUrlExternalId(
             string url
             , string external_id
         )  {
-            return data.DelVideoByUrlByExternalId(
+            return data.DelVideoUrlExternalId(
                 url
                 , external_id
             );
         }                     
-        public virtual bool DelVideoByUuidByExternalId(
+        public virtual bool DelVideoUuidExternalId(
             string uuid
             , string external_id
         )  {
-            return data.DelVideoByUuidByExternalId(
+            return data.DelVideoUuidExternalId(
                 uuid
                 , external_id
             );
@@ -6841,11 +6841,11 @@ namespace platform {
         }
         
         
-        public virtual List<Video> GetVideoListByUuid(
+        public virtual List<Video> GetVideoListUuid(
             string uuid
         )  {
             List<Video> list = new List<Video>();
-            DataSet ds = data.GetVideoListByUuid(
+            DataSet ds = data.GetVideoListUuid(
                 uuid
             );
             if(ds != null) {
@@ -6860,11 +6860,11 @@ namespace platform {
         }
         
         
-        public virtual List<Video> GetVideoListByExternalId(
+        public virtual List<Video> GetVideoListExternalId(
             string external_id
         )  {
             List<Video> list = new List<Video>();
-            DataSet ds = data.GetVideoListByExternalId(
+            DataSet ds = data.GetVideoListExternalId(
                 external_id
             );
             if(ds != null) {
@@ -6879,11 +6879,11 @@ namespace platform {
         }
         
         
-        public virtual List<Video> GetVideoListByUrl(
+        public virtual List<Video> GetVideoListUrl(
             string url
         )  {
             List<Video> list = new List<Video>();
-            DataSet ds = data.GetVideoListByUrl(
+            DataSet ds = data.GetVideoListUrl(
                 url
             );
             if(ds != null) {
@@ -6898,12 +6898,12 @@ namespace platform {
         }
         
         
-        public virtual List<Video> GetVideoListByUrlByExternalId(
+        public virtual List<Video> GetVideoListUrlExternalId(
             string url
             , string external_id
         )  {
             List<Video> list = new List<Video>();
-            DataSet ds = data.GetVideoListByUrlByExternalId(
+            DataSet ds = data.GetVideoListUrlExternalId(
                 url
                 , external_id
             );
@@ -6919,12 +6919,12 @@ namespace platform {
         }
         
         
-        public virtual List<Video> GetVideoListByUuidByExternalId(
+        public virtual List<Video> GetVideoListUuidExternalId(
             string uuid
             , string external_id
         )  {
             List<Video> list = new List<Video>();
-            DataSet ds = data.GetVideoListByUuidByExternalId(
+            DataSet ds = data.GetVideoListUuidExternalId(
                 uuid
                 , external_id
             );

@@ -42,6 +42,8 @@ import GameProduct
 from GameProduct import *
 import GameStatisticLeaderboard
 from GameStatisticLeaderboard import *
+import GameStatisticLeaderboardItem
+from GameStatisticLeaderboardItem import *
 import GameStatisticLeaderboardRollup
 from GameStatisticLeaderboardRollup import *
 import GameLiveQueue
@@ -107,6 +109,8 @@ __all__ = [
     , "GameProductResult"
     , "GameStatisticLeaderboard"
     , "GameStatisticLeaderboardResult"
+    , "GameStatisticLeaderboardItem"
+    , "GameStatisticLeaderboardItemResult"
     , "GameStatisticLeaderboardRollup"
     , "GameStatisticLeaderboardRollupResult"
     , "GameLiveQueue"

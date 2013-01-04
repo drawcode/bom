@@ -44,7 +44,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameByUuid(
+    public function CountGameUuid(
         $uuid
     ) {
         $parameters = array();
@@ -66,7 +66,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameByCode(
+    public function CountGameCode(
         $code
     ) {
         $parameters = array();
@@ -88,7 +88,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameByName(
+    public function CountGameName(
         $name
     ) {
         $parameters = array();
@@ -110,7 +110,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameByOrgId(
+    public function CountGameOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -132,7 +132,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameByAppId(
+    public function CountGameAppId(
         $app_id
     ) {
         $parameters = array();
@@ -154,7 +154,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameByOrgIdByAppId(
+    public function CountGameOrgIdAppId(
         $org_id
         , $app_id
     ) {
@@ -179,7 +179,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameListByFilter($filter_obj) {
+    public function BrowseGameListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -200,7 +200,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameByUuid($set_type, $obj) {
+    public function SetGameUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -247,7 +247,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameByCode($set_type, $obj) {
+    public function SetGameCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -294,7 +294,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameByName($set_type, $obj) {
+    public function SetGameName($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -341,7 +341,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameByOrgId($set_type, $obj) {
+    public function SetGameOrgId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -388,7 +388,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameByAppId($set_type, $obj) {
+    public function SetGameAppId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -435,7 +435,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameByOrgIdByAppId($set_type, $obj) {
+    public function SetGameOrgIdAppId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -483,7 +483,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameByUuid(
+    public function DelGameUuid(
         $uuid
     ) {
         $parameters = array();
@@ -506,7 +506,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameByCode(
+    public function DelGameCode(
         $code
     ) {
         $parameters = array();
@@ -529,7 +529,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameByName(
+    public function DelGameName(
         $name
     ) {
         $parameters = array();
@@ -552,7 +552,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameByOrgId(
+    public function DelGameOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -575,7 +575,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameByAppId(
+    public function DelGameAppId(
         $app_id
     ) {
         $parameters = array();
@@ -598,7 +598,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameByOrgIdByAppId(
+    public function DelGameOrgIdAppId(
         $org_id
         , $app_id
     ) {
@@ -644,7 +644,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameListByUuid(
+    public function GetGameListUuid(
         $uuid
     ) {
             
@@ -667,7 +667,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameListByCode(
+    public function GetGameListCode(
         $code
     ) {
             
@@ -690,7 +690,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameListByName(
+    public function GetGameListName(
         $name
     ) {
             
@@ -713,7 +713,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameListByOrgId(
+    public function GetGameListOrgId(
         $org_id
     ) {
             
@@ -736,7 +736,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameListByAppId(
+    public function GetGameListAppId(
         $app_id
     ) {
             
@@ -759,7 +759,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameListByOrgIdByAppId(
+    public function GetGameListOrgIdAppId(
         $org_id
         , $app_id
     ) {
@@ -804,7 +804,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryByUuid(
+    public function CountGameCategoryUuid(
         $uuid
     ) {
         $parameters = array();
@@ -826,7 +826,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryByCode(
+    public function CountGameCategoryCode(
         $code
     ) {
         $parameters = array();
@@ -848,7 +848,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryByName(
+    public function CountGameCategoryName(
         $name
     ) {
         $parameters = array();
@@ -870,7 +870,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryByOrgId(
+    public function CountGameCategoryOrgId(
         $org_id
     ) {
         $parameters = array();
@@ -892,7 +892,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryByTypeId(
+    public function CountGameCategoryTypeId(
         $type_id
     ) {
         $parameters = array();
@@ -914,7 +914,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryByOrgIdByTypeId(
+    public function CountGameCategoryOrgIdTypeId(
         $org_id
         , $type_id
     ) {
@@ -939,7 +939,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameCategoryListByFilter($filter_obj) {
+    public function BrowseGameCategoryListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -960,7 +960,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameCategoryByUuid($set_type, $obj) {
+    public function SetGameCategoryUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1007,7 +1007,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameCategoryByUuid(
+    public function DelGameCategoryUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1030,7 +1030,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameCategoryByCodeByOrgId(
+    public function DelGameCategoryCodeOrgId(
         $code
         , $org_id
     ) {
@@ -1056,7 +1056,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameCategoryByCodeByOrgIdByTypeId(
+    public function DelGameCategoryCodeOrgIdTypeId(
         $code
         , $org_id
         , $type_id
@@ -1105,7 +1105,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryListByUuid(
+    public function GetGameCategoryListUuid(
         $uuid
     ) {
             
@@ -1128,7 +1128,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryListByCode(
+    public function GetGameCategoryListCode(
         $code
     ) {
             
@@ -1151,7 +1151,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryListByName(
+    public function GetGameCategoryListName(
         $name
     ) {
             
@@ -1174,7 +1174,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryListByOrgId(
+    public function GetGameCategoryListOrgId(
         $org_id
     ) {
             
@@ -1197,7 +1197,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryListByTypeId(
+    public function GetGameCategoryListTypeId(
         $type_id
     ) {
             
@@ -1220,7 +1220,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryListByOrgIdByTypeId(
+    public function GetGameCategoryListOrgIdTypeId(
         $org_id
         , $type_id
     ) {
@@ -1265,7 +1265,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryTreeByUuid(
+    public function CountGameCategoryTreeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1287,7 +1287,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryTreeByParentId(
+    public function CountGameCategoryTreeParentId(
         $parent_id
     ) {
         $parameters = array();
@@ -1309,7 +1309,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryTreeByCategoryId(
+    public function CountGameCategoryTreeCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -1331,7 +1331,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryTreeByParentIdByCategoryId(
+    public function CountGameCategoryTreeParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -1356,7 +1356,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameCategoryTreeListByFilter($filter_obj) {
+    public function BrowseGameCategoryTreeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -1377,7 +1377,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameCategoryTreeByUuid($set_type, $obj) {
+    public function SetGameCategoryTreeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1416,7 +1416,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameCategoryTreeByUuid(
+    public function DelGameCategoryTreeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1439,7 +1439,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameCategoryTreeByParentId(
+    public function DelGameCategoryTreeParentId(
         $parent_id
     ) {
         $parameters = array();
@@ -1462,7 +1462,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameCategoryTreeByCategoryId(
+    public function DelGameCategoryTreeCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -1485,7 +1485,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameCategoryTreeByParentIdByCategoryId(
+    public function DelGameCategoryTreeParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -1531,7 +1531,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryTreeListByUuid(
+    public function GetGameCategoryTreeListUuid(
         $uuid
     ) {
             
@@ -1554,7 +1554,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryTreeListByParentId(
+    public function GetGameCategoryTreeListParentId(
         $parent_id
     ) {
             
@@ -1577,7 +1577,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryTreeListByCategoryId(
+    public function GetGameCategoryTreeListCategoryId(
         $category_id
     ) {
             
@@ -1600,7 +1600,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryTreeListByParentIdByCategoryId(
+    public function GetGameCategoryTreeListParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
@@ -1645,7 +1645,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryAssocByUuid(
+    public function CountGameCategoryAssocUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1667,7 +1667,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryAssocByGameId(
+    public function CountGameCategoryAssocGameId(
         $game_id
     ) {
         $parameters = array();
@@ -1689,7 +1689,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryAssocByCategoryId(
+    public function CountGameCategoryAssocCategoryId(
         $category_id
     ) {
         $parameters = array();
@@ -1711,7 +1711,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameCategoryAssocByGameIdByCategoryId(
+    public function CountGameCategoryAssocGameIdCategoryId(
         $game_id
         , $category_id
     ) {
@@ -1736,7 +1736,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameCategoryAssocListByFilter($filter_obj) {
+    public function BrowseGameCategoryAssocListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -1757,7 +1757,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameCategoryAssocByUuid($set_type, $obj) {
+    public function SetGameCategoryAssocUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1796,7 +1796,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameCategoryAssocByUuid(
+    public function DelGameCategoryAssocUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1839,7 +1839,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryAssocListByUuid(
+    public function GetGameCategoryAssocListUuid(
         $uuid
     ) {
             
@@ -1862,7 +1862,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryAssocListByGameId(
+    public function GetGameCategoryAssocListGameId(
         $game_id
     ) {
             
@@ -1885,7 +1885,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryAssocListByCategoryId(
+    public function GetGameCategoryAssocListCategoryId(
         $category_id
     ) {
             
@@ -1908,7 +1908,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameCategoryAssocListByGameIdByCategoryId(
+    public function GetGameCategoryAssocListGameIdCategoryId(
         $game_id
         , $category_id
     ) {
@@ -1953,7 +1953,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameTypeByUuid(
+    public function CountGameTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1975,7 +1975,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameTypeByCode(
+    public function CountGameTypeCode(
         $code
     ) {
         $parameters = array();
@@ -1997,7 +1997,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameTypeByName(
+    public function CountGameTypeName(
         $name
     ) {
         $parameters = array();
@@ -2019,7 +2019,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameTypeListByFilter($filter_obj) {
+    public function BrowseGameTypeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2040,7 +2040,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameTypeByUuid($set_type, $obj) {
+    public function SetGameTypeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2083,7 +2083,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameTypeByUuid(
+    public function DelGameTypeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2126,7 +2126,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameTypeListByUuid(
+    public function GetGameTypeListUuid(
         $uuid
     ) {
             
@@ -2149,7 +2149,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameTypeListByCode(
+    public function GetGameTypeListCode(
         $code
     ) {
             
@@ -2172,7 +2172,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameTypeListByName(
+    public function GetGameTypeListName(
         $name
     ) {
             
@@ -2214,7 +2214,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameByUuid(
+    public function CountProfileGameUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2236,7 +2236,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameByGameId(
+    public function CountProfileGameGameId(
         $game_id
     ) {
         $parameters = array();
@@ -2258,7 +2258,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameByProfileId(
+    public function CountProfileGameProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -2280,7 +2280,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameByProfileIdByGameId(
+    public function CountProfileGameProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -2305,7 +2305,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseProfileGameListByFilter($filter_obj) {
+    public function BrowseProfileGameListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2326,7 +2326,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetProfileGameByUuid($set_type, $obj) {
+    public function SetProfileGameUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2371,7 +2371,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelProfileGameByUuid(
+    public function DelProfileGameUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2414,7 +2414,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameListByUuid(
+    public function GetProfileGameListUuid(
         $uuid
     ) {
             
@@ -2437,7 +2437,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameListByGameId(
+    public function GetProfileGameListGameId(
         $game_id
     ) {
             
@@ -2460,7 +2460,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameListByProfileId(
+    public function GetProfileGameListProfileId(
         $profile_id
     ) {
             
@@ -2483,7 +2483,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameListByProfileIdByGameId(
+    public function GetProfileGameListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -2528,7 +2528,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameNetworkByUuid(
+    public function CountGameNetworkUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2550,7 +2550,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameNetworkByCode(
+    public function CountGameNetworkCode(
         $code
     ) {
         $parameters = array();
@@ -2572,7 +2572,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameNetworkByUuidByType(
+    public function CountGameNetworkUuidType(
         $uuid
         , $type
     ) {
@@ -2597,7 +2597,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameNetworkListByFilter($filter_obj) {
+    public function BrowseGameNetworkListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2618,7 +2618,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameNetworkByUuid($set_type, $obj) {
+    public function SetGameNetworkUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2667,7 +2667,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameNetworkByCode($set_type, $obj) {
+    public function SetGameNetworkCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2716,7 +2716,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameNetworkByUuid(
+    public function DelGameNetworkUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2759,7 +2759,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameNetworkListByUuid(
+    public function GetGameNetworkListUuid(
         $uuid
     ) {
             
@@ -2782,7 +2782,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameNetworkListByCode(
+    public function GetGameNetworkListCode(
         $code
     ) {
             
@@ -2805,7 +2805,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameNetworkListByUuidByType(
+    public function GetGameNetworkListUuidType(
         $uuid
         , $type
     ) {
@@ -2850,7 +2850,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameNetworkAuthByUuid(
+    public function CountGameNetworkAuthUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2872,7 +2872,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameNetworkAuthByGameIdByGameNetworkId(
+    public function CountGameNetworkAuthGameIdGameNetworkId(
         $game_id
         , $game_network_id
     ) {
@@ -2897,7 +2897,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameNetworkAuthListByFilter($filter_obj) {
+    public function BrowseGameNetworkAuthListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2918,7 +2918,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameNetworkAuthByUuid($set_type, $obj) {
+    public function SetGameNetworkAuthUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2973,7 +2973,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameNetworkAuthByGameIdByGameNetworkId($set_type, $obj) {
+    public function SetGameNetworkAuthGameIdGameNetworkId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3029,7 +3029,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameNetworkAuthByUuid(
+    public function DelGameNetworkAuthUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3072,7 +3072,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameNetworkAuthListByUuid(
+    public function GetGameNetworkAuthListUuid(
         $uuid
     ) {
             
@@ -3095,7 +3095,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameNetworkAuthListByGameIdByGameNetworkId(
+    public function GetGameNetworkAuthListGameIdGameNetworkId(
         $game_id
         , $game_network_id
     ) {
@@ -3140,7 +3140,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameNetworkByUuid(
+    public function CountProfileGameNetworkUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3162,7 +3162,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameNetworkByGameId(
+    public function CountProfileGameNetworkGameId(
         $game_id
     ) {
         $parameters = array();
@@ -3184,7 +3184,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameNetworkByProfileId(
+    public function CountProfileGameNetworkProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -3206,7 +3206,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameNetworkByProfileIdByGameId(
+    public function CountProfileGameNetworkProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -3231,7 +3231,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameNetworkByProfileIdByGameId(
+    public function CountProfileGameNetworkProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -3256,7 +3256,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+    public function CountProfileGameNetworkProfileIdGameIdGameNetworkId(
         $profile_id
         , $game_id
         , $game_network_id
@@ -3284,7 +3284,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+    public function CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
         $network_username
         , $game_id
         , $game_network_id
@@ -3312,7 +3312,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseProfileGameNetworkListByFilter($filter_obj) {
+    public function BrowseProfileGameNetworkListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -3333,7 +3333,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetProfileGameNetworkByUuid($set_type, $obj) {
+    public function SetProfileGameNetworkUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3390,7 +3390,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetProfileGameNetworkByProfileIdByGameId($set_type, $obj) {
+    public function SetProfileGameNetworkProfileIdGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3448,7 +3448,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId($set_type, $obj) {
+    public function SetProfileGameNetworkProfileIdGameIdGameNetworkId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3507,7 +3507,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId($set_type, $obj) {
+    public function SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3566,7 +3566,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelProfileGameNetworkByUuid(
+    public function DelProfileGameNetworkUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3589,7 +3589,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelProfileGameNetworkByProfileIdByGameId(
+    public function DelProfileGameNetworkProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -3615,7 +3615,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+    public function DelProfileGameNetworkProfileIdGameIdGameNetworkId(
         $profile_id
         , $game_id
         , $game_network_id
@@ -3644,7 +3644,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+    public function DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
         $network_username
         , $game_id
         , $game_network_id
@@ -3693,7 +3693,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameNetworkListByUuid(
+    public function GetProfileGameNetworkListUuid(
         $uuid
     ) {
             
@@ -3716,7 +3716,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameNetworkListByGameId(
+    public function GetProfileGameNetworkListGameId(
         $game_id
     ) {
             
@@ -3739,7 +3739,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameNetworkListByProfileId(
+    public function GetProfileGameNetworkListProfileId(
         $profile_id
     ) {
             
@@ -3762,7 +3762,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameNetworkListByProfileIdByGameId(
+    public function GetProfileGameNetworkListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -3788,7 +3788,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+    public function GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
         $profile_id
         , $game_id
         , $game_network_id
@@ -3817,7 +3817,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+    public function GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
         $network_username
         , $game_id
         , $game_network_id
@@ -3865,7 +3865,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameDataAttributeByUuid(
+    public function CountProfileGameDataAttributeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3887,7 +3887,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameDataAttributeByProfileId(
+    public function CountProfileGameDataAttributeProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -3909,7 +3909,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameDataAttributeByProfileIdByGameIdByCode(
+    public function CountProfileGameDataAttributeProfileIdGameIdCode(
         $profile_id
         , $game_id
         , $code
@@ -3937,7 +3937,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseProfileGameDataAttributeListByFilter($filter_obj) {
+    public function BrowseProfileGameDataAttributeListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -3958,7 +3958,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetProfileGameDataAttributeByUuid($set_type, $obj) {
+    public function SetProfileGameDataAttributeUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -4005,7 +4005,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetProfileGameDataAttributeByProfileId($set_type, $obj) {
+    public function SetProfileGameDataAttributeProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -4052,7 +4052,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetProfileGameDataAttributeByProfileIdByGameIdByCode($set_type, $obj) {
+    public function SetProfileGameDataAttributeProfileIdGameIdCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -4101,7 +4101,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelProfileGameDataAttributeByUuid(
+    public function DelProfileGameDataAttributeUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4124,7 +4124,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelProfileGameDataAttributeByProfileId(
+    public function DelProfileGameDataAttributeProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -4147,7 +4147,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelProfileGameDataAttributeByProfileIdByGameIdByCode(
+    public function DelProfileGameDataAttributeProfileIdGameIdCode(
         $profile_id
         , $game_id
         , $code
@@ -4176,7 +4176,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function GetProfileGameDataAttributeListByUuid(
+    public function GetProfileGameDataAttributeListUuid(
         $uuid
     ) {
             
@@ -4199,7 +4199,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameDataAttributeListByProfileId(
+    public function GetProfileGameDataAttributeListProfileId(
         $profile_id
     ) {
             
@@ -4222,7 +4222,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+    public function GetProfileGameDataAttributeListProfileIdGameIdCode(
         $profile_id
         , $game_id
         , $code
@@ -4270,7 +4270,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameSessionByUuid(
+    public function CountGameSessionUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4292,7 +4292,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameSessionByGameId(
+    public function CountGameSessionGameId(
         $game_id
     ) {
         $parameters = array();
@@ -4314,7 +4314,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameSessionByProfileId(
+    public function CountGameSessionProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -4336,7 +4336,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameSessionByProfileIdByGameId(
+    public function CountGameSessionProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -4361,7 +4361,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameSessionListByFilter($filter_obj) {
+    public function BrowseGameSessionListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -4382,7 +4382,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameSessionByUuid($set_type, $obj) {
+    public function SetGameSessionUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -4469,7 +4469,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameSessionByUuid(
+    public function DelGameSessionUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4512,7 +4512,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameSessionListByUuid(
+    public function GetGameSessionListUuid(
         $uuid
     ) {
             
@@ -4535,7 +4535,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameSessionListByGameId(
+    public function GetGameSessionListGameId(
         $game_id
     ) {
             
@@ -4558,7 +4558,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameSessionListByProfileId(
+    public function GetGameSessionListProfileId(
         $profile_id
     ) {
             
@@ -4581,7 +4581,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameSessionListByProfileIdByGameId(
+    public function GetGameSessionListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -4626,7 +4626,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameSessionDataByUuid(
+    public function CountGameSessionDataUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4648,7 +4648,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameSessionDataListByFilter($filter_obj) {
+    public function BrowseGameSessionDataListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -4669,7 +4669,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameSessionDataByUuid($set_type, $obj) {
+    public function SetGameSessionDataUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -4722,7 +4722,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameSessionDataByUuid(
+    public function DelGameSessionDataUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4765,7 +4765,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameSessionDataListByUuid(
+    public function GetGameSessionDataListUuid(
         $uuid
     ) {
             
@@ -4807,7 +4807,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameContentByUuid(
+    public function CountGameContentUuid(
         $uuid
     ) {
         $parameters = array();
@@ -4829,7 +4829,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameContentByGameId(
+    public function CountGameContentGameId(
         $game_id
     ) {
         $parameters = array();
@@ -4851,7 +4851,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameContentByGameIdByPath(
+    public function CountGameContentGameIdPath(
         $game_id
         , $path
     ) {
@@ -4876,7 +4876,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameContentByGameIdByPathByVersion(
+    public function CountGameContentGameIdPathVersion(
         $game_id
         , $path
         , $version
@@ -4904,7 +4904,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameContentByGameIdByPathByVersionByPlatformByIncrement(
+    public function CountGameContentGameIdPathVersionPlatformIncrement(
         $game_id
         , $path
         , $version
@@ -4938,7 +4938,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameContentListByFilter($filter_obj) {
+    public function BrowseGameContentListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -4959,7 +4959,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameContentByUuid($set_type, $obj) {
+    public function SetGameContentUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5024,7 +5024,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameContentByGameId($set_type, $obj) {
+    public function SetGameContentGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5089,7 +5089,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameContentByGameIdByPath($set_type, $obj) {
+    public function SetGameContentGameIdPath($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5155,7 +5155,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameContentByGameIdByPathByVersion($set_type, $obj) {
+    public function SetGameContentGameIdPathVersion($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5222,7 +5222,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameContentByGameIdByPathByVersionByPlatformByIncrement($set_type, $obj) {
+    public function SetGameContentGameIdPathVersionPlatformIncrement($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5291,7 +5291,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameContentByUuid(
+    public function DelGameContentUuid(
         $uuid
     ) {
         $parameters = array();
@@ -5314,7 +5314,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameContentByGameId(
+    public function DelGameContentGameId(
         $game_id
     ) {
         $parameters = array();
@@ -5337,7 +5337,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameContentByGameIdByPath(
+    public function DelGameContentGameIdPath(
         $game_id
         , $path
     ) {
@@ -5363,7 +5363,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameContentByGameIdByPathByVersion(
+    public function DelGameContentGameIdPathVersion(
         $game_id
         , $path
         , $version
@@ -5392,7 +5392,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameContentByGameIdByPathByVersionByPlatformByIncrement(
+    public function DelGameContentGameIdPathVersionPlatformIncrement(
         $game_id
         , $path
         , $version
@@ -5447,7 +5447,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameContentListByUuid(
+    public function GetGameContentListUuid(
         $uuid
     ) {
             
@@ -5470,7 +5470,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameContentListByGameId(
+    public function GetGameContentListGameId(
         $game_id
     ) {
             
@@ -5493,7 +5493,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameContentListByGameIdByPath(
+    public function GetGameContentListGameIdPath(
         $game_id
         , $path
     ) {
@@ -5519,7 +5519,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameContentListByGameIdByPathByVersion(
+    public function GetGameContentListGameIdPathVersion(
         $game_id
         , $path
         , $version
@@ -5548,7 +5548,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+    public function GetGameContentListGameIdPathVersionPlatformIncrement(
         $game_id
         , $path
         , $version
@@ -5602,7 +5602,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByUuid(
+    public function CountGameProfileContentUuid(
         $uuid
     ) {
         $parameters = array();
@@ -5624,7 +5624,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByGameIdByProfileId(
+    public function CountGameProfileContentGameIdProfileId(
         $game_id
         , $profile_id
     ) {
@@ -5649,7 +5649,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByGameIdByUsername(
+    public function CountGameProfileContentGameIdUsername(
         $game_id
         , $username
     ) {
@@ -5674,7 +5674,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByUsername(
+    public function CountGameProfileContentUsername(
         $username
     ) {
         $parameters = array();
@@ -5696,7 +5696,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByGameIdByProfileIdByPath(
+    public function CountGameProfileContentGameIdProfileIdPath(
         $game_id
         , $profile_id
         , $path
@@ -5724,7 +5724,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByGameIdByProfileIdByPathByVersion(
+    public function CountGameProfileContentGameIdProfileIdPathVersion(
         $game_id
         , $profile_id
         , $path
@@ -5755,7 +5755,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+    public function CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
         $game_id
         , $profile_id
         , $path
@@ -5792,7 +5792,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByGameIdByUsernameByPath(
+    public function CountGameProfileContentGameIdUsernamePath(
         $game_id
         , $username
         , $path
@@ -5820,7 +5820,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByGameIdByUsernameByPathByVersion(
+    public function CountGameProfileContentGameIdUsernamePathVersion(
         $game_id
         , $username
         , $path
@@ -5851,7 +5851,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+    public function CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
         $game_id
         , $username
         , $path
@@ -5888,7 +5888,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameProfileContentListByFilter($filter_obj) {
+    public function BrowseGameProfileContentListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -5909,7 +5909,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameProfileContentByUuid($set_type, $obj) {
+    public function SetGameProfileContentUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -5980,7 +5980,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByGameIdByProfileId($set_type, $obj) {
+    public function SetGameProfileContentGameIdProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6052,7 +6052,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByGameIdByUsername($set_type, $obj) {
+    public function SetGameProfileContentGameIdUsername($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6124,7 +6124,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByUsername($set_type, $obj) {
+    public function SetGameProfileContentUsername($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6195,7 +6195,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByGameIdByProfileIdByPath($set_type, $obj) {
+    public function SetGameProfileContentGameIdProfileIdPath($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6268,7 +6268,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByGameIdByProfileIdByPathByVersion($set_type, $obj) {
+    public function SetGameProfileContentGameIdProfileIdPathVersion($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6342,7 +6342,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement($set_type, $obj) {
+    public function SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6418,7 +6418,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByGameIdByUsernameByPath($set_type, $obj) {
+    public function SetGameProfileContentGameIdUsernamePath($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6491,7 +6491,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByGameIdByUsernameByPathByVersion($set_type, $obj) {
+    public function SetGameProfileContentGameIdUsernamePathVersion($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6565,7 +6565,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement($set_type, $obj) {
+    public function SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -6641,7 +6641,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameProfileContentByUuid(
+    public function DelGameProfileContentUuid(
         $uuid
     ) {
         $parameters = array();
@@ -6664,7 +6664,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByGameIdByProfileId(
+    public function DelGameProfileContentGameIdProfileId(
         $game_id
         , $profile_id
     ) {
@@ -6690,7 +6690,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByGameIdByUsername(
+    public function DelGameProfileContentGameIdUsername(
         $game_id
         , $username
     ) {
@@ -6716,7 +6716,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByUsername(
+    public function DelGameProfileContentUsername(
         $username
     ) {
         $parameters = array();
@@ -6739,7 +6739,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByGameIdByProfileIdByPath(
+    public function DelGameProfileContentGameIdProfileIdPath(
         $game_id
         , $profile_id
         , $path
@@ -6768,7 +6768,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByGameIdByProfileIdByPathByVersion(
+    public function DelGameProfileContentGameIdProfileIdPathVersion(
         $game_id
         , $profile_id
         , $path
@@ -6800,7 +6800,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+    public function DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
         $game_id
         , $profile_id
         , $path
@@ -6838,7 +6838,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByGameIdByUsernameByPath(
+    public function DelGameProfileContentGameIdUsernamePath(
         $game_id
         , $username
         , $path
@@ -6867,7 +6867,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByGameIdByUsernameByPathByVersion(
+    public function DelGameProfileContentGameIdUsernamePathVersion(
         $game_id
         , $username
         , $path
@@ -6899,7 +6899,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+    public function DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
         $game_id
         , $username
         , $path
@@ -6957,7 +6957,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByUuid(
+    public function GetGameProfileContentListUuid(
         $uuid
     ) {
             
@@ -6980,7 +6980,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByGameIdByProfileId(
+    public function GetGameProfileContentListGameIdProfileId(
         $game_id
         , $profile_id
     ) {
@@ -7006,7 +7006,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByGameIdByUsername(
+    public function GetGameProfileContentListGameIdUsername(
         $game_id
         , $username
     ) {
@@ -7032,7 +7032,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByUsername(
+    public function GetGameProfileContentListUsername(
         $username
     ) {
             
@@ -7055,7 +7055,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByGameIdByProfileIdByPath(
+    public function GetGameProfileContentListGameIdProfileIdPath(
         $game_id
         , $profile_id
         , $path
@@ -7084,7 +7084,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+    public function GetGameProfileContentListGameIdProfileIdPathVersion(
         $game_id
         , $profile_id
         , $path
@@ -7116,7 +7116,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+    public function GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
         $game_id
         , $profile_id
         , $path
@@ -7154,7 +7154,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByGameIdByUsernameByPath(
+    public function GetGameProfileContentListGameIdUsernamePath(
         $game_id
         , $username
         , $path
@@ -7183,7 +7183,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByGameIdByUsernameByPathByVersion(
+    public function GetGameProfileContentListGameIdUsernamePathVersion(
         $game_id
         , $username
         , $path
@@ -7215,7 +7215,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+    public function GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
         $game_id
         , $username
         , $path
@@ -7272,7 +7272,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAppByUuid(
+    public function CountGameAppUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7294,7 +7294,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAppByGameId(
+    public function CountGameAppGameId(
         $game_id
     ) {
         $parameters = array();
@@ -7316,7 +7316,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAppByAppId(
+    public function CountGameAppAppId(
         $app_id
     ) {
         $parameters = array();
@@ -7338,7 +7338,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAppByGameIdByAppId(
+    public function CountGameAppGameIdAppId(
         $game_id
         , $app_id
     ) {
@@ -7363,7 +7363,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameAppListByFilter($filter_obj) {
+    public function BrowseGameAppListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -7384,7 +7384,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameAppByUuid($set_type, $obj) {
+    public function SetGameAppUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -7423,7 +7423,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameAppByUuid(
+    public function DelGameAppUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7466,7 +7466,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameAppListByUuid(
+    public function GetGameAppListUuid(
         $uuid
     ) {
             
@@ -7489,7 +7489,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameAppListByGameId(
+    public function GetGameAppListGameId(
         $game_id
     ) {
             
@@ -7512,7 +7512,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameAppListByAppId(
+    public function GetGameAppListAppId(
         $app_id
     ) {
             
@@ -7535,7 +7535,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameAppListByGameIdByAppId(
+    public function GetGameAppListGameIdAppId(
         $game_id
         , $app_id
     ) {
@@ -7580,7 +7580,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameLocationByUuid(
+    public function CountProfileGameLocationUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7602,7 +7602,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameLocationByGameLocationId(
+    public function CountProfileGameLocationGameLocationId(
         $game_location_id
     ) {
         $parameters = array();
@@ -7624,7 +7624,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameLocationByProfileId(
+    public function CountProfileGameLocationProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -7646,7 +7646,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountProfileGameLocationByProfileIdByGameLocationId(
+    public function CountProfileGameLocationProfileIdGameLocationId(
         $profile_id
         , $game_location_id
     ) {
@@ -7671,7 +7671,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseProfileGameLocationListByFilter($filter_obj) {
+    public function BrowseProfileGameLocationListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -7692,7 +7692,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetProfileGameLocationByUuid($set_type, $obj) {
+    public function SetProfileGameLocationUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -7733,7 +7733,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelProfileGameLocationByUuid(
+    public function DelProfileGameLocationUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7776,7 +7776,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameLocationListByUuid(
+    public function GetProfileGameLocationListUuid(
         $uuid
     ) {
             
@@ -7799,7 +7799,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameLocationListByGameLocationId(
+    public function GetProfileGameLocationListGameLocationId(
         $game_location_id
     ) {
             
@@ -7822,7 +7822,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameLocationListByProfileId(
+    public function GetProfileGameLocationListProfileId(
         $profile_id
     ) {
             
@@ -7845,7 +7845,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetProfileGameLocationListByProfileIdByGameLocationId(
+    public function GetProfileGameLocationListProfileIdGameLocationId(
         $profile_id
         , $game_location_id
     ) {
@@ -7890,7 +7890,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGamePhotoByUuid(
+    public function CountGamePhotoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -7912,7 +7912,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGamePhotoByExternalId(
+    public function CountGamePhotoExternalId(
         $external_id
     ) {
         $parameters = array();
@@ -7934,7 +7934,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGamePhotoByUrl(
+    public function CountGamePhotoUrl(
         $url
     ) {
         $parameters = array();
@@ -7956,7 +7956,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGamePhotoByUrlByExternalId(
+    public function CountGamePhotoUrlExternalId(
         $url
         , $external_id
     ) {
@@ -7981,7 +7981,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGamePhotoByUuidByExternalId(
+    public function CountGamePhotoUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -8006,7 +8006,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGamePhotoListByFilter($filter_obj) {
+    public function BrowseGamePhotoListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -8027,7 +8027,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGamePhotoByUuid($set_type, $obj) {
+    public function SetGamePhotoUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8084,7 +8084,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGamePhotoByExternalId($set_type, $obj) {
+    public function SetGamePhotoExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8141,7 +8141,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGamePhotoByUrl($set_type, $obj) {
+    public function SetGamePhotoUrl($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8198,7 +8198,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGamePhotoByUrlByExternalId($set_type, $obj) {
+    public function SetGamePhotoUrlExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8256,7 +8256,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGamePhotoByUuidByExternalId($set_type, $obj) {
+    public function SetGamePhotoUuidExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8314,7 +8314,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGamePhotoByUuid(
+    public function DelGamePhotoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -8337,7 +8337,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGamePhotoByExternalId(
+    public function DelGamePhotoExternalId(
         $external_id
     ) {
         $parameters = array();
@@ -8360,7 +8360,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGamePhotoByUrl(
+    public function DelGamePhotoUrl(
         $url
     ) {
         $parameters = array();
@@ -8383,7 +8383,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGamePhotoByUrlByExternalId(
+    public function DelGamePhotoUrlExternalId(
         $url
         , $external_id
     ) {
@@ -8409,7 +8409,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGamePhotoByUuidByExternalId(
+    public function DelGamePhotoUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -8455,7 +8455,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGamePhotoListByUuid(
+    public function GetGamePhotoListUuid(
         $uuid
     ) {
             
@@ -8478,7 +8478,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGamePhotoListByExternalId(
+    public function GetGamePhotoListExternalId(
         $external_id
     ) {
             
@@ -8501,7 +8501,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGamePhotoListByUrl(
+    public function GetGamePhotoListUrl(
         $url
     ) {
             
@@ -8524,7 +8524,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGamePhotoListByUrlByExternalId(
+    public function GetGamePhotoListUrlExternalId(
         $url
         , $external_id
     ) {
@@ -8550,7 +8550,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGamePhotoListByUuidByExternalId(
+    public function GetGamePhotoListUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -8595,7 +8595,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameVideoByUuid(
+    public function CountGameVideoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -8617,7 +8617,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameVideoByExternalId(
+    public function CountGameVideoExternalId(
         $external_id
     ) {
         $parameters = array();
@@ -8639,7 +8639,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameVideoByUrl(
+    public function CountGameVideoUrl(
         $url
     ) {
         $parameters = array();
@@ -8661,7 +8661,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameVideoByUrlByExternalId(
+    public function CountGameVideoUrlExternalId(
         $url
         , $external_id
     ) {
@@ -8686,7 +8686,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameVideoByUuidByExternalId(
+    public function CountGameVideoUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -8711,7 +8711,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameVideoListByFilter($filter_obj) {
+    public function BrowseGameVideoListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -8732,7 +8732,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameVideoByUuid($set_type, $obj) {
+    public function SetGameVideoUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8789,7 +8789,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameVideoByExternalId($set_type, $obj) {
+    public function SetGameVideoExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8846,7 +8846,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameVideoByUrl($set_type, $obj) {
+    public function SetGameVideoUrl($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8903,7 +8903,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameVideoByUrlByExternalId($set_type, $obj) {
+    public function SetGameVideoUrlExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -8961,7 +8961,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameVideoByUuidByExternalId($set_type, $obj) {
+    public function SetGameVideoUuidExternalId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9019,7 +9019,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameVideoByUuid(
+    public function DelGameVideoUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9042,7 +9042,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameVideoByExternalId(
+    public function DelGameVideoExternalId(
         $external_id
     ) {
         $parameters = array();
@@ -9065,7 +9065,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameVideoByUrl(
+    public function DelGameVideoUrl(
         $url
     ) {
         $parameters = array();
@@ -9088,7 +9088,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameVideoByUrlByExternalId(
+    public function DelGameVideoUrlExternalId(
         $url
         , $external_id
     ) {
@@ -9114,7 +9114,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameVideoByUuidByExternalId(
+    public function DelGameVideoUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -9160,7 +9160,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameVideoListByUuid(
+    public function GetGameVideoListUuid(
         $uuid
     ) {
             
@@ -9183,7 +9183,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameVideoListByExternalId(
+    public function GetGameVideoListExternalId(
         $external_id
     ) {
             
@@ -9206,7 +9206,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameVideoListByUrl(
+    public function GetGameVideoListUrl(
         $url
     ) {
             
@@ -9229,7 +9229,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameVideoListByUrlByExternalId(
+    public function GetGameVideoListUrlExternalId(
         $url
         , $external_id
     ) {
@@ -9255,7 +9255,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameVideoListByUuidByExternalId(
+    public function GetGameVideoListUuidExternalId(
         $uuid
         , $external_id
     ) {
@@ -9300,7 +9300,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemWeaponByUuid(
+    public function CountGameRpgItemWeaponUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9322,7 +9322,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemWeaponByGameId(
+    public function CountGameRpgItemWeaponGameId(
         $game_id
     ) {
         $parameters = array();
@@ -9344,7 +9344,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemWeaponByUrl(
+    public function CountGameRpgItemWeaponUrl(
         $url
     ) {
         $parameters = array();
@@ -9366,7 +9366,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemWeaponByUrlByGameId(
+    public function CountGameRpgItemWeaponUrlGameId(
         $url
         , $game_id
     ) {
@@ -9391,7 +9391,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemWeaponByUuidByGameId(
+    public function CountGameRpgItemWeaponUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -9416,7 +9416,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameRpgItemWeaponListByFilter($filter_obj) {
+    public function BrowseGameRpgItemWeaponListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -9437,7 +9437,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameRpgItemWeaponByUuid($set_type, $obj) {
+    public function SetGameRpgItemWeaponUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9510,7 +9510,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameRpgItemWeaponByGameId($set_type, $obj) {
+    public function SetGameRpgItemWeaponGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9583,7 +9583,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameRpgItemWeaponByUrl($set_type, $obj) {
+    public function SetGameRpgItemWeaponUrl($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9656,7 +9656,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameRpgItemWeaponByUrlByGameId($set_type, $obj) {
+    public function SetGameRpgItemWeaponUrlGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9730,7 +9730,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameRpgItemWeaponByUuidByGameId($set_type, $obj) {
+    public function SetGameRpgItemWeaponUuidGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -9804,7 +9804,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameRpgItemWeaponByUuid(
+    public function DelGameRpgItemWeaponUuid(
         $uuid
     ) {
         $parameters = array();
@@ -9827,7 +9827,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameRpgItemWeaponByGameId(
+    public function DelGameRpgItemWeaponGameId(
         $game_id
     ) {
         $parameters = array();
@@ -9850,7 +9850,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameRpgItemWeaponByUrl(
+    public function DelGameRpgItemWeaponUrl(
         $url
     ) {
         $parameters = array();
@@ -9873,7 +9873,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameRpgItemWeaponByUrlByGameId(
+    public function DelGameRpgItemWeaponUrlGameId(
         $url
         , $game_id
     ) {
@@ -9899,7 +9899,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameRpgItemWeaponByUuidByGameId(
+    public function DelGameRpgItemWeaponUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -9945,7 +9945,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemWeaponListByUuid(
+    public function GetGameRpgItemWeaponListUuid(
         $uuid
     ) {
             
@@ -9968,7 +9968,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemWeaponListByGameId(
+    public function GetGameRpgItemWeaponListGameId(
         $game_id
     ) {
             
@@ -9991,7 +9991,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemWeaponListByUrl(
+    public function GetGameRpgItemWeaponListUrl(
         $url
     ) {
             
@@ -10014,7 +10014,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemWeaponListByUrlByGameId(
+    public function GetGameRpgItemWeaponListUrlGameId(
         $url
         , $game_id
     ) {
@@ -10040,7 +10040,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemWeaponListByUuidByGameId(
+    public function GetGameRpgItemWeaponListUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -10085,7 +10085,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemSkillByUuid(
+    public function CountGameRpgItemSkillUuid(
         $uuid
     ) {
         $parameters = array();
@@ -10107,7 +10107,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemSkillByGameId(
+    public function CountGameRpgItemSkillGameId(
         $game_id
     ) {
         $parameters = array();
@@ -10129,7 +10129,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemSkillByUrl(
+    public function CountGameRpgItemSkillUrl(
         $url
     ) {
         $parameters = array();
@@ -10151,7 +10151,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemSkillByUrlByGameId(
+    public function CountGameRpgItemSkillUrlGameId(
         $url
         , $game_id
     ) {
@@ -10176,7 +10176,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameRpgItemSkillByUuidByGameId(
+    public function CountGameRpgItemSkillUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -10201,7 +10201,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameRpgItemSkillListByFilter($filter_obj) {
+    public function BrowseGameRpgItemSkillListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -10222,7 +10222,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameRpgItemSkillByUuid($set_type, $obj) {
+    public function SetGameRpgItemSkillUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10295,7 +10295,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameRpgItemSkillByGameId($set_type, $obj) {
+    public function SetGameRpgItemSkillGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10368,7 +10368,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameRpgItemSkillByUrl($set_type, $obj) {
+    public function SetGameRpgItemSkillUrl($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10441,7 +10441,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameRpgItemSkillByUrlByGameId($set_type, $obj) {
+    public function SetGameRpgItemSkillUrlGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10515,7 +10515,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameRpgItemSkillByUuidByGameId($set_type, $obj) {
+    public function SetGameRpgItemSkillUuidGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -10589,7 +10589,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameRpgItemSkillByUuid(
+    public function DelGameRpgItemSkillUuid(
         $uuid
     ) {
         $parameters = array();
@@ -10612,7 +10612,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameRpgItemSkillByGameId(
+    public function DelGameRpgItemSkillGameId(
         $game_id
     ) {
         $parameters = array();
@@ -10635,7 +10635,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameRpgItemSkillByUrl(
+    public function DelGameRpgItemSkillUrl(
         $url
     ) {
         $parameters = array();
@@ -10658,7 +10658,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameRpgItemSkillByUrlByGameId(
+    public function DelGameRpgItemSkillUrlGameId(
         $url
         , $game_id
     ) {
@@ -10684,7 +10684,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameRpgItemSkillByUuidByGameId(
+    public function DelGameRpgItemSkillUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -10730,7 +10730,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemSkillListByUuid(
+    public function GetGameRpgItemSkillListUuid(
         $uuid
     ) {
             
@@ -10753,7 +10753,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemSkillListByGameId(
+    public function GetGameRpgItemSkillListGameId(
         $game_id
     ) {
             
@@ -10776,7 +10776,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemSkillListByUrl(
+    public function GetGameRpgItemSkillListUrl(
         $url
     ) {
             
@@ -10799,7 +10799,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemSkillListByUrlByGameId(
+    public function GetGameRpgItemSkillListUrlGameId(
         $url
         , $game_id
     ) {
@@ -10825,7 +10825,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameRpgItemSkillListByUuidByGameId(
+    public function GetGameRpgItemSkillListUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -10870,7 +10870,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProductByUuid(
+    public function CountGameProductUuid(
         $uuid
     ) {
         $parameters = array();
@@ -10892,7 +10892,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProductByGameId(
+    public function CountGameProductGameId(
         $game_id
     ) {
         $parameters = array();
@@ -10914,7 +10914,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProductByUrl(
+    public function CountGameProductUrl(
         $url
     ) {
         $parameters = array();
@@ -10936,7 +10936,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProductByUrlByGameId(
+    public function CountGameProductUrlGameId(
         $url
         , $game_id
     ) {
@@ -10961,7 +10961,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProductByUuidByGameId(
+    public function CountGameProductUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -10986,7 +10986,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameProductListByFilter($filter_obj) {
+    public function BrowseGameProductListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -11007,7 +11007,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameProductByUuid($set_type, $obj) {
+    public function SetGameProductUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11054,7 +11054,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProductByGameId($set_type, $obj) {
+    public function SetGameProductGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11101,7 +11101,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProductByUrl($set_type, $obj) {
+    public function SetGameProductUrl($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11148,7 +11148,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProductByUrlByGameId($set_type, $obj) {
+    public function SetGameProductUrlGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11196,7 +11196,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProductByUuidByGameId($set_type, $obj) {
+    public function SetGameProductUuidGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11244,7 +11244,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameProductByUuid(
+    public function DelGameProductUuid(
         $uuid
     ) {
         $parameters = array();
@@ -11267,7 +11267,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProductByGameId(
+    public function DelGameProductGameId(
         $game_id
     ) {
         $parameters = array();
@@ -11290,7 +11290,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProductByUrl(
+    public function DelGameProductUrl(
         $url
     ) {
         $parameters = array();
@@ -11313,7 +11313,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProductByUrlByGameId(
+    public function DelGameProductUrlGameId(
         $url
         , $game_id
     ) {
@@ -11339,7 +11339,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProductByUuidByGameId(
+    public function DelGameProductUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -11385,7 +11385,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProductListByUuid(
+    public function GetGameProductListUuid(
         $uuid
     ) {
             
@@ -11408,7 +11408,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProductListByGameId(
+    public function GetGameProductListGameId(
         $game_id
     ) {
             
@@ -11431,7 +11431,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProductListByUrl(
+    public function GetGameProductListUrl(
         $url
     ) {
             
@@ -11454,7 +11454,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProductListByUrlByGameId(
+    public function GetGameProductListUrlGameId(
         $url
         , $game_id
     ) {
@@ -11480,7 +11480,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProductListByUuidByGameId(
+    public function GetGameProductListUuidGameId(
         $uuid
         , $game_id
     ) {
@@ -11525,7 +11525,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardByUuid(
+    public function CountGameStatisticLeaderboardUuid(
         $uuid
     ) {
         $parameters = array();
@@ -11547,7 +11547,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardByGameId(
+    public function CountGameStatisticLeaderboardGameId(
         $game_id
     ) {
         $parameters = array();
@@ -11569,7 +11569,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardByCode(
+    public function CountGameStatisticLeaderboardCode(
         $code
     ) {
         $parameters = array();
@@ -11591,7 +11591,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardByCodeByGameId(
+    public function CountGameStatisticLeaderboardCodeGameId(
         $code
         , $game_id
     ) {
@@ -11616,7 +11616,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+    public function CountGameStatisticLeaderboardCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
@@ -11644,7 +11644,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+    public function CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
@@ -11675,7 +11675,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardByProfileIdByGameId(
+    public function CountGameStatisticLeaderboardProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -11700,7 +11700,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameStatisticLeaderboardListByFilter($filter_obj) {
+    public function BrowseGameStatisticLeaderboardListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -11721,7 +11721,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameStatisticLeaderboardByUuid($set_type, $obj) {
+    public function SetGameStatisticLeaderboardUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11784,7 +11784,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp($set_type, $obj) {
+    public function SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11850,7 +11850,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardByCode($set_type, $obj) {
+    public function SetGameStatisticLeaderboardCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11913,7 +11913,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardByCodeByGameId($set_type, $obj) {
+    public function SetGameStatisticLeaderboardCodeGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -11977,7 +11977,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardByCodeByGameIdByProfileId($set_type, $obj) {
+    public function SetGameStatisticLeaderboardCodeGameIdProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12042,7 +12042,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp($set_type, $obj) {
+    public function SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12108,7 +12108,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameStatisticLeaderboardByUuid(
+    public function DelGameStatisticLeaderboardUuid(
         $uuid
     ) {
         $parameters = array();
@@ -12131,7 +12131,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardByCode(
+    public function DelGameStatisticLeaderboardCode(
         $code
     ) {
         $parameters = array();
@@ -12154,7 +12154,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardByCodeByGameId(
+    public function DelGameStatisticLeaderboardCodeGameId(
         $code
         , $game_id
     ) {
@@ -12180,7 +12180,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+    public function DelGameStatisticLeaderboardCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
@@ -12209,7 +12209,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+    public function DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
@@ -12241,7 +12241,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardByProfileIdByGameId(
+    public function DelGameStatisticLeaderboardProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -12287,7 +12287,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardListByUuid(
+    public function GetGameStatisticLeaderboardListUuid(
         $uuid
     ) {
             
@@ -12310,7 +12310,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardListByGameId(
+    public function GetGameStatisticLeaderboardListGameId(
         $game_id
     ) {
             
@@ -12333,7 +12333,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardListByCode(
+    public function GetGameStatisticLeaderboardListCode(
         $code
     ) {
             
@@ -12356,7 +12356,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardListByCodeByGameId(
+    public function GetGameStatisticLeaderboardListCodeGameId(
         $code
         , $game_id
     ) {
@@ -12382,7 +12382,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+    public function GetGameStatisticLeaderboardListCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
@@ -12411,7 +12411,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+    public function GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
@@ -12443,7 +12443,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardListByProfileIdByGameId(
+    public function GetGameStatisticLeaderboardListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -12469,7 +12469,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+    public function GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
         $profile_id
         , $game_id
         , $timestamp
@@ -12485,6 +12485,998 @@ class BaseGamingData {
                 $this->connection_string
                 , CommandType::StoredProcedure
                 , "CALL usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp(".
+                    "in_profile_id".
+                    ", in_game_id".
+                    ", in_timestamp".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function CountGameStatisticLeaderboardItem(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameStatisticLeaderboardItemUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameStatisticLeaderboardItemGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_count_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameStatisticLeaderboardItemCode(
+        $code
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_count_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameStatisticLeaderboardItemCodeGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_count_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameStatisticLeaderboardItemCodeGameIdProfileId(
+        $code
+        , $game_id
+        , $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_count_code_game_id_profile_(".
+                    "in_code".
+                    ", in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+        $code
+        , $game_id
+        , $profile_id
+        , $timestamp
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_timestamp'] = $timestamp; // #"in_timestamp"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_count_code_game_id_profile_(".
+                    "in_code".
+                    ", in_game_id".
+                    ", in_profile_id".
+                    ", in_timestamp".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameStatisticLeaderboardItemProfileIdGameId(
+        $profile_id
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_count_profile_id_game_id(".
+                    "in_profile_id".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameStatisticLeaderboardItemListFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameStatisticLeaderboardItemUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->username != NULL)
+                $parameters['in_username'] = $obj->username; // #"in_username"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->rank != NULL)
+                $parameters['in_rank'] = $obj->rank; // #"in_rank"
+            if($obj->rank_change != NULL)
+                $parameters['in_rank_change'] = $obj->rank_change; // #"in_rank_change"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->rank_total_count != NULL)
+                $parameters['in_rank_total_count'] = $obj->rank_total_count; // #"in_rank_total_count"
+            if($obj->absolute_value != NULL)
+                $parameters['in_absolute_value'] = $obj->absolute_value; // #"in_absolute_value"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->stat_value != NULL)
+                $parameters['in_stat_value'] = $obj->stat_value; // #"in_stat_value"
+            if($obj->network != NULL)
+                $parameters['in_network'] = $obj->network; // #"in_network"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->level != NULL)
+                $parameters['in_level'] = $obj->level; // #"in_level"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_statistic_leaderboard_item_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->username != NULL)
+                $parameters['in_username'] = $obj->username; // #"in_username"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->rank != NULL)
+                $parameters['in_rank'] = $obj->rank; // #"in_rank"
+            if($obj->rank_change != NULL)
+                $parameters['in_rank_change'] = $obj->rank_change; // #"in_rank_change"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->rank_total_count != NULL)
+                $parameters['in_rank_total_count'] = $obj->rank_total_count; // #"in_rank_total_count"
+            if($obj->absolute_value != NULL)
+                $parameters['in_absolute_value'] = $obj->absolute_value; // #"in_absolute_value"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->stat_value != NULL)
+                $parameters['in_stat_value'] = $obj->stat_value; // #"in_stat_value"
+            if($obj->network != NULL)
+                $parameters['in_network'] = $obj->network; // #"in_network"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->level != NULL)
+                $parameters['in_level'] = $obj->level; // #"in_level"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id(".
+                        "in_uuid".
+                        ", in_profile_id".
+                        ", in_game_id".
+                        ", in_timestamp".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameStatisticLeaderboardItemCode($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->username != NULL)
+                $parameters['in_username'] = $obj->username; // #"in_username"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->rank != NULL)
+                $parameters['in_rank'] = $obj->rank; // #"in_rank"
+            if($obj->rank_change != NULL)
+                $parameters['in_rank_change'] = $obj->rank_change; // #"in_rank_change"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->rank_total_count != NULL)
+                $parameters['in_rank_total_count'] = $obj->rank_total_count; // #"in_rank_total_count"
+            if($obj->absolute_value != NULL)
+                $parameters['in_absolute_value'] = $obj->absolute_value; // #"in_absolute_value"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->stat_value != NULL)
+                $parameters['in_stat_value'] = $obj->stat_value; // #"in_stat_value"
+            if($obj->network != NULL)
+                $parameters['in_network'] = $obj->network; // #"in_network"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->level != NULL)
+                $parameters['in_level'] = $obj->level; // #"in_level"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_statistic_leaderboard_item_set_code(".
+                        "in_code".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameStatisticLeaderboardItemCodeGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->username != NULL)
+                $parameters['in_username'] = $obj->username; // #"in_username"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->rank != NULL)
+                $parameters['in_rank'] = $obj->rank; // #"in_rank"
+            if($obj->rank_change != NULL)
+                $parameters['in_rank_change'] = $obj->rank_change; // #"in_rank_change"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->rank_total_count != NULL)
+                $parameters['in_rank_total_count'] = $obj->rank_total_count; // #"in_rank_total_count"
+            if($obj->absolute_value != NULL)
+                $parameters['in_absolute_value'] = $obj->absolute_value; // #"in_absolute_value"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->stat_value != NULL)
+                $parameters['in_stat_value'] = $obj->stat_value; // #"in_stat_value"
+            if($obj->network != NULL)
+                $parameters['in_network'] = $obj->network; // #"in_network"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->level != NULL)
+                $parameters['in_level'] = $obj->level; // #"in_level"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_statistic_leaderboard_item_set_code_game_id(".
+                        "in_code".
+                        ", in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameStatisticLeaderboardItemCodeGameIdProfileId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->username != NULL)
+                $parameters['in_username'] = $obj->username; // #"in_username"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->rank != NULL)
+                $parameters['in_rank'] = $obj->rank; // #"in_rank"
+            if($obj->rank_change != NULL)
+                $parameters['in_rank_change'] = $obj->rank_change; // #"in_rank_change"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->rank_total_count != NULL)
+                $parameters['in_rank_total_count'] = $obj->rank_total_count; // #"in_rank_total_count"
+            if($obj->absolute_value != NULL)
+                $parameters['in_absolute_value'] = $obj->absolute_value; // #"in_absolute_value"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->stat_value != NULL)
+                $parameters['in_stat_value'] = $obj->stat_value; // #"in_stat_value"
+            if($obj->network != NULL)
+                $parameters['in_network'] = $obj->network; // #"in_network"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->level != NULL)
+                $parameters['in_level'] = $obj->level; // #"in_level"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_statistic_leaderboard_item_set_code_game_id_profile_id(".
+                        "in_code".
+                        ", in_game_id".
+                        ", in_profile_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->username != NULL)
+                $parameters['in_username'] = $obj->username; // #"in_username"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->rank != NULL)
+                $parameters['in_rank'] = $obj->rank; // #"in_rank"
+            if($obj->rank_change != NULL)
+                $parameters['in_rank_change'] = $obj->rank_change; // #"in_rank_change"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->rank_total_count != NULL)
+                $parameters['in_rank_total_count'] = $obj->rank_total_count; // #"in_rank_total_count"
+            if($obj->absolute_value != NULL)
+                $parameters['in_absolute_value'] = $obj->absolute_value; // #"in_absolute_value"
+            if($obj->data != NULL)
+                $parameters['in_data'] = $obj->data; // #"in_data"
+            if($obj->stat_value != NULL)
+                $parameters['in_stat_value'] = $obj->stat_value; // #"in_stat_value"
+            if($obj->network != NULL)
+                $parameters['in_network'] = $obj->network; // #"in_network"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->level != NULL)
+                $parameters['in_level'] = $obj->level; // #"in_level"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_statistic_leaderboard_item_set_code_game_id_profile_id(".
+                        "in_code".
+                        ", in_game_id".
+                        ", in_profile_id".
+                        ", in_timestamp".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameStatisticLeaderboardItemUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameStatisticLeaderboardItemCode(
+        $code
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_del_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameStatisticLeaderboardItemCodeGameId(
+        $code
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_del_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameStatisticLeaderboardItemCodeGameIdProfileId(
+        $code
+        , $game_id
+        , $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_del_code_game_id_profile_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+        $code
+        , $game_id
+        , $profile_id
+        , $timestamp
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_timestamp'] = $timestamp; // #"in_timestamp"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_del_code_game_id_profile_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ", in_profile_id".
+                    ", in_timestamp".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameStatisticLeaderboardItemProfileIdGameId(
+        $profile_id
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_del_profile_id_game_id(".
+                    "in_profile_id".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameStatisticLeaderboardItemList(
+    ) {
+            
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get(".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticLeaderboardItemListUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticLeaderboardItemListGameId(
+        $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticLeaderboardItemListCode(
+        $code
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticLeaderboardItemListCodeGameId(
+        $code
+        , $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get_code_game_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+        $code
+        , $game_id
+        , $profile_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get_code_game_id_profile_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+        $code
+        , $game_id
+        , $profile_id
+        , $timestamp
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+        $parameters['in_timestamp'] =  $timestamp; //#"in_timestamp"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get_code_game_id_profile_id(".
+                    "in_code".
+                    ", in_game_id".
+                    ", in_profile_id".
+                    ", in_timestamp".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticLeaderboardItemListProfileIdGameId(
+        $profile_id
+        , $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get_profile_id_game_id(".
+                    "in_profile_id".
+                    ", in_game_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+            
+        $parameters = array();
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_timestamp'] =  $timestamp; //#"in_timestamp"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_statistic_leaderboard_item_get_profile_id_game_id_time(".
                     "in_profile_id".
                     ", in_game_id".
                     ", in_timestamp".
@@ -12517,7 +13509,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardRollupByUuid(
+    public function CountGameStatisticLeaderboardRollupUuid(
         $uuid
     ) {
         $parameters = array();
@@ -12539,7 +13531,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardRollupByGameId(
+    public function CountGameStatisticLeaderboardRollupGameId(
         $game_id
     ) {
         $parameters = array();
@@ -12561,7 +13553,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardRollupByCode(
+    public function CountGameStatisticLeaderboardRollupCode(
         $code
     ) {
         $parameters = array();
@@ -12583,7 +13575,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardRollupByCodeByGameId(
+    public function CountGameStatisticLeaderboardRollupCodeGameId(
         $code
         , $game_id
     ) {
@@ -12608,7 +13600,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+    public function CountGameStatisticLeaderboardRollupCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
@@ -12636,7 +13628,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+    public function CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
@@ -12667,7 +13659,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+    public function CountGameStatisticLeaderboardRollupProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -12692,7 +13684,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameStatisticLeaderboardRollupListByFilter($filter_obj) {
+    public function BrowseGameStatisticLeaderboardRollupListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -12713,7 +13705,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameStatisticLeaderboardRollupByUuid($set_type, $obj) {
+    public function SetGameStatisticLeaderboardRollupUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12776,7 +13768,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp($set_type, $obj) {
+    public function SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12842,7 +13834,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardRollupByCode($set_type, $obj) {
+    public function SetGameStatisticLeaderboardRollupCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12905,7 +13897,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardRollupByCodeByGameId($set_type, $obj) {
+    public function SetGameStatisticLeaderboardRollupCodeGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -12969,7 +13961,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId($set_type, $obj) {
+    public function SetGameStatisticLeaderboardRollupCodeGameIdProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -13034,7 +14026,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp($set_type, $obj) {
+    public function SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -13100,7 +14092,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameStatisticLeaderboardRollupByUuid(
+    public function DelGameStatisticLeaderboardRollupUuid(
         $uuid
     ) {
         $parameters = array();
@@ -13123,7 +14115,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardRollupByCode(
+    public function DelGameStatisticLeaderboardRollupCode(
         $code
     ) {
         $parameters = array();
@@ -13146,7 +14138,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardRollupByCodeByGameId(
+    public function DelGameStatisticLeaderboardRollupCodeGameId(
         $code
         , $game_id
     ) {
@@ -13172,7 +14164,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+    public function DelGameStatisticLeaderboardRollupCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
@@ -13201,7 +14193,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+    public function DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
@@ -13233,7 +14225,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+    public function DelGameStatisticLeaderboardRollupProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -13279,7 +14271,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardRollupListByUuid(
+    public function GetGameStatisticLeaderboardRollupListUuid(
         $uuid
     ) {
             
@@ -13302,7 +14294,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardRollupListByGameId(
+    public function GetGameStatisticLeaderboardRollupListGameId(
         $game_id
     ) {
             
@@ -13325,7 +14317,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardRollupListByCode(
+    public function GetGameStatisticLeaderboardRollupListCode(
         $code
     ) {
             
@@ -13348,7 +14340,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardRollupListByCodeByGameId(
+    public function GetGameStatisticLeaderboardRollupListCodeGameId(
         $code
         , $game_id
     ) {
@@ -13374,7 +14366,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+    public function GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
@@ -13403,7 +14395,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+    public function GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
@@ -13435,7 +14427,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+    public function GetGameStatisticLeaderboardRollupListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -13461,7 +14453,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+    public function GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
         $profile_id
         , $game_id
         , $timestamp
@@ -13509,7 +14501,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLiveQueueByUuid(
+    public function CountGameLiveQueueUuid(
         $uuid
     ) {
         $parameters = array();
@@ -13531,7 +14523,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLiveQueueByProfileIdByGameId(
+    public function CountGameLiveQueueProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -13556,7 +14548,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameLiveQueueListByFilter($filter_obj) {
+    public function BrowseGameLiveQueueListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -13577,7 +14569,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameLiveQueueByUuid($set_type, $obj) {
+    public function SetGameLiveQueueUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -13620,7 +14612,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameLiveQueueByProfileIdByGameId($set_type, $obj) {
+    public function SetGameLiveQueueProfileIdGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -13664,7 +14656,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameLiveQueueByUuid(
+    public function DelGameLiveQueueUuid(
         $uuid
     ) {
         $parameters = array();
@@ -13687,7 +14679,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameLiveQueueByProfileIdByGameId(
+    public function DelGameLiveQueueProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -13733,7 +14725,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLiveQueueListByUuid(
+    public function GetGameLiveQueueListUuid(
         $uuid
     ) {
             
@@ -13756,7 +14748,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLiveQueueListByGameId(
+    public function GetGameLiveQueueListGameId(
         $game_id
     ) {
             
@@ -13779,7 +14771,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLiveQueueListByProfileIdByGameId(
+    public function GetGameLiveQueueListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -13824,7 +14816,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLiveRecentQueueByUuid(
+    public function CountGameLiveRecentQueueUuid(
         $uuid
     ) {
         $parameters = array();
@@ -13846,7 +14838,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLiveRecentQueueByProfileIdByGameId(
+    public function CountGameLiveRecentQueueProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -13871,7 +14863,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameLiveRecentQueueListByFilter($filter_obj) {
+    public function BrowseGameLiveRecentQueueListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -13892,7 +14884,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameLiveRecentQueueByUuid($set_type, $obj) {
+    public function SetGameLiveRecentQueueUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -13945,7 +14937,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameLiveRecentQueueByProfileIdByGameId($set_type, $obj) {
+    public function SetGameLiveRecentQueueProfileIdGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -13999,7 +14991,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameLiveRecentQueueByUuid(
+    public function DelGameLiveRecentQueueUuid(
         $uuid
     ) {
         $parameters = array();
@@ -14022,7 +15014,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameLiveRecentQueueByProfileIdByGameId(
+    public function DelGameLiveRecentQueueProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -14068,7 +15060,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLiveRecentQueueListByUuid(
+    public function GetGameLiveRecentQueueListUuid(
         $uuid
     ) {
             
@@ -14091,7 +15083,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLiveRecentQueueListByGameId(
+    public function GetGameLiveRecentQueueListGameId(
         $game_id
     ) {
             
@@ -14114,7 +15106,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLiveRecentQueueListByProfileIdByGameId(
+    public function GetGameLiveRecentQueueListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -14159,7 +15151,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticByUuid(
+    public function CountGameProfileStatisticUuid(
         $uuid
     ) {
         $parameters = array();
@@ -14181,7 +15173,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticByCode(
+    public function CountGameProfileStatisticCode(
         $code
     ) {
         $parameters = array();
@@ -14203,7 +15195,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticByGameId(
+    public function CountGameProfileStatisticGameId(
         $game_id
     ) {
         $parameters = array();
@@ -14225,7 +15217,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticByCodeByGameId(
+    public function CountGameProfileStatisticCodeGameId(
         $code
         , $game_id
     ) {
@@ -14250,7 +15242,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticByProfileIdByGameId(
+    public function CountGameProfileStatisticProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -14275,7 +15267,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticByCodeByProfileIdByGameId(
+    public function CountGameProfileStatisticCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
@@ -14303,7 +15295,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+    public function CountGameProfileStatisticCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -14334,7 +15326,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameProfileStatisticListByFilter($filter_obj) {
+    public function BrowseGameProfileStatisticListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -14355,7 +15347,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameProfileStatisticByUuid($set_type, $obj) {
+    public function SetGameProfileStatisticUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -14365,8 +15357,8 @@ class BaseGamingData {
                 $parameters['in_username'] = $obj->username; // #"in_username"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
-            if($obj->timestamp != NULL)
-                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
             if($obj->profile_id != NULL)
                 $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
             if($obj->active != NULL)
@@ -14385,6 +15377,8 @@ class BaseGamingData {
                 $parameters['in_level'] = $obj->level; // #"in_level"
             if($obj->points != NULL)
                 $parameters['in_points'] = $obj->points; // #"in_points"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
             if($obj->date_created != NULL)
                 $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
@@ -14408,7 +15402,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp($set_type, $obj) {
+    public function SetGameProfileStatisticUuidProfileIdGameIdTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -14418,8 +15412,8 @@ class BaseGamingData {
                 $parameters['in_username'] = $obj->username; // #"in_username"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
-            if($obj->timestamp != NULL)
-                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
             if($obj->profile_id != NULL)
                 $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
             if($obj->active != NULL)
@@ -14438,6 +15432,8 @@ class BaseGamingData {
                 $parameters['in_level'] = $obj->level; // #"in_level"
             if($obj->points != NULL)
                 $parameters['in_points'] = $obj->points; // #"in_points"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
             if($obj->date_created != NULL)
                 $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
@@ -14464,7 +15460,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileStatisticByProfileIdByCode($set_type, $obj) {
+    public function SetGameProfileStatisticProfileIdCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -14474,8 +15470,8 @@ class BaseGamingData {
                 $parameters['in_username'] = $obj->username; // #"in_username"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
-            if($obj->timestamp != NULL)
-                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
             if($obj->profile_id != NULL)
                 $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
             if($obj->active != NULL)
@@ -14494,6 +15490,8 @@ class BaseGamingData {
                 $parameters['in_level'] = $obj->level; // #"in_level"
             if($obj->points != NULL)
                 $parameters['in_points'] = $obj->points; // #"in_points"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
             if($obj->date_created != NULL)
                 $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
@@ -14518,7 +15516,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileStatisticByProfileIdByCodeByTimestamp($set_type, $obj) {
+    public function SetGameProfileStatisticProfileIdCodeTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -14528,8 +15526,8 @@ class BaseGamingData {
                 $parameters['in_username'] = $obj->username; // #"in_username"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
-            if($obj->timestamp != NULL)
-                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
             if($obj->profile_id != NULL)
                 $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
             if($obj->active != NULL)
@@ -14548,6 +15546,8 @@ class BaseGamingData {
                 $parameters['in_level'] = $obj->level; // #"in_level"
             if($obj->points != NULL)
                 $parameters['in_points'] = $obj->points; // #"in_points"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
             if($obj->date_created != NULL)
                 $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
@@ -14573,7 +15573,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {
+    public function SetGameProfileStatisticCodeProfileIdGameIdTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -14583,8 +15583,8 @@ class BaseGamingData {
                 $parameters['in_username'] = $obj->username; // #"in_username"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
-            if($obj->timestamp != NULL)
-                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
             if($obj->profile_id != NULL)
                 $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
             if($obj->active != NULL)
@@ -14603,6 +15603,8 @@ class BaseGamingData {
                 $parameters['in_level'] = $obj->level; // #"in_level"
             if($obj->points != NULL)
                 $parameters['in_points'] = $obj->points; // #"in_points"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
             if($obj->date_created != NULL)
                 $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
@@ -14629,7 +15631,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileStatisticByCodeByProfileIdByGameId($set_type, $obj) {
+    public function SetGameProfileStatisticCodeProfileIdGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -14639,8 +15641,8 @@ class BaseGamingData {
                 $parameters['in_username'] = $obj->username; // #"in_username"
             if($obj->code != NULL)
                 $parameters['in_code'] = $obj->code; // #"in_code"
-            if($obj->timestamp != NULL)
-                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
+            if($obj->stat_value_formatted != NULL)
+                $parameters['in_stat_value_formatted'] = $obj->stat_value_formatted; // #"in_stat_value_formatted"
             if($obj->profile_id != NULL)
                 $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
             if($obj->active != NULL)
@@ -14659,6 +15661,8 @@ class BaseGamingData {
                 $parameters['in_level'] = $obj->level; // #"in_level"
             if($obj->points != NULL)
                 $parameters['in_points'] = $obj->points; // #"in_points"
+            if($obj->timestamp != NULL)
+                $parameters['in_timestamp'] = $obj->timestamp; // #"in_timestamp"
             if($obj->date_created != NULL)
                 $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
             if($obj->type != NULL)
@@ -14684,7 +15688,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameProfileStatisticByUuid(
+    public function DelGameProfileStatisticUuid(
         $uuid
     ) {
         $parameters = array();
@@ -14707,7 +15711,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileStatisticByCodeByGameId(
+    public function DelGameProfileStatisticCodeGameId(
         $code
         , $game_id
     ) {
@@ -14733,7 +15737,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileStatisticByProfileIdByGameId(
+    public function DelGameProfileStatisticProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -14759,7 +15763,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileStatisticByCodeByProfileIdByGameId(
+    public function DelGameProfileStatisticCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
@@ -14788,7 +15792,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function GetGameProfileStatisticListByUuid(
+    public function GetGameProfileStatisticListUuid(
         $uuid
     ) {
             
@@ -14811,7 +15815,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticListByCode(
+    public function GetGameProfileStatisticListCode(
         $code
     ) {
             
@@ -14834,7 +15838,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticListByGameId(
+    public function GetGameProfileStatisticListGameId(
         $game_id
     ) {
             
@@ -14857,7 +15861,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticListByCodeByGameId(
+    public function GetGameProfileStatisticListCodeGameId(
         $code
         , $game_id
     ) {
@@ -14883,7 +15887,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticListByProfileIdByGameId(
+    public function GetGameProfileStatisticListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -14909,7 +15913,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileStatisticListProfileIdGameIdTimestamp(
         $profile_id
         , $game_id
         , $timestamp
@@ -14938,7 +15942,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticListByCodeByProfileIdByGameId(
+    public function GetGameProfileStatisticListCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
@@ -14967,7 +15971,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -15018,7 +16022,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticMetaByUuid(
+    public function CountGameStatisticMetaUuid(
         $uuid
     ) {
         $parameters = array();
@@ -15040,7 +16044,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticMetaByCode(
+    public function CountGameStatisticMetaCode(
         $code
     ) {
         $parameters = array();
@@ -15062,7 +16066,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticMetaByCodeByGameId(
+    public function CountGameStatisticMetaCodeGameId(
         $code
         , $game_id
     ) {
@@ -15087,7 +16091,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticMetaByName(
+    public function CountGameStatisticMetaName(
         $name
     ) {
         $parameters = array();
@@ -15109,7 +16113,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameStatisticMetaByGameId(
+    public function CountGameStatisticMetaGameId(
         $game_id
     ) {
         $parameters = array();
@@ -15131,7 +16135,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameStatisticMetaListByFilter($filter_obj) {
+    public function BrowseGameStatisticMetaListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -15152,7 +16156,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameStatisticMetaByUuid($set_type, $obj) {
+    public function SetGameStatisticMetaUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -15207,7 +16211,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameStatisticMetaByCodeByGameId($set_type, $obj) {
+    public function SetGameStatisticMetaCodeGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -15263,7 +16267,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameStatisticMetaByUuid(
+    public function DelGameStatisticMetaUuid(
         $uuid
     ) {
         $parameters = array();
@@ -15286,7 +16290,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameStatisticMetaByCodeByGameId(
+    public function DelGameStatisticMetaCodeGameId(
         $code
         , $game_id
     ) {
@@ -15312,7 +16316,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function GetGameStatisticMetaListByUuid(
+    public function GetGameStatisticMetaListUuid(
         $uuid
     ) {
             
@@ -15335,7 +16339,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticMetaListByCode(
+    public function GetGameStatisticMetaListCode(
         $code
     ) {
             
@@ -15358,7 +16362,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticMetaListByName(
+    public function GetGameStatisticMetaListName(
         $name
     ) {
             
@@ -15381,7 +16385,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticMetaListByGameId(
+    public function GetGameStatisticMetaListGameId(
         $game_id
     ) {
             
@@ -15404,7 +16408,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameStatisticMetaListByCodeByGameId(
+    public function GetGameStatisticMetaListCodeGameId(
         $code
         , $game_id
     ) {
@@ -15449,7 +16453,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticTimestampByUuid(
+    public function CountGameProfileStatisticTimestampUuid(
         $uuid
     ) {
         $parameters = array();
@@ -15471,7 +16475,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+    public function CountGameProfileStatisticTimestampCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
@@ -15499,7 +16503,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+    public function CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -15530,7 +16534,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameProfileStatisticTimestampListByFilter($filter_obj) {
+    public function BrowseGameProfileStatisticTimestampListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -15551,7 +16555,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameProfileStatisticTimestampByUuid($set_type, $obj) {
+    public function SetGameProfileStatisticTimestampUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -15594,7 +16598,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileStatisticTimestampByCodeByProfileIdByGameId($set_type, $obj) {
+    public function SetGameProfileStatisticTimestampCodeProfileIdGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -15639,7 +16643,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {
+    public function SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -15685,7 +16689,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameProfileStatisticTimestampByUuid(
+    public function DelGameProfileStatisticTimestampUuid(
         $uuid
     ) {
         $parameters = array();
@@ -15708,7 +16712,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+    public function DelGameProfileStatisticTimestampCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
@@ -15737,7 +16741,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+    public function DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -15769,7 +16773,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function GetGameProfileStatisticTimestampListByUuid(
+    public function GetGameProfileStatisticTimestampListUuid(
         $uuid
     ) {
             
@@ -15792,7 +16796,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+    public function GetGameProfileStatisticTimestampListCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
@@ -15821,7 +16825,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -15872,7 +16876,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameKeyMetaByUuid(
+    public function CountGameKeyMetaUuid(
         $uuid
     ) {
         $parameters = array();
@@ -15894,7 +16898,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameKeyMetaByCode(
+    public function CountGameKeyMetaCode(
         $code
     ) {
         $parameters = array();
@@ -15916,7 +16920,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameKeyMetaByCodeByGameId(
+    public function CountGameKeyMetaCodeGameId(
         $code
         , $game_id
     ) {
@@ -15941,7 +16945,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameKeyMetaByName(
+    public function CountGameKeyMetaName(
         $name
     ) {
         $parameters = array();
@@ -15963,7 +16967,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameKeyMetaByKey(
+    public function CountGameKeyMetaKey(
         $key
     ) {
         $parameters = array();
@@ -15985,7 +16989,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameKeyMetaByGameId(
+    public function CountGameKeyMetaGameId(
         $game_id
     ) {
         $parameters = array();
@@ -16007,7 +17011,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameKeyMetaByKeyByGameId(
+    public function CountGameKeyMetaKeyGameId(
         $key
         , $game_id
     ) {
@@ -16032,7 +17036,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameKeyMetaListByFilter($filter_obj) {
+    public function BrowseGameKeyMetaListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -16053,7 +17057,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameKeyMetaByUuid($set_type, $obj) {
+    public function SetGameKeyMetaUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -16114,7 +17118,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameKeyMetaByCodeByGameId($set_type, $obj) {
+    public function SetGameKeyMetaCodeGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -16176,7 +17180,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameKeyMetaByKeyByGameId($set_type, $obj) {
+    public function SetGameKeyMetaKeyGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -16238,7 +17242,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameKeyMetaByKeyByGameIdByLevel($set_type, $obj) {
+    public function SetGameKeyMetaKeyGameIdLevel($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -16301,7 +17305,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameKeyMetaByUuid(
+    public function DelGameKeyMetaUuid(
         $uuid
     ) {
         $parameters = array();
@@ -16324,7 +17328,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameKeyMetaByCodeByGameId(
+    public function DelGameKeyMetaCodeGameId(
         $code
         , $game_id
     ) {
@@ -16350,7 +17354,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameKeyMetaByKeyByGameId(
+    public function DelGameKeyMetaKeyGameId(
         $key
         , $game_id
     ) {
@@ -16376,7 +17380,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function GetGameKeyMetaListByUuid(
+    public function GetGameKeyMetaListUuid(
         $uuid
     ) {
             
@@ -16399,7 +17403,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameKeyMetaListByCode(
+    public function GetGameKeyMetaListCode(
         $code
     ) {
             
@@ -16422,7 +17426,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameKeyMetaListByCodeByGameId(
+    public function GetGameKeyMetaListCodeGameId(
         $code
         , $game_id
     ) {
@@ -16448,7 +17452,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameKeyMetaListByName(
+    public function GetGameKeyMetaListName(
         $name
     ) {
             
@@ -16471,7 +17475,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameKeyMetaListByKey(
+    public function GetGameKeyMetaListKey(
         $key
     ) {
             
@@ -16494,7 +17498,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameKeyMetaListByGameId(
+    public function GetGameKeyMetaListGameId(
         $game_id
     ) {
             
@@ -16517,7 +17521,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameKeyMetaListByKeyByGameId(
+    public function GetGameKeyMetaListKeyGameId(
         $key
         , $game_id
     ) {
@@ -16543,7 +17547,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameKeyMetaListByCodeByLevel(
+    public function GetGameKeyMetaListCodeLevel(
         $code
         , $level
     ) {
@@ -16588,7 +17592,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLevelByUuid(
+    public function CountGameLevelUuid(
         $uuid
     ) {
         $parameters = array();
@@ -16610,7 +17614,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLevelByCode(
+    public function CountGameLevelCode(
         $code
     ) {
         $parameters = array();
@@ -16632,7 +17636,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLevelByCodeByGameId(
+    public function CountGameLevelCodeGameId(
         $code
         , $game_id
     ) {
@@ -16657,7 +17661,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLevelByName(
+    public function CountGameLevelName(
         $name
     ) {
         $parameters = array();
@@ -16679,7 +17683,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameLevelByGameId(
+    public function CountGameLevelGameId(
         $game_id
     ) {
         $parameters = array();
@@ -16701,7 +17705,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameLevelListByFilter($filter_obj) {
+    public function BrowseGameLevelListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -16722,7 +17726,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameLevelByUuid($set_type, $obj) {
+    public function SetGameLevelUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -16773,7 +17777,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameLevelByCodeByGameId($set_type, $obj) {
+    public function SetGameLevelCodeGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -16825,7 +17829,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameLevelByUuid(
+    public function DelGameLevelUuid(
         $uuid
     ) {
         $parameters = array();
@@ -16848,7 +17852,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameLevelByCodeByGameId(
+    public function DelGameLevelCodeGameId(
         $code
         , $game_id
     ) {
@@ -16874,7 +17878,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function GetGameLevelListByUuid(
+    public function GetGameLevelListUuid(
         $uuid
     ) {
             
@@ -16897,7 +17901,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLevelListByCode(
+    public function GetGameLevelListCode(
         $code
     ) {
             
@@ -16920,7 +17924,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLevelListByCodeByGameId(
+    public function GetGameLevelListCodeGameId(
         $code
         , $game_id
     ) {
@@ -16946,7 +17950,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLevelListByName(
+    public function GetGameLevelListName(
         $name
     ) {
             
@@ -16969,7 +17973,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameLevelListByGameId(
+    public function GetGameLevelListGameId(
         $game_id
     ) {
             
@@ -17011,7 +18015,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileAchievementByUuid(
+    public function CountGameProfileAchievementUuid(
         $uuid
     ) {
         $parameters = array();
@@ -17033,7 +18037,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileAchievementByProfileIdByCode(
+    public function CountGameProfileAchievementProfileIdCode(
         $profile_id
         , $code
     ) {
@@ -17058,7 +18062,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileAchievementByUsername(
+    public function CountGameProfileAchievementUsername(
         $username
     ) {
         $parameters = array();
@@ -17080,7 +18084,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileAchievementByCodeByProfileIdByGameId(
+    public function CountGameProfileAchievementCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
@@ -17108,7 +18112,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+    public function CountGameProfileAchievementCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -17139,7 +18143,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameProfileAchievementListByFilter($filter_obj) {
+    public function BrowseGameProfileAchievementListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -17160,7 +18164,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameProfileAchievementByUuid($set_type, $obj) {
+    public function SetGameProfileAchievementUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -17213,7 +18217,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileAchievementByUuidByCode($set_type, $obj) {
+    public function SetGameProfileAchievementUuidCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -17267,7 +18271,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileAchievementByProfileIdByCode($set_type, $obj) {
+    public function SetGameProfileAchievementProfileIdCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -17321,7 +18325,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileAchievementByCodeByProfileIdByGameId($set_type, $obj) {
+    public function SetGameProfileAchievementCodeProfileIdGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -17376,7 +18380,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {
+    public function SetGameProfileAchievementCodeProfileIdGameIdTimestamp($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -17432,7 +18436,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameProfileAchievementByUuid(
+    public function DelGameProfileAchievementUuid(
         $uuid
     ) {
         $parameters = array();
@@ -17455,7 +18459,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileAchievementByProfileIdByCode(
+    public function DelGameProfileAchievementProfileIdCode(
         $profile_id
         , $code
     ) {
@@ -17481,7 +18485,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameProfileAchievementByUuidByCode(
+    public function DelGameProfileAchievementUuidCode(
         $uuid
         , $code
     ) {
@@ -17507,7 +18511,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function GetGameProfileAchievementListByUuid(
+    public function GetGameProfileAchievementListUuid(
         $uuid
     ) {
             
@@ -17530,7 +18534,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByProfileIdByCode(
+    public function GetGameProfileAchievementListProfileIdCode(
         $profile_id
         , $code
     ) {
@@ -17556,7 +18560,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByUsername(
+    public function GetGameProfileAchievementListUsername(
         $username
     ) {
             
@@ -17579,7 +18583,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByCode(
+    public function GetGameProfileAchievementListCode(
         $code
     ) {
             
@@ -17602,7 +18606,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByGameId(
+    public function GetGameProfileAchievementListGameId(
         $game_id
     ) {
             
@@ -17625,7 +18629,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByCodeByGameId(
+    public function GetGameProfileAchievementListCodeGameId(
         $code
         , $game_id
     ) {
@@ -17651,7 +18655,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByProfileIdByGameId(
+    public function GetGameProfileAchievementListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
@@ -17677,7 +18681,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileAchievementListProfileIdGameIdTimestamp(
         $profile_id
         , $game_id
         , $timestamp
@@ -17706,7 +18710,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByCodeByProfileIdByGameId(
+    public function GetGameProfileAchievementListCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
@@ -17735,7 +18739,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -17786,7 +18790,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAchievementMetaByUuid(
+    public function CountGameAchievementMetaUuid(
         $uuid
     ) {
         $parameters = array();
@@ -17808,7 +18812,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAchievementMetaByCode(
+    public function CountGameAchievementMetaCode(
         $code
     ) {
         $parameters = array();
@@ -17830,7 +18834,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAchievementMetaByCodeByGameId(
+    public function CountGameAchievementMetaCodeGameId(
         $code
         , $game_id
     ) {
@@ -17855,7 +18859,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAchievementMetaByName(
+    public function CountGameAchievementMetaName(
         $name
     ) {
         $parameters = array();
@@ -17877,7 +18881,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function CountGameAchievementMetaByGameId(
+    public function CountGameAchievementMetaGameId(
         $game_id
     ) {
         $parameters = array();
@@ -17899,7 +18903,7 @@ class BaseGamingData {
         
         return 0;
     }
-    public function BrowseGameAchievementMetaListByFilter($filter_obj) {
+    public function BrowseGameAchievementMetaListFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -17920,7 +18924,7 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameAchievementMetaByUuid($set_type, $obj) {
+    public function SetGameAchievementMetaUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -17979,7 +18983,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function SetGameAchievementMetaByCodeByGameId($set_type, $obj) {
+    public function SetGameAchievementMetaCodeGameId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -18039,7 +19043,7 @@ class BaseGamingData {
         return FALSE;
     }
     
-    public function DelGameAchievementMetaByUuid(
+    public function DelGameAchievementMetaUuid(
         $uuid
     ) {
         $parameters = array();
@@ -18062,7 +19066,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function DelGameAchievementMetaByCodeByGameId(
+    public function DelGameAchievementMetaCodeGameId(
         $code
         , $game_id
     ) {
@@ -18088,7 +19092,7 @@ class BaseGamingData {
         
         return FALSE;
     }
-    public function GetGameAchievementMetaListByUuid(
+    public function GetGameAchievementMetaListUuid(
         $uuid
     ) {
             
@@ -18111,7 +19115,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameAchievementMetaListByCode(
+    public function GetGameAchievementMetaListCode(
         $code
     ) {
             
@@ -18134,7 +19138,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameAchievementMetaListByCodeByGameId(
+    public function GetGameAchievementMetaListCodeGameId(
         $code
         , $game_id
     ) {
@@ -18160,7 +19164,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameAchievementMetaListByName(
+    public function GetGameAchievementMetaListName(
         $name
     ) {
             
@@ -18183,7 +19187,7 @@ class BaseGamingData {
                 
         return NULL;
     }
-    public function GetGameAchievementMetaListByGameId(
+    public function GetGameAchievementMetaListGameId(
         $game_id
     ) {
             

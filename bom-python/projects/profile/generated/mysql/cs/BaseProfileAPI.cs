@@ -48,88 +48,88 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileByUuid(
+        public virtual int CountProfileUuid(
             string uuid
         )  {            
-            return act.CountProfileByUuid(
+            return act.CountProfileUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileByUsernameByHash(
+        public virtual int CountProfileUsernameHash(
             string username
             , string hash
         )  {            
-            return act.CountProfileByUsernameByHash(
+            return act.CountProfileUsernameHash(
             username
             , hash
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileByUsername(
+        public virtual int CountProfileUsername(
             string username
         )  {            
-            return act.CountProfileByUsername(
+            return act.CountProfileUsername(
             username
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileResult BrowseProfileListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileListByFilter(obj);
+        public virtual ProfileResult BrowseProfileListFilter(SearchFilter obj)  {
+            return act.BrowseProfileListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileByUuid(string set_type, Profile obj)  {
-            return act.SetProfileByUuid(set_type, obj);
+        public virtual bool SetProfileUuid(string set_type, Profile obj)  {
+            return act.SetProfileUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileByUuid(SetType set_type, Profile obj)  {
-            return act.SetProfileByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileUuid(SetType set_type, Profile obj)  {
+            return act.SetProfileUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileByUuid(Profile obj)  {
-            return act.SetProfileByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileUuid(Profile obj)  {
+            return act.SetProfileUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileByUsername(string set_type, Profile obj)  {
-            return act.SetProfileByUsername(set_type, obj);
+        public virtual bool SetProfileUsername(string set_type, Profile obj)  {
+            return act.SetProfileUsername(set_type, obj);
         }
         
-        public virtual bool SetProfileByUsername(SetType set_type, Profile obj)  {
-            return act.SetProfileByUsername(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileUsername(SetType set_type, Profile obj)  {
+            return act.SetProfileUsername(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileByUsername(Profile obj)  {
-            return act.SetProfileByUsername(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileUsername(Profile obj)  {
+            return act.SetProfileUsername(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileByUuid(
+        public virtual bool DelProfileUuid(
             string uuid
         )  {            
-            return act.DelProfileByUuid(
+            return act.DelProfileUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileByUsername(
+        public virtual bool DelProfileUsername(
             string username
         )  {            
-            return act.DelProfileByUsername(
+            return act.DelProfileUsername(
             username
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual List<Profile> GetProfileListByUuid(
+        public virtual List<Profile> GetProfileListUuid(
             string uuid
         )  {
-            return act.GetProfileListByUuid(
+            return act.GetProfileListUuid(
             uuid
             );
         }
         
-        public virtual Profile GetProfileByUuid(
+        public virtual Profile GetProfileUuid(
             string uuid
         )  {
-            foreach (Profile item in GetProfileListByUuid(
+            foreach (Profile item in GetProfileListUuid(
             uuid
             ))  {
                 return item;
@@ -137,24 +137,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<Profile> CachedGetProfileListByUuid(
+        public virtual List<Profile> CachedGetProfileListUuid(
             string uuid
         ) {
-            return CachedGetProfileListByUuid(
+            return CachedGetProfileListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Profile> CachedGetProfileListByUuid(
+        public virtual List<Profile> CachedGetProfileListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Profile> objs;
 
-            string method_name = "CachedGetProfileListByUuid";
+            string method_name = "CachedGetProfileListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -170,7 +170,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileListByUuid(
+                objs = GetProfileListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -178,21 +178,21 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Profile> GetProfileListByUsernameByHash(
+        public virtual List<Profile> GetProfileListUsernameHash(
             string username
             , string hash
         )  {
-            return act.GetProfileListByUsernameByHash(
+            return act.GetProfileListUsernameHash(
             username
             , hash
             );
         }
         
-        public virtual Profile GetProfileByUsernameByHash(
+        public virtual Profile GetProfileUsernameHash(
             string username
             , string hash
         )  {
-            foreach (Profile item in GetProfileListByUsernameByHash(
+            foreach (Profile item in GetProfileListUsernameHash(
             username
             , hash
             ))  {
@@ -201,11 +201,11 @@ namespace profile {
             return null;
         }
         
-        public virtual List<Profile> CachedGetProfileListByUsernameByHash(
+        public virtual List<Profile> CachedGetProfileListUsernameHash(
             string username
             , string hash
         ) {
-            return CachedGetProfileListByUsernameByHash(
+            return CachedGetProfileListUsernameHash(
                     false
                     , CACHE_DEFAULT_HOURS
                     , username
@@ -213,7 +213,7 @@ namespace profile {
                 );
         }
         
-        public virtual List<Profile> CachedGetProfileListByUsernameByHash(
+        public virtual List<Profile> CachedGetProfileListUsernameHash(
             bool overrideCache
             , int cacheHours
             , string username
@@ -221,7 +221,7 @@ namespace profile {
         ) {
             List<Profile> objs;
 
-            string method_name = "CachedGetProfileListByUsernameByHash";
+            string method_name = "CachedGetProfileListUsernameHash";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -241,7 +241,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileListByUsernameByHash(
+                objs = GetProfileListUsernameHash(
                     username
                     , hash
                 );
@@ -250,18 +250,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Profile> GetProfileListByUsername(
+        public virtual List<Profile> GetProfileListUsername(
             string username
         )  {
-            return act.GetProfileListByUsername(
+            return act.GetProfileListUsername(
             username
             );
         }
         
-        public virtual Profile GetProfileByUsername(
+        public virtual Profile GetProfileUsername(
             string username
         )  {
-            foreach (Profile item in GetProfileListByUsername(
+            foreach (Profile item in GetProfileListUsername(
             username
             ))  {
                 return item;
@@ -269,24 +269,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<Profile> CachedGetProfileListByUsername(
+        public virtual List<Profile> CachedGetProfileListUsername(
             string username
         ) {
-            return CachedGetProfileListByUsername(
+            return CachedGetProfileListUsername(
                     false
                     , CACHE_DEFAULT_HOURS
                     , username
                 );
         }
         
-        public virtual List<Profile> CachedGetProfileListByUsername(
+        public virtual List<Profile> CachedGetProfileListUsername(
             bool overrideCache
             , int cacheHours
             , string username
         ) {
             List<Profile> objs;
 
-            string method_name = "CachedGetProfileListByUsername";
+            string method_name = "CachedGetProfileListUsername";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -302,7 +302,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileListByUsername(
+                objs = GetProfileListUsername(
                     username
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -316,58 +316,58 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileTypeByUuid(
+        public virtual int CountProfileTypeUuid(
             string uuid
         )  {            
-            return act.CountProfileTypeByUuid(
+            return act.CountProfileTypeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileTypeByTypeId(
+        public virtual int CountProfileTypeTypeId(
             string type_id
         )  {            
-            return act.CountProfileTypeByTypeId(
+            return act.CountProfileTypeTypeId(
             type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileTypeResult BrowseProfileTypeListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileTypeListByFilter(obj);
+        public virtual ProfileTypeResult BrowseProfileTypeListFilter(SearchFilter obj)  {
+            return act.BrowseProfileTypeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileTypeByUuid(string set_type, ProfileType obj)  {
-            return act.SetProfileTypeByUuid(set_type, obj);
+        public virtual bool SetProfileTypeUuid(string set_type, ProfileType obj)  {
+            return act.SetProfileTypeUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileTypeByUuid(SetType set_type, ProfileType obj)  {
-            return act.SetProfileTypeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileTypeUuid(SetType set_type, ProfileType obj)  {
+            return act.SetProfileTypeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileTypeByUuid(ProfileType obj)  {
-            return act.SetProfileTypeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileTypeUuid(ProfileType obj)  {
+            return act.SetProfileTypeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileTypeByUuid(
+        public virtual bool DelProfileTypeUuid(
             string uuid
         )  {            
-            return act.DelProfileTypeByUuid(
+            return act.DelProfileTypeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileType> GetProfileTypeListByUuid(
+        public virtual List<ProfileType> GetProfileTypeListUuid(
             string uuid
         )  {
-            return act.GetProfileTypeListByUuid(
+            return act.GetProfileTypeListUuid(
             uuid
             );
         }
         
-        public virtual ProfileType GetProfileTypeByUuid(
+        public virtual ProfileType GetProfileTypeUuid(
             string uuid
         )  {
-            foreach (ProfileType item in GetProfileTypeListByUuid(
+            foreach (ProfileType item in GetProfileTypeListUuid(
             uuid
             ))  {
                 return item;
@@ -375,24 +375,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileType> CachedGetProfileTypeListByUuid(
+        public virtual List<ProfileType> CachedGetProfileTypeListUuid(
             string uuid
         ) {
-            return CachedGetProfileTypeListByUuid(
+            return CachedGetProfileTypeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileType> CachedGetProfileTypeListByUuid(
+        public virtual List<ProfileType> CachedGetProfileTypeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileType> objs;
 
-            string method_name = "CachedGetProfileTypeListByUuid";
+            string method_name = "CachedGetProfileTypeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -408,7 +408,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileTypeListByUuid(
+                objs = GetProfileTypeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -416,18 +416,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileType> GetProfileTypeListByCode(
+        public virtual List<ProfileType> GetProfileTypeListCode(
             string code
         )  {
-            return act.GetProfileTypeListByCode(
+            return act.GetProfileTypeListCode(
             code
             );
         }
         
-        public virtual ProfileType GetProfileTypeByCode(
+        public virtual ProfileType GetProfileTypeCode(
             string code
         )  {
-            foreach (ProfileType item in GetProfileTypeListByCode(
+            foreach (ProfileType item in GetProfileTypeListCode(
             code
             ))  {
                 return item;
@@ -435,24 +435,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileType> CachedGetProfileTypeListByCode(
+        public virtual List<ProfileType> CachedGetProfileTypeListCode(
             string code
         ) {
-            return CachedGetProfileTypeListByCode(
+            return CachedGetProfileTypeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<ProfileType> CachedGetProfileTypeListByCode(
+        public virtual List<ProfileType> CachedGetProfileTypeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<ProfileType> objs;
 
-            string method_name = "CachedGetProfileTypeListByCode";
+            string method_name = "CachedGetProfileTypeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -468,7 +468,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileTypeListByCode(
+                objs = GetProfileTypeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -476,18 +476,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileType> GetProfileTypeListByTypeId(
+        public virtual List<ProfileType> GetProfileTypeListTypeId(
             string type_id
         )  {
-            return act.GetProfileTypeListByTypeId(
+            return act.GetProfileTypeListTypeId(
             type_id
             );
         }
         
-        public virtual ProfileType GetProfileTypeByTypeId(
+        public virtual ProfileType GetProfileTypeTypeId(
             string type_id
         )  {
-            foreach (ProfileType item in GetProfileTypeListByTypeId(
+            foreach (ProfileType item in GetProfileTypeListTypeId(
             type_id
             ))  {
                 return item;
@@ -495,24 +495,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileType> CachedGetProfileTypeListByTypeId(
+        public virtual List<ProfileType> CachedGetProfileTypeListTypeId(
             string type_id
         ) {
-            return CachedGetProfileTypeListByTypeId(
+            return CachedGetProfileTypeListTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , type_id
                 );
         }
         
-        public virtual List<ProfileType> CachedGetProfileTypeListByTypeId(
+        public virtual List<ProfileType> CachedGetProfileTypeListTypeId(
             bool overrideCache
             , int cacheHours
             , string type_id
         ) {
             List<ProfileType> objs;
 
-            string method_name = "CachedGetProfileTypeListByTypeId";
+            string method_name = "CachedGetProfileTypeListTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -528,7 +528,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileTypeListByTypeId(
+                objs = GetProfileTypeListTypeId(
                     type_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -542,104 +542,104 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeByUuid(
+        public virtual int CountProfileAttributeUuid(
             string uuid
         )  {            
-            return act.CountProfileAttributeByUuid(
+            return act.CountProfileAttributeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeByCode(
+        public virtual int CountProfileAttributeCode(
             string code
         )  {            
-            return act.CountProfileAttributeByCode(
+            return act.CountProfileAttributeCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeByType(
+        public virtual int CountProfileAttributeType(
             int type
         )  {            
-            return act.CountProfileAttributeByType(
+            return act.CountProfileAttributeType(
             type
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeByGroup(
+        public virtual int CountProfileAttributeGroup(
             int group
         )  {            
-            return act.CountProfileAttributeByGroup(
+            return act.CountProfileAttributeGroup(
             group
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeByCodeByType(
+        public virtual int CountProfileAttributeCodeType(
             string code
             , int type
         )  {            
-            return act.CountProfileAttributeByCodeByType(
+            return act.CountProfileAttributeCodeType(
             code
             , type
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileAttributeResult BrowseProfileAttributeListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileAttributeListByFilter(obj);
+        public virtual ProfileAttributeResult BrowseProfileAttributeListFilter(SearchFilter obj)  {
+            return act.BrowseProfileAttributeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeByUuid(string set_type, ProfileAttribute obj)  {
-            return act.SetProfileAttributeByUuid(set_type, obj);
+        public virtual bool SetProfileAttributeUuid(string set_type, ProfileAttribute obj)  {
+            return act.SetProfileAttributeUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileAttributeByUuid(SetType set_type, ProfileAttribute obj)  {
-            return act.SetProfileAttributeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAttributeUuid(SetType set_type, ProfileAttribute obj)  {
+            return act.SetProfileAttributeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAttributeByUuid(ProfileAttribute obj)  {
-            return act.SetProfileAttributeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAttributeUuid(ProfileAttribute obj)  {
+            return act.SetProfileAttributeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeByCode(string set_type, ProfileAttribute obj)  {
-            return act.SetProfileAttributeByCode(set_type, obj);
+        public virtual bool SetProfileAttributeCode(string set_type, ProfileAttribute obj)  {
+            return act.SetProfileAttributeCode(set_type, obj);
         }
         
-        public virtual bool SetProfileAttributeByCode(SetType set_type, ProfileAttribute obj)  {
-            return act.SetProfileAttributeByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAttributeCode(SetType set_type, ProfileAttribute obj)  {
+            return act.SetProfileAttributeCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAttributeByCode(ProfileAttribute obj)  {
-            return act.SetProfileAttributeByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAttributeCode(ProfileAttribute obj)  {
+            return act.SetProfileAttributeCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeByUuid(
+        public virtual bool DelProfileAttributeUuid(
             string uuid
         )  {            
-            return act.DelProfileAttributeByUuid(
+            return act.DelProfileAttributeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeByCode(
+        public virtual bool DelProfileAttributeCode(
             string code
         )  {            
-            return act.DelProfileAttributeByCode(
+            return act.DelProfileAttributeCode(
             code
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttribute> GetProfileAttributeListByUuid(
+        public virtual List<ProfileAttribute> GetProfileAttributeListUuid(
             string uuid
         )  {
-            return act.GetProfileAttributeListByUuid(
+            return act.GetProfileAttributeListUuid(
             uuid
             );
         }
         
-        public virtual ProfileAttribute GetProfileAttributeByUuid(
+        public virtual ProfileAttribute GetProfileAttributeUuid(
             string uuid
         )  {
-            foreach (ProfileAttribute item in GetProfileAttributeListByUuid(
+            foreach (ProfileAttribute item in GetProfileAttributeListUuid(
             uuid
             ))  {
                 return item;
@@ -647,24 +647,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByUuid(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListUuid(
             string uuid
         ) {
-            return CachedGetProfileAttributeListByUuid(
+            return CachedGetProfileAttributeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByUuid(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileAttribute> objs;
 
-            string method_name = "CachedGetProfileAttributeListByUuid";
+            string method_name = "CachedGetProfileAttributeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -680,7 +680,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeListByUuid(
+                objs = GetProfileAttributeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -688,18 +688,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttribute> GetProfileAttributeListByCode(
+        public virtual List<ProfileAttribute> GetProfileAttributeListCode(
             string code
         )  {
-            return act.GetProfileAttributeListByCode(
+            return act.GetProfileAttributeListCode(
             code
             );
         }
         
-        public virtual ProfileAttribute GetProfileAttributeByCode(
+        public virtual ProfileAttribute GetProfileAttributeCode(
             string code
         )  {
-            foreach (ProfileAttribute item in GetProfileAttributeListByCode(
+            foreach (ProfileAttribute item in GetProfileAttributeListCode(
             code
             ))  {
                 return item;
@@ -707,24 +707,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByCode(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListCode(
             string code
         ) {
-            return CachedGetProfileAttributeListByCode(
+            return CachedGetProfileAttributeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByCode(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<ProfileAttribute> objs;
 
-            string method_name = "CachedGetProfileAttributeListByCode";
+            string method_name = "CachedGetProfileAttributeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -740,7 +740,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeListByCode(
+                objs = GetProfileAttributeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -748,18 +748,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttribute> GetProfileAttributeListByType(
+        public virtual List<ProfileAttribute> GetProfileAttributeListType(
             int type
         )  {
-            return act.GetProfileAttributeListByType(
+            return act.GetProfileAttributeListType(
             type
             );
         }
         
-        public virtual ProfileAttribute GetProfileAttributeByType(
+        public virtual ProfileAttribute GetProfileAttributeType(
             int type
         )  {
-            foreach (ProfileAttribute item in GetProfileAttributeListByType(
+            foreach (ProfileAttribute item in GetProfileAttributeListType(
             type
             ))  {
                 return item;
@@ -767,24 +767,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByType(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListType(
             int type
         ) {
-            return CachedGetProfileAttributeListByType(
+            return CachedGetProfileAttributeListType(
                     false
                     , CACHE_DEFAULT_HOURS
                     , type
                 );
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByType(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListType(
             bool overrideCache
             , int cacheHours
             , int type
         ) {
             List<ProfileAttribute> objs;
 
-            string method_name = "CachedGetProfileAttributeListByType";
+            string method_name = "CachedGetProfileAttributeListType";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -800,7 +800,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeListByType(
+                objs = GetProfileAttributeListType(
                     type
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -808,18 +808,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttribute> GetProfileAttributeListByGroup(
+        public virtual List<ProfileAttribute> GetProfileAttributeListGroup(
             int group
         )  {
-            return act.GetProfileAttributeListByGroup(
+            return act.GetProfileAttributeListGroup(
             group
             );
         }
         
-        public virtual ProfileAttribute GetProfileAttributeByGroup(
+        public virtual ProfileAttribute GetProfileAttributeGroup(
             int group
         )  {
-            foreach (ProfileAttribute item in GetProfileAttributeListByGroup(
+            foreach (ProfileAttribute item in GetProfileAttributeListGroup(
             group
             ))  {
                 return item;
@@ -827,24 +827,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByGroup(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListGroup(
             int group
         ) {
-            return CachedGetProfileAttributeListByGroup(
+            return CachedGetProfileAttributeListGroup(
                     false
                     , CACHE_DEFAULT_HOURS
                     , group
                 );
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByGroup(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListGroup(
             bool overrideCache
             , int cacheHours
             , int group
         ) {
             List<ProfileAttribute> objs;
 
-            string method_name = "CachedGetProfileAttributeListByGroup";
+            string method_name = "CachedGetProfileAttributeListGroup";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -860,7 +860,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeListByGroup(
+                objs = GetProfileAttributeListGroup(
                     group
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -868,21 +868,21 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttribute> GetProfileAttributeListByCodeByType(
+        public virtual List<ProfileAttribute> GetProfileAttributeListCodeType(
             string code
             , int type
         )  {
-            return act.GetProfileAttributeListByCodeByType(
+            return act.GetProfileAttributeListCodeType(
             code
             , type
             );
         }
         
-        public virtual ProfileAttribute GetProfileAttributeByCodeByType(
+        public virtual ProfileAttribute GetProfileAttributeCodeType(
             string code
             , int type
         )  {
-            foreach (ProfileAttribute item in GetProfileAttributeListByCodeByType(
+            foreach (ProfileAttribute item in GetProfileAttributeListCodeType(
             code
             , type
             ))  {
@@ -891,11 +891,11 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByCodeByType(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListCodeType(
             string code
             , int type
         ) {
-            return CachedGetProfileAttributeListByCodeByType(
+            return CachedGetProfileAttributeListCodeType(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
@@ -903,7 +903,7 @@ namespace profile {
                 );
         }
         
-        public virtual List<ProfileAttribute> CachedGetProfileAttributeListByCodeByType(
+        public virtual List<ProfileAttribute> CachedGetProfileAttributeListCodeType(
             bool overrideCache
             , int cacheHours
             , string code
@@ -911,7 +911,7 @@ namespace profile {
         ) {
             List<ProfileAttribute> objs;
 
-            string method_name = "CachedGetProfileAttributeListByCodeByType";
+            string method_name = "CachedGetProfileAttributeListCodeType";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -931,7 +931,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeListByCodeByType(
+                objs = GetProfileAttributeListCodeType(
                     code
                     , type
                 );
@@ -946,110 +946,110 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextByUuid(
+        public virtual int CountProfileAttributeTextUuid(
             string uuid
         )  {            
-            return act.CountProfileAttributeTextByUuid(
+            return act.CountProfileAttributeTextUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextByProfileId(
+        public virtual int CountProfileAttributeTextProfileId(
             string profile_id
         )  {            
-            return act.CountProfileAttributeTextByProfileId(
+            return act.CountProfileAttributeTextProfileId(
             profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextByProfileIdByAttributeId(
+        public virtual int CountProfileAttributeTextProfileIdAttributeId(
             string profile_id
             , string attribute_id
         )  {            
-            return act.CountProfileAttributeTextByProfileIdByAttributeId(
+            return act.CountProfileAttributeTextProfileIdAttributeId(
             profile_id
             , attribute_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileAttributeTextResult BrowseProfileAttributeTextListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileAttributeTextListByFilter(obj);
+        public virtual ProfileAttributeTextResult BrowseProfileAttributeTextListFilter(SearchFilter obj)  {
+            return act.BrowseProfileAttributeTextListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextByUuid(string set_type, ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByUuid(set_type, obj);
+        public virtual bool SetProfileAttributeTextUuid(string set_type, ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileAttributeTextByUuid(SetType set_type, ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAttributeTextUuid(SetType set_type, ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAttributeTextByUuid(ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAttributeTextUuid(ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextByProfileId(string set_type, ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByProfileId(set_type, obj);
+        public virtual bool SetProfileAttributeTextProfileId(string set_type, ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextProfileId(set_type, obj);
         }
         
-        public virtual bool SetProfileAttributeTextByProfileId(SetType set_type, ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByProfileId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAttributeTextProfileId(SetType set_type, ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextProfileId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAttributeTextByProfileId(ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByProfileId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAttributeTextProfileId(ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextProfileId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextByProfileIdByAttributeId(string set_type, ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByProfileIdByAttributeId(set_type, obj);
+        public virtual bool SetProfileAttributeTextProfileIdAttributeId(string set_type, ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextProfileIdAttributeId(set_type, obj);
         }
         
-        public virtual bool SetProfileAttributeTextByProfileIdByAttributeId(SetType set_type, ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByProfileIdByAttributeId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAttributeTextProfileIdAttributeId(SetType set_type, ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextProfileIdAttributeId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAttributeTextByProfileIdByAttributeId(ProfileAttributeText obj)  {
-            return act.SetProfileAttributeTextByProfileIdByAttributeId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAttributeTextProfileIdAttributeId(ProfileAttributeText obj)  {
+            return act.SetProfileAttributeTextProfileIdAttributeId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextByUuid(
+        public virtual bool DelProfileAttributeTextUuid(
             string uuid
         )  {            
-            return act.DelProfileAttributeTextByUuid(
+            return act.DelProfileAttributeTextUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextByProfileId(
+        public virtual bool DelProfileAttributeTextProfileId(
             string profile_id
         )  {            
-            return act.DelProfileAttributeTextByProfileId(
+            return act.DelProfileAttributeTextProfileId(
             profile_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextByProfileIdByAttributeId(
+        public virtual bool DelProfileAttributeTextProfileIdAttributeId(
             string profile_id
             , string attribute_id
         )  {            
-            return act.DelProfileAttributeTextByProfileIdByAttributeId(
+            return act.DelProfileAttributeTextProfileIdAttributeId(
             profile_id
             , attribute_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttributeText> GetProfileAttributeTextListByUuid(
+        public virtual List<ProfileAttributeText> GetProfileAttributeTextListUuid(
             string uuid
         )  {
-            return act.GetProfileAttributeTextListByUuid(
+            return act.GetProfileAttributeTextListUuid(
             uuid
             );
         }
         
-        public virtual ProfileAttributeText GetProfileAttributeTextByUuid(
+        public virtual ProfileAttributeText GetProfileAttributeTextUuid(
             string uuid
         )  {
-            foreach (ProfileAttributeText item in GetProfileAttributeTextListByUuid(
+            foreach (ProfileAttributeText item in GetProfileAttributeTextListUuid(
             uuid
             ))  {
                 return item;
@@ -1057,24 +1057,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListByUuid(
+        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListUuid(
             string uuid
         ) {
-            return CachedGetProfileAttributeTextListByUuid(
+            return CachedGetProfileAttributeTextListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListByUuid(
+        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileAttributeText> objs;
 
-            string method_name = "CachedGetProfileAttributeTextListByUuid";
+            string method_name = "CachedGetProfileAttributeTextListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1090,7 +1090,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeTextListByUuid(
+                objs = GetProfileAttributeTextListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1098,18 +1098,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttributeText> GetProfileAttributeTextListByProfileId(
+        public virtual List<ProfileAttributeText> GetProfileAttributeTextListProfileId(
             string profile_id
         )  {
-            return act.GetProfileAttributeTextListByProfileId(
+            return act.GetProfileAttributeTextListProfileId(
             profile_id
             );
         }
         
-        public virtual ProfileAttributeText GetProfileAttributeTextByProfileId(
+        public virtual ProfileAttributeText GetProfileAttributeTextProfileId(
             string profile_id
         )  {
-            foreach (ProfileAttributeText item in GetProfileAttributeTextListByProfileId(
+            foreach (ProfileAttributeText item in GetProfileAttributeTextListProfileId(
             profile_id
             ))  {
                 return item;
@@ -1117,24 +1117,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListByProfileId(
+        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListProfileId(
             string profile_id
         ) {
-            return CachedGetProfileAttributeTextListByProfileId(
+            return CachedGetProfileAttributeTextListProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
                 );
         }
         
-        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListByProfileId(
+        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListProfileId(
             bool overrideCache
             , int cacheHours
             , string profile_id
         ) {
             List<ProfileAttributeText> objs;
 
-            string method_name = "CachedGetProfileAttributeTextListByProfileId";
+            string method_name = "CachedGetProfileAttributeTextListProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1150,7 +1150,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeTextListByProfileId(
+                objs = GetProfileAttributeTextListProfileId(
                     profile_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1158,21 +1158,21 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttributeText> GetProfileAttributeTextListByProfileIdByAttributeId(
+        public virtual List<ProfileAttributeText> GetProfileAttributeTextListProfileIdAttributeId(
             string profile_id
             , string attribute_id
         )  {
-            return act.GetProfileAttributeTextListByProfileIdByAttributeId(
+            return act.GetProfileAttributeTextListProfileIdAttributeId(
             profile_id
             , attribute_id
             );
         }
         
-        public virtual ProfileAttributeText GetProfileAttributeTextByProfileIdByAttributeId(
+        public virtual ProfileAttributeText GetProfileAttributeTextProfileIdAttributeId(
             string profile_id
             , string attribute_id
         )  {
-            foreach (ProfileAttributeText item in GetProfileAttributeTextListByProfileIdByAttributeId(
+            foreach (ProfileAttributeText item in GetProfileAttributeTextListProfileIdAttributeId(
             profile_id
             , attribute_id
             ))  {
@@ -1181,11 +1181,11 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListByProfileIdByAttributeId(
+        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListProfileIdAttributeId(
             string profile_id
             , string attribute_id
         ) {
-            return CachedGetProfileAttributeTextListByProfileIdByAttributeId(
+            return CachedGetProfileAttributeTextListProfileIdAttributeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
@@ -1193,7 +1193,7 @@ namespace profile {
                 );
         }
         
-        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListByProfileIdByAttributeId(
+        public virtual List<ProfileAttributeText> CachedGetProfileAttributeTextListProfileIdAttributeId(
             bool overrideCache
             , int cacheHours
             , string profile_id
@@ -1201,7 +1201,7 @@ namespace profile {
         ) {
             List<ProfileAttributeText> objs;
 
-            string method_name = "CachedGetProfileAttributeTextListByProfileIdByAttributeId";
+            string method_name = "CachedGetProfileAttributeTextListProfileIdAttributeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1221,7 +1221,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeTextListByProfileIdByAttributeId(
+                objs = GetProfileAttributeTextListProfileIdAttributeId(
                     profile_id
                     , attribute_id
                 );
@@ -1236,110 +1236,110 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataByUuid(
+        public virtual int CountProfileAttributeDataUuid(
             string uuid
         )  {            
-            return act.CountProfileAttributeDataByUuid(
+            return act.CountProfileAttributeDataUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataByProfileId(
+        public virtual int CountProfileAttributeDataProfileId(
             string profile_id
         )  {            
-            return act.CountProfileAttributeDataByProfileId(
+            return act.CountProfileAttributeDataProfileId(
             profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataByProfileIdByAttributeId(
+        public virtual int CountProfileAttributeDataProfileIdAttributeId(
             string profile_id
             , string attribute_id
         )  {            
-            return act.CountProfileAttributeDataByProfileIdByAttributeId(
+            return act.CountProfileAttributeDataProfileIdAttributeId(
             profile_id
             , attribute_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileAttributeDataResult BrowseProfileAttributeDataListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileAttributeDataListByFilter(obj);
+        public virtual ProfileAttributeDataResult BrowseProfileAttributeDataListFilter(SearchFilter obj)  {
+            return act.BrowseProfileAttributeDataListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataByUuid(string set_type, ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByUuid(set_type, obj);
+        public virtual bool SetProfileAttributeDataUuid(string set_type, ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileAttributeDataByUuid(SetType set_type, ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAttributeDataUuid(SetType set_type, ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAttributeDataByUuid(ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAttributeDataUuid(ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataByProfileId(string set_type, ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByProfileId(set_type, obj);
+        public virtual bool SetProfileAttributeDataProfileId(string set_type, ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataProfileId(set_type, obj);
         }
         
-        public virtual bool SetProfileAttributeDataByProfileId(SetType set_type, ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByProfileId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAttributeDataProfileId(SetType set_type, ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataProfileId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAttributeDataByProfileId(ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByProfileId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAttributeDataProfileId(ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataProfileId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataByProfileIdByAttributeId(string set_type, ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByProfileIdByAttributeId(set_type, obj);
+        public virtual bool SetProfileAttributeDataProfileIdAttributeId(string set_type, ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataProfileIdAttributeId(set_type, obj);
         }
         
-        public virtual bool SetProfileAttributeDataByProfileIdByAttributeId(SetType set_type, ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByProfileIdByAttributeId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAttributeDataProfileIdAttributeId(SetType set_type, ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataProfileIdAttributeId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAttributeDataByProfileIdByAttributeId(ProfileAttributeData obj)  {
-            return act.SetProfileAttributeDataByProfileIdByAttributeId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAttributeDataProfileIdAttributeId(ProfileAttributeData obj)  {
+            return act.SetProfileAttributeDataProfileIdAttributeId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataByUuid(
+        public virtual bool DelProfileAttributeDataUuid(
             string uuid
         )  {            
-            return act.DelProfileAttributeDataByUuid(
+            return act.DelProfileAttributeDataUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataByProfileId(
+        public virtual bool DelProfileAttributeDataProfileId(
             string profile_id
         )  {            
-            return act.DelProfileAttributeDataByProfileId(
+            return act.DelProfileAttributeDataProfileId(
             profile_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataByProfileIdByAttributeId(
+        public virtual bool DelProfileAttributeDataProfileIdAttributeId(
             string profile_id
             , string attribute_id
         )  {            
-            return act.DelProfileAttributeDataByProfileIdByAttributeId(
+            return act.DelProfileAttributeDataProfileIdAttributeId(
             profile_id
             , attribute_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttributeData> GetProfileAttributeDataListByUuid(
+        public virtual List<ProfileAttributeData> GetProfileAttributeDataListUuid(
             string uuid
         )  {
-            return act.GetProfileAttributeDataListByUuid(
+            return act.GetProfileAttributeDataListUuid(
             uuid
             );
         }
         
-        public virtual ProfileAttributeData GetProfileAttributeDataByUuid(
+        public virtual ProfileAttributeData GetProfileAttributeDataUuid(
             string uuid
         )  {
-            foreach (ProfileAttributeData item in GetProfileAttributeDataListByUuid(
+            foreach (ProfileAttributeData item in GetProfileAttributeDataListUuid(
             uuid
             ))  {
                 return item;
@@ -1347,24 +1347,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListByUuid(
+        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListUuid(
             string uuid
         ) {
-            return CachedGetProfileAttributeDataListByUuid(
+            return CachedGetProfileAttributeDataListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListByUuid(
+        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileAttributeData> objs;
 
-            string method_name = "CachedGetProfileAttributeDataListByUuid";
+            string method_name = "CachedGetProfileAttributeDataListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1380,7 +1380,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeDataListByUuid(
+                objs = GetProfileAttributeDataListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1388,18 +1388,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttributeData> GetProfileAttributeDataListByProfileId(
+        public virtual List<ProfileAttributeData> GetProfileAttributeDataListProfileId(
             string profile_id
         )  {
-            return act.GetProfileAttributeDataListByProfileId(
+            return act.GetProfileAttributeDataListProfileId(
             profile_id
             );
         }
         
-        public virtual ProfileAttributeData GetProfileAttributeDataByProfileId(
+        public virtual ProfileAttributeData GetProfileAttributeDataProfileId(
             string profile_id
         )  {
-            foreach (ProfileAttributeData item in GetProfileAttributeDataListByProfileId(
+            foreach (ProfileAttributeData item in GetProfileAttributeDataListProfileId(
             profile_id
             ))  {
                 return item;
@@ -1407,24 +1407,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListByProfileId(
+        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListProfileId(
             string profile_id
         ) {
-            return CachedGetProfileAttributeDataListByProfileId(
+            return CachedGetProfileAttributeDataListProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
                 );
         }
         
-        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListByProfileId(
+        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListProfileId(
             bool overrideCache
             , int cacheHours
             , string profile_id
         ) {
             List<ProfileAttributeData> objs;
 
-            string method_name = "CachedGetProfileAttributeDataListByProfileId";
+            string method_name = "CachedGetProfileAttributeDataListProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1440,7 +1440,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeDataListByProfileId(
+                objs = GetProfileAttributeDataListProfileId(
                     profile_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1448,21 +1448,21 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileAttributeData> GetProfileAttributeDataListByProfileIdByAttributeId(
+        public virtual List<ProfileAttributeData> GetProfileAttributeDataListProfileIdAttributeId(
             string profile_id
             , string attribute_id
         )  {
-            return act.GetProfileAttributeDataListByProfileIdByAttributeId(
+            return act.GetProfileAttributeDataListProfileIdAttributeId(
             profile_id
             , attribute_id
             );
         }
         
-        public virtual ProfileAttributeData GetProfileAttributeDataByProfileIdByAttributeId(
+        public virtual ProfileAttributeData GetProfileAttributeDataProfileIdAttributeId(
             string profile_id
             , string attribute_id
         )  {
-            foreach (ProfileAttributeData item in GetProfileAttributeDataListByProfileIdByAttributeId(
+            foreach (ProfileAttributeData item in GetProfileAttributeDataListProfileIdAttributeId(
             profile_id
             , attribute_id
             ))  {
@@ -1471,11 +1471,11 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListByProfileIdByAttributeId(
+        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListProfileIdAttributeId(
             string profile_id
             , string attribute_id
         ) {
-            return CachedGetProfileAttributeDataListByProfileIdByAttributeId(
+            return CachedGetProfileAttributeDataListProfileIdAttributeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
@@ -1483,7 +1483,7 @@ namespace profile {
                 );
         }
         
-        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListByProfileIdByAttributeId(
+        public virtual List<ProfileAttributeData> CachedGetProfileAttributeDataListProfileIdAttributeId(
             bool overrideCache
             , int cacheHours
             , string profile_id
@@ -1491,7 +1491,7 @@ namespace profile {
         ) {
             List<ProfileAttributeData> objs;
 
-            string method_name = "CachedGetProfileAttributeDataListByProfileIdByAttributeId";
+            string method_name = "CachedGetProfileAttributeDataListProfileIdAttributeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1511,7 +1511,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAttributeDataListByProfileIdByAttributeId(
+                objs = GetProfileAttributeDataListProfileIdAttributeId(
                     profile_id
                     , attribute_id
                 );
@@ -1526,122 +1526,122 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceByUuid(
+        public virtual int CountProfileDeviceUuid(
             string uuid
         )  {            
-            return act.CountProfileDeviceByUuid(
+            return act.CountProfileDeviceUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceByProfileIdByDeviceId(
+        public virtual int CountProfileDeviceProfileIdDeviceId(
             string profile_id
             , string device_id
         )  {            
-            return act.CountProfileDeviceByProfileIdByDeviceId(
+            return act.CountProfileDeviceProfileIdDeviceId(
             profile_id
             , device_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceByProfileIdByToken(
+        public virtual int CountProfileDeviceProfileIdToken(
             string profile_id
             , string token
         )  {            
-            return act.CountProfileDeviceByProfileIdByToken(
+            return act.CountProfileDeviceProfileIdToken(
             profile_id
             , token
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceByProfileId(
+        public virtual int CountProfileDeviceProfileId(
             string profile_id
         )  {            
-            return act.CountProfileDeviceByProfileId(
+            return act.CountProfileDeviceProfileId(
             profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceByDeviceId(
+        public virtual int CountProfileDeviceDeviceId(
             string device_id
         )  {            
-            return act.CountProfileDeviceByDeviceId(
+            return act.CountProfileDeviceDeviceId(
             device_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceByToken(
+        public virtual int CountProfileDeviceToken(
             string token
         )  {            
-            return act.CountProfileDeviceByToken(
+            return act.CountProfileDeviceToken(
             token
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileDeviceResult BrowseProfileDeviceListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileDeviceListByFilter(obj);
+        public virtual ProfileDeviceResult BrowseProfileDeviceListFilter(SearchFilter obj)  {
+            return act.BrowseProfileDeviceListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileDeviceByUuid(string set_type, ProfileDevice obj)  {
-            return act.SetProfileDeviceByUuid(set_type, obj);
+        public virtual bool SetProfileDeviceUuid(string set_type, ProfileDevice obj)  {
+            return act.SetProfileDeviceUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileDeviceByUuid(SetType set_type, ProfileDevice obj)  {
-            return act.SetProfileDeviceByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileDeviceUuid(SetType set_type, ProfileDevice obj)  {
+            return act.SetProfileDeviceUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileDeviceByUuid(ProfileDevice obj)  {
-            return act.SetProfileDeviceByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileDeviceUuid(ProfileDevice obj)  {
+            return act.SetProfileDeviceUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceByUuid(
+        public virtual bool DelProfileDeviceUuid(
             string uuid
         )  {            
-            return act.DelProfileDeviceByUuid(
+            return act.DelProfileDeviceUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceByProfileIdByDeviceId(
+        public virtual bool DelProfileDeviceProfileIdDeviceId(
             string profile_id
             , string device_id
         )  {            
-            return act.DelProfileDeviceByProfileIdByDeviceId(
+            return act.DelProfileDeviceProfileIdDeviceId(
             profile_id
             , device_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceByProfileIdByToken(
+        public virtual bool DelProfileDeviceProfileIdToken(
             string profile_id
             , string token
         )  {            
-            return act.DelProfileDeviceByProfileIdByToken(
+            return act.DelProfileDeviceProfileIdToken(
             profile_id
             , token
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceByToken(
+        public virtual bool DelProfileDeviceToken(
             string token
         )  {            
-            return act.DelProfileDeviceByToken(
+            return act.DelProfileDeviceToken(
             token
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileDevice> GetProfileDeviceListByUuid(
+        public virtual List<ProfileDevice> GetProfileDeviceListUuid(
             string uuid
         )  {
-            return act.GetProfileDeviceListByUuid(
+            return act.GetProfileDeviceListUuid(
             uuid
             );
         }
         
-        public virtual ProfileDevice GetProfileDeviceByUuid(
+        public virtual ProfileDevice GetProfileDeviceUuid(
             string uuid
         )  {
-            foreach (ProfileDevice item in GetProfileDeviceListByUuid(
+            foreach (ProfileDevice item in GetProfileDeviceListUuid(
             uuid
             ))  {
                 return item;
@@ -1649,24 +1649,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByUuid(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListUuid(
             string uuid
         ) {
-            return CachedGetProfileDeviceListByUuid(
+            return CachedGetProfileDeviceListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByUuid(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileDevice> objs;
 
-            string method_name = "CachedGetProfileDeviceListByUuid";
+            string method_name = "CachedGetProfileDeviceListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1682,7 +1682,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileDeviceListByUuid(
+                objs = GetProfileDeviceListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1690,21 +1690,21 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileDevice> GetProfileDeviceListByProfileIdByDeviceId(
+        public virtual List<ProfileDevice> GetProfileDeviceListProfileIdDeviceId(
             string profile_id
             , string device_id
         )  {
-            return act.GetProfileDeviceListByProfileIdByDeviceId(
+            return act.GetProfileDeviceListProfileIdDeviceId(
             profile_id
             , device_id
             );
         }
         
-        public virtual ProfileDevice GetProfileDeviceByProfileIdByDeviceId(
+        public virtual ProfileDevice GetProfileDeviceProfileIdDeviceId(
             string profile_id
             , string device_id
         )  {
-            foreach (ProfileDevice item in GetProfileDeviceListByProfileIdByDeviceId(
+            foreach (ProfileDevice item in GetProfileDeviceListProfileIdDeviceId(
             profile_id
             , device_id
             ))  {
@@ -1713,11 +1713,11 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByProfileIdByDeviceId(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListProfileIdDeviceId(
             string profile_id
             , string device_id
         ) {
-            return CachedGetProfileDeviceListByProfileIdByDeviceId(
+            return CachedGetProfileDeviceListProfileIdDeviceId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
@@ -1725,7 +1725,7 @@ namespace profile {
                 );
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByProfileIdByDeviceId(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListProfileIdDeviceId(
             bool overrideCache
             , int cacheHours
             , string profile_id
@@ -1733,7 +1733,7 @@ namespace profile {
         ) {
             List<ProfileDevice> objs;
 
-            string method_name = "CachedGetProfileDeviceListByProfileIdByDeviceId";
+            string method_name = "CachedGetProfileDeviceListProfileIdDeviceId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1753,7 +1753,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileDeviceListByProfileIdByDeviceId(
+                objs = GetProfileDeviceListProfileIdDeviceId(
                     profile_id
                     , device_id
                 );
@@ -1762,21 +1762,21 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileDevice> GetProfileDeviceListByProfileIdByToken(
+        public virtual List<ProfileDevice> GetProfileDeviceListProfileIdToken(
             string profile_id
             , string token
         )  {
-            return act.GetProfileDeviceListByProfileIdByToken(
+            return act.GetProfileDeviceListProfileIdToken(
             profile_id
             , token
             );
         }
         
-        public virtual ProfileDevice GetProfileDeviceByProfileIdByToken(
+        public virtual ProfileDevice GetProfileDeviceProfileIdToken(
             string profile_id
             , string token
         )  {
-            foreach (ProfileDevice item in GetProfileDeviceListByProfileIdByToken(
+            foreach (ProfileDevice item in GetProfileDeviceListProfileIdToken(
             profile_id
             , token
             ))  {
@@ -1785,11 +1785,11 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByProfileIdByToken(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListProfileIdToken(
             string profile_id
             , string token
         ) {
-            return CachedGetProfileDeviceListByProfileIdByToken(
+            return CachedGetProfileDeviceListProfileIdToken(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
@@ -1797,7 +1797,7 @@ namespace profile {
                 );
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByProfileIdByToken(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListProfileIdToken(
             bool overrideCache
             , int cacheHours
             , string profile_id
@@ -1805,7 +1805,7 @@ namespace profile {
         ) {
             List<ProfileDevice> objs;
 
-            string method_name = "CachedGetProfileDeviceListByProfileIdByToken";
+            string method_name = "CachedGetProfileDeviceListProfileIdToken";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1825,7 +1825,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileDeviceListByProfileIdByToken(
+                objs = GetProfileDeviceListProfileIdToken(
                     profile_id
                     , token
                 );
@@ -1834,18 +1834,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileDevice> GetProfileDeviceListByProfileId(
+        public virtual List<ProfileDevice> GetProfileDeviceListProfileId(
             string profile_id
         )  {
-            return act.GetProfileDeviceListByProfileId(
+            return act.GetProfileDeviceListProfileId(
             profile_id
             );
         }
         
-        public virtual ProfileDevice GetProfileDeviceByProfileId(
+        public virtual ProfileDevice GetProfileDeviceProfileId(
             string profile_id
         )  {
-            foreach (ProfileDevice item in GetProfileDeviceListByProfileId(
+            foreach (ProfileDevice item in GetProfileDeviceListProfileId(
             profile_id
             ))  {
                 return item;
@@ -1853,24 +1853,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByProfileId(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListProfileId(
             string profile_id
         ) {
-            return CachedGetProfileDeviceListByProfileId(
+            return CachedGetProfileDeviceListProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
                 );
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByProfileId(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListProfileId(
             bool overrideCache
             , int cacheHours
             , string profile_id
         ) {
             List<ProfileDevice> objs;
 
-            string method_name = "CachedGetProfileDeviceListByProfileId";
+            string method_name = "CachedGetProfileDeviceListProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1886,7 +1886,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileDeviceListByProfileId(
+                objs = GetProfileDeviceListProfileId(
                     profile_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1894,18 +1894,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileDevice> GetProfileDeviceListByDeviceId(
+        public virtual List<ProfileDevice> GetProfileDeviceListDeviceId(
             string device_id
         )  {
-            return act.GetProfileDeviceListByDeviceId(
+            return act.GetProfileDeviceListDeviceId(
             device_id
             );
         }
         
-        public virtual ProfileDevice GetProfileDeviceByDeviceId(
+        public virtual ProfileDevice GetProfileDeviceDeviceId(
             string device_id
         )  {
-            foreach (ProfileDevice item in GetProfileDeviceListByDeviceId(
+            foreach (ProfileDevice item in GetProfileDeviceListDeviceId(
             device_id
             ))  {
                 return item;
@@ -1913,24 +1913,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByDeviceId(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListDeviceId(
             string device_id
         ) {
-            return CachedGetProfileDeviceListByDeviceId(
+            return CachedGetProfileDeviceListDeviceId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , device_id
                 );
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByDeviceId(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListDeviceId(
             bool overrideCache
             , int cacheHours
             , string device_id
         ) {
             List<ProfileDevice> objs;
 
-            string method_name = "CachedGetProfileDeviceListByDeviceId";
+            string method_name = "CachedGetProfileDeviceListDeviceId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1946,7 +1946,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileDeviceListByDeviceId(
+                objs = GetProfileDeviceListDeviceId(
                     device_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1954,18 +1954,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileDevice> GetProfileDeviceListByToken(
+        public virtual List<ProfileDevice> GetProfileDeviceListToken(
             string token
         )  {
-            return act.GetProfileDeviceListByToken(
+            return act.GetProfileDeviceListToken(
             token
             );
         }
         
-        public virtual ProfileDevice GetProfileDeviceByToken(
+        public virtual ProfileDevice GetProfileDeviceToken(
             string token
         )  {
-            foreach (ProfileDevice item in GetProfileDeviceListByToken(
+            foreach (ProfileDevice item in GetProfileDeviceListToken(
             token
             ))  {
                 return item;
@@ -1973,24 +1973,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByToken(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListToken(
             string token
         ) {
-            return CachedGetProfileDeviceListByToken(
+            return CachedGetProfileDeviceListToken(
                     false
                     , CACHE_DEFAULT_HOURS
                     , token
                 );
         }
         
-        public virtual List<ProfileDevice> CachedGetProfileDeviceListByToken(
+        public virtual List<ProfileDevice> CachedGetProfileDeviceListToken(
             bool overrideCache
             , int cacheHours
             , string token
         ) {
             List<ProfileDevice> objs;
 
-            string method_name = "CachedGetProfileDeviceListByToken";
+            string method_name = "CachedGetProfileDeviceListToken";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2006,7 +2006,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileDeviceListByToken(
+                objs = GetProfileDeviceListToken(
                     token
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2020,62 +2020,62 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCountryByUuid(
+        public virtual int CountCountryUuid(
             string uuid
         )  {            
-            return act.CountCountryByUuid(
+            return act.CountCountryUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCountryByCode(
+        public virtual int CountCountryCode(
             string code
         )  {            
-            return act.CountCountryByCode(
+            return act.CountCountryCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual CountryResult BrowseCountryListByFilter(SearchFilter obj)  {
-            return act.BrowseCountryListByFilter(obj);
+        public virtual CountryResult BrowseCountryListFilter(SearchFilter obj)  {
+            return act.BrowseCountryListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCountryByUuid(string set_type, Country obj)  {
-            return act.SetCountryByUuid(set_type, obj);
+        public virtual bool SetCountryUuid(string set_type, Country obj)  {
+            return act.SetCountryUuid(set_type, obj);
         }
         
-        public virtual bool SetCountryByUuid(SetType set_type, Country obj)  {
-            return act.SetCountryByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetCountryUuid(SetType set_type, Country obj)  {
+            return act.SetCountryUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetCountryByUuid(Country obj)  {
-            return act.SetCountryByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetCountryUuid(Country obj)  {
+            return act.SetCountryUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCountryByCode(string set_type, Country obj)  {
-            return act.SetCountryByCode(set_type, obj);
+        public virtual bool SetCountryCode(string set_type, Country obj)  {
+            return act.SetCountryCode(set_type, obj);
         }
         
-        public virtual bool SetCountryByCode(SetType set_type, Country obj)  {
-            return act.SetCountryByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetCountryCode(SetType set_type, Country obj)  {
+            return act.SetCountryCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetCountryByCode(Country obj)  {
-            return act.SetCountryByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetCountryCode(Country obj)  {
+            return act.SetCountryCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCountryByUuid(
+        public virtual bool DelCountryUuid(
             string uuid
         )  {            
-            return act.DelCountryByUuid(
+            return act.DelCountryUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCountryByCode(
+        public virtual bool DelCountryCode(
             string code
         )  {            
-            return act.DelCountryByCode(
+            return act.DelCountryCode(
             code
             );
         }                     
@@ -2128,18 +2128,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Country> GetCountryListByUuid(
+        public virtual List<Country> GetCountryListUuid(
             string uuid
         )  {
-            return act.GetCountryListByUuid(
+            return act.GetCountryListUuid(
             uuid
             );
         }
         
-        public virtual Country GetCountryByUuid(
+        public virtual Country GetCountryUuid(
             string uuid
         )  {
-            foreach (Country item in GetCountryListByUuid(
+            foreach (Country item in GetCountryListUuid(
             uuid
             ))  {
                 return item;
@@ -2147,24 +2147,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<Country> CachedGetCountryListByUuid(
+        public virtual List<Country> CachedGetCountryListUuid(
             string uuid
         ) {
-            return CachedGetCountryListByUuid(
+            return CachedGetCountryListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Country> CachedGetCountryListByUuid(
+        public virtual List<Country> CachedGetCountryListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Country> objs;
 
-            string method_name = "CachedGetCountryListByUuid";
+            string method_name = "CachedGetCountryListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2180,7 +2180,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetCountryListByUuid(
+                objs = GetCountryListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2188,18 +2188,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Country> GetCountryListByCode(
+        public virtual List<Country> GetCountryListCode(
             string code
         )  {
-            return act.GetCountryListByCode(
+            return act.GetCountryListCode(
             code
             );
         }
         
-        public virtual Country GetCountryByCode(
+        public virtual Country GetCountryCode(
             string code
         )  {
-            foreach (Country item in GetCountryListByCode(
+            foreach (Country item in GetCountryListCode(
             code
             ))  {
                 return item;
@@ -2207,24 +2207,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<Country> CachedGetCountryListByCode(
+        public virtual List<Country> CachedGetCountryListCode(
             string code
         ) {
-            return CachedGetCountryListByCode(
+            return CachedGetCountryListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<Country> CachedGetCountryListByCode(
+        public virtual List<Country> CachedGetCountryListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<Country> objs;
 
-            string method_name = "CachedGetCountryListByCode";
+            string method_name = "CachedGetCountryListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2240,7 +2240,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetCountryListByCode(
+                objs = GetCountryListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2254,62 +2254,62 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountStateByUuid(
+        public virtual int CountStateUuid(
             string uuid
         )  {            
-            return act.CountStateByUuid(
+            return act.CountStateUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountStateByCode(
+        public virtual int CountStateCode(
             string code
         )  {            
-            return act.CountStateByCode(
+            return act.CountStateCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual StateResult BrowseStateListByFilter(SearchFilter obj)  {
-            return act.BrowseStateListByFilter(obj);
+        public virtual StateResult BrowseStateListFilter(SearchFilter obj)  {
+            return act.BrowseStateListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetStateByUuid(string set_type, State obj)  {
-            return act.SetStateByUuid(set_type, obj);
+        public virtual bool SetStateUuid(string set_type, State obj)  {
+            return act.SetStateUuid(set_type, obj);
         }
         
-        public virtual bool SetStateByUuid(SetType set_type, State obj)  {
-            return act.SetStateByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetStateUuid(SetType set_type, State obj)  {
+            return act.SetStateUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetStateByUuid(State obj)  {
-            return act.SetStateByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetStateUuid(State obj)  {
+            return act.SetStateUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetStateByCode(string set_type, State obj)  {
-            return act.SetStateByCode(set_type, obj);
+        public virtual bool SetStateCode(string set_type, State obj)  {
+            return act.SetStateCode(set_type, obj);
         }
         
-        public virtual bool SetStateByCode(SetType set_type, State obj)  {
-            return act.SetStateByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetStateCode(SetType set_type, State obj)  {
+            return act.SetStateCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetStateByCode(State obj)  {
-            return act.SetStateByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetStateCode(State obj)  {
+            return act.SetStateCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelStateByUuid(
+        public virtual bool DelStateUuid(
             string uuid
         )  {            
-            return act.DelStateByUuid(
+            return act.DelStateUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelStateByCode(
+        public virtual bool DelStateCode(
             string code
         )  {            
-            return act.DelStateByCode(
+            return act.DelStateCode(
             code
             );
         }                     
@@ -2362,18 +2362,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<State> GetStateListByUuid(
+        public virtual List<State> GetStateListUuid(
             string uuid
         )  {
-            return act.GetStateListByUuid(
+            return act.GetStateListUuid(
             uuid
             );
         }
         
-        public virtual State GetStateByUuid(
+        public virtual State GetStateUuid(
             string uuid
         )  {
-            foreach (State item in GetStateListByUuid(
+            foreach (State item in GetStateListUuid(
             uuid
             ))  {
                 return item;
@@ -2381,24 +2381,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<State> CachedGetStateListByUuid(
+        public virtual List<State> CachedGetStateListUuid(
             string uuid
         ) {
-            return CachedGetStateListByUuid(
+            return CachedGetStateListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<State> CachedGetStateListByUuid(
+        public virtual List<State> CachedGetStateListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<State> objs;
 
-            string method_name = "CachedGetStateListByUuid";
+            string method_name = "CachedGetStateListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2414,7 +2414,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetStateListByUuid(
+                objs = GetStateListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2422,18 +2422,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<State> GetStateListByCode(
+        public virtual List<State> GetStateListCode(
             string code
         )  {
-            return act.GetStateListByCode(
+            return act.GetStateListCode(
             code
             );
         }
         
-        public virtual State GetStateByCode(
+        public virtual State GetStateCode(
             string code
         )  {
-            foreach (State item in GetStateListByCode(
+            foreach (State item in GetStateListCode(
             code
             ))  {
                 return item;
@@ -2441,24 +2441,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<State> CachedGetStateListByCode(
+        public virtual List<State> CachedGetStateListCode(
             string code
         ) {
-            return CachedGetStateListByCode(
+            return CachedGetStateListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<State> CachedGetStateListByCode(
+        public virtual List<State> CachedGetStateListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<State> objs;
 
-            string method_name = "CachedGetStateListByCode";
+            string method_name = "CachedGetStateListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2474,7 +2474,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetStateListByCode(
+                objs = GetStateListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2488,62 +2488,62 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCityByUuid(
+        public virtual int CountCityUuid(
             string uuid
         )  {            
-            return act.CountCityByUuid(
+            return act.CountCityUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCityByCode(
+        public virtual int CountCityCode(
             string code
         )  {            
-            return act.CountCityByCode(
+            return act.CountCityCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual CityResult BrowseCityListByFilter(SearchFilter obj)  {
-            return act.BrowseCityListByFilter(obj);
+        public virtual CityResult BrowseCityListFilter(SearchFilter obj)  {
+            return act.BrowseCityListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCityByUuid(string set_type, City obj)  {
-            return act.SetCityByUuid(set_type, obj);
+        public virtual bool SetCityUuid(string set_type, City obj)  {
+            return act.SetCityUuid(set_type, obj);
         }
         
-        public virtual bool SetCityByUuid(SetType set_type, City obj)  {
-            return act.SetCityByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetCityUuid(SetType set_type, City obj)  {
+            return act.SetCityUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetCityByUuid(City obj)  {
-            return act.SetCityByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetCityUuid(City obj)  {
+            return act.SetCityUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCityByCode(string set_type, City obj)  {
-            return act.SetCityByCode(set_type, obj);
+        public virtual bool SetCityCode(string set_type, City obj)  {
+            return act.SetCityCode(set_type, obj);
         }
         
-        public virtual bool SetCityByCode(SetType set_type, City obj)  {
-            return act.SetCityByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetCityCode(SetType set_type, City obj)  {
+            return act.SetCityCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetCityByCode(City obj)  {
-            return act.SetCityByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetCityCode(City obj)  {
+            return act.SetCityCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCityByUuid(
+        public virtual bool DelCityUuid(
             string uuid
         )  {            
-            return act.DelCityByUuid(
+            return act.DelCityUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCityByCode(
+        public virtual bool DelCityCode(
             string code
         )  {            
-            return act.DelCityByCode(
+            return act.DelCityCode(
             code
             );
         }                     
@@ -2596,18 +2596,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<City> GetCityListByUuid(
+        public virtual List<City> GetCityListUuid(
             string uuid
         )  {
-            return act.GetCityListByUuid(
+            return act.GetCityListUuid(
             uuid
             );
         }
         
-        public virtual City GetCityByUuid(
+        public virtual City GetCityUuid(
             string uuid
         )  {
-            foreach (City item in GetCityListByUuid(
+            foreach (City item in GetCityListUuid(
             uuid
             ))  {
                 return item;
@@ -2615,24 +2615,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<City> CachedGetCityListByUuid(
+        public virtual List<City> CachedGetCityListUuid(
             string uuid
         ) {
-            return CachedGetCityListByUuid(
+            return CachedGetCityListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<City> CachedGetCityListByUuid(
+        public virtual List<City> CachedGetCityListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<City> objs;
 
-            string method_name = "CachedGetCityListByUuid";
+            string method_name = "CachedGetCityListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2648,7 +2648,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetCityListByUuid(
+                objs = GetCityListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2656,18 +2656,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<City> GetCityListByCode(
+        public virtual List<City> GetCityListCode(
             string code
         )  {
-            return act.GetCityListByCode(
+            return act.GetCityListCode(
             code
             );
         }
         
-        public virtual City GetCityByCode(
+        public virtual City GetCityCode(
             string code
         )  {
-            foreach (City item in GetCityListByCode(
+            foreach (City item in GetCityListCode(
             code
             ))  {
                 return item;
@@ -2675,24 +2675,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<City> CachedGetCityListByCode(
+        public virtual List<City> CachedGetCityListCode(
             string code
         ) {
-            return CachedGetCityListByCode(
+            return CachedGetCityListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<City> CachedGetCityListByCode(
+        public virtual List<City> CachedGetCityListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<City> objs;
 
-            string method_name = "CachedGetCityListByCode";
+            string method_name = "CachedGetCityListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2708,7 +2708,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetCityListByCode(
+                objs = GetCityListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2722,62 +2722,62 @@ namespace profile {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPostalCodeByUuid(
+        public virtual int CountPostalCodeUuid(
             string uuid
         )  {            
-            return act.CountPostalCodeByUuid(
+            return act.CountPostalCodeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPostalCodeByCode(
+        public virtual int CountPostalCodeCode(
             string code
         )  {            
-            return act.CountPostalCodeByCode(
+            return act.CountPostalCodeCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual PostalCodeResult BrowsePostalCodeListByFilter(SearchFilter obj)  {
-            return act.BrowsePostalCodeListByFilter(obj);
+        public virtual PostalCodeResult BrowsePostalCodeListFilter(SearchFilter obj)  {
+            return act.BrowsePostalCodeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPostalCodeByUuid(string set_type, PostalCode obj)  {
-            return act.SetPostalCodeByUuid(set_type, obj);
+        public virtual bool SetPostalCodeUuid(string set_type, PostalCode obj)  {
+            return act.SetPostalCodeUuid(set_type, obj);
         }
         
-        public virtual bool SetPostalCodeByUuid(SetType set_type, PostalCode obj)  {
-            return act.SetPostalCodeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetPostalCodeUuid(SetType set_type, PostalCode obj)  {
+            return act.SetPostalCodeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetPostalCodeByUuid(PostalCode obj)  {
-            return act.SetPostalCodeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetPostalCodeUuid(PostalCode obj)  {
+            return act.SetPostalCodeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPostalCodeByCode(string set_type, PostalCode obj)  {
-            return act.SetPostalCodeByCode(set_type, obj);
+        public virtual bool SetPostalCodeCode(string set_type, PostalCode obj)  {
+            return act.SetPostalCodeCode(set_type, obj);
         }
         
-        public virtual bool SetPostalCodeByCode(SetType set_type, PostalCode obj)  {
-            return act.SetPostalCodeByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetPostalCodeCode(SetType set_type, PostalCode obj)  {
+            return act.SetPostalCodeCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetPostalCodeByCode(PostalCode obj)  {
-            return act.SetPostalCodeByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetPostalCodeCode(PostalCode obj)  {
+            return act.SetPostalCodeCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPostalCodeByUuid(
+        public virtual bool DelPostalCodeUuid(
             string uuid
         )  {            
-            return act.DelPostalCodeByUuid(
+            return act.DelPostalCodeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPostalCodeByCode(
+        public virtual bool DelPostalCodeCode(
             string code
         )  {            
-            return act.DelPostalCodeByCode(
+            return act.DelPostalCodeCode(
             code
             );
         }                     
@@ -2830,18 +2830,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<PostalCode> GetPostalCodeListByUuid(
+        public virtual List<PostalCode> GetPostalCodeListUuid(
             string uuid
         )  {
-            return act.GetPostalCodeListByUuid(
+            return act.GetPostalCodeListUuid(
             uuid
             );
         }
         
-        public virtual PostalCode GetPostalCodeByUuid(
+        public virtual PostalCode GetPostalCodeUuid(
             string uuid
         )  {
-            foreach (PostalCode item in GetPostalCodeListByUuid(
+            foreach (PostalCode item in GetPostalCodeListUuid(
             uuid
             ))  {
                 return item;
@@ -2849,24 +2849,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<PostalCode> CachedGetPostalCodeListByUuid(
+        public virtual List<PostalCode> CachedGetPostalCodeListUuid(
             string uuid
         ) {
-            return CachedGetPostalCodeListByUuid(
+            return CachedGetPostalCodeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<PostalCode> CachedGetPostalCodeListByUuid(
+        public virtual List<PostalCode> CachedGetPostalCodeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<PostalCode> objs;
 
-            string method_name = "CachedGetPostalCodeListByUuid";
+            string method_name = "CachedGetPostalCodeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2882,7 +2882,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetPostalCodeListByUuid(
+                objs = GetPostalCodeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2890,18 +2890,18 @@ namespace profile {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<PostalCode> GetPostalCodeListByCode(
+        public virtual List<PostalCode> GetPostalCodeListCode(
             string code
         )  {
-            return act.GetPostalCodeListByCode(
+            return act.GetPostalCodeListCode(
             code
             );
         }
         
-        public virtual PostalCode GetPostalCodeByCode(
+        public virtual PostalCode GetPostalCodeCode(
             string code
         )  {
-            foreach (PostalCode item in GetPostalCodeListByCode(
+            foreach (PostalCode item in GetPostalCodeListCode(
             code
             ))  {
                 return item;
@@ -2909,24 +2909,24 @@ namespace profile {
             return null;
         }
         
-        public virtual List<PostalCode> CachedGetPostalCodeListByCode(
+        public virtual List<PostalCode> CachedGetPostalCodeListCode(
             string code
         ) {
-            return CachedGetPostalCodeListByCode(
+            return CachedGetPostalCodeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<PostalCode> CachedGetPostalCodeListByCode(
+        public virtual List<PostalCode> CachedGetPostalCodeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<PostalCode> objs;
 
-            string method_name = "CachedGetPostalCodeListByCode";
+            string method_name = "CachedGetPostalCodeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2942,7 +2942,7 @@ namespace profile {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetPostalCodeListByCode(
+                objs = GetPostalCodeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);

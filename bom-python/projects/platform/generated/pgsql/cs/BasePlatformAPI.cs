@@ -48,98 +48,98 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppByUuid(
+        public virtual int CountAppUuid(
             string uuid
         )  {            
-            return act.CountAppByUuid(
+            return act.CountAppUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppByCode(
+        public virtual int CountAppCode(
             string code
         )  {            
-            return act.CountAppByCode(
+            return act.CountAppCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppByTypeId(
+        public virtual int CountAppTypeId(
             string type_id
         )  {            
-            return act.CountAppByTypeId(
+            return act.CountAppTypeId(
             type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppByCodeByTypeId(
+        public virtual int CountAppCodeTypeId(
             string code
             , string type_id
         )  {            
-            return act.CountAppByCodeByTypeId(
+            return act.CountAppCodeTypeId(
             code
             , type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppByPlatformByTypeId(
+        public virtual int CountAppPlatformTypeId(
             string platform
             , string type_id
         )  {            
-            return act.CountAppByPlatformByTypeId(
+            return act.CountAppPlatformTypeId(
             platform
             , type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppByPlatform(
+        public virtual int CountAppPlatform(
             string platform
         )  {            
-            return act.CountAppByPlatform(
+            return act.CountAppPlatform(
             platform
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual AppResult BrowseAppListByFilter(SearchFilter obj)  {
-            return act.BrowseAppListByFilter(obj);
+        public virtual AppResult BrowseAppListFilter(SearchFilter obj)  {
+            return act.BrowseAppListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppByUuid(string set_type, App obj)  {
-            return act.SetAppByUuid(set_type, obj);
+        public virtual bool SetAppUuid(string set_type, App obj)  {
+            return act.SetAppUuid(set_type, obj);
         }
         
-        public virtual bool SetAppByUuid(SetType set_type, App obj)  {
-            return act.SetAppByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetAppUuid(SetType set_type, App obj)  {
+            return act.SetAppUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetAppByUuid(App obj)  {
-            return act.SetAppByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetAppUuid(App obj)  {
+            return act.SetAppUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppByCode(string set_type, App obj)  {
-            return act.SetAppByCode(set_type, obj);
+        public virtual bool SetAppCode(string set_type, App obj)  {
+            return act.SetAppCode(set_type, obj);
         }
         
-        public virtual bool SetAppByCode(SetType set_type, App obj)  {
-            return act.SetAppByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetAppCode(SetType set_type, App obj)  {
+            return act.SetAppCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetAppByCode(App obj)  {
-            return act.SetAppByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetAppCode(App obj)  {
+            return act.SetAppCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppByUuid(
+        public virtual bool DelAppUuid(
             string uuid
         )  {            
-            return act.DelAppByUuid(
+            return act.DelAppUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppByCode(
+        public virtual bool DelAppCode(
             string code
         )  {            
-            return act.DelAppByCode(
+            return act.DelAppCode(
             code
             );
         }                     
@@ -192,18 +192,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<App> GetAppListByUuid(
+        public virtual List<App> GetAppListUuid(
             string uuid
         )  {
-            return act.GetAppListByUuid(
+            return act.GetAppListUuid(
             uuid
             );
         }
         
-        public virtual App GetAppByUuid(
+        public virtual App GetAppUuid(
             string uuid
         )  {
-            foreach (App item in GetAppListByUuid(
+            foreach (App item in GetAppListUuid(
             uuid
             ))  {
                 return item;
@@ -211,24 +211,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<App> CachedGetAppListByUuid(
+        public virtual List<App> CachedGetAppListUuid(
             string uuid
         ) {
-            return CachedGetAppListByUuid(
+            return CachedGetAppListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<App> CachedGetAppListByUuid(
+        public virtual List<App> CachedGetAppListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<App> objs;
 
-            string method_name = "CachedGetAppListByUuid";
+            string method_name = "CachedGetAppListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -244,7 +244,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetAppListByUuid(
+                objs = GetAppListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -252,18 +252,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<App> GetAppListByCode(
+        public virtual List<App> GetAppListCode(
             string code
         )  {
-            return act.GetAppListByCode(
+            return act.GetAppListCode(
             code
             );
         }
         
-        public virtual App GetAppByCode(
+        public virtual App GetAppCode(
             string code
         )  {
-            foreach (App item in GetAppListByCode(
+            foreach (App item in GetAppListCode(
             code
             ))  {
                 return item;
@@ -271,24 +271,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<App> CachedGetAppListByCode(
+        public virtual List<App> CachedGetAppListCode(
             string code
         ) {
-            return CachedGetAppListByCode(
+            return CachedGetAppListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<App> CachedGetAppListByCode(
+        public virtual List<App> CachedGetAppListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<App> objs;
 
-            string method_name = "CachedGetAppListByCode";
+            string method_name = "CachedGetAppListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -304,7 +304,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetAppListByCode(
+                objs = GetAppListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -312,18 +312,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<App> GetAppListByTypeId(
+        public virtual List<App> GetAppListTypeId(
             string type_id
         )  {
-            return act.GetAppListByTypeId(
+            return act.GetAppListTypeId(
             type_id
             );
         }
         
-        public virtual App GetAppByTypeId(
+        public virtual App GetAppTypeId(
             string type_id
         )  {
-            foreach (App item in GetAppListByTypeId(
+            foreach (App item in GetAppListTypeId(
             type_id
             ))  {
                 return item;
@@ -331,24 +331,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<App> CachedGetAppListByTypeId(
+        public virtual List<App> CachedGetAppListTypeId(
             string type_id
         ) {
-            return CachedGetAppListByTypeId(
+            return CachedGetAppListTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , type_id
                 );
         }
         
-        public virtual List<App> CachedGetAppListByTypeId(
+        public virtual List<App> CachedGetAppListTypeId(
             bool overrideCache
             , int cacheHours
             , string type_id
         ) {
             List<App> objs;
 
-            string method_name = "CachedGetAppListByTypeId";
+            string method_name = "CachedGetAppListTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -364,7 +364,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetAppListByTypeId(
+                objs = GetAppListTypeId(
                     type_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -372,21 +372,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<App> GetAppListByCodeByTypeId(
+        public virtual List<App> GetAppListCodeTypeId(
             string code
             , string type_id
         )  {
-            return act.GetAppListByCodeByTypeId(
+            return act.GetAppListCodeTypeId(
             code
             , type_id
             );
         }
         
-        public virtual App GetAppByCodeByTypeId(
+        public virtual App GetAppCodeTypeId(
             string code
             , string type_id
         )  {
-            foreach (App item in GetAppListByCodeByTypeId(
+            foreach (App item in GetAppListCodeTypeId(
             code
             , type_id
             ))  {
@@ -395,11 +395,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<App> CachedGetAppListByCodeByTypeId(
+        public virtual List<App> CachedGetAppListCodeTypeId(
             string code
             , string type_id
         ) {
-            return CachedGetAppListByCodeByTypeId(
+            return CachedGetAppListCodeTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
@@ -407,7 +407,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<App> CachedGetAppListByCodeByTypeId(
+        public virtual List<App> CachedGetAppListCodeTypeId(
             bool overrideCache
             , int cacheHours
             , string code
@@ -415,7 +415,7 @@ namespace platform {
         ) {
             List<App> objs;
 
-            string method_name = "CachedGetAppListByCodeByTypeId";
+            string method_name = "CachedGetAppListCodeTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -435,7 +435,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetAppListByCodeByTypeId(
+                objs = GetAppListCodeTypeId(
                     code
                     , type_id
                 );
@@ -444,21 +444,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<App> GetAppListByPlatformByTypeId(
+        public virtual List<App> GetAppListPlatformTypeId(
             string platform
             , string type_id
         )  {
-            return act.GetAppListByPlatformByTypeId(
+            return act.GetAppListPlatformTypeId(
             platform
             , type_id
             );
         }
         
-        public virtual App GetAppByPlatformByTypeId(
+        public virtual App GetAppPlatformTypeId(
             string platform
             , string type_id
         )  {
-            foreach (App item in GetAppListByPlatformByTypeId(
+            foreach (App item in GetAppListPlatformTypeId(
             platform
             , type_id
             ))  {
@@ -467,11 +467,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<App> CachedGetAppListByPlatformByTypeId(
+        public virtual List<App> CachedGetAppListPlatformTypeId(
             string platform
             , string type_id
         ) {
-            return CachedGetAppListByPlatformByTypeId(
+            return CachedGetAppListPlatformTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , platform
@@ -479,7 +479,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<App> CachedGetAppListByPlatformByTypeId(
+        public virtual List<App> CachedGetAppListPlatformTypeId(
             bool overrideCache
             , int cacheHours
             , string platform
@@ -487,7 +487,7 @@ namespace platform {
         ) {
             List<App> objs;
 
-            string method_name = "CachedGetAppListByPlatformByTypeId";
+            string method_name = "CachedGetAppListPlatformTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -507,7 +507,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetAppListByPlatformByTypeId(
+                objs = GetAppListPlatformTypeId(
                     platform
                     , type_id
                 );
@@ -516,18 +516,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<App> GetAppListByPlatform(
+        public virtual List<App> GetAppListPlatform(
             string platform
         )  {
-            return act.GetAppListByPlatform(
+            return act.GetAppListPlatform(
             platform
             );
         }
         
-        public virtual App GetAppByPlatform(
+        public virtual App GetAppPlatform(
             string platform
         )  {
-            foreach (App item in GetAppListByPlatform(
+            foreach (App item in GetAppListPlatform(
             platform
             ))  {
                 return item;
@@ -535,24 +535,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<App> CachedGetAppListByPlatform(
+        public virtual List<App> CachedGetAppListPlatform(
             string platform
         ) {
-            return CachedGetAppListByPlatform(
+            return CachedGetAppListPlatform(
                     false
                     , CACHE_DEFAULT_HOURS
                     , platform
                 );
         }
         
-        public virtual List<App> CachedGetAppListByPlatform(
+        public virtual List<App> CachedGetAppListPlatform(
             bool overrideCache
             , int cacheHours
             , string platform
         ) {
             List<App> objs;
 
-            string method_name = "CachedGetAppListByPlatform";
+            string method_name = "CachedGetAppListPlatform";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -568,7 +568,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetAppListByPlatform(
+                objs = GetAppListPlatform(
                     platform
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -582,62 +582,62 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppTypeByUuid(
+        public virtual int CountAppTypeUuid(
             string uuid
         )  {            
-            return act.CountAppTypeByUuid(
+            return act.CountAppTypeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppTypeByCode(
+        public virtual int CountAppTypeCode(
             string code
         )  {            
-            return act.CountAppTypeByCode(
+            return act.CountAppTypeCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual AppTypeResult BrowseAppTypeListByFilter(SearchFilter obj)  {
-            return act.BrowseAppTypeListByFilter(obj);
+        public virtual AppTypeResult BrowseAppTypeListFilter(SearchFilter obj)  {
+            return act.BrowseAppTypeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppTypeByUuid(string set_type, AppType obj)  {
-            return act.SetAppTypeByUuid(set_type, obj);
+        public virtual bool SetAppTypeUuid(string set_type, AppType obj)  {
+            return act.SetAppTypeUuid(set_type, obj);
         }
         
-        public virtual bool SetAppTypeByUuid(SetType set_type, AppType obj)  {
-            return act.SetAppTypeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetAppTypeUuid(SetType set_type, AppType obj)  {
+            return act.SetAppTypeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetAppTypeByUuid(AppType obj)  {
-            return act.SetAppTypeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetAppTypeUuid(AppType obj)  {
+            return act.SetAppTypeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppTypeByCode(string set_type, AppType obj)  {
-            return act.SetAppTypeByCode(set_type, obj);
+        public virtual bool SetAppTypeCode(string set_type, AppType obj)  {
+            return act.SetAppTypeCode(set_type, obj);
         }
         
-        public virtual bool SetAppTypeByCode(SetType set_type, AppType obj)  {
-            return act.SetAppTypeByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetAppTypeCode(SetType set_type, AppType obj)  {
+            return act.SetAppTypeCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetAppTypeByCode(AppType obj)  {
-            return act.SetAppTypeByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetAppTypeCode(AppType obj)  {
+            return act.SetAppTypeCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppTypeByUuid(
+        public virtual bool DelAppTypeUuid(
             string uuid
         )  {            
-            return act.DelAppTypeByUuid(
+            return act.DelAppTypeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppTypeByCode(
+        public virtual bool DelAppTypeCode(
             string code
         )  {            
-            return act.DelAppTypeByCode(
+            return act.DelAppTypeCode(
             code
             );
         }                     
@@ -690,18 +690,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<AppType> GetAppTypeListByUuid(
+        public virtual List<AppType> GetAppTypeListUuid(
             string uuid
         )  {
-            return act.GetAppTypeListByUuid(
+            return act.GetAppTypeListUuid(
             uuid
             );
         }
         
-        public virtual AppType GetAppTypeByUuid(
+        public virtual AppType GetAppTypeUuid(
             string uuid
         )  {
-            foreach (AppType item in GetAppTypeListByUuid(
+            foreach (AppType item in GetAppTypeListUuid(
             uuid
             ))  {
                 return item;
@@ -709,24 +709,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<AppType> CachedGetAppTypeListByUuid(
+        public virtual List<AppType> CachedGetAppTypeListUuid(
             string uuid
         ) {
-            return CachedGetAppTypeListByUuid(
+            return CachedGetAppTypeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<AppType> CachedGetAppTypeListByUuid(
+        public virtual List<AppType> CachedGetAppTypeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<AppType> objs;
 
-            string method_name = "CachedGetAppTypeListByUuid";
+            string method_name = "CachedGetAppTypeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -742,7 +742,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetAppTypeListByUuid(
+                objs = GetAppTypeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -750,18 +750,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<AppType> GetAppTypeListByCode(
+        public virtual List<AppType> GetAppTypeListCode(
             string code
         )  {
-            return act.GetAppTypeListByCode(
+            return act.GetAppTypeListCode(
             code
             );
         }
         
-        public virtual AppType GetAppTypeByCode(
+        public virtual AppType GetAppTypeCode(
             string code
         )  {
-            foreach (AppType item in GetAppTypeListByCode(
+            foreach (AppType item in GetAppTypeListCode(
             code
             ))  {
                 return item;
@@ -769,24 +769,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<AppType> CachedGetAppTypeListByCode(
+        public virtual List<AppType> CachedGetAppTypeListCode(
             string code
         ) {
-            return CachedGetAppTypeListByCode(
+            return CachedGetAppTypeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<AppType> CachedGetAppTypeListByCode(
+        public virtual List<AppType> CachedGetAppTypeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<AppType> objs;
 
-            string method_name = "CachedGetAppTypeListByCode";
+            string method_name = "CachedGetAppTypeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -802,7 +802,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetAppTypeListByCode(
+                objs = GetAppTypeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -816,98 +816,98 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteByUuid(
+        public virtual int CountSiteUuid(
             string uuid
         )  {            
-            return act.CountSiteByUuid(
+            return act.CountSiteUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteByCode(
+        public virtual int CountSiteCode(
             string code
         )  {            
-            return act.CountSiteByCode(
+            return act.CountSiteCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteByTypeId(
+        public virtual int CountSiteTypeId(
             string type_id
         )  {            
-            return act.CountSiteByTypeId(
+            return act.CountSiteTypeId(
             type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteByCodeByTypeId(
+        public virtual int CountSiteCodeTypeId(
             string code
             , string type_id
         )  {            
-            return act.CountSiteByCodeByTypeId(
+            return act.CountSiteCodeTypeId(
             code
             , type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteByDomainByTypeId(
+        public virtual int CountSiteDomainTypeId(
             string domain
             , string type_id
         )  {            
-            return act.CountSiteByDomainByTypeId(
+            return act.CountSiteDomainTypeId(
             domain
             , type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteByDomain(
+        public virtual int CountSiteDomain(
             string domain
         )  {            
-            return act.CountSiteByDomain(
+            return act.CountSiteDomain(
             domain
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual SiteResult BrowseSiteListByFilter(SearchFilter obj)  {
-            return act.BrowseSiteListByFilter(obj);
+        public virtual SiteResult BrowseSiteListFilter(SearchFilter obj)  {
+            return act.BrowseSiteListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteByUuid(string set_type, Site obj)  {
-            return act.SetSiteByUuid(set_type, obj);
+        public virtual bool SetSiteUuid(string set_type, Site obj)  {
+            return act.SetSiteUuid(set_type, obj);
         }
         
-        public virtual bool SetSiteByUuid(SetType set_type, Site obj)  {
-            return act.SetSiteByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetSiteUuid(SetType set_type, Site obj)  {
+            return act.SetSiteUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetSiteByUuid(Site obj)  {
-            return act.SetSiteByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetSiteUuid(Site obj)  {
+            return act.SetSiteUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteByCode(string set_type, Site obj)  {
-            return act.SetSiteByCode(set_type, obj);
+        public virtual bool SetSiteCode(string set_type, Site obj)  {
+            return act.SetSiteCode(set_type, obj);
         }
         
-        public virtual bool SetSiteByCode(SetType set_type, Site obj)  {
-            return act.SetSiteByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetSiteCode(SetType set_type, Site obj)  {
+            return act.SetSiteCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetSiteByCode(Site obj)  {
-            return act.SetSiteByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetSiteCode(Site obj)  {
+            return act.SetSiteCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteByUuid(
+        public virtual bool DelSiteUuid(
             string uuid
         )  {            
-            return act.DelSiteByUuid(
+            return act.DelSiteUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteByCode(
+        public virtual bool DelSiteCode(
             string code
         )  {            
-            return act.DelSiteByCode(
+            return act.DelSiteCode(
             code
             );
         }                     
@@ -960,18 +960,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Site> GetSiteListByUuid(
+        public virtual List<Site> GetSiteListUuid(
             string uuid
         )  {
-            return act.GetSiteListByUuid(
+            return act.GetSiteListUuid(
             uuid
             );
         }
         
-        public virtual Site GetSiteByUuid(
+        public virtual Site GetSiteUuid(
             string uuid
         )  {
-            foreach (Site item in GetSiteListByUuid(
+            foreach (Site item in GetSiteListUuid(
             uuid
             ))  {
                 return item;
@@ -979,24 +979,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Site> CachedGetSiteListByUuid(
+        public virtual List<Site> CachedGetSiteListUuid(
             string uuid
         ) {
-            return CachedGetSiteListByUuid(
+            return CachedGetSiteListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Site> CachedGetSiteListByUuid(
+        public virtual List<Site> CachedGetSiteListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Site> objs;
 
-            string method_name = "CachedGetSiteListByUuid";
+            string method_name = "CachedGetSiteListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1012,7 +1012,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteListByUuid(
+                objs = GetSiteListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1020,18 +1020,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Site> GetSiteListByCode(
+        public virtual List<Site> GetSiteListCode(
             string code
         )  {
-            return act.GetSiteListByCode(
+            return act.GetSiteListCode(
             code
             );
         }
         
-        public virtual Site GetSiteByCode(
+        public virtual Site GetSiteCode(
             string code
         )  {
-            foreach (Site item in GetSiteListByCode(
+            foreach (Site item in GetSiteListCode(
             code
             ))  {
                 return item;
@@ -1039,24 +1039,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Site> CachedGetSiteListByCode(
+        public virtual List<Site> CachedGetSiteListCode(
             string code
         ) {
-            return CachedGetSiteListByCode(
+            return CachedGetSiteListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<Site> CachedGetSiteListByCode(
+        public virtual List<Site> CachedGetSiteListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<Site> objs;
 
-            string method_name = "CachedGetSiteListByCode";
+            string method_name = "CachedGetSiteListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1072,7 +1072,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteListByCode(
+                objs = GetSiteListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1080,18 +1080,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Site> GetSiteListByTypeId(
+        public virtual List<Site> GetSiteListTypeId(
             string type_id
         )  {
-            return act.GetSiteListByTypeId(
+            return act.GetSiteListTypeId(
             type_id
             );
         }
         
-        public virtual Site GetSiteByTypeId(
+        public virtual Site GetSiteTypeId(
             string type_id
         )  {
-            foreach (Site item in GetSiteListByTypeId(
+            foreach (Site item in GetSiteListTypeId(
             type_id
             ))  {
                 return item;
@@ -1099,24 +1099,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Site> CachedGetSiteListByTypeId(
+        public virtual List<Site> CachedGetSiteListTypeId(
             string type_id
         ) {
-            return CachedGetSiteListByTypeId(
+            return CachedGetSiteListTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , type_id
                 );
         }
         
-        public virtual List<Site> CachedGetSiteListByTypeId(
+        public virtual List<Site> CachedGetSiteListTypeId(
             bool overrideCache
             , int cacheHours
             , string type_id
         ) {
             List<Site> objs;
 
-            string method_name = "CachedGetSiteListByTypeId";
+            string method_name = "CachedGetSiteListTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1132,7 +1132,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteListByTypeId(
+                objs = GetSiteListTypeId(
                     type_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1140,21 +1140,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Site> GetSiteListByCodeByTypeId(
+        public virtual List<Site> GetSiteListCodeTypeId(
             string code
             , string type_id
         )  {
-            return act.GetSiteListByCodeByTypeId(
+            return act.GetSiteListCodeTypeId(
             code
             , type_id
             );
         }
         
-        public virtual Site GetSiteByCodeByTypeId(
+        public virtual Site GetSiteCodeTypeId(
             string code
             , string type_id
         )  {
-            foreach (Site item in GetSiteListByCodeByTypeId(
+            foreach (Site item in GetSiteListCodeTypeId(
             code
             , type_id
             ))  {
@@ -1163,11 +1163,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Site> CachedGetSiteListByCodeByTypeId(
+        public virtual List<Site> CachedGetSiteListCodeTypeId(
             string code
             , string type_id
         ) {
-            return CachedGetSiteListByCodeByTypeId(
+            return CachedGetSiteListCodeTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
@@ -1175,7 +1175,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Site> CachedGetSiteListByCodeByTypeId(
+        public virtual List<Site> CachedGetSiteListCodeTypeId(
             bool overrideCache
             , int cacheHours
             , string code
@@ -1183,7 +1183,7 @@ namespace platform {
         ) {
             List<Site> objs;
 
-            string method_name = "CachedGetSiteListByCodeByTypeId";
+            string method_name = "CachedGetSiteListCodeTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1203,7 +1203,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteListByCodeByTypeId(
+                objs = GetSiteListCodeTypeId(
                     code
                     , type_id
                 );
@@ -1212,21 +1212,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Site> GetSiteListByDomainByTypeId(
+        public virtual List<Site> GetSiteListDomainTypeId(
             string domain
             , string type_id
         )  {
-            return act.GetSiteListByDomainByTypeId(
+            return act.GetSiteListDomainTypeId(
             domain
             , type_id
             );
         }
         
-        public virtual Site GetSiteByDomainByTypeId(
+        public virtual Site GetSiteDomainTypeId(
             string domain
             , string type_id
         )  {
-            foreach (Site item in GetSiteListByDomainByTypeId(
+            foreach (Site item in GetSiteListDomainTypeId(
             domain
             , type_id
             ))  {
@@ -1235,11 +1235,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Site> CachedGetSiteListByDomainByTypeId(
+        public virtual List<Site> CachedGetSiteListDomainTypeId(
             string domain
             , string type_id
         ) {
-            return CachedGetSiteListByDomainByTypeId(
+            return CachedGetSiteListDomainTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , domain
@@ -1247,7 +1247,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Site> CachedGetSiteListByDomainByTypeId(
+        public virtual List<Site> CachedGetSiteListDomainTypeId(
             bool overrideCache
             , int cacheHours
             , string domain
@@ -1255,7 +1255,7 @@ namespace platform {
         ) {
             List<Site> objs;
 
-            string method_name = "CachedGetSiteListByDomainByTypeId";
+            string method_name = "CachedGetSiteListDomainTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1275,7 +1275,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteListByDomainByTypeId(
+                objs = GetSiteListDomainTypeId(
                     domain
                     , type_id
                 );
@@ -1284,18 +1284,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Site> GetSiteListByDomain(
+        public virtual List<Site> GetSiteListDomain(
             string domain
         )  {
-            return act.GetSiteListByDomain(
+            return act.GetSiteListDomain(
             domain
             );
         }
         
-        public virtual Site GetSiteByDomain(
+        public virtual Site GetSiteDomain(
             string domain
         )  {
-            foreach (Site item in GetSiteListByDomain(
+            foreach (Site item in GetSiteListDomain(
             domain
             ))  {
                 return item;
@@ -1303,24 +1303,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Site> CachedGetSiteListByDomain(
+        public virtual List<Site> CachedGetSiteListDomain(
             string domain
         ) {
-            return CachedGetSiteListByDomain(
+            return CachedGetSiteListDomain(
                     false
                     , CACHE_DEFAULT_HOURS
                     , domain
                 );
         }
         
-        public virtual List<Site> CachedGetSiteListByDomain(
+        public virtual List<Site> CachedGetSiteListDomain(
             bool overrideCache
             , int cacheHours
             , string domain
         ) {
             List<Site> objs;
 
-            string method_name = "CachedGetSiteListByDomain";
+            string method_name = "CachedGetSiteListDomain";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1336,7 +1336,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteListByDomain(
+                objs = GetSiteListDomain(
                     domain
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1350,62 +1350,62 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteTypeByUuid(
+        public virtual int CountSiteTypeUuid(
             string uuid
         )  {            
-            return act.CountSiteTypeByUuid(
+            return act.CountSiteTypeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteTypeByCode(
+        public virtual int CountSiteTypeCode(
             string code
         )  {            
-            return act.CountSiteTypeByCode(
+            return act.CountSiteTypeCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual SiteTypeResult BrowseSiteTypeListByFilter(SearchFilter obj)  {
-            return act.BrowseSiteTypeListByFilter(obj);
+        public virtual SiteTypeResult BrowseSiteTypeListFilter(SearchFilter obj)  {
+            return act.BrowseSiteTypeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteTypeByUuid(string set_type, SiteType obj)  {
-            return act.SetSiteTypeByUuid(set_type, obj);
+        public virtual bool SetSiteTypeUuid(string set_type, SiteType obj)  {
+            return act.SetSiteTypeUuid(set_type, obj);
         }
         
-        public virtual bool SetSiteTypeByUuid(SetType set_type, SiteType obj)  {
-            return act.SetSiteTypeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetSiteTypeUuid(SetType set_type, SiteType obj)  {
+            return act.SetSiteTypeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetSiteTypeByUuid(SiteType obj)  {
-            return act.SetSiteTypeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetSiteTypeUuid(SiteType obj)  {
+            return act.SetSiteTypeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteTypeByCode(string set_type, SiteType obj)  {
-            return act.SetSiteTypeByCode(set_type, obj);
+        public virtual bool SetSiteTypeCode(string set_type, SiteType obj)  {
+            return act.SetSiteTypeCode(set_type, obj);
         }
         
-        public virtual bool SetSiteTypeByCode(SetType set_type, SiteType obj)  {
-            return act.SetSiteTypeByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetSiteTypeCode(SetType set_type, SiteType obj)  {
+            return act.SetSiteTypeCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetSiteTypeByCode(SiteType obj)  {
-            return act.SetSiteTypeByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetSiteTypeCode(SiteType obj)  {
+            return act.SetSiteTypeCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteTypeByUuid(
+        public virtual bool DelSiteTypeUuid(
             string uuid
         )  {            
-            return act.DelSiteTypeByUuid(
+            return act.DelSiteTypeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteTypeByCode(
+        public virtual bool DelSiteTypeCode(
             string code
         )  {            
-            return act.DelSiteTypeByCode(
+            return act.DelSiteTypeCode(
             code
             );
         }                     
@@ -1458,18 +1458,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<SiteType> GetSiteTypeListByUuid(
+        public virtual List<SiteType> GetSiteTypeListUuid(
             string uuid
         )  {
-            return act.GetSiteTypeListByUuid(
+            return act.GetSiteTypeListUuid(
             uuid
             );
         }
         
-        public virtual SiteType GetSiteTypeByUuid(
+        public virtual SiteType GetSiteTypeUuid(
             string uuid
         )  {
-            foreach (SiteType item in GetSiteTypeListByUuid(
+            foreach (SiteType item in GetSiteTypeListUuid(
             uuid
             ))  {
                 return item;
@@ -1477,24 +1477,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<SiteType> CachedGetSiteTypeListByUuid(
+        public virtual List<SiteType> CachedGetSiteTypeListUuid(
             string uuid
         ) {
-            return CachedGetSiteTypeListByUuid(
+            return CachedGetSiteTypeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<SiteType> CachedGetSiteTypeListByUuid(
+        public virtual List<SiteType> CachedGetSiteTypeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<SiteType> objs;
 
-            string method_name = "CachedGetSiteTypeListByUuid";
+            string method_name = "CachedGetSiteTypeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1510,7 +1510,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteTypeListByUuid(
+                objs = GetSiteTypeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1518,18 +1518,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<SiteType> GetSiteTypeListByCode(
+        public virtual List<SiteType> GetSiteTypeListCode(
             string code
         )  {
-            return act.GetSiteTypeListByCode(
+            return act.GetSiteTypeListCode(
             code
             );
         }
         
-        public virtual SiteType GetSiteTypeByCode(
+        public virtual SiteType GetSiteTypeCode(
             string code
         )  {
-            foreach (SiteType item in GetSiteTypeListByCode(
+            foreach (SiteType item in GetSiteTypeListCode(
             code
             ))  {
                 return item;
@@ -1537,24 +1537,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<SiteType> CachedGetSiteTypeListByCode(
+        public virtual List<SiteType> CachedGetSiteTypeListCode(
             string code
         ) {
-            return CachedGetSiteTypeListByCode(
+            return CachedGetSiteTypeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<SiteType> CachedGetSiteTypeListByCode(
+        public virtual List<SiteType> CachedGetSiteTypeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<SiteType> objs;
 
-            string method_name = "CachedGetSiteTypeListByCode";
+            string method_name = "CachedGetSiteTypeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1570,7 +1570,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteTypeListByCode(
+                objs = GetSiteTypeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1584,50 +1584,50 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgByUuid(
+        public virtual int CountOrgUuid(
             string uuid
         )  {            
-            return act.CountOrgByUuid(
+            return act.CountOrgUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgByCode(
+        public virtual int CountOrgCode(
             string code
         )  {            
-            return act.CountOrgByCode(
+            return act.CountOrgCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgByName(
+        public virtual int CountOrgName(
             string name
         )  {            
-            return act.CountOrgByName(
+            return act.CountOrgName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OrgResult BrowseOrgListByFilter(SearchFilter obj)  {
-            return act.BrowseOrgListByFilter(obj);
+        public virtual OrgResult BrowseOrgListFilter(SearchFilter obj)  {
+            return act.BrowseOrgListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgByUuid(string set_type, Org obj)  {
-            return act.SetOrgByUuid(set_type, obj);
+        public virtual bool SetOrgUuid(string set_type, Org obj)  {
+            return act.SetOrgUuid(set_type, obj);
         }
         
-        public virtual bool SetOrgByUuid(SetType set_type, Org obj)  {
-            return act.SetOrgByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOrgUuid(SetType set_type, Org obj)  {
+            return act.SetOrgUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOrgByUuid(Org obj)  {
-            return act.SetOrgByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOrgUuid(Org obj)  {
+            return act.SetOrgUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgByUuid(
+        public virtual bool DelOrgUuid(
             string uuid
         )  {            
-            return act.DelOrgByUuid(
+            return act.DelOrgUuid(
             uuid
             );
         }                     
@@ -1680,18 +1680,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Org> GetOrgListByUuid(
+        public virtual List<Org> GetOrgListUuid(
             string uuid
         )  {
-            return act.GetOrgListByUuid(
+            return act.GetOrgListUuid(
             uuid
             );
         }
         
-        public virtual Org GetOrgByUuid(
+        public virtual Org GetOrgUuid(
             string uuid
         )  {
-            foreach (Org item in GetOrgListByUuid(
+            foreach (Org item in GetOrgListUuid(
             uuid
             ))  {
                 return item;
@@ -1699,24 +1699,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Org> CachedGetOrgListByUuid(
+        public virtual List<Org> CachedGetOrgListUuid(
             string uuid
         ) {
-            return CachedGetOrgListByUuid(
+            return CachedGetOrgListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Org> CachedGetOrgListByUuid(
+        public virtual List<Org> CachedGetOrgListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Org> objs;
 
-            string method_name = "CachedGetOrgListByUuid";
+            string method_name = "CachedGetOrgListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1732,7 +1732,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgListByUuid(
+                objs = GetOrgListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1740,18 +1740,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Org> GetOrgListByCode(
+        public virtual List<Org> GetOrgListCode(
             string code
         )  {
-            return act.GetOrgListByCode(
+            return act.GetOrgListCode(
             code
             );
         }
         
-        public virtual Org GetOrgByCode(
+        public virtual Org GetOrgCode(
             string code
         )  {
-            foreach (Org item in GetOrgListByCode(
+            foreach (Org item in GetOrgListCode(
             code
             ))  {
                 return item;
@@ -1759,24 +1759,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Org> CachedGetOrgListByCode(
+        public virtual List<Org> CachedGetOrgListCode(
             string code
         ) {
-            return CachedGetOrgListByCode(
+            return CachedGetOrgListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<Org> CachedGetOrgListByCode(
+        public virtual List<Org> CachedGetOrgListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<Org> objs;
 
-            string method_name = "CachedGetOrgListByCode";
+            string method_name = "CachedGetOrgListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1792,7 +1792,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgListByCode(
+                objs = GetOrgListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1800,18 +1800,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Org> GetOrgListByName(
+        public virtual List<Org> GetOrgListName(
             string name
         )  {
-            return act.GetOrgListByName(
+            return act.GetOrgListName(
             name
             );
         }
         
-        public virtual Org GetOrgByName(
+        public virtual Org GetOrgName(
             string name
         )  {
-            foreach (Org item in GetOrgListByName(
+            foreach (Org item in GetOrgListName(
             name
             ))  {
                 return item;
@@ -1819,24 +1819,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Org> CachedGetOrgListByName(
+        public virtual List<Org> CachedGetOrgListName(
             string name
         ) {
-            return CachedGetOrgListByName(
+            return CachedGetOrgListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<Org> CachedGetOrgListByName(
+        public virtual List<Org> CachedGetOrgListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<Org> objs;
 
-            string method_name = "CachedGetOrgListByName";
+            string method_name = "CachedGetOrgListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -1852,7 +1852,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgListByName(
+                objs = GetOrgListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1866,62 +1866,62 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgTypeByUuid(
+        public virtual int CountOrgTypeUuid(
             string uuid
         )  {            
-            return act.CountOrgTypeByUuid(
+            return act.CountOrgTypeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgTypeByCode(
+        public virtual int CountOrgTypeCode(
             string code
         )  {            
-            return act.CountOrgTypeByCode(
+            return act.CountOrgTypeCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OrgTypeResult BrowseOrgTypeListByFilter(SearchFilter obj)  {
-            return act.BrowseOrgTypeListByFilter(obj);
+        public virtual OrgTypeResult BrowseOrgTypeListFilter(SearchFilter obj)  {
+            return act.BrowseOrgTypeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgTypeByUuid(string set_type, OrgType obj)  {
-            return act.SetOrgTypeByUuid(set_type, obj);
+        public virtual bool SetOrgTypeUuid(string set_type, OrgType obj)  {
+            return act.SetOrgTypeUuid(set_type, obj);
         }
         
-        public virtual bool SetOrgTypeByUuid(SetType set_type, OrgType obj)  {
-            return act.SetOrgTypeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOrgTypeUuid(SetType set_type, OrgType obj)  {
+            return act.SetOrgTypeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOrgTypeByUuid(OrgType obj)  {
-            return act.SetOrgTypeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOrgTypeUuid(OrgType obj)  {
+            return act.SetOrgTypeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgTypeByCode(string set_type, OrgType obj)  {
-            return act.SetOrgTypeByCode(set_type, obj);
+        public virtual bool SetOrgTypeCode(string set_type, OrgType obj)  {
+            return act.SetOrgTypeCode(set_type, obj);
         }
         
-        public virtual bool SetOrgTypeByCode(SetType set_type, OrgType obj)  {
-            return act.SetOrgTypeByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOrgTypeCode(SetType set_type, OrgType obj)  {
+            return act.SetOrgTypeCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOrgTypeByCode(OrgType obj)  {
-            return act.SetOrgTypeByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOrgTypeCode(OrgType obj)  {
+            return act.SetOrgTypeCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgTypeByUuid(
+        public virtual bool DelOrgTypeUuid(
             string uuid
         )  {            
-            return act.DelOrgTypeByUuid(
+            return act.DelOrgTypeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgTypeByCode(
+        public virtual bool DelOrgTypeCode(
             string code
         )  {            
-            return act.DelOrgTypeByCode(
+            return act.DelOrgTypeCode(
             code
             );
         }                     
@@ -1974,18 +1974,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OrgType> GetOrgTypeListByUuid(
+        public virtual List<OrgType> GetOrgTypeListUuid(
             string uuid
         )  {
-            return act.GetOrgTypeListByUuid(
+            return act.GetOrgTypeListUuid(
             uuid
             );
         }
         
-        public virtual OrgType GetOrgTypeByUuid(
+        public virtual OrgType GetOrgTypeUuid(
             string uuid
         )  {
-            foreach (OrgType item in GetOrgTypeListByUuid(
+            foreach (OrgType item in GetOrgTypeListUuid(
             uuid
             ))  {
                 return item;
@@ -1993,24 +1993,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OrgType> CachedGetOrgTypeListByUuid(
+        public virtual List<OrgType> CachedGetOrgTypeListUuid(
             string uuid
         ) {
-            return CachedGetOrgTypeListByUuid(
+            return CachedGetOrgTypeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<OrgType> CachedGetOrgTypeListByUuid(
+        public virtual List<OrgType> CachedGetOrgTypeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<OrgType> objs;
 
-            string method_name = "CachedGetOrgTypeListByUuid";
+            string method_name = "CachedGetOrgTypeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2026,7 +2026,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgTypeListByUuid(
+                objs = GetOrgTypeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2034,18 +2034,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OrgType> GetOrgTypeListByCode(
+        public virtual List<OrgType> GetOrgTypeListCode(
             string code
         )  {
-            return act.GetOrgTypeListByCode(
+            return act.GetOrgTypeListCode(
             code
             );
         }
         
-        public virtual OrgType GetOrgTypeByCode(
+        public virtual OrgType GetOrgTypeCode(
             string code
         )  {
-            foreach (OrgType item in GetOrgTypeListByCode(
+            foreach (OrgType item in GetOrgTypeListCode(
             code
             ))  {
                 return item;
@@ -2053,24 +2053,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OrgType> CachedGetOrgTypeListByCode(
+        public virtual List<OrgType> CachedGetOrgTypeListCode(
             string code
         ) {
-            return CachedGetOrgTypeListByCode(
+            return CachedGetOrgTypeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<OrgType> CachedGetOrgTypeListByCode(
+        public virtual List<OrgType> CachedGetOrgTypeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<OrgType> objs;
 
-            string method_name = "CachedGetOrgTypeListByCode";
+            string method_name = "CachedGetOrgTypeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2086,7 +2086,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgTypeListByCode(
+                objs = GetOrgTypeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2100,66 +2100,66 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemByUuid(
+        public virtual int CountContentItemUuid(
             string uuid
         )  {            
-            return act.CountContentItemByUuid(
+            return act.CountContentItemUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemByCode(
+        public virtual int CountContentItemCode(
             string code
         )  {            
-            return act.CountContentItemByCode(
+            return act.CountContentItemCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemByName(
+        public virtual int CountContentItemName(
             string name
         )  {            
-            return act.CountContentItemByName(
+            return act.CountContentItemName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemByPath(
+        public virtual int CountContentItemPath(
             string path
         )  {            
-            return act.CountContentItemByPath(
+            return act.CountContentItemPath(
             path
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ContentItemResult BrowseContentItemListByFilter(SearchFilter obj)  {
-            return act.BrowseContentItemListByFilter(obj);
+        public virtual ContentItemResult BrowseContentItemListFilter(SearchFilter obj)  {
+            return act.BrowseContentItemListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemByUuid(string set_type, ContentItem obj)  {
-            return act.SetContentItemByUuid(set_type, obj);
+        public virtual bool SetContentItemUuid(string set_type, ContentItem obj)  {
+            return act.SetContentItemUuid(set_type, obj);
         }
         
-        public virtual bool SetContentItemByUuid(SetType set_type, ContentItem obj)  {
-            return act.SetContentItemByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetContentItemUuid(SetType set_type, ContentItem obj)  {
+            return act.SetContentItemUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetContentItemByUuid(ContentItem obj)  {
-            return act.SetContentItemByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetContentItemUuid(ContentItem obj)  {
+            return act.SetContentItemUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemByUuid(
+        public virtual bool DelContentItemUuid(
             string uuid
         )  {            
-            return act.DelContentItemByUuid(
+            return act.DelContentItemUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemByPath(
+        public virtual bool DelContentItemPath(
             string path
         )  {            
-            return act.DelContentItemByPath(
+            return act.DelContentItemPath(
             path
             );
         }                     
@@ -2212,18 +2212,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentItem> GetContentItemListByUuid(
+        public virtual List<ContentItem> GetContentItemListUuid(
             string uuid
         )  {
-            return act.GetContentItemListByUuid(
+            return act.GetContentItemListUuid(
             uuid
             );
         }
         
-        public virtual ContentItem GetContentItemByUuid(
+        public virtual ContentItem GetContentItemUuid(
             string uuid
         )  {
-            foreach (ContentItem item in GetContentItemListByUuid(
+            foreach (ContentItem item in GetContentItemListUuid(
             uuid
             ))  {
                 return item;
@@ -2231,24 +2231,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentItem> CachedGetContentItemListByUuid(
+        public virtual List<ContentItem> CachedGetContentItemListUuid(
             string uuid
         ) {
-            return CachedGetContentItemListByUuid(
+            return CachedGetContentItemListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ContentItem> CachedGetContentItemListByUuid(
+        public virtual List<ContentItem> CachedGetContentItemListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ContentItem> objs;
 
-            string method_name = "CachedGetContentItemListByUuid";
+            string method_name = "CachedGetContentItemListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2264,7 +2264,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentItemListByUuid(
+                objs = GetContentItemListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2272,18 +2272,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentItem> GetContentItemListByCode(
+        public virtual List<ContentItem> GetContentItemListCode(
             string code
         )  {
-            return act.GetContentItemListByCode(
+            return act.GetContentItemListCode(
             code
             );
         }
         
-        public virtual ContentItem GetContentItemByCode(
+        public virtual ContentItem GetContentItemCode(
             string code
         )  {
-            foreach (ContentItem item in GetContentItemListByCode(
+            foreach (ContentItem item in GetContentItemListCode(
             code
             ))  {
                 return item;
@@ -2291,24 +2291,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentItem> CachedGetContentItemListByCode(
+        public virtual List<ContentItem> CachedGetContentItemListCode(
             string code
         ) {
-            return CachedGetContentItemListByCode(
+            return CachedGetContentItemListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<ContentItem> CachedGetContentItemListByCode(
+        public virtual List<ContentItem> CachedGetContentItemListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<ContentItem> objs;
 
-            string method_name = "CachedGetContentItemListByCode";
+            string method_name = "CachedGetContentItemListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2324,7 +2324,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentItemListByCode(
+                objs = GetContentItemListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2332,18 +2332,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentItem> GetContentItemListByName(
+        public virtual List<ContentItem> GetContentItemListName(
             string name
         )  {
-            return act.GetContentItemListByName(
+            return act.GetContentItemListName(
             name
             );
         }
         
-        public virtual ContentItem GetContentItemByName(
+        public virtual ContentItem GetContentItemName(
             string name
         )  {
-            foreach (ContentItem item in GetContentItemListByName(
+            foreach (ContentItem item in GetContentItemListName(
             name
             ))  {
                 return item;
@@ -2351,24 +2351,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentItem> CachedGetContentItemListByName(
+        public virtual List<ContentItem> CachedGetContentItemListName(
             string name
         ) {
-            return CachedGetContentItemListByName(
+            return CachedGetContentItemListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<ContentItem> CachedGetContentItemListByName(
+        public virtual List<ContentItem> CachedGetContentItemListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<ContentItem> objs;
 
-            string method_name = "CachedGetContentItemListByName";
+            string method_name = "CachedGetContentItemListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2384,7 +2384,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentItemListByName(
+                objs = GetContentItemListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2392,18 +2392,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentItem> GetContentItemListByPath(
+        public virtual List<ContentItem> GetContentItemListPath(
             string path
         )  {
-            return act.GetContentItemListByPath(
+            return act.GetContentItemListPath(
             path
             );
         }
         
-        public virtual ContentItem GetContentItemByPath(
+        public virtual ContentItem GetContentItemPath(
             string path
         )  {
-            foreach (ContentItem item in GetContentItemListByPath(
+            foreach (ContentItem item in GetContentItemListPath(
             path
             ))  {
                 return item;
@@ -2411,24 +2411,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentItem> CachedGetContentItemListByPath(
+        public virtual List<ContentItem> CachedGetContentItemListPath(
             string path
         ) {
-            return CachedGetContentItemListByPath(
+            return CachedGetContentItemListPath(
                     false
                     , CACHE_DEFAULT_HOURS
                     , path
                 );
         }
         
-        public virtual List<ContentItem> CachedGetContentItemListByPath(
+        public virtual List<ContentItem> CachedGetContentItemListPath(
             bool overrideCache
             , int cacheHours
             , string path
         ) {
             List<ContentItem> objs;
 
-            string method_name = "CachedGetContentItemListByPath";
+            string method_name = "CachedGetContentItemListPath";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2444,7 +2444,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentItemListByPath(
+                objs = GetContentItemListPath(
                     path
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2458,62 +2458,62 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemTypeByUuid(
+        public virtual int CountContentItemTypeUuid(
             string uuid
         )  {            
-            return act.CountContentItemTypeByUuid(
+            return act.CountContentItemTypeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemTypeByCode(
+        public virtual int CountContentItemTypeCode(
             string code
         )  {            
-            return act.CountContentItemTypeByCode(
+            return act.CountContentItemTypeCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ContentItemTypeResult BrowseContentItemTypeListByFilter(SearchFilter obj)  {
-            return act.BrowseContentItemTypeListByFilter(obj);
+        public virtual ContentItemTypeResult BrowseContentItemTypeListFilter(SearchFilter obj)  {
+            return act.BrowseContentItemTypeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemTypeByUuid(string set_type, ContentItemType obj)  {
-            return act.SetContentItemTypeByUuid(set_type, obj);
+        public virtual bool SetContentItemTypeUuid(string set_type, ContentItemType obj)  {
+            return act.SetContentItemTypeUuid(set_type, obj);
         }
         
-        public virtual bool SetContentItemTypeByUuid(SetType set_type, ContentItemType obj)  {
-            return act.SetContentItemTypeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetContentItemTypeUuid(SetType set_type, ContentItemType obj)  {
+            return act.SetContentItemTypeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetContentItemTypeByUuid(ContentItemType obj)  {
-            return act.SetContentItemTypeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetContentItemTypeUuid(ContentItemType obj)  {
+            return act.SetContentItemTypeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemTypeByCode(string set_type, ContentItemType obj)  {
-            return act.SetContentItemTypeByCode(set_type, obj);
+        public virtual bool SetContentItemTypeCode(string set_type, ContentItemType obj)  {
+            return act.SetContentItemTypeCode(set_type, obj);
         }
         
-        public virtual bool SetContentItemTypeByCode(SetType set_type, ContentItemType obj)  {
-            return act.SetContentItemTypeByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetContentItemTypeCode(SetType set_type, ContentItemType obj)  {
+            return act.SetContentItemTypeCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetContentItemTypeByCode(ContentItemType obj)  {
-            return act.SetContentItemTypeByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetContentItemTypeCode(ContentItemType obj)  {
+            return act.SetContentItemTypeCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemTypeByUuid(
+        public virtual bool DelContentItemTypeUuid(
             string uuid
         )  {            
-            return act.DelContentItemTypeByUuid(
+            return act.DelContentItemTypeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemTypeByCode(
+        public virtual bool DelContentItemTypeCode(
             string code
         )  {            
-            return act.DelContentItemTypeByCode(
+            return act.DelContentItemTypeCode(
             code
             );
         }                     
@@ -2566,18 +2566,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentItemType> GetContentItemTypeListByUuid(
+        public virtual List<ContentItemType> GetContentItemTypeListUuid(
             string uuid
         )  {
-            return act.GetContentItemTypeListByUuid(
+            return act.GetContentItemTypeListUuid(
             uuid
             );
         }
         
-        public virtual ContentItemType GetContentItemTypeByUuid(
+        public virtual ContentItemType GetContentItemTypeUuid(
             string uuid
         )  {
-            foreach (ContentItemType item in GetContentItemTypeListByUuid(
+            foreach (ContentItemType item in GetContentItemTypeListUuid(
             uuid
             ))  {
                 return item;
@@ -2585,24 +2585,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentItemType> CachedGetContentItemTypeListByUuid(
+        public virtual List<ContentItemType> CachedGetContentItemTypeListUuid(
             string uuid
         ) {
-            return CachedGetContentItemTypeListByUuid(
+            return CachedGetContentItemTypeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ContentItemType> CachedGetContentItemTypeListByUuid(
+        public virtual List<ContentItemType> CachedGetContentItemTypeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ContentItemType> objs;
 
-            string method_name = "CachedGetContentItemTypeListByUuid";
+            string method_name = "CachedGetContentItemTypeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2618,7 +2618,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentItemTypeListByUuid(
+                objs = GetContentItemTypeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2626,18 +2626,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentItemType> GetContentItemTypeListByCode(
+        public virtual List<ContentItemType> GetContentItemTypeListCode(
             string code
         )  {
-            return act.GetContentItemTypeListByCode(
+            return act.GetContentItemTypeListCode(
             code
             );
         }
         
-        public virtual ContentItemType GetContentItemTypeByCode(
+        public virtual ContentItemType GetContentItemTypeCode(
             string code
         )  {
-            foreach (ContentItemType item in GetContentItemTypeListByCode(
+            foreach (ContentItemType item in GetContentItemTypeListCode(
             code
             ))  {
                 return item;
@@ -2645,24 +2645,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentItemType> CachedGetContentItemTypeListByCode(
+        public virtual List<ContentItemType> CachedGetContentItemTypeListCode(
             string code
         ) {
-            return CachedGetContentItemTypeListByCode(
+            return CachedGetContentItemTypeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<ContentItemType> CachedGetContentItemTypeListByCode(
+        public virtual List<ContentItemType> CachedGetContentItemTypeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<ContentItemType> objs;
 
-            string method_name = "CachedGetContentItemTypeListByCode";
+            string method_name = "CachedGetContentItemTypeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2678,7 +2678,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentItemTypeListByCode(
+                objs = GetContentItemTypeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2692,76 +2692,76 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageByUuid(
+        public virtual int CountContentPageUuid(
             string uuid
         )  {            
-            return act.CountContentPageByUuid(
+            return act.CountContentPageUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageByCode(
+        public virtual int CountContentPageCode(
             string code
         )  {            
-            return act.CountContentPageByCode(
+            return act.CountContentPageCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageByName(
+        public virtual int CountContentPageName(
             string name
         )  {            
-            return act.CountContentPageByName(
+            return act.CountContentPageName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageByPath(
+        public virtual int CountContentPagePath(
             string path
         )  {            
-            return act.CountContentPageByPath(
+            return act.CountContentPagePath(
             path
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ContentPageResult BrowseContentPageListByFilter(SearchFilter obj)  {
-            return act.BrowseContentPageListByFilter(obj);
+        public virtual ContentPageResult BrowseContentPageListFilter(SearchFilter obj)  {
+            return act.BrowseContentPageListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentPageByUuid(string set_type, ContentPage obj)  {
-            return act.SetContentPageByUuid(set_type, obj);
+        public virtual bool SetContentPageUuid(string set_type, ContentPage obj)  {
+            return act.SetContentPageUuid(set_type, obj);
         }
         
-        public virtual bool SetContentPageByUuid(SetType set_type, ContentPage obj)  {
-            return act.SetContentPageByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetContentPageUuid(SetType set_type, ContentPage obj)  {
+            return act.SetContentPageUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetContentPageByUuid(ContentPage obj)  {
-            return act.SetContentPageByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetContentPageUuid(ContentPage obj)  {
+            return act.SetContentPageUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPageByUuid(
+        public virtual bool DelContentPageUuid(
             string uuid
         )  {            
-            return act.DelContentPageByUuid(
+            return act.DelContentPageUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPageByPathBySiteId(
+        public virtual bool DelContentPagePathSiteId(
             string path
             , string site_id
         )  {            
-            return act.DelContentPageByPathBySiteId(
+            return act.DelContentPagePathSiteId(
             path
             , site_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPageByPath(
+        public virtual bool DelContentPagePath(
             string path
         )  {            
-            return act.DelContentPageByPath(
+            return act.DelContentPagePath(
             path
             );
         }                     
@@ -2814,18 +2814,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentPage> GetContentPageListByUuid(
+        public virtual List<ContentPage> GetContentPageListUuid(
             string uuid
         )  {
-            return act.GetContentPageListByUuid(
+            return act.GetContentPageListUuid(
             uuid
             );
         }
         
-        public virtual ContentPage GetContentPageByUuid(
+        public virtual ContentPage GetContentPageUuid(
             string uuid
         )  {
-            foreach (ContentPage item in GetContentPageListByUuid(
+            foreach (ContentPage item in GetContentPageListUuid(
             uuid
             ))  {
                 return item;
@@ -2833,24 +2833,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListByUuid(
+        public virtual List<ContentPage> CachedGetContentPageListUuid(
             string uuid
         ) {
-            return CachedGetContentPageListByUuid(
+            return CachedGetContentPageListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListByUuid(
+        public virtual List<ContentPage> CachedGetContentPageListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ContentPage> objs;
 
-            string method_name = "CachedGetContentPageListByUuid";
+            string method_name = "CachedGetContentPageListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2866,7 +2866,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentPageListByUuid(
+                objs = GetContentPageListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2874,18 +2874,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentPage> GetContentPageListByCode(
+        public virtual List<ContentPage> GetContentPageListCode(
             string code
         )  {
-            return act.GetContentPageListByCode(
+            return act.GetContentPageListCode(
             code
             );
         }
         
-        public virtual ContentPage GetContentPageByCode(
+        public virtual ContentPage GetContentPageCode(
             string code
         )  {
-            foreach (ContentPage item in GetContentPageListByCode(
+            foreach (ContentPage item in GetContentPageListCode(
             code
             ))  {
                 return item;
@@ -2893,24 +2893,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListByCode(
+        public virtual List<ContentPage> CachedGetContentPageListCode(
             string code
         ) {
-            return CachedGetContentPageListByCode(
+            return CachedGetContentPageListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListByCode(
+        public virtual List<ContentPage> CachedGetContentPageListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<ContentPage> objs;
 
-            string method_name = "CachedGetContentPageListByCode";
+            string method_name = "CachedGetContentPageListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2926,7 +2926,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentPageListByCode(
+                objs = GetContentPageListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2934,18 +2934,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentPage> GetContentPageListByName(
+        public virtual List<ContentPage> GetContentPageListName(
             string name
         )  {
-            return act.GetContentPageListByName(
+            return act.GetContentPageListName(
             name
             );
         }
         
-        public virtual ContentPage GetContentPageByName(
+        public virtual ContentPage GetContentPageName(
             string name
         )  {
-            foreach (ContentPage item in GetContentPageListByName(
+            foreach (ContentPage item in GetContentPageListName(
             name
             ))  {
                 return item;
@@ -2953,24 +2953,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListByName(
+        public virtual List<ContentPage> CachedGetContentPageListName(
             string name
         ) {
-            return CachedGetContentPageListByName(
+            return CachedGetContentPageListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListByName(
+        public virtual List<ContentPage> CachedGetContentPageListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<ContentPage> objs;
 
-            string method_name = "CachedGetContentPageListByName";
+            string method_name = "CachedGetContentPageListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -2986,7 +2986,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentPageListByName(
+                objs = GetContentPageListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2994,18 +2994,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentPage> GetContentPageListByPath(
+        public virtual List<ContentPage> GetContentPageListPath(
             string path
         )  {
-            return act.GetContentPageListByPath(
+            return act.GetContentPageListPath(
             path
             );
         }
         
-        public virtual ContentPage GetContentPageByPath(
+        public virtual ContentPage GetContentPagePath(
             string path
         )  {
-            foreach (ContentPage item in GetContentPageListByPath(
+            foreach (ContentPage item in GetContentPageListPath(
             path
             ))  {
                 return item;
@@ -3013,24 +3013,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListByPath(
+        public virtual List<ContentPage> CachedGetContentPageListPath(
             string path
         ) {
-            return CachedGetContentPageListByPath(
+            return CachedGetContentPageListPath(
                     false
                     , CACHE_DEFAULT_HOURS
                     , path
                 );
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListByPath(
+        public virtual List<ContentPage> CachedGetContentPageListPath(
             bool overrideCache
             , int cacheHours
             , string path
         ) {
             List<ContentPage> objs;
 
-            string method_name = "CachedGetContentPageListByPath";
+            string method_name = "CachedGetContentPageListPath";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3046,7 +3046,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentPageListByPath(
+                objs = GetContentPageListPath(
                     path
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3054,18 +3054,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentPage> GetContentPageListBySiteId(
+        public virtual List<ContentPage> GetContentPageListSiteId(
             string site_id
         )  {
-            return act.GetContentPageListBySiteId(
+            return act.GetContentPageListSiteId(
             site_id
             );
         }
         
-        public virtual ContentPage GetContentPageBySiteId(
+        public virtual ContentPage GetContentPageSiteId(
             string site_id
         )  {
-            foreach (ContentPage item in GetContentPageListBySiteId(
+            foreach (ContentPage item in GetContentPageListSiteId(
             site_id
             ))  {
                 return item;
@@ -3073,24 +3073,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListBySiteId(
+        public virtual List<ContentPage> CachedGetContentPageListSiteId(
             string site_id
         ) {
-            return CachedGetContentPageListBySiteId(
+            return CachedGetContentPageListSiteId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , site_id
                 );
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListBySiteId(
+        public virtual List<ContentPage> CachedGetContentPageListSiteId(
             bool overrideCache
             , int cacheHours
             , string site_id
         ) {
             List<ContentPage> objs;
 
-            string method_name = "CachedGetContentPageListBySiteId";
+            string method_name = "CachedGetContentPageListSiteId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3106,7 +3106,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentPageListBySiteId(
+                objs = GetContentPageListSiteId(
                     site_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3114,21 +3114,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ContentPage> GetContentPageListBySiteIdByPath(
+        public virtual List<ContentPage> GetContentPageListSiteIdPath(
             string site_id
             , string path
         )  {
-            return act.GetContentPageListBySiteIdByPath(
+            return act.GetContentPageListSiteIdPath(
             site_id
             , path
             );
         }
         
-        public virtual ContentPage GetContentPageBySiteIdByPath(
+        public virtual ContentPage GetContentPageSiteIdPath(
             string site_id
             , string path
         )  {
-            foreach (ContentPage item in GetContentPageListBySiteIdByPath(
+            foreach (ContentPage item in GetContentPageListSiteIdPath(
             site_id
             , path
             ))  {
@@ -3137,11 +3137,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListBySiteIdByPath(
+        public virtual List<ContentPage> CachedGetContentPageListSiteIdPath(
             string site_id
             , string path
         ) {
-            return CachedGetContentPageListBySiteIdByPath(
+            return CachedGetContentPageListSiteIdPath(
                     false
                     , CACHE_DEFAULT_HOURS
                     , site_id
@@ -3149,7 +3149,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<ContentPage> CachedGetContentPageListBySiteIdByPath(
+        public virtual List<ContentPage> CachedGetContentPageListSiteIdPath(
             bool overrideCache
             , int cacheHours
             , string site_id
@@ -3157,7 +3157,7 @@ namespace platform {
         ) {
             List<ContentPage> objs;
 
-            string method_name = "CachedGetContentPageListBySiteIdByPath";
+            string method_name = "CachedGetContentPageListSiteIdPath";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3177,7 +3177,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetContentPageListBySiteIdByPath(
+                objs = GetContentPageListSiteIdPath(
                     site_id
                     , path
                 );
@@ -3192,34 +3192,34 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountMessageByUuid(
+        public virtual int CountMessageUuid(
             string uuid
         )  {            
-            return act.CountMessageByUuid(
+            return act.CountMessageUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual MessageResult BrowseMessageListByFilter(SearchFilter obj)  {
-            return act.BrowseMessageListByFilter(obj);
+        public virtual MessageResult BrowseMessageListFilter(SearchFilter obj)  {
+            return act.BrowseMessageListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetMessageByUuid(string set_type, Message obj)  {
-            return act.SetMessageByUuid(set_type, obj);
+        public virtual bool SetMessageUuid(string set_type, Message obj)  {
+            return act.SetMessageUuid(set_type, obj);
         }
         
-        public virtual bool SetMessageByUuid(SetType set_type, Message obj)  {
-            return act.SetMessageByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetMessageUuid(SetType set_type, Message obj)  {
+            return act.SetMessageUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetMessageByUuid(Message obj)  {
-            return act.SetMessageByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetMessageUuid(Message obj)  {
+            return act.SetMessageUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelMessageByUuid(
+        public virtual bool DelMessageUuid(
             string uuid
         )  {            
-            return act.DelMessageByUuid(
+            return act.DelMessageUuid(
             uuid
             );
         }                     
@@ -3272,18 +3272,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Message> GetMessageListByUuid(
+        public virtual List<Message> GetMessageListUuid(
             string uuid
         )  {
-            return act.GetMessageListByUuid(
+            return act.GetMessageListUuid(
             uuid
             );
         }
         
-        public virtual Message GetMessageByUuid(
+        public virtual Message GetMessageUuid(
             string uuid
         )  {
-            foreach (Message item in GetMessageListByUuid(
+            foreach (Message item in GetMessageListUuid(
             uuid
             ))  {
                 return item;
@@ -3291,24 +3291,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Message> CachedGetMessageListByUuid(
+        public virtual List<Message> CachedGetMessageListUuid(
             string uuid
         ) {
-            return CachedGetMessageListByUuid(
+            return CachedGetMessageListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Message> CachedGetMessageListByUuid(
+        public virtual List<Message> CachedGetMessageListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Message> objs;
 
-            string method_name = "CachedGetMessageListByUuid";
+            string method_name = "CachedGetMessageListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3324,7 +3324,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetMessageListByUuid(
+                objs = GetMessageListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3338,66 +3338,66 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferByUuid(
+        public virtual int CountOfferUuid(
             string uuid
         )  {            
-            return act.CountOfferByUuid(
+            return act.CountOfferUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferByCode(
+        public virtual int CountOfferCode(
             string code
         )  {            
-            return act.CountOfferByCode(
+            return act.CountOfferCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferByName(
+        public virtual int CountOfferName(
             string name
         )  {            
-            return act.CountOfferByName(
+            return act.CountOfferName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferByOrgId(
+        public virtual int CountOfferOrgId(
             string org_id
         )  {            
-            return act.CountOfferByOrgId(
+            return act.CountOfferOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OfferResult BrowseOfferListByFilter(SearchFilter obj)  {
-            return act.BrowseOfferListByFilter(obj);
+        public virtual OfferResult BrowseOfferListFilter(SearchFilter obj)  {
+            return act.BrowseOfferListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferByUuid(string set_type, Offer obj)  {
-            return act.SetOfferByUuid(set_type, obj);
+        public virtual bool SetOfferUuid(string set_type, Offer obj)  {
+            return act.SetOfferUuid(set_type, obj);
         }
         
-        public virtual bool SetOfferByUuid(SetType set_type, Offer obj)  {
-            return act.SetOfferByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOfferUuid(SetType set_type, Offer obj)  {
+            return act.SetOfferUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOfferByUuid(Offer obj)  {
-            return act.SetOfferByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOfferUuid(Offer obj)  {
+            return act.SetOfferUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferByUuid(
+        public virtual bool DelOfferUuid(
             string uuid
         )  {            
-            return act.DelOfferByUuid(
+            return act.DelOfferUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferByOrgId(
+        public virtual bool DelOfferOrgId(
             string org_id
         )  {            
-            return act.DelOfferByOrgId(
+            return act.DelOfferOrgId(
             org_id
             );
         }                     
@@ -3450,18 +3450,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Offer> GetOfferListByUuid(
+        public virtual List<Offer> GetOfferListUuid(
             string uuid
         )  {
-            return act.GetOfferListByUuid(
+            return act.GetOfferListUuid(
             uuid
             );
         }
         
-        public virtual Offer GetOfferByUuid(
+        public virtual Offer GetOfferUuid(
             string uuid
         )  {
-            foreach (Offer item in GetOfferListByUuid(
+            foreach (Offer item in GetOfferListUuid(
             uuid
             ))  {
                 return item;
@@ -3469,24 +3469,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Offer> CachedGetOfferListByUuid(
+        public virtual List<Offer> CachedGetOfferListUuid(
             string uuid
         ) {
-            return CachedGetOfferListByUuid(
+            return CachedGetOfferListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Offer> CachedGetOfferListByUuid(
+        public virtual List<Offer> CachedGetOfferListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Offer> objs;
 
-            string method_name = "CachedGetOfferListByUuid";
+            string method_name = "CachedGetOfferListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3502,7 +3502,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferListByUuid(
+                objs = GetOfferListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3510,18 +3510,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Offer> GetOfferListByCode(
+        public virtual List<Offer> GetOfferListCode(
             string code
         )  {
-            return act.GetOfferListByCode(
+            return act.GetOfferListCode(
             code
             );
         }
         
-        public virtual Offer GetOfferByCode(
+        public virtual Offer GetOfferCode(
             string code
         )  {
-            foreach (Offer item in GetOfferListByCode(
+            foreach (Offer item in GetOfferListCode(
             code
             ))  {
                 return item;
@@ -3529,24 +3529,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Offer> CachedGetOfferListByCode(
+        public virtual List<Offer> CachedGetOfferListCode(
             string code
         ) {
-            return CachedGetOfferListByCode(
+            return CachedGetOfferListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<Offer> CachedGetOfferListByCode(
+        public virtual List<Offer> CachedGetOfferListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<Offer> objs;
 
-            string method_name = "CachedGetOfferListByCode";
+            string method_name = "CachedGetOfferListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3562,7 +3562,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferListByCode(
+                objs = GetOfferListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3570,18 +3570,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Offer> GetOfferListByName(
+        public virtual List<Offer> GetOfferListName(
             string name
         )  {
-            return act.GetOfferListByName(
+            return act.GetOfferListName(
             name
             );
         }
         
-        public virtual Offer GetOfferByName(
+        public virtual Offer GetOfferName(
             string name
         )  {
-            foreach (Offer item in GetOfferListByName(
+            foreach (Offer item in GetOfferListName(
             name
             ))  {
                 return item;
@@ -3589,24 +3589,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Offer> CachedGetOfferListByName(
+        public virtual List<Offer> CachedGetOfferListName(
             string name
         ) {
-            return CachedGetOfferListByName(
+            return CachedGetOfferListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<Offer> CachedGetOfferListByName(
+        public virtual List<Offer> CachedGetOfferListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<Offer> objs;
 
-            string method_name = "CachedGetOfferListByName";
+            string method_name = "CachedGetOfferListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3622,7 +3622,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferListByName(
+                objs = GetOfferListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3630,18 +3630,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Offer> GetOfferListByOrgId(
+        public virtual List<Offer> GetOfferListOrgId(
             string org_id
         )  {
-            return act.GetOfferListByOrgId(
+            return act.GetOfferListOrgId(
             org_id
             );
         }
         
-        public virtual Offer GetOfferByOrgId(
+        public virtual Offer GetOfferOrgId(
             string org_id
         )  {
-            foreach (Offer item in GetOfferListByOrgId(
+            foreach (Offer item in GetOfferListOrgId(
             org_id
             ))  {
                 return item;
@@ -3649,24 +3649,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Offer> CachedGetOfferListByOrgId(
+        public virtual List<Offer> CachedGetOfferListOrgId(
             string org_id
         ) {
-            return CachedGetOfferListByOrgId(
+            return CachedGetOfferListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<Offer> CachedGetOfferListByOrgId(
+        public virtual List<Offer> CachedGetOfferListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<Offer> objs;
 
-            string method_name = "CachedGetOfferListByOrgId";
+            string method_name = "CachedGetOfferListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3682,7 +3682,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferListByOrgId(
+                objs = GetOfferListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3696,50 +3696,50 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeByUuid(
+        public virtual int CountOfferTypeUuid(
             string uuid
         )  {            
-            return act.CountOfferTypeByUuid(
+            return act.CountOfferTypeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeByCode(
+        public virtual int CountOfferTypeCode(
             string code
         )  {            
-            return act.CountOfferTypeByCode(
+            return act.CountOfferTypeCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeByName(
+        public virtual int CountOfferTypeName(
             string name
         )  {            
-            return act.CountOfferTypeByName(
+            return act.CountOfferTypeName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OfferTypeResult BrowseOfferTypeListByFilter(SearchFilter obj)  {
-            return act.BrowseOfferTypeListByFilter(obj);
+        public virtual OfferTypeResult BrowseOfferTypeListFilter(SearchFilter obj)  {
+            return act.BrowseOfferTypeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferTypeByUuid(string set_type, OfferType obj)  {
-            return act.SetOfferTypeByUuid(set_type, obj);
+        public virtual bool SetOfferTypeUuid(string set_type, OfferType obj)  {
+            return act.SetOfferTypeUuid(set_type, obj);
         }
         
-        public virtual bool SetOfferTypeByUuid(SetType set_type, OfferType obj)  {
-            return act.SetOfferTypeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOfferTypeUuid(SetType set_type, OfferType obj)  {
+            return act.SetOfferTypeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOfferTypeByUuid(OfferType obj)  {
-            return act.SetOfferTypeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOfferTypeUuid(OfferType obj)  {
+            return act.SetOfferTypeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferTypeByUuid(
+        public virtual bool DelOfferTypeUuid(
             string uuid
         )  {            
-            return act.DelOfferTypeByUuid(
+            return act.DelOfferTypeUuid(
             uuid
             );
         }                     
@@ -3792,18 +3792,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferType> GetOfferTypeListByUuid(
+        public virtual List<OfferType> GetOfferTypeListUuid(
             string uuid
         )  {
-            return act.GetOfferTypeListByUuid(
+            return act.GetOfferTypeListUuid(
             uuid
             );
         }
         
-        public virtual OfferType GetOfferTypeByUuid(
+        public virtual OfferType GetOfferTypeUuid(
             string uuid
         )  {
-            foreach (OfferType item in GetOfferTypeListByUuid(
+            foreach (OfferType item in GetOfferTypeListUuid(
             uuid
             ))  {
                 return item;
@@ -3811,24 +3811,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferType> CachedGetOfferTypeListByUuid(
+        public virtual List<OfferType> CachedGetOfferTypeListUuid(
             string uuid
         ) {
-            return CachedGetOfferTypeListByUuid(
+            return CachedGetOfferTypeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<OfferType> CachedGetOfferTypeListByUuid(
+        public virtual List<OfferType> CachedGetOfferTypeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<OfferType> objs;
 
-            string method_name = "CachedGetOfferTypeListByUuid";
+            string method_name = "CachedGetOfferTypeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3844,7 +3844,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferTypeListByUuid(
+                objs = GetOfferTypeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3852,18 +3852,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferType> GetOfferTypeListByCode(
+        public virtual List<OfferType> GetOfferTypeListCode(
             string code
         )  {
-            return act.GetOfferTypeListByCode(
+            return act.GetOfferTypeListCode(
             code
             );
         }
         
-        public virtual OfferType GetOfferTypeByCode(
+        public virtual OfferType GetOfferTypeCode(
             string code
         )  {
-            foreach (OfferType item in GetOfferTypeListByCode(
+            foreach (OfferType item in GetOfferTypeListCode(
             code
             ))  {
                 return item;
@@ -3871,24 +3871,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferType> CachedGetOfferTypeListByCode(
+        public virtual List<OfferType> CachedGetOfferTypeListCode(
             string code
         ) {
-            return CachedGetOfferTypeListByCode(
+            return CachedGetOfferTypeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<OfferType> CachedGetOfferTypeListByCode(
+        public virtual List<OfferType> CachedGetOfferTypeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<OfferType> objs;
 
-            string method_name = "CachedGetOfferTypeListByCode";
+            string method_name = "CachedGetOfferTypeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3904,7 +3904,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferTypeListByCode(
+                objs = GetOfferTypeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3912,18 +3912,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferType> GetOfferTypeListByName(
+        public virtual List<OfferType> GetOfferTypeListName(
             string name
         )  {
-            return act.GetOfferTypeListByName(
+            return act.GetOfferTypeListName(
             name
             );
         }
         
-        public virtual OfferType GetOfferTypeByName(
+        public virtual OfferType GetOfferTypeName(
             string name
         )  {
-            foreach (OfferType item in GetOfferTypeListByName(
+            foreach (OfferType item in GetOfferTypeListName(
             name
             ))  {
                 return item;
@@ -3931,24 +3931,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferType> CachedGetOfferTypeListByName(
+        public virtual List<OfferType> CachedGetOfferTypeListName(
             string name
         ) {
-            return CachedGetOfferTypeListByName(
+            return CachedGetOfferTypeListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<OfferType> CachedGetOfferTypeListByName(
+        public virtual List<OfferType> CachedGetOfferTypeListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<OfferType> objs;
 
-            string method_name = "CachedGetOfferTypeListByName";
+            string method_name = "CachedGetOfferTypeListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -3964,7 +3964,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferTypeListByName(
+                objs = GetOfferTypeListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3978,66 +3978,66 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationByUuid(
+        public virtual int CountOfferLocationUuid(
             string uuid
         )  {            
-            return act.CountOfferLocationByUuid(
+            return act.CountOfferLocationUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationByOfferId(
+        public virtual int CountOfferLocationOfferId(
             string offer_id
         )  {            
-            return act.CountOfferLocationByOfferId(
+            return act.CountOfferLocationOfferId(
             offer_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationByCity(
+        public virtual int CountOfferLocationCity(
             string city
         )  {            
-            return act.CountOfferLocationByCity(
+            return act.CountOfferLocationCity(
             city
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationByCountryCode(
+        public virtual int CountOfferLocationCountryCode(
             string country_code
         )  {            
-            return act.CountOfferLocationByCountryCode(
+            return act.CountOfferLocationCountryCode(
             country_code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationByPostalCode(
+        public virtual int CountOfferLocationPostalCode(
             string postal_code
         )  {            
-            return act.CountOfferLocationByPostalCode(
+            return act.CountOfferLocationPostalCode(
             postal_code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OfferLocationResult BrowseOfferLocationListByFilter(SearchFilter obj)  {
-            return act.BrowseOfferLocationListByFilter(obj);
+        public virtual OfferLocationResult BrowseOfferLocationListFilter(SearchFilter obj)  {
+            return act.BrowseOfferLocationListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferLocationByUuid(string set_type, OfferLocation obj)  {
-            return act.SetOfferLocationByUuid(set_type, obj);
+        public virtual bool SetOfferLocationUuid(string set_type, OfferLocation obj)  {
+            return act.SetOfferLocationUuid(set_type, obj);
         }
         
-        public virtual bool SetOfferLocationByUuid(SetType set_type, OfferLocation obj)  {
-            return act.SetOfferLocationByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOfferLocationUuid(SetType set_type, OfferLocation obj)  {
+            return act.SetOfferLocationUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOfferLocationByUuid(OfferLocation obj)  {
-            return act.SetOfferLocationByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOfferLocationUuid(OfferLocation obj)  {
+            return act.SetOfferLocationUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferLocationByUuid(
+        public virtual bool DelOfferLocationUuid(
             string uuid
         )  {            
-            return act.DelOfferLocationByUuid(
+            return act.DelOfferLocationUuid(
             uuid
             );
         }                     
@@ -4090,18 +4090,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferLocation> GetOfferLocationListByUuid(
+        public virtual List<OfferLocation> GetOfferLocationListUuid(
             string uuid
         )  {
-            return act.GetOfferLocationListByUuid(
+            return act.GetOfferLocationListUuid(
             uuid
             );
         }
         
-        public virtual OfferLocation GetOfferLocationByUuid(
+        public virtual OfferLocation GetOfferLocationUuid(
             string uuid
         )  {
-            foreach (OfferLocation item in GetOfferLocationListByUuid(
+            foreach (OfferLocation item in GetOfferLocationListUuid(
             uuid
             ))  {
                 return item;
@@ -4109,24 +4109,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByUuid(
+        public virtual List<OfferLocation> CachedGetOfferLocationListUuid(
             string uuid
         ) {
-            return CachedGetOfferLocationListByUuid(
+            return CachedGetOfferLocationListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByUuid(
+        public virtual List<OfferLocation> CachedGetOfferLocationListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<OfferLocation> objs;
 
-            string method_name = "CachedGetOfferLocationListByUuid";
+            string method_name = "CachedGetOfferLocationListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4142,7 +4142,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferLocationListByUuid(
+                objs = GetOfferLocationListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4150,18 +4150,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferLocation> GetOfferLocationListByOfferId(
+        public virtual List<OfferLocation> GetOfferLocationListOfferId(
             string offer_id
         )  {
-            return act.GetOfferLocationListByOfferId(
+            return act.GetOfferLocationListOfferId(
             offer_id
             );
         }
         
-        public virtual OfferLocation GetOfferLocationByOfferId(
+        public virtual OfferLocation GetOfferLocationOfferId(
             string offer_id
         )  {
-            foreach (OfferLocation item in GetOfferLocationListByOfferId(
+            foreach (OfferLocation item in GetOfferLocationListOfferId(
             offer_id
             ))  {
                 return item;
@@ -4169,24 +4169,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByOfferId(
+        public virtual List<OfferLocation> CachedGetOfferLocationListOfferId(
             string offer_id
         ) {
-            return CachedGetOfferLocationListByOfferId(
+            return CachedGetOfferLocationListOfferId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , offer_id
                 );
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByOfferId(
+        public virtual List<OfferLocation> CachedGetOfferLocationListOfferId(
             bool overrideCache
             , int cacheHours
             , string offer_id
         ) {
             List<OfferLocation> objs;
 
-            string method_name = "CachedGetOfferLocationListByOfferId";
+            string method_name = "CachedGetOfferLocationListOfferId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4202,7 +4202,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferLocationListByOfferId(
+                objs = GetOfferLocationListOfferId(
                     offer_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4210,18 +4210,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferLocation> GetOfferLocationListByCity(
+        public virtual List<OfferLocation> GetOfferLocationListCity(
             string city
         )  {
-            return act.GetOfferLocationListByCity(
+            return act.GetOfferLocationListCity(
             city
             );
         }
         
-        public virtual OfferLocation GetOfferLocationByCity(
+        public virtual OfferLocation GetOfferLocationCity(
             string city
         )  {
-            foreach (OfferLocation item in GetOfferLocationListByCity(
+            foreach (OfferLocation item in GetOfferLocationListCity(
             city
             ))  {
                 return item;
@@ -4229,24 +4229,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByCity(
+        public virtual List<OfferLocation> CachedGetOfferLocationListCity(
             string city
         ) {
-            return CachedGetOfferLocationListByCity(
+            return CachedGetOfferLocationListCity(
                     false
                     , CACHE_DEFAULT_HOURS
                     , city
                 );
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByCity(
+        public virtual List<OfferLocation> CachedGetOfferLocationListCity(
             bool overrideCache
             , int cacheHours
             , string city
         ) {
             List<OfferLocation> objs;
 
-            string method_name = "CachedGetOfferLocationListByCity";
+            string method_name = "CachedGetOfferLocationListCity";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4262,7 +4262,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferLocationListByCity(
+                objs = GetOfferLocationListCity(
                     city
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4270,18 +4270,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferLocation> GetOfferLocationListByCountryCode(
+        public virtual List<OfferLocation> GetOfferLocationListCountryCode(
             string country_code
         )  {
-            return act.GetOfferLocationListByCountryCode(
+            return act.GetOfferLocationListCountryCode(
             country_code
             );
         }
         
-        public virtual OfferLocation GetOfferLocationByCountryCode(
+        public virtual OfferLocation GetOfferLocationCountryCode(
             string country_code
         )  {
-            foreach (OfferLocation item in GetOfferLocationListByCountryCode(
+            foreach (OfferLocation item in GetOfferLocationListCountryCode(
             country_code
             ))  {
                 return item;
@@ -4289,24 +4289,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByCountryCode(
+        public virtual List<OfferLocation> CachedGetOfferLocationListCountryCode(
             string country_code
         ) {
-            return CachedGetOfferLocationListByCountryCode(
+            return CachedGetOfferLocationListCountryCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , country_code
                 );
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByCountryCode(
+        public virtual List<OfferLocation> CachedGetOfferLocationListCountryCode(
             bool overrideCache
             , int cacheHours
             , string country_code
         ) {
             List<OfferLocation> objs;
 
-            string method_name = "CachedGetOfferLocationListByCountryCode";
+            string method_name = "CachedGetOfferLocationListCountryCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4322,7 +4322,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferLocationListByCountryCode(
+                objs = GetOfferLocationListCountryCode(
                     country_code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4330,18 +4330,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferLocation> GetOfferLocationListByPostalCode(
+        public virtual List<OfferLocation> GetOfferLocationListPostalCode(
             string postal_code
         )  {
-            return act.GetOfferLocationListByPostalCode(
+            return act.GetOfferLocationListPostalCode(
             postal_code
             );
         }
         
-        public virtual OfferLocation GetOfferLocationByPostalCode(
+        public virtual OfferLocation GetOfferLocationPostalCode(
             string postal_code
         )  {
-            foreach (OfferLocation item in GetOfferLocationListByPostalCode(
+            foreach (OfferLocation item in GetOfferLocationListPostalCode(
             postal_code
             ))  {
                 return item;
@@ -4349,24 +4349,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByPostalCode(
+        public virtual List<OfferLocation> CachedGetOfferLocationListPostalCode(
             string postal_code
         ) {
-            return CachedGetOfferLocationListByPostalCode(
+            return CachedGetOfferLocationListPostalCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , postal_code
                 );
         }
         
-        public virtual List<OfferLocation> CachedGetOfferLocationListByPostalCode(
+        public virtual List<OfferLocation> CachedGetOfferLocationListPostalCode(
             bool overrideCache
             , int cacheHours
             , string postal_code
         ) {
             List<OfferLocation> objs;
 
-            string method_name = "CachedGetOfferLocationListByPostalCode";
+            string method_name = "CachedGetOfferLocationListPostalCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4382,7 +4382,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferLocationListByPostalCode(
+                objs = GetOfferLocationListPostalCode(
                     postal_code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4396,96 +4396,96 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryByUuid(
+        public virtual int CountOfferCategoryUuid(
             string uuid
         )  {            
-            return act.CountOfferCategoryByUuid(
+            return act.CountOfferCategoryUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryByCode(
+        public virtual int CountOfferCategoryCode(
             string code
         )  {            
-            return act.CountOfferCategoryByCode(
+            return act.CountOfferCategoryCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryByName(
+        public virtual int CountOfferCategoryName(
             string name
         )  {            
-            return act.CountOfferCategoryByName(
+            return act.CountOfferCategoryName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryByOrgId(
+        public virtual int CountOfferCategoryOrgId(
             string org_id
         )  {            
-            return act.CountOfferCategoryByOrgId(
+            return act.CountOfferCategoryOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryByTypeId(
+        public virtual int CountOfferCategoryTypeId(
             string type_id
         )  {            
-            return act.CountOfferCategoryByTypeId(
+            return act.CountOfferCategoryTypeId(
             type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryByOrgIdByTypeId(
+        public virtual int CountOfferCategoryOrgIdTypeId(
             string org_id
             , string type_id
         )  {            
-            return act.CountOfferCategoryByOrgIdByTypeId(
+            return act.CountOfferCategoryOrgIdTypeId(
             org_id
             , type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OfferCategoryResult BrowseOfferCategoryListByFilter(SearchFilter obj)  {
-            return act.BrowseOfferCategoryListByFilter(obj);
+        public virtual OfferCategoryResult BrowseOfferCategoryListFilter(SearchFilter obj)  {
+            return act.BrowseOfferCategoryListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryByUuid(string set_type, OfferCategory obj)  {
-            return act.SetOfferCategoryByUuid(set_type, obj);
+        public virtual bool SetOfferCategoryUuid(string set_type, OfferCategory obj)  {
+            return act.SetOfferCategoryUuid(set_type, obj);
         }
         
-        public virtual bool SetOfferCategoryByUuid(SetType set_type, OfferCategory obj)  {
-            return act.SetOfferCategoryByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOfferCategoryUuid(SetType set_type, OfferCategory obj)  {
+            return act.SetOfferCategoryUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOfferCategoryByUuid(OfferCategory obj)  {
-            return act.SetOfferCategoryByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOfferCategoryUuid(OfferCategory obj)  {
+            return act.SetOfferCategoryUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryByUuid(
+        public virtual bool DelOfferCategoryUuid(
             string uuid
         )  {            
-            return act.DelOfferCategoryByUuid(
+            return act.DelOfferCategoryUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryByCodeByOrgId(
+        public virtual bool DelOfferCategoryCodeOrgId(
             string code
             , string org_id
         )  {            
-            return act.DelOfferCategoryByCodeByOrgId(
+            return act.DelOfferCategoryCodeOrgId(
             code
             , org_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryByCodeByOrgIdByTypeId(
+        public virtual bool DelOfferCategoryCodeOrgIdTypeId(
             string code
             , string org_id
             , string type_id
         )  {            
-            return act.DelOfferCategoryByCodeByOrgIdByTypeId(
+            return act.DelOfferCategoryCodeOrgIdTypeId(
             code
             , org_id
             , type_id
@@ -4540,18 +4540,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategory> GetOfferCategoryListByUuid(
+        public virtual List<OfferCategory> GetOfferCategoryListUuid(
             string uuid
         )  {
-            return act.GetOfferCategoryListByUuid(
+            return act.GetOfferCategoryListUuid(
             uuid
             );
         }
         
-        public virtual OfferCategory GetOfferCategoryByUuid(
+        public virtual OfferCategory GetOfferCategoryUuid(
             string uuid
         )  {
-            foreach (OfferCategory item in GetOfferCategoryListByUuid(
+            foreach (OfferCategory item in GetOfferCategoryListUuid(
             uuid
             ))  {
                 return item;
@@ -4559,24 +4559,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByUuid(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListUuid(
             string uuid
         ) {
-            return CachedGetOfferCategoryListByUuid(
+            return CachedGetOfferCategoryListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByUuid(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<OfferCategory> objs;
 
-            string method_name = "CachedGetOfferCategoryListByUuid";
+            string method_name = "CachedGetOfferCategoryListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4592,7 +4592,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryListByUuid(
+                objs = GetOfferCategoryListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4600,18 +4600,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategory> GetOfferCategoryListByCode(
+        public virtual List<OfferCategory> GetOfferCategoryListCode(
             string code
         )  {
-            return act.GetOfferCategoryListByCode(
+            return act.GetOfferCategoryListCode(
             code
             );
         }
         
-        public virtual OfferCategory GetOfferCategoryByCode(
+        public virtual OfferCategory GetOfferCategoryCode(
             string code
         )  {
-            foreach (OfferCategory item in GetOfferCategoryListByCode(
+            foreach (OfferCategory item in GetOfferCategoryListCode(
             code
             ))  {
                 return item;
@@ -4619,24 +4619,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByCode(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListCode(
             string code
         ) {
-            return CachedGetOfferCategoryListByCode(
+            return CachedGetOfferCategoryListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByCode(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<OfferCategory> objs;
 
-            string method_name = "CachedGetOfferCategoryListByCode";
+            string method_name = "CachedGetOfferCategoryListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4652,7 +4652,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryListByCode(
+                objs = GetOfferCategoryListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4660,18 +4660,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategory> GetOfferCategoryListByName(
+        public virtual List<OfferCategory> GetOfferCategoryListName(
             string name
         )  {
-            return act.GetOfferCategoryListByName(
+            return act.GetOfferCategoryListName(
             name
             );
         }
         
-        public virtual OfferCategory GetOfferCategoryByName(
+        public virtual OfferCategory GetOfferCategoryName(
             string name
         )  {
-            foreach (OfferCategory item in GetOfferCategoryListByName(
+            foreach (OfferCategory item in GetOfferCategoryListName(
             name
             ))  {
                 return item;
@@ -4679,24 +4679,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByName(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListName(
             string name
         ) {
-            return CachedGetOfferCategoryListByName(
+            return CachedGetOfferCategoryListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByName(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<OfferCategory> objs;
 
-            string method_name = "CachedGetOfferCategoryListByName";
+            string method_name = "CachedGetOfferCategoryListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4712,7 +4712,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryListByName(
+                objs = GetOfferCategoryListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4720,18 +4720,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategory> GetOfferCategoryListByOrgId(
+        public virtual List<OfferCategory> GetOfferCategoryListOrgId(
             string org_id
         )  {
-            return act.GetOfferCategoryListByOrgId(
+            return act.GetOfferCategoryListOrgId(
             org_id
             );
         }
         
-        public virtual OfferCategory GetOfferCategoryByOrgId(
+        public virtual OfferCategory GetOfferCategoryOrgId(
             string org_id
         )  {
-            foreach (OfferCategory item in GetOfferCategoryListByOrgId(
+            foreach (OfferCategory item in GetOfferCategoryListOrgId(
             org_id
             ))  {
                 return item;
@@ -4739,24 +4739,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByOrgId(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListOrgId(
             string org_id
         ) {
-            return CachedGetOfferCategoryListByOrgId(
+            return CachedGetOfferCategoryListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByOrgId(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<OfferCategory> objs;
 
-            string method_name = "CachedGetOfferCategoryListByOrgId";
+            string method_name = "CachedGetOfferCategoryListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4772,7 +4772,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryListByOrgId(
+                objs = GetOfferCategoryListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4780,18 +4780,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategory> GetOfferCategoryListByTypeId(
+        public virtual List<OfferCategory> GetOfferCategoryListTypeId(
             string type_id
         )  {
-            return act.GetOfferCategoryListByTypeId(
+            return act.GetOfferCategoryListTypeId(
             type_id
             );
         }
         
-        public virtual OfferCategory GetOfferCategoryByTypeId(
+        public virtual OfferCategory GetOfferCategoryTypeId(
             string type_id
         )  {
-            foreach (OfferCategory item in GetOfferCategoryListByTypeId(
+            foreach (OfferCategory item in GetOfferCategoryListTypeId(
             type_id
             ))  {
                 return item;
@@ -4799,24 +4799,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByTypeId(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListTypeId(
             string type_id
         ) {
-            return CachedGetOfferCategoryListByTypeId(
+            return CachedGetOfferCategoryListTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , type_id
                 );
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByTypeId(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListTypeId(
             bool overrideCache
             , int cacheHours
             , string type_id
         ) {
             List<OfferCategory> objs;
 
-            string method_name = "CachedGetOfferCategoryListByTypeId";
+            string method_name = "CachedGetOfferCategoryListTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4832,7 +4832,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryListByTypeId(
+                objs = GetOfferCategoryListTypeId(
                     type_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4840,21 +4840,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategory> GetOfferCategoryListByOrgIdByTypeId(
+        public virtual List<OfferCategory> GetOfferCategoryListOrgIdTypeId(
             string org_id
             , string type_id
         )  {
-            return act.GetOfferCategoryListByOrgIdByTypeId(
+            return act.GetOfferCategoryListOrgIdTypeId(
             org_id
             , type_id
             );
         }
         
-        public virtual OfferCategory GetOfferCategoryByOrgIdByTypeId(
+        public virtual OfferCategory GetOfferCategoryOrgIdTypeId(
             string org_id
             , string type_id
         )  {
-            foreach (OfferCategory item in GetOfferCategoryListByOrgIdByTypeId(
+            foreach (OfferCategory item in GetOfferCategoryListOrgIdTypeId(
             org_id
             , type_id
             ))  {
@@ -4863,11 +4863,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByOrgIdByTypeId(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListOrgIdTypeId(
             string org_id
             , string type_id
         ) {
-            return CachedGetOfferCategoryListByOrgIdByTypeId(
+            return CachedGetOfferCategoryListOrgIdTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
@@ -4875,7 +4875,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<OfferCategory> CachedGetOfferCategoryListByOrgIdByTypeId(
+        public virtual List<OfferCategory> CachedGetOfferCategoryListOrgIdTypeId(
             bool overrideCache
             , int cacheHours
             , string org_id
@@ -4883,7 +4883,7 @@ namespace platform {
         ) {
             List<OfferCategory> objs;
 
-            string method_name = "CachedGetOfferCategoryListByOrgIdByTypeId";
+            string method_name = "CachedGetOfferCategoryListOrgIdTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -4903,7 +4903,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryListByOrgIdByTypeId(
+                objs = GetOfferCategoryListOrgIdTypeId(
                     org_id
                     , type_id
                 );
@@ -4918,85 +4918,85 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeByUuid(
+        public virtual int CountOfferCategoryTreeUuid(
             string uuid
         )  {            
-            return act.CountOfferCategoryTreeByUuid(
+            return act.CountOfferCategoryTreeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeByParentId(
+        public virtual int CountOfferCategoryTreeParentId(
             string parent_id
         )  {            
-            return act.CountOfferCategoryTreeByParentId(
+            return act.CountOfferCategoryTreeParentId(
             parent_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeByCategoryId(
+        public virtual int CountOfferCategoryTreeCategoryId(
             string category_id
         )  {            
-            return act.CountOfferCategoryTreeByCategoryId(
+            return act.CountOfferCategoryTreeCategoryId(
             category_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeByParentIdByCategoryId(
+        public virtual int CountOfferCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {            
-            return act.CountOfferCategoryTreeByParentIdByCategoryId(
+            return act.CountOfferCategoryTreeParentIdCategoryId(
             parent_id
             , category_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OfferCategoryTreeResult BrowseOfferCategoryTreeListByFilter(SearchFilter obj)  {
-            return act.BrowseOfferCategoryTreeListByFilter(obj);
+        public virtual OfferCategoryTreeResult BrowseOfferCategoryTreeListFilter(SearchFilter obj)  {
+            return act.BrowseOfferCategoryTreeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryTreeByUuid(string set_type, OfferCategoryTree obj)  {
-            return act.SetOfferCategoryTreeByUuid(set_type, obj);
+        public virtual bool SetOfferCategoryTreeUuid(string set_type, OfferCategoryTree obj)  {
+            return act.SetOfferCategoryTreeUuid(set_type, obj);
         }
         
-        public virtual bool SetOfferCategoryTreeByUuid(SetType set_type, OfferCategoryTree obj)  {
-            return act.SetOfferCategoryTreeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOfferCategoryTreeUuid(SetType set_type, OfferCategoryTree obj)  {
+            return act.SetOfferCategoryTreeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOfferCategoryTreeByUuid(OfferCategoryTree obj)  {
-            return act.SetOfferCategoryTreeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOfferCategoryTreeUuid(OfferCategoryTree obj)  {
+            return act.SetOfferCategoryTreeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeByUuid(
+        public virtual bool DelOfferCategoryTreeUuid(
             string uuid
         )  {            
-            return act.DelOfferCategoryTreeByUuid(
+            return act.DelOfferCategoryTreeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeByParentId(
+        public virtual bool DelOfferCategoryTreeParentId(
             string parent_id
         )  {            
-            return act.DelOfferCategoryTreeByParentId(
+            return act.DelOfferCategoryTreeParentId(
             parent_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeByCategoryId(
+        public virtual bool DelOfferCategoryTreeCategoryId(
             string category_id
         )  {            
-            return act.DelOfferCategoryTreeByCategoryId(
+            return act.DelOfferCategoryTreeCategoryId(
             category_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeByParentIdByCategoryId(
+        public virtual bool DelOfferCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {            
-            return act.DelOfferCategoryTreeByParentIdByCategoryId(
+            return act.DelOfferCategoryTreeParentIdCategoryId(
             parent_id
             , category_id
             );
@@ -5050,18 +5050,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListByUuid(
+        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListUuid(
             string uuid
         )  {
-            return act.GetOfferCategoryTreeListByUuid(
+            return act.GetOfferCategoryTreeListUuid(
             uuid
             );
         }
         
-        public virtual OfferCategoryTree GetOfferCategoryTreeByUuid(
+        public virtual OfferCategoryTree GetOfferCategoryTreeUuid(
             string uuid
         )  {
-            foreach (OfferCategoryTree item in GetOfferCategoryTreeListByUuid(
+            foreach (OfferCategoryTree item in GetOfferCategoryTreeListUuid(
             uuid
             ))  {
                 return item;
@@ -5069,24 +5069,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListByUuid(
+        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListUuid(
             string uuid
         ) {
-            return CachedGetOfferCategoryTreeListByUuid(
+            return CachedGetOfferCategoryTreeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListByUuid(
+        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<OfferCategoryTree> objs;
 
-            string method_name = "CachedGetOfferCategoryTreeListByUuid";
+            string method_name = "CachedGetOfferCategoryTreeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5102,7 +5102,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryTreeListByUuid(
+                objs = GetOfferCategoryTreeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5110,18 +5110,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListByParentId(
+        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListParentId(
             string parent_id
         )  {
-            return act.GetOfferCategoryTreeListByParentId(
+            return act.GetOfferCategoryTreeListParentId(
             parent_id
             );
         }
         
-        public virtual OfferCategoryTree GetOfferCategoryTreeByParentId(
+        public virtual OfferCategoryTree GetOfferCategoryTreeParentId(
             string parent_id
         )  {
-            foreach (OfferCategoryTree item in GetOfferCategoryTreeListByParentId(
+            foreach (OfferCategoryTree item in GetOfferCategoryTreeListParentId(
             parent_id
             ))  {
                 return item;
@@ -5129,24 +5129,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListByParentId(
+        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListParentId(
             string parent_id
         ) {
-            return CachedGetOfferCategoryTreeListByParentId(
+            return CachedGetOfferCategoryTreeListParentId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , parent_id
                 );
         }
         
-        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListByParentId(
+        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListParentId(
             bool overrideCache
             , int cacheHours
             , string parent_id
         ) {
             List<OfferCategoryTree> objs;
 
-            string method_name = "CachedGetOfferCategoryTreeListByParentId";
+            string method_name = "CachedGetOfferCategoryTreeListParentId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5162,7 +5162,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryTreeListByParentId(
+                objs = GetOfferCategoryTreeListParentId(
                     parent_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5170,18 +5170,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListByCategoryId(
+        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListCategoryId(
             string category_id
         )  {
-            return act.GetOfferCategoryTreeListByCategoryId(
+            return act.GetOfferCategoryTreeListCategoryId(
             category_id
             );
         }
         
-        public virtual OfferCategoryTree GetOfferCategoryTreeByCategoryId(
+        public virtual OfferCategoryTree GetOfferCategoryTreeCategoryId(
             string category_id
         )  {
-            foreach (OfferCategoryTree item in GetOfferCategoryTreeListByCategoryId(
+            foreach (OfferCategoryTree item in GetOfferCategoryTreeListCategoryId(
             category_id
             ))  {
                 return item;
@@ -5189,24 +5189,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListByCategoryId(
+        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListCategoryId(
             string category_id
         ) {
-            return CachedGetOfferCategoryTreeListByCategoryId(
+            return CachedGetOfferCategoryTreeListCategoryId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , category_id
                 );
         }
         
-        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListByCategoryId(
+        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListCategoryId(
             bool overrideCache
             , int cacheHours
             , string category_id
         ) {
             List<OfferCategoryTree> objs;
 
-            string method_name = "CachedGetOfferCategoryTreeListByCategoryId";
+            string method_name = "CachedGetOfferCategoryTreeListCategoryId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5222,7 +5222,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryTreeListByCategoryId(
+                objs = GetOfferCategoryTreeListCategoryId(
                     category_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5230,21 +5230,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListByParentIdByCategoryId(
+        public virtual List<OfferCategoryTree> GetOfferCategoryTreeListParentIdCategoryId(
             string parent_id
             , string category_id
         )  {
-            return act.GetOfferCategoryTreeListByParentIdByCategoryId(
+            return act.GetOfferCategoryTreeListParentIdCategoryId(
             parent_id
             , category_id
             );
         }
         
-        public virtual OfferCategoryTree GetOfferCategoryTreeByParentIdByCategoryId(
+        public virtual OfferCategoryTree GetOfferCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {
-            foreach (OfferCategoryTree item in GetOfferCategoryTreeListByParentIdByCategoryId(
+            foreach (OfferCategoryTree item in GetOfferCategoryTreeListParentIdCategoryId(
             parent_id
             , category_id
             ))  {
@@ -5253,11 +5253,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListByParentIdByCategoryId(
+        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListParentIdCategoryId(
             string parent_id
             , string category_id
         ) {
-            return CachedGetOfferCategoryTreeListByParentIdByCategoryId(
+            return CachedGetOfferCategoryTreeListParentIdCategoryId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , parent_id
@@ -5265,7 +5265,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListByParentIdByCategoryId(
+        public virtual List<OfferCategoryTree> CachedGetOfferCategoryTreeListParentIdCategoryId(
             bool overrideCache
             , int cacheHours
             , string parent_id
@@ -5273,7 +5273,7 @@ namespace platform {
         ) {
             List<OfferCategoryTree> objs;
 
-            string method_name = "CachedGetOfferCategoryTreeListByParentIdByCategoryId";
+            string method_name = "CachedGetOfferCategoryTreeListParentIdCategoryId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5293,7 +5293,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryTreeListByParentIdByCategoryId(
+                objs = GetOfferCategoryTreeListParentIdCategoryId(
                     parent_id
                     , category_id
                 );
@@ -5308,60 +5308,60 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocByUuid(
+        public virtual int CountOfferCategoryAssocUuid(
             string uuid
         )  {            
-            return act.CountOfferCategoryAssocByUuid(
+            return act.CountOfferCategoryAssocUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocByOfferId(
+        public virtual int CountOfferCategoryAssocOfferId(
             string offer_id
         )  {            
-            return act.CountOfferCategoryAssocByOfferId(
+            return act.CountOfferCategoryAssocOfferId(
             offer_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocByCategoryId(
+        public virtual int CountOfferCategoryAssocCategoryId(
             string category_id
         )  {            
-            return act.CountOfferCategoryAssocByCategoryId(
+            return act.CountOfferCategoryAssocCategoryId(
             category_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocByOfferIdByCategoryId(
+        public virtual int CountOfferCategoryAssocOfferIdCategoryId(
             string offer_id
             , string category_id
         )  {            
-            return act.CountOfferCategoryAssocByOfferIdByCategoryId(
+            return act.CountOfferCategoryAssocOfferIdCategoryId(
             offer_id
             , category_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OfferCategoryAssocResult BrowseOfferCategoryAssocListByFilter(SearchFilter obj)  {
-            return act.BrowseOfferCategoryAssocListByFilter(obj);
+        public virtual OfferCategoryAssocResult BrowseOfferCategoryAssocListFilter(SearchFilter obj)  {
+            return act.BrowseOfferCategoryAssocListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryAssocByUuid(string set_type, OfferCategoryAssoc obj)  {
-            return act.SetOfferCategoryAssocByUuid(set_type, obj);
+        public virtual bool SetOfferCategoryAssocUuid(string set_type, OfferCategoryAssoc obj)  {
+            return act.SetOfferCategoryAssocUuid(set_type, obj);
         }
         
-        public virtual bool SetOfferCategoryAssocByUuid(SetType set_type, OfferCategoryAssoc obj)  {
-            return act.SetOfferCategoryAssocByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOfferCategoryAssocUuid(SetType set_type, OfferCategoryAssoc obj)  {
+            return act.SetOfferCategoryAssocUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOfferCategoryAssocByUuid(OfferCategoryAssoc obj)  {
-            return act.SetOfferCategoryAssocByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOfferCategoryAssocUuid(OfferCategoryAssoc obj)  {
+            return act.SetOfferCategoryAssocUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryAssocByUuid(
+        public virtual bool DelOfferCategoryAssocUuid(
             string uuid
         )  {            
-            return act.DelOfferCategoryAssocByUuid(
+            return act.DelOfferCategoryAssocUuid(
             uuid
             );
         }                     
@@ -5414,18 +5414,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListByUuid(
+        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListUuid(
             string uuid
         )  {
-            return act.GetOfferCategoryAssocListByUuid(
+            return act.GetOfferCategoryAssocListUuid(
             uuid
             );
         }
         
-        public virtual OfferCategoryAssoc GetOfferCategoryAssocByUuid(
+        public virtual OfferCategoryAssoc GetOfferCategoryAssocUuid(
             string uuid
         )  {
-            foreach (OfferCategoryAssoc item in GetOfferCategoryAssocListByUuid(
+            foreach (OfferCategoryAssoc item in GetOfferCategoryAssocListUuid(
             uuid
             ))  {
                 return item;
@@ -5433,24 +5433,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListByUuid(
+        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListUuid(
             string uuid
         ) {
-            return CachedGetOfferCategoryAssocListByUuid(
+            return CachedGetOfferCategoryAssocListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListByUuid(
+        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<OfferCategoryAssoc> objs;
 
-            string method_name = "CachedGetOfferCategoryAssocListByUuid";
+            string method_name = "CachedGetOfferCategoryAssocListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5466,7 +5466,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryAssocListByUuid(
+                objs = GetOfferCategoryAssocListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5474,18 +5474,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListByOfferId(
+        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListOfferId(
             string offer_id
         )  {
-            return act.GetOfferCategoryAssocListByOfferId(
+            return act.GetOfferCategoryAssocListOfferId(
             offer_id
             );
         }
         
-        public virtual OfferCategoryAssoc GetOfferCategoryAssocByOfferId(
+        public virtual OfferCategoryAssoc GetOfferCategoryAssocOfferId(
             string offer_id
         )  {
-            foreach (OfferCategoryAssoc item in GetOfferCategoryAssocListByOfferId(
+            foreach (OfferCategoryAssoc item in GetOfferCategoryAssocListOfferId(
             offer_id
             ))  {
                 return item;
@@ -5493,24 +5493,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListByOfferId(
+        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListOfferId(
             string offer_id
         ) {
-            return CachedGetOfferCategoryAssocListByOfferId(
+            return CachedGetOfferCategoryAssocListOfferId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , offer_id
                 );
         }
         
-        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListByOfferId(
+        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListOfferId(
             bool overrideCache
             , int cacheHours
             , string offer_id
         ) {
             List<OfferCategoryAssoc> objs;
 
-            string method_name = "CachedGetOfferCategoryAssocListByOfferId";
+            string method_name = "CachedGetOfferCategoryAssocListOfferId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5526,7 +5526,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryAssocListByOfferId(
+                objs = GetOfferCategoryAssocListOfferId(
                     offer_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5534,18 +5534,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListByCategoryId(
+        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListCategoryId(
             string category_id
         )  {
-            return act.GetOfferCategoryAssocListByCategoryId(
+            return act.GetOfferCategoryAssocListCategoryId(
             category_id
             );
         }
         
-        public virtual OfferCategoryAssoc GetOfferCategoryAssocByCategoryId(
+        public virtual OfferCategoryAssoc GetOfferCategoryAssocCategoryId(
             string category_id
         )  {
-            foreach (OfferCategoryAssoc item in GetOfferCategoryAssocListByCategoryId(
+            foreach (OfferCategoryAssoc item in GetOfferCategoryAssocListCategoryId(
             category_id
             ))  {
                 return item;
@@ -5553,24 +5553,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListByCategoryId(
+        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListCategoryId(
             string category_id
         ) {
-            return CachedGetOfferCategoryAssocListByCategoryId(
+            return CachedGetOfferCategoryAssocListCategoryId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , category_id
                 );
         }
         
-        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListByCategoryId(
+        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListCategoryId(
             bool overrideCache
             , int cacheHours
             , string category_id
         ) {
             List<OfferCategoryAssoc> objs;
 
-            string method_name = "CachedGetOfferCategoryAssocListByCategoryId";
+            string method_name = "CachedGetOfferCategoryAssocListCategoryId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5586,7 +5586,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryAssocListByCategoryId(
+                objs = GetOfferCategoryAssocListCategoryId(
                     category_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5594,21 +5594,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListByOfferIdByCategoryId(
+        public virtual List<OfferCategoryAssoc> GetOfferCategoryAssocListOfferIdCategoryId(
             string offer_id
             , string category_id
         )  {
-            return act.GetOfferCategoryAssocListByOfferIdByCategoryId(
+            return act.GetOfferCategoryAssocListOfferIdCategoryId(
             offer_id
             , category_id
             );
         }
         
-        public virtual OfferCategoryAssoc GetOfferCategoryAssocByOfferIdByCategoryId(
+        public virtual OfferCategoryAssoc GetOfferCategoryAssocOfferIdCategoryId(
             string offer_id
             , string category_id
         )  {
-            foreach (OfferCategoryAssoc item in GetOfferCategoryAssocListByOfferIdByCategoryId(
+            foreach (OfferCategoryAssoc item in GetOfferCategoryAssocListOfferIdCategoryId(
             offer_id
             , category_id
             ))  {
@@ -5617,11 +5617,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListByOfferIdByCategoryId(
+        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListOfferIdCategoryId(
             string offer_id
             , string category_id
         ) {
-            return CachedGetOfferCategoryAssocListByOfferIdByCategoryId(
+            return CachedGetOfferCategoryAssocListOfferIdCategoryId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , offer_id
@@ -5629,7 +5629,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListByOfferIdByCategoryId(
+        public virtual List<OfferCategoryAssoc> CachedGetOfferCategoryAssocListOfferIdCategoryId(
             bool overrideCache
             , int cacheHours
             , string offer_id
@@ -5637,7 +5637,7 @@ namespace platform {
         ) {
             List<OfferCategoryAssoc> objs;
 
-            string method_name = "CachedGetOfferCategoryAssocListByOfferIdByCategoryId";
+            string method_name = "CachedGetOfferCategoryAssocListOfferIdCategoryId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5657,7 +5657,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferCategoryAssocListByOfferIdByCategoryId(
+                objs = GetOfferCategoryAssocListOfferIdCategoryId(
                     offer_id
                     , category_id
                 );
@@ -5672,60 +5672,60 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationByUuid(
+        public virtual int CountOfferGameLocationUuid(
             string uuid
         )  {            
-            return act.CountOfferGameLocationByUuid(
+            return act.CountOfferGameLocationUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationByGameLocationId(
+        public virtual int CountOfferGameLocationGameLocationId(
             string game_location_id
         )  {            
-            return act.CountOfferGameLocationByGameLocationId(
+            return act.CountOfferGameLocationGameLocationId(
             game_location_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationByOfferId(
+        public virtual int CountOfferGameLocationOfferId(
             string offer_id
         )  {            
-            return act.CountOfferGameLocationByOfferId(
+            return act.CountOfferGameLocationOfferId(
             offer_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationByOfferIdByGameLocationId(
+        public virtual int CountOfferGameLocationOfferIdGameLocationId(
             string offer_id
             , string game_location_id
         )  {            
-            return act.CountOfferGameLocationByOfferIdByGameLocationId(
+            return act.CountOfferGameLocationOfferIdGameLocationId(
             offer_id
             , game_location_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OfferGameLocationResult BrowseOfferGameLocationListByFilter(SearchFilter obj)  {
-            return act.BrowseOfferGameLocationListByFilter(obj);
+        public virtual OfferGameLocationResult BrowseOfferGameLocationListFilter(SearchFilter obj)  {
+            return act.BrowseOfferGameLocationListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferGameLocationByUuid(string set_type, OfferGameLocation obj)  {
-            return act.SetOfferGameLocationByUuid(set_type, obj);
+        public virtual bool SetOfferGameLocationUuid(string set_type, OfferGameLocation obj)  {
+            return act.SetOfferGameLocationUuid(set_type, obj);
         }
         
-        public virtual bool SetOfferGameLocationByUuid(SetType set_type, OfferGameLocation obj)  {
-            return act.SetOfferGameLocationByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOfferGameLocationUuid(SetType set_type, OfferGameLocation obj)  {
+            return act.SetOfferGameLocationUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOfferGameLocationByUuid(OfferGameLocation obj)  {
-            return act.SetOfferGameLocationByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOfferGameLocationUuid(OfferGameLocation obj)  {
+            return act.SetOfferGameLocationUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferGameLocationByUuid(
+        public virtual bool DelOfferGameLocationUuid(
             string uuid
         )  {            
-            return act.DelOfferGameLocationByUuid(
+            return act.DelOfferGameLocationUuid(
             uuid
             );
         }                     
@@ -5778,18 +5778,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferGameLocation> GetOfferGameLocationListByUuid(
+        public virtual List<OfferGameLocation> GetOfferGameLocationListUuid(
             string uuid
         )  {
-            return act.GetOfferGameLocationListByUuid(
+            return act.GetOfferGameLocationListUuid(
             uuid
             );
         }
         
-        public virtual OfferGameLocation GetOfferGameLocationByUuid(
+        public virtual OfferGameLocation GetOfferGameLocationUuid(
             string uuid
         )  {
-            foreach (OfferGameLocation item in GetOfferGameLocationListByUuid(
+            foreach (OfferGameLocation item in GetOfferGameLocationListUuid(
             uuid
             ))  {
                 return item;
@@ -5797,24 +5797,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListByUuid(
+        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListUuid(
             string uuid
         ) {
-            return CachedGetOfferGameLocationListByUuid(
+            return CachedGetOfferGameLocationListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListByUuid(
+        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<OfferGameLocation> objs;
 
-            string method_name = "CachedGetOfferGameLocationListByUuid";
+            string method_name = "CachedGetOfferGameLocationListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5830,7 +5830,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferGameLocationListByUuid(
+                objs = GetOfferGameLocationListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5838,18 +5838,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferGameLocation> GetOfferGameLocationListByGameLocationId(
+        public virtual List<OfferGameLocation> GetOfferGameLocationListGameLocationId(
             string game_location_id
         )  {
-            return act.GetOfferGameLocationListByGameLocationId(
+            return act.GetOfferGameLocationListGameLocationId(
             game_location_id
             );
         }
         
-        public virtual OfferGameLocation GetOfferGameLocationByGameLocationId(
+        public virtual OfferGameLocation GetOfferGameLocationGameLocationId(
             string game_location_id
         )  {
-            foreach (OfferGameLocation item in GetOfferGameLocationListByGameLocationId(
+            foreach (OfferGameLocation item in GetOfferGameLocationListGameLocationId(
             game_location_id
             ))  {
                 return item;
@@ -5857,24 +5857,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListByGameLocationId(
+        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListGameLocationId(
             string game_location_id
         ) {
-            return CachedGetOfferGameLocationListByGameLocationId(
+            return CachedGetOfferGameLocationListGameLocationId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , game_location_id
                 );
         }
         
-        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListByGameLocationId(
+        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListGameLocationId(
             bool overrideCache
             , int cacheHours
             , string game_location_id
         ) {
             List<OfferGameLocation> objs;
 
-            string method_name = "CachedGetOfferGameLocationListByGameLocationId";
+            string method_name = "CachedGetOfferGameLocationListGameLocationId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5890,7 +5890,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferGameLocationListByGameLocationId(
+                objs = GetOfferGameLocationListGameLocationId(
                     game_location_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5898,18 +5898,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferGameLocation> GetOfferGameLocationListByOfferId(
+        public virtual List<OfferGameLocation> GetOfferGameLocationListOfferId(
             string offer_id
         )  {
-            return act.GetOfferGameLocationListByOfferId(
+            return act.GetOfferGameLocationListOfferId(
             offer_id
             );
         }
         
-        public virtual OfferGameLocation GetOfferGameLocationByOfferId(
+        public virtual OfferGameLocation GetOfferGameLocationOfferId(
             string offer_id
         )  {
-            foreach (OfferGameLocation item in GetOfferGameLocationListByOfferId(
+            foreach (OfferGameLocation item in GetOfferGameLocationListOfferId(
             offer_id
             ))  {
                 return item;
@@ -5917,24 +5917,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListByOfferId(
+        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListOfferId(
             string offer_id
         ) {
-            return CachedGetOfferGameLocationListByOfferId(
+            return CachedGetOfferGameLocationListOfferId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , offer_id
                 );
         }
         
-        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListByOfferId(
+        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListOfferId(
             bool overrideCache
             , int cacheHours
             , string offer_id
         ) {
             List<OfferGameLocation> objs;
 
-            string method_name = "CachedGetOfferGameLocationListByOfferId";
+            string method_name = "CachedGetOfferGameLocationListOfferId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -5950,7 +5950,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferGameLocationListByOfferId(
+                objs = GetOfferGameLocationListOfferId(
                     offer_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5958,21 +5958,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OfferGameLocation> GetOfferGameLocationListByOfferIdByGameLocationId(
+        public virtual List<OfferGameLocation> GetOfferGameLocationListOfferIdGameLocationId(
             string offer_id
             , string game_location_id
         )  {
-            return act.GetOfferGameLocationListByOfferIdByGameLocationId(
+            return act.GetOfferGameLocationListOfferIdGameLocationId(
             offer_id
             , game_location_id
             );
         }
         
-        public virtual OfferGameLocation GetOfferGameLocationByOfferIdByGameLocationId(
+        public virtual OfferGameLocation GetOfferGameLocationOfferIdGameLocationId(
             string offer_id
             , string game_location_id
         )  {
-            foreach (OfferGameLocation item in GetOfferGameLocationListByOfferIdByGameLocationId(
+            foreach (OfferGameLocation item in GetOfferGameLocationListOfferIdGameLocationId(
             offer_id
             , game_location_id
             ))  {
@@ -5981,11 +5981,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListByOfferIdByGameLocationId(
+        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListOfferIdGameLocationId(
             string offer_id
             , string game_location_id
         ) {
-            return CachedGetOfferGameLocationListByOfferIdByGameLocationId(
+            return CachedGetOfferGameLocationListOfferIdGameLocationId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , offer_id
@@ -5993,7 +5993,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListByOfferIdByGameLocationId(
+        public virtual List<OfferGameLocation> CachedGetOfferGameLocationListOfferIdGameLocationId(
             bool overrideCache
             , int cacheHours
             , string offer_id
@@ -6001,7 +6001,7 @@ namespace platform {
         ) {
             List<OfferGameLocation> objs;
 
-            string method_name = "CachedGetOfferGameLocationListByOfferIdByGameLocationId";
+            string method_name = "CachedGetOfferGameLocationListOfferIdGameLocationId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6021,7 +6021,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOfferGameLocationListByOfferIdByGameLocationId(
+                objs = GetOfferGameLocationListOfferIdGameLocationId(
                     offer_id
                     , game_location_id
                 );
@@ -6036,66 +6036,66 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoByUuid(
+        public virtual int CountEventInfoUuid(
             string uuid
         )  {            
-            return act.CountEventInfoByUuid(
+            return act.CountEventInfoUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoByCode(
+        public virtual int CountEventInfoCode(
             string code
         )  {            
-            return act.CountEventInfoByCode(
+            return act.CountEventInfoCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoByName(
+        public virtual int CountEventInfoName(
             string name
         )  {            
-            return act.CountEventInfoByName(
+            return act.CountEventInfoName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoByOrgId(
+        public virtual int CountEventInfoOrgId(
             string org_id
         )  {            
-            return act.CountEventInfoByOrgId(
+            return act.CountEventInfoOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual EventInfoResult BrowseEventInfoListByFilter(SearchFilter obj)  {
-            return act.BrowseEventInfoListByFilter(obj);
+        public virtual EventInfoResult BrowseEventInfoListFilter(SearchFilter obj)  {
+            return act.BrowseEventInfoListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventInfoByUuid(string set_type, EventInfo obj)  {
-            return act.SetEventInfoByUuid(set_type, obj);
+        public virtual bool SetEventInfoUuid(string set_type, EventInfo obj)  {
+            return act.SetEventInfoUuid(set_type, obj);
         }
         
-        public virtual bool SetEventInfoByUuid(SetType set_type, EventInfo obj)  {
-            return act.SetEventInfoByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetEventInfoUuid(SetType set_type, EventInfo obj)  {
+            return act.SetEventInfoUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetEventInfoByUuid(EventInfo obj)  {
-            return act.SetEventInfoByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetEventInfoUuid(EventInfo obj)  {
+            return act.SetEventInfoUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventInfoByUuid(
+        public virtual bool DelEventInfoUuid(
             string uuid
         )  {            
-            return act.DelEventInfoByUuid(
+            return act.DelEventInfoUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventInfoByOrgId(
+        public virtual bool DelEventInfoOrgId(
             string org_id
         )  {            
-            return act.DelEventInfoByOrgId(
+            return act.DelEventInfoOrgId(
             org_id
             );
         }                     
@@ -6148,18 +6148,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventInfo> GetEventInfoListByUuid(
+        public virtual List<EventInfo> GetEventInfoListUuid(
             string uuid
         )  {
-            return act.GetEventInfoListByUuid(
+            return act.GetEventInfoListUuid(
             uuid
             );
         }
         
-        public virtual EventInfo GetEventInfoByUuid(
+        public virtual EventInfo GetEventInfoUuid(
             string uuid
         )  {
-            foreach (EventInfo item in GetEventInfoListByUuid(
+            foreach (EventInfo item in GetEventInfoListUuid(
             uuid
             ))  {
                 return item;
@@ -6167,24 +6167,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventInfo> CachedGetEventInfoListByUuid(
+        public virtual List<EventInfo> CachedGetEventInfoListUuid(
             string uuid
         ) {
-            return CachedGetEventInfoListByUuid(
+            return CachedGetEventInfoListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<EventInfo> CachedGetEventInfoListByUuid(
+        public virtual List<EventInfo> CachedGetEventInfoListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<EventInfo> objs;
 
-            string method_name = "CachedGetEventInfoListByUuid";
+            string method_name = "CachedGetEventInfoListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6200,7 +6200,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventInfoListByUuid(
+                objs = GetEventInfoListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6208,18 +6208,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventInfo> GetEventInfoListByCode(
+        public virtual List<EventInfo> GetEventInfoListCode(
             string code
         )  {
-            return act.GetEventInfoListByCode(
+            return act.GetEventInfoListCode(
             code
             );
         }
         
-        public virtual EventInfo GetEventInfoByCode(
+        public virtual EventInfo GetEventInfoCode(
             string code
         )  {
-            foreach (EventInfo item in GetEventInfoListByCode(
+            foreach (EventInfo item in GetEventInfoListCode(
             code
             ))  {
                 return item;
@@ -6227,24 +6227,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventInfo> CachedGetEventInfoListByCode(
+        public virtual List<EventInfo> CachedGetEventInfoListCode(
             string code
         ) {
-            return CachedGetEventInfoListByCode(
+            return CachedGetEventInfoListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<EventInfo> CachedGetEventInfoListByCode(
+        public virtual List<EventInfo> CachedGetEventInfoListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<EventInfo> objs;
 
-            string method_name = "CachedGetEventInfoListByCode";
+            string method_name = "CachedGetEventInfoListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6260,7 +6260,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventInfoListByCode(
+                objs = GetEventInfoListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6268,18 +6268,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventInfo> GetEventInfoListByName(
+        public virtual List<EventInfo> GetEventInfoListName(
             string name
         )  {
-            return act.GetEventInfoListByName(
+            return act.GetEventInfoListName(
             name
             );
         }
         
-        public virtual EventInfo GetEventInfoByName(
+        public virtual EventInfo GetEventInfoName(
             string name
         )  {
-            foreach (EventInfo item in GetEventInfoListByName(
+            foreach (EventInfo item in GetEventInfoListName(
             name
             ))  {
                 return item;
@@ -6287,24 +6287,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventInfo> CachedGetEventInfoListByName(
+        public virtual List<EventInfo> CachedGetEventInfoListName(
             string name
         ) {
-            return CachedGetEventInfoListByName(
+            return CachedGetEventInfoListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<EventInfo> CachedGetEventInfoListByName(
+        public virtual List<EventInfo> CachedGetEventInfoListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<EventInfo> objs;
 
-            string method_name = "CachedGetEventInfoListByName";
+            string method_name = "CachedGetEventInfoListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6320,7 +6320,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventInfoListByName(
+                objs = GetEventInfoListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6328,18 +6328,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventInfo> GetEventInfoListByOrgId(
+        public virtual List<EventInfo> GetEventInfoListOrgId(
             string org_id
         )  {
-            return act.GetEventInfoListByOrgId(
+            return act.GetEventInfoListOrgId(
             org_id
             );
         }
         
-        public virtual EventInfo GetEventInfoByOrgId(
+        public virtual EventInfo GetEventInfoOrgId(
             string org_id
         )  {
-            foreach (EventInfo item in GetEventInfoListByOrgId(
+            foreach (EventInfo item in GetEventInfoListOrgId(
             org_id
             ))  {
                 return item;
@@ -6347,24 +6347,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventInfo> CachedGetEventInfoListByOrgId(
+        public virtual List<EventInfo> CachedGetEventInfoListOrgId(
             string org_id
         ) {
-            return CachedGetEventInfoListByOrgId(
+            return CachedGetEventInfoListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<EventInfo> CachedGetEventInfoListByOrgId(
+        public virtual List<EventInfo> CachedGetEventInfoListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<EventInfo> objs;
 
-            string method_name = "CachedGetEventInfoListByOrgId";
+            string method_name = "CachedGetEventInfoListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6380,7 +6380,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventInfoListByOrgId(
+                objs = GetEventInfoListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6394,66 +6394,66 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationByUuid(
+        public virtual int CountEventLocationUuid(
             string uuid
         )  {            
-            return act.CountEventLocationByUuid(
+            return act.CountEventLocationUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationByEventId(
+        public virtual int CountEventLocationEventId(
             string event_id
         )  {            
-            return act.CountEventLocationByEventId(
+            return act.CountEventLocationEventId(
             event_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationByCity(
+        public virtual int CountEventLocationCity(
             string city
         )  {            
-            return act.CountEventLocationByCity(
+            return act.CountEventLocationCity(
             city
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationByCountryCode(
+        public virtual int CountEventLocationCountryCode(
             string country_code
         )  {            
-            return act.CountEventLocationByCountryCode(
+            return act.CountEventLocationCountryCode(
             country_code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationByPostalCode(
+        public virtual int CountEventLocationPostalCode(
             string postal_code
         )  {            
-            return act.CountEventLocationByPostalCode(
+            return act.CountEventLocationPostalCode(
             postal_code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual EventLocationResult BrowseEventLocationListByFilter(SearchFilter obj)  {
-            return act.BrowseEventLocationListByFilter(obj);
+        public virtual EventLocationResult BrowseEventLocationListFilter(SearchFilter obj)  {
+            return act.BrowseEventLocationListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventLocationByUuid(string set_type, EventLocation obj)  {
-            return act.SetEventLocationByUuid(set_type, obj);
+        public virtual bool SetEventLocationUuid(string set_type, EventLocation obj)  {
+            return act.SetEventLocationUuid(set_type, obj);
         }
         
-        public virtual bool SetEventLocationByUuid(SetType set_type, EventLocation obj)  {
-            return act.SetEventLocationByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetEventLocationUuid(SetType set_type, EventLocation obj)  {
+            return act.SetEventLocationUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetEventLocationByUuid(EventLocation obj)  {
-            return act.SetEventLocationByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetEventLocationUuid(EventLocation obj)  {
+            return act.SetEventLocationUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventLocationByUuid(
+        public virtual bool DelEventLocationUuid(
             string uuid
         )  {            
-            return act.DelEventLocationByUuid(
+            return act.DelEventLocationUuid(
             uuid
             );
         }                     
@@ -6506,18 +6506,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventLocation> GetEventLocationListByUuid(
+        public virtual List<EventLocation> GetEventLocationListUuid(
             string uuid
         )  {
-            return act.GetEventLocationListByUuid(
+            return act.GetEventLocationListUuid(
             uuid
             );
         }
         
-        public virtual EventLocation GetEventLocationByUuid(
+        public virtual EventLocation GetEventLocationUuid(
             string uuid
         )  {
-            foreach (EventLocation item in GetEventLocationListByUuid(
+            foreach (EventLocation item in GetEventLocationListUuid(
             uuid
             ))  {
                 return item;
@@ -6525,24 +6525,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByUuid(
+        public virtual List<EventLocation> CachedGetEventLocationListUuid(
             string uuid
         ) {
-            return CachedGetEventLocationListByUuid(
+            return CachedGetEventLocationListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByUuid(
+        public virtual List<EventLocation> CachedGetEventLocationListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<EventLocation> objs;
 
-            string method_name = "CachedGetEventLocationListByUuid";
+            string method_name = "CachedGetEventLocationListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6558,7 +6558,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventLocationListByUuid(
+                objs = GetEventLocationListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6566,18 +6566,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventLocation> GetEventLocationListByEventId(
+        public virtual List<EventLocation> GetEventLocationListEventId(
             string event_id
         )  {
-            return act.GetEventLocationListByEventId(
+            return act.GetEventLocationListEventId(
             event_id
             );
         }
         
-        public virtual EventLocation GetEventLocationByEventId(
+        public virtual EventLocation GetEventLocationEventId(
             string event_id
         )  {
-            foreach (EventLocation item in GetEventLocationListByEventId(
+            foreach (EventLocation item in GetEventLocationListEventId(
             event_id
             ))  {
                 return item;
@@ -6585,24 +6585,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByEventId(
+        public virtual List<EventLocation> CachedGetEventLocationListEventId(
             string event_id
         ) {
-            return CachedGetEventLocationListByEventId(
+            return CachedGetEventLocationListEventId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , event_id
                 );
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByEventId(
+        public virtual List<EventLocation> CachedGetEventLocationListEventId(
             bool overrideCache
             , int cacheHours
             , string event_id
         ) {
             List<EventLocation> objs;
 
-            string method_name = "CachedGetEventLocationListByEventId";
+            string method_name = "CachedGetEventLocationListEventId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6618,7 +6618,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventLocationListByEventId(
+                objs = GetEventLocationListEventId(
                     event_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6626,18 +6626,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventLocation> GetEventLocationListByCity(
+        public virtual List<EventLocation> GetEventLocationListCity(
             string city
         )  {
-            return act.GetEventLocationListByCity(
+            return act.GetEventLocationListCity(
             city
             );
         }
         
-        public virtual EventLocation GetEventLocationByCity(
+        public virtual EventLocation GetEventLocationCity(
             string city
         )  {
-            foreach (EventLocation item in GetEventLocationListByCity(
+            foreach (EventLocation item in GetEventLocationListCity(
             city
             ))  {
                 return item;
@@ -6645,24 +6645,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByCity(
+        public virtual List<EventLocation> CachedGetEventLocationListCity(
             string city
         ) {
-            return CachedGetEventLocationListByCity(
+            return CachedGetEventLocationListCity(
                     false
                     , CACHE_DEFAULT_HOURS
                     , city
                 );
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByCity(
+        public virtual List<EventLocation> CachedGetEventLocationListCity(
             bool overrideCache
             , int cacheHours
             , string city
         ) {
             List<EventLocation> objs;
 
-            string method_name = "CachedGetEventLocationListByCity";
+            string method_name = "CachedGetEventLocationListCity";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6678,7 +6678,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventLocationListByCity(
+                objs = GetEventLocationListCity(
                     city
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6686,18 +6686,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventLocation> GetEventLocationListByCountryCode(
+        public virtual List<EventLocation> GetEventLocationListCountryCode(
             string country_code
         )  {
-            return act.GetEventLocationListByCountryCode(
+            return act.GetEventLocationListCountryCode(
             country_code
             );
         }
         
-        public virtual EventLocation GetEventLocationByCountryCode(
+        public virtual EventLocation GetEventLocationCountryCode(
             string country_code
         )  {
-            foreach (EventLocation item in GetEventLocationListByCountryCode(
+            foreach (EventLocation item in GetEventLocationListCountryCode(
             country_code
             ))  {
                 return item;
@@ -6705,24 +6705,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByCountryCode(
+        public virtual List<EventLocation> CachedGetEventLocationListCountryCode(
             string country_code
         ) {
-            return CachedGetEventLocationListByCountryCode(
+            return CachedGetEventLocationListCountryCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , country_code
                 );
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByCountryCode(
+        public virtual List<EventLocation> CachedGetEventLocationListCountryCode(
             bool overrideCache
             , int cacheHours
             , string country_code
         ) {
             List<EventLocation> objs;
 
-            string method_name = "CachedGetEventLocationListByCountryCode";
+            string method_name = "CachedGetEventLocationListCountryCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6738,7 +6738,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventLocationListByCountryCode(
+                objs = GetEventLocationListCountryCode(
                     country_code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6746,18 +6746,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventLocation> GetEventLocationListByPostalCode(
+        public virtual List<EventLocation> GetEventLocationListPostalCode(
             string postal_code
         )  {
-            return act.GetEventLocationListByPostalCode(
+            return act.GetEventLocationListPostalCode(
             postal_code
             );
         }
         
-        public virtual EventLocation GetEventLocationByPostalCode(
+        public virtual EventLocation GetEventLocationPostalCode(
             string postal_code
         )  {
-            foreach (EventLocation item in GetEventLocationListByPostalCode(
+            foreach (EventLocation item in GetEventLocationListPostalCode(
             postal_code
             ))  {
                 return item;
@@ -6765,24 +6765,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByPostalCode(
+        public virtual List<EventLocation> CachedGetEventLocationListPostalCode(
             string postal_code
         ) {
-            return CachedGetEventLocationListByPostalCode(
+            return CachedGetEventLocationListPostalCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , postal_code
                 );
         }
         
-        public virtual List<EventLocation> CachedGetEventLocationListByPostalCode(
+        public virtual List<EventLocation> CachedGetEventLocationListPostalCode(
             bool overrideCache
             , int cacheHours
             , string postal_code
         ) {
             List<EventLocation> objs;
 
-            string method_name = "CachedGetEventLocationListByPostalCode";
+            string method_name = "CachedGetEventLocationListPostalCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -6798,7 +6798,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventLocationListByPostalCode(
+                objs = GetEventLocationListPostalCode(
                     postal_code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6812,96 +6812,96 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryByUuid(
+        public virtual int CountEventCategoryUuid(
             string uuid
         )  {            
-            return act.CountEventCategoryByUuid(
+            return act.CountEventCategoryUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryByCode(
+        public virtual int CountEventCategoryCode(
             string code
         )  {            
-            return act.CountEventCategoryByCode(
+            return act.CountEventCategoryCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryByName(
+        public virtual int CountEventCategoryName(
             string name
         )  {            
-            return act.CountEventCategoryByName(
+            return act.CountEventCategoryName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryByOrgId(
+        public virtual int CountEventCategoryOrgId(
             string org_id
         )  {            
-            return act.CountEventCategoryByOrgId(
+            return act.CountEventCategoryOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryByTypeId(
+        public virtual int CountEventCategoryTypeId(
             string type_id
         )  {            
-            return act.CountEventCategoryByTypeId(
+            return act.CountEventCategoryTypeId(
             type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryByOrgIdByTypeId(
+        public virtual int CountEventCategoryOrgIdTypeId(
             string org_id
             , string type_id
         )  {            
-            return act.CountEventCategoryByOrgIdByTypeId(
+            return act.CountEventCategoryOrgIdTypeId(
             org_id
             , type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual EventCategoryResult BrowseEventCategoryListByFilter(SearchFilter obj)  {
-            return act.BrowseEventCategoryListByFilter(obj);
+        public virtual EventCategoryResult BrowseEventCategoryListFilter(SearchFilter obj)  {
+            return act.BrowseEventCategoryListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryByUuid(string set_type, EventCategory obj)  {
-            return act.SetEventCategoryByUuid(set_type, obj);
+        public virtual bool SetEventCategoryUuid(string set_type, EventCategory obj)  {
+            return act.SetEventCategoryUuid(set_type, obj);
         }
         
-        public virtual bool SetEventCategoryByUuid(SetType set_type, EventCategory obj)  {
-            return act.SetEventCategoryByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetEventCategoryUuid(SetType set_type, EventCategory obj)  {
+            return act.SetEventCategoryUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetEventCategoryByUuid(EventCategory obj)  {
-            return act.SetEventCategoryByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetEventCategoryUuid(EventCategory obj)  {
+            return act.SetEventCategoryUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryByUuid(
+        public virtual bool DelEventCategoryUuid(
             string uuid
         )  {            
-            return act.DelEventCategoryByUuid(
+            return act.DelEventCategoryUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryByCodeByOrgId(
+        public virtual bool DelEventCategoryCodeOrgId(
             string code
             , string org_id
         )  {            
-            return act.DelEventCategoryByCodeByOrgId(
+            return act.DelEventCategoryCodeOrgId(
             code
             , org_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryByCodeByOrgIdByTypeId(
+        public virtual bool DelEventCategoryCodeOrgIdTypeId(
             string code
             , string org_id
             , string type_id
         )  {            
-            return act.DelEventCategoryByCodeByOrgIdByTypeId(
+            return act.DelEventCategoryCodeOrgIdTypeId(
             code
             , org_id
             , type_id
@@ -6956,18 +6956,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategory> GetEventCategoryListByUuid(
+        public virtual List<EventCategory> GetEventCategoryListUuid(
             string uuid
         )  {
-            return act.GetEventCategoryListByUuid(
+            return act.GetEventCategoryListUuid(
             uuid
             );
         }
         
-        public virtual EventCategory GetEventCategoryByUuid(
+        public virtual EventCategory GetEventCategoryUuid(
             string uuid
         )  {
-            foreach (EventCategory item in GetEventCategoryListByUuid(
+            foreach (EventCategory item in GetEventCategoryListUuid(
             uuid
             ))  {
                 return item;
@@ -6975,24 +6975,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByUuid(
+        public virtual List<EventCategory> CachedGetEventCategoryListUuid(
             string uuid
         ) {
-            return CachedGetEventCategoryListByUuid(
+            return CachedGetEventCategoryListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByUuid(
+        public virtual List<EventCategory> CachedGetEventCategoryListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<EventCategory> objs;
 
-            string method_name = "CachedGetEventCategoryListByUuid";
+            string method_name = "CachedGetEventCategoryListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7008,7 +7008,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryListByUuid(
+                objs = GetEventCategoryListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7016,18 +7016,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategory> GetEventCategoryListByCode(
+        public virtual List<EventCategory> GetEventCategoryListCode(
             string code
         )  {
-            return act.GetEventCategoryListByCode(
+            return act.GetEventCategoryListCode(
             code
             );
         }
         
-        public virtual EventCategory GetEventCategoryByCode(
+        public virtual EventCategory GetEventCategoryCode(
             string code
         )  {
-            foreach (EventCategory item in GetEventCategoryListByCode(
+            foreach (EventCategory item in GetEventCategoryListCode(
             code
             ))  {
                 return item;
@@ -7035,24 +7035,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByCode(
+        public virtual List<EventCategory> CachedGetEventCategoryListCode(
             string code
         ) {
-            return CachedGetEventCategoryListByCode(
+            return CachedGetEventCategoryListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByCode(
+        public virtual List<EventCategory> CachedGetEventCategoryListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<EventCategory> objs;
 
-            string method_name = "CachedGetEventCategoryListByCode";
+            string method_name = "CachedGetEventCategoryListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7068,7 +7068,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryListByCode(
+                objs = GetEventCategoryListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7076,18 +7076,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategory> GetEventCategoryListByName(
+        public virtual List<EventCategory> GetEventCategoryListName(
             string name
         )  {
-            return act.GetEventCategoryListByName(
+            return act.GetEventCategoryListName(
             name
             );
         }
         
-        public virtual EventCategory GetEventCategoryByName(
+        public virtual EventCategory GetEventCategoryName(
             string name
         )  {
-            foreach (EventCategory item in GetEventCategoryListByName(
+            foreach (EventCategory item in GetEventCategoryListName(
             name
             ))  {
                 return item;
@@ -7095,24 +7095,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByName(
+        public virtual List<EventCategory> CachedGetEventCategoryListName(
             string name
         ) {
-            return CachedGetEventCategoryListByName(
+            return CachedGetEventCategoryListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByName(
+        public virtual List<EventCategory> CachedGetEventCategoryListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<EventCategory> objs;
 
-            string method_name = "CachedGetEventCategoryListByName";
+            string method_name = "CachedGetEventCategoryListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7128,7 +7128,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryListByName(
+                objs = GetEventCategoryListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7136,18 +7136,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategory> GetEventCategoryListByOrgId(
+        public virtual List<EventCategory> GetEventCategoryListOrgId(
             string org_id
         )  {
-            return act.GetEventCategoryListByOrgId(
+            return act.GetEventCategoryListOrgId(
             org_id
             );
         }
         
-        public virtual EventCategory GetEventCategoryByOrgId(
+        public virtual EventCategory GetEventCategoryOrgId(
             string org_id
         )  {
-            foreach (EventCategory item in GetEventCategoryListByOrgId(
+            foreach (EventCategory item in GetEventCategoryListOrgId(
             org_id
             ))  {
                 return item;
@@ -7155,24 +7155,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByOrgId(
+        public virtual List<EventCategory> CachedGetEventCategoryListOrgId(
             string org_id
         ) {
-            return CachedGetEventCategoryListByOrgId(
+            return CachedGetEventCategoryListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByOrgId(
+        public virtual List<EventCategory> CachedGetEventCategoryListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<EventCategory> objs;
 
-            string method_name = "CachedGetEventCategoryListByOrgId";
+            string method_name = "CachedGetEventCategoryListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7188,7 +7188,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryListByOrgId(
+                objs = GetEventCategoryListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7196,18 +7196,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategory> GetEventCategoryListByTypeId(
+        public virtual List<EventCategory> GetEventCategoryListTypeId(
             string type_id
         )  {
-            return act.GetEventCategoryListByTypeId(
+            return act.GetEventCategoryListTypeId(
             type_id
             );
         }
         
-        public virtual EventCategory GetEventCategoryByTypeId(
+        public virtual EventCategory GetEventCategoryTypeId(
             string type_id
         )  {
-            foreach (EventCategory item in GetEventCategoryListByTypeId(
+            foreach (EventCategory item in GetEventCategoryListTypeId(
             type_id
             ))  {
                 return item;
@@ -7215,24 +7215,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByTypeId(
+        public virtual List<EventCategory> CachedGetEventCategoryListTypeId(
             string type_id
         ) {
-            return CachedGetEventCategoryListByTypeId(
+            return CachedGetEventCategoryListTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , type_id
                 );
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByTypeId(
+        public virtual List<EventCategory> CachedGetEventCategoryListTypeId(
             bool overrideCache
             , int cacheHours
             , string type_id
         ) {
             List<EventCategory> objs;
 
-            string method_name = "CachedGetEventCategoryListByTypeId";
+            string method_name = "CachedGetEventCategoryListTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7248,7 +7248,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryListByTypeId(
+                objs = GetEventCategoryListTypeId(
                     type_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7256,21 +7256,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategory> GetEventCategoryListByOrgIdByTypeId(
+        public virtual List<EventCategory> GetEventCategoryListOrgIdTypeId(
             string org_id
             , string type_id
         )  {
-            return act.GetEventCategoryListByOrgIdByTypeId(
+            return act.GetEventCategoryListOrgIdTypeId(
             org_id
             , type_id
             );
         }
         
-        public virtual EventCategory GetEventCategoryByOrgIdByTypeId(
+        public virtual EventCategory GetEventCategoryOrgIdTypeId(
             string org_id
             , string type_id
         )  {
-            foreach (EventCategory item in GetEventCategoryListByOrgIdByTypeId(
+            foreach (EventCategory item in GetEventCategoryListOrgIdTypeId(
             org_id
             , type_id
             ))  {
@@ -7279,11 +7279,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByOrgIdByTypeId(
+        public virtual List<EventCategory> CachedGetEventCategoryListOrgIdTypeId(
             string org_id
             , string type_id
         ) {
-            return CachedGetEventCategoryListByOrgIdByTypeId(
+            return CachedGetEventCategoryListOrgIdTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
@@ -7291,7 +7291,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<EventCategory> CachedGetEventCategoryListByOrgIdByTypeId(
+        public virtual List<EventCategory> CachedGetEventCategoryListOrgIdTypeId(
             bool overrideCache
             , int cacheHours
             , string org_id
@@ -7299,7 +7299,7 @@ namespace platform {
         ) {
             List<EventCategory> objs;
 
-            string method_name = "CachedGetEventCategoryListByOrgIdByTypeId";
+            string method_name = "CachedGetEventCategoryListOrgIdTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7319,7 +7319,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryListByOrgIdByTypeId(
+                objs = GetEventCategoryListOrgIdTypeId(
                     org_id
                     , type_id
                 );
@@ -7334,85 +7334,85 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeByUuid(
+        public virtual int CountEventCategoryTreeUuid(
             string uuid
         )  {            
-            return act.CountEventCategoryTreeByUuid(
+            return act.CountEventCategoryTreeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeByParentId(
+        public virtual int CountEventCategoryTreeParentId(
             string parent_id
         )  {            
-            return act.CountEventCategoryTreeByParentId(
+            return act.CountEventCategoryTreeParentId(
             parent_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeByCategoryId(
+        public virtual int CountEventCategoryTreeCategoryId(
             string category_id
         )  {            
-            return act.CountEventCategoryTreeByCategoryId(
+            return act.CountEventCategoryTreeCategoryId(
             category_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeByParentIdByCategoryId(
+        public virtual int CountEventCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {            
-            return act.CountEventCategoryTreeByParentIdByCategoryId(
+            return act.CountEventCategoryTreeParentIdCategoryId(
             parent_id
             , category_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual EventCategoryTreeResult BrowseEventCategoryTreeListByFilter(SearchFilter obj)  {
-            return act.BrowseEventCategoryTreeListByFilter(obj);
+        public virtual EventCategoryTreeResult BrowseEventCategoryTreeListFilter(SearchFilter obj)  {
+            return act.BrowseEventCategoryTreeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryTreeByUuid(string set_type, EventCategoryTree obj)  {
-            return act.SetEventCategoryTreeByUuid(set_type, obj);
+        public virtual bool SetEventCategoryTreeUuid(string set_type, EventCategoryTree obj)  {
+            return act.SetEventCategoryTreeUuid(set_type, obj);
         }
         
-        public virtual bool SetEventCategoryTreeByUuid(SetType set_type, EventCategoryTree obj)  {
-            return act.SetEventCategoryTreeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetEventCategoryTreeUuid(SetType set_type, EventCategoryTree obj)  {
+            return act.SetEventCategoryTreeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetEventCategoryTreeByUuid(EventCategoryTree obj)  {
-            return act.SetEventCategoryTreeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetEventCategoryTreeUuid(EventCategoryTree obj)  {
+            return act.SetEventCategoryTreeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeByUuid(
+        public virtual bool DelEventCategoryTreeUuid(
             string uuid
         )  {            
-            return act.DelEventCategoryTreeByUuid(
+            return act.DelEventCategoryTreeUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeByParentId(
+        public virtual bool DelEventCategoryTreeParentId(
             string parent_id
         )  {            
-            return act.DelEventCategoryTreeByParentId(
+            return act.DelEventCategoryTreeParentId(
             parent_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeByCategoryId(
+        public virtual bool DelEventCategoryTreeCategoryId(
             string category_id
         )  {            
-            return act.DelEventCategoryTreeByCategoryId(
+            return act.DelEventCategoryTreeCategoryId(
             category_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeByParentIdByCategoryId(
+        public virtual bool DelEventCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {            
-            return act.DelEventCategoryTreeByParentIdByCategoryId(
+            return act.DelEventCategoryTreeParentIdCategoryId(
             parent_id
             , category_id
             );
@@ -7466,18 +7466,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategoryTree> GetEventCategoryTreeListByUuid(
+        public virtual List<EventCategoryTree> GetEventCategoryTreeListUuid(
             string uuid
         )  {
-            return act.GetEventCategoryTreeListByUuid(
+            return act.GetEventCategoryTreeListUuid(
             uuid
             );
         }
         
-        public virtual EventCategoryTree GetEventCategoryTreeByUuid(
+        public virtual EventCategoryTree GetEventCategoryTreeUuid(
             string uuid
         )  {
-            foreach (EventCategoryTree item in GetEventCategoryTreeListByUuid(
+            foreach (EventCategoryTree item in GetEventCategoryTreeListUuid(
             uuid
             ))  {
                 return item;
@@ -7485,24 +7485,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListByUuid(
+        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListUuid(
             string uuid
         ) {
-            return CachedGetEventCategoryTreeListByUuid(
+            return CachedGetEventCategoryTreeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListByUuid(
+        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<EventCategoryTree> objs;
 
-            string method_name = "CachedGetEventCategoryTreeListByUuid";
+            string method_name = "CachedGetEventCategoryTreeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7518,7 +7518,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryTreeListByUuid(
+                objs = GetEventCategoryTreeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7526,18 +7526,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategoryTree> GetEventCategoryTreeListByParentId(
+        public virtual List<EventCategoryTree> GetEventCategoryTreeListParentId(
             string parent_id
         )  {
-            return act.GetEventCategoryTreeListByParentId(
+            return act.GetEventCategoryTreeListParentId(
             parent_id
             );
         }
         
-        public virtual EventCategoryTree GetEventCategoryTreeByParentId(
+        public virtual EventCategoryTree GetEventCategoryTreeParentId(
             string parent_id
         )  {
-            foreach (EventCategoryTree item in GetEventCategoryTreeListByParentId(
+            foreach (EventCategoryTree item in GetEventCategoryTreeListParentId(
             parent_id
             ))  {
                 return item;
@@ -7545,24 +7545,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListByParentId(
+        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListParentId(
             string parent_id
         ) {
-            return CachedGetEventCategoryTreeListByParentId(
+            return CachedGetEventCategoryTreeListParentId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , parent_id
                 );
         }
         
-        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListByParentId(
+        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListParentId(
             bool overrideCache
             , int cacheHours
             , string parent_id
         ) {
             List<EventCategoryTree> objs;
 
-            string method_name = "CachedGetEventCategoryTreeListByParentId";
+            string method_name = "CachedGetEventCategoryTreeListParentId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7578,7 +7578,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryTreeListByParentId(
+                objs = GetEventCategoryTreeListParentId(
                     parent_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7586,18 +7586,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategoryTree> GetEventCategoryTreeListByCategoryId(
+        public virtual List<EventCategoryTree> GetEventCategoryTreeListCategoryId(
             string category_id
         )  {
-            return act.GetEventCategoryTreeListByCategoryId(
+            return act.GetEventCategoryTreeListCategoryId(
             category_id
             );
         }
         
-        public virtual EventCategoryTree GetEventCategoryTreeByCategoryId(
+        public virtual EventCategoryTree GetEventCategoryTreeCategoryId(
             string category_id
         )  {
-            foreach (EventCategoryTree item in GetEventCategoryTreeListByCategoryId(
+            foreach (EventCategoryTree item in GetEventCategoryTreeListCategoryId(
             category_id
             ))  {
                 return item;
@@ -7605,24 +7605,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListByCategoryId(
+        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListCategoryId(
             string category_id
         ) {
-            return CachedGetEventCategoryTreeListByCategoryId(
+            return CachedGetEventCategoryTreeListCategoryId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , category_id
                 );
         }
         
-        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListByCategoryId(
+        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListCategoryId(
             bool overrideCache
             , int cacheHours
             , string category_id
         ) {
             List<EventCategoryTree> objs;
 
-            string method_name = "CachedGetEventCategoryTreeListByCategoryId";
+            string method_name = "CachedGetEventCategoryTreeListCategoryId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7638,7 +7638,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryTreeListByCategoryId(
+                objs = GetEventCategoryTreeListCategoryId(
                     category_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7646,21 +7646,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategoryTree> GetEventCategoryTreeListByParentIdByCategoryId(
+        public virtual List<EventCategoryTree> GetEventCategoryTreeListParentIdCategoryId(
             string parent_id
             , string category_id
         )  {
-            return act.GetEventCategoryTreeListByParentIdByCategoryId(
+            return act.GetEventCategoryTreeListParentIdCategoryId(
             parent_id
             , category_id
             );
         }
         
-        public virtual EventCategoryTree GetEventCategoryTreeByParentIdByCategoryId(
+        public virtual EventCategoryTree GetEventCategoryTreeParentIdCategoryId(
             string parent_id
             , string category_id
         )  {
-            foreach (EventCategoryTree item in GetEventCategoryTreeListByParentIdByCategoryId(
+            foreach (EventCategoryTree item in GetEventCategoryTreeListParentIdCategoryId(
             parent_id
             , category_id
             ))  {
@@ -7669,11 +7669,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListByParentIdByCategoryId(
+        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListParentIdCategoryId(
             string parent_id
             , string category_id
         ) {
-            return CachedGetEventCategoryTreeListByParentIdByCategoryId(
+            return CachedGetEventCategoryTreeListParentIdCategoryId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , parent_id
@@ -7681,7 +7681,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListByParentIdByCategoryId(
+        public virtual List<EventCategoryTree> CachedGetEventCategoryTreeListParentIdCategoryId(
             bool overrideCache
             , int cacheHours
             , string parent_id
@@ -7689,7 +7689,7 @@ namespace platform {
         ) {
             List<EventCategoryTree> objs;
 
-            string method_name = "CachedGetEventCategoryTreeListByParentIdByCategoryId";
+            string method_name = "CachedGetEventCategoryTreeListParentIdCategoryId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7709,7 +7709,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryTreeListByParentIdByCategoryId(
+                objs = GetEventCategoryTreeListParentIdCategoryId(
                     parent_id
                     , category_id
                 );
@@ -7724,60 +7724,60 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocByUuid(
+        public virtual int CountEventCategoryAssocUuid(
             string uuid
         )  {            
-            return act.CountEventCategoryAssocByUuid(
+            return act.CountEventCategoryAssocUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocByEventId(
+        public virtual int CountEventCategoryAssocEventId(
             string event_id
         )  {            
-            return act.CountEventCategoryAssocByEventId(
+            return act.CountEventCategoryAssocEventId(
             event_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocByCategoryId(
+        public virtual int CountEventCategoryAssocCategoryId(
             string category_id
         )  {            
-            return act.CountEventCategoryAssocByCategoryId(
+            return act.CountEventCategoryAssocCategoryId(
             category_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocByEventIdByCategoryId(
+        public virtual int CountEventCategoryAssocEventIdCategoryId(
             string event_id
             , string category_id
         )  {            
-            return act.CountEventCategoryAssocByEventIdByCategoryId(
+            return act.CountEventCategoryAssocEventIdCategoryId(
             event_id
             , category_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual EventCategoryAssocResult BrowseEventCategoryAssocListByFilter(SearchFilter obj)  {
-            return act.BrowseEventCategoryAssocListByFilter(obj);
+        public virtual EventCategoryAssocResult BrowseEventCategoryAssocListFilter(SearchFilter obj)  {
+            return act.BrowseEventCategoryAssocListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryAssocByUuid(string set_type, EventCategoryAssoc obj)  {
-            return act.SetEventCategoryAssocByUuid(set_type, obj);
+        public virtual bool SetEventCategoryAssocUuid(string set_type, EventCategoryAssoc obj)  {
+            return act.SetEventCategoryAssocUuid(set_type, obj);
         }
         
-        public virtual bool SetEventCategoryAssocByUuid(SetType set_type, EventCategoryAssoc obj)  {
-            return act.SetEventCategoryAssocByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetEventCategoryAssocUuid(SetType set_type, EventCategoryAssoc obj)  {
+            return act.SetEventCategoryAssocUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetEventCategoryAssocByUuid(EventCategoryAssoc obj)  {
-            return act.SetEventCategoryAssocByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetEventCategoryAssocUuid(EventCategoryAssoc obj)  {
+            return act.SetEventCategoryAssocUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryAssocByUuid(
+        public virtual bool DelEventCategoryAssocUuid(
             string uuid
         )  {            
-            return act.DelEventCategoryAssocByUuid(
+            return act.DelEventCategoryAssocUuid(
             uuid
             );
         }                     
@@ -7830,18 +7830,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListByUuid(
+        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListUuid(
             string uuid
         )  {
-            return act.GetEventCategoryAssocListByUuid(
+            return act.GetEventCategoryAssocListUuid(
             uuid
             );
         }
         
-        public virtual EventCategoryAssoc GetEventCategoryAssocByUuid(
+        public virtual EventCategoryAssoc GetEventCategoryAssocUuid(
             string uuid
         )  {
-            foreach (EventCategoryAssoc item in GetEventCategoryAssocListByUuid(
+            foreach (EventCategoryAssoc item in GetEventCategoryAssocListUuid(
             uuid
             ))  {
                 return item;
@@ -7849,24 +7849,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListByUuid(
+        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListUuid(
             string uuid
         ) {
-            return CachedGetEventCategoryAssocListByUuid(
+            return CachedGetEventCategoryAssocListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListByUuid(
+        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<EventCategoryAssoc> objs;
 
-            string method_name = "CachedGetEventCategoryAssocListByUuid";
+            string method_name = "CachedGetEventCategoryAssocListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7882,7 +7882,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryAssocListByUuid(
+                objs = GetEventCategoryAssocListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7890,18 +7890,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListByEventId(
+        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListEventId(
             string event_id
         )  {
-            return act.GetEventCategoryAssocListByEventId(
+            return act.GetEventCategoryAssocListEventId(
             event_id
             );
         }
         
-        public virtual EventCategoryAssoc GetEventCategoryAssocByEventId(
+        public virtual EventCategoryAssoc GetEventCategoryAssocEventId(
             string event_id
         )  {
-            foreach (EventCategoryAssoc item in GetEventCategoryAssocListByEventId(
+            foreach (EventCategoryAssoc item in GetEventCategoryAssocListEventId(
             event_id
             ))  {
                 return item;
@@ -7909,24 +7909,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListByEventId(
+        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListEventId(
             string event_id
         ) {
-            return CachedGetEventCategoryAssocListByEventId(
+            return CachedGetEventCategoryAssocListEventId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , event_id
                 );
         }
         
-        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListByEventId(
+        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListEventId(
             bool overrideCache
             , int cacheHours
             , string event_id
         ) {
             List<EventCategoryAssoc> objs;
 
-            string method_name = "CachedGetEventCategoryAssocListByEventId";
+            string method_name = "CachedGetEventCategoryAssocListEventId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -7942,7 +7942,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryAssocListByEventId(
+                objs = GetEventCategoryAssocListEventId(
                     event_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7950,18 +7950,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListByCategoryId(
+        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListCategoryId(
             string category_id
         )  {
-            return act.GetEventCategoryAssocListByCategoryId(
+            return act.GetEventCategoryAssocListCategoryId(
             category_id
             );
         }
         
-        public virtual EventCategoryAssoc GetEventCategoryAssocByCategoryId(
+        public virtual EventCategoryAssoc GetEventCategoryAssocCategoryId(
             string category_id
         )  {
-            foreach (EventCategoryAssoc item in GetEventCategoryAssocListByCategoryId(
+            foreach (EventCategoryAssoc item in GetEventCategoryAssocListCategoryId(
             category_id
             ))  {
                 return item;
@@ -7969,24 +7969,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListByCategoryId(
+        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListCategoryId(
             string category_id
         ) {
-            return CachedGetEventCategoryAssocListByCategoryId(
+            return CachedGetEventCategoryAssocListCategoryId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , category_id
                 );
         }
         
-        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListByCategoryId(
+        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListCategoryId(
             bool overrideCache
             , int cacheHours
             , string category_id
         ) {
             List<EventCategoryAssoc> objs;
 
-            string method_name = "CachedGetEventCategoryAssocListByCategoryId";
+            string method_name = "CachedGetEventCategoryAssocListCategoryId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8002,7 +8002,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryAssocListByCategoryId(
+                objs = GetEventCategoryAssocListCategoryId(
                     category_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8010,21 +8010,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListByEventIdByCategoryId(
+        public virtual List<EventCategoryAssoc> GetEventCategoryAssocListEventIdCategoryId(
             string event_id
             , string category_id
         )  {
-            return act.GetEventCategoryAssocListByEventIdByCategoryId(
+            return act.GetEventCategoryAssocListEventIdCategoryId(
             event_id
             , category_id
             );
         }
         
-        public virtual EventCategoryAssoc GetEventCategoryAssocByEventIdByCategoryId(
+        public virtual EventCategoryAssoc GetEventCategoryAssocEventIdCategoryId(
             string event_id
             , string category_id
         )  {
-            foreach (EventCategoryAssoc item in GetEventCategoryAssocListByEventIdByCategoryId(
+            foreach (EventCategoryAssoc item in GetEventCategoryAssocListEventIdCategoryId(
             event_id
             , category_id
             ))  {
@@ -8033,11 +8033,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListByEventIdByCategoryId(
+        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListEventIdCategoryId(
             string event_id
             , string category_id
         ) {
-            return CachedGetEventCategoryAssocListByEventIdByCategoryId(
+            return CachedGetEventCategoryAssocListEventIdCategoryId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , event_id
@@ -8045,7 +8045,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListByEventIdByCategoryId(
+        public virtual List<EventCategoryAssoc> CachedGetEventCategoryAssocListEventIdCategoryId(
             bool overrideCache
             , int cacheHours
             , string event_id
@@ -8053,7 +8053,7 @@ namespace platform {
         ) {
             List<EventCategoryAssoc> objs;
 
-            string method_name = "CachedGetEventCategoryAssocListByEventIdByCategoryId";
+            string method_name = "CachedGetEventCategoryAssocListEventIdCategoryId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8073,7 +8073,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetEventCategoryAssocListByEventIdByCategoryId(
+                objs = GetEventCategoryAssocListEventIdCategoryId(
                     event_id
                     , category_id
                 );
@@ -8088,96 +8088,96 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelByUuid(
+        public virtual int CountChannelUuid(
             string uuid
         )  {            
-            return act.CountChannelByUuid(
+            return act.CountChannelUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelByCode(
+        public virtual int CountChannelCode(
             string code
         )  {            
-            return act.CountChannelByCode(
+            return act.CountChannelCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelByName(
+        public virtual int CountChannelName(
             string name
         )  {            
-            return act.CountChannelByName(
+            return act.CountChannelName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelByOrgId(
+        public virtual int CountChannelOrgId(
             string org_id
         )  {            
-            return act.CountChannelByOrgId(
+            return act.CountChannelOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelByTypeId(
+        public virtual int CountChannelTypeId(
             string type_id
         )  {            
-            return act.CountChannelByTypeId(
+            return act.CountChannelTypeId(
             type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelByOrgIdByTypeId(
+        public virtual int CountChannelOrgIdTypeId(
             string org_id
             , string type_id
         )  {            
-            return act.CountChannelByOrgIdByTypeId(
+            return act.CountChannelOrgIdTypeId(
             org_id
             , type_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ChannelResult BrowseChannelListByFilter(SearchFilter obj)  {
-            return act.BrowseChannelListByFilter(obj);
+        public virtual ChannelResult BrowseChannelListFilter(SearchFilter obj)  {
+            return act.BrowseChannelListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetChannelByUuid(string set_type, Channel obj)  {
-            return act.SetChannelByUuid(set_type, obj);
+        public virtual bool SetChannelUuid(string set_type, Channel obj)  {
+            return act.SetChannelUuid(set_type, obj);
         }
         
-        public virtual bool SetChannelByUuid(SetType set_type, Channel obj)  {
-            return act.SetChannelByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetChannelUuid(SetType set_type, Channel obj)  {
+            return act.SetChannelUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetChannelByUuid(Channel obj)  {
-            return act.SetChannelByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetChannelUuid(Channel obj)  {
+            return act.SetChannelUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelByUuid(
+        public virtual bool DelChannelUuid(
             string uuid
         )  {            
-            return act.DelChannelByUuid(
+            return act.DelChannelUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelByCodeByOrgId(
+        public virtual bool DelChannelCodeOrgId(
             string code
             , string org_id
         )  {            
-            return act.DelChannelByCodeByOrgId(
+            return act.DelChannelCodeOrgId(
             code
             , org_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelByCodeByOrgIdByTypeId(
+        public virtual bool DelChannelCodeOrgIdTypeId(
             string code
             , string org_id
             , string type_id
         )  {            
-            return act.DelChannelByCodeByOrgIdByTypeId(
+            return act.DelChannelCodeOrgIdTypeId(
             code
             , org_id
             , type_id
@@ -8232,18 +8232,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Channel> GetChannelListByUuid(
+        public virtual List<Channel> GetChannelListUuid(
             string uuid
         )  {
-            return act.GetChannelListByUuid(
+            return act.GetChannelListUuid(
             uuid
             );
         }
         
-        public virtual Channel GetChannelByUuid(
+        public virtual Channel GetChannelUuid(
             string uuid
         )  {
-            foreach (Channel item in GetChannelListByUuid(
+            foreach (Channel item in GetChannelListUuid(
             uuid
             ))  {
                 return item;
@@ -8251,24 +8251,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Channel> CachedGetChannelListByUuid(
+        public virtual List<Channel> CachedGetChannelListUuid(
             string uuid
         ) {
-            return CachedGetChannelListByUuid(
+            return CachedGetChannelListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Channel> CachedGetChannelListByUuid(
+        public virtual List<Channel> CachedGetChannelListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Channel> objs;
 
-            string method_name = "CachedGetChannelListByUuid";
+            string method_name = "CachedGetChannelListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8284,7 +8284,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelListByUuid(
+                objs = GetChannelListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8292,18 +8292,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Channel> GetChannelListByCode(
+        public virtual List<Channel> GetChannelListCode(
             string code
         )  {
-            return act.GetChannelListByCode(
+            return act.GetChannelListCode(
             code
             );
         }
         
-        public virtual Channel GetChannelByCode(
+        public virtual Channel GetChannelCode(
             string code
         )  {
-            foreach (Channel item in GetChannelListByCode(
+            foreach (Channel item in GetChannelListCode(
             code
             ))  {
                 return item;
@@ -8311,24 +8311,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Channel> CachedGetChannelListByCode(
+        public virtual List<Channel> CachedGetChannelListCode(
             string code
         ) {
-            return CachedGetChannelListByCode(
+            return CachedGetChannelListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<Channel> CachedGetChannelListByCode(
+        public virtual List<Channel> CachedGetChannelListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<Channel> objs;
 
-            string method_name = "CachedGetChannelListByCode";
+            string method_name = "CachedGetChannelListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8344,7 +8344,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelListByCode(
+                objs = GetChannelListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8352,18 +8352,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Channel> GetChannelListByName(
+        public virtual List<Channel> GetChannelListName(
             string name
         )  {
-            return act.GetChannelListByName(
+            return act.GetChannelListName(
             name
             );
         }
         
-        public virtual Channel GetChannelByName(
+        public virtual Channel GetChannelName(
             string name
         )  {
-            foreach (Channel item in GetChannelListByName(
+            foreach (Channel item in GetChannelListName(
             name
             ))  {
                 return item;
@@ -8371,24 +8371,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Channel> CachedGetChannelListByName(
+        public virtual List<Channel> CachedGetChannelListName(
             string name
         ) {
-            return CachedGetChannelListByName(
+            return CachedGetChannelListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<Channel> CachedGetChannelListByName(
+        public virtual List<Channel> CachedGetChannelListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<Channel> objs;
 
-            string method_name = "CachedGetChannelListByName";
+            string method_name = "CachedGetChannelListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8404,7 +8404,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelListByName(
+                objs = GetChannelListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8412,18 +8412,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Channel> GetChannelListByOrgId(
+        public virtual List<Channel> GetChannelListOrgId(
             string org_id
         )  {
-            return act.GetChannelListByOrgId(
+            return act.GetChannelListOrgId(
             org_id
             );
         }
         
-        public virtual Channel GetChannelByOrgId(
+        public virtual Channel GetChannelOrgId(
             string org_id
         )  {
-            foreach (Channel item in GetChannelListByOrgId(
+            foreach (Channel item in GetChannelListOrgId(
             org_id
             ))  {
                 return item;
@@ -8431,24 +8431,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Channel> CachedGetChannelListByOrgId(
+        public virtual List<Channel> CachedGetChannelListOrgId(
             string org_id
         ) {
-            return CachedGetChannelListByOrgId(
+            return CachedGetChannelListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<Channel> CachedGetChannelListByOrgId(
+        public virtual List<Channel> CachedGetChannelListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<Channel> objs;
 
-            string method_name = "CachedGetChannelListByOrgId";
+            string method_name = "CachedGetChannelListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8464,7 +8464,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelListByOrgId(
+                objs = GetChannelListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8472,18 +8472,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Channel> GetChannelListByTypeId(
+        public virtual List<Channel> GetChannelListTypeId(
             string type_id
         )  {
-            return act.GetChannelListByTypeId(
+            return act.GetChannelListTypeId(
             type_id
             );
         }
         
-        public virtual Channel GetChannelByTypeId(
+        public virtual Channel GetChannelTypeId(
             string type_id
         )  {
-            foreach (Channel item in GetChannelListByTypeId(
+            foreach (Channel item in GetChannelListTypeId(
             type_id
             ))  {
                 return item;
@@ -8491,24 +8491,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Channel> CachedGetChannelListByTypeId(
+        public virtual List<Channel> CachedGetChannelListTypeId(
             string type_id
         ) {
-            return CachedGetChannelListByTypeId(
+            return CachedGetChannelListTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , type_id
                 );
         }
         
-        public virtual List<Channel> CachedGetChannelListByTypeId(
+        public virtual List<Channel> CachedGetChannelListTypeId(
             bool overrideCache
             , int cacheHours
             , string type_id
         ) {
             List<Channel> objs;
 
-            string method_name = "CachedGetChannelListByTypeId";
+            string method_name = "CachedGetChannelListTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8524,7 +8524,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelListByTypeId(
+                objs = GetChannelListTypeId(
                     type_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8532,21 +8532,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Channel> GetChannelListByOrgIdByTypeId(
+        public virtual List<Channel> GetChannelListOrgIdTypeId(
             string org_id
             , string type_id
         )  {
-            return act.GetChannelListByOrgIdByTypeId(
+            return act.GetChannelListOrgIdTypeId(
             org_id
             , type_id
             );
         }
         
-        public virtual Channel GetChannelByOrgIdByTypeId(
+        public virtual Channel GetChannelOrgIdTypeId(
             string org_id
             , string type_id
         )  {
-            foreach (Channel item in GetChannelListByOrgIdByTypeId(
+            foreach (Channel item in GetChannelListOrgIdTypeId(
             org_id
             , type_id
             ))  {
@@ -8555,11 +8555,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Channel> CachedGetChannelListByOrgIdByTypeId(
+        public virtual List<Channel> CachedGetChannelListOrgIdTypeId(
             string org_id
             , string type_id
         ) {
-            return CachedGetChannelListByOrgIdByTypeId(
+            return CachedGetChannelListOrgIdTypeId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
@@ -8567,7 +8567,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Channel> CachedGetChannelListByOrgIdByTypeId(
+        public virtual List<Channel> CachedGetChannelListOrgIdTypeId(
             bool overrideCache
             , int cacheHours
             , string org_id
@@ -8575,7 +8575,7 @@ namespace platform {
         ) {
             List<Channel> objs;
 
-            string method_name = "CachedGetChannelListByOrgIdByTypeId";
+            string method_name = "CachedGetChannelListOrgIdTypeId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8595,7 +8595,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelListByOrgIdByTypeId(
+                objs = GetChannelListOrgIdTypeId(
                     org_id
                     , type_id
                 );
@@ -8610,50 +8610,50 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeByUuid(
+        public virtual int CountChannelTypeUuid(
             string uuid
         )  {            
-            return act.CountChannelTypeByUuid(
+            return act.CountChannelTypeUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeByCode(
+        public virtual int CountChannelTypeCode(
             string code
         )  {            
-            return act.CountChannelTypeByCode(
+            return act.CountChannelTypeCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeByName(
+        public virtual int CountChannelTypeName(
             string name
         )  {            
-            return act.CountChannelTypeByName(
+            return act.CountChannelTypeName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ChannelTypeResult BrowseChannelTypeListByFilter(SearchFilter obj)  {
-            return act.BrowseChannelTypeListByFilter(obj);
+        public virtual ChannelTypeResult BrowseChannelTypeListFilter(SearchFilter obj)  {
+            return act.BrowseChannelTypeListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetChannelTypeByUuid(string set_type, ChannelType obj)  {
-            return act.SetChannelTypeByUuid(set_type, obj);
+        public virtual bool SetChannelTypeUuid(string set_type, ChannelType obj)  {
+            return act.SetChannelTypeUuid(set_type, obj);
         }
         
-        public virtual bool SetChannelTypeByUuid(SetType set_type, ChannelType obj)  {
-            return act.SetChannelTypeByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetChannelTypeUuid(SetType set_type, ChannelType obj)  {
+            return act.SetChannelTypeUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetChannelTypeByUuid(ChannelType obj)  {
-            return act.SetChannelTypeByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetChannelTypeUuid(ChannelType obj)  {
+            return act.SetChannelTypeUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelTypeByUuid(
+        public virtual bool DelChannelTypeUuid(
             string uuid
         )  {            
-            return act.DelChannelTypeByUuid(
+            return act.DelChannelTypeUuid(
             uuid
             );
         }                     
@@ -8706,18 +8706,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ChannelType> GetChannelTypeListByUuid(
+        public virtual List<ChannelType> GetChannelTypeListUuid(
             string uuid
         )  {
-            return act.GetChannelTypeListByUuid(
+            return act.GetChannelTypeListUuid(
             uuid
             );
         }
         
-        public virtual ChannelType GetChannelTypeByUuid(
+        public virtual ChannelType GetChannelTypeUuid(
             string uuid
         )  {
-            foreach (ChannelType item in GetChannelTypeListByUuid(
+            foreach (ChannelType item in GetChannelTypeListUuid(
             uuid
             ))  {
                 return item;
@@ -8725,24 +8725,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ChannelType> CachedGetChannelTypeListByUuid(
+        public virtual List<ChannelType> CachedGetChannelTypeListUuid(
             string uuid
         ) {
-            return CachedGetChannelTypeListByUuid(
+            return CachedGetChannelTypeListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ChannelType> CachedGetChannelTypeListByUuid(
+        public virtual List<ChannelType> CachedGetChannelTypeListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ChannelType> objs;
 
-            string method_name = "CachedGetChannelTypeListByUuid";
+            string method_name = "CachedGetChannelTypeListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8758,7 +8758,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelTypeListByUuid(
+                objs = GetChannelTypeListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8766,18 +8766,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ChannelType> GetChannelTypeListByCode(
+        public virtual List<ChannelType> GetChannelTypeListCode(
             string code
         )  {
-            return act.GetChannelTypeListByCode(
+            return act.GetChannelTypeListCode(
             code
             );
         }
         
-        public virtual ChannelType GetChannelTypeByCode(
+        public virtual ChannelType GetChannelTypeCode(
             string code
         )  {
-            foreach (ChannelType item in GetChannelTypeListByCode(
+            foreach (ChannelType item in GetChannelTypeListCode(
             code
             ))  {
                 return item;
@@ -8785,24 +8785,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ChannelType> CachedGetChannelTypeListByCode(
+        public virtual List<ChannelType> CachedGetChannelTypeListCode(
             string code
         ) {
-            return CachedGetChannelTypeListByCode(
+            return CachedGetChannelTypeListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<ChannelType> CachedGetChannelTypeListByCode(
+        public virtual List<ChannelType> CachedGetChannelTypeListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<ChannelType> objs;
 
-            string method_name = "CachedGetChannelTypeListByCode";
+            string method_name = "CachedGetChannelTypeListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8818,7 +8818,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelTypeListByCode(
+                objs = GetChannelTypeListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8826,18 +8826,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ChannelType> GetChannelTypeListByName(
+        public virtual List<ChannelType> GetChannelTypeListName(
             string name
         )  {
-            return act.GetChannelTypeListByName(
+            return act.GetChannelTypeListName(
             name
             );
         }
         
-        public virtual ChannelType GetChannelTypeByName(
+        public virtual ChannelType GetChannelTypeName(
             string name
         )  {
-            foreach (ChannelType item in GetChannelTypeListByName(
+            foreach (ChannelType item in GetChannelTypeListName(
             name
             ))  {
                 return item;
@@ -8845,24 +8845,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ChannelType> CachedGetChannelTypeListByName(
+        public virtual List<ChannelType> CachedGetChannelTypeListName(
             string name
         ) {
-            return CachedGetChannelTypeListByName(
+            return CachedGetChannelTypeListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<ChannelType> CachedGetChannelTypeListByName(
+        public virtual List<ChannelType> CachedGetChannelTypeListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<ChannelType> objs;
 
-            string method_name = "CachedGetChannelTypeListByName";
+            string method_name = "CachedGetChannelTypeListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -8878,7 +8878,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetChannelTypeListByName(
+                objs = GetChannelTypeListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8892,107 +8892,107 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionByUuid(
+        public virtual int CountQuestionUuid(
             string uuid
         )  {            
-            return act.CountQuestionByUuid(
+            return act.CountQuestionUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionByCode(
+        public virtual int CountQuestionCode(
             string code
         )  {            
-            return act.CountQuestionByCode(
+            return act.CountQuestionCode(
             code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionByName(
+        public virtual int CountQuestionName(
             string name
         )  {            
-            return act.CountQuestionByName(
+            return act.CountQuestionName(
             name
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionByChannelId(
+        public virtual int CountQuestionChannelId(
             string channel_id
         )  {            
-            return act.CountQuestionByChannelId(
+            return act.CountQuestionChannelId(
             channel_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionByOrgId(
+        public virtual int CountQuestionOrgId(
             string org_id
         )  {            
-            return act.CountQuestionByOrgId(
+            return act.CountQuestionOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionByChannelIdByOrgId(
+        public virtual int CountQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {            
-            return act.CountQuestionByChannelIdByOrgId(
+            return act.CountQuestionChannelIdOrgId(
             channel_id
             , org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionByChannelIdByCode(
+        public virtual int CountQuestionChannelIdCode(
             string channel_id
             , string code
         )  {            
-            return act.CountQuestionByChannelIdByCode(
+            return act.CountQuestionChannelIdCode(
             channel_id
             , code
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual QuestionResult BrowseQuestionListByFilter(SearchFilter obj)  {
-            return act.BrowseQuestionListByFilter(obj);
+        public virtual QuestionResult BrowseQuestionListFilter(SearchFilter obj)  {
+            return act.BrowseQuestionListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetQuestionByUuid(string set_type, Question obj)  {
-            return act.SetQuestionByUuid(set_type, obj);
+        public virtual bool SetQuestionUuid(string set_type, Question obj)  {
+            return act.SetQuestionUuid(set_type, obj);
         }
         
-        public virtual bool SetQuestionByUuid(SetType set_type, Question obj)  {
-            return act.SetQuestionByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetQuestionUuid(SetType set_type, Question obj)  {
+            return act.SetQuestionUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetQuestionByUuid(Question obj)  {
-            return act.SetQuestionByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetQuestionUuid(Question obj)  {
+            return act.SetQuestionUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetQuestionByChannelIdByCode(string set_type, Question obj)  {
-            return act.SetQuestionByChannelIdByCode(set_type, obj);
+        public virtual bool SetQuestionChannelIdCode(string set_type, Question obj)  {
+            return act.SetQuestionChannelIdCode(set_type, obj);
         }
         
-        public virtual bool SetQuestionByChannelIdByCode(SetType set_type, Question obj)  {
-            return act.SetQuestionByChannelIdByCode(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetQuestionChannelIdCode(SetType set_type, Question obj)  {
+            return act.SetQuestionChannelIdCode(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetQuestionByChannelIdByCode(Question obj)  {
-            return act.SetQuestionByChannelIdByCode(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetQuestionChannelIdCode(Question obj)  {
+            return act.SetQuestionChannelIdCode(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelQuestionByUuid(
+        public virtual bool DelQuestionUuid(
             string uuid
         )  {            
-            return act.DelQuestionByUuid(
+            return act.DelQuestionUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelQuestionByChannelIdByOrgId(
+        public virtual bool DelQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {            
-            return act.DelQuestionByChannelIdByOrgId(
+            return act.DelQuestionChannelIdOrgId(
             channel_id
             , org_id
             );
@@ -9046,18 +9046,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Question> GetQuestionListByUuid(
+        public virtual List<Question> GetQuestionListUuid(
             string uuid
         )  {
-            return act.GetQuestionListByUuid(
+            return act.GetQuestionListUuid(
             uuid
             );
         }
         
-        public virtual Question GetQuestionByUuid(
+        public virtual Question GetQuestionUuid(
             string uuid
         )  {
-            foreach (Question item in GetQuestionListByUuid(
+            foreach (Question item in GetQuestionListUuid(
             uuid
             ))  {
                 return item;
@@ -9065,24 +9065,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Question> CachedGetQuestionListByUuid(
+        public virtual List<Question> CachedGetQuestionListUuid(
             string uuid
         ) {
-            return CachedGetQuestionListByUuid(
+            return CachedGetQuestionListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Question> CachedGetQuestionListByUuid(
+        public virtual List<Question> CachedGetQuestionListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Question> objs;
 
-            string method_name = "CachedGetQuestionListByUuid";
+            string method_name = "CachedGetQuestionListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9098,7 +9098,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetQuestionListByUuid(
+                objs = GetQuestionListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9106,18 +9106,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Question> GetQuestionListByCode(
+        public virtual List<Question> GetQuestionListCode(
             string code
         )  {
-            return act.GetQuestionListByCode(
+            return act.GetQuestionListCode(
             code
             );
         }
         
-        public virtual Question GetQuestionByCode(
+        public virtual Question GetQuestionCode(
             string code
         )  {
-            foreach (Question item in GetQuestionListByCode(
+            foreach (Question item in GetQuestionListCode(
             code
             ))  {
                 return item;
@@ -9125,24 +9125,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Question> CachedGetQuestionListByCode(
+        public virtual List<Question> CachedGetQuestionListCode(
             string code
         ) {
-            return CachedGetQuestionListByCode(
+            return CachedGetQuestionListCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , code
                 );
         }
         
-        public virtual List<Question> CachedGetQuestionListByCode(
+        public virtual List<Question> CachedGetQuestionListCode(
             bool overrideCache
             , int cacheHours
             , string code
         ) {
             List<Question> objs;
 
-            string method_name = "CachedGetQuestionListByCode";
+            string method_name = "CachedGetQuestionListCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9158,7 +9158,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetQuestionListByCode(
+                objs = GetQuestionListCode(
                     code
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9166,18 +9166,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Question> GetQuestionListByName(
+        public virtual List<Question> GetQuestionListName(
             string name
         )  {
-            return act.GetQuestionListByName(
+            return act.GetQuestionListName(
             name
             );
         }
         
-        public virtual Question GetQuestionByName(
+        public virtual Question GetQuestionName(
             string name
         )  {
-            foreach (Question item in GetQuestionListByName(
+            foreach (Question item in GetQuestionListName(
             name
             ))  {
                 return item;
@@ -9185,24 +9185,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Question> CachedGetQuestionListByName(
+        public virtual List<Question> CachedGetQuestionListName(
             string name
         ) {
-            return CachedGetQuestionListByName(
+            return CachedGetQuestionListName(
                     false
                     , CACHE_DEFAULT_HOURS
                     , name
                 );
         }
         
-        public virtual List<Question> CachedGetQuestionListByName(
+        public virtual List<Question> CachedGetQuestionListName(
             bool overrideCache
             , int cacheHours
             , string name
         ) {
             List<Question> objs;
 
-            string method_name = "CachedGetQuestionListByName";
+            string method_name = "CachedGetQuestionListName";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9218,7 +9218,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetQuestionListByName(
+                objs = GetQuestionListName(
                     name
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9226,18 +9226,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Question> GetQuestionListByType(
+        public virtual List<Question> GetQuestionListType(
             string type
         )  {
-            return act.GetQuestionListByType(
+            return act.GetQuestionListType(
             type
             );
         }
         
-        public virtual Question GetQuestionByType(
+        public virtual Question GetQuestionType(
             string type
         )  {
-            foreach (Question item in GetQuestionListByType(
+            foreach (Question item in GetQuestionListType(
             type
             ))  {
                 return item;
@@ -9245,24 +9245,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Question> CachedGetQuestionListByType(
+        public virtual List<Question> CachedGetQuestionListType(
             string type
         ) {
-            return CachedGetQuestionListByType(
+            return CachedGetQuestionListType(
                     false
                     , CACHE_DEFAULT_HOURS
                     , type
                 );
         }
         
-        public virtual List<Question> CachedGetQuestionListByType(
+        public virtual List<Question> CachedGetQuestionListType(
             bool overrideCache
             , int cacheHours
             , string type
         ) {
             List<Question> objs;
 
-            string method_name = "CachedGetQuestionListByType";
+            string method_name = "CachedGetQuestionListType";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9278,7 +9278,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetQuestionListByType(
+                objs = GetQuestionListType(
                     type
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9286,18 +9286,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Question> GetQuestionListByChannelId(
+        public virtual List<Question> GetQuestionListChannelId(
             string channel_id
         )  {
-            return act.GetQuestionListByChannelId(
+            return act.GetQuestionListChannelId(
             channel_id
             );
         }
         
-        public virtual Question GetQuestionByChannelId(
+        public virtual Question GetQuestionChannelId(
             string channel_id
         )  {
-            foreach (Question item in GetQuestionListByChannelId(
+            foreach (Question item in GetQuestionListChannelId(
             channel_id
             ))  {
                 return item;
@@ -9305,24 +9305,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Question> CachedGetQuestionListByChannelId(
+        public virtual List<Question> CachedGetQuestionListChannelId(
             string channel_id
         ) {
-            return CachedGetQuestionListByChannelId(
+            return CachedGetQuestionListChannelId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , channel_id
                 );
         }
         
-        public virtual List<Question> CachedGetQuestionListByChannelId(
+        public virtual List<Question> CachedGetQuestionListChannelId(
             bool overrideCache
             , int cacheHours
             , string channel_id
         ) {
             List<Question> objs;
 
-            string method_name = "CachedGetQuestionListByChannelId";
+            string method_name = "CachedGetQuestionListChannelId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9338,7 +9338,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetQuestionListByChannelId(
+                objs = GetQuestionListChannelId(
                     channel_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9346,18 +9346,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Question> GetQuestionListByOrgId(
+        public virtual List<Question> GetQuestionListOrgId(
             string org_id
         )  {
-            return act.GetQuestionListByOrgId(
+            return act.GetQuestionListOrgId(
             org_id
             );
         }
         
-        public virtual Question GetQuestionByOrgId(
+        public virtual Question GetQuestionOrgId(
             string org_id
         )  {
-            foreach (Question item in GetQuestionListByOrgId(
+            foreach (Question item in GetQuestionListOrgId(
             org_id
             ))  {
                 return item;
@@ -9365,24 +9365,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Question> CachedGetQuestionListByOrgId(
+        public virtual List<Question> CachedGetQuestionListOrgId(
             string org_id
         ) {
-            return CachedGetQuestionListByOrgId(
+            return CachedGetQuestionListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<Question> CachedGetQuestionListByOrgId(
+        public virtual List<Question> CachedGetQuestionListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<Question> objs;
 
-            string method_name = "CachedGetQuestionListByOrgId";
+            string method_name = "CachedGetQuestionListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9398,7 +9398,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetQuestionListByOrgId(
+                objs = GetQuestionListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9406,21 +9406,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Question> GetQuestionListByChannelIdByOrgId(
+        public virtual List<Question> GetQuestionListChannelIdOrgId(
             string channel_id
             , string org_id
         )  {
-            return act.GetQuestionListByChannelIdByOrgId(
+            return act.GetQuestionListChannelIdOrgId(
             channel_id
             , org_id
             );
         }
         
-        public virtual Question GetQuestionByChannelIdByOrgId(
+        public virtual Question GetQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {
-            foreach (Question item in GetQuestionListByChannelIdByOrgId(
+            foreach (Question item in GetQuestionListChannelIdOrgId(
             channel_id
             , org_id
             ))  {
@@ -9429,11 +9429,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Question> CachedGetQuestionListByChannelIdByOrgId(
+        public virtual List<Question> CachedGetQuestionListChannelIdOrgId(
             string channel_id
             , string org_id
         ) {
-            return CachedGetQuestionListByChannelIdByOrgId(
+            return CachedGetQuestionListChannelIdOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , channel_id
@@ -9441,7 +9441,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Question> CachedGetQuestionListByChannelIdByOrgId(
+        public virtual List<Question> CachedGetQuestionListChannelIdOrgId(
             bool overrideCache
             , int cacheHours
             , string channel_id
@@ -9449,7 +9449,7 @@ namespace platform {
         ) {
             List<Question> objs;
 
-            string method_name = "CachedGetQuestionListByChannelIdByOrgId";
+            string method_name = "CachedGetQuestionListChannelIdOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9469,7 +9469,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetQuestionListByChannelIdByOrgId(
+                objs = GetQuestionListChannelIdOrgId(
                     channel_id
                     , org_id
                 );
@@ -9478,21 +9478,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Question> GetQuestionListByChannelIdByCode(
+        public virtual List<Question> GetQuestionListChannelIdCode(
             string channel_id
             , string code
         )  {
-            return act.GetQuestionListByChannelIdByCode(
+            return act.GetQuestionListChannelIdCode(
             channel_id
             , code
             );
         }
         
-        public virtual Question GetQuestionByChannelIdByCode(
+        public virtual Question GetQuestionChannelIdCode(
             string channel_id
             , string code
         )  {
-            foreach (Question item in GetQuestionListByChannelIdByCode(
+            foreach (Question item in GetQuestionListChannelIdCode(
             channel_id
             , code
             ))  {
@@ -9501,11 +9501,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Question> CachedGetQuestionListByChannelIdByCode(
+        public virtual List<Question> CachedGetQuestionListChannelIdCode(
             string channel_id
             , string code
         ) {
-            return CachedGetQuestionListByChannelIdByCode(
+            return CachedGetQuestionListChannelIdCode(
                     false
                     , CACHE_DEFAULT_HOURS
                     , channel_id
@@ -9513,7 +9513,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Question> CachedGetQuestionListByChannelIdByCode(
+        public virtual List<Question> CachedGetQuestionListChannelIdCode(
             bool overrideCache
             , int cacheHours
             , string channel_id
@@ -9521,7 +9521,7 @@ namespace platform {
         ) {
             List<Question> objs;
 
-            string method_name = "CachedGetQuestionListByChannelIdByCode";
+            string method_name = "CachedGetQuestionListChannelIdCode";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9541,7 +9541,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetQuestionListByChannelIdByCode(
+                objs = GetQuestionListChannelIdCode(
                     channel_id
                     , code
                 );
@@ -9556,50 +9556,50 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOfferByUuid(
+        public virtual int CountProfileOfferUuid(
             string uuid
         )  {            
-            return act.CountProfileOfferByUuid(
+            return act.CountProfileOfferUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOfferByProfileId(
+        public virtual int CountProfileOfferProfileId(
             string profile_id
         )  {            
-            return act.CountProfileOfferByProfileId(
+            return act.CountProfileOfferProfileId(
             profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileOfferResult BrowseProfileOfferListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileOfferListByFilter(obj);
+        public virtual ProfileOfferResult BrowseProfileOfferListFilter(SearchFilter obj)  {
+            return act.BrowseProfileOfferListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileOfferByUuid(string set_type, ProfileOffer obj)  {
-            return act.SetProfileOfferByUuid(set_type, obj);
+        public virtual bool SetProfileOfferUuid(string set_type, ProfileOffer obj)  {
+            return act.SetProfileOfferUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileOfferByUuid(SetType set_type, ProfileOffer obj)  {
-            return act.SetProfileOfferByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileOfferUuid(SetType set_type, ProfileOffer obj)  {
+            return act.SetProfileOfferUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileOfferByUuid(ProfileOffer obj)  {
-            return act.SetProfileOfferByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileOfferUuid(ProfileOffer obj)  {
+            return act.SetProfileOfferUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOfferByUuid(
+        public virtual bool DelProfileOfferUuid(
             string uuid
         )  {            
-            return act.DelProfileOfferByUuid(
+            return act.DelProfileOfferUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOfferByProfileId(
+        public virtual bool DelProfileOfferProfileId(
             string profile_id
         )  {            
-            return act.DelProfileOfferByProfileId(
+            return act.DelProfileOfferProfileId(
             profile_id
             );
         }                     
@@ -9652,18 +9652,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileOffer> GetProfileOfferListByUuid(
+        public virtual List<ProfileOffer> GetProfileOfferListUuid(
             string uuid
         )  {
-            return act.GetProfileOfferListByUuid(
+            return act.GetProfileOfferListUuid(
             uuid
             );
         }
         
-        public virtual ProfileOffer GetProfileOfferByUuid(
+        public virtual ProfileOffer GetProfileOfferUuid(
             string uuid
         )  {
-            foreach (ProfileOffer item in GetProfileOfferListByUuid(
+            foreach (ProfileOffer item in GetProfileOfferListUuid(
             uuid
             ))  {
                 return item;
@@ -9671,24 +9671,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileOffer> CachedGetProfileOfferListByUuid(
+        public virtual List<ProfileOffer> CachedGetProfileOfferListUuid(
             string uuid
         ) {
-            return CachedGetProfileOfferListByUuid(
+            return CachedGetProfileOfferListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileOffer> CachedGetProfileOfferListByUuid(
+        public virtual List<ProfileOffer> CachedGetProfileOfferListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileOffer> objs;
 
-            string method_name = "CachedGetProfileOfferListByUuid";
+            string method_name = "CachedGetProfileOfferListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9704,7 +9704,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileOfferListByUuid(
+                objs = GetProfileOfferListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9712,18 +9712,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileOffer> GetProfileOfferListByProfileId(
+        public virtual List<ProfileOffer> GetProfileOfferListProfileId(
             string profile_id
         )  {
-            return act.GetProfileOfferListByProfileId(
+            return act.GetProfileOfferListProfileId(
             profile_id
             );
         }
         
-        public virtual ProfileOffer GetProfileOfferByProfileId(
+        public virtual ProfileOffer GetProfileOfferProfileId(
             string profile_id
         )  {
-            foreach (ProfileOffer item in GetProfileOfferListByProfileId(
+            foreach (ProfileOffer item in GetProfileOfferListProfileId(
             profile_id
             ))  {
                 return item;
@@ -9731,24 +9731,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileOffer> CachedGetProfileOfferListByProfileId(
+        public virtual List<ProfileOffer> CachedGetProfileOfferListProfileId(
             string profile_id
         ) {
-            return CachedGetProfileOfferListByProfileId(
+            return CachedGetProfileOfferListProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
                 );
         }
         
-        public virtual List<ProfileOffer> CachedGetProfileOfferListByProfileId(
+        public virtual List<ProfileOffer> CachedGetProfileOfferListProfileId(
             bool overrideCache
             , int cacheHours
             , string profile_id
         ) {
             List<ProfileOffer> objs;
 
-            string method_name = "CachedGetProfileOfferListByProfileId";
+            string method_name = "CachedGetProfileOfferListProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9764,7 +9764,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileOfferListByProfileId(
+                objs = GetProfileOfferListProfileId(
                     profile_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9778,65 +9778,65 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAppByUuid(
+        public virtual int CountProfileAppUuid(
             string uuid
         )  {            
-            return act.CountProfileAppByUuid(
+            return act.CountProfileAppUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAppByProfileIdByAppId(
+        public virtual int CountProfileAppProfileIdAppId(
             string profile_id
             , string app_id
         )  {            
-            return act.CountProfileAppByProfileIdByAppId(
+            return act.CountProfileAppProfileIdAppId(
             profile_id
             , app_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileAppResult BrowseProfileAppListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileAppListByFilter(obj);
+        public virtual ProfileAppResult BrowseProfileAppListFilter(SearchFilter obj)  {
+            return act.BrowseProfileAppListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAppByUuid(string set_type, ProfileApp obj)  {
-            return act.SetProfileAppByUuid(set_type, obj);
+        public virtual bool SetProfileAppUuid(string set_type, ProfileApp obj)  {
+            return act.SetProfileAppUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileAppByUuid(SetType set_type, ProfileApp obj)  {
-            return act.SetProfileAppByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAppUuid(SetType set_type, ProfileApp obj)  {
+            return act.SetProfileAppUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAppByUuid(ProfileApp obj)  {
-            return act.SetProfileAppByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAppUuid(ProfileApp obj)  {
+            return act.SetProfileAppUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAppByProfileIdByAppId(string set_type, ProfileApp obj)  {
-            return act.SetProfileAppByProfileIdByAppId(set_type, obj);
+        public virtual bool SetProfileAppProfileIdAppId(string set_type, ProfileApp obj)  {
+            return act.SetProfileAppProfileIdAppId(set_type, obj);
         }
         
-        public virtual bool SetProfileAppByProfileIdByAppId(SetType set_type, ProfileApp obj)  {
-            return act.SetProfileAppByProfileIdByAppId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileAppProfileIdAppId(SetType set_type, ProfileApp obj)  {
+            return act.SetProfileAppProfileIdAppId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileAppByProfileIdByAppId(ProfileApp obj)  {
-            return act.SetProfileAppByProfileIdByAppId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileAppProfileIdAppId(ProfileApp obj)  {
+            return act.SetProfileAppProfileIdAppId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAppByUuid(
+        public virtual bool DelProfileAppUuid(
             string uuid
         )  {            
-            return act.DelProfileAppByUuid(
+            return act.DelProfileAppUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAppByProfileIdByAppId(
+        public virtual bool DelProfileAppProfileIdAppId(
             string profile_id
             , string app_id
         )  {            
-            return act.DelProfileAppByProfileIdByAppId(
+            return act.DelProfileAppProfileIdAppId(
             profile_id
             , app_id
             );
@@ -9890,18 +9890,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileApp> GetProfileAppListByUuid(
+        public virtual List<ProfileApp> GetProfileAppListUuid(
             string uuid
         )  {
-            return act.GetProfileAppListByUuid(
+            return act.GetProfileAppListUuid(
             uuid
             );
         }
         
-        public virtual ProfileApp GetProfileAppByUuid(
+        public virtual ProfileApp GetProfileAppUuid(
             string uuid
         )  {
-            foreach (ProfileApp item in GetProfileAppListByUuid(
+            foreach (ProfileApp item in GetProfileAppListUuid(
             uuid
             ))  {
                 return item;
@@ -9909,24 +9909,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileApp> CachedGetProfileAppListByUuid(
+        public virtual List<ProfileApp> CachedGetProfileAppListUuid(
             string uuid
         ) {
-            return CachedGetProfileAppListByUuid(
+            return CachedGetProfileAppListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileApp> CachedGetProfileAppListByUuid(
+        public virtual List<ProfileApp> CachedGetProfileAppListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileApp> objs;
 
-            string method_name = "CachedGetProfileAppListByUuid";
+            string method_name = "CachedGetProfileAppListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -9942,7 +9942,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAppListByUuid(
+                objs = GetProfileAppListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9950,18 +9950,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileApp> GetProfileAppListByAppId(
+        public virtual List<ProfileApp> GetProfileAppListAppId(
             string app_id
         )  {
-            return act.GetProfileAppListByAppId(
+            return act.GetProfileAppListAppId(
             app_id
             );
         }
         
-        public virtual ProfileApp GetProfileAppByAppId(
+        public virtual ProfileApp GetProfileAppAppId(
             string app_id
         )  {
-            foreach (ProfileApp item in GetProfileAppListByAppId(
+            foreach (ProfileApp item in GetProfileAppListAppId(
             app_id
             ))  {
                 return item;
@@ -9969,24 +9969,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileApp> CachedGetProfileAppListByAppId(
+        public virtual List<ProfileApp> CachedGetProfileAppListAppId(
             string app_id
         ) {
-            return CachedGetProfileAppListByAppId(
+            return CachedGetProfileAppListAppId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , app_id
                 );
         }
         
-        public virtual List<ProfileApp> CachedGetProfileAppListByAppId(
+        public virtual List<ProfileApp> CachedGetProfileAppListAppId(
             bool overrideCache
             , int cacheHours
             , string app_id
         ) {
             List<ProfileApp> objs;
 
-            string method_name = "CachedGetProfileAppListByAppId";
+            string method_name = "CachedGetProfileAppListAppId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10002,7 +10002,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAppListByAppId(
+                objs = GetProfileAppListAppId(
                     app_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10010,18 +10010,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileApp> GetProfileAppListByProfileId(
+        public virtual List<ProfileApp> GetProfileAppListProfileId(
             string profile_id
         )  {
-            return act.GetProfileAppListByProfileId(
+            return act.GetProfileAppListProfileId(
             profile_id
             );
         }
         
-        public virtual ProfileApp GetProfileAppByProfileId(
+        public virtual ProfileApp GetProfileAppProfileId(
             string profile_id
         )  {
-            foreach (ProfileApp item in GetProfileAppListByProfileId(
+            foreach (ProfileApp item in GetProfileAppListProfileId(
             profile_id
             ))  {
                 return item;
@@ -10029,24 +10029,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileApp> CachedGetProfileAppListByProfileId(
+        public virtual List<ProfileApp> CachedGetProfileAppListProfileId(
             string profile_id
         ) {
-            return CachedGetProfileAppListByProfileId(
+            return CachedGetProfileAppListProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
                 );
         }
         
-        public virtual List<ProfileApp> CachedGetProfileAppListByProfileId(
+        public virtual List<ProfileApp> CachedGetProfileAppListProfileId(
             bool overrideCache
             , int cacheHours
             , string profile_id
         ) {
             List<ProfileApp> objs;
 
-            string method_name = "CachedGetProfileAppListByProfileId";
+            string method_name = "CachedGetProfileAppListProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10062,7 +10062,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAppListByProfileId(
+                objs = GetProfileAppListProfileId(
                     profile_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10070,21 +10070,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileApp> GetProfileAppListByProfileIdByAppId(
+        public virtual List<ProfileApp> GetProfileAppListProfileIdAppId(
             string profile_id
             , string app_id
         )  {
-            return act.GetProfileAppListByProfileIdByAppId(
+            return act.GetProfileAppListProfileIdAppId(
             profile_id
             , app_id
             );
         }
         
-        public virtual ProfileApp GetProfileAppByProfileIdByAppId(
+        public virtual ProfileApp GetProfileAppProfileIdAppId(
             string profile_id
             , string app_id
         )  {
-            foreach (ProfileApp item in GetProfileAppListByProfileIdByAppId(
+            foreach (ProfileApp item in GetProfileAppListProfileIdAppId(
             profile_id
             , app_id
             ))  {
@@ -10093,11 +10093,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileApp> CachedGetProfileAppListByProfileIdByAppId(
+        public virtual List<ProfileApp> CachedGetProfileAppListProfileIdAppId(
             string profile_id
             , string app_id
         ) {
-            return CachedGetProfileAppListByProfileIdByAppId(
+            return CachedGetProfileAppListProfileIdAppId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
@@ -10105,7 +10105,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<ProfileApp> CachedGetProfileAppListByProfileIdByAppId(
+        public virtual List<ProfileApp> CachedGetProfileAppListProfileIdAppId(
             bool overrideCache
             , int cacheHours
             , string profile_id
@@ -10113,7 +10113,7 @@ namespace platform {
         ) {
             List<ProfileApp> objs;
 
-            string method_name = "CachedGetProfileAppListByProfileIdByAppId";
+            string method_name = "CachedGetProfileAppListProfileIdAppId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10133,7 +10133,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileAppListByProfileIdByAppId(
+                objs = GetProfileAppListProfileIdAppId(
                     profile_id
                     , app_id
                 );
@@ -10148,50 +10148,50 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgByUuid(
+        public virtual int CountProfileOrgUuid(
             string uuid
         )  {            
-            return act.CountProfileOrgByUuid(
+            return act.CountProfileOrgUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgByOrgId(
+        public virtual int CountProfileOrgOrgId(
             string org_id
         )  {            
-            return act.CountProfileOrgByOrgId(
+            return act.CountProfileOrgOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgByProfileId(
+        public virtual int CountProfileOrgProfileId(
             string profile_id
         )  {            
-            return act.CountProfileOrgByProfileId(
+            return act.CountProfileOrgProfileId(
             profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileOrgResult BrowseProfileOrgListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileOrgListByFilter(obj);
+        public virtual ProfileOrgResult BrowseProfileOrgListFilter(SearchFilter obj)  {
+            return act.BrowseProfileOrgListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileOrgByUuid(string set_type, ProfileOrg obj)  {
-            return act.SetProfileOrgByUuid(set_type, obj);
+        public virtual bool SetProfileOrgUuid(string set_type, ProfileOrg obj)  {
+            return act.SetProfileOrgUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileOrgByUuid(SetType set_type, ProfileOrg obj)  {
-            return act.SetProfileOrgByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileOrgUuid(SetType set_type, ProfileOrg obj)  {
+            return act.SetProfileOrgUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileOrgByUuid(ProfileOrg obj)  {
-            return act.SetProfileOrgByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileOrgUuid(ProfileOrg obj)  {
+            return act.SetProfileOrgUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOrgByUuid(
+        public virtual bool DelProfileOrgUuid(
             string uuid
         )  {            
-            return act.DelProfileOrgByUuid(
+            return act.DelProfileOrgUuid(
             uuid
             );
         }                     
@@ -10244,18 +10244,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileOrg> GetProfileOrgListByUuid(
+        public virtual List<ProfileOrg> GetProfileOrgListUuid(
             string uuid
         )  {
-            return act.GetProfileOrgListByUuid(
+            return act.GetProfileOrgListUuid(
             uuid
             );
         }
         
-        public virtual ProfileOrg GetProfileOrgByUuid(
+        public virtual ProfileOrg GetProfileOrgUuid(
             string uuid
         )  {
-            foreach (ProfileOrg item in GetProfileOrgListByUuid(
+            foreach (ProfileOrg item in GetProfileOrgListUuid(
             uuid
             ))  {
                 return item;
@@ -10263,24 +10263,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileOrg> CachedGetProfileOrgListByUuid(
+        public virtual List<ProfileOrg> CachedGetProfileOrgListUuid(
             string uuid
         ) {
-            return CachedGetProfileOrgListByUuid(
+            return CachedGetProfileOrgListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileOrg> CachedGetProfileOrgListByUuid(
+        public virtual List<ProfileOrg> CachedGetProfileOrgListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileOrg> objs;
 
-            string method_name = "CachedGetProfileOrgListByUuid";
+            string method_name = "CachedGetProfileOrgListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10296,7 +10296,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileOrgListByUuid(
+                objs = GetProfileOrgListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10304,18 +10304,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileOrg> GetProfileOrgListByOrgId(
+        public virtual List<ProfileOrg> GetProfileOrgListOrgId(
             string org_id
         )  {
-            return act.GetProfileOrgListByOrgId(
+            return act.GetProfileOrgListOrgId(
             org_id
             );
         }
         
-        public virtual ProfileOrg GetProfileOrgByOrgId(
+        public virtual ProfileOrg GetProfileOrgOrgId(
             string org_id
         )  {
-            foreach (ProfileOrg item in GetProfileOrgListByOrgId(
+            foreach (ProfileOrg item in GetProfileOrgListOrgId(
             org_id
             ))  {
                 return item;
@@ -10323,24 +10323,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileOrg> CachedGetProfileOrgListByOrgId(
+        public virtual List<ProfileOrg> CachedGetProfileOrgListOrgId(
             string org_id
         ) {
-            return CachedGetProfileOrgListByOrgId(
+            return CachedGetProfileOrgListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<ProfileOrg> CachedGetProfileOrgListByOrgId(
+        public virtual List<ProfileOrg> CachedGetProfileOrgListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<ProfileOrg> objs;
 
-            string method_name = "CachedGetProfileOrgListByOrgId";
+            string method_name = "CachedGetProfileOrgListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10356,7 +10356,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileOrgListByOrgId(
+                objs = GetProfileOrgListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10364,18 +10364,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileOrg> GetProfileOrgListByProfileId(
+        public virtual List<ProfileOrg> GetProfileOrgListProfileId(
             string profile_id
         )  {
-            return act.GetProfileOrgListByProfileId(
+            return act.GetProfileOrgListProfileId(
             profile_id
             );
         }
         
-        public virtual ProfileOrg GetProfileOrgByProfileId(
+        public virtual ProfileOrg GetProfileOrgProfileId(
             string profile_id
         )  {
-            foreach (ProfileOrg item in GetProfileOrgListByProfileId(
+            foreach (ProfileOrg item in GetProfileOrgListProfileId(
             profile_id
             ))  {
                 return item;
@@ -10383,24 +10383,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileOrg> CachedGetProfileOrgListByProfileId(
+        public virtual List<ProfileOrg> CachedGetProfileOrgListProfileId(
             string profile_id
         ) {
-            return CachedGetProfileOrgListByProfileId(
+            return CachedGetProfileOrgListProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
                 );
         }
         
-        public virtual List<ProfileOrg> CachedGetProfileOrgListByProfileId(
+        public virtual List<ProfileOrg> CachedGetProfileOrgListProfileId(
             bool overrideCache
             , int cacheHours
             , string profile_id
         ) {
             List<ProfileOrg> objs;
 
-            string method_name = "CachedGetProfileOrgListByProfileId";
+            string method_name = "CachedGetProfileOrgListProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10416,7 +10416,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileOrgListByProfileId(
+                objs = GetProfileOrgListProfileId(
                     profile_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10430,141 +10430,141 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionByUuid(
+        public virtual int CountProfileQuestionUuid(
             string uuid
         )  {            
-            return act.CountProfileQuestionByUuid(
+            return act.CountProfileQuestionUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionByChannelId(
+        public virtual int CountProfileQuestionChannelId(
             string channel_id
         )  {            
-            return act.CountProfileQuestionByChannelId(
+            return act.CountProfileQuestionChannelId(
             channel_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionByOrgId(
+        public virtual int CountProfileQuestionOrgId(
             string org_id
         )  {            
-            return act.CountProfileQuestionByOrgId(
+            return act.CountProfileQuestionOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionByProfileId(
+        public virtual int CountProfileQuestionProfileId(
             string profile_id
         )  {            
-            return act.CountProfileQuestionByProfileId(
+            return act.CountProfileQuestionProfileId(
             profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionByQuestionId(
+        public virtual int CountProfileQuestionQuestionId(
             string question_id
         )  {            
-            return act.CountProfileQuestionByQuestionId(
+            return act.CountProfileQuestionQuestionId(
             question_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionByChannelIdByOrgId(
+        public virtual int CountProfileQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {            
-            return act.CountProfileQuestionByChannelIdByOrgId(
+            return act.CountProfileQuestionChannelIdOrgId(
             channel_id
             , org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionByChannelIdByProfileId(
+        public virtual int CountProfileQuestionChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {            
-            return act.CountProfileQuestionByChannelIdByProfileId(
+            return act.CountProfileQuestionChannelIdProfileId(
             channel_id
             , profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionByQuestionIdByProfileId(
+        public virtual int CountProfileQuestionQuestionIdProfileId(
             string question_id
             , string profile_id
         )  {            
-            return act.CountProfileQuestionByQuestionIdByProfileId(
+            return act.CountProfileQuestionQuestionIdProfileId(
             question_id
             , profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileQuestionResult BrowseProfileQuestionListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileQuestionListByFilter(obj);
+        public virtual ProfileQuestionResult BrowseProfileQuestionListFilter(SearchFilter obj)  {
+            return act.BrowseProfileQuestionListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionByUuid(string set_type, ProfileQuestion obj)  {
-            return act.SetProfileQuestionByUuid(set_type, obj);
+        public virtual bool SetProfileQuestionUuid(string set_type, ProfileQuestion obj)  {
+            return act.SetProfileQuestionUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileQuestionByUuid(SetType set_type, ProfileQuestion obj)  {
-            return act.SetProfileQuestionByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileQuestionUuid(SetType set_type, ProfileQuestion obj)  {
+            return act.SetProfileQuestionUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileQuestionByUuid(ProfileQuestion obj)  {
-            return act.SetProfileQuestionByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileQuestionUuid(ProfileQuestion obj)  {
+            return act.SetProfileQuestionUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionByChannelIdByProfileId(string set_type, ProfileQuestion obj)  {
-            return act.SetProfileQuestionByChannelIdByProfileId(set_type, obj);
+        public virtual bool SetProfileQuestionChannelIdProfileId(string set_type, ProfileQuestion obj)  {
+            return act.SetProfileQuestionChannelIdProfileId(set_type, obj);
         }
         
-        public virtual bool SetProfileQuestionByChannelIdByProfileId(SetType set_type, ProfileQuestion obj)  {
-            return act.SetProfileQuestionByChannelIdByProfileId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileQuestionChannelIdProfileId(SetType set_type, ProfileQuestion obj)  {
+            return act.SetProfileQuestionChannelIdProfileId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileQuestionByChannelIdByProfileId(ProfileQuestion obj)  {
-            return act.SetProfileQuestionByChannelIdByProfileId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileQuestionChannelIdProfileId(ProfileQuestion obj)  {
+            return act.SetProfileQuestionChannelIdProfileId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionByQuestionIdByProfileId(string set_type, ProfileQuestion obj)  {
-            return act.SetProfileQuestionByQuestionIdByProfileId(set_type, obj);
+        public virtual bool SetProfileQuestionQuestionIdProfileId(string set_type, ProfileQuestion obj)  {
+            return act.SetProfileQuestionQuestionIdProfileId(set_type, obj);
         }
         
-        public virtual bool SetProfileQuestionByQuestionIdByProfileId(SetType set_type, ProfileQuestion obj)  {
-            return act.SetProfileQuestionByQuestionIdByProfileId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileQuestionQuestionIdProfileId(SetType set_type, ProfileQuestion obj)  {
+            return act.SetProfileQuestionQuestionIdProfileId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileQuestionByQuestionIdByProfileId(ProfileQuestion obj)  {
-            return act.SetProfileQuestionByQuestionIdByProfileId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileQuestionQuestionIdProfileId(ProfileQuestion obj)  {
+            return act.SetProfileQuestionQuestionIdProfileId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionByChannelIdByQuestionIdByProfileId(string set_type, ProfileQuestion obj)  {
-            return act.SetProfileQuestionByChannelIdByQuestionIdByProfileId(set_type, obj);
+        public virtual bool SetProfileQuestionChannelIdQuestionIdProfileId(string set_type, ProfileQuestion obj)  {
+            return act.SetProfileQuestionChannelIdQuestionIdProfileId(set_type, obj);
         }
         
-        public virtual bool SetProfileQuestionByChannelIdByQuestionIdByProfileId(SetType set_type, ProfileQuestion obj)  {
-            return act.SetProfileQuestionByChannelIdByQuestionIdByProfileId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileQuestionChannelIdQuestionIdProfileId(SetType set_type, ProfileQuestion obj)  {
+            return act.SetProfileQuestionChannelIdQuestionIdProfileId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileQuestionByChannelIdByQuestionIdByProfileId(ProfileQuestion obj)  {
-            return act.SetProfileQuestionByChannelIdByQuestionIdByProfileId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileQuestionChannelIdQuestionIdProfileId(ProfileQuestion obj)  {
+            return act.SetProfileQuestionChannelIdQuestionIdProfileId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileQuestionByUuid(
+        public virtual bool DelProfileQuestionUuid(
             string uuid
         )  {            
-            return act.DelProfileQuestionByUuid(
+            return act.DelProfileQuestionUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileQuestionByChannelIdByOrgId(
+        public virtual bool DelProfileQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {            
-            return act.DelProfileQuestionByChannelIdByOrgId(
+            return act.DelProfileQuestionChannelIdOrgId(
             channel_id
             , org_id
             );
@@ -10618,18 +10618,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileQuestion> GetProfileQuestionListByUuid(
+        public virtual List<ProfileQuestion> GetProfileQuestionListUuid(
             string uuid
         )  {
-            return act.GetProfileQuestionListByUuid(
+            return act.GetProfileQuestionListUuid(
             uuid
             );
         }
         
-        public virtual ProfileQuestion GetProfileQuestionByUuid(
+        public virtual ProfileQuestion GetProfileQuestionUuid(
             string uuid
         )  {
-            foreach (ProfileQuestion item in GetProfileQuestionListByUuid(
+            foreach (ProfileQuestion item in GetProfileQuestionListUuid(
             uuid
             ))  {
                 return item;
@@ -10637,24 +10637,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByUuid(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListUuid(
             string uuid
         ) {
-            return CachedGetProfileQuestionListByUuid(
+            return CachedGetProfileQuestionListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByUuid(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileQuestion> objs;
 
-            string method_name = "CachedGetProfileQuestionListByUuid";
+            string method_name = "CachedGetProfileQuestionListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10670,7 +10670,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileQuestionListByUuid(
+                objs = GetProfileQuestionListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10678,18 +10678,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileQuestion> GetProfileQuestionListByChannelId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListChannelId(
             string channel_id
         )  {
-            return act.GetProfileQuestionListByChannelId(
+            return act.GetProfileQuestionListChannelId(
             channel_id
             );
         }
         
-        public virtual ProfileQuestion GetProfileQuestionByChannelId(
+        public virtual ProfileQuestion GetProfileQuestionChannelId(
             string channel_id
         )  {
-            foreach (ProfileQuestion item in GetProfileQuestionListByChannelId(
+            foreach (ProfileQuestion item in GetProfileQuestionListChannelId(
             channel_id
             ))  {
                 return item;
@@ -10697,24 +10697,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByChannelId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListChannelId(
             string channel_id
         ) {
-            return CachedGetProfileQuestionListByChannelId(
+            return CachedGetProfileQuestionListChannelId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , channel_id
                 );
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByChannelId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListChannelId(
             bool overrideCache
             , int cacheHours
             , string channel_id
         ) {
             List<ProfileQuestion> objs;
 
-            string method_name = "CachedGetProfileQuestionListByChannelId";
+            string method_name = "CachedGetProfileQuestionListChannelId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10730,7 +10730,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileQuestionListByChannelId(
+                objs = GetProfileQuestionListChannelId(
                     channel_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10738,18 +10738,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileQuestion> GetProfileQuestionListByOrgId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListOrgId(
             string org_id
         )  {
-            return act.GetProfileQuestionListByOrgId(
+            return act.GetProfileQuestionListOrgId(
             org_id
             );
         }
         
-        public virtual ProfileQuestion GetProfileQuestionByOrgId(
+        public virtual ProfileQuestion GetProfileQuestionOrgId(
             string org_id
         )  {
-            foreach (ProfileQuestion item in GetProfileQuestionListByOrgId(
+            foreach (ProfileQuestion item in GetProfileQuestionListOrgId(
             org_id
             ))  {
                 return item;
@@ -10757,24 +10757,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByOrgId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListOrgId(
             string org_id
         ) {
-            return CachedGetProfileQuestionListByOrgId(
+            return CachedGetProfileQuestionListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByOrgId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<ProfileQuestion> objs;
 
-            string method_name = "CachedGetProfileQuestionListByOrgId";
+            string method_name = "CachedGetProfileQuestionListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10790,7 +10790,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileQuestionListByOrgId(
+                objs = GetProfileQuestionListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10798,18 +10798,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileQuestion> GetProfileQuestionListByProfileId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListProfileId(
             string profile_id
         )  {
-            return act.GetProfileQuestionListByProfileId(
+            return act.GetProfileQuestionListProfileId(
             profile_id
             );
         }
         
-        public virtual ProfileQuestion GetProfileQuestionByProfileId(
+        public virtual ProfileQuestion GetProfileQuestionProfileId(
             string profile_id
         )  {
-            foreach (ProfileQuestion item in GetProfileQuestionListByProfileId(
+            foreach (ProfileQuestion item in GetProfileQuestionListProfileId(
             profile_id
             ))  {
                 return item;
@@ -10817,24 +10817,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByProfileId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListProfileId(
             string profile_id
         ) {
-            return CachedGetProfileQuestionListByProfileId(
+            return CachedGetProfileQuestionListProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
                 );
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByProfileId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListProfileId(
             bool overrideCache
             , int cacheHours
             , string profile_id
         ) {
             List<ProfileQuestion> objs;
 
-            string method_name = "CachedGetProfileQuestionListByProfileId";
+            string method_name = "CachedGetProfileQuestionListProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10850,7 +10850,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileQuestionListByProfileId(
+                objs = GetProfileQuestionListProfileId(
                     profile_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10858,18 +10858,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileQuestion> GetProfileQuestionListByQuestionId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListQuestionId(
             string question_id
         )  {
-            return act.GetProfileQuestionListByQuestionId(
+            return act.GetProfileQuestionListQuestionId(
             question_id
             );
         }
         
-        public virtual ProfileQuestion GetProfileQuestionByQuestionId(
+        public virtual ProfileQuestion GetProfileQuestionQuestionId(
             string question_id
         )  {
-            foreach (ProfileQuestion item in GetProfileQuestionListByQuestionId(
+            foreach (ProfileQuestion item in GetProfileQuestionListQuestionId(
             question_id
             ))  {
                 return item;
@@ -10877,24 +10877,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByQuestionId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListQuestionId(
             string question_id
         ) {
-            return CachedGetProfileQuestionListByQuestionId(
+            return CachedGetProfileQuestionListQuestionId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , question_id
                 );
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByQuestionId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListQuestionId(
             bool overrideCache
             , int cacheHours
             , string question_id
         ) {
             List<ProfileQuestion> objs;
 
-            string method_name = "CachedGetProfileQuestionListByQuestionId";
+            string method_name = "CachedGetProfileQuestionListQuestionId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10910,7 +10910,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileQuestionListByQuestionId(
+                objs = GetProfileQuestionListQuestionId(
                     question_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10918,21 +10918,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileQuestion> GetProfileQuestionListByChannelIdByOrgId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListChannelIdOrgId(
             string channel_id
             , string org_id
         )  {
-            return act.GetProfileQuestionListByChannelIdByOrgId(
+            return act.GetProfileQuestionListChannelIdOrgId(
             channel_id
             , org_id
             );
         }
         
-        public virtual ProfileQuestion GetProfileQuestionByChannelIdByOrgId(
+        public virtual ProfileQuestion GetProfileQuestionChannelIdOrgId(
             string channel_id
             , string org_id
         )  {
-            foreach (ProfileQuestion item in GetProfileQuestionListByChannelIdByOrgId(
+            foreach (ProfileQuestion item in GetProfileQuestionListChannelIdOrgId(
             channel_id
             , org_id
             ))  {
@@ -10941,11 +10941,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByChannelIdByOrgId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListChannelIdOrgId(
             string channel_id
             , string org_id
         ) {
-            return CachedGetProfileQuestionListByChannelIdByOrgId(
+            return CachedGetProfileQuestionListChannelIdOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , channel_id
@@ -10953,7 +10953,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByChannelIdByOrgId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListChannelIdOrgId(
             bool overrideCache
             , int cacheHours
             , string channel_id
@@ -10961,7 +10961,7 @@ namespace platform {
         ) {
             List<ProfileQuestion> objs;
 
-            string method_name = "CachedGetProfileQuestionListByChannelIdByOrgId";
+            string method_name = "CachedGetProfileQuestionListChannelIdOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -10981,7 +10981,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileQuestionListByChannelIdByOrgId(
+                objs = GetProfileQuestionListChannelIdOrgId(
                     channel_id
                     , org_id
                 );
@@ -10990,21 +10990,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileQuestion> GetProfileQuestionListByChannelIdByProfileId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {
-            return act.GetProfileQuestionListByChannelIdByProfileId(
+            return act.GetProfileQuestionListChannelIdProfileId(
             channel_id
             , profile_id
             );
         }
         
-        public virtual ProfileQuestion GetProfileQuestionByChannelIdByProfileId(
+        public virtual ProfileQuestion GetProfileQuestionChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {
-            foreach (ProfileQuestion item in GetProfileQuestionListByChannelIdByProfileId(
+            foreach (ProfileQuestion item in GetProfileQuestionListChannelIdProfileId(
             channel_id
             , profile_id
             ))  {
@@ -11013,11 +11013,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByChannelIdByProfileId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListChannelIdProfileId(
             string channel_id
             , string profile_id
         ) {
-            return CachedGetProfileQuestionListByChannelIdByProfileId(
+            return CachedGetProfileQuestionListChannelIdProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , channel_id
@@ -11025,7 +11025,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByChannelIdByProfileId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListChannelIdProfileId(
             bool overrideCache
             , int cacheHours
             , string channel_id
@@ -11033,7 +11033,7 @@ namespace platform {
         ) {
             List<ProfileQuestion> objs;
 
-            string method_name = "CachedGetProfileQuestionListByChannelIdByProfileId";
+            string method_name = "CachedGetProfileQuestionListChannelIdProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11053,7 +11053,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileQuestionListByChannelIdByProfileId(
+                objs = GetProfileQuestionListChannelIdProfileId(
                     channel_id
                     , profile_id
                 );
@@ -11062,21 +11062,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileQuestion> GetProfileQuestionListByQuestionIdByProfileId(
+        public virtual List<ProfileQuestion> GetProfileQuestionListQuestionIdProfileId(
             string question_id
             , string profile_id
         )  {
-            return act.GetProfileQuestionListByQuestionIdByProfileId(
+            return act.GetProfileQuestionListQuestionIdProfileId(
             question_id
             , profile_id
             );
         }
         
-        public virtual ProfileQuestion GetProfileQuestionByQuestionIdByProfileId(
+        public virtual ProfileQuestion GetProfileQuestionQuestionIdProfileId(
             string question_id
             , string profile_id
         )  {
-            foreach (ProfileQuestion item in GetProfileQuestionListByQuestionIdByProfileId(
+            foreach (ProfileQuestion item in GetProfileQuestionListQuestionIdProfileId(
             question_id
             , profile_id
             ))  {
@@ -11085,11 +11085,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByQuestionIdByProfileId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListQuestionIdProfileId(
             string question_id
             , string profile_id
         ) {
-            return CachedGetProfileQuestionListByQuestionIdByProfileId(
+            return CachedGetProfileQuestionListQuestionIdProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , question_id
@@ -11097,7 +11097,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<ProfileQuestion> CachedGetProfileQuestionListByQuestionIdByProfileId(
+        public virtual List<ProfileQuestion> CachedGetProfileQuestionListQuestionIdProfileId(
             bool overrideCache
             , int cacheHours
             , string question_id
@@ -11105,7 +11105,7 @@ namespace platform {
         ) {
             List<ProfileQuestion> objs;
 
-            string method_name = "CachedGetProfileQuestionListByQuestionIdByProfileId";
+            string method_name = "CachedGetProfileQuestionListQuestionIdProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11125,7 +11125,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileQuestionListByQuestionIdByProfileId(
+                objs = GetProfileQuestionListQuestionIdProfileId(
                     question_id
                     , profile_id
                 );
@@ -11140,81 +11140,81 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelByUuid(
+        public virtual int CountProfileChannelUuid(
             string uuid
         )  {            
-            return act.CountProfileChannelByUuid(
+            return act.CountProfileChannelUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelByChannelId(
+        public virtual int CountProfileChannelChannelId(
             string channel_id
         )  {            
-            return act.CountProfileChannelByChannelId(
+            return act.CountProfileChannelChannelId(
             channel_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelByProfileId(
+        public virtual int CountProfileChannelProfileId(
             string profile_id
         )  {            
-            return act.CountProfileChannelByProfileId(
+            return act.CountProfileChannelProfileId(
             profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelByChannelIdByProfileId(
+        public virtual int CountProfileChannelChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {            
-            return act.CountProfileChannelByChannelIdByProfileId(
+            return act.CountProfileChannelChannelIdProfileId(
             channel_id
             , profile_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual ProfileChannelResult BrowseProfileChannelListByFilter(SearchFilter obj)  {
-            return act.BrowseProfileChannelListByFilter(obj);
+        public virtual ProfileChannelResult BrowseProfileChannelListFilter(SearchFilter obj)  {
+            return act.BrowseProfileChannelListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileChannelByUuid(string set_type, ProfileChannel obj)  {
-            return act.SetProfileChannelByUuid(set_type, obj);
+        public virtual bool SetProfileChannelUuid(string set_type, ProfileChannel obj)  {
+            return act.SetProfileChannelUuid(set_type, obj);
         }
         
-        public virtual bool SetProfileChannelByUuid(SetType set_type, ProfileChannel obj)  {
-            return act.SetProfileChannelByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileChannelUuid(SetType set_type, ProfileChannel obj)  {
+            return act.SetProfileChannelUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileChannelByUuid(ProfileChannel obj)  {
-            return act.SetProfileChannelByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileChannelUuid(ProfileChannel obj)  {
+            return act.SetProfileChannelUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileChannelByChannelIdByProfileId(string set_type, ProfileChannel obj)  {
-            return act.SetProfileChannelByChannelIdByProfileId(set_type, obj);
+        public virtual bool SetProfileChannelChannelIdProfileId(string set_type, ProfileChannel obj)  {
+            return act.SetProfileChannelChannelIdProfileId(set_type, obj);
         }
         
-        public virtual bool SetProfileChannelByChannelIdByProfileId(SetType set_type, ProfileChannel obj)  {
-            return act.SetProfileChannelByChannelIdByProfileId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetProfileChannelChannelIdProfileId(SetType set_type, ProfileChannel obj)  {
+            return act.SetProfileChannelChannelIdProfileId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetProfileChannelByChannelIdByProfileId(ProfileChannel obj)  {
-            return act.SetProfileChannelByChannelIdByProfileId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetProfileChannelChannelIdProfileId(ProfileChannel obj)  {
+            return act.SetProfileChannelChannelIdProfileId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileChannelByUuid(
+        public virtual bool DelProfileChannelUuid(
             string uuid
         )  {            
-            return act.DelProfileChannelByUuid(
+            return act.DelProfileChannelUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileChannelByChannelIdByProfileId(
+        public virtual bool DelProfileChannelChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {            
-            return act.DelProfileChannelByChannelIdByProfileId(
+            return act.DelProfileChannelChannelIdProfileId(
             channel_id
             , profile_id
             );
@@ -11268,18 +11268,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileChannel> GetProfileChannelListByUuid(
+        public virtual List<ProfileChannel> GetProfileChannelListUuid(
             string uuid
         )  {
-            return act.GetProfileChannelListByUuid(
+            return act.GetProfileChannelListUuid(
             uuid
             );
         }
         
-        public virtual ProfileChannel GetProfileChannelByUuid(
+        public virtual ProfileChannel GetProfileChannelUuid(
             string uuid
         )  {
-            foreach (ProfileChannel item in GetProfileChannelListByUuid(
+            foreach (ProfileChannel item in GetProfileChannelListUuid(
             uuid
             ))  {
                 return item;
@@ -11287,24 +11287,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileChannel> CachedGetProfileChannelListByUuid(
+        public virtual List<ProfileChannel> CachedGetProfileChannelListUuid(
             string uuid
         ) {
-            return CachedGetProfileChannelListByUuid(
+            return CachedGetProfileChannelListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<ProfileChannel> CachedGetProfileChannelListByUuid(
+        public virtual List<ProfileChannel> CachedGetProfileChannelListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<ProfileChannel> objs;
 
-            string method_name = "CachedGetProfileChannelListByUuid";
+            string method_name = "CachedGetProfileChannelListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11320,7 +11320,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileChannelListByUuid(
+                objs = GetProfileChannelListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11328,18 +11328,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileChannel> GetProfileChannelListByChannelId(
+        public virtual List<ProfileChannel> GetProfileChannelListChannelId(
             string channel_id
         )  {
-            return act.GetProfileChannelListByChannelId(
+            return act.GetProfileChannelListChannelId(
             channel_id
             );
         }
         
-        public virtual ProfileChannel GetProfileChannelByChannelId(
+        public virtual ProfileChannel GetProfileChannelChannelId(
             string channel_id
         )  {
-            foreach (ProfileChannel item in GetProfileChannelListByChannelId(
+            foreach (ProfileChannel item in GetProfileChannelListChannelId(
             channel_id
             ))  {
                 return item;
@@ -11347,24 +11347,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileChannel> CachedGetProfileChannelListByChannelId(
+        public virtual List<ProfileChannel> CachedGetProfileChannelListChannelId(
             string channel_id
         ) {
-            return CachedGetProfileChannelListByChannelId(
+            return CachedGetProfileChannelListChannelId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , channel_id
                 );
         }
         
-        public virtual List<ProfileChannel> CachedGetProfileChannelListByChannelId(
+        public virtual List<ProfileChannel> CachedGetProfileChannelListChannelId(
             bool overrideCache
             , int cacheHours
             , string channel_id
         ) {
             List<ProfileChannel> objs;
 
-            string method_name = "CachedGetProfileChannelListByChannelId";
+            string method_name = "CachedGetProfileChannelListChannelId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11380,7 +11380,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileChannelListByChannelId(
+                objs = GetProfileChannelListChannelId(
                     channel_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11388,18 +11388,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileChannel> GetProfileChannelListByProfileId(
+        public virtual List<ProfileChannel> GetProfileChannelListProfileId(
             string profile_id
         )  {
-            return act.GetProfileChannelListByProfileId(
+            return act.GetProfileChannelListProfileId(
             profile_id
             );
         }
         
-        public virtual ProfileChannel GetProfileChannelByProfileId(
+        public virtual ProfileChannel GetProfileChannelProfileId(
             string profile_id
         )  {
-            foreach (ProfileChannel item in GetProfileChannelListByProfileId(
+            foreach (ProfileChannel item in GetProfileChannelListProfileId(
             profile_id
             ))  {
                 return item;
@@ -11407,24 +11407,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileChannel> CachedGetProfileChannelListByProfileId(
+        public virtual List<ProfileChannel> CachedGetProfileChannelListProfileId(
             string profile_id
         ) {
-            return CachedGetProfileChannelListByProfileId(
+            return CachedGetProfileChannelListProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , profile_id
                 );
         }
         
-        public virtual List<ProfileChannel> CachedGetProfileChannelListByProfileId(
+        public virtual List<ProfileChannel> CachedGetProfileChannelListProfileId(
             bool overrideCache
             , int cacheHours
             , string profile_id
         ) {
             List<ProfileChannel> objs;
 
-            string method_name = "CachedGetProfileChannelListByProfileId";
+            string method_name = "CachedGetProfileChannelListProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11440,7 +11440,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileChannelListByProfileId(
+                objs = GetProfileChannelListProfileId(
                     profile_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11448,21 +11448,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<ProfileChannel> GetProfileChannelListByChannelIdByProfileId(
+        public virtual List<ProfileChannel> GetProfileChannelListChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {
-            return act.GetProfileChannelListByChannelIdByProfileId(
+            return act.GetProfileChannelListChannelIdProfileId(
             channel_id
             , profile_id
             );
         }
         
-        public virtual ProfileChannel GetProfileChannelByChannelIdByProfileId(
+        public virtual ProfileChannel GetProfileChannelChannelIdProfileId(
             string channel_id
             , string profile_id
         )  {
-            foreach (ProfileChannel item in GetProfileChannelListByChannelIdByProfileId(
+            foreach (ProfileChannel item in GetProfileChannelListChannelIdProfileId(
             channel_id
             , profile_id
             ))  {
@@ -11471,11 +11471,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<ProfileChannel> CachedGetProfileChannelListByChannelIdByProfileId(
+        public virtual List<ProfileChannel> CachedGetProfileChannelListChannelIdProfileId(
             string channel_id
             , string profile_id
         ) {
-            return CachedGetProfileChannelListByChannelIdByProfileId(
+            return CachedGetProfileChannelListChannelIdProfileId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , channel_id
@@ -11483,7 +11483,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<ProfileChannel> CachedGetProfileChannelListByChannelIdByProfileId(
+        public virtual List<ProfileChannel> CachedGetProfileChannelListChannelIdProfileId(
             bool overrideCache
             , int cacheHours
             , string channel_id
@@ -11491,7 +11491,7 @@ namespace platform {
         ) {
             List<ProfileChannel> objs;
 
-            string method_name = "CachedGetProfileChannelListByChannelIdByProfileId";
+            string method_name = "CachedGetProfileChannelListChannelIdProfileId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11511,7 +11511,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetProfileChannelListByChannelIdByProfileId(
+                objs = GetProfileChannelListChannelIdProfileId(
                     channel_id
                     , profile_id
                 );
@@ -11526,81 +11526,81 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteByUuid(
+        public virtual int CountOrgSiteUuid(
             string uuid
         )  {            
-            return act.CountOrgSiteByUuid(
+            return act.CountOrgSiteUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteByOrgId(
+        public virtual int CountOrgSiteOrgId(
             string org_id
         )  {            
-            return act.CountOrgSiteByOrgId(
+            return act.CountOrgSiteOrgId(
             org_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteBySiteId(
+        public virtual int CountOrgSiteSiteId(
             string site_id
         )  {            
-            return act.CountOrgSiteBySiteId(
+            return act.CountOrgSiteSiteId(
             site_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteByOrgIdBySiteId(
+        public virtual int CountOrgSiteOrgIdSiteId(
             string org_id
             , string site_id
         )  {            
-            return act.CountOrgSiteByOrgIdBySiteId(
+            return act.CountOrgSiteOrgIdSiteId(
             org_id
             , site_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual OrgSiteResult BrowseOrgSiteListByFilter(SearchFilter obj)  {
-            return act.BrowseOrgSiteListByFilter(obj);
+        public virtual OrgSiteResult BrowseOrgSiteListFilter(SearchFilter obj)  {
+            return act.BrowseOrgSiteListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgSiteByUuid(string set_type, OrgSite obj)  {
-            return act.SetOrgSiteByUuid(set_type, obj);
+        public virtual bool SetOrgSiteUuid(string set_type, OrgSite obj)  {
+            return act.SetOrgSiteUuid(set_type, obj);
         }
         
-        public virtual bool SetOrgSiteByUuid(SetType set_type, OrgSite obj)  {
-            return act.SetOrgSiteByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOrgSiteUuid(SetType set_type, OrgSite obj)  {
+            return act.SetOrgSiteUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOrgSiteByUuid(OrgSite obj)  {
-            return act.SetOrgSiteByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOrgSiteUuid(OrgSite obj)  {
+            return act.SetOrgSiteUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgSiteByOrgIdBySiteId(string set_type, OrgSite obj)  {
-            return act.SetOrgSiteByOrgIdBySiteId(set_type, obj);
+        public virtual bool SetOrgSiteOrgIdSiteId(string set_type, OrgSite obj)  {
+            return act.SetOrgSiteOrgIdSiteId(set_type, obj);
         }
         
-        public virtual bool SetOrgSiteByOrgIdBySiteId(SetType set_type, OrgSite obj)  {
-            return act.SetOrgSiteByOrgIdBySiteId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetOrgSiteOrgIdSiteId(SetType set_type, OrgSite obj)  {
+            return act.SetOrgSiteOrgIdSiteId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetOrgSiteByOrgIdBySiteId(OrgSite obj)  {
-            return act.SetOrgSiteByOrgIdBySiteId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetOrgSiteOrgIdSiteId(OrgSite obj)  {
+            return act.SetOrgSiteOrgIdSiteId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgSiteByUuid(
+        public virtual bool DelOrgSiteUuid(
             string uuid
         )  {            
-            return act.DelOrgSiteByUuid(
+            return act.DelOrgSiteUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgSiteByOrgIdBySiteId(
+        public virtual bool DelOrgSiteOrgIdSiteId(
             string org_id
             , string site_id
         )  {            
-            return act.DelOrgSiteByOrgIdBySiteId(
+            return act.DelOrgSiteOrgIdSiteId(
             org_id
             , site_id
             );
@@ -11654,18 +11654,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OrgSite> GetOrgSiteListByUuid(
+        public virtual List<OrgSite> GetOrgSiteListUuid(
             string uuid
         )  {
-            return act.GetOrgSiteListByUuid(
+            return act.GetOrgSiteListUuid(
             uuid
             );
         }
         
-        public virtual OrgSite GetOrgSiteByUuid(
+        public virtual OrgSite GetOrgSiteUuid(
             string uuid
         )  {
-            foreach (OrgSite item in GetOrgSiteListByUuid(
+            foreach (OrgSite item in GetOrgSiteListUuid(
             uuid
             ))  {
                 return item;
@@ -11673,24 +11673,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OrgSite> CachedGetOrgSiteListByUuid(
+        public virtual List<OrgSite> CachedGetOrgSiteListUuid(
             string uuid
         ) {
-            return CachedGetOrgSiteListByUuid(
+            return CachedGetOrgSiteListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<OrgSite> CachedGetOrgSiteListByUuid(
+        public virtual List<OrgSite> CachedGetOrgSiteListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<OrgSite> objs;
 
-            string method_name = "CachedGetOrgSiteListByUuid";
+            string method_name = "CachedGetOrgSiteListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11706,7 +11706,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgSiteListByUuid(
+                objs = GetOrgSiteListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11714,18 +11714,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OrgSite> GetOrgSiteListByOrgId(
+        public virtual List<OrgSite> GetOrgSiteListOrgId(
             string org_id
         )  {
-            return act.GetOrgSiteListByOrgId(
+            return act.GetOrgSiteListOrgId(
             org_id
             );
         }
         
-        public virtual OrgSite GetOrgSiteByOrgId(
+        public virtual OrgSite GetOrgSiteOrgId(
             string org_id
         )  {
-            foreach (OrgSite item in GetOrgSiteListByOrgId(
+            foreach (OrgSite item in GetOrgSiteListOrgId(
             org_id
             ))  {
                 return item;
@@ -11733,24 +11733,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OrgSite> CachedGetOrgSiteListByOrgId(
+        public virtual List<OrgSite> CachedGetOrgSiteListOrgId(
             string org_id
         ) {
-            return CachedGetOrgSiteListByOrgId(
+            return CachedGetOrgSiteListOrgId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
                 );
         }
         
-        public virtual List<OrgSite> CachedGetOrgSiteListByOrgId(
+        public virtual List<OrgSite> CachedGetOrgSiteListOrgId(
             bool overrideCache
             , int cacheHours
             , string org_id
         ) {
             List<OrgSite> objs;
 
-            string method_name = "CachedGetOrgSiteListByOrgId";
+            string method_name = "CachedGetOrgSiteListOrgId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11766,7 +11766,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgSiteListByOrgId(
+                objs = GetOrgSiteListOrgId(
                     org_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11774,18 +11774,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OrgSite> GetOrgSiteListBySiteId(
+        public virtual List<OrgSite> GetOrgSiteListSiteId(
             string site_id
         )  {
-            return act.GetOrgSiteListBySiteId(
+            return act.GetOrgSiteListSiteId(
             site_id
             );
         }
         
-        public virtual OrgSite GetOrgSiteBySiteId(
+        public virtual OrgSite GetOrgSiteSiteId(
             string site_id
         )  {
-            foreach (OrgSite item in GetOrgSiteListBySiteId(
+            foreach (OrgSite item in GetOrgSiteListSiteId(
             site_id
             ))  {
                 return item;
@@ -11793,24 +11793,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OrgSite> CachedGetOrgSiteListBySiteId(
+        public virtual List<OrgSite> CachedGetOrgSiteListSiteId(
             string site_id
         ) {
-            return CachedGetOrgSiteListBySiteId(
+            return CachedGetOrgSiteListSiteId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , site_id
                 );
         }
         
-        public virtual List<OrgSite> CachedGetOrgSiteListBySiteId(
+        public virtual List<OrgSite> CachedGetOrgSiteListSiteId(
             bool overrideCache
             , int cacheHours
             , string site_id
         ) {
             List<OrgSite> objs;
 
-            string method_name = "CachedGetOrgSiteListBySiteId";
+            string method_name = "CachedGetOrgSiteListSiteId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11826,7 +11826,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgSiteListBySiteId(
+                objs = GetOrgSiteListSiteId(
                     site_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11834,21 +11834,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<OrgSite> GetOrgSiteListByOrgIdBySiteId(
+        public virtual List<OrgSite> GetOrgSiteListOrgIdSiteId(
             string org_id
             , string site_id
         )  {
-            return act.GetOrgSiteListByOrgIdBySiteId(
+            return act.GetOrgSiteListOrgIdSiteId(
             org_id
             , site_id
             );
         }
         
-        public virtual OrgSite GetOrgSiteByOrgIdBySiteId(
+        public virtual OrgSite GetOrgSiteOrgIdSiteId(
             string org_id
             , string site_id
         )  {
-            foreach (OrgSite item in GetOrgSiteListByOrgIdBySiteId(
+            foreach (OrgSite item in GetOrgSiteListOrgIdSiteId(
             org_id
             , site_id
             ))  {
@@ -11857,11 +11857,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<OrgSite> CachedGetOrgSiteListByOrgIdBySiteId(
+        public virtual List<OrgSite> CachedGetOrgSiteListOrgIdSiteId(
             string org_id
             , string site_id
         ) {
-            return CachedGetOrgSiteListByOrgIdBySiteId(
+            return CachedGetOrgSiteListOrgIdSiteId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , org_id
@@ -11869,7 +11869,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<OrgSite> CachedGetOrgSiteListByOrgIdBySiteId(
+        public virtual List<OrgSite> CachedGetOrgSiteListOrgIdSiteId(
             bool overrideCache
             , int cacheHours
             , string org_id
@@ -11877,7 +11877,7 @@ namespace platform {
         ) {
             List<OrgSite> objs;
 
-            string method_name = "CachedGetOrgSiteListByOrgIdBySiteId";
+            string method_name = "CachedGetOrgSiteListOrgIdSiteId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -11897,7 +11897,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetOrgSiteListByOrgIdBySiteId(
+                objs = GetOrgSiteListOrgIdSiteId(
                     org_id
                     , site_id
                 );
@@ -11912,81 +11912,81 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppByUuid(
+        public virtual int CountSiteAppUuid(
             string uuid
         )  {            
-            return act.CountSiteAppByUuid(
+            return act.CountSiteAppUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppByAppId(
+        public virtual int CountSiteAppAppId(
             string app_id
         )  {            
-            return act.CountSiteAppByAppId(
+            return act.CountSiteAppAppId(
             app_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppBySiteId(
+        public virtual int CountSiteAppSiteId(
             string site_id
         )  {            
-            return act.CountSiteAppBySiteId(
+            return act.CountSiteAppSiteId(
             site_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppByAppIdBySiteId(
+        public virtual int CountSiteAppAppIdSiteId(
             string app_id
             , string site_id
         )  {            
-            return act.CountSiteAppByAppIdBySiteId(
+            return act.CountSiteAppAppIdSiteId(
             app_id
             , site_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual SiteAppResult BrowseSiteAppListByFilter(SearchFilter obj)  {
-            return act.BrowseSiteAppListByFilter(obj);
+        public virtual SiteAppResult BrowseSiteAppListFilter(SearchFilter obj)  {
+            return act.BrowseSiteAppListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteAppByUuid(string set_type, SiteApp obj)  {
-            return act.SetSiteAppByUuid(set_type, obj);
+        public virtual bool SetSiteAppUuid(string set_type, SiteApp obj)  {
+            return act.SetSiteAppUuid(set_type, obj);
         }
         
-        public virtual bool SetSiteAppByUuid(SetType set_type, SiteApp obj)  {
-            return act.SetSiteAppByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetSiteAppUuid(SetType set_type, SiteApp obj)  {
+            return act.SetSiteAppUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetSiteAppByUuid(SiteApp obj)  {
-            return act.SetSiteAppByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetSiteAppUuid(SiteApp obj)  {
+            return act.SetSiteAppUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteAppByAppIdBySiteId(string set_type, SiteApp obj)  {
-            return act.SetSiteAppByAppIdBySiteId(set_type, obj);
+        public virtual bool SetSiteAppAppIdSiteId(string set_type, SiteApp obj)  {
+            return act.SetSiteAppAppIdSiteId(set_type, obj);
         }
         
-        public virtual bool SetSiteAppByAppIdBySiteId(SetType set_type, SiteApp obj)  {
-            return act.SetSiteAppByAppIdBySiteId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetSiteAppAppIdSiteId(SetType set_type, SiteApp obj)  {
+            return act.SetSiteAppAppIdSiteId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetSiteAppByAppIdBySiteId(SiteApp obj)  {
-            return act.SetSiteAppByAppIdBySiteId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetSiteAppAppIdSiteId(SiteApp obj)  {
+            return act.SetSiteAppAppIdSiteId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteAppByUuid(
+        public virtual bool DelSiteAppUuid(
             string uuid
         )  {            
-            return act.DelSiteAppByUuid(
+            return act.DelSiteAppUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteAppByAppIdBySiteId(
+        public virtual bool DelSiteAppAppIdSiteId(
             string app_id
             , string site_id
         )  {            
-            return act.DelSiteAppByAppIdBySiteId(
+            return act.DelSiteAppAppIdSiteId(
             app_id
             , site_id
             );
@@ -12040,18 +12040,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<SiteApp> GetSiteAppListByUuid(
+        public virtual List<SiteApp> GetSiteAppListUuid(
             string uuid
         )  {
-            return act.GetSiteAppListByUuid(
+            return act.GetSiteAppListUuid(
             uuid
             );
         }
         
-        public virtual SiteApp GetSiteAppByUuid(
+        public virtual SiteApp GetSiteAppUuid(
             string uuid
         )  {
-            foreach (SiteApp item in GetSiteAppListByUuid(
+            foreach (SiteApp item in GetSiteAppListUuid(
             uuid
             ))  {
                 return item;
@@ -12059,24 +12059,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<SiteApp> CachedGetSiteAppListByUuid(
+        public virtual List<SiteApp> CachedGetSiteAppListUuid(
             string uuid
         ) {
-            return CachedGetSiteAppListByUuid(
+            return CachedGetSiteAppListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<SiteApp> CachedGetSiteAppListByUuid(
+        public virtual List<SiteApp> CachedGetSiteAppListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<SiteApp> objs;
 
-            string method_name = "CachedGetSiteAppListByUuid";
+            string method_name = "CachedGetSiteAppListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12092,7 +12092,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteAppListByUuid(
+                objs = GetSiteAppListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12100,18 +12100,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<SiteApp> GetSiteAppListByAppId(
+        public virtual List<SiteApp> GetSiteAppListAppId(
             string app_id
         )  {
-            return act.GetSiteAppListByAppId(
+            return act.GetSiteAppListAppId(
             app_id
             );
         }
         
-        public virtual SiteApp GetSiteAppByAppId(
+        public virtual SiteApp GetSiteAppAppId(
             string app_id
         )  {
-            foreach (SiteApp item in GetSiteAppListByAppId(
+            foreach (SiteApp item in GetSiteAppListAppId(
             app_id
             ))  {
                 return item;
@@ -12119,24 +12119,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<SiteApp> CachedGetSiteAppListByAppId(
+        public virtual List<SiteApp> CachedGetSiteAppListAppId(
             string app_id
         ) {
-            return CachedGetSiteAppListByAppId(
+            return CachedGetSiteAppListAppId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , app_id
                 );
         }
         
-        public virtual List<SiteApp> CachedGetSiteAppListByAppId(
+        public virtual List<SiteApp> CachedGetSiteAppListAppId(
             bool overrideCache
             , int cacheHours
             , string app_id
         ) {
             List<SiteApp> objs;
 
-            string method_name = "CachedGetSiteAppListByAppId";
+            string method_name = "CachedGetSiteAppListAppId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12152,7 +12152,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteAppListByAppId(
+                objs = GetSiteAppListAppId(
                     app_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12160,18 +12160,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<SiteApp> GetSiteAppListBySiteId(
+        public virtual List<SiteApp> GetSiteAppListSiteId(
             string site_id
         )  {
-            return act.GetSiteAppListBySiteId(
+            return act.GetSiteAppListSiteId(
             site_id
             );
         }
         
-        public virtual SiteApp GetSiteAppBySiteId(
+        public virtual SiteApp GetSiteAppSiteId(
             string site_id
         )  {
-            foreach (SiteApp item in GetSiteAppListBySiteId(
+            foreach (SiteApp item in GetSiteAppListSiteId(
             site_id
             ))  {
                 return item;
@@ -12179,24 +12179,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<SiteApp> CachedGetSiteAppListBySiteId(
+        public virtual List<SiteApp> CachedGetSiteAppListSiteId(
             string site_id
         ) {
-            return CachedGetSiteAppListBySiteId(
+            return CachedGetSiteAppListSiteId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , site_id
                 );
         }
         
-        public virtual List<SiteApp> CachedGetSiteAppListBySiteId(
+        public virtual List<SiteApp> CachedGetSiteAppListSiteId(
             bool overrideCache
             , int cacheHours
             , string site_id
         ) {
             List<SiteApp> objs;
 
-            string method_name = "CachedGetSiteAppListBySiteId";
+            string method_name = "CachedGetSiteAppListSiteId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12212,7 +12212,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteAppListBySiteId(
+                objs = GetSiteAppListSiteId(
                     site_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12220,21 +12220,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<SiteApp> GetSiteAppListByAppIdBySiteId(
+        public virtual List<SiteApp> GetSiteAppListAppIdSiteId(
             string app_id
             , string site_id
         )  {
-            return act.GetSiteAppListByAppIdBySiteId(
+            return act.GetSiteAppListAppIdSiteId(
             app_id
             , site_id
             );
         }
         
-        public virtual SiteApp GetSiteAppByAppIdBySiteId(
+        public virtual SiteApp GetSiteAppAppIdSiteId(
             string app_id
             , string site_id
         )  {
-            foreach (SiteApp item in GetSiteAppListByAppIdBySiteId(
+            foreach (SiteApp item in GetSiteAppListAppIdSiteId(
             app_id
             , site_id
             ))  {
@@ -12243,11 +12243,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<SiteApp> CachedGetSiteAppListByAppIdBySiteId(
+        public virtual List<SiteApp> CachedGetSiteAppListAppIdSiteId(
             string app_id
             , string site_id
         ) {
-            return CachedGetSiteAppListByAppIdBySiteId(
+            return CachedGetSiteAppListAppIdSiteId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , app_id
@@ -12255,7 +12255,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<SiteApp> CachedGetSiteAppListByAppIdBySiteId(
+        public virtual List<SiteApp> CachedGetSiteAppListAppIdSiteId(
             bool overrideCache
             , int cacheHours
             , string app_id
@@ -12263,7 +12263,7 @@ namespace platform {
         ) {
             List<SiteApp> objs;
 
-            string method_name = "CachedGetSiteAppListByAppIdBySiteId";
+            string method_name = "CachedGetSiteAppListAppIdSiteId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12283,7 +12283,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetSiteAppListByAppIdBySiteId(
+                objs = GetSiteAppListAppIdSiteId(
                     app_id
                     , site_id
                 );
@@ -12298,153 +12298,153 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoByUuid(
+        public virtual int CountPhotoUuid(
             string uuid
         )  {            
-            return act.CountPhotoByUuid(
+            return act.CountPhotoUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoByExternalId(
+        public virtual int CountPhotoExternalId(
             string external_id
         )  {            
-            return act.CountPhotoByExternalId(
+            return act.CountPhotoExternalId(
             external_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoByUrl(
+        public virtual int CountPhotoUrl(
             string url
         )  {            
-            return act.CountPhotoByUrl(
+            return act.CountPhotoUrl(
             url
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoByUrlByExternalId(
+        public virtual int CountPhotoUrlExternalId(
             string url
             , string external_id
         )  {            
-            return act.CountPhotoByUrlByExternalId(
+            return act.CountPhotoUrlExternalId(
             url
             , external_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoByUuidByExternalId(
+        public virtual int CountPhotoUuidExternalId(
             string uuid
             , string external_id
         )  {            
-            return act.CountPhotoByUuidByExternalId(
+            return act.CountPhotoUuidExternalId(
             uuid
             , external_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual PhotoResult BrowsePhotoListByFilter(SearchFilter obj)  {
-            return act.BrowsePhotoListByFilter(obj);
+        public virtual PhotoResult BrowsePhotoListFilter(SearchFilter obj)  {
+            return act.BrowsePhotoListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoByUuid(string set_type, Photo obj)  {
-            return act.SetPhotoByUuid(set_type, obj);
+        public virtual bool SetPhotoUuid(string set_type, Photo obj)  {
+            return act.SetPhotoUuid(set_type, obj);
         }
         
-        public virtual bool SetPhotoByUuid(SetType set_type, Photo obj)  {
-            return act.SetPhotoByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetPhotoUuid(SetType set_type, Photo obj)  {
+            return act.SetPhotoUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetPhotoByUuid(Photo obj)  {
-            return act.SetPhotoByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetPhotoUuid(Photo obj)  {
+            return act.SetPhotoUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoByExternalId(string set_type, Photo obj)  {
-            return act.SetPhotoByExternalId(set_type, obj);
+        public virtual bool SetPhotoExternalId(string set_type, Photo obj)  {
+            return act.SetPhotoExternalId(set_type, obj);
         }
         
-        public virtual bool SetPhotoByExternalId(SetType set_type, Photo obj)  {
-            return act.SetPhotoByExternalId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetPhotoExternalId(SetType set_type, Photo obj)  {
+            return act.SetPhotoExternalId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetPhotoByExternalId(Photo obj)  {
-            return act.SetPhotoByExternalId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetPhotoExternalId(Photo obj)  {
+            return act.SetPhotoExternalId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoByUrl(string set_type, Photo obj)  {
-            return act.SetPhotoByUrl(set_type, obj);
+        public virtual bool SetPhotoUrl(string set_type, Photo obj)  {
+            return act.SetPhotoUrl(set_type, obj);
         }
         
-        public virtual bool SetPhotoByUrl(SetType set_type, Photo obj)  {
-            return act.SetPhotoByUrl(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetPhotoUrl(SetType set_type, Photo obj)  {
+            return act.SetPhotoUrl(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetPhotoByUrl(Photo obj)  {
-            return act.SetPhotoByUrl(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetPhotoUrl(Photo obj)  {
+            return act.SetPhotoUrl(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoByUrlByExternalId(string set_type, Photo obj)  {
-            return act.SetPhotoByUrlByExternalId(set_type, obj);
+        public virtual bool SetPhotoUrlExternalId(string set_type, Photo obj)  {
+            return act.SetPhotoUrlExternalId(set_type, obj);
         }
         
-        public virtual bool SetPhotoByUrlByExternalId(SetType set_type, Photo obj)  {
-            return act.SetPhotoByUrlByExternalId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetPhotoUrlExternalId(SetType set_type, Photo obj)  {
+            return act.SetPhotoUrlExternalId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetPhotoByUrlByExternalId(Photo obj)  {
-            return act.SetPhotoByUrlByExternalId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetPhotoUrlExternalId(Photo obj)  {
+            return act.SetPhotoUrlExternalId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoByUuidByExternalId(string set_type, Photo obj)  {
-            return act.SetPhotoByUuidByExternalId(set_type, obj);
+        public virtual bool SetPhotoUuidExternalId(string set_type, Photo obj)  {
+            return act.SetPhotoUuidExternalId(set_type, obj);
         }
         
-        public virtual bool SetPhotoByUuidByExternalId(SetType set_type, Photo obj)  {
-            return act.SetPhotoByUuidByExternalId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetPhotoUuidExternalId(SetType set_type, Photo obj)  {
+            return act.SetPhotoUuidExternalId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetPhotoByUuidByExternalId(Photo obj)  {
-            return act.SetPhotoByUuidByExternalId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetPhotoUuidExternalId(Photo obj)  {
+            return act.SetPhotoUuidExternalId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoByUuid(
+        public virtual bool DelPhotoUuid(
             string uuid
         )  {            
-            return act.DelPhotoByUuid(
+            return act.DelPhotoUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoByExternalId(
+        public virtual bool DelPhotoExternalId(
             string external_id
         )  {            
-            return act.DelPhotoByExternalId(
+            return act.DelPhotoExternalId(
             external_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoByUrl(
+        public virtual bool DelPhotoUrl(
             string url
         )  {            
-            return act.DelPhotoByUrl(
+            return act.DelPhotoUrl(
             url
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoByUrlByExternalId(
+        public virtual bool DelPhotoUrlExternalId(
             string url
             , string external_id
         )  {            
-            return act.DelPhotoByUrlByExternalId(
+            return act.DelPhotoUrlExternalId(
             url
             , external_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoByUuidByExternalId(
+        public virtual bool DelPhotoUuidExternalId(
             string uuid
             , string external_id
         )  {            
-            return act.DelPhotoByUuidByExternalId(
+            return act.DelPhotoUuidExternalId(
             uuid
             , external_id
             );
@@ -12498,18 +12498,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Photo> GetPhotoListByUuid(
+        public virtual List<Photo> GetPhotoListUuid(
             string uuid
         )  {
-            return act.GetPhotoListByUuid(
+            return act.GetPhotoListUuid(
             uuid
             );
         }
         
-        public virtual Photo GetPhotoByUuid(
+        public virtual Photo GetPhotoUuid(
             string uuid
         )  {
-            foreach (Photo item in GetPhotoListByUuid(
+            foreach (Photo item in GetPhotoListUuid(
             uuid
             ))  {
                 return item;
@@ -12517,24 +12517,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Photo> CachedGetPhotoListByUuid(
+        public virtual List<Photo> CachedGetPhotoListUuid(
             string uuid
         ) {
-            return CachedGetPhotoListByUuid(
+            return CachedGetPhotoListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Photo> CachedGetPhotoListByUuid(
+        public virtual List<Photo> CachedGetPhotoListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Photo> objs;
 
-            string method_name = "CachedGetPhotoListByUuid";
+            string method_name = "CachedGetPhotoListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12550,7 +12550,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetPhotoListByUuid(
+                objs = GetPhotoListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12558,18 +12558,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Photo> GetPhotoListByExternalId(
+        public virtual List<Photo> GetPhotoListExternalId(
             string external_id
         )  {
-            return act.GetPhotoListByExternalId(
+            return act.GetPhotoListExternalId(
             external_id
             );
         }
         
-        public virtual Photo GetPhotoByExternalId(
+        public virtual Photo GetPhotoExternalId(
             string external_id
         )  {
-            foreach (Photo item in GetPhotoListByExternalId(
+            foreach (Photo item in GetPhotoListExternalId(
             external_id
             ))  {
                 return item;
@@ -12577,24 +12577,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Photo> CachedGetPhotoListByExternalId(
+        public virtual List<Photo> CachedGetPhotoListExternalId(
             string external_id
         ) {
-            return CachedGetPhotoListByExternalId(
+            return CachedGetPhotoListExternalId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , external_id
                 );
         }
         
-        public virtual List<Photo> CachedGetPhotoListByExternalId(
+        public virtual List<Photo> CachedGetPhotoListExternalId(
             bool overrideCache
             , int cacheHours
             , string external_id
         ) {
             List<Photo> objs;
 
-            string method_name = "CachedGetPhotoListByExternalId";
+            string method_name = "CachedGetPhotoListExternalId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12610,7 +12610,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetPhotoListByExternalId(
+                objs = GetPhotoListExternalId(
                     external_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12618,18 +12618,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Photo> GetPhotoListByUrl(
+        public virtual List<Photo> GetPhotoListUrl(
             string url
         )  {
-            return act.GetPhotoListByUrl(
+            return act.GetPhotoListUrl(
             url
             );
         }
         
-        public virtual Photo GetPhotoByUrl(
+        public virtual Photo GetPhotoUrl(
             string url
         )  {
-            foreach (Photo item in GetPhotoListByUrl(
+            foreach (Photo item in GetPhotoListUrl(
             url
             ))  {
                 return item;
@@ -12637,24 +12637,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Photo> CachedGetPhotoListByUrl(
+        public virtual List<Photo> CachedGetPhotoListUrl(
             string url
         ) {
-            return CachedGetPhotoListByUrl(
+            return CachedGetPhotoListUrl(
                     false
                     , CACHE_DEFAULT_HOURS
                     , url
                 );
         }
         
-        public virtual List<Photo> CachedGetPhotoListByUrl(
+        public virtual List<Photo> CachedGetPhotoListUrl(
             bool overrideCache
             , int cacheHours
             , string url
         ) {
             List<Photo> objs;
 
-            string method_name = "CachedGetPhotoListByUrl";
+            string method_name = "CachedGetPhotoListUrl";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12670,7 +12670,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetPhotoListByUrl(
+                objs = GetPhotoListUrl(
                     url
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12678,21 +12678,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Photo> GetPhotoListByUrlByExternalId(
+        public virtual List<Photo> GetPhotoListUrlExternalId(
             string url
             , string external_id
         )  {
-            return act.GetPhotoListByUrlByExternalId(
+            return act.GetPhotoListUrlExternalId(
             url
             , external_id
             );
         }
         
-        public virtual Photo GetPhotoByUrlByExternalId(
+        public virtual Photo GetPhotoUrlExternalId(
             string url
             , string external_id
         )  {
-            foreach (Photo item in GetPhotoListByUrlByExternalId(
+            foreach (Photo item in GetPhotoListUrlExternalId(
             url
             , external_id
             ))  {
@@ -12701,11 +12701,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Photo> CachedGetPhotoListByUrlByExternalId(
+        public virtual List<Photo> CachedGetPhotoListUrlExternalId(
             string url
             , string external_id
         ) {
-            return CachedGetPhotoListByUrlByExternalId(
+            return CachedGetPhotoListUrlExternalId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , url
@@ -12713,7 +12713,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Photo> CachedGetPhotoListByUrlByExternalId(
+        public virtual List<Photo> CachedGetPhotoListUrlExternalId(
             bool overrideCache
             , int cacheHours
             , string url
@@ -12721,7 +12721,7 @@ namespace platform {
         ) {
             List<Photo> objs;
 
-            string method_name = "CachedGetPhotoListByUrlByExternalId";
+            string method_name = "CachedGetPhotoListUrlExternalId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12741,7 +12741,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetPhotoListByUrlByExternalId(
+                objs = GetPhotoListUrlExternalId(
                     url
                     , external_id
                 );
@@ -12750,21 +12750,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Photo> GetPhotoListByUuidByExternalId(
+        public virtual List<Photo> GetPhotoListUuidExternalId(
             string uuid
             , string external_id
         )  {
-            return act.GetPhotoListByUuidByExternalId(
+            return act.GetPhotoListUuidExternalId(
             uuid
             , external_id
             );
         }
         
-        public virtual Photo GetPhotoByUuidByExternalId(
+        public virtual Photo GetPhotoUuidExternalId(
             string uuid
             , string external_id
         )  {
-            foreach (Photo item in GetPhotoListByUuidByExternalId(
+            foreach (Photo item in GetPhotoListUuidExternalId(
             uuid
             , external_id
             ))  {
@@ -12773,11 +12773,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Photo> CachedGetPhotoListByUuidByExternalId(
+        public virtual List<Photo> CachedGetPhotoListUuidExternalId(
             string uuid
             , string external_id
         ) {
-            return CachedGetPhotoListByUuidByExternalId(
+            return CachedGetPhotoListUuidExternalId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
@@ -12785,7 +12785,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Photo> CachedGetPhotoListByUuidByExternalId(
+        public virtual List<Photo> CachedGetPhotoListUuidExternalId(
             bool overrideCache
             , int cacheHours
             , string uuid
@@ -12793,7 +12793,7 @@ namespace platform {
         ) {
             List<Photo> objs;
 
-            string method_name = "CachedGetPhotoListByUuidByExternalId";
+            string method_name = "CachedGetPhotoListUuidExternalId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -12813,7 +12813,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetPhotoListByUuidByExternalId(
+                objs = GetPhotoListUuidExternalId(
                     uuid
                     , external_id
                 );
@@ -12828,153 +12828,153 @@ namespace platform {
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoByUuid(
+        public virtual int CountVideoUuid(
             string uuid
         )  {            
-            return act.CountVideoByUuid(
+            return act.CountVideoUuid(
             uuid
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoByExternalId(
+        public virtual int CountVideoExternalId(
             string external_id
         )  {            
-            return act.CountVideoByExternalId(
+            return act.CountVideoExternalId(
             external_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoByUrl(
+        public virtual int CountVideoUrl(
             string url
         )  {            
-            return act.CountVideoByUrl(
+            return act.CountVideoUrl(
             url
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoByUrlByExternalId(
+        public virtual int CountVideoUrlExternalId(
             string url
             , string external_id
         )  {            
-            return act.CountVideoByUrlByExternalId(
+            return act.CountVideoUrlExternalId(
             url
             , external_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoByUuidByExternalId(
+        public virtual int CountVideoUuidExternalId(
             string uuid
             , string external_id
         )  {            
-            return act.CountVideoByUuidByExternalId(
+            return act.CountVideoUuidExternalId(
             uuid
             , external_id
             );
         }       
 //------------------------------------------------------------------------------                    
-        public virtual VideoResult BrowseVideoListByFilter(SearchFilter obj)  {
-            return act.BrowseVideoListByFilter(obj);
+        public virtual VideoResult BrowseVideoListFilter(SearchFilter obj)  {
+            return act.BrowseVideoListFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoByUuid(string set_type, Video obj)  {
-            return act.SetVideoByUuid(set_type, obj);
+        public virtual bool SetVideoUuid(string set_type, Video obj)  {
+            return act.SetVideoUuid(set_type, obj);
         }
         
-        public virtual bool SetVideoByUuid(SetType set_type, Video obj)  {
-            return act.SetVideoByUuid(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetVideoUuid(SetType set_type, Video obj)  {
+            return act.SetVideoUuid(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetVideoByUuid(Video obj)  {
-            return act.SetVideoByUuid(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetVideoUuid(Video obj)  {
+            return act.SetVideoUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoByExternalId(string set_type, Video obj)  {
-            return act.SetVideoByExternalId(set_type, obj);
+        public virtual bool SetVideoExternalId(string set_type, Video obj)  {
+            return act.SetVideoExternalId(set_type, obj);
         }
         
-        public virtual bool SetVideoByExternalId(SetType set_type, Video obj)  {
-            return act.SetVideoByExternalId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetVideoExternalId(SetType set_type, Video obj)  {
+            return act.SetVideoExternalId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetVideoByExternalId(Video obj)  {
-            return act.SetVideoByExternalId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetVideoExternalId(Video obj)  {
+            return act.SetVideoExternalId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoByUrl(string set_type, Video obj)  {
-            return act.SetVideoByUrl(set_type, obj);
+        public virtual bool SetVideoUrl(string set_type, Video obj)  {
+            return act.SetVideoUrl(set_type, obj);
         }
         
-        public virtual bool SetVideoByUrl(SetType set_type, Video obj)  {
-            return act.SetVideoByUrl(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetVideoUrl(SetType set_type, Video obj)  {
+            return act.SetVideoUrl(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetVideoByUrl(Video obj)  {
-            return act.SetVideoByUrl(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetVideoUrl(Video obj)  {
+            return act.SetVideoUrl(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoByUrlByExternalId(string set_type, Video obj)  {
-            return act.SetVideoByUrlByExternalId(set_type, obj);
+        public virtual bool SetVideoUrlExternalId(string set_type, Video obj)  {
+            return act.SetVideoUrlExternalId(set_type, obj);
         }
         
-        public virtual bool SetVideoByUrlByExternalId(SetType set_type, Video obj)  {
-            return act.SetVideoByUrlByExternalId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetVideoUrlExternalId(SetType set_type, Video obj)  {
+            return act.SetVideoUrlExternalId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetVideoByUrlByExternalId(Video obj)  {
-            return act.SetVideoByUrlByExternalId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetVideoUrlExternalId(Video obj)  {
+            return act.SetVideoUrlExternalId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoByUuidByExternalId(string set_type, Video obj)  {
-            return act.SetVideoByUuidByExternalId(set_type, obj);
+        public virtual bool SetVideoUuidExternalId(string set_type, Video obj)  {
+            return act.SetVideoUuidExternalId(set_type, obj);
         }
         
-        public virtual bool SetVideoByUuidByExternalId(SetType set_type, Video obj)  {
-            return act.SetVideoByUuidByExternalId(ConvertSetTypeToString(set_type), obj);
+        public virtual bool SetVideoUuidExternalId(SetType set_type, Video obj)  {
+            return act.SetVideoUuidExternalId(ConvertSetTypeToString(set_type), obj);
         }
         
-        public virtual bool SetVideoByUuidByExternalId(Video obj)  {
-            return act.SetVideoByUuidByExternalId(DEFAULT_SET_TYPE, obj);
+        public virtual bool SetVideoUuidExternalId(Video obj)  {
+            return act.SetVideoUuidExternalId(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoByUuid(
+        public virtual bool DelVideoUuid(
             string uuid
         )  {            
-            return act.DelVideoByUuid(
+            return act.DelVideoUuid(
             uuid
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoByExternalId(
+        public virtual bool DelVideoExternalId(
             string external_id
         )  {            
-            return act.DelVideoByExternalId(
+            return act.DelVideoExternalId(
             external_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoByUrl(
+        public virtual bool DelVideoUrl(
             string url
         )  {            
-            return act.DelVideoByUrl(
+            return act.DelVideoUrl(
             url
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoByUrlByExternalId(
+        public virtual bool DelVideoUrlExternalId(
             string url
             , string external_id
         )  {            
-            return act.DelVideoByUrlByExternalId(
+            return act.DelVideoUrlExternalId(
             url
             , external_id
             );
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoByUuidByExternalId(
+        public virtual bool DelVideoUuidExternalId(
             string uuid
             , string external_id
         )  {            
-            return act.DelVideoByUuidByExternalId(
+            return act.DelVideoUuidExternalId(
             uuid
             , external_id
             );
@@ -13028,18 +13028,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Video> GetVideoListByUuid(
+        public virtual List<Video> GetVideoListUuid(
             string uuid
         )  {
-            return act.GetVideoListByUuid(
+            return act.GetVideoListUuid(
             uuid
             );
         }
         
-        public virtual Video GetVideoByUuid(
+        public virtual Video GetVideoUuid(
             string uuid
         )  {
-            foreach (Video item in GetVideoListByUuid(
+            foreach (Video item in GetVideoListUuid(
             uuid
             ))  {
                 return item;
@@ -13047,24 +13047,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Video> CachedGetVideoListByUuid(
+        public virtual List<Video> CachedGetVideoListUuid(
             string uuid
         ) {
-            return CachedGetVideoListByUuid(
+            return CachedGetVideoListUuid(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
                 );
         }
         
-        public virtual List<Video> CachedGetVideoListByUuid(
+        public virtual List<Video> CachedGetVideoListUuid(
             bool overrideCache
             , int cacheHours
             , string uuid
         ) {
             List<Video> objs;
 
-            string method_name = "CachedGetVideoListByUuid";
+            string method_name = "CachedGetVideoListUuid";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -13080,7 +13080,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetVideoListByUuid(
+                objs = GetVideoListUuid(
                     uuid
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13088,18 +13088,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Video> GetVideoListByExternalId(
+        public virtual List<Video> GetVideoListExternalId(
             string external_id
         )  {
-            return act.GetVideoListByExternalId(
+            return act.GetVideoListExternalId(
             external_id
             );
         }
         
-        public virtual Video GetVideoByExternalId(
+        public virtual Video GetVideoExternalId(
             string external_id
         )  {
-            foreach (Video item in GetVideoListByExternalId(
+            foreach (Video item in GetVideoListExternalId(
             external_id
             ))  {
                 return item;
@@ -13107,24 +13107,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Video> CachedGetVideoListByExternalId(
+        public virtual List<Video> CachedGetVideoListExternalId(
             string external_id
         ) {
-            return CachedGetVideoListByExternalId(
+            return CachedGetVideoListExternalId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , external_id
                 );
         }
         
-        public virtual List<Video> CachedGetVideoListByExternalId(
+        public virtual List<Video> CachedGetVideoListExternalId(
             bool overrideCache
             , int cacheHours
             , string external_id
         ) {
             List<Video> objs;
 
-            string method_name = "CachedGetVideoListByExternalId";
+            string method_name = "CachedGetVideoListExternalId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -13140,7 +13140,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetVideoListByExternalId(
+                objs = GetVideoListExternalId(
                     external_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13148,18 +13148,18 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Video> GetVideoListByUrl(
+        public virtual List<Video> GetVideoListUrl(
             string url
         )  {
-            return act.GetVideoListByUrl(
+            return act.GetVideoListUrl(
             url
             );
         }
         
-        public virtual Video GetVideoByUrl(
+        public virtual Video GetVideoUrl(
             string url
         )  {
-            foreach (Video item in GetVideoListByUrl(
+            foreach (Video item in GetVideoListUrl(
             url
             ))  {
                 return item;
@@ -13167,24 +13167,24 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Video> CachedGetVideoListByUrl(
+        public virtual List<Video> CachedGetVideoListUrl(
             string url
         ) {
-            return CachedGetVideoListByUrl(
+            return CachedGetVideoListUrl(
                     false
                     , CACHE_DEFAULT_HOURS
                     , url
                 );
         }
         
-        public virtual List<Video> CachedGetVideoListByUrl(
+        public virtual List<Video> CachedGetVideoListUrl(
             bool overrideCache
             , int cacheHours
             , string url
         ) {
             List<Video> objs;
 
-            string method_name = "CachedGetVideoListByUrl";
+            string method_name = "CachedGetVideoListUrl";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -13200,7 +13200,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetVideoListByUrl(
+                objs = GetVideoListUrl(
                     url
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13208,21 +13208,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Video> GetVideoListByUrlByExternalId(
+        public virtual List<Video> GetVideoListUrlExternalId(
             string url
             , string external_id
         )  {
-            return act.GetVideoListByUrlByExternalId(
+            return act.GetVideoListUrlExternalId(
             url
             , external_id
             );
         }
         
-        public virtual Video GetVideoByUrlByExternalId(
+        public virtual Video GetVideoUrlExternalId(
             string url
             , string external_id
         )  {
-            foreach (Video item in GetVideoListByUrlByExternalId(
+            foreach (Video item in GetVideoListUrlExternalId(
             url
             , external_id
             ))  {
@@ -13231,11 +13231,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Video> CachedGetVideoListByUrlByExternalId(
+        public virtual List<Video> CachedGetVideoListUrlExternalId(
             string url
             , string external_id
         ) {
-            return CachedGetVideoListByUrlByExternalId(
+            return CachedGetVideoListUrlExternalId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , url
@@ -13243,7 +13243,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Video> CachedGetVideoListByUrlByExternalId(
+        public virtual List<Video> CachedGetVideoListUrlExternalId(
             bool overrideCache
             , int cacheHours
             , string url
@@ -13251,7 +13251,7 @@ namespace platform {
         ) {
             List<Video> objs;
 
-            string method_name = "CachedGetVideoListByUrlByExternalId";
+            string method_name = "CachedGetVideoListUrlExternalId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -13271,7 +13271,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetVideoListByUrlByExternalId(
+                objs = GetVideoListUrlExternalId(
                     url
                     , external_id
                 );
@@ -13280,21 +13280,21 @@ namespace platform {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
-        public virtual List<Video> GetVideoListByUuidByExternalId(
+        public virtual List<Video> GetVideoListUuidExternalId(
             string uuid
             , string external_id
         )  {
-            return act.GetVideoListByUuidByExternalId(
+            return act.GetVideoListUuidExternalId(
             uuid
             , external_id
             );
         }
         
-        public virtual Video GetVideoByUuidByExternalId(
+        public virtual Video GetVideoUuidExternalId(
             string uuid
             , string external_id
         )  {
-            foreach (Video item in GetVideoListByUuidByExternalId(
+            foreach (Video item in GetVideoListUuidExternalId(
             uuid
             , external_id
             ))  {
@@ -13303,11 +13303,11 @@ namespace platform {
             return null;
         }
         
-        public virtual List<Video> CachedGetVideoListByUuidByExternalId(
+        public virtual List<Video> CachedGetVideoListUuidExternalId(
             string uuid
             , string external_id
         ) {
-            return CachedGetVideoListByUuidByExternalId(
+            return CachedGetVideoListUuidExternalId(
                     false
                     , CACHE_DEFAULT_HOURS
                     , uuid
@@ -13315,7 +13315,7 @@ namespace platform {
                 );
         }
         
-        public virtual List<Video> CachedGetVideoListByUuidByExternalId(
+        public virtual List<Video> CachedGetVideoListUuidExternalId(
             bool overrideCache
             , int cacheHours
             , string uuid
@@ -13323,7 +13323,7 @@ namespace platform {
         ) {
             List<Video> objs;
 
-            string method_name = "CachedGetVideoListByUuidByExternalId";
+            string method_name = "CachedGetVideoListUuidExternalId";
 
             StringBuilder sb = new StringBuilder();
             sb.Length = 0;
@@ -13343,7 +13343,7 @@ namespace platform {
 
             if (objs == null || overrideCache) // if object not cached, get and cache
             {
-                objs = GetVideoListByUuidByExternalId(
+                objs = GetVideoListUuidExternalId(
                     uuid
                     , external_id
                 );

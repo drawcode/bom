@@ -86,6 +86,9 @@ if (!window.gaming.game_product)
 if (!window.gaming.game_statistic_leaderboard)
     window.gaming.game_statistic_leaderboard = {};
    
+if (!window.gaming.game_statistic_leaderboard_item)
+    window.gaming.game_statistic_leaderboard_item = {};
+   
 if (!window.gaming.game_statistic_leaderboard_rollup)
     window.gaming.game_statistic_leaderboard_rollup = {};
    
@@ -148,6 +151,7 @@ gaming.gaming.global = function() {
     this.game_rpg_item_skill_service = this.service_base + 'game_rpg_item_skill/';
     this.game_product_service = this.service_base + 'game_product/';
     this.game_statistic_leaderboard_service = this.service_base + 'game_statistic_leaderboard/';
+    this.game_statistic_leaderboard_item_service = this.service_base + 'game_statistic_leaderboard_item/';
     this.game_statistic_leaderboard_rollup_service = this.service_base + 'game_statistic_leaderboard_rollup/';
     this.game_live_queue_service = this.service_base + 'game_live_queue/';
     this.game_live_recent_queue_service = this.service_base + 'game_live_recent_queue/';
@@ -263,7 +267,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -306,7 +310,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -349,7 +353,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -392,7 +396,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -435,7 +439,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'count'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -479,7 +483,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'count'
-                + "/by-org-id/by-app-id"
+                + "/org-id/app-id"
                 + "/@org_id/" + org_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -525,7 +529,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -581,7 +585,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -650,7 +654,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -719,7 +723,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'set'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                         
                 ;
@@ -788,7 +792,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'set'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                         
                 ;
@@ -857,7 +861,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'set'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                         
                 ;
@@ -926,7 +930,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'set'
-                + "/by-org-id/by-app-id"
+                + "/org-id/app-id"
                 + "/@org_id/" + org_id            
                 + "/@app_id/" + app_id            
                         
@@ -985,7 +989,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1028,7 +1032,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1071,7 +1075,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'del'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -1114,7 +1118,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'del'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -1157,7 +1161,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'del'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -1201,7 +1205,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'del'
-                + "/by-org-id/by-app-id"
+                + "/org-id/app-id"
                 + "/@org_id/" + org_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -1287,7 +1291,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1331,7 +1335,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1375,7 +1379,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -1419,7 +1423,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -1463,7 +1467,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'get'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -1508,7 +1512,7 @@ gaming.game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_service + 'get'
-                + "/by-org-id/by-app-id"
+                + "/org-id/app-id"
                 + "/@org_id/" + org_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -1607,7 +1611,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1650,7 +1654,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1693,7 +1697,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -1736,7 +1740,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -1779,7 +1783,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -1823,7 +1827,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'count'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -1869,7 +1873,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -1925,7 +1929,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -1983,7 +1987,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2027,7 +2031,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'del'
-                + "/by-code/by-org-id"
+                + "/code/org-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 ;
@@ -2073,7 +2077,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'del'
-                + "/by-code/by-org-id/by-type-id"
+                + "/code/org-id/type-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
@@ -2160,7 +2164,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2204,7 +2208,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2248,7 +2252,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -2292,7 +2296,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -2336,7 +2340,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -2381,7 +2385,7 @@ gaming.game_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_service + 'get'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -2480,7 +2484,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2523,7 +2527,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'count'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -2566,7 +2570,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -2610,7 +2614,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'count'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -2656,7 +2660,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -2708,7 +2712,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -2762,7 +2766,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2805,7 +2809,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'del'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -2848,7 +2852,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'del'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -2892,7 +2896,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'del'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -2978,7 +2982,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3022,7 +3026,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'get'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -3066,7 +3070,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -3111,7 +3115,7 @@ gaming.game_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_tree_service + 'get'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -3210,7 +3214,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3253,7 +3257,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -3296,7 +3300,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -3340,7 +3344,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'count'
-                + "/by-game-id/by-category-id"
+                + "/game-id/category-id"
                 + "/@game_id/" + game_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -3386,7 +3390,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -3438,7 +3442,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -3492,7 +3496,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3577,7 +3581,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3621,7 +3625,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -3665,7 +3669,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -3710,7 +3714,7 @@ gaming.game_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_category_assoc_service + 'get'
-                + "/by-game-id/by-category-id"
+                + "/game-id/category-id"
                 + "/@game_id/" + game_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -3809,7 +3813,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3852,7 +3856,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3895,7 +3899,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -3940,7 +3944,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -3994,7 +3998,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -4050,7 +4054,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4135,7 +4139,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4179,7 +4183,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4223,7 +4227,7 @@ gaming.game_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_type_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -4321,7 +4325,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4364,7 +4368,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -4407,7 +4411,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -4451,7 +4455,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -4497,7 +4501,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -4552,7 +4556,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -4609,7 +4613,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4694,7 +4698,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4738,7 +4742,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -4782,7 +4786,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -4827,7 +4831,7 @@ gaming.profile_game.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -4926,7 +4930,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4969,7 +4973,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5013,7 +5017,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'count'
-                + "/by-uuid/by-type"
+                + "/uuid/type"
                 + "/@uuid/" + uuid            
                 + "/@type/" + type            
                 ;
@@ -5059,7 +5063,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -5116,7 +5120,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -5187,7 +5191,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -5246,7 +5250,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5331,7 +5335,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5375,7 +5379,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5420,7 +5424,7 @@ gaming.game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_service + 'get'
-                + "/by-uuid/by-type"
+                + "/uuid/type"
                 + "/@uuid/" + uuid            
                 + "/@type/" + type            
                 ;
@@ -5519,7 +5523,7 @@ gaming.game_network_auth.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_auth_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5563,7 +5567,7 @@ gaming.game_network_auth.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_auth_service + 'count'
-                + "/by-game-id/by-game-network-id"
+                + "/game-id/game-network-id"
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
                 ;
@@ -5609,7 +5613,7 @@ gaming.game_network_auth.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_auth_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -5669,7 +5673,7 @@ gaming.game_network_auth.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_auth_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -5746,7 +5750,7 @@ gaming.game_network_auth.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_auth_service + 'set'
-                + "/by-game-id/by-game-network-id"
+                + "/game-id/game-network-id"
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
                         
@@ -5809,7 +5813,7 @@ gaming.game_network_auth.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_auth_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5894,7 +5898,7 @@ gaming.game_network_auth.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_auth_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5939,7 +5943,7 @@ gaming.game_network_auth.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_network_auth_service + 'get'
-                + "/by-game-id/by-game-network-id"
+                + "/game-id/game-network-id"
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
                 ;
@@ -6038,7 +6042,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6081,7 +6085,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -6124,7 +6128,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -6168,7 +6172,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -6213,7 +6217,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -6259,7 +6263,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'count'
-                + "/by-profile-id/by-game-id/by-game-network-id"
+                + "/profile-id/game-id/game-network-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
@@ -6306,7 +6310,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'count'
-                + "/by-network-username/by-game-id/by-game-network-id"
+                + "/network-username/game-id/game-network-id"
                 + "/@network_username/" + network_username            
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
@@ -6353,7 +6357,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -6414,7 +6418,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -6493,7 +6497,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'set'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                         
@@ -6573,7 +6577,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'set'
-                + "/by-profile-id/by-game-id/by-game-network-id"
+                + "/profile-id/game-id/game-network-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
@@ -6654,7 +6658,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'set'
-                + "/by-network-username/by-game-id/by-game-network-id"
+                + "/network-username/game-id/game-network-id"
                 + "/@network_username/" + network_username            
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
@@ -6719,7 +6723,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6763,7 +6767,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'del'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -6809,7 +6813,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'del'
-                + "/by-profile-id/by-game-id/by-game-network-id"
+                + "/profile-id/game-id/game-network-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
@@ -6856,7 +6860,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'del'
-                + "/by-network-username/by-game-id/by-game-network-id"
+                + "/network-username/game-id/game-network-id"
                 + "/@network_username/" + network_username            
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
@@ -6943,7 +6947,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6987,7 +6991,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -7031,7 +7035,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -7076,7 +7080,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -7123,7 +7127,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'get'
-                + "/by-profile-id/by-game-id/by-game-network-id"
+                + "/profile-id/game-id/game-network-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
@@ -7171,7 +7175,7 @@ gaming.profile_game_network.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_network_service + 'get'
-                + "/by-network-username/by-game-id/by-game-network-id"
+                + "/network-username/game-id/game-network-id"
                 + "/@network_username/" + network_username            
                 + "/@game_id/" + game_id            
                 + "/@game_network_id/" + game_network_id            
@@ -7271,7 +7275,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7314,7 +7318,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -7359,7 +7363,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'count'
-                + "/by-profile-id/by-game-id/by-code"
+                + "/profile-id/game-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@code/" + code            
@@ -7406,7 +7410,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -7462,7 +7466,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -7531,7 +7535,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'set'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                         
                 ;
@@ -7600,7 +7604,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'set'
-                + "/by-profile-id/by-game-id/by-code"
+                + "/profile-id/game-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@code/" + code            
@@ -7660,7 +7664,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7703,7 +7707,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'del'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -7748,7 +7752,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'del'
-                + "/by-profile-id/by-game-id/by-code"
+                + "/profile-id/game-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@code/" + code            
@@ -7793,7 +7797,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7837,7 +7841,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -7883,7 +7887,7 @@ gaming.profile_game_data_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_data_attribute_service + 'get'
-                + "/by-profile-id/by-game-id/by-code"
+                + "/profile-id/game-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@code/" + code            
@@ -7983,7 +7987,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8026,7 +8030,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -8069,7 +8073,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -8113,7 +8117,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -8159,7 +8163,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -8235,7 +8239,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -8313,7 +8317,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8398,7 +8402,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8442,7 +8446,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -8486,7 +8490,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -8531,7 +8535,7 @@ gaming.game_session.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -8630,7 +8634,7 @@ gaming.game_session_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_data_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8675,7 +8679,7 @@ gaming.game_session_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_data_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -8734,7 +8738,7 @@ gaming.game_session_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_data_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -8795,7 +8799,7 @@ gaming.game_session_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_data_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8880,7 +8884,7 @@ gaming.game_session_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_session_data_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8978,7 +8982,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9021,7 +9025,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -9065,7 +9069,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'count'
-                + "/by-game-id/by-path"
+                + "/game-id/path"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 ;
@@ -9111,7 +9115,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'count'
-                + "/by-game-id/by-path/by-version"
+                + "/game-id/path/version"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 + "/@version/" + version            
@@ -9160,7 +9164,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'count'
-                + "/by-game-id/by-path/by-version/by-platform/by-increment"
+                + "/game-id/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 + "/@version/" + version            
@@ -9209,7 +9213,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -9274,7 +9278,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -9361,7 +9365,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'set'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                         
                 ;
@@ -9448,7 +9452,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'set'
-                + "/by-game-id/by-path"
+                + "/game-id/path"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                         
@@ -9536,7 +9540,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'set'
-                + "/by-game-id/by-path/by-version"
+                + "/game-id/path/version"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 + "/@version/" + version            
@@ -9625,7 +9629,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'set'
-                + "/by-game-id/by-path/by-version/by-platform/by-increment"
+                + "/game-id/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 + "/@version/" + version            
@@ -9696,7 +9700,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9739,7 +9743,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'del'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -9783,7 +9787,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'del'
-                + "/by-game-id/by-path"
+                + "/game-id/path"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 ;
@@ -9829,7 +9833,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'del'
-                + "/by-game-id/by-path/by-version"
+                + "/game-id/path/version"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 + "/@version/" + version            
@@ -9878,7 +9882,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'del'
-                + "/by-game-id/by-path/by-version/by-platform/by-increment"
+                + "/game-id/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 + "/@version/" + version            
@@ -9967,7 +9971,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10011,7 +10015,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -10056,7 +10060,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'get'
-                + "/by-game-id/by-path"
+                + "/game-id/path"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 ;
@@ -10103,7 +10107,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'get'
-                + "/by-game-id/by-path/by-version"
+                + "/game-id/path/version"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 + "/@version/" + version            
@@ -10153,7 +10157,7 @@ gaming.game_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_content_service + 'get'
-                + "/by-game-id/by-path/by-version/by-platform/by-increment"
+                + "/game-id/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@path/" + path            
                 + "/@version/" + version            
@@ -10255,7 +10259,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10299,7 +10303,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-game-id/by-profile-id"
+                + "/game-id/profile-id"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -10344,7 +10348,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-game-id/by-username"
+                + "/game-id/username"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 ;
@@ -10388,7 +10392,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-username"
+                + "/username"
                 + "/@username/" + username            
                 ;
 
@@ -10433,7 +10437,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-game-id/by-profile-id/by-path"
+                + "/game-id/profile-id/path"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -10481,7 +10485,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-game-id/by-profile-id/by-path/by-version"
+                + "/game-id/profile-id/path/version"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -10532,7 +10536,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment"
+                + "/game-id/profile-id/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -10582,7 +10586,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-game-id/by-username/by-path"
+                + "/game-id/username/path"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -10630,7 +10634,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-game-id/by-username/by-path/by-version"
+                + "/game-id/username/path/version"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -10681,7 +10685,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'count'
-                + "/by-game-id/by-username/by-path/by-version/by-platform/by-increment"
+                + "/game-id/username/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -10731,7 +10735,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -10799,7 +10803,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -10892,7 +10896,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-game-id/by-profile-id"
+                + "/game-id/profile-id"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                         
@@ -10986,7 +10990,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-game-id/by-username"
+                + "/game-id/username"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                         
@@ -11080,7 +11084,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-username"
+                + "/username"
                 + "/@username/" + username            
                         
                 ;
@@ -11173,7 +11177,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-game-id/by-profile-id/by-path"
+                + "/game-id/profile-id/path"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -11268,7 +11272,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-game-id/by-profile-id/by-path/by-version"
+                + "/game-id/profile-id/path/version"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -11364,7 +11368,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment"
+                + "/game-id/profile-id/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -11462,7 +11466,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-game-id/by-username/by-path"
+                + "/game-id/username/path"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -11557,7 +11561,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-game-id/by-username/by-path/by-version"
+                + "/game-id/username/path/version"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -11653,7 +11657,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'set'
-                + "/by-game-id/by-username/by-path/by-version/by-platform/by-increment"
+                + "/game-id/username/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -11728,7 +11732,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11772,7 +11776,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-game-id/by-profile-id"
+                + "/game-id/profile-id"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -11817,7 +11821,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-game-id/by-username"
+                + "/game-id/username"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 ;
@@ -11861,7 +11865,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-username"
+                + "/username"
                 + "/@username/" + username            
                 ;
 
@@ -11906,7 +11910,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-game-id/by-profile-id/by-path"
+                + "/game-id/profile-id/path"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -11954,7 +11958,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-game-id/by-profile-id/by-path/by-version"
+                + "/game-id/profile-id/path/version"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -12005,7 +12009,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment"
+                + "/game-id/profile-id/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -12055,7 +12059,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-game-id/by-username/by-path"
+                + "/game-id/username/path"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -12103,7 +12107,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-game-id/by-username/by-path/by-version"
+                + "/game-id/username/path/version"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -12154,7 +12158,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'del'
-                + "/by-game-id/by-username/by-path/by-version/by-platform/by-increment"
+                + "/game-id/username/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -12244,7 +12248,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12289,7 +12293,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-game-id/by-profile-id"
+                + "/game-id/profile-id"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -12335,7 +12339,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-game-id/by-username"
+                + "/game-id/username"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 ;
@@ -12380,7 +12384,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-username"
+                + "/username"
                 + "/@username/" + username            
                 ;
 
@@ -12426,7 +12430,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-game-id/by-profile-id/by-path"
+                + "/game-id/profile-id/path"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -12475,7 +12479,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-game-id/by-profile-id/by-path/by-version"
+                + "/game-id/profile-id/path/version"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -12527,7 +12531,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment"
+                + "/game-id/profile-id/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
                 + "/@path/" + path            
@@ -12578,7 +12582,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-game-id/by-username/by-path"
+                + "/game-id/username/path"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -12627,7 +12631,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-game-id/by-username/by-path/by-version"
+                + "/game-id/username/path/version"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -12679,7 +12683,7 @@ gaming.game_profile_content.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_content_service + 'get'
-                + "/by-game-id/by-username/by-path/by-version/by-platform/by-increment"
+                + "/game-id/username/path/version/platform/increment"
                 + "/@game_id/" + game_id            
                 + "/@username/" + username            
                 + "/@path/" + path            
@@ -12782,7 +12786,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12825,7 +12829,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -12868,7 +12872,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'count'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -12912,7 +12916,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'count'
-                + "/by-game-id/by-app-id"
+                + "/game-id/app-id"
                 + "/@game_id/" + game_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -12958,7 +12962,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -13010,7 +13014,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -13064,7 +13068,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13149,7 +13153,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13193,7 +13197,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -13237,7 +13241,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'get'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -13282,7 +13286,7 @@ gaming.game_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_app_service + 'get'
-                + "/by-game-id/by-app-id"
+                + "/game-id/app-id"
                 + "/@game_id/" + game_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -13381,7 +13385,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13424,7 +13428,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'count'
-                + "/by-game-location-id"
+                + "/game-location-id"
                 + "/@game_location_id/" + game_location_id            
                 ;
 
@@ -13467,7 +13471,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -13511,7 +13515,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'count'
-                + "/by-profile-id/by-game-location-id"
+                + "/profile-id/game-location-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_location_id/" + game_location_id            
                 ;
@@ -13557,7 +13561,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -13610,7 +13614,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -13665,7 +13669,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13750,7 +13754,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13794,7 +13798,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'get'
-                + "/by-game-location-id"
+                + "/game-location-id"
                 + "/@game_location_id/" + game_location_id            
                 ;
 
@@ -13838,7 +13842,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -13883,7 +13887,7 @@ gaming.profile_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.profile_game_location_service + 'get'
-                + "/by-profile-id/by-game-location-id"
+                + "/profile-id/game-location-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_location_id/" + game_location_id            
                 ;
@@ -13982,7 +13986,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14025,7 +14029,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'count'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -14068,7 +14072,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -14112,7 +14116,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'count'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -14157,7 +14161,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'count'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -14203,7 +14207,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -14264,7 +14268,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -14343,7 +14347,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'set'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                         
                 ;
@@ -14422,7 +14426,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -14501,7 +14505,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'set'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                         
@@ -14581,7 +14585,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'set'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                         
@@ -14645,7 +14649,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14688,7 +14692,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'del'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -14731,7 +14735,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -14775,7 +14779,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'del'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -14820,7 +14824,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'del'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -14906,7 +14910,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14950,7 +14954,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'get'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -14994,7 +14998,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -15039,7 +15043,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'get'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -15085,7 +15089,7 @@ gaming.game_photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_photo_service + 'get'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -15184,7 +15188,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15227,7 +15231,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'count'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -15270,7 +15274,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -15314,7 +15318,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'count'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -15359,7 +15363,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'count'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -15405,7 +15409,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -15466,7 +15470,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -15545,7 +15549,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'set'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                         
                 ;
@@ -15624,7 +15628,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -15703,7 +15707,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'set'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                         
@@ -15783,7 +15787,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'set'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                         
@@ -15847,7 +15851,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15890,7 +15894,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'del'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -15933,7 +15937,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -15977,7 +15981,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'del'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -16022,7 +16026,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'del'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -16108,7 +16112,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -16152,7 +16156,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'get'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -16196,7 +16200,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -16241,7 +16245,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'get'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -16287,7 +16291,7 @@ gaming.game_video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_video_service + 'get'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -16386,7 +16390,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -16429,7 +16433,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -16472,7 +16476,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -16516,7 +16520,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'count'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -16561,7 +16565,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'count'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -16607,7 +16611,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -16676,7 +16680,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -16771,7 +16775,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'set'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                         
                 ;
@@ -16866,7 +16870,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -16961,7 +16965,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'set'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                         
@@ -17057,7 +17061,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'set'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                         
@@ -17129,7 +17133,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17172,7 +17176,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'del'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -17215,7 +17219,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -17259,7 +17263,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'del'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -17304,7 +17308,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'del'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -17390,7 +17394,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17434,7 +17438,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -17478,7 +17482,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -17523,7 +17527,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'get'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -17569,7 +17573,7 @@ gaming.game_rpg_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_service + 'get'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -17668,7 +17672,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17711,7 +17715,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -17754,7 +17758,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -17798,7 +17802,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'count'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -17843,7 +17847,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'count'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -17889,7 +17893,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -17958,7 +17962,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -18053,7 +18057,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'set'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                         
                 ;
@@ -18148,7 +18152,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -18243,7 +18247,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'set'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                         
@@ -18339,7 +18343,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'set'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                         
@@ -18411,7 +18415,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18454,7 +18458,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'del'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -18497,7 +18501,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -18541,7 +18545,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'del'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -18586,7 +18590,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'del'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -18672,7 +18676,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18716,7 +18720,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -18760,7 +18764,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -18805,7 +18809,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'get'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -18851,7 +18855,7 @@ gaming.game_rpg_item_weapon.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_weapon_service + 'get'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -18950,7 +18954,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18993,7 +18997,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -19036,7 +19040,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -19080,7 +19084,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'count'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -19125,7 +19129,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'count'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -19171,7 +19175,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -19240,7 +19244,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -19335,7 +19339,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'set'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                         
                 ;
@@ -19430,7 +19434,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -19525,7 +19529,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'set'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                         
@@ -19621,7 +19625,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'set'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                         
@@ -19693,7 +19697,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -19736,7 +19740,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'del'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -19779,7 +19783,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -19823,7 +19827,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'del'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -19868,7 +19872,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'del'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -19954,7 +19958,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -19998,7 +20002,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -20042,7 +20046,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -20087,7 +20091,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'get'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -20133,7 +20137,7 @@ gaming.game_rpg_item_skill.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_rpg_item_skill_service + 'get'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -20232,7 +20236,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20275,7 +20279,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -20318,7 +20322,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -20362,7 +20366,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'count'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -20407,7 +20411,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'count'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -20453,7 +20457,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -20509,7 +20513,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -20578,7 +20582,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'set'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                         
                 ;
@@ -20647,7 +20651,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -20716,7 +20720,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'set'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                         
@@ -20786,7 +20790,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'set'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                         
@@ -20845,7 +20849,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20888,7 +20892,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'del'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -20931,7 +20935,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -20975,7 +20979,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'del'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -21020,7 +21024,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'del'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -21106,7 +21110,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21150,7 +21154,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -21194,7 +21198,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -21239,7 +21243,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'get'
-                + "/by-url/by-game-id"
+                + "/url/game-id"
                 + "/@url/" + url            
                 + "/@game_id/" + game_id            
                 ;
@@ -21285,7 +21289,7 @@ gaming.game_product.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_product_service + 'get'
-                + "/by-uuid/by-game-id"
+                + "/uuid/game-id"
                 + "/@uuid/" + uuid            
                 + "/@game_id/" + game_id            
                 ;
@@ -21384,7 +21388,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21427,7 +21431,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -21470,7 +21474,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -21514,7 +21518,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'count'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -21560,7 +21564,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'count'
-                + "/by-code/by-game-id/by-profile-id"
+                + "/code/game-id/profile-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -21608,7 +21612,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'count'
-                + "/by-code/by-game-id/by-profile-id/by-timestamp"
+                + "/code/game-id/profile-id/timestamp"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -21655,7 +21659,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -21701,7 +21705,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -21765,7 +21769,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -21850,7 +21854,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'set'
-                + "/by-uuid/by-profile-id/by-game-id/by-timestamp"
+                + "/uuid/profile-id/game-id/timestamp"
                 + "/@uuid/" + uuid            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -21938,7 +21942,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -22023,7 +22027,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'set'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                         
@@ -22109,7 +22113,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'set'
-                + "/by-code/by-game-id/by-profile-id"
+                + "/code/game-id/profile-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -22196,7 +22200,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'set'
-                + "/by-code/by-game-id/by-profile-id/by-timestamp"
+                + "/code/game-id/profile-id/timestamp"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -22265,7 +22269,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -22308,7 +22312,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -22352,7 +22356,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'del'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -22398,7 +22402,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'del'
-                + "/by-code/by-game-id/by-profile-id"
+                + "/code/game-id/profile-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -22446,7 +22450,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'del'
-                + "/by-code/by-game-id/by-profile-id/by-timestamp"
+                + "/code/game-id/profile-id/timestamp"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -22493,7 +22497,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'del'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -22579,7 +22583,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -22623,7 +22627,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -22667,7 +22671,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -22712,7 +22716,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'get'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -22759,7 +22763,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'get'
-                + "/by-code/by-game-id/by-profile-id"
+                + "/code/game-id/profile-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -22808,7 +22812,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'get'
-                + "/by-code/by-game-id/by-profile-id/by-timestamp"
+                + "/code/game-id/profile-id/timestamp"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -22856,7 +22860,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -22903,7 +22907,7 @@ gaming.game_statistic_leaderboard.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_service + 'get'
-                + "/by-profile-id/by-game-id/by-timestamp"
+                + "/profile-id/game-id/timestamp"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@timestamp/" + timestamp            
@@ -22937,6 +22941,1625 @@ gaming.game_statistic_leaderboard.prototype = {
             _log("SUCCESS::game_statistic_leaderboard_get_game_statistic_leaderboard_profile_id_game_id_timestamp_callback", false);
             // call a method that can be inline callback
             try {handle_get_game_statistic_leaderboard_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_profile_id_game_id_timestamp: " + e);}
+        }
+        
+    }
+}
+//-------------------------------------------------
+gaming.game_statistic_leaderboard_item = function() {
+    this.fn_callback;
+    this.fn_callbacks;
+    return_gaming_obj = this;
+}        
+        
+gaming.game_statistic_leaderboard_item.prototype = {
+    //-------------------------------------------------
+    init: function() {
+
+    } 
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item: function
+    (
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'count'
+                + ""
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_leaderboard_item(data);} catch(e) { _log("Error calling: error_count_game_statistic_leaderboard_item: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_leaderboard_item(data);} catch(e) { _log("Error calling: handle_count_game_statistic_leaderboard_item: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_uuid: function
+    (
+        uuid,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'count'
+                + "/uuid"
+                + "/@uuid/" + uuid            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_uuid_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_uuid_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_leaderboard_item_uuid(data);} catch(e) { _log("Error calling: error_count_game_statistic_leaderboard_item_uuid: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_uuid_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_leaderboard_item_uuid(data);} catch(e) { _log("Error calling: handle_count_game_statistic_leaderboard_item_uuid: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_game_id: function
+    (
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'count'
+                + "/game-id"
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_leaderboard_item_game_id(data);} catch(e) { _log("Error calling: error_count_game_statistic_leaderboard_item_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_leaderboard_item_game_id(data);} catch(e) { _log("Error calling: handle_count_game_statistic_leaderboard_item_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_code: function
+    (
+        code,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'count'
+                + "/code"
+                + "/@code/" + code            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_code_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_code_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_leaderboard_item_code(data);} catch(e) { _log("Error calling: error_count_game_statistic_leaderboard_item_code: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_code_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_leaderboard_item_code(data);} catch(e) { _log("Error calling: handle_count_game_statistic_leaderboard_item_code: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'count'
+                + "/code/game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_leaderboard_item_code_game_id(data);} catch(e) { _log("Error calling: error_count_game_statistic_leaderboard_item_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_leaderboard_item_code_game_id(data);} catch(e) { _log("Error calling: handle_count_game_statistic_leaderboard_item_code_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_code_game_id_profile_id: function
+    (
+        code,
+        game_id,
+        profile_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'count'
+                + "/code/game-id/profile-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                + "/@profile_id/" + profile_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_code_game_id_profile_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_code_game_id_profile_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_leaderboard_item_code_game_id_profile_id(data);} catch(e) { _log("Error calling: error_count_game_statistic_leaderboard_item_code_game_id_profile_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_code_game_id_profile_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_leaderboard_item_code_game_id_profile_id(data);} catch(e) { _log("Error calling: handle_count_game_statistic_leaderboard_item_code_game_id_profile_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: function
+    (
+        code,
+        game_id,
+        profile_id,
+        timestamp,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'count'
+                + "/code/game-id/profile-id/timestamp"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                + "/@profile_id/" + profile_id            
+                + "/@timestamp/" + timestamp            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp(data);} catch(e) { _log("Error calling: error_count_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp(data);} catch(e) { _log("Error calling: handle_count_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_profile_id_game_id: function
+    (
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'count'
+                + "/profile-id/game-id"
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    count_game_statistic_leaderboard_item_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_count_game_statistic_leaderboard_item_profile_id_game_id(data);} catch(e) { _log("Error calling: error_count_game_statistic_leaderboard_item_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_count_game_statistic_leaderboard_item_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_count_game_statistic_leaderboard_item_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_count_game_statistic_leaderboard_item_profile_id_game_id: " + e);}
+        }
+    }
+    ,
+    //-------------------------------------------------
+    browse_game_statistic_leaderboard_item_filter: function
+    (
+        page,
+        page_size,
+        filter,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'browse'
+                + "/filter"
+                + "/@page/" + page
+                + "/@page_size/" + page_size
+                + "/@filter/" + filter
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    browse_game_statistic_leaderboard_item_filter_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_browse_game_statistic_leaderboard_item_filter_callback", true);
+            // call a method that can be inline callback
+            try {error_browse_game_statistic_leaderboard_item_filter(data);} catch(e) { _log("Error calling: error_browse_game_statistic_leaderboard_item_filter: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_browse_game_statistic_leaderboard_item_filter_callback", false);
+            // call a method that can be inline callback
+            try {handle_browse_game_statistic_leaderboard_item_filter(data);} catch(e) { _log("Error calling: handle_browse_game_statistic_leaderboard_item_filter: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_uuid: function
+    (
+        status,
+        username,
+        code,
+        timestamp,
+        profile_id,
+        rank,
+        rank_change,
+        game_id,
+        active,
+        rank_total_count,
+        absolute_value,
+        data,
+        stat_value,
+        network,
+        uuid,
+        date_modified,
+        level,
+        stat_value_formatted,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'set'
+                + "/uuid"
+                + "/@uuid/" + uuid            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@timestamp": timestamp
+            , "@profile_id": profile_id
+            , "@rank": rank
+            , "@rank_change": rank_change
+            , "@game_id": game_id
+            , "@active": active
+            , "@rank_total_count": rank_total_count
+            , "@absolute_value": absolute_value
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@network": network
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@stat_value_formatted": stat_value_formatted
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_uuid_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_uuid_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_statistic_leaderboard_item_uuid(data);} catch(e) { _log("Error calling: error_set_game_statistic_leaderboard_item_uuid: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_uuid_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_statistic_leaderboard_item_uuid(data);} catch(e) { _log("Error calling: handle_set_game_statistic_leaderboard_item_uuid: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_uuid_profile_id_game_id_timestamp: function
+    (
+        status,
+        username,
+        code,
+        timestamp,
+        profile_id,
+        rank,
+        rank_change,
+        game_id,
+        active,
+        rank_total_count,
+        absolute_value,
+        data,
+        stat_value,
+        network,
+        uuid,
+        date_modified,
+        level,
+        stat_value_formatted,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'set'
+                + "/uuid/profile-id/game-id/timestamp"
+                + "/@uuid/" + uuid            
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                + "/@timestamp/" + timestamp            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@timestamp": timestamp
+            , "@profile_id": profile_id
+            , "@rank": rank
+            , "@rank_change": rank_change
+            , "@game_id": game_id
+            , "@active": active
+            , "@rank_total_count": rank_total_count
+            , "@absolute_value": absolute_value
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@network": network
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@stat_value_formatted": stat_value_formatted
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_uuid_profile_id_game_id_timestamp_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_uuid_profile_id_game_id_timestamp_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_statistic_leaderboard_item_uuid_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_set_game_statistic_leaderboard_item_uuid_profile_id_game_id_timestamp: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_uuid_profile_id_game_id_timestamp_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_statistic_leaderboard_item_uuid_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_set_game_statistic_leaderboard_item_uuid_profile_id_game_id_timestamp: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_code: function
+    (
+        status,
+        username,
+        code,
+        timestamp,
+        profile_id,
+        rank,
+        rank_change,
+        game_id,
+        active,
+        rank_total_count,
+        absolute_value,
+        data,
+        stat_value,
+        network,
+        uuid,
+        date_modified,
+        level,
+        stat_value_formatted,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'set'
+                + "/code"
+                + "/@code/" + code            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@timestamp": timestamp
+            , "@profile_id": profile_id
+            , "@rank": rank
+            , "@rank_change": rank_change
+            , "@game_id": game_id
+            , "@active": active
+            , "@rank_total_count": rank_total_count
+            , "@absolute_value": absolute_value
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@network": network
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@stat_value_formatted": stat_value_formatted
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_code_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_code_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_statistic_leaderboard_item_code(data);} catch(e) { _log("Error calling: error_set_game_statistic_leaderboard_item_code: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_code_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_statistic_leaderboard_item_code(data);} catch(e) { _log("Error calling: handle_set_game_statistic_leaderboard_item_code: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_code_game_id: function
+    (
+        status,
+        username,
+        code,
+        timestamp,
+        profile_id,
+        rank,
+        rank_change,
+        game_id,
+        active,
+        rank_total_count,
+        absolute_value,
+        data,
+        stat_value,
+        network,
+        uuid,
+        date_modified,
+        level,
+        stat_value_formatted,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'set'
+                + "/code/game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@timestamp": timestamp
+            , "@profile_id": profile_id
+            , "@rank": rank
+            , "@rank_change": rank_change
+            , "@game_id": game_id
+            , "@active": active
+            , "@rank_total_count": rank_total_count
+            , "@absolute_value": absolute_value
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@network": network
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@stat_value_formatted": stat_value_formatted
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_statistic_leaderboard_item_code_game_id(data);} catch(e) { _log("Error calling: error_set_game_statistic_leaderboard_item_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_statistic_leaderboard_item_code_game_id(data);} catch(e) { _log("Error calling: handle_set_game_statistic_leaderboard_item_code_game_id: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_code_game_id_profile_id: function
+    (
+        status,
+        username,
+        code,
+        timestamp,
+        profile_id,
+        rank,
+        rank_change,
+        game_id,
+        active,
+        rank_total_count,
+        absolute_value,
+        data,
+        stat_value,
+        network,
+        uuid,
+        date_modified,
+        level,
+        stat_value_formatted,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'set'
+                + "/code/game-id/profile-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                + "/@profile_id/" + profile_id            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@timestamp": timestamp
+            , "@profile_id": profile_id
+            , "@rank": rank
+            , "@rank_change": rank_change
+            , "@game_id": game_id
+            , "@active": active
+            , "@rank_total_count": rank_total_count
+            , "@absolute_value": absolute_value
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@network": network
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@stat_value_formatted": stat_value_formatted
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_code_game_id_profile_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_code_game_id_profile_id_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_statistic_leaderboard_item_code_game_id_profile_id(data);} catch(e) { _log("Error calling: error_set_game_statistic_leaderboard_item_code_game_id_profile_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_code_game_id_profile_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_statistic_leaderboard_item_code_game_id_profile_id(data);} catch(e) { _log("Error calling: handle_set_game_statistic_leaderboard_item_code_game_id_profile_id: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: function
+    (
+        status,
+        username,
+        code,
+        timestamp,
+        profile_id,
+        rank,
+        rank_change,
+        game_id,
+        active,
+        rank_total_count,
+        absolute_value,
+        data,
+        stat_value,
+        network,
+        uuid,
+        date_modified,
+        level,
+        stat_value_formatted,
+        date_created,
+        type,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'set'
+                + "/code/game-id/profile-id/timestamp"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                + "/@profile_id/" + profile_id            
+                + "/@timestamp/" + timestamp            
+                        
+                ;
+
+        _log("serviceurl::", service_url);
+            
+        var obj = {
+            hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
+            , "@status": status
+            , "@username": username
+            , "@code": code
+            , "@timestamp": timestamp
+            , "@profile_id": profile_id
+            , "@rank": rank
+            , "@rank_change": rank_change
+            , "@game_id": game_id
+            , "@active": active
+            , "@rank_total_count": rank_total_count
+            , "@absolute_value": absolute_value
+            , "@data": data
+            , "@stat_value": stat_value
+            , "@network": network
+            , "@uuid": uuid
+            , "@date_modified": date_modified
+            , "@level": level
+            , "@stat_value_formatted": stat_value_formatted
+            , "@date_created": date_created
+            , "@type": type
+        }
+
+        _log("obj to submit::", obj);
+        
+        $.post(service_url, obj, fn, "json");
+    }
+    ,
+    //-------------------------------------------------
+    set_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback", true);
+            // call a method that can be inline callback
+            try {error_set_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp(data);} catch(e) { _log("Error calling: error_set_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_set_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback", false);
+            // call a method that can be inline callback
+            try {handle_set_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp(data);} catch(e) { _log("Error calling: handle_set_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: " + e);}
+        }
+    }                    
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_uuid: function
+    (
+        uuid,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'del'
+                + "/uuid"
+                + "/@uuid/" + uuid            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_uuid_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_uuid_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_statistic_leaderboard_item_uuid(data);} catch(e) { _log("Error calling: error_del_game_statistic_leaderboard_item_uuid: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_uuid_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_statistic_leaderboard_item_uuid(data);} catch(e) { _log("Error calling: handle_del_game_statistic_leaderboard_item_uuid: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_code: function
+    (
+        code,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'del'
+                + "/code"
+                + "/@code/" + code            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_code_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_code_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_statistic_leaderboard_item_code(data);} catch(e) { _log("Error calling: error_del_game_statistic_leaderboard_item_code: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_code_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_statistic_leaderboard_item_code(data);} catch(e) { _log("Error calling: handle_del_game_statistic_leaderboard_item_code: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'del'
+                + "/code/game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_statistic_leaderboard_item_code_game_id(data);} catch(e) { _log("Error calling: error_del_game_statistic_leaderboard_item_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_statistic_leaderboard_item_code_game_id(data);} catch(e) { _log("Error calling: handle_del_game_statistic_leaderboard_item_code_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_code_game_id_profile_id: function
+    (
+        code,
+        game_id,
+        profile_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'del'
+                + "/code/game-id/profile-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                + "/@profile_id/" + profile_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_code_game_id_profile_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_code_game_id_profile_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_statistic_leaderboard_item_code_game_id_profile_id(data);} catch(e) { _log("Error calling: error_del_game_statistic_leaderboard_item_code_game_id_profile_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_code_game_id_profile_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_statistic_leaderboard_item_code_game_id_profile_id(data);} catch(e) { _log("Error calling: handle_del_game_statistic_leaderboard_item_code_game_id_profile_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: function
+    (
+        code,
+        game_id,
+        profile_id,
+        timestamp,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'del'
+                + "/code/game-id/profile-id/timestamp"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                + "/@profile_id/" + profile_id            
+                + "/@timestamp/" + timestamp            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp(data);} catch(e) { _log("Error calling: error_del_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp(data);} catch(e) { _log("Error calling: handle_del_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_profile_id_game_id: function
+    (
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'del'
+                + "/profile-id/game-id"
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+    }
+    ,
+    //-------------------------------------------------
+    del_game_statistic_leaderboard_item_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);      
+      
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_del_game_statistic_leaderboard_item_profile_id_game_id(data);} catch(e) { _log("Error calling: error_del_game_statistic_leaderboard_item_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_del_game_statistic_leaderboard_item_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_del_game_statistic_leaderboard_item_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_del_game_statistic_leaderboard_item_profile_id_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item: function
+    (
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + ""
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_uuid: function
+    (
+        uuid,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + "/uuid"
+                + "/@uuid/" + uuid            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_uuid_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_uuid_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item_uuid(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item_uuid: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_uuid_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item_uuid(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item_uuid: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_game_id: function
+    (
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + "/game-id"
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item_game_id(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item_game_id(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_code: function
+    (
+        code,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + "/code"
+                + "/@code/" + code            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_code_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_code_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item_code(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item_code: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_code_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item_code(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item_code: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_code_game_id: function
+    (
+        code,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + "/code/game-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_code_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_code_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item_code_game_id(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item_code_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_code_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item_code_game_id(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item_code_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_code_game_id_profile_id: function
+    (
+        code,
+        game_id,
+        profile_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + "/code/game-id/profile-id"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                + "/@profile_id/" + profile_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_code_game_id_profile_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_code_game_id_profile_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item_code_game_id_profile_id(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item_code_game_id_profile_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_code_game_id_profile_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item_code_game_id_profile_id(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item_code_game_id_profile_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: function
+    (
+        code,
+        game_id,
+        profile_id,
+        timestamp,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + "/code/game-id/profile-id/timestamp"
+                + "/@code/" + code            
+                + "/@game_id/" + game_id            
+                + "/@profile_id/" + profile_id            
+                + "/@timestamp/" + timestamp            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item_code_game_id_profile_id_timestamp: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_profile_id_game_id: function
+    (
+        profile_id,
+        game_id,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + "/profile-id/game-id"
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_profile_id_game_id_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_profile_id_game_id_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item_profile_id_game_id(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item_profile_id_game_id: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_profile_id_game_id_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item_profile_id_game_id(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item_profile_id_game_id: " + e);}
+        }
+        
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_profile_id_game_id_timestamp: function
+    (
+        profile_id,
+        game_id,
+        timestamp,
+        fn
+    ){
+        this.fn_callback = fn;
+        var service_url = gaming_gaming_global.game_statistic_leaderboard_item_service + 'get'
+                + "/profile-id/game-id/timestamp"
+                + "/@profile_id/" + profile_id            
+                + "/@game_id/" + game_id            
+                + "/@timestamp/" + timestamp            
+                ;
+
+        _log("serviceurl::", service_url);
+        
+        $.get(service_url,
+            None
+            , fn
+            , "json");
+
+    }
+    ,
+    //-------------------------------------------------
+    get_game_statistic_leaderboard_item_profile_id_game_id_timestamp_callback: function(data) {
+
+        _log("data", data);
+        _log("data.message", data.message);
+        _log("data.error", data.error);
+        _log("data.data", data.data);
+        _log("data.info", data.info);
+        _log("data.action", data.action);
+            
+        if (data.error > 0 || data.error.length > 1) {
+            _log("ERRORS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_profile_id_game_id_timestamp_callback", true);
+            // call a method that can be inline callback
+            try {error_get_game_statistic_leaderboard_item_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: error_get_game_statistic_leaderboard_item_profile_id_game_id_timestamp: " + e);}
+        }
+        else {
+            _log("SUCCESS::game_statistic_leaderboard_item_get_game_statistic_leaderboard_item_profile_id_game_id_timestamp_callback", false);
+            // call a method that can be inline callback
+            try {handle_get_game_statistic_leaderboard_item_profile_id_game_id_timestamp(data);} catch(e) { _log("Error calling: handle_get_game_statistic_leaderboard_item_profile_id_game_id_timestamp: " + e);}
         }
         
     }
@@ -23003,7 +24626,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -23046,7 +24669,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -23089,7 +24712,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -23133,7 +24756,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'count'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -23179,7 +24802,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'count'
-                + "/by-code/by-game-id/by-profile-id"
+                + "/code/game-id/profile-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -23227,7 +24850,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'count'
-                + "/by-code/by-game-id/by-profile-id/by-timestamp"
+                + "/code/game-id/profile-id/timestamp"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -23274,7 +24897,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -23320,7 +24943,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -23384,7 +25007,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -23469,7 +25092,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'set'
-                + "/by-uuid/by-profile-id/by-game-id/by-timestamp"
+                + "/uuid/profile-id/game-id/timestamp"
                 + "/@uuid/" + uuid            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -23557,7 +25180,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -23642,7 +25265,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'set'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                         
@@ -23728,7 +25351,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'set'
-                + "/by-code/by-game-id/by-profile-id"
+                + "/code/game-id/profile-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -23815,7 +25438,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'set'
-                + "/by-code/by-game-id/by-profile-id/by-timestamp"
+                + "/code/game-id/profile-id/timestamp"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -23884,7 +25507,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -23927,7 +25550,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -23971,7 +25594,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'del'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -24017,7 +25640,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'del'
-                + "/by-code/by-game-id/by-profile-id"
+                + "/code/game-id/profile-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -24065,7 +25688,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'del'
-                + "/by-code/by-game-id/by-profile-id/by-timestamp"
+                + "/code/game-id/profile-id/timestamp"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -24112,7 +25735,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'del'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -24198,7 +25821,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -24242,7 +25865,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -24286,7 +25909,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -24331,7 +25954,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'get'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -24378,7 +26001,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'get'
-                + "/by-code/by-game-id/by-profile-id"
+                + "/code/game-id/profile-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -24427,7 +26050,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'get'
-                + "/by-code/by-game-id/by-profile-id/by-timestamp"
+                + "/code/game-id/profile-id/timestamp"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 + "/@profile_id/" + profile_id            
@@ -24475,7 +26098,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -24522,7 +26145,7 @@ gaming.game_statistic_leaderboard_rollup.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_leaderboard_rollup_service + 'get'
-                + "/by-profile-id/by-game-id/by-timestamp"
+                + "/profile-id/game-id/timestamp"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@timestamp/" + timestamp            
@@ -24622,7 +26245,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -24666,7 +26289,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -24712,7 +26335,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -24766,7 +26389,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -24831,7 +26454,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'set'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                         
@@ -24888,7 +26511,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -24932,7 +26555,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'del'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -25018,7 +26641,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -25062,7 +26685,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -25107,7 +26730,7 @@ gaming.game_live_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_queue_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -25206,7 +26829,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -25250,7 +26873,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -25296,7 +26919,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -25355,7 +26978,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -25430,7 +27053,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'set'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                         
@@ -25492,7 +27115,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -25536,7 +27159,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'del'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -25622,7 +27245,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -25666,7 +27289,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -25711,7 +27334,7 @@ gaming.game_live_recent_queue.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_live_recent_queue_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -25810,7 +27433,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -25853,7 +27476,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -25896,7 +27519,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -25940,7 +27563,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'count'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -25985,7 +27608,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'count'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -26031,7 +27654,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'count'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -26079,7 +27702,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'count'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -26127,7 +27750,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -26170,7 +27793,7 @@ gaming.game_profile_statistic.prototype = {
         status,
         username,
         code,
-        timestamp,
+        stat_value_formatted,
         profile_id,
         active,
         game_id,
@@ -26180,13 +27803,14 @@ gaming.game_profile_statistic.prototype = {
         date_modified,
         level,
         points,
+        timestamp,
         date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -26198,7 +27822,7 @@ gaming.game_profile_statistic.prototype = {
             , "@status": status
             , "@username": username
             , "@code": code
-            , "@timestamp": timestamp
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
             , "@active": active
             , "@game_id": game_id
@@ -26208,6 +27832,7 @@ gaming.game_profile_statistic.prototype = {
             , "@date_modified": date_modified
             , "@level": level
             , "@points": points
+            , "@timestamp": timestamp
             , "@date_created": date_created
             , "@type": type
         }
@@ -26245,7 +27870,7 @@ gaming.game_profile_statistic.prototype = {
         status,
         username,
         code,
-        timestamp,
+        stat_value_formatted,
         profile_id,
         active,
         game_id,
@@ -26255,13 +27880,14 @@ gaming.game_profile_statistic.prototype = {
         date_modified,
         level,
         points,
+        timestamp,
         date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'set'
-                + "/by-uuid/by-profile-id/by-game-id/by-timestamp"
+                + "/uuid/profile-id/game-id/timestamp"
                 + "/@uuid/" + uuid            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -26276,7 +27902,7 @@ gaming.game_profile_statistic.prototype = {
             , "@status": status
             , "@username": username
             , "@code": code
-            , "@timestamp": timestamp
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
             , "@active": active
             , "@game_id": game_id
@@ -26286,6 +27912,7 @@ gaming.game_profile_statistic.prototype = {
             , "@date_modified": date_modified
             , "@level": level
             , "@points": points
+            , "@timestamp": timestamp
             , "@date_created": date_created
             , "@type": type
         }
@@ -26323,7 +27950,7 @@ gaming.game_profile_statistic.prototype = {
         status,
         username,
         code,
-        timestamp,
+        stat_value_formatted,
         profile_id,
         active,
         game_id,
@@ -26333,13 +27960,14 @@ gaming.game_profile_statistic.prototype = {
         date_modified,
         level,
         points,
+        timestamp,
         date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'set'
-                + "/by-profile-id/by-code"
+                + "/profile-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@code/" + code            
                         
@@ -26352,7 +27980,7 @@ gaming.game_profile_statistic.prototype = {
             , "@status": status
             , "@username": username
             , "@code": code
-            , "@timestamp": timestamp
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
             , "@active": active
             , "@game_id": game_id
@@ -26362,6 +27990,7 @@ gaming.game_profile_statistic.prototype = {
             , "@date_modified": date_modified
             , "@level": level
             , "@points": points
+            , "@timestamp": timestamp
             , "@date_created": date_created
             , "@type": type
         }
@@ -26399,7 +28028,7 @@ gaming.game_profile_statistic.prototype = {
         status,
         username,
         code,
-        timestamp,
+        stat_value_formatted,
         profile_id,
         active,
         game_id,
@@ -26409,13 +28038,14 @@ gaming.game_profile_statistic.prototype = {
         date_modified,
         level,
         points,
+        timestamp,
         date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'set'
-                + "/by-profile-id/by-code/by-timestamp"
+                + "/profile-id/code/timestamp"
                 + "/@profile_id/" + profile_id            
                 + "/@code/" + code            
                 + "/@timestamp/" + timestamp            
@@ -26429,7 +28059,7 @@ gaming.game_profile_statistic.prototype = {
             , "@status": status
             , "@username": username
             , "@code": code
-            , "@timestamp": timestamp
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
             , "@active": active
             , "@game_id": game_id
@@ -26439,6 +28069,7 @@ gaming.game_profile_statistic.prototype = {
             , "@date_modified": date_modified
             , "@level": level
             , "@points": points
+            , "@timestamp": timestamp
             , "@date_created": date_created
             , "@type": type
         }
@@ -26476,7 +28107,7 @@ gaming.game_profile_statistic.prototype = {
         status,
         username,
         code,
-        timestamp,
+        stat_value_formatted,
         profile_id,
         active,
         game_id,
@@ -26486,13 +28117,14 @@ gaming.game_profile_statistic.prototype = {
         date_modified,
         level,
         points,
+        timestamp,
         date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'set'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -26507,7 +28139,7 @@ gaming.game_profile_statistic.prototype = {
             , "@status": status
             , "@username": username
             , "@code": code
-            , "@timestamp": timestamp
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
             , "@active": active
             , "@game_id": game_id
@@ -26517,6 +28149,7 @@ gaming.game_profile_statistic.prototype = {
             , "@date_modified": date_modified
             , "@level": level
             , "@points": points
+            , "@timestamp": timestamp
             , "@date_created": date_created
             , "@type": type
         }
@@ -26554,7 +28187,7 @@ gaming.game_profile_statistic.prototype = {
         status,
         username,
         code,
-        timestamp,
+        stat_value_formatted,
         profile_id,
         active,
         game_id,
@@ -26564,13 +28197,14 @@ gaming.game_profile_statistic.prototype = {
         date_modified,
         level,
         points,
+        timestamp,
         date_created,
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'set'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -26584,7 +28218,7 @@ gaming.game_profile_statistic.prototype = {
             , "@status": status
             , "@username": username
             , "@code": code
-            , "@timestamp": timestamp
+            , "@stat_value_formatted": stat_value_formatted
             , "@profile_id": profile_id
             , "@active": active
             , "@game_id": game_id
@@ -26594,6 +28228,7 @@ gaming.game_profile_statistic.prototype = {
             , "@date_modified": date_modified
             , "@level": level
             , "@points": points
+            , "@timestamp": timestamp
             , "@date_created": date_created
             , "@type": type
         }
@@ -26633,7 +28268,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -26677,7 +28312,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'del'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -26722,7 +28357,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'del'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -26768,7 +28403,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'del'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -26813,7 +28448,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -26857,7 +28492,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -26901,7 +28536,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -26946,7 +28581,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'get'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -26992,7 +28627,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -27039,7 +28674,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'get'
-                + "/by-profile-id/by-game-id/by-timestamp"
+                + "/profile-id/game-id/timestamp"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@timestamp/" + timestamp            
@@ -27087,7 +28722,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'get'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -27136,7 +28771,7 @@ gaming.game_profile_statistic.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_service + 'get'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -27237,7 +28872,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -27280,7 +28915,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -27324,7 +28959,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'count'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -27368,7 +29003,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -27411,7 +29046,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -27456,7 +29091,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -27516,7 +29151,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -27593,7 +29228,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'set'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                         
@@ -27656,7 +29291,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -27700,7 +29335,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'del'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -27744,7 +29379,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -27788,7 +29423,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -27832,7 +29467,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -27876,7 +29511,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -27921,7 +29556,7 @@ gaming.game_statistic_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_statistic_meta_service + 'get'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -28020,7 +29655,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -28065,7 +29700,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'count'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -28113,7 +29748,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'count'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -28161,7 +29796,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -28215,7 +29850,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -28280,7 +29915,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'set'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -28347,7 +29982,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'set'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -28406,7 +30041,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -28451,7 +30086,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'del'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -28499,7 +30134,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'del'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -28545,7 +30180,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -28591,7 +30226,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'get'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -28640,7 +30275,7 @@ gaming.game_profile_statistic_timestamp.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_statistic_timestamp_service + 'get'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -28741,7 +30376,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -28784,7 +30419,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -28828,7 +30463,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'count'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -28872,7 +30507,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -28915,7 +30550,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'count'
-                + "/by-key"
+                + "/key"
                 + "/@key/" + key            
                 ;
 
@@ -28958,7 +30593,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -29002,7 +30637,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'count'
-                + "/by-key/by-game-id"
+                + "/key/game-id"
                 + "/@key/" + key            
                 + "/@game_id/" + game_id            
                 ;
@@ -29048,7 +30683,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -29111,7 +30746,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -29194,7 +30829,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'set'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                         
@@ -29278,7 +30913,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'set'
-                + "/by-key/by-game-id"
+                + "/key/game-id"
                 + "/@key/" + key            
                 + "/@game_id/" + game_id            
                         
@@ -29362,7 +30997,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'set'
-                + "/by-key/by-game-id/by-level"
+                + "/key/game-id/level"
                 + "/@key/" + key            
                 + "/@game_id/" + game_id            
                 + "/@level/" + level            
@@ -29429,7 +31064,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -29473,7 +31108,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'del'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -29518,7 +31153,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'del'
-                + "/by-key/by-game-id"
+                + "/key/game-id"
                 + "/@key/" + key            
                 + "/@game_id/" + game_id            
                 ;
@@ -29562,7 +31197,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -29606,7 +31241,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -29651,7 +31286,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'get'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -29696,7 +31331,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -29740,7 +31375,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'get'
-                + "/by-key"
+                + "/key"
                 + "/@key/" + key            
                 ;
 
@@ -29784,7 +31419,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -29829,7 +31464,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'get'
-                + "/by-key/by-game-id"
+                + "/key/game-id"
                 + "/@key/" + key            
                 + "/@game_id/" + game_id            
                 ;
@@ -29875,7 +31510,7 @@ gaming.game_key_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_key_meta_service + 'get'
-                + "/by-code/by-level"
+                + "/code/level"
                 + "/@code/" + code            
                 + "/@level/" + level            
                 ;
@@ -29974,7 +31609,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -30017,7 +31652,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -30061,7 +31696,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'count'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -30105,7 +31740,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -30148,7 +31783,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -30193,7 +31828,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -30251,7 +31886,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -30324,7 +31959,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'set'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                         
@@ -30385,7 +32020,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -30429,7 +32064,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'del'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -30473,7 +32108,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -30517,7 +32152,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -30562,7 +32197,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'get'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -30607,7 +32242,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -30651,7 +32286,7 @@ gaming.game_level.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_level_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -30749,7 +32384,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -30793,7 +32428,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'count'
-                + "/by-profile-id/by-code"
+                + "/profile-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@code/" + code            
                 ;
@@ -30837,7 +32472,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'count'
-                + "/by-username"
+                + "/username"
                 + "/@username/" + username            
                 ;
 
@@ -30882,7 +32517,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'count'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -30930,7 +32565,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'count'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -30978,7 +32613,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -31037,7 +32672,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -31112,7 +32747,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'set'
-                + "/by-uuid/by-code"
+                + "/uuid/code"
                 + "/@uuid/" + uuid            
                 + "/@code/" + code            
                         
@@ -31188,7 +32823,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'set'
-                + "/by-profile-id/by-code"
+                + "/profile-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@code/" + code            
                         
@@ -31264,7 +32899,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'set'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -31341,7 +32976,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'set'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -31405,7 +33040,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -31449,7 +33084,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'del'
-                + "/by-profile-id/by-code"
+                + "/profile-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@code/" + code            
                 ;
@@ -31494,7 +33129,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'del'
-                + "/by-uuid/by-code"
+                + "/uuid/code"
                 + "/@uuid/" + uuid            
                 + "/@code/" + code            
                 ;
@@ -31538,7 +33173,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -31583,7 +33218,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-profile-id/by-code"
+                + "/profile-id/code"
                 + "/@profile_id/" + profile_id            
                 + "/@code/" + code            
                 ;
@@ -31628,7 +33263,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-username"
+                + "/username"
                 + "/@username/" + username            
                 ;
 
@@ -31672,7 +33307,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -31716,7 +33351,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -31761,7 +33396,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -31807,7 +33442,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-profile-id/by-game-id"
+                + "/profile-id/game-id"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 ;
@@ -31854,7 +33489,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-profile-id/by-game-id/by-timestamp"
+                + "/profile-id/game-id/timestamp"
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
                 + "/@timestamp/" + timestamp            
@@ -31902,7 +33537,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-code/by-profile-id/by-game-id"
+                + "/code/profile-id/game-id"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -31951,7 +33586,7 @@ gaming.game_profile_achievement.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_profile_achievement_service + 'get'
-                + "/by-code/by-profile-id/by-game-id/by-timestamp"
+                + "/code/profile-id/game-id/timestamp"
                 + "/@code/" + code            
                 + "/@profile_id/" + profile_id            
                 + "/@game_id/" + game_id            
@@ -32052,7 +33687,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -32095,7 +33730,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -32139,7 +33774,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'count'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -32183,7 +33818,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -32226,7 +33861,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'count'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 
@@ -32271,7 +33906,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -32333,7 +33968,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -32414,7 +34049,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'set'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                         
@@ -32479,7 +34114,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -32523,7 +34158,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'del'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -32567,7 +34202,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -32611,7 +34246,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -32656,7 +34291,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'get'
-                + "/by-code/by-game-id"
+                + "/code/game-id"
                 + "/@code/" + code            
                 + "/@game_id/" + game_id            
                 ;
@@ -32701,7 +34336,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -32745,7 +34380,7 @@ gaming.game_achievement_meta.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = gaming_gaming_global.game_achievement_meta_service + 'get'
-                + "/by-game-id"
+                + "/game-id"
                 + "/@game_id/" + game_id            
                 ;
 

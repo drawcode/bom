@@ -27,135 +27,135 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameByUuid(self
+    def CountGameUuid(self
         , uuid
     ) :         
-        return self.act.CountGameByUuid(
+        return self.act.CountGameUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameByCode(self
+    def CountGameCode(self
         , code
     ) :         
-        return self.act.CountGameByCode(
+        return self.act.CountGameCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameByName(self
+    def CountGameName(self
         , name
     ) :         
-        return self.act.CountGameByName(
+        return self.act.CountGameName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameByOrgId(self
+    def CountGameOrgId(self
         , org_id
     ) :         
-        return self.act.CountGameByOrgId(
+        return self.act.CountGameOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameByAppId(self
+    def CountGameAppId(self
         , app_id
     ) :         
-        return self.act.CountGameByAppId(
+        return self.act.CountGameAppId(
         app_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameByOrgIdByAppId(self
+    def CountGameOrgIdAppId(self
         , org_id
         , app_id
     ) :         
-        return self.act.CountGameByOrgIdByAppId(
+        return self.act.CountGameOrgIdAppId(
         org_id
         , app_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameListByFilter(self, filter_obj) :
-        return self.act.BrowseGameListByFilter(filter_obj)
+    def BrowseGameListFilter(self, filter_obj) :
+        return self.act.BrowseGameListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByUuidType(self, set_type, obj) :
-        return self.act.SetGameByUuid(set_type, obj)
+    def SetGameUuidType(self, set_type, obj) :
+        return self.act.SetGameUuid(set_type, obj)
                
-    def SetGameByUuid(self, obj) :
-        return self.act.SetGameByUuid('full', obj)
+    def SetGameUuid(self, obj) :
+        return self.act.SetGameUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByCodeType(self, set_type, obj) :
-        return self.act.SetGameByCode(set_type, obj)
+    def SetGameCodeType(self, set_type, obj) :
+        return self.act.SetGameCode(set_type, obj)
                
-    def SetGameByCode(self, obj) :
-        return self.act.SetGameByCode('full', obj)
+    def SetGameCode(self, obj) :
+        return self.act.SetGameCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByNameType(self, set_type, obj) :
-        return self.act.SetGameByName(set_type, obj)
+    def SetGameNameType(self, set_type, obj) :
+        return self.act.SetGameName(set_type, obj)
                
-    def SetGameByName(self, obj) :
-        return self.act.SetGameByName('full', obj)
+    def SetGameName(self, obj) :
+        return self.act.SetGameName('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByOrgIdType(self, set_type, obj) :
-        return self.act.SetGameByOrgId(set_type, obj)
+    def SetGameOrgIdType(self, set_type, obj) :
+        return self.act.SetGameOrgId(set_type, obj)
                
-    def SetGameByOrgId(self, obj) :
-        return self.act.SetGameByOrgId('full', obj)
+    def SetGameOrgId(self, obj) :
+        return self.act.SetGameOrgId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByAppIdType(self, set_type, obj) :
-        return self.act.SetGameByAppId(set_type, obj)
+    def SetGameAppIdType(self, set_type, obj) :
+        return self.act.SetGameAppId(set_type, obj)
                
-    def SetGameByAppId(self, obj) :
-        return self.act.SetGameByAppId('full', obj)
+    def SetGameAppId(self, obj) :
+        return self.act.SetGameAppId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameByOrgIdByAppIdType(self, set_type, obj) :
-        return self.act.SetGameByOrgIdByAppId(set_type, obj)
+    def SetGameOrgIdAppIdType(self, set_type, obj) :
+        return self.act.SetGameOrgIdAppId(set_type, obj)
                
-    def SetGameByOrgIdByAppId(self, obj) :
-        return self.act.SetGameByOrgIdByAppId('full', obj)
+    def SetGameOrgIdAppId(self, obj) :
+        return self.act.SetGameOrgIdAppId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameByUuid(self
+    def DelGameUuid(self
         , uuid
     ) :          
-        return self.act.DelGameByUuid(
+        return self.act.DelGameUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameByCode(self
+    def DelGameCode(self
         , code
     ) :          
-        return self.act.DelGameByCode(
+        return self.act.DelGameCode(
         code
         )
 #------------------------------------------------------------------------------                    
-    def DelGameByName(self
+    def DelGameName(self
         , name
     ) :          
-        return self.act.DelGameByName(
+        return self.act.DelGameName(
         name
         )
 #------------------------------------------------------------------------------                    
-    def DelGameByOrgId(self
+    def DelGameOrgId(self
         , org_id
     ) :          
-        return self.act.DelGameByOrgId(
+        return self.act.DelGameOrgId(
         org_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameByAppId(self
+    def DelGameAppId(self
         , app_id
     ) :          
-        return self.act.DelGameByAppId(
+        return self.act.DelGameAppId(
         app_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameByOrgIdByAppId(self
+    def DelGameOrgIdAppId(self
         , org_id
         , app_id
     ) :          
-        return self.act.DelGameByOrgIdByAppId(
+        return self.act.DelGameOrgIdAppId(
         org_id
         , app_id
         )
@@ -207,32 +207,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameListByUuid(self
+    def GetGameListUuid(self
         , uuid
         ) :
-            return self.act.GetGameListByUuid(
+            return self.act.GetGameListUuid(
                 uuid
             )
         
-    def GetGameByUuid(self
+    def GetGameUuid(self
         , uuid
     ) :
-        for item in self.GetGameListByUuid(
+        for item in self.GetGameListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameListByUuid(self
+    def CachedGetGameListUuid(self
         , uuid
     ) :
-        return CachedGetGameListByUuid(
+        return CachedGetGameListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameListByUuid(self
+    def CachedGetGameListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -241,7 +241,7 @@ class BaseGamingAPI(object):
         """
         List<Game> objs;
 
-        string method_name = "CachedGetGameListByUuid";
+        string method_name = "CachedGetGameListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -257,7 +257,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameListByUuid(
+            objs = GetGameListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -266,32 +266,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameListByCode(self
+    def GetGameListCode(self
         , code
         ) :
-            return self.act.GetGameListByCode(
+            return self.act.GetGameListCode(
                 code
             )
         
-    def GetGameByCode(self
+    def GetGameCode(self
         , code
     ) :
-        for item in self.GetGameListByCode(
+        for item in self.GetGameListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameListByCode(self
+    def CachedGetGameListCode(self
         , code
     ) :
-        return CachedGetGameListByCode(
+        return CachedGetGameListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameListByCode(self
+    def CachedGetGameListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -300,7 +300,7 @@ class BaseGamingAPI(object):
         """
         List<Game> objs;
 
-        string method_name = "CachedGetGameListByCode";
+        string method_name = "CachedGetGameListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -316,7 +316,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameListByCode(
+            objs = GetGameListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -325,32 +325,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameListByName(self
+    def GetGameListName(self
         , name
         ) :
-            return self.act.GetGameListByName(
+            return self.act.GetGameListName(
                 name
             )
         
-    def GetGameByName(self
+    def GetGameName(self
         , name
     ) :
-        for item in self.GetGameListByName(
+        for item in self.GetGameListName(
         name
         ) :
             return item
         return None
     
-    def CachedGetGameListByName(self
+    def CachedGetGameListName(self
         , name
     ) :
-        return CachedGetGameListByName(
+        return CachedGetGameListName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetGameListByName(self
+    def CachedGetGameListName(self
         , overrideCache
         , cacheHours
         , name
@@ -359,7 +359,7 @@ class BaseGamingAPI(object):
         """
         List<Game> objs;
 
-        string method_name = "CachedGetGameListByName";
+        string method_name = "CachedGetGameListName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -375,7 +375,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameListByName(
+            objs = GetGameListName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -384,32 +384,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameListByOrgId(self
+    def GetGameListOrgId(self
         , org_id
         ) :
-            return self.act.GetGameListByOrgId(
+            return self.act.GetGameListOrgId(
                 org_id
             )
         
-    def GetGameByOrgId(self
+    def GetGameOrgId(self
         , org_id
     ) :
-        for item in self.GetGameListByOrgId(
+        for item in self.GetGameListOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetGameListByOrgId(self
+    def CachedGetGameListOrgId(self
         , org_id
     ) :
-        return CachedGetGameListByOrgId(
+        return CachedGetGameListOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetGameListByOrgId(self
+    def CachedGetGameListOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -418,7 +418,7 @@ class BaseGamingAPI(object):
         """
         List<Game> objs;
 
-        string method_name = "CachedGetGameListByOrgId";
+        string method_name = "CachedGetGameListOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -434,7 +434,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameListByOrgId(
+            objs = GetGameListOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -443,32 +443,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameListByAppId(self
+    def GetGameListAppId(self
         , app_id
         ) :
-            return self.act.GetGameListByAppId(
+            return self.act.GetGameListAppId(
                 app_id
             )
         
-    def GetGameByAppId(self
+    def GetGameAppId(self
         , app_id
     ) :
-        for item in self.GetGameListByAppId(
+        for item in self.GetGameListAppId(
         app_id
         ) :
             return item
         return None
     
-    def CachedGetGameListByAppId(self
+    def CachedGetGameListAppId(self
         , app_id
     ) :
-        return CachedGetGameListByAppId(
+        return CachedGetGameListAppId(
             false
             , self.CACHE_DEFAULT_HOURS
             , app_id
         )
         
-    def CachedGetGameListByAppId(self
+    def CachedGetGameListAppId(self
         , overrideCache
         , cacheHours
         , app_id
@@ -477,7 +477,7 @@ class BaseGamingAPI(object):
         """
         List<Game> objs;
 
-        string method_name = "CachedGetGameListByAppId";
+        string method_name = "CachedGetGameListAppId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -493,7 +493,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameListByAppId(
+            objs = GetGameListAppId(
                 app_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -502,38 +502,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameListByOrgIdByAppId(self
+    def GetGameListOrgIdAppId(self
         , org_id
         , app_id
         ) :
-            return self.act.GetGameListByOrgIdByAppId(
+            return self.act.GetGameListOrgIdAppId(
                 org_id
                 , app_id
             )
         
-    def GetGameByOrgIdByAppId(self
+    def GetGameOrgIdAppId(self
         , org_id
         , app_id
     ) :
-        for item in self.GetGameListByOrgIdByAppId(
+        for item in self.GetGameListOrgIdAppId(
         org_id
         , app_id
         ) :
             return item
         return None
     
-    def CachedGetGameListByOrgIdByAppId(self
+    def CachedGetGameListOrgIdAppId(self
         , org_id
         , app_id
     ) :
-        return CachedGetGameListByOrgIdByAppId(
+        return CachedGetGameListOrgIdAppId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
             , app_id
         )
         
-    def CachedGetGameListByOrgIdByAppId(self
+    def CachedGetGameListOrgIdAppId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -543,7 +543,7 @@ class BaseGamingAPI(object):
         """
         List<Game> objs;
 
-        string method_name = "CachedGetGameListByOrgIdByAppId";
+        string method_name = "CachedGetGameListOrgIdAppId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -563,7 +563,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameListByOrgIdByAppId(
+            objs = GetGameListOrgIdAppId(
                 org_id
                 , app_id
             );
@@ -579,87 +579,87 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryByUuid(self
+    def CountGameCategoryUuid(self
         , uuid
     ) :         
-        return self.act.CountGameCategoryByUuid(
+        return self.act.CountGameCategoryUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryByCode(self
+    def CountGameCategoryCode(self
         , code
     ) :         
-        return self.act.CountGameCategoryByCode(
+        return self.act.CountGameCategoryCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryByName(self
+    def CountGameCategoryName(self
         , name
     ) :         
-        return self.act.CountGameCategoryByName(
+        return self.act.CountGameCategoryName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryByOrgId(self
+    def CountGameCategoryOrgId(self
         , org_id
     ) :         
-        return self.act.CountGameCategoryByOrgId(
+        return self.act.CountGameCategoryOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryByTypeId(self
+    def CountGameCategoryTypeId(self
         , type_id
     ) :         
-        return self.act.CountGameCategoryByTypeId(
+        return self.act.CountGameCategoryTypeId(
         type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryByOrgIdByTypeId(self
+    def CountGameCategoryOrgIdTypeId(self
         , org_id
         , type_id
     ) :         
-        return self.act.CountGameCategoryByOrgIdByTypeId(
+        return self.act.CountGameCategoryOrgIdTypeId(
         org_id
         , type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameCategoryListByFilter(self, filter_obj) :
-        return self.act.BrowseGameCategoryListByFilter(filter_obj)
+    def BrowseGameCategoryListFilter(self, filter_obj) :
+        return self.act.BrowseGameCategoryListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameCategoryByUuidType(self, set_type, obj) :
-        return self.act.SetGameCategoryByUuid(set_type, obj)
+    def SetGameCategoryUuidType(self, set_type, obj) :
+        return self.act.SetGameCategoryUuid(set_type, obj)
                
-    def SetGameCategoryByUuid(self, obj) :
-        return self.act.SetGameCategoryByUuid('full', obj)
+    def SetGameCategoryUuid(self, obj) :
+        return self.act.SetGameCategoryUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameCategoryByUuid(self
+    def DelGameCategoryUuid(self
         , uuid
     ) :          
-        return self.act.DelGameCategoryByUuid(
+        return self.act.DelGameCategoryUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameCategoryByCodeByOrgId(self
+    def DelGameCategoryCodeOrgId(self
         , code
         , org_id
     ) :          
-        return self.act.DelGameCategoryByCodeByOrgId(
+        return self.act.DelGameCategoryCodeOrgId(
         code
         , org_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameCategoryByCodeByOrgIdByTypeId(self
+    def DelGameCategoryCodeOrgIdTypeId(self
         , code
         , org_id
         , type_id
     ) :          
-        return self.act.DelGameCategoryByCodeByOrgIdByTypeId(
+        return self.act.DelGameCategoryCodeOrgIdTypeId(
         code
         , org_id
         , type_id
@@ -712,32 +712,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryListByUuid(self
+    def GetGameCategoryListUuid(self
         , uuid
         ) :
-            return self.act.GetGameCategoryListByUuid(
+            return self.act.GetGameCategoryListUuid(
                 uuid
             )
         
-    def GetGameCategoryByUuid(self
+    def GetGameCategoryUuid(self
         , uuid
     ) :
-        for item in self.GetGameCategoryListByUuid(
+        for item in self.GetGameCategoryListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryListByUuid(self
+    def CachedGetGameCategoryListUuid(self
         , uuid
     ) :
-        return CachedGetGameCategoryListByUuid(
+        return CachedGetGameCategoryListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameCategoryListByUuid(self
+    def CachedGetGameCategoryListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -746,7 +746,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategory> objs;
 
-        string method_name = "CachedGetGameCategoryListByUuid";
+        string method_name = "CachedGetGameCategoryListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -762,7 +762,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryListByUuid(
+            objs = GetGameCategoryListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -771,32 +771,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryListByCode(self
+    def GetGameCategoryListCode(self
         , code
         ) :
-            return self.act.GetGameCategoryListByCode(
+            return self.act.GetGameCategoryListCode(
                 code
             )
         
-    def GetGameCategoryByCode(self
+    def GetGameCategoryCode(self
         , code
     ) :
-        for item in self.GetGameCategoryListByCode(
+        for item in self.GetGameCategoryListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryListByCode(self
+    def CachedGetGameCategoryListCode(self
         , code
     ) :
-        return CachedGetGameCategoryListByCode(
+        return CachedGetGameCategoryListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameCategoryListByCode(self
+    def CachedGetGameCategoryListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -805,7 +805,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategory> objs;
 
-        string method_name = "CachedGetGameCategoryListByCode";
+        string method_name = "CachedGetGameCategoryListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -821,7 +821,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryListByCode(
+            objs = GetGameCategoryListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -830,32 +830,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryListByName(self
+    def GetGameCategoryListName(self
         , name
         ) :
-            return self.act.GetGameCategoryListByName(
+            return self.act.GetGameCategoryListName(
                 name
             )
         
-    def GetGameCategoryByName(self
+    def GetGameCategoryName(self
         , name
     ) :
-        for item in self.GetGameCategoryListByName(
+        for item in self.GetGameCategoryListName(
         name
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryListByName(self
+    def CachedGetGameCategoryListName(self
         , name
     ) :
-        return CachedGetGameCategoryListByName(
+        return CachedGetGameCategoryListName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetGameCategoryListByName(self
+    def CachedGetGameCategoryListName(self
         , overrideCache
         , cacheHours
         , name
@@ -864,7 +864,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategory> objs;
 
-        string method_name = "CachedGetGameCategoryListByName";
+        string method_name = "CachedGetGameCategoryListName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -880,7 +880,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryListByName(
+            objs = GetGameCategoryListName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -889,32 +889,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryListByOrgId(self
+    def GetGameCategoryListOrgId(self
         , org_id
         ) :
-            return self.act.GetGameCategoryListByOrgId(
+            return self.act.GetGameCategoryListOrgId(
                 org_id
             )
         
-    def GetGameCategoryByOrgId(self
+    def GetGameCategoryOrgId(self
         , org_id
     ) :
-        for item in self.GetGameCategoryListByOrgId(
+        for item in self.GetGameCategoryListOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryListByOrgId(self
+    def CachedGetGameCategoryListOrgId(self
         , org_id
     ) :
-        return CachedGetGameCategoryListByOrgId(
+        return CachedGetGameCategoryListOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetGameCategoryListByOrgId(self
+    def CachedGetGameCategoryListOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -923,7 +923,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategory> objs;
 
-        string method_name = "CachedGetGameCategoryListByOrgId";
+        string method_name = "CachedGetGameCategoryListOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -939,7 +939,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryListByOrgId(
+            objs = GetGameCategoryListOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -948,32 +948,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryListByTypeId(self
+    def GetGameCategoryListTypeId(self
         , type_id
         ) :
-            return self.act.GetGameCategoryListByTypeId(
+            return self.act.GetGameCategoryListTypeId(
                 type_id
             )
         
-    def GetGameCategoryByTypeId(self
+    def GetGameCategoryTypeId(self
         , type_id
     ) :
-        for item in self.GetGameCategoryListByTypeId(
+        for item in self.GetGameCategoryListTypeId(
         type_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryListByTypeId(self
+    def CachedGetGameCategoryListTypeId(self
         , type_id
     ) :
-        return CachedGetGameCategoryListByTypeId(
+        return CachedGetGameCategoryListTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , type_id
         )
         
-    def CachedGetGameCategoryListByTypeId(self
+    def CachedGetGameCategoryListTypeId(self
         , overrideCache
         , cacheHours
         , type_id
@@ -982,7 +982,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategory> objs;
 
-        string method_name = "CachedGetGameCategoryListByTypeId";
+        string method_name = "CachedGetGameCategoryListTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -998,7 +998,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryListByTypeId(
+            objs = GetGameCategoryListTypeId(
                 type_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1007,38 +1007,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryListByOrgIdByTypeId(self
+    def GetGameCategoryListOrgIdTypeId(self
         , org_id
         , type_id
         ) :
-            return self.act.GetGameCategoryListByOrgIdByTypeId(
+            return self.act.GetGameCategoryListOrgIdTypeId(
                 org_id
                 , type_id
             )
         
-    def GetGameCategoryByOrgIdByTypeId(self
+    def GetGameCategoryOrgIdTypeId(self
         , org_id
         , type_id
     ) :
-        for item in self.GetGameCategoryListByOrgIdByTypeId(
+        for item in self.GetGameCategoryListOrgIdTypeId(
         org_id
         , type_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryListByOrgIdByTypeId(self
+    def CachedGetGameCategoryListOrgIdTypeId(self
         , org_id
         , type_id
     ) :
-        return CachedGetGameCategoryListByOrgIdByTypeId(
+        return CachedGetGameCategoryListOrgIdTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
             , type_id
         )
         
-    def CachedGetGameCategoryListByOrgIdByTypeId(self
+    def CachedGetGameCategoryListOrgIdTypeId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -1048,7 +1048,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategory> objs;
 
-        string method_name = "CachedGetGameCategoryListByOrgIdByTypeId";
+        string method_name = "CachedGetGameCategoryListOrgIdTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1068,7 +1068,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryListByOrgIdByTypeId(
+            objs = GetGameCategoryListOrgIdTypeId(
                 org_id
                 , type_id
             );
@@ -1084,75 +1084,75 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryTreeByUuid(self
+    def CountGameCategoryTreeUuid(self
         , uuid
     ) :         
-        return self.act.CountGameCategoryTreeByUuid(
+        return self.act.CountGameCategoryTreeUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryTreeByParentId(self
+    def CountGameCategoryTreeParentId(self
         , parent_id
     ) :         
-        return self.act.CountGameCategoryTreeByParentId(
+        return self.act.CountGameCategoryTreeParentId(
         parent_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryTreeByCategoryId(self
+    def CountGameCategoryTreeCategoryId(self
         , category_id
     ) :         
-        return self.act.CountGameCategoryTreeByCategoryId(
+        return self.act.CountGameCategoryTreeCategoryId(
         category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryTreeByParentIdByCategoryId(self
+    def CountGameCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :         
-        return self.act.CountGameCategoryTreeByParentIdByCategoryId(
+        return self.act.CountGameCategoryTreeParentIdCategoryId(
         parent_id
         , category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameCategoryTreeListByFilter(self, filter_obj) :
-        return self.act.BrowseGameCategoryTreeListByFilter(filter_obj)
+    def BrowseGameCategoryTreeListFilter(self, filter_obj) :
+        return self.act.BrowseGameCategoryTreeListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameCategoryTreeByUuidType(self, set_type, obj) :
-        return self.act.SetGameCategoryTreeByUuid(set_type, obj)
+    def SetGameCategoryTreeUuidType(self, set_type, obj) :
+        return self.act.SetGameCategoryTreeUuid(set_type, obj)
                
-    def SetGameCategoryTreeByUuid(self, obj) :
-        return self.act.SetGameCategoryTreeByUuid('full', obj)
+    def SetGameCategoryTreeUuid(self, obj) :
+        return self.act.SetGameCategoryTreeUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameCategoryTreeByUuid(self
+    def DelGameCategoryTreeUuid(self
         , uuid
     ) :          
-        return self.act.DelGameCategoryTreeByUuid(
+        return self.act.DelGameCategoryTreeUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameCategoryTreeByParentId(self
+    def DelGameCategoryTreeParentId(self
         , parent_id
     ) :          
-        return self.act.DelGameCategoryTreeByParentId(
+        return self.act.DelGameCategoryTreeParentId(
         parent_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameCategoryTreeByCategoryId(self
+    def DelGameCategoryTreeCategoryId(self
         , category_id
     ) :          
-        return self.act.DelGameCategoryTreeByCategoryId(
+        return self.act.DelGameCategoryTreeCategoryId(
         category_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameCategoryTreeByParentIdByCategoryId(self
+    def DelGameCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :          
-        return self.act.DelGameCategoryTreeByParentIdByCategoryId(
+        return self.act.DelGameCategoryTreeParentIdCategoryId(
         parent_id
         , category_id
         )
@@ -1204,32 +1204,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryTreeListByUuid(self
+    def GetGameCategoryTreeListUuid(self
         , uuid
         ) :
-            return self.act.GetGameCategoryTreeListByUuid(
+            return self.act.GetGameCategoryTreeListUuid(
                 uuid
             )
         
-    def GetGameCategoryTreeByUuid(self
+    def GetGameCategoryTreeUuid(self
         , uuid
     ) :
-        for item in self.GetGameCategoryTreeListByUuid(
+        for item in self.GetGameCategoryTreeListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryTreeListByUuid(self
+    def CachedGetGameCategoryTreeListUuid(self
         , uuid
     ) :
-        return CachedGetGameCategoryTreeListByUuid(
+        return CachedGetGameCategoryTreeListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameCategoryTreeListByUuid(self
+    def CachedGetGameCategoryTreeListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -1238,7 +1238,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategoryTree> objs;
 
-        string method_name = "CachedGetGameCategoryTreeListByUuid";
+        string method_name = "CachedGetGameCategoryTreeListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1254,7 +1254,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryTreeListByUuid(
+            objs = GetGameCategoryTreeListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1263,32 +1263,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryTreeListByParentId(self
+    def GetGameCategoryTreeListParentId(self
         , parent_id
         ) :
-            return self.act.GetGameCategoryTreeListByParentId(
+            return self.act.GetGameCategoryTreeListParentId(
                 parent_id
             )
         
-    def GetGameCategoryTreeByParentId(self
+    def GetGameCategoryTreeParentId(self
         , parent_id
     ) :
-        for item in self.GetGameCategoryTreeListByParentId(
+        for item in self.GetGameCategoryTreeListParentId(
         parent_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryTreeListByParentId(self
+    def CachedGetGameCategoryTreeListParentId(self
         , parent_id
     ) :
-        return CachedGetGameCategoryTreeListByParentId(
+        return CachedGetGameCategoryTreeListParentId(
             false
             , self.CACHE_DEFAULT_HOURS
             , parent_id
         )
         
-    def CachedGetGameCategoryTreeListByParentId(self
+    def CachedGetGameCategoryTreeListParentId(self
         , overrideCache
         , cacheHours
         , parent_id
@@ -1297,7 +1297,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategoryTree> objs;
 
-        string method_name = "CachedGetGameCategoryTreeListByParentId";
+        string method_name = "CachedGetGameCategoryTreeListParentId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1313,7 +1313,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryTreeListByParentId(
+            objs = GetGameCategoryTreeListParentId(
                 parent_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1322,32 +1322,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryTreeListByCategoryId(self
+    def GetGameCategoryTreeListCategoryId(self
         , category_id
         ) :
-            return self.act.GetGameCategoryTreeListByCategoryId(
+            return self.act.GetGameCategoryTreeListCategoryId(
                 category_id
             )
         
-    def GetGameCategoryTreeByCategoryId(self
+    def GetGameCategoryTreeCategoryId(self
         , category_id
     ) :
-        for item in self.GetGameCategoryTreeListByCategoryId(
+        for item in self.GetGameCategoryTreeListCategoryId(
         category_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryTreeListByCategoryId(self
+    def CachedGetGameCategoryTreeListCategoryId(self
         , category_id
     ) :
-        return CachedGetGameCategoryTreeListByCategoryId(
+        return CachedGetGameCategoryTreeListCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , category_id
         )
         
-    def CachedGetGameCategoryTreeListByCategoryId(self
+    def CachedGetGameCategoryTreeListCategoryId(self
         , overrideCache
         , cacheHours
         , category_id
@@ -1356,7 +1356,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategoryTree> objs;
 
-        string method_name = "CachedGetGameCategoryTreeListByCategoryId";
+        string method_name = "CachedGetGameCategoryTreeListCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1372,7 +1372,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryTreeListByCategoryId(
+            objs = GetGameCategoryTreeListCategoryId(
                 category_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1381,38 +1381,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryTreeListByParentIdByCategoryId(self
+    def GetGameCategoryTreeListParentIdCategoryId(self
         , parent_id
         , category_id
         ) :
-            return self.act.GetGameCategoryTreeListByParentIdByCategoryId(
+            return self.act.GetGameCategoryTreeListParentIdCategoryId(
                 parent_id
                 , category_id
             )
         
-    def GetGameCategoryTreeByParentIdByCategoryId(self
+    def GetGameCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
-        for item in self.GetGameCategoryTreeListByParentIdByCategoryId(
+        for item in self.GetGameCategoryTreeListParentIdCategoryId(
         parent_id
         , category_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryTreeListByParentIdByCategoryId(self
+    def CachedGetGameCategoryTreeListParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
-        return CachedGetGameCategoryTreeListByParentIdByCategoryId(
+        return CachedGetGameCategoryTreeListParentIdCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , parent_id
             , category_id
         )
         
-    def CachedGetGameCategoryTreeListByParentIdByCategoryId(self
+    def CachedGetGameCategoryTreeListParentIdCategoryId(self
         , overrideCache
         , cacheHours
         , parent_id
@@ -1422,7 +1422,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategoryTree> objs;
 
-        string method_name = "CachedGetGameCategoryTreeListByParentIdByCategoryId";
+        string method_name = "CachedGetGameCategoryTreeListParentIdCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1442,7 +1442,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryTreeListByParentIdByCategoryId(
+            objs = GetGameCategoryTreeListParentIdCategoryId(
                 parent_id
                 , category_id
             );
@@ -1458,53 +1458,53 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryAssocByUuid(self
+    def CountGameCategoryAssocUuid(self
         , uuid
     ) :         
-        return self.act.CountGameCategoryAssocByUuid(
+        return self.act.CountGameCategoryAssocUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryAssocByGameId(self
+    def CountGameCategoryAssocGameId(self
         , game_id
     ) :         
-        return self.act.CountGameCategoryAssocByGameId(
+        return self.act.CountGameCategoryAssocGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryAssocByCategoryId(self
+    def CountGameCategoryAssocCategoryId(self
         , category_id
     ) :         
-        return self.act.CountGameCategoryAssocByCategoryId(
+        return self.act.CountGameCategoryAssocCategoryId(
         category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameCategoryAssocByGameIdByCategoryId(self
+    def CountGameCategoryAssocGameIdCategoryId(self
         , game_id
         , category_id
     ) :         
-        return self.act.CountGameCategoryAssocByGameIdByCategoryId(
+        return self.act.CountGameCategoryAssocGameIdCategoryId(
         game_id
         , category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameCategoryAssocListByFilter(self, filter_obj) :
-        return self.act.BrowseGameCategoryAssocListByFilter(filter_obj)
+    def BrowseGameCategoryAssocListFilter(self, filter_obj) :
+        return self.act.BrowseGameCategoryAssocListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameCategoryAssocByUuidType(self, set_type, obj) :
-        return self.act.SetGameCategoryAssocByUuid(set_type, obj)
+    def SetGameCategoryAssocUuidType(self, set_type, obj) :
+        return self.act.SetGameCategoryAssocUuid(set_type, obj)
                
-    def SetGameCategoryAssocByUuid(self, obj) :
-        return self.act.SetGameCategoryAssocByUuid('full', obj)
+    def SetGameCategoryAssocUuid(self, obj) :
+        return self.act.SetGameCategoryAssocUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameCategoryAssocByUuid(self
+    def DelGameCategoryAssocUuid(self
         , uuid
     ) :          
-        return self.act.DelGameCategoryAssocByUuid(
+        return self.act.DelGameCategoryAssocUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -1555,32 +1555,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryAssocListByUuid(self
+    def GetGameCategoryAssocListUuid(self
         , uuid
         ) :
-            return self.act.GetGameCategoryAssocListByUuid(
+            return self.act.GetGameCategoryAssocListUuid(
                 uuid
             )
         
-    def GetGameCategoryAssocByUuid(self
+    def GetGameCategoryAssocUuid(self
         , uuid
     ) :
-        for item in self.GetGameCategoryAssocListByUuid(
+        for item in self.GetGameCategoryAssocListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryAssocListByUuid(self
+    def CachedGetGameCategoryAssocListUuid(self
         , uuid
     ) :
-        return CachedGetGameCategoryAssocListByUuid(
+        return CachedGetGameCategoryAssocListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameCategoryAssocListByUuid(self
+    def CachedGetGameCategoryAssocListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -1589,7 +1589,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategoryAssoc> objs;
 
-        string method_name = "CachedGetGameCategoryAssocListByUuid";
+        string method_name = "CachedGetGameCategoryAssocListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1605,7 +1605,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryAssocListByUuid(
+            objs = GetGameCategoryAssocListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1614,32 +1614,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryAssocListByGameId(self
+    def GetGameCategoryAssocListGameId(self
         , game_id
         ) :
-            return self.act.GetGameCategoryAssocListByGameId(
+            return self.act.GetGameCategoryAssocListGameId(
                 game_id
             )
         
-    def GetGameCategoryAssocByGameId(self
+    def GetGameCategoryAssocGameId(self
         , game_id
     ) :
-        for item in self.GetGameCategoryAssocListByGameId(
+        for item in self.GetGameCategoryAssocListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryAssocListByGameId(self
+    def CachedGetGameCategoryAssocListGameId(self
         , game_id
     ) :
-        return CachedGetGameCategoryAssocListByGameId(
+        return CachedGetGameCategoryAssocListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameCategoryAssocListByGameId(self
+    def CachedGetGameCategoryAssocListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -1648,7 +1648,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategoryAssoc> objs;
 
-        string method_name = "CachedGetGameCategoryAssocListByGameId";
+        string method_name = "CachedGetGameCategoryAssocListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1664,7 +1664,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryAssocListByGameId(
+            objs = GetGameCategoryAssocListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1673,32 +1673,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryAssocListByCategoryId(self
+    def GetGameCategoryAssocListCategoryId(self
         , category_id
         ) :
-            return self.act.GetGameCategoryAssocListByCategoryId(
+            return self.act.GetGameCategoryAssocListCategoryId(
                 category_id
             )
         
-    def GetGameCategoryAssocByCategoryId(self
+    def GetGameCategoryAssocCategoryId(self
         , category_id
     ) :
-        for item in self.GetGameCategoryAssocListByCategoryId(
+        for item in self.GetGameCategoryAssocListCategoryId(
         category_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryAssocListByCategoryId(self
+    def CachedGetGameCategoryAssocListCategoryId(self
         , category_id
     ) :
-        return CachedGetGameCategoryAssocListByCategoryId(
+        return CachedGetGameCategoryAssocListCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , category_id
         )
         
-    def CachedGetGameCategoryAssocListByCategoryId(self
+    def CachedGetGameCategoryAssocListCategoryId(self
         , overrideCache
         , cacheHours
         , category_id
@@ -1707,7 +1707,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategoryAssoc> objs;
 
-        string method_name = "CachedGetGameCategoryAssocListByCategoryId";
+        string method_name = "CachedGetGameCategoryAssocListCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1723,7 +1723,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryAssocListByCategoryId(
+            objs = GetGameCategoryAssocListCategoryId(
                 category_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1732,38 +1732,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameCategoryAssocListByGameIdByCategoryId(self
+    def GetGameCategoryAssocListGameIdCategoryId(self
         , game_id
         , category_id
         ) :
-            return self.act.GetGameCategoryAssocListByGameIdByCategoryId(
+            return self.act.GetGameCategoryAssocListGameIdCategoryId(
                 game_id
                 , category_id
             )
         
-    def GetGameCategoryAssocByGameIdByCategoryId(self
+    def GetGameCategoryAssocGameIdCategoryId(self
         , game_id
         , category_id
     ) :
-        for item in self.GetGameCategoryAssocListByGameIdByCategoryId(
+        for item in self.GetGameCategoryAssocListGameIdCategoryId(
         game_id
         , category_id
         ) :
             return item
         return None
     
-    def CachedGetGameCategoryAssocListByGameIdByCategoryId(self
+    def CachedGetGameCategoryAssocListGameIdCategoryId(self
         , game_id
         , category_id
     ) :
-        return CachedGetGameCategoryAssocListByGameIdByCategoryId(
+        return CachedGetGameCategoryAssocListGameIdCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
             , category_id
         )
         
-    def CachedGetGameCategoryAssocListByGameIdByCategoryId(self
+    def CachedGetGameCategoryAssocListGameIdCategoryId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -1773,7 +1773,7 @@ class BaseGamingAPI(object):
         """
         List<GameCategoryAssoc> objs;
 
-        string method_name = "CachedGetGameCategoryAssocListByGameIdByCategoryId";
+        string method_name = "CachedGetGameCategoryAssocListGameIdCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1793,7 +1793,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameCategoryAssocListByGameIdByCategoryId(
+            objs = GetGameCategoryAssocListGameIdCategoryId(
                 game_id
                 , category_id
             );
@@ -1809,43 +1809,43 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameTypeByUuid(self
+    def CountGameTypeUuid(self
         , uuid
     ) :         
-        return self.act.CountGameTypeByUuid(
+        return self.act.CountGameTypeUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameTypeByCode(self
+    def CountGameTypeCode(self
         , code
     ) :         
-        return self.act.CountGameTypeByCode(
+        return self.act.CountGameTypeCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameTypeByName(self
+    def CountGameTypeName(self
         , name
     ) :         
-        return self.act.CountGameTypeByName(
+        return self.act.CountGameTypeName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameTypeListByFilter(self, filter_obj) :
-        return self.act.BrowseGameTypeListByFilter(filter_obj)
+    def BrowseGameTypeListFilter(self, filter_obj) :
+        return self.act.BrowseGameTypeListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameTypeByUuidType(self, set_type, obj) :
-        return self.act.SetGameTypeByUuid(set_type, obj)
+    def SetGameTypeUuidType(self, set_type, obj) :
+        return self.act.SetGameTypeUuid(set_type, obj)
                
-    def SetGameTypeByUuid(self, obj) :
-        return self.act.SetGameTypeByUuid('full', obj)
+    def SetGameTypeUuid(self, obj) :
+        return self.act.SetGameTypeUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameTypeByUuid(self
+    def DelGameTypeUuid(self
         , uuid
     ) :          
-        return self.act.DelGameTypeByUuid(
+        return self.act.DelGameTypeUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -1896,32 +1896,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameTypeListByUuid(self
+    def GetGameTypeListUuid(self
         , uuid
         ) :
-            return self.act.GetGameTypeListByUuid(
+            return self.act.GetGameTypeListUuid(
                 uuid
             )
         
-    def GetGameTypeByUuid(self
+    def GetGameTypeUuid(self
         , uuid
     ) :
-        for item in self.GetGameTypeListByUuid(
+        for item in self.GetGameTypeListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameTypeListByUuid(self
+    def CachedGetGameTypeListUuid(self
         , uuid
     ) :
-        return CachedGetGameTypeListByUuid(
+        return CachedGetGameTypeListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameTypeListByUuid(self
+    def CachedGetGameTypeListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -1930,7 +1930,7 @@ class BaseGamingAPI(object):
         """
         List<GameType> objs;
 
-        string method_name = "CachedGetGameTypeListByUuid";
+        string method_name = "CachedGetGameTypeListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1946,7 +1946,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameTypeListByUuid(
+            objs = GetGameTypeListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1955,32 +1955,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameTypeListByCode(self
+    def GetGameTypeListCode(self
         , code
         ) :
-            return self.act.GetGameTypeListByCode(
+            return self.act.GetGameTypeListCode(
                 code
             )
         
-    def GetGameTypeByCode(self
+    def GetGameTypeCode(self
         , code
     ) :
-        for item in self.GetGameTypeListByCode(
+        for item in self.GetGameTypeListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameTypeListByCode(self
+    def CachedGetGameTypeListCode(self
         , code
     ) :
-        return CachedGetGameTypeListByCode(
+        return CachedGetGameTypeListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameTypeListByCode(self
+    def CachedGetGameTypeListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -1989,7 +1989,7 @@ class BaseGamingAPI(object):
         """
         List<GameType> objs;
 
-        string method_name = "CachedGetGameTypeListByCode";
+        string method_name = "CachedGetGameTypeListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2005,7 +2005,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameTypeListByCode(
+            objs = GetGameTypeListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2014,32 +2014,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameTypeListByName(self
+    def GetGameTypeListName(self
         , name
         ) :
-            return self.act.GetGameTypeListByName(
+            return self.act.GetGameTypeListName(
                 name
             )
         
-    def GetGameTypeByName(self
+    def GetGameTypeName(self
         , name
     ) :
-        for item in self.GetGameTypeListByName(
+        for item in self.GetGameTypeListName(
         name
         ) :
             return item
         return None
     
-    def CachedGetGameTypeListByName(self
+    def CachedGetGameTypeListName(self
         , name
     ) :
-        return CachedGetGameTypeListByName(
+        return CachedGetGameTypeListName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetGameTypeListByName(self
+    def CachedGetGameTypeListName(self
         , overrideCache
         , cacheHours
         , name
@@ -2048,7 +2048,7 @@ class BaseGamingAPI(object):
         """
         List<GameType> objs;
 
-        string method_name = "CachedGetGameTypeListByName";
+        string method_name = "CachedGetGameTypeListName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2064,7 +2064,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameTypeListByName(
+            objs = GetGameTypeListName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2079,53 +2079,53 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameByUuid(self
+    def CountProfileGameUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileGameByUuid(
+        return self.act.CountProfileGameUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameByGameId(self
+    def CountProfileGameGameId(self
         , game_id
     ) :         
-        return self.act.CountProfileGameByGameId(
+        return self.act.CountProfileGameGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameByProfileId(self
+    def CountProfileGameProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileGameByProfileId(
+        return self.act.CountProfileGameProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameByProfileIdByGameId(self
+    def CountProfileGameProfileIdGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.act.CountProfileGameByProfileIdByGameId(
+        return self.act.CountProfileGameProfileIdGameId(
         profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileGameListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileGameListByFilter(filter_obj)
+    def BrowseProfileGameListFilter(self, filter_obj) :
+        return self.act.BrowseProfileGameListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameByUuidType(self, set_type, obj) :
-        return self.act.SetProfileGameByUuid(set_type, obj)
+    def SetProfileGameUuidType(self, set_type, obj) :
+        return self.act.SetProfileGameUuid(set_type, obj)
                
-    def SetProfileGameByUuid(self, obj) :
-        return self.act.SetProfileGameByUuid('full', obj)
+    def SetProfileGameUuid(self, obj) :
+        return self.act.SetProfileGameUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileGameByUuid(self
+    def DelProfileGameUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileGameByUuid(
+        return self.act.DelProfileGameUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -2176,32 +2176,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameListByUuid(self
+    def GetProfileGameListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileGameListByUuid(
+            return self.act.GetProfileGameListUuid(
                 uuid
             )
         
-    def GetProfileGameByUuid(self
+    def GetProfileGameUuid(self
         , uuid
     ) :
-        for item in self.GetProfileGameListByUuid(
+        for item in self.GetProfileGameListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileGameListByUuid(self
+    def CachedGetProfileGameListUuid(self
         , uuid
     ) :
-        return CachedGetProfileGameListByUuid(
+        return CachedGetProfileGameListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileGameListByUuid(self
+    def CachedGetProfileGameListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2210,7 +2210,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGame> objs;
 
-        string method_name = "CachedGetProfileGameListByUuid";
+        string method_name = "CachedGetProfileGameListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2226,7 +2226,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameListByUuid(
+            objs = GetProfileGameListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2235,32 +2235,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameListByGameId(self
+    def GetProfileGameListGameId(self
         , game_id
         ) :
-            return self.act.GetProfileGameListByGameId(
+            return self.act.GetProfileGameListGameId(
                 game_id
             )
         
-    def GetProfileGameByGameId(self
+    def GetProfileGameGameId(self
         , game_id
     ) :
-        for item in self.GetProfileGameListByGameId(
+        for item in self.GetProfileGameListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameListByGameId(self
+    def CachedGetProfileGameListGameId(self
         , game_id
     ) :
-        return CachedGetProfileGameListByGameId(
+        return CachedGetProfileGameListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetProfileGameListByGameId(self
+    def CachedGetProfileGameListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -2269,7 +2269,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGame> objs;
 
-        string method_name = "CachedGetProfileGameListByGameId";
+        string method_name = "CachedGetProfileGameListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2285,7 +2285,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameListByGameId(
+            objs = GetProfileGameListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2294,32 +2294,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameListByProfileId(self
+    def GetProfileGameListProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileGameListByProfileId(
+            return self.act.GetProfileGameListProfileId(
                 profile_id
             )
         
-    def GetProfileGameByProfileId(self
+    def GetProfileGameProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileGameListByProfileId(
+        for item in self.GetProfileGameListProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameListByProfileId(self
+    def CachedGetProfileGameListProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileGameListByProfileId(
+        return CachedGetProfileGameListProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileGameListByProfileId(self
+    def CachedGetProfileGameListProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -2328,7 +2328,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGame> objs;
 
-        string method_name = "CachedGetProfileGameListByProfileId";
+        string method_name = "CachedGetProfileGameListProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2344,7 +2344,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameListByProfileId(
+            objs = GetProfileGameListProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2353,38 +2353,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameListByProfileIdByGameId(self
+    def GetProfileGameListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetProfileGameListByProfileIdByGameId(
+            return self.act.GetProfileGameListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetProfileGameByProfileIdByGameId(self
+    def GetProfileGameProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetProfileGameListByProfileIdByGameId(
+        for item in self.GetProfileGameListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameListByProfileIdByGameId(self
+    def CachedGetProfileGameListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetProfileGameListByProfileIdByGameId(
+        return CachedGetProfileGameListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetProfileGameListByProfileIdByGameId(self
+    def CachedGetProfileGameListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -2394,7 +2394,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGame> objs;
 
-        string method_name = "CachedGetProfileGameListByProfileIdByGameId";
+        string method_name = "CachedGetProfileGameListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2414,7 +2414,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameListByProfileIdByGameId(
+            objs = GetProfileGameListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -2430,51 +2430,51 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameNetworkByUuid(self
+    def CountGameNetworkUuid(self
         , uuid
     ) :         
-        return self.act.CountGameNetworkByUuid(
+        return self.act.CountGameNetworkUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameNetworkByCode(self
+    def CountGameNetworkCode(self
         , code
     ) :         
-        return self.act.CountGameNetworkByCode(
+        return self.act.CountGameNetworkCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameNetworkByUuidByType(self
+    def CountGameNetworkUuidType(self
         , uuid
         , type
     ) :         
-        return self.act.CountGameNetworkByUuidByType(
+        return self.act.CountGameNetworkUuidType(
         uuid
         , type
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameNetworkListByFilter(self, filter_obj) :
-        return self.act.BrowseGameNetworkListByFilter(filter_obj)
+    def BrowseGameNetworkListFilter(self, filter_obj) :
+        return self.act.BrowseGameNetworkListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameNetworkByUuidType(self, set_type, obj) :
-        return self.act.SetGameNetworkByUuid(set_type, obj)
+    def SetGameNetworkUuidType(self, set_type, obj) :
+        return self.act.SetGameNetworkUuid(set_type, obj)
                
-    def SetGameNetworkByUuid(self, obj) :
-        return self.act.SetGameNetworkByUuid('full', obj)
+    def SetGameNetworkUuid(self, obj) :
+        return self.act.SetGameNetworkUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameNetworkByCodeType(self, set_type, obj) :
-        return self.act.SetGameNetworkByCode(set_type, obj)
+    def SetGameNetworkCodeType(self, set_type, obj) :
+        return self.act.SetGameNetworkCode(set_type, obj)
                
-    def SetGameNetworkByCode(self, obj) :
-        return self.act.SetGameNetworkByCode('full', obj)
+    def SetGameNetworkCode(self, obj) :
+        return self.act.SetGameNetworkCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameNetworkByUuid(self
+    def DelGameNetworkUuid(self
         , uuid
     ) :          
-        return self.act.DelGameNetworkByUuid(
+        return self.act.DelGameNetworkUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -2525,32 +2525,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameNetworkListByUuid(self
+    def GetGameNetworkListUuid(self
         , uuid
         ) :
-            return self.act.GetGameNetworkListByUuid(
+            return self.act.GetGameNetworkListUuid(
                 uuid
             )
         
-    def GetGameNetworkByUuid(self
+    def GetGameNetworkUuid(self
         , uuid
     ) :
-        for item in self.GetGameNetworkListByUuid(
+        for item in self.GetGameNetworkListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameNetworkListByUuid(self
+    def CachedGetGameNetworkListUuid(self
         , uuid
     ) :
-        return CachedGetGameNetworkListByUuid(
+        return CachedGetGameNetworkListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameNetworkListByUuid(self
+    def CachedGetGameNetworkListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2559,7 +2559,7 @@ class BaseGamingAPI(object):
         """
         List<GameNetwork> objs;
 
-        string method_name = "CachedGetGameNetworkListByUuid";
+        string method_name = "CachedGetGameNetworkListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2575,7 +2575,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameNetworkListByUuid(
+            objs = GetGameNetworkListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2584,32 +2584,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameNetworkListByCode(self
+    def GetGameNetworkListCode(self
         , code
         ) :
-            return self.act.GetGameNetworkListByCode(
+            return self.act.GetGameNetworkListCode(
                 code
             )
         
-    def GetGameNetworkByCode(self
+    def GetGameNetworkCode(self
         , code
     ) :
-        for item in self.GetGameNetworkListByCode(
+        for item in self.GetGameNetworkListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameNetworkListByCode(self
+    def CachedGetGameNetworkListCode(self
         , code
     ) :
-        return CachedGetGameNetworkListByCode(
+        return CachedGetGameNetworkListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameNetworkListByCode(self
+    def CachedGetGameNetworkListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -2618,7 +2618,7 @@ class BaseGamingAPI(object):
         """
         List<GameNetwork> objs;
 
-        string method_name = "CachedGetGameNetworkListByCode";
+        string method_name = "CachedGetGameNetworkListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2634,7 +2634,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameNetworkListByCode(
+            objs = GetGameNetworkListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2643,38 +2643,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameNetworkListByUuidByType(self
+    def GetGameNetworkListUuidType(self
         , uuid
         , type
         ) :
-            return self.act.GetGameNetworkListByUuidByType(
+            return self.act.GetGameNetworkListUuidType(
                 uuid
                 , type
             )
         
-    def GetGameNetworkByUuidByType(self
+    def GetGameNetworkUuidType(self
         , uuid
         , type
     ) :
-        for item in self.GetGameNetworkListByUuidByType(
+        for item in self.GetGameNetworkListUuidType(
         uuid
         , type
         ) :
             return item
         return None
     
-    def CachedGetGameNetworkListByUuidByType(self
+    def CachedGetGameNetworkListUuidType(self
         , uuid
         , type
     ) :
-        return CachedGetGameNetworkListByUuidByType(
+        return CachedGetGameNetworkListUuidType(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
             , type
         )
         
-    def CachedGetGameNetworkListByUuidByType(self
+    def CachedGetGameNetworkListUuidType(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2684,7 +2684,7 @@ class BaseGamingAPI(object):
         """
         List<GameNetwork> objs;
 
-        string method_name = "CachedGetGameNetworkListByUuidByType";
+        string method_name = "CachedGetGameNetworkListUuidType";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2704,7 +2704,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameNetworkListByUuidByType(
+            objs = GetGameNetworkListUuidType(
                 uuid
                 , type
             );
@@ -2720,43 +2720,43 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameNetworkAuthByUuid(self
+    def CountGameNetworkAuthUuid(self
         , uuid
     ) :         
-        return self.act.CountGameNetworkAuthByUuid(
+        return self.act.CountGameNetworkAuthUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameNetworkAuthByGameIdByGameNetworkId(self
+    def CountGameNetworkAuthGameIdGameNetworkId(self
         , game_id
         , game_network_id
     ) :         
-        return self.act.CountGameNetworkAuthByGameIdByGameNetworkId(
+        return self.act.CountGameNetworkAuthGameIdGameNetworkId(
         game_id
         , game_network_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameNetworkAuthListByFilter(self, filter_obj) :
-        return self.act.BrowseGameNetworkAuthListByFilter(filter_obj)
+    def BrowseGameNetworkAuthListFilter(self, filter_obj) :
+        return self.act.BrowseGameNetworkAuthListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameNetworkAuthByUuidType(self, set_type, obj) :
-        return self.act.SetGameNetworkAuthByUuid(set_type, obj)
+    def SetGameNetworkAuthUuidType(self, set_type, obj) :
+        return self.act.SetGameNetworkAuthUuid(set_type, obj)
                
-    def SetGameNetworkAuthByUuid(self, obj) :
-        return self.act.SetGameNetworkAuthByUuid('full', obj)
+    def SetGameNetworkAuthUuid(self, obj) :
+        return self.act.SetGameNetworkAuthUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameNetworkAuthByGameIdByGameNetworkIdType(self, set_type, obj) :
-        return self.act.SetGameNetworkAuthByGameIdByGameNetworkId(set_type, obj)
+    def SetGameNetworkAuthGameIdGameNetworkIdType(self, set_type, obj) :
+        return self.act.SetGameNetworkAuthGameIdGameNetworkId(set_type, obj)
                
-    def SetGameNetworkAuthByGameIdByGameNetworkId(self, obj) :
-        return self.act.SetGameNetworkAuthByGameIdByGameNetworkId('full', obj)
+    def SetGameNetworkAuthGameIdGameNetworkId(self, obj) :
+        return self.act.SetGameNetworkAuthGameIdGameNetworkId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameNetworkAuthByUuid(self
+    def DelGameNetworkAuthUuid(self
         , uuid
     ) :          
-        return self.act.DelGameNetworkAuthByUuid(
+        return self.act.DelGameNetworkAuthUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -2807,32 +2807,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameNetworkAuthListByUuid(self
+    def GetGameNetworkAuthListUuid(self
         , uuid
         ) :
-            return self.act.GetGameNetworkAuthListByUuid(
+            return self.act.GetGameNetworkAuthListUuid(
                 uuid
             )
         
-    def GetGameNetworkAuthByUuid(self
+    def GetGameNetworkAuthUuid(self
         , uuid
     ) :
-        for item in self.GetGameNetworkAuthListByUuid(
+        for item in self.GetGameNetworkAuthListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameNetworkAuthListByUuid(self
+    def CachedGetGameNetworkAuthListUuid(self
         , uuid
     ) :
-        return CachedGetGameNetworkAuthListByUuid(
+        return CachedGetGameNetworkAuthListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameNetworkAuthListByUuid(self
+    def CachedGetGameNetworkAuthListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2841,7 +2841,7 @@ class BaseGamingAPI(object):
         """
         List<GameNetworkAuth> objs;
 
-        string method_name = "CachedGetGameNetworkAuthListByUuid";
+        string method_name = "CachedGetGameNetworkAuthListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2857,7 +2857,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameNetworkAuthListByUuid(
+            objs = GetGameNetworkAuthListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2866,38 +2866,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameNetworkAuthListByGameIdByGameNetworkId(self
+    def GetGameNetworkAuthListGameIdGameNetworkId(self
         , game_id
         , game_network_id
         ) :
-            return self.act.GetGameNetworkAuthListByGameIdByGameNetworkId(
+            return self.act.GetGameNetworkAuthListGameIdGameNetworkId(
                 game_id
                 , game_network_id
             )
         
-    def GetGameNetworkAuthByGameIdByGameNetworkId(self
+    def GetGameNetworkAuthGameIdGameNetworkId(self
         , game_id
         , game_network_id
     ) :
-        for item in self.GetGameNetworkAuthListByGameIdByGameNetworkId(
+        for item in self.GetGameNetworkAuthListGameIdGameNetworkId(
         game_id
         , game_network_id
         ) :
             return item
         return None
     
-    def CachedGetGameNetworkAuthListByGameIdByGameNetworkId(self
+    def CachedGetGameNetworkAuthListGameIdGameNetworkId(self
         , game_id
         , game_network_id
     ) :
-        return CachedGetGameNetworkAuthListByGameIdByGameNetworkId(
+        return CachedGetGameNetworkAuthListGameIdGameNetworkId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
             , game_network_id
         )
         
-    def CachedGetGameNetworkAuthListByGameIdByGameNetworkId(self
+    def CachedGetGameNetworkAuthListGameIdGameNetworkId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -2907,7 +2907,7 @@ class BaseGamingAPI(object):
         """
         List<GameNetworkAuth> objs;
 
-        string method_name = "CachedGetGameNetworkAuthListByGameIdByGameNetworkId";
+        string method_name = "CachedGetGameNetworkAuthListGameIdGameNetworkId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2927,7 +2927,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameNetworkAuthListByGameIdByGameNetworkId(
+            objs = GetGameNetworkAuthListGameIdGameNetworkId(
                 game_id
                 , game_network_id
             );
@@ -2943,134 +2943,134 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameNetworkByUuid(self
+    def CountProfileGameNetworkUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileGameNetworkByUuid(
+        return self.act.CountProfileGameNetworkUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameNetworkByGameId(self
+    def CountProfileGameNetworkGameId(self
         , game_id
     ) :         
-        return self.act.CountProfileGameNetworkByGameId(
+        return self.act.CountProfileGameNetworkGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameNetworkByProfileId(self
+    def CountProfileGameNetworkProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileGameNetworkByProfileId(
+        return self.act.CountProfileGameNetworkProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameNetworkByProfileIdByGameId(self
+    def CountProfileGameNetworkProfileIdGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.act.CountProfileGameNetworkByProfileIdByGameId(
-        profile_id
-        , game_id
-        )
-        
-#------------------------------------------------------------------------------                    
-    def CountProfileGameNetworkByProfileIdByGameId(self
-        , profile_id
-        , game_id
-    ) :         
-        return self.act.CountProfileGameNetworkByProfileIdByGameId(
+        return self.act.CountProfileGameNetworkProfileIdGameId(
         profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+    def CountProfileGameNetworkProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.act.CountProfileGameNetworkProfileIdGameId(
+        profile_id
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountProfileGameNetworkProfileIdGameIdGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
     ) :         
-        return self.act.CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+        return self.act.CountProfileGameNetworkProfileIdGameIdGameNetworkId(
         profile_id
         , game_id
         , game_network_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+    def CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
     ) :         
-        return self.act.CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+        return self.act.CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
         network_username
         , game_id
         , game_network_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileGameNetworkListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileGameNetworkListByFilter(filter_obj)
+    def BrowseProfileGameNetworkListFilter(self, filter_obj) :
+        return self.act.BrowseProfileGameNetworkListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameNetworkByUuidType(self, set_type, obj) :
-        return self.act.SetProfileGameNetworkByUuid(set_type, obj)
+    def SetProfileGameNetworkUuidType(self, set_type, obj) :
+        return self.act.SetProfileGameNetworkUuid(set_type, obj)
                
-    def SetProfileGameNetworkByUuid(self, obj) :
-        return self.act.SetProfileGameNetworkByUuid('full', obj)
+    def SetProfileGameNetworkUuid(self, obj) :
+        return self.act.SetProfileGameNetworkUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameNetworkByProfileIdByGameIdType(self, set_type, obj) :
-        return self.act.SetProfileGameNetworkByProfileIdByGameId(set_type, obj)
+    def SetProfileGameNetworkProfileIdGameIdType(self, set_type, obj) :
+        return self.act.SetProfileGameNetworkProfileIdGameId(set_type, obj)
                
-    def SetProfileGameNetworkByProfileIdByGameId(self, obj) :
-        return self.act.SetProfileGameNetworkByProfileIdByGameId('full', obj)
+    def SetProfileGameNetworkProfileIdGameId(self, obj) :
+        return self.act.SetProfileGameNetworkProfileIdGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameNetworkByProfileIdByGameIdByGameNetworkIdType(self, set_type, obj) :
-        return self.act.SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(set_type, obj)
+    def SetProfileGameNetworkProfileIdGameIdGameNetworkIdType(self, set_type, obj) :
+        return self.act.SetProfileGameNetworkProfileIdGameIdGameNetworkId(set_type, obj)
                
-    def SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self, obj) :
-        return self.act.SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId('full', obj)
+    def SetProfileGameNetworkProfileIdGameIdGameNetworkId(self, obj) :
+        return self.act.SetProfileGameNetworkProfileIdGameIdGameNetworkId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkIdType(self, set_type, obj) :
-        return self.act.SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(set_type, obj)
+    def SetProfileGameNetworkNetworkUsernameGameIdGameNetworkIdType(self, set_type, obj) :
+        return self.act.SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(set_type, obj)
                
-    def SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self, obj) :
-        return self.act.SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId('full', obj)
+    def SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self, obj) :
+        return self.act.SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileGameNetworkByUuid(self
+    def DelProfileGameNetworkUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileGameNetworkByUuid(
+        return self.act.DelProfileGameNetworkUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileGameNetworkByProfileIdByGameId(self
+    def DelProfileGameNetworkProfileIdGameId(self
         , profile_id
         , game_id
     ) :          
-        return self.act.DelProfileGameNetworkByProfileIdByGameId(
+        return self.act.DelProfileGameNetworkProfileIdGameId(
         profile_id
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+    def DelProfileGameNetworkProfileIdGameIdGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
     ) :          
-        return self.act.DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+        return self.act.DelProfileGameNetworkProfileIdGameIdGameNetworkId(
         profile_id
         , game_id
         , game_network_id
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+    def DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
     ) :          
-        return self.act.DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+        return self.act.DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
         network_username
         , game_id
         , game_network_id
@@ -3123,32 +3123,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameNetworkListByUuid(self
+    def GetProfileGameNetworkListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileGameNetworkListByUuid(
+            return self.act.GetProfileGameNetworkListUuid(
                 uuid
             )
         
-    def GetProfileGameNetworkByUuid(self
+    def GetProfileGameNetworkUuid(self
         , uuid
     ) :
-        for item in self.GetProfileGameNetworkListByUuid(
+        for item in self.GetProfileGameNetworkListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileGameNetworkListByUuid(self
+    def CachedGetProfileGameNetworkListUuid(self
         , uuid
     ) :
-        return CachedGetProfileGameNetworkListByUuid(
+        return CachedGetProfileGameNetworkListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileGameNetworkListByUuid(self
+    def CachedGetProfileGameNetworkListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -3157,7 +3157,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameNetwork> objs;
 
-        string method_name = "CachedGetProfileGameNetworkListByUuid";
+        string method_name = "CachedGetProfileGameNetworkListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3173,7 +3173,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameNetworkListByUuid(
+            objs = GetProfileGameNetworkListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3182,32 +3182,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameNetworkListByGameId(self
+    def GetProfileGameNetworkListGameId(self
         , game_id
         ) :
-            return self.act.GetProfileGameNetworkListByGameId(
+            return self.act.GetProfileGameNetworkListGameId(
                 game_id
             )
         
-    def GetProfileGameNetworkByGameId(self
+    def GetProfileGameNetworkGameId(self
         , game_id
     ) :
-        for item in self.GetProfileGameNetworkListByGameId(
+        for item in self.GetProfileGameNetworkListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameNetworkListByGameId(self
+    def CachedGetProfileGameNetworkListGameId(self
         , game_id
     ) :
-        return CachedGetProfileGameNetworkListByGameId(
+        return CachedGetProfileGameNetworkListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetProfileGameNetworkListByGameId(self
+    def CachedGetProfileGameNetworkListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -3216,7 +3216,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameNetwork> objs;
 
-        string method_name = "CachedGetProfileGameNetworkListByGameId";
+        string method_name = "CachedGetProfileGameNetworkListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3232,7 +3232,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameNetworkListByGameId(
+            objs = GetProfileGameNetworkListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3241,32 +3241,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameNetworkListByProfileId(self
+    def GetProfileGameNetworkListProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileGameNetworkListByProfileId(
+            return self.act.GetProfileGameNetworkListProfileId(
                 profile_id
             )
         
-    def GetProfileGameNetworkByProfileId(self
+    def GetProfileGameNetworkProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileGameNetworkListByProfileId(
+        for item in self.GetProfileGameNetworkListProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameNetworkListByProfileId(self
+    def CachedGetProfileGameNetworkListProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileGameNetworkListByProfileId(
+        return CachedGetProfileGameNetworkListProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileGameNetworkListByProfileId(self
+    def CachedGetProfileGameNetworkListProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -3275,7 +3275,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameNetwork> objs;
 
-        string method_name = "CachedGetProfileGameNetworkListByProfileId";
+        string method_name = "CachedGetProfileGameNetworkListProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3291,7 +3291,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameNetworkListByProfileId(
+            objs = GetProfileGameNetworkListProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3300,38 +3300,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameNetworkListByProfileIdByGameId(self
+    def GetProfileGameNetworkListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetProfileGameNetworkListByProfileIdByGameId(
+            return self.act.GetProfileGameNetworkListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetProfileGameNetworkByProfileIdByGameId(self
+    def GetProfileGameNetworkProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetProfileGameNetworkListByProfileIdByGameId(
+        for item in self.GetProfileGameNetworkListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameNetworkListByProfileIdByGameId(self
+    def CachedGetProfileGameNetworkListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetProfileGameNetworkListByProfileIdByGameId(
+        return CachedGetProfileGameNetworkListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetProfileGameNetworkListByProfileIdByGameId(self
+    def CachedGetProfileGameNetworkListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -3341,7 +3341,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameNetwork> objs;
 
-        string method_name = "CachedGetProfileGameNetworkListByProfileIdByGameId";
+        string method_name = "CachedGetProfileGameNetworkListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3361,7 +3361,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameNetworkListByProfileIdByGameId(
+            objs = GetProfileGameNetworkListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -3371,23 +3371,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(self
+    def GetProfileGameNetworkListProfileIdGameIdGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
         ) :
-            return self.act.GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+            return self.act.GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
                 profile_id
                 , game_id
                 , game_network_id
             )
         
-    def GetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+    def GetProfileGameNetworkProfileIdGameIdGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
     ) :
-        for item in self.GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+        for item in self.GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
         profile_id
         , game_id
         , game_network_id
@@ -3395,12 +3395,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(self
+    def CachedGetProfileGameNetworkListProfileIdGameIdGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
     ) :
-        return CachedGetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+        return CachedGetProfileGameNetworkListProfileIdGameIdGameNetworkId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
@@ -3408,7 +3408,7 @@ class BaseGamingAPI(object):
             , game_network_id
         )
         
-    def CachedGetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(self
+    def CachedGetProfileGameNetworkListProfileIdGameIdGameNetworkId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -3419,7 +3419,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameNetwork> objs;
 
-        string method_name = "CachedGetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId";
+        string method_name = "CachedGetProfileGameNetworkListProfileIdGameIdGameNetworkId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3443,7 +3443,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+            objs = GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
                 profile_id
                 , game_id
                 , game_network_id
@@ -3454,23 +3454,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(self
+    def GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
         ) :
-            return self.act.GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+            return self.act.GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
                 network_username
                 , game_id
                 , game_network_id
             )
         
-    def GetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+    def GetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
     ) :
-        for item in self.GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+        for item in self.GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
         network_username
         , game_id
         , game_network_id
@@ -3478,12 +3478,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(self
+    def CachedGetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
     ) :
-        return CachedGetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+        return CachedGetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
             false
             , self.CACHE_DEFAULT_HOURS
             , network_username
@@ -3491,7 +3491,7 @@ class BaseGamingAPI(object):
             , game_network_id
         )
         
-    def CachedGetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(self
+    def CachedGetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(self
         , overrideCache
         , cacheHours
         , network_username
@@ -3502,7 +3502,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameNetwork> objs;
 
-        string method_name = "CachedGetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId";
+        string method_name = "CachedGetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3526,7 +3526,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+            objs = GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
                 network_username
                 , game_id
                 , game_network_id
@@ -3543,106 +3543,106 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameDataAttributeByUuid(self
+    def CountProfileGameDataAttributeUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileGameDataAttributeByUuid(
+        return self.act.CountProfileGameDataAttributeUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameDataAttributeByProfileId(self
+    def CountProfileGameDataAttributeProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileGameDataAttributeByProfileId(
+        return self.act.CountProfileGameDataAttributeProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameDataAttributeByProfileIdByGameIdByCode(self
+    def CountProfileGameDataAttributeProfileIdGameIdCode(self
         , profile_id
         , game_id
         , code
     ) :         
-        return self.act.CountProfileGameDataAttributeByProfileIdByGameIdByCode(
+        return self.act.CountProfileGameDataAttributeProfileIdGameIdCode(
         profile_id
         , game_id
         , code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileGameDataAttributeListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileGameDataAttributeListByFilter(filter_obj)
+    def BrowseProfileGameDataAttributeListFilter(self, filter_obj) :
+        return self.act.BrowseProfileGameDataAttributeListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameDataAttributeByUuidType(self, set_type, obj) :
-        return self.act.SetProfileGameDataAttributeByUuid(set_type, obj)
+    def SetProfileGameDataAttributeUuidType(self, set_type, obj) :
+        return self.act.SetProfileGameDataAttributeUuid(set_type, obj)
                
-    def SetProfileGameDataAttributeByUuid(self, obj) :
-        return self.act.SetProfileGameDataAttributeByUuid('full', obj)
+    def SetProfileGameDataAttributeUuid(self, obj) :
+        return self.act.SetProfileGameDataAttributeUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameDataAttributeByProfileIdType(self, set_type, obj) :
-        return self.act.SetProfileGameDataAttributeByProfileId(set_type, obj)
+    def SetProfileGameDataAttributeProfileIdType(self, set_type, obj) :
+        return self.act.SetProfileGameDataAttributeProfileId(set_type, obj)
                
-    def SetProfileGameDataAttributeByProfileId(self, obj) :
-        return self.act.SetProfileGameDataAttributeByProfileId('full', obj)
+    def SetProfileGameDataAttributeProfileId(self, obj) :
+        return self.act.SetProfileGameDataAttributeProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameDataAttributeByProfileIdByGameIdByCodeType(self, set_type, obj) :
-        return self.act.SetProfileGameDataAttributeByProfileIdByGameIdByCode(set_type, obj)
+    def SetProfileGameDataAttributeProfileIdGameIdCodeType(self, set_type, obj) :
+        return self.act.SetProfileGameDataAttributeProfileIdGameIdCode(set_type, obj)
                
-    def SetProfileGameDataAttributeByProfileIdByGameIdByCode(self, obj) :
-        return self.act.SetProfileGameDataAttributeByProfileIdByGameIdByCode('full', obj)
+    def SetProfileGameDataAttributeProfileIdGameIdCode(self, obj) :
+        return self.act.SetProfileGameDataAttributeProfileIdGameIdCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileGameDataAttributeByUuid(self
+    def DelProfileGameDataAttributeUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileGameDataAttributeByUuid(
+        return self.act.DelProfileGameDataAttributeUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileGameDataAttributeByProfileId(self
+    def DelProfileGameDataAttributeProfileId(self
         , profile_id
     ) :          
-        return self.act.DelProfileGameDataAttributeByProfileId(
+        return self.act.DelProfileGameDataAttributeProfileId(
         profile_id
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileGameDataAttributeByProfileIdByGameIdByCode(self
+    def DelProfileGameDataAttributeProfileIdGameIdCode(self
         , profile_id
         , game_id
         , code
     ) :          
-        return self.act.DelProfileGameDataAttributeByProfileIdByGameIdByCode(
+        return self.act.DelProfileGameDataAttributeProfileIdGameIdCode(
         profile_id
         , game_id
         , code
         )
 #------------------------------------------------------------------------------                    
-    def GetProfileGameDataAttributeListByUuid(self
+    def GetProfileGameDataAttributeListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileGameDataAttributeListByUuid(
+            return self.act.GetProfileGameDataAttributeListUuid(
                 uuid
             )
         
-    def GetProfileGameDataAttributeByUuid(self
+    def GetProfileGameDataAttributeUuid(self
         , uuid
     ) :
-        for item in self.GetProfileGameDataAttributeListByUuid(
+        for item in self.GetProfileGameDataAttributeListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileGameDataAttributeListByUuid(self
+    def CachedGetProfileGameDataAttributeListUuid(self
         , uuid
     ) :
-        return CachedGetProfileGameDataAttributeListByUuid(
+        return CachedGetProfileGameDataAttributeListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileGameDataAttributeListByUuid(self
+    def CachedGetProfileGameDataAttributeListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -3651,7 +3651,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameDataAttribute> objs;
 
-        string method_name = "CachedGetProfileGameDataAttributeListByUuid";
+        string method_name = "CachedGetProfileGameDataAttributeListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3667,7 +3667,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameDataAttributeListByUuid(
+            objs = GetProfileGameDataAttributeListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3676,32 +3676,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameDataAttributeListByProfileId(self
+    def GetProfileGameDataAttributeListProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileGameDataAttributeListByProfileId(
+            return self.act.GetProfileGameDataAttributeListProfileId(
                 profile_id
             )
         
-    def GetProfileGameDataAttributeByProfileId(self
+    def GetProfileGameDataAttributeProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileGameDataAttributeListByProfileId(
+        for item in self.GetProfileGameDataAttributeListProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameDataAttributeListByProfileId(self
+    def CachedGetProfileGameDataAttributeListProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileGameDataAttributeListByProfileId(
+        return CachedGetProfileGameDataAttributeListProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileGameDataAttributeListByProfileId(self
+    def CachedGetProfileGameDataAttributeListProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -3710,7 +3710,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameDataAttribute> objs;
 
-        string method_name = "CachedGetProfileGameDataAttributeListByProfileId";
+        string method_name = "CachedGetProfileGameDataAttributeListProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3726,7 +3726,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameDataAttributeListByProfileId(
+            objs = GetProfileGameDataAttributeListProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3735,23 +3735,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameDataAttributeListByProfileIdByGameIdByCode(self
+    def GetProfileGameDataAttributeListProfileIdGameIdCode(self
         , profile_id
         , game_id
         , code
         ) :
-            return self.act.GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+            return self.act.GetProfileGameDataAttributeListProfileIdGameIdCode(
                 profile_id
                 , game_id
                 , code
             )
         
-    def GetProfileGameDataAttributeByProfileIdByGameIdByCode(self
+    def GetProfileGameDataAttributeProfileIdGameIdCode(self
         , profile_id
         , game_id
         , code
     ) :
-        for item in self.GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+        for item in self.GetProfileGameDataAttributeListProfileIdGameIdCode(
         profile_id
         , game_id
         , code
@@ -3759,12 +3759,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetProfileGameDataAttributeListByProfileIdByGameIdByCode(self
+    def CachedGetProfileGameDataAttributeListProfileIdGameIdCode(self
         , profile_id
         , game_id
         , code
     ) :
-        return CachedGetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+        return CachedGetProfileGameDataAttributeListProfileIdGameIdCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
@@ -3772,7 +3772,7 @@ class BaseGamingAPI(object):
             , code
         )
         
-    def CachedGetProfileGameDataAttributeListByProfileIdByGameIdByCode(self
+    def CachedGetProfileGameDataAttributeListProfileIdGameIdCode(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -3783,7 +3783,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameDataAttribute> objs;
 
-        string method_name = "CachedGetProfileGameDataAttributeListByProfileIdByGameIdByCode";
+        string method_name = "CachedGetProfileGameDataAttributeListProfileIdGameIdCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3807,7 +3807,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+            objs = GetProfileGameDataAttributeListProfileIdGameIdCode(
                 profile_id
                 , game_id
                 , code
@@ -3824,53 +3824,53 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameSessionByUuid(self
+    def CountGameSessionUuid(self
         , uuid
     ) :         
-        return self.act.CountGameSessionByUuid(
+        return self.act.CountGameSessionUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameSessionByGameId(self
+    def CountGameSessionGameId(self
         , game_id
     ) :         
-        return self.act.CountGameSessionByGameId(
+        return self.act.CountGameSessionGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameSessionByProfileId(self
+    def CountGameSessionProfileId(self
         , profile_id
     ) :         
-        return self.act.CountGameSessionByProfileId(
+        return self.act.CountGameSessionProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameSessionByProfileIdByGameId(self
+    def CountGameSessionProfileIdGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameSessionByProfileIdByGameId(
+        return self.act.CountGameSessionProfileIdGameId(
         profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameSessionListByFilter(self, filter_obj) :
-        return self.act.BrowseGameSessionListByFilter(filter_obj)
+    def BrowseGameSessionListFilter(self, filter_obj) :
+        return self.act.BrowseGameSessionListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameSessionByUuidType(self, set_type, obj) :
-        return self.act.SetGameSessionByUuid(set_type, obj)
+    def SetGameSessionUuidType(self, set_type, obj) :
+        return self.act.SetGameSessionUuid(set_type, obj)
                
-    def SetGameSessionByUuid(self, obj) :
-        return self.act.SetGameSessionByUuid('full', obj)
+    def SetGameSessionUuid(self, obj) :
+        return self.act.SetGameSessionUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameSessionByUuid(self
+    def DelGameSessionUuid(self
         , uuid
     ) :          
-        return self.act.DelGameSessionByUuid(
+        return self.act.DelGameSessionUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -3921,32 +3921,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameSessionListByUuid(self
+    def GetGameSessionListUuid(self
         , uuid
         ) :
-            return self.act.GetGameSessionListByUuid(
+            return self.act.GetGameSessionListUuid(
                 uuid
             )
         
-    def GetGameSessionByUuid(self
+    def GetGameSessionUuid(self
         , uuid
     ) :
-        for item in self.GetGameSessionListByUuid(
+        for item in self.GetGameSessionListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameSessionListByUuid(self
+    def CachedGetGameSessionListUuid(self
         , uuid
     ) :
-        return CachedGetGameSessionListByUuid(
+        return CachedGetGameSessionListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameSessionListByUuid(self
+    def CachedGetGameSessionListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -3955,7 +3955,7 @@ class BaseGamingAPI(object):
         """
         List<GameSession> objs;
 
-        string method_name = "CachedGetGameSessionListByUuid";
+        string method_name = "CachedGetGameSessionListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3971,7 +3971,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameSessionListByUuid(
+            objs = GetGameSessionListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3980,32 +3980,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameSessionListByGameId(self
+    def GetGameSessionListGameId(self
         , game_id
         ) :
-            return self.act.GetGameSessionListByGameId(
+            return self.act.GetGameSessionListGameId(
                 game_id
             )
         
-    def GetGameSessionByGameId(self
+    def GetGameSessionGameId(self
         , game_id
     ) :
-        for item in self.GetGameSessionListByGameId(
+        for item in self.GetGameSessionListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameSessionListByGameId(self
+    def CachedGetGameSessionListGameId(self
         , game_id
     ) :
-        return CachedGetGameSessionListByGameId(
+        return CachedGetGameSessionListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameSessionListByGameId(self
+    def CachedGetGameSessionListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -4014,7 +4014,7 @@ class BaseGamingAPI(object):
         """
         List<GameSession> objs;
 
-        string method_name = "CachedGetGameSessionListByGameId";
+        string method_name = "CachedGetGameSessionListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4030,7 +4030,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameSessionListByGameId(
+            objs = GetGameSessionListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4039,32 +4039,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameSessionListByProfileId(self
+    def GetGameSessionListProfileId(self
         , profile_id
         ) :
-            return self.act.GetGameSessionListByProfileId(
+            return self.act.GetGameSessionListProfileId(
                 profile_id
             )
         
-    def GetGameSessionByProfileId(self
+    def GetGameSessionProfileId(self
         , profile_id
     ) :
-        for item in self.GetGameSessionListByProfileId(
+        for item in self.GetGameSessionListProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetGameSessionListByProfileId(self
+    def CachedGetGameSessionListProfileId(self
         , profile_id
     ) :
-        return CachedGetGameSessionListByProfileId(
+        return CachedGetGameSessionListProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetGameSessionListByProfileId(self
+    def CachedGetGameSessionListProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -4073,7 +4073,7 @@ class BaseGamingAPI(object):
         """
         List<GameSession> objs;
 
-        string method_name = "CachedGetGameSessionListByProfileId";
+        string method_name = "CachedGetGameSessionListProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4089,7 +4089,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameSessionListByProfileId(
+            objs = GetGameSessionListProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4098,38 +4098,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameSessionListByProfileIdByGameId(self
+    def GetGameSessionListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameSessionListByProfileIdByGameId(
+            return self.act.GetGameSessionListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetGameSessionByProfileIdByGameId(self
+    def GetGameSessionProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameSessionListByProfileIdByGameId(
+        for item in self.GetGameSessionListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameSessionListByProfileIdByGameId(self
+    def CachedGetGameSessionListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetGameSessionListByProfileIdByGameId(
+        return CachedGetGameSessionListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetGameSessionListByProfileIdByGameId(self
+    def CachedGetGameSessionListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -4139,7 +4139,7 @@ class BaseGamingAPI(object):
         """
         List<GameSession> objs;
 
-        string method_name = "CachedGetGameSessionListByProfileIdByGameId";
+        string method_name = "CachedGetGameSessionListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4159,7 +4159,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameSessionListByProfileIdByGameId(
+            objs = GetGameSessionListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -4175,27 +4175,27 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameSessionDataByUuid(self
+    def CountGameSessionDataUuid(self
         , uuid
     ) :         
-        return self.act.CountGameSessionDataByUuid(
+        return self.act.CountGameSessionDataUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameSessionDataListByFilter(self, filter_obj) :
-        return self.act.BrowseGameSessionDataListByFilter(filter_obj)
+    def BrowseGameSessionDataListFilter(self, filter_obj) :
+        return self.act.BrowseGameSessionDataListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameSessionDataByUuidType(self, set_type, obj) :
-        return self.act.SetGameSessionDataByUuid(set_type, obj)
+    def SetGameSessionDataUuidType(self, set_type, obj) :
+        return self.act.SetGameSessionDataUuid(set_type, obj)
                
-    def SetGameSessionDataByUuid(self, obj) :
-        return self.act.SetGameSessionDataByUuid('full', obj)
+    def SetGameSessionDataUuid(self, obj) :
+        return self.act.SetGameSessionDataUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameSessionDataByUuid(self
+    def DelGameSessionDataUuid(self
         , uuid
     ) :          
-        return self.act.DelGameSessionDataByUuid(
+        return self.act.DelGameSessionDataUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -4246,32 +4246,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameSessionDataListByUuid(self
+    def GetGameSessionDataListUuid(self
         , uuid
         ) :
-            return self.act.GetGameSessionDataListByUuid(
+            return self.act.GetGameSessionDataListUuid(
                 uuid
             )
         
-    def GetGameSessionDataByUuid(self
+    def GetGameSessionDataUuid(self
         , uuid
     ) :
-        for item in self.GetGameSessionDataListByUuid(
+        for item in self.GetGameSessionDataListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameSessionDataListByUuid(self
+    def CachedGetGameSessionDataListUuid(self
         , uuid
     ) :
-        return CachedGetGameSessionDataListByUuid(
+        return CachedGetGameSessionDataListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameSessionDataListByUuid(self
+    def CachedGetGameSessionDataListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -4280,7 +4280,7 @@ class BaseGamingAPI(object):
         """
         List<GameSessionData> objs;
 
-        string method_name = "CachedGetGameSessionDataListByUuid";
+        string method_name = "CachedGetGameSessionDataListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4296,7 +4296,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameSessionDataListByUuid(
+            objs = GetGameSessionDataListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4311,135 +4311,135 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameContentByUuid(self
+    def CountGameContentUuid(self
         , uuid
     ) :         
-        return self.act.CountGameContentByUuid(
+        return self.act.CountGameContentUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameContentByGameId(self
+    def CountGameContentGameId(self
         , game_id
     ) :         
-        return self.act.CountGameContentByGameId(
+        return self.act.CountGameContentGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameContentByGameIdByPath(self
+    def CountGameContentGameIdPath(self
         , game_id
         , path
     ) :         
-        return self.act.CountGameContentByGameIdByPath(
+        return self.act.CountGameContentGameIdPath(
         game_id
         , path
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameContentByGameIdByPathByVersion(self
+    def CountGameContentGameIdPathVersion(self
         , game_id
         , path
         , version
     ) :         
-        return self.act.CountGameContentByGameIdByPathByVersion(
+        return self.act.CountGameContentGameIdPathVersion(
         game_id
         , path
         , version
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameContentByGameIdByPathByVersionByPlatformByIncrement(self
+    def CountGameContentGameIdPathVersionPlatformIncrement(self
         , game_id
-        , path
-        , version
-        , platform
-        , increment
-    ) :         
-        return self.act.CountGameContentByGameIdByPathByVersionByPlatformByIncrement(
-        game_id
         , path
         , version
         , platform
         , increment
+    ) :         
+        return self.act.CountGameContentGameIdPathVersionPlatformIncrement(
+        game_id
+        , path
+        , version
+        , platform
+        , increment
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameContentListByFilter(self, filter_obj) :
-        return self.act.BrowseGameContentListByFilter(filter_obj)
+    def BrowseGameContentListFilter(self, filter_obj) :
+        return self.act.BrowseGameContentListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByUuidType(self, set_type, obj) :
-        return self.act.SetGameContentByUuid(set_type, obj)
+    def SetGameContentUuidType(self, set_type, obj) :
+        return self.act.SetGameContentUuid(set_type, obj)
                
-    def SetGameContentByUuid(self, obj) :
-        return self.act.SetGameContentByUuid('full', obj)
+    def SetGameContentUuid(self, obj) :
+        return self.act.SetGameContentUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByGameIdType(self, set_type, obj) :
-        return self.act.SetGameContentByGameId(set_type, obj)
+    def SetGameContentGameIdType(self, set_type, obj) :
+        return self.act.SetGameContentGameId(set_type, obj)
                
-    def SetGameContentByGameId(self, obj) :
-        return self.act.SetGameContentByGameId('full', obj)
+    def SetGameContentGameId(self, obj) :
+        return self.act.SetGameContentGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByGameIdByPathType(self, set_type, obj) :
-        return self.act.SetGameContentByGameIdByPath(set_type, obj)
+    def SetGameContentGameIdPathType(self, set_type, obj) :
+        return self.act.SetGameContentGameIdPath(set_type, obj)
                
-    def SetGameContentByGameIdByPath(self, obj) :
-        return self.act.SetGameContentByGameIdByPath('full', obj)
+    def SetGameContentGameIdPath(self, obj) :
+        return self.act.SetGameContentGameIdPath('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByGameIdByPathByVersionType(self, set_type, obj) :
-        return self.act.SetGameContentByGameIdByPathByVersion(set_type, obj)
+    def SetGameContentGameIdPathVersionType(self, set_type, obj) :
+        return self.act.SetGameContentGameIdPathVersion(set_type, obj)
                
-    def SetGameContentByGameIdByPathByVersion(self, obj) :
-        return self.act.SetGameContentByGameIdByPathByVersion('full', obj)
+    def SetGameContentGameIdPathVersion(self, obj) :
+        return self.act.SetGameContentGameIdPathVersion('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameContentByGameIdByPathByVersionByPlatformByIncrementType(self, set_type, obj) :
-        return self.act.SetGameContentByGameIdByPathByVersionByPlatformByIncrement(set_type, obj)
+    def SetGameContentGameIdPathVersionPlatformIncrementType(self, set_type, obj) :
+        return self.act.SetGameContentGameIdPathVersionPlatformIncrement(set_type, obj)
                
-    def SetGameContentByGameIdByPathByVersionByPlatformByIncrement(self, obj) :
-        return self.act.SetGameContentByGameIdByPathByVersionByPlatformByIncrement('full', obj)
+    def SetGameContentGameIdPathVersionPlatformIncrement(self, obj) :
+        return self.act.SetGameContentGameIdPathVersionPlatformIncrement('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameContentByUuid(self
+    def DelGameContentUuid(self
         , uuid
     ) :          
-        return self.act.DelGameContentByUuid(
+        return self.act.DelGameContentUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameContentByGameId(self
+    def DelGameContentGameId(self
         , game_id
     ) :          
-        return self.act.DelGameContentByGameId(
+        return self.act.DelGameContentGameId(
         game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameContentByGameIdByPath(self
+    def DelGameContentGameIdPath(self
         , game_id
         , path
     ) :          
-        return self.act.DelGameContentByGameIdByPath(
+        return self.act.DelGameContentGameIdPath(
         game_id
         , path
         )
 #------------------------------------------------------------------------------                    
-    def DelGameContentByGameIdByPathByVersion(self
+    def DelGameContentGameIdPathVersion(self
         , game_id
         , path
         , version
     ) :          
-        return self.act.DelGameContentByGameIdByPathByVersion(
+        return self.act.DelGameContentGameIdPathVersion(
         game_id
         , path
         , version
         )
 #------------------------------------------------------------------------------                    
-    def DelGameContentByGameIdByPathByVersionByPlatformByIncrement(self
+    def DelGameContentGameIdPathVersionPlatformIncrement(self
         , game_id
         , path
         , version
         , platform
         , increment
     ) :          
-        return self.act.DelGameContentByGameIdByPathByVersionByPlatformByIncrement(
+        return self.act.DelGameContentGameIdPathVersionPlatformIncrement(
         game_id
         , path
         , version
@@ -4494,32 +4494,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameContentListByUuid(self
+    def GetGameContentListUuid(self
         , uuid
         ) :
-            return self.act.GetGameContentListByUuid(
+            return self.act.GetGameContentListUuid(
                 uuid
             )
         
-    def GetGameContentByUuid(self
+    def GetGameContentUuid(self
         , uuid
     ) :
-        for item in self.GetGameContentListByUuid(
+        for item in self.GetGameContentListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameContentListByUuid(self
+    def CachedGetGameContentListUuid(self
         , uuid
     ) :
-        return CachedGetGameContentListByUuid(
+        return CachedGetGameContentListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameContentListByUuid(self
+    def CachedGetGameContentListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -4528,7 +4528,7 @@ class BaseGamingAPI(object):
         """
         List<GameContent> objs;
 
-        string method_name = "CachedGetGameContentListByUuid";
+        string method_name = "CachedGetGameContentListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4544,7 +4544,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameContentListByUuid(
+            objs = GetGameContentListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4553,32 +4553,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameContentListByGameId(self
+    def GetGameContentListGameId(self
         , game_id
         ) :
-            return self.act.GetGameContentListByGameId(
+            return self.act.GetGameContentListGameId(
                 game_id
             )
         
-    def GetGameContentByGameId(self
+    def GetGameContentGameId(self
         , game_id
     ) :
-        for item in self.GetGameContentListByGameId(
+        for item in self.GetGameContentListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameContentListByGameId(self
+    def CachedGetGameContentListGameId(self
         , game_id
     ) :
-        return CachedGetGameContentListByGameId(
+        return CachedGetGameContentListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameContentListByGameId(self
+    def CachedGetGameContentListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -4587,7 +4587,7 @@ class BaseGamingAPI(object):
         """
         List<GameContent> objs;
 
-        string method_name = "CachedGetGameContentListByGameId";
+        string method_name = "CachedGetGameContentListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4603,7 +4603,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameContentListByGameId(
+            objs = GetGameContentListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4612,38 +4612,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameContentListByGameIdByPath(self
+    def GetGameContentListGameIdPath(self
         , game_id
         , path
         ) :
-            return self.act.GetGameContentListByGameIdByPath(
+            return self.act.GetGameContentListGameIdPath(
                 game_id
                 , path
             )
         
-    def GetGameContentByGameIdByPath(self
+    def GetGameContentGameIdPath(self
         , game_id
         , path
     ) :
-        for item in self.GetGameContentListByGameIdByPath(
+        for item in self.GetGameContentListGameIdPath(
         game_id
         , path
         ) :
             return item
         return None
     
-    def CachedGetGameContentListByGameIdByPath(self
+    def CachedGetGameContentListGameIdPath(self
         , game_id
         , path
     ) :
-        return CachedGetGameContentListByGameIdByPath(
+        return CachedGetGameContentListGameIdPath(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
             , path
         )
         
-    def CachedGetGameContentListByGameIdByPath(self
+    def CachedGetGameContentListGameIdPath(self
         , overrideCache
         , cacheHours
         , game_id
@@ -4653,7 +4653,7 @@ class BaseGamingAPI(object):
         """
         List<GameContent> objs;
 
-        string method_name = "CachedGetGameContentListByGameIdByPath";
+        string method_name = "CachedGetGameContentListGameIdPath";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4673,7 +4673,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameContentListByGameIdByPath(
+            objs = GetGameContentListGameIdPath(
                 game_id
                 , path
             );
@@ -4683,23 +4683,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameContentListByGameIdByPathByVersion(self
+    def GetGameContentListGameIdPathVersion(self
         , game_id
         , path
         , version
         ) :
-            return self.act.GetGameContentListByGameIdByPathByVersion(
+            return self.act.GetGameContentListGameIdPathVersion(
                 game_id
                 , path
                 , version
             )
         
-    def GetGameContentByGameIdByPathByVersion(self
+    def GetGameContentGameIdPathVersion(self
         , game_id
         , path
         , version
     ) :
-        for item in self.GetGameContentListByGameIdByPathByVersion(
+        for item in self.GetGameContentListGameIdPathVersion(
         game_id
         , path
         , version
@@ -4707,12 +4707,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameContentListByGameIdByPathByVersion(self
+    def CachedGetGameContentListGameIdPathVersion(self
         , game_id
         , path
         , version
     ) :
-        return CachedGetGameContentListByGameIdByPathByVersion(
+        return CachedGetGameContentListGameIdPathVersion(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
@@ -4720,7 +4720,7 @@ class BaseGamingAPI(object):
             , version
         )
         
-    def CachedGetGameContentListByGameIdByPathByVersion(self
+    def CachedGetGameContentListGameIdPathVersion(self
         , overrideCache
         , cacheHours
         , game_id
@@ -4731,7 +4731,7 @@ class BaseGamingAPI(object):
         """
         List<GameContent> objs;
 
-        string method_name = "CachedGetGameContentListByGameIdByPathByVersion";
+        string method_name = "CachedGetGameContentListGameIdPathVersion";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4755,7 +4755,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameContentListByGameIdByPathByVersion(
+            objs = GetGameContentListGameIdPathVersion(
                 game_id
                 , path
                 , version
@@ -4766,14 +4766,14 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(self
+    def GetGameContentListGameIdPathVersionPlatformIncrement(self
         , game_id
         , path
         , version
         , platform
         , increment
         ) :
-            return self.act.GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+            return self.act.GetGameContentListGameIdPathVersionPlatformIncrement(
                 game_id
                 , path
                 , version
@@ -4781,14 +4781,14 @@ class BaseGamingAPI(object):
                 , increment
             )
         
-    def GetGameContentByGameIdByPathByVersionByPlatformByIncrement(self
+    def GetGameContentGameIdPathVersionPlatformIncrement(self
         , game_id
         , path
         , version
         , platform
         , increment
     ) :
-        for item in self.GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+        for item in self.GetGameContentListGameIdPathVersionPlatformIncrement(
         game_id
         , path
         , version
@@ -4798,14 +4798,14 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameContentListByGameIdByPathByVersionByPlatformByIncrement(self
+    def CachedGetGameContentListGameIdPathVersionPlatformIncrement(self
         , game_id
         , path
         , version
         , platform
         , increment
     ) :
-        return CachedGetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+        return CachedGetGameContentListGameIdPathVersionPlatformIncrement(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
@@ -4815,7 +4815,7 @@ class BaseGamingAPI(object):
             , increment
         )
         
-    def CachedGetGameContentListByGameIdByPathByVersionByPlatformByIncrement(self
+    def CachedGetGameContentListGameIdPathVersionPlatformIncrement(self
         , overrideCache
         , cacheHours
         , game_id
@@ -4828,7 +4828,7 @@ class BaseGamingAPI(object):
         """
         List<GameContent> objs;
 
-        string method_name = "CachedGetGameContentListByGameIdByPathByVersionByPlatformByIncrement";
+        string method_name = "CachedGetGameContentListGameIdPathVersionPlatformIncrement";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4860,7 +4860,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+            objs = GetGameContentListGameIdPathVersionPlatformIncrement(
                 game_id
                 , path
                 , version
@@ -4879,61 +4879,61 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByUuid(self
+    def CountGameProfileContentUuid(self
         , uuid
     ) :         
-        return self.act.CountGameProfileContentByUuid(
+        return self.act.CountGameProfileContentUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByGameIdByProfileId(self
+    def CountGameProfileContentGameIdProfileId(self
         , game_id
         , profile_id
     ) :         
-        return self.act.CountGameProfileContentByGameIdByProfileId(
+        return self.act.CountGameProfileContentGameIdProfileId(
         game_id
         , profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByGameIdByUsername(self
+    def CountGameProfileContentGameIdUsername(self
         , game_id
         , username
     ) :         
-        return self.act.CountGameProfileContentByGameIdByUsername(
+        return self.act.CountGameProfileContentGameIdUsername(
         game_id
         , username
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByUsername(self
+    def CountGameProfileContentUsername(self
         , username
     ) :         
-        return self.act.CountGameProfileContentByUsername(
+        return self.act.CountGameProfileContentUsername(
         username
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByGameIdByProfileIdByPath(self
+    def CountGameProfileContentGameIdProfileIdPath(self
         , game_id
         , profile_id
         , path
     ) :         
-        return self.act.CountGameProfileContentByGameIdByProfileIdByPath(
+        return self.act.CountGameProfileContentGameIdProfileIdPath(
         game_id
         , profile_id
         , path
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByGameIdByProfileIdByPathByVersion(self
+    def CountGameProfileContentGameIdProfileIdPathVersion(self
         , game_id
         , profile_id
         , path
         , version
     ) :         
-        return self.act.CountGameProfileContentByGameIdByProfileIdByPathByVersion(
+        return self.act.CountGameProfileContentGameIdProfileIdPathVersion(
         game_id
         , profile_id
         , path
@@ -4941,7 +4941,7 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
         , game_id
         , profile_id
         , path
@@ -4949,7 +4949,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
     ) :         
-        return self.act.CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        return self.act.CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
         game_id
         , profile_id
         , path
@@ -4959,25 +4959,25 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByGameIdByUsernameByPath(self
+    def CountGameProfileContentGameIdUsernamePath(self
         , game_id
         , username
         , path
     ) :         
-        return self.act.CountGameProfileContentByGameIdByUsernameByPath(
+        return self.act.CountGameProfileContentGameIdUsernamePath(
         game_id
         , username
         , path
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByGameIdByUsernameByPathByVersion(self
+    def CountGameProfileContentGameIdUsernamePathVersion(self
         , game_id
         , username
         , path
         , version
     ) :         
-        return self.act.CountGameProfileContentByGameIdByUsernameByPathByVersion(
+        return self.act.CountGameProfileContentGameIdUsernamePathVersion(
         game_id
         , username
         , path
@@ -4985,7 +4985,7 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
         , game_id
         , username
         , path
@@ -4993,7 +4993,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
     ) :         
-        return self.act.CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        return self.act.CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
         game_id
         , username
         , path
@@ -5003,126 +5003,126 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameProfileContentListByFilter(self, filter_obj) :
-        return self.act.BrowseGameProfileContentListByFilter(filter_obj)
+    def BrowseGameProfileContentListFilter(self, filter_obj) :
+        return self.act.BrowseGameProfileContentListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByUuidType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByUuid(set_type, obj)
+    def SetGameProfileContentUuidType(self, set_type, obj) :
+        return self.act.SetGameProfileContentUuid(set_type, obj)
                
-    def SetGameProfileContentByUuid(self, obj) :
-        return self.act.SetGameProfileContentByUuid('full', obj)
+    def SetGameProfileContentUuid(self, obj) :
+        return self.act.SetGameProfileContentUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByProfileIdType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByGameIdByProfileId(set_type, obj)
+    def SetGameProfileContentGameIdProfileIdType(self, set_type, obj) :
+        return self.act.SetGameProfileContentGameIdProfileId(set_type, obj)
                
-    def SetGameProfileContentByGameIdByProfileId(self, obj) :
-        return self.act.SetGameProfileContentByGameIdByProfileId('full', obj)
+    def SetGameProfileContentGameIdProfileId(self, obj) :
+        return self.act.SetGameProfileContentGameIdProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByUsernameType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByGameIdByUsername(set_type, obj)
+    def SetGameProfileContentGameIdUsernameType(self, set_type, obj) :
+        return self.act.SetGameProfileContentGameIdUsername(set_type, obj)
                
-    def SetGameProfileContentByGameIdByUsername(self, obj) :
-        return self.act.SetGameProfileContentByGameIdByUsername('full', obj)
+    def SetGameProfileContentGameIdUsername(self, obj) :
+        return self.act.SetGameProfileContentGameIdUsername('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByUsernameType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByUsername(set_type, obj)
+    def SetGameProfileContentUsernameType(self, set_type, obj) :
+        return self.act.SetGameProfileContentUsername(set_type, obj)
                
-    def SetGameProfileContentByUsername(self, obj) :
-        return self.act.SetGameProfileContentByUsername('full', obj)
+    def SetGameProfileContentUsername(self, obj) :
+        return self.act.SetGameProfileContentUsername('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByProfileIdByPathType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByGameIdByProfileIdByPath(set_type, obj)
+    def SetGameProfileContentGameIdProfileIdPathType(self, set_type, obj) :
+        return self.act.SetGameProfileContentGameIdProfileIdPath(set_type, obj)
                
-    def SetGameProfileContentByGameIdByProfileIdByPath(self, obj) :
-        return self.act.SetGameProfileContentByGameIdByProfileIdByPath('full', obj)
+    def SetGameProfileContentGameIdProfileIdPath(self, obj) :
+        return self.act.SetGameProfileContentGameIdProfileIdPath('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersionType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByGameIdByProfileIdByPathByVersion(set_type, obj)
+    def SetGameProfileContentGameIdProfileIdPathVersionType(self, set_type, obj) :
+        return self.act.SetGameProfileContentGameIdProfileIdPathVersion(set_type, obj)
                
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersion(self, obj) :
-        return self.act.SetGameProfileContentByGameIdByProfileIdByPathByVersion('full', obj)
+    def SetGameProfileContentGameIdProfileIdPathVersion(self, obj) :
+        return self.act.SetGameProfileContentGameIdProfileIdPathVersion('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrementType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(set_type, obj)
+    def SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrementType(self, set_type, obj) :
+        return self.act.SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(set_type, obj)
                
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self, obj) :
-        return self.act.SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement('full', obj)
+    def SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self, obj) :
+        return self.act.SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByUsernameByPathType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByGameIdByUsernameByPath(set_type, obj)
+    def SetGameProfileContentGameIdUsernamePathType(self, set_type, obj) :
+        return self.act.SetGameProfileContentGameIdUsernamePath(set_type, obj)
                
-    def SetGameProfileContentByGameIdByUsernameByPath(self, obj) :
-        return self.act.SetGameProfileContentByGameIdByUsernameByPath('full', obj)
+    def SetGameProfileContentGameIdUsernamePath(self, obj) :
+        return self.act.SetGameProfileContentGameIdUsernamePath('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByUsernameByPathByVersionType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByGameIdByUsernameByPathByVersion(set_type, obj)
+    def SetGameProfileContentGameIdUsernamePathVersionType(self, set_type, obj) :
+        return self.act.SetGameProfileContentGameIdUsernamePathVersion(set_type, obj)
                
-    def SetGameProfileContentByGameIdByUsernameByPathByVersion(self, obj) :
-        return self.act.SetGameProfileContentByGameIdByUsernameByPathByVersion('full', obj)
+    def SetGameProfileContentGameIdUsernamePathVersion(self, obj) :
+        return self.act.SetGameProfileContentGameIdUsernamePathVersion('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrementType(self, set_type, obj) :
-        return self.act.SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(set_type, obj)
+    def SetGameProfileContentGameIdUsernamePathVersionPlatformIncrementType(self, set_type, obj) :
+        return self.act.SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(set_type, obj)
                
-    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self, obj) :
-        return self.act.SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement('full', obj)
+    def SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self, obj) :
+        return self.act.SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByUuid(self
+    def DelGameProfileContentUuid(self
         , uuid
     ) :          
-        return self.act.DelGameProfileContentByUuid(
+        return self.act.DelGameProfileContentUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByGameIdByProfileId(self
+    def DelGameProfileContentGameIdProfileId(self
         , game_id
         , profile_id
     ) :          
-        return self.act.DelGameProfileContentByGameIdByProfileId(
+        return self.act.DelGameProfileContentGameIdProfileId(
         game_id
         , profile_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByGameIdByUsername(self
+    def DelGameProfileContentGameIdUsername(self
         , game_id
         , username
     ) :          
-        return self.act.DelGameProfileContentByGameIdByUsername(
+        return self.act.DelGameProfileContentGameIdUsername(
         game_id
         , username
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByUsername(self
+    def DelGameProfileContentUsername(self
         , username
     ) :          
-        return self.act.DelGameProfileContentByUsername(
+        return self.act.DelGameProfileContentUsername(
         username
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByGameIdByProfileIdByPath(self
+    def DelGameProfileContentGameIdProfileIdPath(self
         , game_id
         , profile_id
         , path
     ) :          
-        return self.act.DelGameProfileContentByGameIdByProfileIdByPath(
+        return self.act.DelGameProfileContentGameIdProfileIdPath(
         game_id
         , profile_id
         , path
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByGameIdByProfileIdByPathByVersion(self
+    def DelGameProfileContentGameIdProfileIdPathVersion(self
         , game_id
         , profile_id
         , path
         , version
     ) :          
-        return self.act.DelGameProfileContentByGameIdByProfileIdByPathByVersion(
+        return self.act.DelGameProfileContentGameIdProfileIdPathVersion(
         game_id
         , profile_id
         , path
         , version
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
         , game_id
         , profile_id
         , path
@@ -5130,7 +5130,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
     ) :          
-        return self.act.DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        return self.act.DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
         game_id
         , profile_id
         , path
@@ -5139,31 +5139,31 @@ class BaseGamingAPI(object):
         , increment
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByGameIdByUsernameByPath(self
+    def DelGameProfileContentGameIdUsernamePath(self
         , game_id
         , username
         , path
     ) :          
-        return self.act.DelGameProfileContentByGameIdByUsernameByPath(
+        return self.act.DelGameProfileContentGameIdUsernamePath(
         game_id
         , username
         , path
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByGameIdByUsernameByPathByVersion(self
+    def DelGameProfileContentGameIdUsernamePathVersion(self
         , game_id
         , username
         , path
         , version
     ) :          
-        return self.act.DelGameProfileContentByGameIdByUsernameByPathByVersion(
+        return self.act.DelGameProfileContentGameIdUsernamePathVersion(
         game_id
         , username
         , path
         , version
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
         , game_id
         , username
         , path
@@ -5171,7 +5171,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
     ) :          
-        return self.act.DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        return self.act.DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
         game_id
         , username
         , path
@@ -5227,32 +5227,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByUuid(self
+    def GetGameProfileContentListUuid(self
         , uuid
         ) :
-            return self.act.GetGameProfileContentListByUuid(
+            return self.act.GetGameProfileContentListUuid(
                 uuid
             )
         
-    def GetGameProfileContentByUuid(self
+    def GetGameProfileContentUuid(self
         , uuid
     ) :
-        for item in self.GetGameProfileContentListByUuid(
+        for item in self.GetGameProfileContentListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameProfileContentListByUuid(self
+    def CachedGetGameProfileContentListUuid(self
         , uuid
     ) :
-        return CachedGetGameProfileContentListByUuid(
+        return CachedGetGameProfileContentListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameProfileContentListByUuid(self
+    def CachedGetGameProfileContentListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -5261,7 +5261,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByUuid";
+        string method_name = "CachedGetGameProfileContentListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5277,7 +5277,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByUuid(
+            objs = GetGameProfileContentListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5286,38 +5286,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByGameIdByProfileId(self
+    def GetGameProfileContentListGameIdProfileId(self
         , game_id
         , profile_id
         ) :
-            return self.act.GetGameProfileContentListByGameIdByProfileId(
+            return self.act.GetGameProfileContentListGameIdProfileId(
                 game_id
                 , profile_id
             )
         
-    def GetGameProfileContentByGameIdByProfileId(self
+    def GetGameProfileContentGameIdProfileId(self
         , game_id
         , profile_id
     ) :
-        for item in self.GetGameProfileContentListByGameIdByProfileId(
+        for item in self.GetGameProfileContentListGameIdProfileId(
         game_id
         , profile_id
         ) :
             return item
         return None
     
-    def CachedGetGameProfileContentListByGameIdByProfileId(self
+    def CachedGetGameProfileContentListGameIdProfileId(self
         , game_id
         , profile_id
     ) :
-        return CachedGetGameProfileContentListByGameIdByProfileId(
+        return CachedGetGameProfileContentListGameIdProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
             , profile_id
         )
         
-    def CachedGetGameProfileContentListByGameIdByProfileId(self
+    def CachedGetGameProfileContentListGameIdProfileId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -5327,7 +5327,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByGameIdByProfileId";
+        string method_name = "CachedGetGameProfileContentListGameIdProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5347,7 +5347,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByGameIdByProfileId(
+            objs = GetGameProfileContentListGameIdProfileId(
                 game_id
                 , profile_id
             );
@@ -5357,38 +5357,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByGameIdByUsername(self
+    def GetGameProfileContentListGameIdUsername(self
         , game_id
         , username
         ) :
-            return self.act.GetGameProfileContentListByGameIdByUsername(
+            return self.act.GetGameProfileContentListGameIdUsername(
                 game_id
                 , username
             )
         
-    def GetGameProfileContentByGameIdByUsername(self
+    def GetGameProfileContentGameIdUsername(self
         , game_id
         , username
     ) :
-        for item in self.GetGameProfileContentListByGameIdByUsername(
+        for item in self.GetGameProfileContentListGameIdUsername(
         game_id
         , username
         ) :
             return item
         return None
     
-    def CachedGetGameProfileContentListByGameIdByUsername(self
+    def CachedGetGameProfileContentListGameIdUsername(self
         , game_id
         , username
     ) :
-        return CachedGetGameProfileContentListByGameIdByUsername(
+        return CachedGetGameProfileContentListGameIdUsername(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
             , username
         )
         
-    def CachedGetGameProfileContentListByGameIdByUsername(self
+    def CachedGetGameProfileContentListGameIdUsername(self
         , overrideCache
         , cacheHours
         , game_id
@@ -5398,7 +5398,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByGameIdByUsername";
+        string method_name = "CachedGetGameProfileContentListGameIdUsername";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5418,7 +5418,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByGameIdByUsername(
+            objs = GetGameProfileContentListGameIdUsername(
                 game_id
                 , username
             );
@@ -5428,32 +5428,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByUsername(self
+    def GetGameProfileContentListUsername(self
         , username
         ) :
-            return self.act.GetGameProfileContentListByUsername(
+            return self.act.GetGameProfileContentListUsername(
                 username
             )
         
-    def GetGameProfileContentByUsername(self
+    def GetGameProfileContentUsername(self
         , username
     ) :
-        for item in self.GetGameProfileContentListByUsername(
+        for item in self.GetGameProfileContentListUsername(
         username
         ) :
             return item
         return None
     
-    def CachedGetGameProfileContentListByUsername(self
+    def CachedGetGameProfileContentListUsername(self
         , username
     ) :
-        return CachedGetGameProfileContentListByUsername(
+        return CachedGetGameProfileContentListUsername(
             false
             , self.CACHE_DEFAULT_HOURS
             , username
         )
         
-    def CachedGetGameProfileContentListByUsername(self
+    def CachedGetGameProfileContentListUsername(self
         , overrideCache
         , cacheHours
         , username
@@ -5462,7 +5462,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByUsername";
+        string method_name = "CachedGetGameProfileContentListUsername";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5478,7 +5478,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByUsername(
+            objs = GetGameProfileContentListUsername(
                 username
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5487,23 +5487,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByGameIdByProfileIdByPath(self
+    def GetGameProfileContentListGameIdProfileIdPath(self
         , game_id
         , profile_id
         , path
         ) :
-            return self.act.GetGameProfileContentListByGameIdByProfileIdByPath(
+            return self.act.GetGameProfileContentListGameIdProfileIdPath(
                 game_id
                 , profile_id
                 , path
             )
         
-    def GetGameProfileContentByGameIdByProfileIdByPath(self
+    def GetGameProfileContentGameIdProfileIdPath(self
         , game_id
         , profile_id
         , path
     ) :
-        for item in self.GetGameProfileContentListByGameIdByProfileIdByPath(
+        for item in self.GetGameProfileContentListGameIdProfileIdPath(
         game_id
         , profile_id
         , path
@@ -5511,12 +5511,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileContentListByGameIdByProfileIdByPath(self
+    def CachedGetGameProfileContentListGameIdProfileIdPath(self
         , game_id
         , profile_id
         , path
     ) :
-        return CachedGetGameProfileContentListByGameIdByProfileIdByPath(
+        return CachedGetGameProfileContentListGameIdProfileIdPath(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
@@ -5524,7 +5524,7 @@ class BaseGamingAPI(object):
             , path
         )
         
-    def CachedGetGameProfileContentListByGameIdByProfileIdByPath(self
+    def CachedGetGameProfileContentListGameIdProfileIdPath(self
         , overrideCache
         , cacheHours
         , game_id
@@ -5535,7 +5535,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByGameIdByProfileIdByPath";
+        string method_name = "CachedGetGameProfileContentListGameIdProfileIdPath";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5559,7 +5559,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByGameIdByProfileIdByPath(
+            objs = GetGameProfileContentListGameIdProfileIdPath(
                 game_id
                 , profile_id
                 , path
@@ -5570,26 +5570,26 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByGameIdByProfileIdByPathByVersion(self
+    def GetGameProfileContentListGameIdProfileIdPathVersion(self
         , game_id
         , profile_id
         , path
         , version
         ) :
-            return self.act.GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+            return self.act.GetGameProfileContentListGameIdProfileIdPathVersion(
                 game_id
                 , profile_id
                 , path
                 , version
             )
         
-    def GetGameProfileContentByGameIdByProfileIdByPathByVersion(self
+    def GetGameProfileContentGameIdProfileIdPathVersion(self
         , game_id
         , profile_id
         , path
         , version
     ) :
-        for item in self.GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+        for item in self.GetGameProfileContentListGameIdProfileIdPathVersion(
         game_id
         , profile_id
         , path
@@ -5598,13 +5598,13 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileContentListByGameIdByProfileIdByPathByVersion(self
+    def CachedGetGameProfileContentListGameIdProfileIdPathVersion(self
         , game_id
         , profile_id
         , path
         , version
     ) :
-        return CachedGetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+        return CachedGetGameProfileContentListGameIdProfileIdPathVersion(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
@@ -5613,7 +5613,7 @@ class BaseGamingAPI(object):
             , version
         )
         
-    def CachedGetGameProfileContentListByGameIdByProfileIdByPathByVersion(self
+    def CachedGetGameProfileContentListGameIdProfileIdPathVersion(self
         , overrideCache
         , cacheHours
         , game_id
@@ -5625,7 +5625,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByGameIdByProfileIdByPathByVersion";
+        string method_name = "CachedGetGameProfileContentListGameIdProfileIdPathVersion";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5653,7 +5653,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+            objs = GetGameProfileContentListGameIdProfileIdPathVersion(
                 game_id
                 , profile_id
                 , path
@@ -5665,7 +5665,7 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(self
         , game_id
         , profile_id
         , path
@@ -5673,7 +5673,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
         ) :
-            return self.act.GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+            return self.act.GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
                 game_id
                 , profile_id
                 , path
@@ -5682,7 +5682,7 @@ class BaseGamingAPI(object):
                 , increment
             )
         
-    def GetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def GetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
         , game_id
         , profile_id
         , path
@@ -5690,7 +5690,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
     ) :
-        for item in self.GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        for item in self.GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
         game_id
         , profile_id
         , path
@@ -5701,7 +5701,7 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def CachedGetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(self
         , game_id
         , profile_id
         , path
@@ -5709,7 +5709,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
     ) :
-        return CachedGetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        return CachedGetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
@@ -5720,7 +5720,7 @@ class BaseGamingAPI(object):
             , increment
         )
         
-    def CachedGetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def CachedGetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(self
         , overrideCache
         , cacheHours
         , game_id
@@ -5734,7 +5734,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement";
+        string method_name = "CachedGetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5770,7 +5770,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+            objs = GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
                 game_id
                 , profile_id
                 , path
@@ -5784,23 +5784,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByGameIdByUsernameByPath(self
+    def GetGameProfileContentListGameIdUsernamePath(self
         , game_id
         , username
         , path
         ) :
-            return self.act.GetGameProfileContentListByGameIdByUsernameByPath(
+            return self.act.GetGameProfileContentListGameIdUsernamePath(
                 game_id
                 , username
                 , path
             )
         
-    def GetGameProfileContentByGameIdByUsernameByPath(self
+    def GetGameProfileContentGameIdUsernamePath(self
         , game_id
         , username
         , path
     ) :
-        for item in self.GetGameProfileContentListByGameIdByUsernameByPath(
+        for item in self.GetGameProfileContentListGameIdUsernamePath(
         game_id
         , username
         , path
@@ -5808,12 +5808,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileContentListByGameIdByUsernameByPath(self
+    def CachedGetGameProfileContentListGameIdUsernamePath(self
         , game_id
         , username
         , path
     ) :
-        return CachedGetGameProfileContentListByGameIdByUsernameByPath(
+        return CachedGetGameProfileContentListGameIdUsernamePath(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
@@ -5821,7 +5821,7 @@ class BaseGamingAPI(object):
             , path
         )
         
-    def CachedGetGameProfileContentListByGameIdByUsernameByPath(self
+    def CachedGetGameProfileContentListGameIdUsernamePath(self
         , overrideCache
         , cacheHours
         , game_id
@@ -5832,7 +5832,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByGameIdByUsernameByPath";
+        string method_name = "CachedGetGameProfileContentListGameIdUsernamePath";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5856,7 +5856,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByGameIdByUsernameByPath(
+            objs = GetGameProfileContentListGameIdUsernamePath(
                 game_id
                 , username
                 , path
@@ -5867,26 +5867,26 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByGameIdByUsernameByPathByVersion(self
+    def GetGameProfileContentListGameIdUsernamePathVersion(self
         , game_id
         , username
         , path
         , version
         ) :
-            return self.act.GetGameProfileContentListByGameIdByUsernameByPathByVersion(
+            return self.act.GetGameProfileContentListGameIdUsernamePathVersion(
                 game_id
                 , username
                 , path
                 , version
             )
         
-    def GetGameProfileContentByGameIdByUsernameByPathByVersion(self
+    def GetGameProfileContentGameIdUsernamePathVersion(self
         , game_id
         , username
         , path
         , version
     ) :
-        for item in self.GetGameProfileContentListByGameIdByUsernameByPathByVersion(
+        for item in self.GetGameProfileContentListGameIdUsernamePathVersion(
         game_id
         , username
         , path
@@ -5895,13 +5895,13 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileContentListByGameIdByUsernameByPathByVersion(self
+    def CachedGetGameProfileContentListGameIdUsernamePathVersion(self
         , game_id
         , username
         , path
         , version
     ) :
-        return CachedGetGameProfileContentListByGameIdByUsernameByPathByVersion(
+        return CachedGetGameProfileContentListGameIdUsernamePathVersion(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
@@ -5910,7 +5910,7 @@ class BaseGamingAPI(object):
             , version
         )
         
-    def CachedGetGameProfileContentListByGameIdByUsernameByPathByVersion(self
+    def CachedGetGameProfileContentListGameIdUsernamePathVersion(self
         , overrideCache
         , cacheHours
         , game_id
@@ -5922,7 +5922,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByGameIdByUsernameByPathByVersion";
+        string method_name = "CachedGetGameProfileContentListGameIdUsernamePathVersion";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5950,7 +5950,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByGameIdByUsernameByPathByVersion(
+            objs = GetGameProfileContentListGameIdUsernamePathVersion(
                 game_id
                 , username
                 , path
@@ -5962,7 +5962,7 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(self
         , game_id
         , username
         , path
@@ -5970,7 +5970,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
         ) :
-            return self.act.GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+            return self.act.GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
                 game_id
                 , username
                 , path
@@ -5979,7 +5979,7 @@ class BaseGamingAPI(object):
                 , increment
             )
         
-    def GetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def GetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
         , game_id
         , username
         , path
@@ -5987,7 +5987,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
     ) :
-        for item in self.GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        for item in self.GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
         game_id
         , username
         , path
@@ -5998,7 +5998,7 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def CachedGetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(self
         , game_id
         , username
         , path
@@ -6006,7 +6006,7 @@ class BaseGamingAPI(object):
         , platform
         , increment
     ) :
-        return CachedGetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        return CachedGetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
@@ -6017,7 +6017,7 @@ class BaseGamingAPI(object):
             , increment
         )
         
-    def CachedGetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def CachedGetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(self
         , overrideCache
         , cacheHours
         , game_id
@@ -6031,7 +6031,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileContent> objs;
 
-        string method_name = "CachedGetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement";
+        string method_name = "CachedGetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6067,7 +6067,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+            objs = GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
                 game_id
                 , username
                 , path
@@ -6087,53 +6087,53 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAppByUuid(self
+    def CountGameAppUuid(self
         , uuid
     ) :         
-        return self.act.CountGameAppByUuid(
+        return self.act.CountGameAppUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAppByGameId(self
+    def CountGameAppGameId(self
         , game_id
     ) :         
-        return self.act.CountGameAppByGameId(
+        return self.act.CountGameAppGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAppByAppId(self
+    def CountGameAppAppId(self
         , app_id
     ) :         
-        return self.act.CountGameAppByAppId(
+        return self.act.CountGameAppAppId(
         app_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAppByGameIdByAppId(self
+    def CountGameAppGameIdAppId(self
         , game_id
         , app_id
     ) :         
-        return self.act.CountGameAppByGameIdByAppId(
+        return self.act.CountGameAppGameIdAppId(
         game_id
         , app_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameAppListByFilter(self, filter_obj) :
-        return self.act.BrowseGameAppListByFilter(filter_obj)
+    def BrowseGameAppListFilter(self, filter_obj) :
+        return self.act.BrowseGameAppListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameAppByUuidType(self, set_type, obj) :
-        return self.act.SetGameAppByUuid(set_type, obj)
+    def SetGameAppUuidType(self, set_type, obj) :
+        return self.act.SetGameAppUuid(set_type, obj)
                
-    def SetGameAppByUuid(self, obj) :
-        return self.act.SetGameAppByUuid('full', obj)
+    def SetGameAppUuid(self, obj) :
+        return self.act.SetGameAppUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameAppByUuid(self
+    def DelGameAppUuid(self
         , uuid
     ) :          
-        return self.act.DelGameAppByUuid(
+        return self.act.DelGameAppUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -6184,32 +6184,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameAppListByUuid(self
+    def GetGameAppListUuid(self
         , uuid
         ) :
-            return self.act.GetGameAppListByUuid(
+            return self.act.GetGameAppListUuid(
                 uuid
             )
         
-    def GetGameAppByUuid(self
+    def GetGameAppUuid(self
         , uuid
     ) :
-        for item in self.GetGameAppListByUuid(
+        for item in self.GetGameAppListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameAppListByUuid(self
+    def CachedGetGameAppListUuid(self
         , uuid
     ) :
-        return CachedGetGameAppListByUuid(
+        return CachedGetGameAppListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameAppListByUuid(self
+    def CachedGetGameAppListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -6218,7 +6218,7 @@ class BaseGamingAPI(object):
         """
         List<GameApp> objs;
 
-        string method_name = "CachedGetGameAppListByUuid";
+        string method_name = "CachedGetGameAppListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6234,7 +6234,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAppListByUuid(
+            objs = GetGameAppListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6243,32 +6243,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameAppListByGameId(self
+    def GetGameAppListGameId(self
         , game_id
         ) :
-            return self.act.GetGameAppListByGameId(
+            return self.act.GetGameAppListGameId(
                 game_id
             )
         
-    def GetGameAppByGameId(self
+    def GetGameAppGameId(self
         , game_id
     ) :
-        for item in self.GetGameAppListByGameId(
+        for item in self.GetGameAppListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameAppListByGameId(self
+    def CachedGetGameAppListGameId(self
         , game_id
     ) :
-        return CachedGetGameAppListByGameId(
+        return CachedGetGameAppListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameAppListByGameId(self
+    def CachedGetGameAppListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -6277,7 +6277,7 @@ class BaseGamingAPI(object):
         """
         List<GameApp> objs;
 
-        string method_name = "CachedGetGameAppListByGameId";
+        string method_name = "CachedGetGameAppListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6293,7 +6293,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAppListByGameId(
+            objs = GetGameAppListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6302,32 +6302,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameAppListByAppId(self
+    def GetGameAppListAppId(self
         , app_id
         ) :
-            return self.act.GetGameAppListByAppId(
+            return self.act.GetGameAppListAppId(
                 app_id
             )
         
-    def GetGameAppByAppId(self
+    def GetGameAppAppId(self
         , app_id
     ) :
-        for item in self.GetGameAppListByAppId(
+        for item in self.GetGameAppListAppId(
         app_id
         ) :
             return item
         return None
     
-    def CachedGetGameAppListByAppId(self
+    def CachedGetGameAppListAppId(self
         , app_id
     ) :
-        return CachedGetGameAppListByAppId(
+        return CachedGetGameAppListAppId(
             false
             , self.CACHE_DEFAULT_HOURS
             , app_id
         )
         
-    def CachedGetGameAppListByAppId(self
+    def CachedGetGameAppListAppId(self
         , overrideCache
         , cacheHours
         , app_id
@@ -6336,7 +6336,7 @@ class BaseGamingAPI(object):
         """
         List<GameApp> objs;
 
-        string method_name = "CachedGetGameAppListByAppId";
+        string method_name = "CachedGetGameAppListAppId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6352,7 +6352,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAppListByAppId(
+            objs = GetGameAppListAppId(
                 app_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6361,38 +6361,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameAppListByGameIdByAppId(self
+    def GetGameAppListGameIdAppId(self
         , game_id
         , app_id
         ) :
-            return self.act.GetGameAppListByGameIdByAppId(
+            return self.act.GetGameAppListGameIdAppId(
                 game_id
                 , app_id
             )
         
-    def GetGameAppByGameIdByAppId(self
+    def GetGameAppGameIdAppId(self
         , game_id
         , app_id
     ) :
-        for item in self.GetGameAppListByGameIdByAppId(
+        for item in self.GetGameAppListGameIdAppId(
         game_id
         , app_id
         ) :
             return item
         return None
     
-    def CachedGetGameAppListByGameIdByAppId(self
+    def CachedGetGameAppListGameIdAppId(self
         , game_id
         , app_id
     ) :
-        return CachedGetGameAppListByGameIdByAppId(
+        return CachedGetGameAppListGameIdAppId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
             , app_id
         )
         
-    def CachedGetGameAppListByGameIdByAppId(self
+    def CachedGetGameAppListGameIdAppId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -6402,7 +6402,7 @@ class BaseGamingAPI(object):
         """
         List<GameApp> objs;
 
-        string method_name = "CachedGetGameAppListByGameIdByAppId";
+        string method_name = "CachedGetGameAppListGameIdAppId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6422,7 +6422,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAppListByGameIdByAppId(
+            objs = GetGameAppListGameIdAppId(
                 game_id
                 , app_id
             );
@@ -6438,53 +6438,53 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameLocationByUuid(self
+    def CountProfileGameLocationUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileGameLocationByUuid(
+        return self.act.CountProfileGameLocationUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameLocationByGameLocationId(self
+    def CountProfileGameLocationGameLocationId(self
         , game_location_id
     ) :         
-        return self.act.CountProfileGameLocationByGameLocationId(
+        return self.act.CountProfileGameLocationGameLocationId(
         game_location_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameLocationByProfileId(self
+    def CountProfileGameLocationProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileGameLocationByProfileId(
+        return self.act.CountProfileGameLocationProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileGameLocationByProfileIdByGameLocationId(self
+    def CountProfileGameLocationProfileIdGameLocationId(self
         , profile_id
         , game_location_id
     ) :         
-        return self.act.CountProfileGameLocationByProfileIdByGameLocationId(
+        return self.act.CountProfileGameLocationProfileIdGameLocationId(
         profile_id
         , game_location_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileGameLocationListByFilter(self, filter_obj) :
-        return self.act.BrowseProfileGameLocationListByFilter(filter_obj)
+    def BrowseProfileGameLocationListFilter(self, filter_obj) :
+        return self.act.BrowseProfileGameLocationListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileGameLocationByUuidType(self, set_type, obj) :
-        return self.act.SetProfileGameLocationByUuid(set_type, obj)
+    def SetProfileGameLocationUuidType(self, set_type, obj) :
+        return self.act.SetProfileGameLocationUuid(set_type, obj)
                
-    def SetProfileGameLocationByUuid(self, obj) :
-        return self.act.SetProfileGameLocationByUuid('full', obj)
+    def SetProfileGameLocationUuid(self, obj) :
+        return self.act.SetProfileGameLocationUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileGameLocationByUuid(self
+    def DelProfileGameLocationUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileGameLocationByUuid(
+        return self.act.DelProfileGameLocationUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -6535,32 +6535,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameLocationListByUuid(self
+    def GetProfileGameLocationListUuid(self
         , uuid
         ) :
-            return self.act.GetProfileGameLocationListByUuid(
+            return self.act.GetProfileGameLocationListUuid(
                 uuid
             )
         
-    def GetProfileGameLocationByUuid(self
+    def GetProfileGameLocationUuid(self
         , uuid
     ) :
-        for item in self.GetProfileGameLocationListByUuid(
+        for item in self.GetProfileGameLocationListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileGameLocationListByUuid(self
+    def CachedGetProfileGameLocationListUuid(self
         , uuid
     ) :
-        return CachedGetProfileGameLocationListByUuid(
+        return CachedGetProfileGameLocationListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileGameLocationListByUuid(self
+    def CachedGetProfileGameLocationListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -6569,7 +6569,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameLocation> objs;
 
-        string method_name = "CachedGetProfileGameLocationListByUuid";
+        string method_name = "CachedGetProfileGameLocationListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6585,7 +6585,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameLocationListByUuid(
+            objs = GetProfileGameLocationListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6594,32 +6594,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameLocationListByGameLocationId(self
+    def GetProfileGameLocationListGameLocationId(self
         , game_location_id
         ) :
-            return self.act.GetProfileGameLocationListByGameLocationId(
+            return self.act.GetProfileGameLocationListGameLocationId(
                 game_location_id
             )
         
-    def GetProfileGameLocationByGameLocationId(self
+    def GetProfileGameLocationGameLocationId(self
         , game_location_id
     ) :
-        for item in self.GetProfileGameLocationListByGameLocationId(
+        for item in self.GetProfileGameLocationListGameLocationId(
         game_location_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameLocationListByGameLocationId(self
+    def CachedGetProfileGameLocationListGameLocationId(self
         , game_location_id
     ) :
-        return CachedGetProfileGameLocationListByGameLocationId(
+        return CachedGetProfileGameLocationListGameLocationId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_location_id
         )
         
-    def CachedGetProfileGameLocationListByGameLocationId(self
+    def CachedGetProfileGameLocationListGameLocationId(self
         , overrideCache
         , cacheHours
         , game_location_id
@@ -6628,7 +6628,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameLocation> objs;
 
-        string method_name = "CachedGetProfileGameLocationListByGameLocationId";
+        string method_name = "CachedGetProfileGameLocationListGameLocationId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6644,7 +6644,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameLocationListByGameLocationId(
+            objs = GetProfileGameLocationListGameLocationId(
                 game_location_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6653,32 +6653,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameLocationListByProfileId(self
+    def GetProfileGameLocationListProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileGameLocationListByProfileId(
+            return self.act.GetProfileGameLocationListProfileId(
                 profile_id
             )
         
-    def GetProfileGameLocationByProfileId(self
+    def GetProfileGameLocationProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileGameLocationListByProfileId(
+        for item in self.GetProfileGameLocationListProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameLocationListByProfileId(self
+    def CachedGetProfileGameLocationListProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileGameLocationListByProfileId(
+        return CachedGetProfileGameLocationListProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileGameLocationListByProfileId(self
+    def CachedGetProfileGameLocationListProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -6687,7 +6687,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameLocation> objs;
 
-        string method_name = "CachedGetProfileGameLocationListByProfileId";
+        string method_name = "CachedGetProfileGameLocationListProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6703,7 +6703,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameLocationListByProfileId(
+            objs = GetProfileGameLocationListProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6712,38 +6712,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileGameLocationListByProfileIdByGameLocationId(self
+    def GetProfileGameLocationListProfileIdGameLocationId(self
         , profile_id
         , game_location_id
         ) :
-            return self.act.GetProfileGameLocationListByProfileIdByGameLocationId(
+            return self.act.GetProfileGameLocationListProfileIdGameLocationId(
                 profile_id
                 , game_location_id
             )
         
-    def GetProfileGameLocationByProfileIdByGameLocationId(self
+    def GetProfileGameLocationProfileIdGameLocationId(self
         , profile_id
         , game_location_id
     ) :
-        for item in self.GetProfileGameLocationListByProfileIdByGameLocationId(
+        for item in self.GetProfileGameLocationListProfileIdGameLocationId(
         profile_id
         , game_location_id
         ) :
             return item
         return None
     
-    def CachedGetProfileGameLocationListByProfileIdByGameLocationId(self
+    def CachedGetProfileGameLocationListProfileIdGameLocationId(self
         , profile_id
         , game_location_id
     ) :
-        return CachedGetProfileGameLocationListByProfileIdByGameLocationId(
+        return CachedGetProfileGameLocationListProfileIdGameLocationId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_location_id
         )
         
-    def CachedGetProfileGameLocationListByProfileIdByGameLocationId(self
+    def CachedGetProfileGameLocationListProfileIdGameLocationId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -6753,7 +6753,7 @@ class BaseGamingAPI(object):
         """
         List<ProfileGameLocation> objs;
 
-        string method_name = "CachedGetProfileGameLocationListByProfileIdByGameLocationId";
+        string method_name = "CachedGetProfileGameLocationListProfileIdGameLocationId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6773,7 +6773,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileGameLocationListByProfileIdByGameLocationId(
+            objs = GetProfileGameLocationListProfileIdGameLocationId(
                 profile_id
                 , game_location_id
             );
@@ -6789,118 +6789,118 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGamePhotoByUuid(self
+    def CountGamePhotoUuid(self
         , uuid
     ) :         
-        return self.act.CountGamePhotoByUuid(
+        return self.act.CountGamePhotoUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGamePhotoByExternalId(self
+    def CountGamePhotoExternalId(self
         , external_id
     ) :         
-        return self.act.CountGamePhotoByExternalId(
+        return self.act.CountGamePhotoExternalId(
         external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGamePhotoByUrl(self
+    def CountGamePhotoUrl(self
         , url
     ) :         
-        return self.act.CountGamePhotoByUrl(
+        return self.act.CountGamePhotoUrl(
         url
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGamePhotoByUrlByExternalId(self
+    def CountGamePhotoUrlExternalId(self
         , url
         , external_id
     ) :         
-        return self.act.CountGamePhotoByUrlByExternalId(
+        return self.act.CountGamePhotoUrlExternalId(
         url
         , external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGamePhotoByUuidByExternalId(self
+    def CountGamePhotoUuidExternalId(self
         , uuid
         , external_id
     ) :         
-        return self.act.CountGamePhotoByUuidByExternalId(
+        return self.act.CountGamePhotoUuidExternalId(
         uuid
         , external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGamePhotoListByFilter(self, filter_obj) :
-        return self.act.BrowseGamePhotoListByFilter(filter_obj)
+    def BrowseGamePhotoListFilter(self, filter_obj) :
+        return self.act.BrowseGamePhotoListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByUuidType(self, set_type, obj) :
-        return self.act.SetGamePhotoByUuid(set_type, obj)
+    def SetGamePhotoUuidType(self, set_type, obj) :
+        return self.act.SetGamePhotoUuid(set_type, obj)
                
-    def SetGamePhotoByUuid(self, obj) :
-        return self.act.SetGamePhotoByUuid('full', obj)
+    def SetGamePhotoUuid(self, obj) :
+        return self.act.SetGamePhotoUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByExternalIdType(self, set_type, obj) :
-        return self.act.SetGamePhotoByExternalId(set_type, obj)
+    def SetGamePhotoExternalIdType(self, set_type, obj) :
+        return self.act.SetGamePhotoExternalId(set_type, obj)
                
-    def SetGamePhotoByExternalId(self, obj) :
-        return self.act.SetGamePhotoByExternalId('full', obj)
+    def SetGamePhotoExternalId(self, obj) :
+        return self.act.SetGamePhotoExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByUrlType(self, set_type, obj) :
-        return self.act.SetGamePhotoByUrl(set_type, obj)
+    def SetGamePhotoUrlType(self, set_type, obj) :
+        return self.act.SetGamePhotoUrl(set_type, obj)
                
-    def SetGamePhotoByUrl(self, obj) :
-        return self.act.SetGamePhotoByUrl('full', obj)
+    def SetGamePhotoUrl(self, obj) :
+        return self.act.SetGamePhotoUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByUrlByExternalIdType(self, set_type, obj) :
-        return self.act.SetGamePhotoByUrlByExternalId(set_type, obj)
+    def SetGamePhotoUrlExternalIdType(self, set_type, obj) :
+        return self.act.SetGamePhotoUrlExternalId(set_type, obj)
                
-    def SetGamePhotoByUrlByExternalId(self, obj) :
-        return self.act.SetGamePhotoByUrlByExternalId('full', obj)
+    def SetGamePhotoUrlExternalId(self, obj) :
+        return self.act.SetGamePhotoUrlExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGamePhotoByUuidByExternalIdType(self, set_type, obj) :
-        return self.act.SetGamePhotoByUuidByExternalId(set_type, obj)
+    def SetGamePhotoUuidExternalIdType(self, set_type, obj) :
+        return self.act.SetGamePhotoUuidExternalId(set_type, obj)
                
-    def SetGamePhotoByUuidByExternalId(self, obj) :
-        return self.act.SetGamePhotoByUuidByExternalId('full', obj)
+    def SetGamePhotoUuidExternalId(self, obj) :
+        return self.act.SetGamePhotoUuidExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGamePhotoByUuid(self
+    def DelGamePhotoUuid(self
         , uuid
     ) :          
-        return self.act.DelGamePhotoByUuid(
+        return self.act.DelGamePhotoUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGamePhotoByExternalId(self
+    def DelGamePhotoExternalId(self
         , external_id
     ) :          
-        return self.act.DelGamePhotoByExternalId(
+        return self.act.DelGamePhotoExternalId(
         external_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGamePhotoByUrl(self
+    def DelGamePhotoUrl(self
         , url
     ) :          
-        return self.act.DelGamePhotoByUrl(
+        return self.act.DelGamePhotoUrl(
         url
         )
 #------------------------------------------------------------------------------                    
-    def DelGamePhotoByUrlByExternalId(self
+    def DelGamePhotoUrlExternalId(self
         , url
         , external_id
     ) :          
-        return self.act.DelGamePhotoByUrlByExternalId(
+        return self.act.DelGamePhotoUrlExternalId(
         url
         , external_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGamePhotoByUuidByExternalId(self
+    def DelGamePhotoUuidExternalId(self
         , uuid
         , external_id
     ) :          
-        return self.act.DelGamePhotoByUuidByExternalId(
+        return self.act.DelGamePhotoUuidExternalId(
         uuid
         , external_id
         )
@@ -6952,32 +6952,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGamePhotoListByUuid(self
+    def GetGamePhotoListUuid(self
         , uuid
         ) :
-            return self.act.GetGamePhotoListByUuid(
+            return self.act.GetGamePhotoListUuid(
                 uuid
             )
         
-    def GetGamePhotoByUuid(self
+    def GetGamePhotoUuid(self
         , uuid
     ) :
-        for item in self.GetGamePhotoListByUuid(
+        for item in self.GetGamePhotoListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGamePhotoListByUuid(self
+    def CachedGetGamePhotoListUuid(self
         , uuid
     ) :
-        return CachedGetGamePhotoListByUuid(
+        return CachedGetGamePhotoListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGamePhotoListByUuid(self
+    def CachedGetGamePhotoListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -6986,7 +6986,7 @@ class BaseGamingAPI(object):
         """
         List<GamePhoto> objs;
 
-        string method_name = "CachedGetGamePhotoListByUuid";
+        string method_name = "CachedGetGamePhotoListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7002,7 +7002,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGamePhotoListByUuid(
+            objs = GetGamePhotoListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7011,32 +7011,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGamePhotoListByExternalId(self
+    def GetGamePhotoListExternalId(self
         , external_id
         ) :
-            return self.act.GetGamePhotoListByExternalId(
+            return self.act.GetGamePhotoListExternalId(
                 external_id
             )
         
-    def GetGamePhotoByExternalId(self
+    def GetGamePhotoExternalId(self
         , external_id
     ) :
-        for item in self.GetGamePhotoListByExternalId(
+        for item in self.GetGamePhotoListExternalId(
         external_id
         ) :
             return item
         return None
     
-    def CachedGetGamePhotoListByExternalId(self
+    def CachedGetGamePhotoListExternalId(self
         , external_id
     ) :
-        return CachedGetGamePhotoListByExternalId(
+        return CachedGetGamePhotoListExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , external_id
         )
         
-    def CachedGetGamePhotoListByExternalId(self
+    def CachedGetGamePhotoListExternalId(self
         , overrideCache
         , cacheHours
         , external_id
@@ -7045,7 +7045,7 @@ class BaseGamingAPI(object):
         """
         List<GamePhoto> objs;
 
-        string method_name = "CachedGetGamePhotoListByExternalId";
+        string method_name = "CachedGetGamePhotoListExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7061,7 +7061,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGamePhotoListByExternalId(
+            objs = GetGamePhotoListExternalId(
                 external_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7070,32 +7070,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGamePhotoListByUrl(self
+    def GetGamePhotoListUrl(self
         , url
         ) :
-            return self.act.GetGamePhotoListByUrl(
+            return self.act.GetGamePhotoListUrl(
                 url
             )
         
-    def GetGamePhotoByUrl(self
+    def GetGamePhotoUrl(self
         , url
     ) :
-        for item in self.GetGamePhotoListByUrl(
+        for item in self.GetGamePhotoListUrl(
         url
         ) :
             return item
         return None
     
-    def CachedGetGamePhotoListByUrl(self
+    def CachedGetGamePhotoListUrl(self
         , url
     ) :
-        return CachedGetGamePhotoListByUrl(
+        return CachedGetGamePhotoListUrl(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
         )
         
-    def CachedGetGamePhotoListByUrl(self
+    def CachedGetGamePhotoListUrl(self
         , overrideCache
         , cacheHours
         , url
@@ -7104,7 +7104,7 @@ class BaseGamingAPI(object):
         """
         List<GamePhoto> objs;
 
-        string method_name = "CachedGetGamePhotoListByUrl";
+        string method_name = "CachedGetGamePhotoListUrl";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7120,7 +7120,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGamePhotoListByUrl(
+            objs = GetGamePhotoListUrl(
                 url
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7129,38 +7129,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGamePhotoListByUrlByExternalId(self
+    def GetGamePhotoListUrlExternalId(self
         , url
         , external_id
         ) :
-            return self.act.GetGamePhotoListByUrlByExternalId(
+            return self.act.GetGamePhotoListUrlExternalId(
                 url
                 , external_id
             )
         
-    def GetGamePhotoByUrlByExternalId(self
+    def GetGamePhotoUrlExternalId(self
         , url
         , external_id
     ) :
-        for item in self.GetGamePhotoListByUrlByExternalId(
+        for item in self.GetGamePhotoListUrlExternalId(
         url
         , external_id
         ) :
             return item
         return None
     
-    def CachedGetGamePhotoListByUrlByExternalId(self
+    def CachedGetGamePhotoListUrlExternalId(self
         , url
         , external_id
     ) :
-        return CachedGetGamePhotoListByUrlByExternalId(
+        return CachedGetGamePhotoListUrlExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
             , external_id
         )
         
-    def CachedGetGamePhotoListByUrlByExternalId(self
+    def CachedGetGamePhotoListUrlExternalId(self
         , overrideCache
         , cacheHours
         , url
@@ -7170,7 +7170,7 @@ class BaseGamingAPI(object):
         """
         List<GamePhoto> objs;
 
-        string method_name = "CachedGetGamePhotoListByUrlByExternalId";
+        string method_name = "CachedGetGamePhotoListUrlExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7190,7 +7190,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGamePhotoListByUrlByExternalId(
+            objs = GetGamePhotoListUrlExternalId(
                 url
                 , external_id
             );
@@ -7200,38 +7200,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGamePhotoListByUuidByExternalId(self
+    def GetGamePhotoListUuidExternalId(self
         , uuid
         , external_id
         ) :
-            return self.act.GetGamePhotoListByUuidByExternalId(
+            return self.act.GetGamePhotoListUuidExternalId(
                 uuid
                 , external_id
             )
         
-    def GetGamePhotoByUuidByExternalId(self
+    def GetGamePhotoUuidExternalId(self
         , uuid
         , external_id
     ) :
-        for item in self.GetGamePhotoListByUuidByExternalId(
+        for item in self.GetGamePhotoListUuidExternalId(
         uuid
         , external_id
         ) :
             return item
         return None
     
-    def CachedGetGamePhotoListByUuidByExternalId(self
+    def CachedGetGamePhotoListUuidExternalId(self
         , uuid
         , external_id
     ) :
-        return CachedGetGamePhotoListByUuidByExternalId(
+        return CachedGetGamePhotoListUuidExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
             , external_id
         )
         
-    def CachedGetGamePhotoListByUuidByExternalId(self
+    def CachedGetGamePhotoListUuidExternalId(self
         , overrideCache
         , cacheHours
         , uuid
@@ -7241,7 +7241,7 @@ class BaseGamingAPI(object):
         """
         List<GamePhoto> objs;
 
-        string method_name = "CachedGetGamePhotoListByUuidByExternalId";
+        string method_name = "CachedGetGamePhotoListUuidExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7261,7 +7261,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGamePhotoListByUuidByExternalId(
+            objs = GetGamePhotoListUuidExternalId(
                 uuid
                 , external_id
             );
@@ -7277,118 +7277,118 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameVideoByUuid(self
+    def CountGameVideoUuid(self
         , uuid
     ) :         
-        return self.act.CountGameVideoByUuid(
+        return self.act.CountGameVideoUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameVideoByExternalId(self
+    def CountGameVideoExternalId(self
         , external_id
     ) :         
-        return self.act.CountGameVideoByExternalId(
+        return self.act.CountGameVideoExternalId(
         external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameVideoByUrl(self
+    def CountGameVideoUrl(self
         , url
     ) :         
-        return self.act.CountGameVideoByUrl(
+        return self.act.CountGameVideoUrl(
         url
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameVideoByUrlByExternalId(self
+    def CountGameVideoUrlExternalId(self
         , url
         , external_id
     ) :         
-        return self.act.CountGameVideoByUrlByExternalId(
+        return self.act.CountGameVideoUrlExternalId(
         url
         , external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameVideoByUuidByExternalId(self
+    def CountGameVideoUuidExternalId(self
         , uuid
         , external_id
     ) :         
-        return self.act.CountGameVideoByUuidByExternalId(
+        return self.act.CountGameVideoUuidExternalId(
         uuid
         , external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameVideoListByFilter(self, filter_obj) :
-        return self.act.BrowseGameVideoListByFilter(filter_obj)
+    def BrowseGameVideoListFilter(self, filter_obj) :
+        return self.act.BrowseGameVideoListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByUuidType(self, set_type, obj) :
-        return self.act.SetGameVideoByUuid(set_type, obj)
+    def SetGameVideoUuidType(self, set_type, obj) :
+        return self.act.SetGameVideoUuid(set_type, obj)
                
-    def SetGameVideoByUuid(self, obj) :
-        return self.act.SetGameVideoByUuid('full', obj)
+    def SetGameVideoUuid(self, obj) :
+        return self.act.SetGameVideoUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByExternalIdType(self, set_type, obj) :
-        return self.act.SetGameVideoByExternalId(set_type, obj)
+    def SetGameVideoExternalIdType(self, set_type, obj) :
+        return self.act.SetGameVideoExternalId(set_type, obj)
                
-    def SetGameVideoByExternalId(self, obj) :
-        return self.act.SetGameVideoByExternalId('full', obj)
+    def SetGameVideoExternalId(self, obj) :
+        return self.act.SetGameVideoExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByUrlType(self, set_type, obj) :
-        return self.act.SetGameVideoByUrl(set_type, obj)
+    def SetGameVideoUrlType(self, set_type, obj) :
+        return self.act.SetGameVideoUrl(set_type, obj)
                
-    def SetGameVideoByUrl(self, obj) :
-        return self.act.SetGameVideoByUrl('full', obj)
+    def SetGameVideoUrl(self, obj) :
+        return self.act.SetGameVideoUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByUrlByExternalIdType(self, set_type, obj) :
-        return self.act.SetGameVideoByUrlByExternalId(set_type, obj)
+    def SetGameVideoUrlExternalIdType(self, set_type, obj) :
+        return self.act.SetGameVideoUrlExternalId(set_type, obj)
                
-    def SetGameVideoByUrlByExternalId(self, obj) :
-        return self.act.SetGameVideoByUrlByExternalId('full', obj)
+    def SetGameVideoUrlExternalId(self, obj) :
+        return self.act.SetGameVideoUrlExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameVideoByUuidByExternalIdType(self, set_type, obj) :
-        return self.act.SetGameVideoByUuidByExternalId(set_type, obj)
+    def SetGameVideoUuidExternalIdType(self, set_type, obj) :
+        return self.act.SetGameVideoUuidExternalId(set_type, obj)
                
-    def SetGameVideoByUuidByExternalId(self, obj) :
-        return self.act.SetGameVideoByUuidByExternalId('full', obj)
+    def SetGameVideoUuidExternalId(self, obj) :
+        return self.act.SetGameVideoUuidExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameVideoByUuid(self
+    def DelGameVideoUuid(self
         , uuid
     ) :          
-        return self.act.DelGameVideoByUuid(
+        return self.act.DelGameVideoUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameVideoByExternalId(self
+    def DelGameVideoExternalId(self
         , external_id
     ) :          
-        return self.act.DelGameVideoByExternalId(
+        return self.act.DelGameVideoExternalId(
         external_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameVideoByUrl(self
+    def DelGameVideoUrl(self
         , url
     ) :          
-        return self.act.DelGameVideoByUrl(
+        return self.act.DelGameVideoUrl(
         url
         )
 #------------------------------------------------------------------------------                    
-    def DelGameVideoByUrlByExternalId(self
+    def DelGameVideoUrlExternalId(self
         , url
         , external_id
     ) :          
-        return self.act.DelGameVideoByUrlByExternalId(
+        return self.act.DelGameVideoUrlExternalId(
         url
         , external_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameVideoByUuidByExternalId(self
+    def DelGameVideoUuidExternalId(self
         , uuid
         , external_id
     ) :          
-        return self.act.DelGameVideoByUuidByExternalId(
+        return self.act.DelGameVideoUuidExternalId(
         uuid
         , external_id
         )
@@ -7440,32 +7440,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameVideoListByUuid(self
+    def GetGameVideoListUuid(self
         , uuid
         ) :
-            return self.act.GetGameVideoListByUuid(
+            return self.act.GetGameVideoListUuid(
                 uuid
             )
         
-    def GetGameVideoByUuid(self
+    def GetGameVideoUuid(self
         , uuid
     ) :
-        for item in self.GetGameVideoListByUuid(
+        for item in self.GetGameVideoListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameVideoListByUuid(self
+    def CachedGetGameVideoListUuid(self
         , uuid
     ) :
-        return CachedGetGameVideoListByUuid(
+        return CachedGetGameVideoListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameVideoListByUuid(self
+    def CachedGetGameVideoListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -7474,7 +7474,7 @@ class BaseGamingAPI(object):
         """
         List<GameVideo> objs;
 
-        string method_name = "CachedGetGameVideoListByUuid";
+        string method_name = "CachedGetGameVideoListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7490,7 +7490,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameVideoListByUuid(
+            objs = GetGameVideoListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7499,32 +7499,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameVideoListByExternalId(self
+    def GetGameVideoListExternalId(self
         , external_id
         ) :
-            return self.act.GetGameVideoListByExternalId(
+            return self.act.GetGameVideoListExternalId(
                 external_id
             )
         
-    def GetGameVideoByExternalId(self
+    def GetGameVideoExternalId(self
         , external_id
     ) :
-        for item in self.GetGameVideoListByExternalId(
+        for item in self.GetGameVideoListExternalId(
         external_id
         ) :
             return item
         return None
     
-    def CachedGetGameVideoListByExternalId(self
+    def CachedGetGameVideoListExternalId(self
         , external_id
     ) :
-        return CachedGetGameVideoListByExternalId(
+        return CachedGetGameVideoListExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , external_id
         )
         
-    def CachedGetGameVideoListByExternalId(self
+    def CachedGetGameVideoListExternalId(self
         , overrideCache
         , cacheHours
         , external_id
@@ -7533,7 +7533,7 @@ class BaseGamingAPI(object):
         """
         List<GameVideo> objs;
 
-        string method_name = "CachedGetGameVideoListByExternalId";
+        string method_name = "CachedGetGameVideoListExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7549,7 +7549,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameVideoListByExternalId(
+            objs = GetGameVideoListExternalId(
                 external_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7558,32 +7558,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameVideoListByUrl(self
+    def GetGameVideoListUrl(self
         , url
         ) :
-            return self.act.GetGameVideoListByUrl(
+            return self.act.GetGameVideoListUrl(
                 url
             )
         
-    def GetGameVideoByUrl(self
+    def GetGameVideoUrl(self
         , url
     ) :
-        for item in self.GetGameVideoListByUrl(
+        for item in self.GetGameVideoListUrl(
         url
         ) :
             return item
         return None
     
-    def CachedGetGameVideoListByUrl(self
+    def CachedGetGameVideoListUrl(self
         , url
     ) :
-        return CachedGetGameVideoListByUrl(
+        return CachedGetGameVideoListUrl(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
         )
         
-    def CachedGetGameVideoListByUrl(self
+    def CachedGetGameVideoListUrl(self
         , overrideCache
         , cacheHours
         , url
@@ -7592,7 +7592,7 @@ class BaseGamingAPI(object):
         """
         List<GameVideo> objs;
 
-        string method_name = "CachedGetGameVideoListByUrl";
+        string method_name = "CachedGetGameVideoListUrl";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7608,7 +7608,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameVideoListByUrl(
+            objs = GetGameVideoListUrl(
                 url
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7617,38 +7617,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameVideoListByUrlByExternalId(self
+    def GetGameVideoListUrlExternalId(self
         , url
         , external_id
         ) :
-            return self.act.GetGameVideoListByUrlByExternalId(
+            return self.act.GetGameVideoListUrlExternalId(
                 url
                 , external_id
             )
         
-    def GetGameVideoByUrlByExternalId(self
+    def GetGameVideoUrlExternalId(self
         , url
         , external_id
     ) :
-        for item in self.GetGameVideoListByUrlByExternalId(
+        for item in self.GetGameVideoListUrlExternalId(
         url
         , external_id
         ) :
             return item
         return None
     
-    def CachedGetGameVideoListByUrlByExternalId(self
+    def CachedGetGameVideoListUrlExternalId(self
         , url
         , external_id
     ) :
-        return CachedGetGameVideoListByUrlByExternalId(
+        return CachedGetGameVideoListUrlExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
             , external_id
         )
         
-    def CachedGetGameVideoListByUrlByExternalId(self
+    def CachedGetGameVideoListUrlExternalId(self
         , overrideCache
         , cacheHours
         , url
@@ -7658,7 +7658,7 @@ class BaseGamingAPI(object):
         """
         List<GameVideo> objs;
 
-        string method_name = "CachedGetGameVideoListByUrlByExternalId";
+        string method_name = "CachedGetGameVideoListUrlExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7678,7 +7678,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameVideoListByUrlByExternalId(
+            objs = GetGameVideoListUrlExternalId(
                 url
                 , external_id
             );
@@ -7688,38 +7688,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameVideoListByUuidByExternalId(self
+    def GetGameVideoListUuidExternalId(self
         , uuid
         , external_id
         ) :
-            return self.act.GetGameVideoListByUuidByExternalId(
+            return self.act.GetGameVideoListUuidExternalId(
                 uuid
                 , external_id
             )
         
-    def GetGameVideoByUuidByExternalId(self
+    def GetGameVideoUuidExternalId(self
         , uuid
         , external_id
     ) :
-        for item in self.GetGameVideoListByUuidByExternalId(
+        for item in self.GetGameVideoListUuidExternalId(
         uuid
         , external_id
         ) :
             return item
         return None
     
-    def CachedGetGameVideoListByUuidByExternalId(self
+    def CachedGetGameVideoListUuidExternalId(self
         , uuid
         , external_id
     ) :
-        return CachedGetGameVideoListByUuidByExternalId(
+        return CachedGetGameVideoListUuidExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
             , external_id
         )
         
-    def CachedGetGameVideoListByUuidByExternalId(self
+    def CachedGetGameVideoListUuidExternalId(self
         , overrideCache
         , cacheHours
         , uuid
@@ -7729,7 +7729,7 @@ class BaseGamingAPI(object):
         """
         List<GameVideo> objs;
 
-        string method_name = "CachedGetGameVideoListByUuidByExternalId";
+        string method_name = "CachedGetGameVideoListUuidExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7749,7 +7749,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameVideoListByUuidByExternalId(
+            objs = GetGameVideoListUuidExternalId(
                 uuid
                 , external_id
             );
@@ -7765,118 +7765,118 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemWeaponByUuid(self
+    def CountGameRpgItemWeaponUuid(self
         , uuid
     ) :         
-        return self.act.CountGameRpgItemWeaponByUuid(
+        return self.act.CountGameRpgItemWeaponUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemWeaponByGameId(self
+    def CountGameRpgItemWeaponGameId(self
         , game_id
     ) :         
-        return self.act.CountGameRpgItemWeaponByGameId(
+        return self.act.CountGameRpgItemWeaponGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemWeaponByUrl(self
+    def CountGameRpgItemWeaponUrl(self
         , url
     ) :         
-        return self.act.CountGameRpgItemWeaponByUrl(
+        return self.act.CountGameRpgItemWeaponUrl(
         url
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemWeaponByUrlByGameId(self
+    def CountGameRpgItemWeaponUrlGameId(self
         , url
         , game_id
     ) :         
-        return self.act.CountGameRpgItemWeaponByUrlByGameId(
+        return self.act.CountGameRpgItemWeaponUrlGameId(
         url
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemWeaponByUuidByGameId(self
+    def CountGameRpgItemWeaponUuidGameId(self
         , uuid
         , game_id
     ) :         
-        return self.act.CountGameRpgItemWeaponByUuidByGameId(
+        return self.act.CountGameRpgItemWeaponUuidGameId(
         uuid
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameRpgItemWeaponListByFilter(self, filter_obj) :
-        return self.act.BrowseGameRpgItemWeaponListByFilter(filter_obj)
+    def BrowseGameRpgItemWeaponListFilter(self, filter_obj) :
+        return self.act.BrowseGameRpgItemWeaponListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByUuidType(self, set_type, obj) :
-        return self.act.SetGameRpgItemWeaponByUuid(set_type, obj)
+    def SetGameRpgItemWeaponUuidType(self, set_type, obj) :
+        return self.act.SetGameRpgItemWeaponUuid(set_type, obj)
                
-    def SetGameRpgItemWeaponByUuid(self, obj) :
-        return self.act.SetGameRpgItemWeaponByUuid('full', obj)
+    def SetGameRpgItemWeaponUuid(self, obj) :
+        return self.act.SetGameRpgItemWeaponUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByGameIdType(self, set_type, obj) :
-        return self.act.SetGameRpgItemWeaponByGameId(set_type, obj)
+    def SetGameRpgItemWeaponGameIdType(self, set_type, obj) :
+        return self.act.SetGameRpgItemWeaponGameId(set_type, obj)
                
-    def SetGameRpgItemWeaponByGameId(self, obj) :
-        return self.act.SetGameRpgItemWeaponByGameId('full', obj)
+    def SetGameRpgItemWeaponGameId(self, obj) :
+        return self.act.SetGameRpgItemWeaponGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByUrlType(self, set_type, obj) :
-        return self.act.SetGameRpgItemWeaponByUrl(set_type, obj)
+    def SetGameRpgItemWeaponUrlType(self, set_type, obj) :
+        return self.act.SetGameRpgItemWeaponUrl(set_type, obj)
                
-    def SetGameRpgItemWeaponByUrl(self, obj) :
-        return self.act.SetGameRpgItemWeaponByUrl('full', obj)
+    def SetGameRpgItemWeaponUrl(self, obj) :
+        return self.act.SetGameRpgItemWeaponUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByUrlByGameIdType(self, set_type, obj) :
-        return self.act.SetGameRpgItemWeaponByUrlByGameId(set_type, obj)
+    def SetGameRpgItemWeaponUrlGameIdType(self, set_type, obj) :
+        return self.act.SetGameRpgItemWeaponUrlGameId(set_type, obj)
                
-    def SetGameRpgItemWeaponByUrlByGameId(self, obj) :
-        return self.act.SetGameRpgItemWeaponByUrlByGameId('full', obj)
+    def SetGameRpgItemWeaponUrlGameId(self, obj) :
+        return self.act.SetGameRpgItemWeaponUrlGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemWeaponByUuidByGameIdType(self, set_type, obj) :
-        return self.act.SetGameRpgItemWeaponByUuidByGameId(set_type, obj)
+    def SetGameRpgItemWeaponUuidGameIdType(self, set_type, obj) :
+        return self.act.SetGameRpgItemWeaponUuidGameId(set_type, obj)
                
-    def SetGameRpgItemWeaponByUuidByGameId(self, obj) :
-        return self.act.SetGameRpgItemWeaponByUuidByGameId('full', obj)
+    def SetGameRpgItemWeaponUuidGameId(self, obj) :
+        return self.act.SetGameRpgItemWeaponUuidGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemWeaponByUuid(self
+    def DelGameRpgItemWeaponUuid(self
         , uuid
     ) :          
-        return self.act.DelGameRpgItemWeaponByUuid(
+        return self.act.DelGameRpgItemWeaponUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemWeaponByGameId(self
+    def DelGameRpgItemWeaponGameId(self
         , game_id
     ) :          
-        return self.act.DelGameRpgItemWeaponByGameId(
+        return self.act.DelGameRpgItemWeaponGameId(
         game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemWeaponByUrl(self
+    def DelGameRpgItemWeaponUrl(self
         , url
     ) :          
-        return self.act.DelGameRpgItemWeaponByUrl(
+        return self.act.DelGameRpgItemWeaponUrl(
         url
         )
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemWeaponByUrlByGameId(self
+    def DelGameRpgItemWeaponUrlGameId(self
         , url
         , game_id
     ) :          
-        return self.act.DelGameRpgItemWeaponByUrlByGameId(
+        return self.act.DelGameRpgItemWeaponUrlGameId(
         url
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemWeaponByUuidByGameId(self
+    def DelGameRpgItemWeaponUuidGameId(self
         , uuid
         , game_id
     ) :          
-        return self.act.DelGameRpgItemWeaponByUuidByGameId(
+        return self.act.DelGameRpgItemWeaponUuidGameId(
         uuid
         , game_id
         )
@@ -7928,32 +7928,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemWeaponListByUuid(self
+    def GetGameRpgItemWeaponListUuid(self
         , uuid
         ) :
-            return self.act.GetGameRpgItemWeaponListByUuid(
+            return self.act.GetGameRpgItemWeaponListUuid(
                 uuid
             )
         
-    def GetGameRpgItemWeaponByUuid(self
+    def GetGameRpgItemWeaponUuid(self
         , uuid
     ) :
-        for item in self.GetGameRpgItemWeaponListByUuid(
+        for item in self.GetGameRpgItemWeaponListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemWeaponListByUuid(self
+    def CachedGetGameRpgItemWeaponListUuid(self
         , uuid
     ) :
-        return CachedGetGameRpgItemWeaponListByUuid(
+        return CachedGetGameRpgItemWeaponListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameRpgItemWeaponListByUuid(self
+    def CachedGetGameRpgItemWeaponListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -7962,7 +7962,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemWeapon> objs;
 
-        string method_name = "CachedGetGameRpgItemWeaponListByUuid";
+        string method_name = "CachedGetGameRpgItemWeaponListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7978,7 +7978,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemWeaponListByUuid(
+            objs = GetGameRpgItemWeaponListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7987,32 +7987,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemWeaponListByGameId(self
+    def GetGameRpgItemWeaponListGameId(self
         , game_id
         ) :
-            return self.act.GetGameRpgItemWeaponListByGameId(
+            return self.act.GetGameRpgItemWeaponListGameId(
                 game_id
             )
         
-    def GetGameRpgItemWeaponByGameId(self
+    def GetGameRpgItemWeaponGameId(self
         , game_id
     ) :
-        for item in self.GetGameRpgItemWeaponListByGameId(
+        for item in self.GetGameRpgItemWeaponListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemWeaponListByGameId(self
+    def CachedGetGameRpgItemWeaponListGameId(self
         , game_id
     ) :
-        return CachedGetGameRpgItemWeaponListByGameId(
+        return CachedGetGameRpgItemWeaponListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameRpgItemWeaponListByGameId(self
+    def CachedGetGameRpgItemWeaponListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -8021,7 +8021,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemWeapon> objs;
 
-        string method_name = "CachedGetGameRpgItemWeaponListByGameId";
+        string method_name = "CachedGetGameRpgItemWeaponListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8037,7 +8037,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemWeaponListByGameId(
+            objs = GetGameRpgItemWeaponListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8046,32 +8046,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemWeaponListByUrl(self
+    def GetGameRpgItemWeaponListUrl(self
         , url
         ) :
-            return self.act.GetGameRpgItemWeaponListByUrl(
+            return self.act.GetGameRpgItemWeaponListUrl(
                 url
             )
         
-    def GetGameRpgItemWeaponByUrl(self
+    def GetGameRpgItemWeaponUrl(self
         , url
     ) :
-        for item in self.GetGameRpgItemWeaponListByUrl(
+        for item in self.GetGameRpgItemWeaponListUrl(
         url
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemWeaponListByUrl(self
+    def CachedGetGameRpgItemWeaponListUrl(self
         , url
     ) :
-        return CachedGetGameRpgItemWeaponListByUrl(
+        return CachedGetGameRpgItemWeaponListUrl(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
         )
         
-    def CachedGetGameRpgItemWeaponListByUrl(self
+    def CachedGetGameRpgItemWeaponListUrl(self
         , overrideCache
         , cacheHours
         , url
@@ -8080,7 +8080,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemWeapon> objs;
 
-        string method_name = "CachedGetGameRpgItemWeaponListByUrl";
+        string method_name = "CachedGetGameRpgItemWeaponListUrl";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8096,7 +8096,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemWeaponListByUrl(
+            objs = GetGameRpgItemWeaponListUrl(
                 url
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8105,38 +8105,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemWeaponListByUrlByGameId(self
+    def GetGameRpgItemWeaponListUrlGameId(self
         , url
         , game_id
         ) :
-            return self.act.GetGameRpgItemWeaponListByUrlByGameId(
+            return self.act.GetGameRpgItemWeaponListUrlGameId(
                 url
                 , game_id
             )
         
-    def GetGameRpgItemWeaponByUrlByGameId(self
+    def GetGameRpgItemWeaponUrlGameId(self
         , url
         , game_id
     ) :
-        for item in self.GetGameRpgItemWeaponListByUrlByGameId(
+        for item in self.GetGameRpgItemWeaponListUrlGameId(
         url
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemWeaponListByUrlByGameId(self
+    def CachedGetGameRpgItemWeaponListUrlGameId(self
         , url
         , game_id
     ) :
-        return CachedGetGameRpgItemWeaponListByUrlByGameId(
+        return CachedGetGameRpgItemWeaponListUrlGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
             , game_id
         )
         
-    def CachedGetGameRpgItemWeaponListByUrlByGameId(self
+    def CachedGetGameRpgItemWeaponListUrlGameId(self
         , overrideCache
         , cacheHours
         , url
@@ -8146,7 +8146,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemWeapon> objs;
 
-        string method_name = "CachedGetGameRpgItemWeaponListByUrlByGameId";
+        string method_name = "CachedGetGameRpgItemWeaponListUrlGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8166,7 +8166,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemWeaponListByUrlByGameId(
+            objs = GetGameRpgItemWeaponListUrlGameId(
                 url
                 , game_id
             );
@@ -8176,38 +8176,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemWeaponListByUuidByGameId(self
+    def GetGameRpgItemWeaponListUuidGameId(self
         , uuid
         , game_id
         ) :
-            return self.act.GetGameRpgItemWeaponListByUuidByGameId(
+            return self.act.GetGameRpgItemWeaponListUuidGameId(
                 uuid
                 , game_id
             )
         
-    def GetGameRpgItemWeaponByUuidByGameId(self
+    def GetGameRpgItemWeaponUuidGameId(self
         , uuid
         , game_id
     ) :
-        for item in self.GetGameRpgItemWeaponListByUuidByGameId(
+        for item in self.GetGameRpgItemWeaponListUuidGameId(
         uuid
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemWeaponListByUuidByGameId(self
+    def CachedGetGameRpgItemWeaponListUuidGameId(self
         , uuid
         , game_id
     ) :
-        return CachedGetGameRpgItemWeaponListByUuidByGameId(
+        return CachedGetGameRpgItemWeaponListUuidGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
             , game_id
         )
         
-    def CachedGetGameRpgItemWeaponListByUuidByGameId(self
+    def CachedGetGameRpgItemWeaponListUuidGameId(self
         , overrideCache
         , cacheHours
         , uuid
@@ -8217,7 +8217,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemWeapon> objs;
 
-        string method_name = "CachedGetGameRpgItemWeaponListByUuidByGameId";
+        string method_name = "CachedGetGameRpgItemWeaponListUuidGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8237,7 +8237,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemWeaponListByUuidByGameId(
+            objs = GetGameRpgItemWeaponListUuidGameId(
                 uuid
                 , game_id
             );
@@ -8253,118 +8253,118 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemSkillByUuid(self
+    def CountGameRpgItemSkillUuid(self
         , uuid
     ) :         
-        return self.act.CountGameRpgItemSkillByUuid(
+        return self.act.CountGameRpgItemSkillUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemSkillByGameId(self
+    def CountGameRpgItemSkillGameId(self
         , game_id
     ) :         
-        return self.act.CountGameRpgItemSkillByGameId(
+        return self.act.CountGameRpgItemSkillGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemSkillByUrl(self
+    def CountGameRpgItemSkillUrl(self
         , url
     ) :         
-        return self.act.CountGameRpgItemSkillByUrl(
+        return self.act.CountGameRpgItemSkillUrl(
         url
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemSkillByUrlByGameId(self
+    def CountGameRpgItemSkillUrlGameId(self
         , url
         , game_id
     ) :         
-        return self.act.CountGameRpgItemSkillByUrlByGameId(
+        return self.act.CountGameRpgItemSkillUrlGameId(
         url
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameRpgItemSkillByUuidByGameId(self
+    def CountGameRpgItemSkillUuidGameId(self
         , uuid
         , game_id
     ) :         
-        return self.act.CountGameRpgItemSkillByUuidByGameId(
+        return self.act.CountGameRpgItemSkillUuidGameId(
         uuid
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameRpgItemSkillListByFilter(self, filter_obj) :
-        return self.act.BrowseGameRpgItemSkillListByFilter(filter_obj)
+    def BrowseGameRpgItemSkillListFilter(self, filter_obj) :
+        return self.act.BrowseGameRpgItemSkillListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByUuidType(self, set_type, obj) :
-        return self.act.SetGameRpgItemSkillByUuid(set_type, obj)
+    def SetGameRpgItemSkillUuidType(self, set_type, obj) :
+        return self.act.SetGameRpgItemSkillUuid(set_type, obj)
                
-    def SetGameRpgItemSkillByUuid(self, obj) :
-        return self.act.SetGameRpgItemSkillByUuid('full', obj)
+    def SetGameRpgItemSkillUuid(self, obj) :
+        return self.act.SetGameRpgItemSkillUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByGameIdType(self, set_type, obj) :
-        return self.act.SetGameRpgItemSkillByGameId(set_type, obj)
+    def SetGameRpgItemSkillGameIdType(self, set_type, obj) :
+        return self.act.SetGameRpgItemSkillGameId(set_type, obj)
                
-    def SetGameRpgItemSkillByGameId(self, obj) :
-        return self.act.SetGameRpgItemSkillByGameId('full', obj)
+    def SetGameRpgItemSkillGameId(self, obj) :
+        return self.act.SetGameRpgItemSkillGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByUrlType(self, set_type, obj) :
-        return self.act.SetGameRpgItemSkillByUrl(set_type, obj)
+    def SetGameRpgItemSkillUrlType(self, set_type, obj) :
+        return self.act.SetGameRpgItemSkillUrl(set_type, obj)
                
-    def SetGameRpgItemSkillByUrl(self, obj) :
-        return self.act.SetGameRpgItemSkillByUrl('full', obj)
+    def SetGameRpgItemSkillUrl(self, obj) :
+        return self.act.SetGameRpgItemSkillUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByUrlByGameIdType(self, set_type, obj) :
-        return self.act.SetGameRpgItemSkillByUrlByGameId(set_type, obj)
+    def SetGameRpgItemSkillUrlGameIdType(self, set_type, obj) :
+        return self.act.SetGameRpgItemSkillUrlGameId(set_type, obj)
                
-    def SetGameRpgItemSkillByUrlByGameId(self, obj) :
-        return self.act.SetGameRpgItemSkillByUrlByGameId('full', obj)
+    def SetGameRpgItemSkillUrlGameId(self, obj) :
+        return self.act.SetGameRpgItemSkillUrlGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameRpgItemSkillByUuidByGameIdType(self, set_type, obj) :
-        return self.act.SetGameRpgItemSkillByUuidByGameId(set_type, obj)
+    def SetGameRpgItemSkillUuidGameIdType(self, set_type, obj) :
+        return self.act.SetGameRpgItemSkillUuidGameId(set_type, obj)
                
-    def SetGameRpgItemSkillByUuidByGameId(self, obj) :
-        return self.act.SetGameRpgItemSkillByUuidByGameId('full', obj)
+    def SetGameRpgItemSkillUuidGameId(self, obj) :
+        return self.act.SetGameRpgItemSkillUuidGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemSkillByUuid(self
+    def DelGameRpgItemSkillUuid(self
         , uuid
     ) :          
-        return self.act.DelGameRpgItemSkillByUuid(
+        return self.act.DelGameRpgItemSkillUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemSkillByGameId(self
+    def DelGameRpgItemSkillGameId(self
         , game_id
     ) :          
-        return self.act.DelGameRpgItemSkillByGameId(
+        return self.act.DelGameRpgItemSkillGameId(
         game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemSkillByUrl(self
+    def DelGameRpgItemSkillUrl(self
         , url
     ) :          
-        return self.act.DelGameRpgItemSkillByUrl(
+        return self.act.DelGameRpgItemSkillUrl(
         url
         )
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemSkillByUrlByGameId(self
+    def DelGameRpgItemSkillUrlGameId(self
         , url
         , game_id
     ) :          
-        return self.act.DelGameRpgItemSkillByUrlByGameId(
+        return self.act.DelGameRpgItemSkillUrlGameId(
         url
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameRpgItemSkillByUuidByGameId(self
+    def DelGameRpgItemSkillUuidGameId(self
         , uuid
         , game_id
     ) :          
-        return self.act.DelGameRpgItemSkillByUuidByGameId(
+        return self.act.DelGameRpgItemSkillUuidGameId(
         uuid
         , game_id
         )
@@ -8416,32 +8416,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemSkillListByUuid(self
+    def GetGameRpgItemSkillListUuid(self
         , uuid
         ) :
-            return self.act.GetGameRpgItemSkillListByUuid(
+            return self.act.GetGameRpgItemSkillListUuid(
                 uuid
             )
         
-    def GetGameRpgItemSkillByUuid(self
+    def GetGameRpgItemSkillUuid(self
         , uuid
     ) :
-        for item in self.GetGameRpgItemSkillListByUuid(
+        for item in self.GetGameRpgItemSkillListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemSkillListByUuid(self
+    def CachedGetGameRpgItemSkillListUuid(self
         , uuid
     ) :
-        return CachedGetGameRpgItemSkillListByUuid(
+        return CachedGetGameRpgItemSkillListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameRpgItemSkillListByUuid(self
+    def CachedGetGameRpgItemSkillListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -8450,7 +8450,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemSkill> objs;
 
-        string method_name = "CachedGetGameRpgItemSkillListByUuid";
+        string method_name = "CachedGetGameRpgItemSkillListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8466,7 +8466,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemSkillListByUuid(
+            objs = GetGameRpgItemSkillListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8475,32 +8475,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemSkillListByGameId(self
+    def GetGameRpgItemSkillListGameId(self
         , game_id
         ) :
-            return self.act.GetGameRpgItemSkillListByGameId(
+            return self.act.GetGameRpgItemSkillListGameId(
                 game_id
             )
         
-    def GetGameRpgItemSkillByGameId(self
+    def GetGameRpgItemSkillGameId(self
         , game_id
     ) :
-        for item in self.GetGameRpgItemSkillListByGameId(
+        for item in self.GetGameRpgItemSkillListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemSkillListByGameId(self
+    def CachedGetGameRpgItemSkillListGameId(self
         , game_id
     ) :
-        return CachedGetGameRpgItemSkillListByGameId(
+        return CachedGetGameRpgItemSkillListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameRpgItemSkillListByGameId(self
+    def CachedGetGameRpgItemSkillListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -8509,7 +8509,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemSkill> objs;
 
-        string method_name = "CachedGetGameRpgItemSkillListByGameId";
+        string method_name = "CachedGetGameRpgItemSkillListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8525,7 +8525,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemSkillListByGameId(
+            objs = GetGameRpgItemSkillListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8534,32 +8534,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemSkillListByUrl(self
+    def GetGameRpgItemSkillListUrl(self
         , url
         ) :
-            return self.act.GetGameRpgItemSkillListByUrl(
+            return self.act.GetGameRpgItemSkillListUrl(
                 url
             )
         
-    def GetGameRpgItemSkillByUrl(self
+    def GetGameRpgItemSkillUrl(self
         , url
     ) :
-        for item in self.GetGameRpgItemSkillListByUrl(
+        for item in self.GetGameRpgItemSkillListUrl(
         url
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemSkillListByUrl(self
+    def CachedGetGameRpgItemSkillListUrl(self
         , url
     ) :
-        return CachedGetGameRpgItemSkillListByUrl(
+        return CachedGetGameRpgItemSkillListUrl(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
         )
         
-    def CachedGetGameRpgItemSkillListByUrl(self
+    def CachedGetGameRpgItemSkillListUrl(self
         , overrideCache
         , cacheHours
         , url
@@ -8568,7 +8568,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemSkill> objs;
 
-        string method_name = "CachedGetGameRpgItemSkillListByUrl";
+        string method_name = "CachedGetGameRpgItemSkillListUrl";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8584,7 +8584,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemSkillListByUrl(
+            objs = GetGameRpgItemSkillListUrl(
                 url
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8593,38 +8593,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemSkillListByUrlByGameId(self
+    def GetGameRpgItemSkillListUrlGameId(self
         , url
         , game_id
         ) :
-            return self.act.GetGameRpgItemSkillListByUrlByGameId(
+            return self.act.GetGameRpgItemSkillListUrlGameId(
                 url
                 , game_id
             )
         
-    def GetGameRpgItemSkillByUrlByGameId(self
+    def GetGameRpgItemSkillUrlGameId(self
         , url
         , game_id
     ) :
-        for item in self.GetGameRpgItemSkillListByUrlByGameId(
+        for item in self.GetGameRpgItemSkillListUrlGameId(
         url
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemSkillListByUrlByGameId(self
+    def CachedGetGameRpgItemSkillListUrlGameId(self
         , url
         , game_id
     ) :
-        return CachedGetGameRpgItemSkillListByUrlByGameId(
+        return CachedGetGameRpgItemSkillListUrlGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
             , game_id
         )
         
-    def CachedGetGameRpgItemSkillListByUrlByGameId(self
+    def CachedGetGameRpgItemSkillListUrlGameId(self
         , overrideCache
         , cacheHours
         , url
@@ -8634,7 +8634,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemSkill> objs;
 
-        string method_name = "CachedGetGameRpgItemSkillListByUrlByGameId";
+        string method_name = "CachedGetGameRpgItemSkillListUrlGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8654,7 +8654,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemSkillListByUrlByGameId(
+            objs = GetGameRpgItemSkillListUrlGameId(
                 url
                 , game_id
             );
@@ -8664,38 +8664,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameRpgItemSkillListByUuidByGameId(self
+    def GetGameRpgItemSkillListUuidGameId(self
         , uuid
         , game_id
         ) :
-            return self.act.GetGameRpgItemSkillListByUuidByGameId(
+            return self.act.GetGameRpgItemSkillListUuidGameId(
                 uuid
                 , game_id
             )
         
-    def GetGameRpgItemSkillByUuidByGameId(self
+    def GetGameRpgItemSkillUuidGameId(self
         , uuid
         , game_id
     ) :
-        for item in self.GetGameRpgItemSkillListByUuidByGameId(
+        for item in self.GetGameRpgItemSkillListUuidGameId(
         uuid
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameRpgItemSkillListByUuidByGameId(self
+    def CachedGetGameRpgItemSkillListUuidGameId(self
         , uuid
         , game_id
     ) :
-        return CachedGetGameRpgItemSkillListByUuidByGameId(
+        return CachedGetGameRpgItemSkillListUuidGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
             , game_id
         )
         
-    def CachedGetGameRpgItemSkillListByUuidByGameId(self
+    def CachedGetGameRpgItemSkillListUuidGameId(self
         , overrideCache
         , cacheHours
         , uuid
@@ -8705,7 +8705,7 @@ class BaseGamingAPI(object):
         """
         List<GameRpgItemSkill> objs;
 
-        string method_name = "CachedGetGameRpgItemSkillListByUuidByGameId";
+        string method_name = "CachedGetGameRpgItemSkillListUuidGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8725,7 +8725,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameRpgItemSkillListByUuidByGameId(
+            objs = GetGameRpgItemSkillListUuidGameId(
                 uuid
                 , game_id
             );
@@ -8741,118 +8741,118 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProductByUuid(self
+    def CountGameProductUuid(self
         , uuid
     ) :         
-        return self.act.CountGameProductByUuid(
+        return self.act.CountGameProductUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProductByGameId(self
+    def CountGameProductGameId(self
         , game_id
     ) :         
-        return self.act.CountGameProductByGameId(
+        return self.act.CountGameProductGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProductByUrl(self
+    def CountGameProductUrl(self
         , url
     ) :         
-        return self.act.CountGameProductByUrl(
+        return self.act.CountGameProductUrl(
         url
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProductByUrlByGameId(self
+    def CountGameProductUrlGameId(self
         , url
         , game_id
     ) :         
-        return self.act.CountGameProductByUrlByGameId(
+        return self.act.CountGameProductUrlGameId(
         url
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProductByUuidByGameId(self
+    def CountGameProductUuidGameId(self
         , uuid
         , game_id
     ) :         
-        return self.act.CountGameProductByUuidByGameId(
+        return self.act.CountGameProductUuidGameId(
         uuid
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameProductListByFilter(self, filter_obj) :
-        return self.act.BrowseGameProductListByFilter(filter_obj)
+    def BrowseGameProductListFilter(self, filter_obj) :
+        return self.act.BrowseGameProductListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByUuidType(self, set_type, obj) :
-        return self.act.SetGameProductByUuid(set_type, obj)
+    def SetGameProductUuidType(self, set_type, obj) :
+        return self.act.SetGameProductUuid(set_type, obj)
                
-    def SetGameProductByUuid(self, obj) :
-        return self.act.SetGameProductByUuid('full', obj)
+    def SetGameProductUuid(self, obj) :
+        return self.act.SetGameProductUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByGameIdType(self, set_type, obj) :
-        return self.act.SetGameProductByGameId(set_type, obj)
+    def SetGameProductGameIdType(self, set_type, obj) :
+        return self.act.SetGameProductGameId(set_type, obj)
                
-    def SetGameProductByGameId(self, obj) :
-        return self.act.SetGameProductByGameId('full', obj)
+    def SetGameProductGameId(self, obj) :
+        return self.act.SetGameProductGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByUrlType(self, set_type, obj) :
-        return self.act.SetGameProductByUrl(set_type, obj)
+    def SetGameProductUrlType(self, set_type, obj) :
+        return self.act.SetGameProductUrl(set_type, obj)
                
-    def SetGameProductByUrl(self, obj) :
-        return self.act.SetGameProductByUrl('full', obj)
+    def SetGameProductUrl(self, obj) :
+        return self.act.SetGameProductUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByUrlByGameIdType(self, set_type, obj) :
-        return self.act.SetGameProductByUrlByGameId(set_type, obj)
+    def SetGameProductUrlGameIdType(self, set_type, obj) :
+        return self.act.SetGameProductUrlGameId(set_type, obj)
                
-    def SetGameProductByUrlByGameId(self, obj) :
-        return self.act.SetGameProductByUrlByGameId('full', obj)
+    def SetGameProductUrlGameId(self, obj) :
+        return self.act.SetGameProductUrlGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProductByUuidByGameIdType(self, set_type, obj) :
-        return self.act.SetGameProductByUuidByGameId(set_type, obj)
+    def SetGameProductUuidGameIdType(self, set_type, obj) :
+        return self.act.SetGameProductUuidGameId(set_type, obj)
                
-    def SetGameProductByUuidByGameId(self, obj) :
-        return self.act.SetGameProductByUuidByGameId('full', obj)
+    def SetGameProductUuidGameId(self, obj) :
+        return self.act.SetGameProductUuidGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameProductByUuid(self
+    def DelGameProductUuid(self
         , uuid
     ) :          
-        return self.act.DelGameProductByUuid(
+        return self.act.DelGameProductUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProductByGameId(self
+    def DelGameProductGameId(self
         , game_id
     ) :          
-        return self.act.DelGameProductByGameId(
+        return self.act.DelGameProductGameId(
         game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProductByUrl(self
+    def DelGameProductUrl(self
         , url
     ) :          
-        return self.act.DelGameProductByUrl(
+        return self.act.DelGameProductUrl(
         url
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProductByUrlByGameId(self
+    def DelGameProductUrlGameId(self
         , url
         , game_id
     ) :          
-        return self.act.DelGameProductByUrlByGameId(
+        return self.act.DelGameProductUrlGameId(
         url
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProductByUuidByGameId(self
+    def DelGameProductUuidGameId(self
         , uuid
         , game_id
     ) :          
-        return self.act.DelGameProductByUuidByGameId(
+        return self.act.DelGameProductUuidGameId(
         uuid
         , game_id
         )
@@ -8904,32 +8904,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProductListByUuid(self
+    def GetGameProductListUuid(self
         , uuid
         ) :
-            return self.act.GetGameProductListByUuid(
+            return self.act.GetGameProductListUuid(
                 uuid
             )
         
-    def GetGameProductByUuid(self
+    def GetGameProductUuid(self
         , uuid
     ) :
-        for item in self.GetGameProductListByUuid(
+        for item in self.GetGameProductListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameProductListByUuid(self
+    def CachedGetGameProductListUuid(self
         , uuid
     ) :
-        return CachedGetGameProductListByUuid(
+        return CachedGetGameProductListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameProductListByUuid(self
+    def CachedGetGameProductListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -8938,7 +8938,7 @@ class BaseGamingAPI(object):
         """
         List<GameProduct> objs;
 
-        string method_name = "CachedGetGameProductListByUuid";
+        string method_name = "CachedGetGameProductListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8954,7 +8954,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProductListByUuid(
+            objs = GetGameProductListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8963,32 +8963,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProductListByGameId(self
+    def GetGameProductListGameId(self
         , game_id
         ) :
-            return self.act.GetGameProductListByGameId(
+            return self.act.GetGameProductListGameId(
                 game_id
             )
         
-    def GetGameProductByGameId(self
+    def GetGameProductGameId(self
         , game_id
     ) :
-        for item in self.GetGameProductListByGameId(
+        for item in self.GetGameProductListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProductListByGameId(self
+    def CachedGetGameProductListGameId(self
         , game_id
     ) :
-        return CachedGetGameProductListByGameId(
+        return CachedGetGameProductListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameProductListByGameId(self
+    def CachedGetGameProductListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -8997,7 +8997,7 @@ class BaseGamingAPI(object):
         """
         List<GameProduct> objs;
 
-        string method_name = "CachedGetGameProductListByGameId";
+        string method_name = "CachedGetGameProductListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9013,7 +9013,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProductListByGameId(
+            objs = GetGameProductListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9022,32 +9022,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProductListByUrl(self
+    def GetGameProductListUrl(self
         , url
         ) :
-            return self.act.GetGameProductListByUrl(
+            return self.act.GetGameProductListUrl(
                 url
             )
         
-    def GetGameProductByUrl(self
+    def GetGameProductUrl(self
         , url
     ) :
-        for item in self.GetGameProductListByUrl(
+        for item in self.GetGameProductListUrl(
         url
         ) :
             return item
         return None
     
-    def CachedGetGameProductListByUrl(self
+    def CachedGetGameProductListUrl(self
         , url
     ) :
-        return CachedGetGameProductListByUrl(
+        return CachedGetGameProductListUrl(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
         )
         
-    def CachedGetGameProductListByUrl(self
+    def CachedGetGameProductListUrl(self
         , overrideCache
         , cacheHours
         , url
@@ -9056,7 +9056,7 @@ class BaseGamingAPI(object):
         """
         List<GameProduct> objs;
 
-        string method_name = "CachedGetGameProductListByUrl";
+        string method_name = "CachedGetGameProductListUrl";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9072,7 +9072,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProductListByUrl(
+            objs = GetGameProductListUrl(
                 url
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9081,38 +9081,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProductListByUrlByGameId(self
+    def GetGameProductListUrlGameId(self
         , url
         , game_id
         ) :
-            return self.act.GetGameProductListByUrlByGameId(
+            return self.act.GetGameProductListUrlGameId(
                 url
                 , game_id
             )
         
-    def GetGameProductByUrlByGameId(self
+    def GetGameProductUrlGameId(self
         , url
         , game_id
     ) :
-        for item in self.GetGameProductListByUrlByGameId(
+        for item in self.GetGameProductListUrlGameId(
         url
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProductListByUrlByGameId(self
+    def CachedGetGameProductListUrlGameId(self
         , url
         , game_id
     ) :
-        return CachedGetGameProductListByUrlByGameId(
+        return CachedGetGameProductListUrlGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
             , game_id
         )
         
-    def CachedGetGameProductListByUrlByGameId(self
+    def CachedGetGameProductListUrlGameId(self
         , overrideCache
         , cacheHours
         , url
@@ -9122,7 +9122,7 @@ class BaseGamingAPI(object):
         """
         List<GameProduct> objs;
 
-        string method_name = "CachedGetGameProductListByUrlByGameId";
+        string method_name = "CachedGetGameProductListUrlGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9142,7 +9142,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProductListByUrlByGameId(
+            objs = GetGameProductListUrlGameId(
                 url
                 , game_id
             );
@@ -9152,38 +9152,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProductListByUuidByGameId(self
+    def GetGameProductListUuidGameId(self
         , uuid
         , game_id
         ) :
-            return self.act.GetGameProductListByUuidByGameId(
+            return self.act.GetGameProductListUuidGameId(
                 uuid
                 , game_id
             )
         
-    def GetGameProductByUuidByGameId(self
+    def GetGameProductUuidGameId(self
         , uuid
         , game_id
     ) :
-        for item in self.GetGameProductListByUuidByGameId(
+        for item in self.GetGameProductListUuidGameId(
         uuid
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProductListByUuidByGameId(self
+    def CachedGetGameProductListUuidGameId(self
         , uuid
         , game_id
     ) :
-        return CachedGetGameProductListByUuidByGameId(
+        return CachedGetGameProductListUuidGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
             , game_id
         )
         
-    def CachedGetGameProductListByUuidByGameId(self
+    def CachedGetGameProductListUuidGameId(self
         , overrideCache
         , cacheHours
         , uuid
@@ -9193,7 +9193,7 @@ class BaseGamingAPI(object):
         """
         List<GameProduct> objs;
 
-        string method_name = "CachedGetGameProductListByUuidByGameId";
+        string method_name = "CachedGetGameProductListUuidGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9213,7 +9213,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProductListByUuidByGameId(
+            objs = GetGameProductListUuidGameId(
                 uuid
                 , game_id
             );
@@ -9229,59 +9229,59 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardByUuid(self
+    def CountGameStatisticLeaderboardUuid(self
         , uuid
     ) :         
-        return self.act.CountGameStatisticLeaderboardByUuid(
+        return self.act.CountGameStatisticLeaderboardUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardByGameId(self
+    def CountGameStatisticLeaderboardGameId(self
         , game_id
     ) :         
-        return self.act.CountGameStatisticLeaderboardByGameId(
+        return self.act.CountGameStatisticLeaderboardGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardByCode(self
+    def CountGameStatisticLeaderboardCode(self
         , code
     ) :         
-        return self.act.CountGameStatisticLeaderboardByCode(
+        return self.act.CountGameStatisticLeaderboardCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardByCodeByGameId(self
+    def CountGameStatisticLeaderboardCodeGameId(self
         , code
         , game_id
     ) :         
-        return self.act.CountGameStatisticLeaderboardByCodeByGameId(
+        return self.act.CountGameStatisticLeaderboardCodeGameId(
         code
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+    def CountGameStatisticLeaderboardCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
     ) :         
-        return self.act.CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+        return self.act.CountGameStatisticLeaderboardCodeGameIdProfileId(
         code
         , game_id
         , profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+    def CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :         
-        return self.act.CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+        return self.act.CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
         code
         , game_id
         , profile_id
@@ -9289,107 +9289,107 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardByProfileIdByGameId(self
+    def CountGameStatisticLeaderboardProfileIdGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameStatisticLeaderboardByProfileIdByGameId(
+        return self.act.CountGameStatisticLeaderboardProfileIdGameId(
         profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameStatisticLeaderboardListByFilter(self, filter_obj) :
-        return self.act.BrowseGameStatisticLeaderboardListByFilter(filter_obj)
+    def BrowseGameStatisticLeaderboardListFilter(self, filter_obj) :
+        return self.act.BrowseGameStatisticLeaderboardListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByUuidType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByUuid(set_type, obj)
+    def SetGameStatisticLeaderboardUuidType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardUuid(set_type, obj)
                
-    def SetGameStatisticLeaderboardByUuid(self, obj) :
-        return self.act.SetGameStatisticLeaderboardByUuid('full', obj)
+    def SetGameStatisticLeaderboardUuid(self, obj) :
+        return self.act.SetGameStatisticLeaderboardUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestampType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardUuidProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, obj) :
-        return self.act.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp('full', obj)
+    def SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByCodeType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByCode(set_type, obj)
+    def SetGameStatisticLeaderboardCodeType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardCode(set_type, obj)
                
-    def SetGameStatisticLeaderboardByCode(self, obj) :
-        return self.act.SetGameStatisticLeaderboardByCode('full', obj)
+    def SetGameStatisticLeaderboardCode(self, obj) :
+        return self.act.SetGameStatisticLeaderboardCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByCodeByGameIdType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByCodeByGameId(set_type, obj)
+    def SetGameStatisticLeaderboardCodeGameIdType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardCodeGameId(set_type, obj)
                
-    def SetGameStatisticLeaderboardByCodeByGameId(self, obj) :
-        return self.act.SetGameStatisticLeaderboardByCodeByGameId('full', obj)
+    def SetGameStatisticLeaderboardCodeGameId(self, obj) :
+        return self.act.SetGameStatisticLeaderboardCodeGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByCodeByGameIdByProfileIdType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByCodeByGameIdByProfileId(set_type, obj)
+    def SetGameStatisticLeaderboardCodeGameIdProfileIdType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardCodeGameIdProfileId(set_type, obj)
                
-    def SetGameStatisticLeaderboardByCodeByGameIdByProfileId(self, obj) :
-        return self.act.SetGameStatisticLeaderboardByCodeByGameIdByProfileId('full', obj)
+    def SetGameStatisticLeaderboardCodeGameIdProfileId(self, obj) :
+        return self.act.SetGameStatisticLeaderboardCodeGameIdProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestampType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardCodeGameIdProfileIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self, obj) :
-        return self.act.SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp('full', obj)
+    def SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self, obj) :
+        return self.act.SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardByUuid(self
+    def DelGameStatisticLeaderboardUuid(self
         , uuid
     ) :          
-        return self.act.DelGameStatisticLeaderboardByUuid(
+        return self.act.DelGameStatisticLeaderboardUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardByCode(self
+    def DelGameStatisticLeaderboardCode(self
         , code
     ) :          
-        return self.act.DelGameStatisticLeaderboardByCode(
+        return self.act.DelGameStatisticLeaderboardCode(
         code
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardByCodeByGameId(self
+    def DelGameStatisticLeaderboardCodeGameId(self
         , code
         , game_id
     ) :          
-        return self.act.DelGameStatisticLeaderboardByCodeByGameId(
+        return self.act.DelGameStatisticLeaderboardCodeGameId(
         code
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+    def DelGameStatisticLeaderboardCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
     ) :          
-        return self.act.DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+        return self.act.DelGameStatisticLeaderboardCodeGameIdProfileId(
         code
         , game_id
         , profile_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+    def DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :          
-        return self.act.DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+        return self.act.DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
         code
         , game_id
         , profile_id
         , timestamp
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardByProfileIdByGameId(self
+    def DelGameStatisticLeaderboardProfileIdGameId(self
         , profile_id
         , game_id
     ) :          
-        return self.act.DelGameStatisticLeaderboardByProfileIdByGameId(
+        return self.act.DelGameStatisticLeaderboardProfileIdGameId(
         profile_id
         , game_id
         )
@@ -9441,32 +9441,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByUuid(self
+    def GetGameStatisticLeaderboardListUuid(self
         , uuid
         ) :
-            return self.act.GetGameStatisticLeaderboardListByUuid(
+            return self.act.GetGameStatisticLeaderboardListUuid(
                 uuid
             )
         
-    def GetGameStatisticLeaderboardByUuid(self
+    def GetGameStatisticLeaderboardUuid(self
         , uuid
     ) :
-        for item in self.GetGameStatisticLeaderboardListByUuid(
+        for item in self.GetGameStatisticLeaderboardListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByUuid(self
+    def CachedGetGameStatisticLeaderboardListUuid(self
         , uuid
     ) :
-        return CachedGetGameStatisticLeaderboardListByUuid(
+        return CachedGetGameStatisticLeaderboardListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameStatisticLeaderboardListByUuid(self
+    def CachedGetGameStatisticLeaderboardListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -9475,7 +9475,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByUuid";
+        string method_name = "CachedGetGameStatisticLeaderboardListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9491,7 +9491,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByUuid(
+            objs = GetGameStatisticLeaderboardListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9500,32 +9500,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByGameId(self
+    def GetGameStatisticLeaderboardListGameId(self
         , game_id
         ) :
-            return self.act.GetGameStatisticLeaderboardListByGameId(
+            return self.act.GetGameStatisticLeaderboardListGameId(
                 game_id
             )
         
-    def GetGameStatisticLeaderboardByGameId(self
+    def GetGameStatisticLeaderboardGameId(self
         , game_id
     ) :
-        for item in self.GetGameStatisticLeaderboardListByGameId(
+        for item in self.GetGameStatisticLeaderboardListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByGameId(self
+    def CachedGetGameStatisticLeaderboardListGameId(self
         , game_id
     ) :
-        return CachedGetGameStatisticLeaderboardListByGameId(
+        return CachedGetGameStatisticLeaderboardListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameStatisticLeaderboardListByGameId(self
+    def CachedGetGameStatisticLeaderboardListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -9534,7 +9534,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByGameId";
+        string method_name = "CachedGetGameStatisticLeaderboardListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9550,7 +9550,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByGameId(
+            objs = GetGameStatisticLeaderboardListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9559,32 +9559,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByCode(self
+    def GetGameStatisticLeaderboardListCode(self
         , code
         ) :
-            return self.act.GetGameStatisticLeaderboardListByCode(
+            return self.act.GetGameStatisticLeaderboardListCode(
                 code
             )
         
-    def GetGameStatisticLeaderboardByCode(self
+    def GetGameStatisticLeaderboardCode(self
         , code
     ) :
-        for item in self.GetGameStatisticLeaderboardListByCode(
+        for item in self.GetGameStatisticLeaderboardListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByCode(self
+    def CachedGetGameStatisticLeaderboardListCode(self
         , code
     ) :
-        return CachedGetGameStatisticLeaderboardListByCode(
+        return CachedGetGameStatisticLeaderboardListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameStatisticLeaderboardListByCode(self
+    def CachedGetGameStatisticLeaderboardListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -9593,7 +9593,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByCode";
+        string method_name = "CachedGetGameStatisticLeaderboardListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9609,7 +9609,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByCode(
+            objs = GetGameStatisticLeaderboardListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9618,38 +9618,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByCodeByGameId(self
+    def GetGameStatisticLeaderboardListCodeGameId(self
         , code
         , game_id
         ) :
-            return self.act.GetGameStatisticLeaderboardListByCodeByGameId(
+            return self.act.GetGameStatisticLeaderboardListCodeGameId(
                 code
                 , game_id
             )
         
-    def GetGameStatisticLeaderboardByCodeByGameId(self
+    def GetGameStatisticLeaderboardCodeGameId(self
         , code
         , game_id
     ) :
-        for item in self.GetGameStatisticLeaderboardListByCodeByGameId(
+        for item in self.GetGameStatisticLeaderboardListCodeGameId(
         code
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByCodeByGameId(self
+    def CachedGetGameStatisticLeaderboardListCodeGameId(self
         , code
         , game_id
     ) :
-        return CachedGetGameStatisticLeaderboardListByCodeByGameId(
+        return CachedGetGameStatisticLeaderboardListCodeGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , game_id
         )
         
-    def CachedGetGameStatisticLeaderboardListByCodeByGameId(self
+    def CachedGetGameStatisticLeaderboardListCodeGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -9659,7 +9659,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByCodeByGameId";
+        string method_name = "CachedGetGameStatisticLeaderboardListCodeGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9679,7 +9679,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByCodeByGameId(
+            objs = GetGameStatisticLeaderboardListCodeGameId(
                 code
                 , game_id
             );
@@ -9689,23 +9689,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(self
+    def GetGameStatisticLeaderboardListCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
         ) :
-            return self.act.GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+            return self.act.GetGameStatisticLeaderboardListCodeGameIdProfileId(
                 code
                 , game_id
                 , profile_id
             )
         
-    def GetGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+    def GetGameStatisticLeaderboardCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
     ) :
-        for item in self.GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+        for item in self.GetGameStatisticLeaderboardListCodeGameIdProfileId(
         code
         , game_id
         , profile_id
@@ -9713,12 +9713,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByCodeByGameIdByProfileId(self
+    def CachedGetGameStatisticLeaderboardListCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
     ) :
-        return CachedGetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+        return CachedGetGameStatisticLeaderboardListCodeGameIdProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -9726,7 +9726,7 @@ class BaseGamingAPI(object):
             , profile_id
         )
         
-    def CachedGetGameStatisticLeaderboardListByCodeByGameIdByProfileId(self
+    def CachedGetGameStatisticLeaderboardListCodeGameIdProfileId(self
         , overrideCache
         , cacheHours
         , code
@@ -9737,7 +9737,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByCodeByGameIdByProfileId";
+        string method_name = "CachedGetGameStatisticLeaderboardListCodeGameIdProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9761,7 +9761,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+            objs = GetGameStatisticLeaderboardListCodeGameIdProfileId(
                 code
                 , game_id
                 , profile_id
@@ -9772,26 +9772,26 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(self
+    def GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
         ) :
-            return self.act.GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+            return self.act.GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
                 code
                 , game_id
                 , profile_id
                 , timestamp
             )
         
-    def GetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+    def GetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :
-        for item in self.GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+        for item in self.GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
         code
         , game_id
         , profile_id
@@ -9800,13 +9800,13 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(self
+    def CachedGetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :
-        return CachedGetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+        return CachedGetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -9815,7 +9815,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(self
+    def CachedGetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(self
         , overrideCache
         , cacheHours
         , code
@@ -9827,7 +9827,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp";
+        string method_name = "CachedGetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9855,7 +9855,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+            objs = GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
                 code
                 , game_id
                 , profile_id
@@ -9867,38 +9867,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByProfileIdByGameId(self
+    def GetGameStatisticLeaderboardListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameStatisticLeaderboardListByProfileIdByGameId(
+            return self.act.GetGameStatisticLeaderboardListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetGameStatisticLeaderboardByProfileIdByGameId(self
+    def GetGameStatisticLeaderboardProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameStatisticLeaderboardListByProfileIdByGameId(
+        for item in self.GetGameStatisticLeaderboardListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByProfileIdByGameId(self
+    def CachedGetGameStatisticLeaderboardListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetGameStatisticLeaderboardListByProfileIdByGameId(
+        return CachedGetGameStatisticLeaderboardListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetGameStatisticLeaderboardListByProfileIdByGameId(self
+    def CachedGetGameStatisticLeaderboardListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -9908,7 +9908,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameId";
+        string method_name = "CachedGetGameStatisticLeaderboardListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9928,7 +9928,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByProfileIdByGameId(
+            objs = GetGameStatisticLeaderboardListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -9938,23 +9938,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+    def GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
         ) :
-            return self.act.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            return self.act.GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
                 profile_id
                 , game_id
                 , timestamp
             )
         
-    def GetGameStatisticLeaderboardByProfileIdByGameIdByTimestamp(self
+    def GetGameStatisticLeaderboardProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
-        for item in self.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        for item in self.GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
         profile_id
         , game_id
         , timestamp
@@ -9962,12 +9962,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameStatisticLeaderboardListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
-        return CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        return CachedGetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
@@ -9975,7 +9975,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameStatisticLeaderboardListProfileIdGameIdTimestamp(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -9986,7 +9986,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboard> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp";
+        string method_name = "CachedGetGameStatisticLeaderboardListProfileIdGameIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10010,7 +10010,805 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            objs = GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardItem(self
+    ) :         
+        return self.act.CountGameStatisticLeaderboardItem(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardItemUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameStatisticLeaderboardItemUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardItemGameId(self
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardItemGameId(
+        game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardItemCode(self
+        , code
+    ) :         
+        return self.act.CountGameStatisticLeaderboardItemCode(
+        code
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardItemCodeGameId(self
+        , code
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardItemCodeGameId(
+        code
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardItemCodeGameIdProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardItemCodeGameIdProfileId(
+        code
+        , game_id
+        , profile_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :         
+        return self.act.CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+        code
+        , game_id
+        , profile_id
+        , timestamp
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameStatisticLeaderboardItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :         
+        return self.act.CountGameStatisticLeaderboardItemProfileIdGameId(
+        profile_id
+        , game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameStatisticLeaderboardItemListFilter(self, filter_obj) :
+        return self.act.BrowseGameStatisticLeaderboardItemListFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardItemUuidType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardItemUuid(set_type, obj)
+               
+    def SetGameStatisticLeaderboardItemUuid(self, obj) :
+        return self.act.SetGameStatisticLeaderboardItemUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp(set_type, obj)
+               
+    def SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardItemCodeType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardItemCode(set_type, obj)
+               
+    def SetGameStatisticLeaderboardItemCode(self, obj) :
+        return self.act.SetGameStatisticLeaderboardItemCode('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardItemCodeGameIdType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardItemCodeGameId(set_type, obj)
+               
+    def SetGameStatisticLeaderboardItemCodeGameId(self, obj) :
+        return self.act.SetGameStatisticLeaderboardItemCodeGameId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardItemCodeGameIdProfileIdType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardItemCodeGameIdProfileId(set_type, obj)
+               
+    def SetGameStatisticLeaderboardItemCodeGameIdProfileId(self, obj) :
+        return self.act.SetGameStatisticLeaderboardItemCodeGameIdProfileId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(set_type, obj)
+               
+    def SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self, obj) :
+        return self.act.SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardItemUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameStatisticLeaderboardItemUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardItemCode(self
+        , code
+    ) :          
+        return self.act.DelGameStatisticLeaderboardItemCode(
+        code
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardItemCodeGameId(self
+        , code
+        , game_id
+    ) :          
+        return self.act.DelGameStatisticLeaderboardItemCodeGameId(
+        code
+        , game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardItemCodeGameIdProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :          
+        return self.act.DelGameStatisticLeaderboardItemCodeGameIdProfileId(
+        code
+        , game_id
+        , profile_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :          
+        return self.act.DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+        code
+        , game_id
+        , profile_id
+        , timestamp
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameStatisticLeaderboardItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :          
+        return self.act.DelGameStatisticLeaderboardItemProfileIdGameId(
+        profile_id
+        , game_id
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemList(self
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemList(
+            )
+        
+    def GetGameStatisticLeaderboardItem(self
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemList(self
+    ) :
+        return CachedGetGameStatisticLeaderboardItemList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemListUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemListUuid(
+                uuid
+            )
+        
+    def GetGameStatisticLeaderboardItemUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemListUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemListUuid(self
+        , uuid
+    ) :
+        return CachedGetGameStatisticLeaderboardItemListUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemListUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemListUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemListUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemListGameId(self
+        , game_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemListGameId(
+                game_id
+            )
+        
+    def GetGameStatisticLeaderboardItemGameId(self
+        , game_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemListGameId(
+        game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemListGameId(self
+        , game_id
+    ) :
+        return CachedGetGameStatisticLeaderboardItemListGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemListGameId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemListGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemListGameId(
+                game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemListCode(self
+        , code
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemListCode(
+                code
+            )
+        
+    def GetGameStatisticLeaderboardItemCode(self
+        , code
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemListCode(
+        code
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemListCode(self
+        , code
+    ) :
+        return CachedGetGameStatisticLeaderboardItemListCode(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemListCode(self
+        , overrideCache
+        , cacheHours
+        , code
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemListCode";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemListCode(
+                code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemListCodeGameId(self
+        , code
+        , game_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemListCodeGameId(
+                code
+                , game_id
+            )
+        
+    def GetGameStatisticLeaderboardItemCodeGameId(self
+        , code
+        , game_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemListCodeGameId(
+        code
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemListCodeGameId(self
+        , code
+        , game_id
+    ) :
+        return CachedGetGameStatisticLeaderboardItemListCodeGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , game_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemListCodeGameId(self
+        , overrideCache
+        , cacheHours
+        , code
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemListCodeGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemListCodeGameId(
+                code
+                , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemListCodeGameIdProfileId(self
+        , code
+        , game_id
+        , profile_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+                code
+                , game_id
+                , profile_id
+            )
+        
+    def GetGameStatisticLeaderboardItemCodeGameIdProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+        code
+        , game_id
+        , profile_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemListCodeGameIdProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+        return CachedGetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , game_id
+            , profile_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemListCodeGameIdProfileId(self
+        , overrideCache
+        , cacheHours
+        , code
+        , game_id
+        , profile_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemListCodeGameIdProfileId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+                code
+                , game_id
+                , profile_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+                code
+                , game_id
+                , profile_id
+                , timestamp
+            )
+        
+    def GetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+        code
+        , game_id
+        , profile_id
+        , timestamp
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        return CachedGetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , game_id
+            , profile_id
+            , timestamp
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(self
+        , overrideCache
+        , cacheHours
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("timestamp".ToLower());
+        sb.Append("_");
+        sb.Append(timestamp);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+                code
+                , game_id
+                , profile_id
+                , timestamp
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemListProfileIdGameId(self
+        , profile_id
+        , game_id
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemListProfileIdGameId(
+                profile_id
+                , game_id
+            )
+        
+    def GetGameStatisticLeaderboardItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemListProfileIdGameId(
+        profile_id
+        , game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemListProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return CachedGetGameStatisticLeaderboardItemListProfileIdGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , game_id
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemListProfileIdGameId(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , game_id
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemListProfileIdGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemListProfileIdGameId(
+                profile_id
+                , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+        ) :
+            return self.act.GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
+                profile_id
+                , game_id
+                , timestamp
+            )
+        
+    def GetGameStatisticLeaderboardItemProfileIdGameIdTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        for item in self.GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
+        profile_id
+        , game_id
+        , timestamp
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        return CachedGetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , game_id
+            , timestamp
+        )
+        
+    def CachedGetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+        pass
+        """
+        List<GameStatisticLeaderboardItem> objs;
+
+        string method_name = "CachedGetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("timestamp".ToLower());
+        sb.Append("_");
+        sb.Append(timestamp);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameStatisticLeaderboardItem>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
                 profile_id
                 , game_id
                 , timestamp
@@ -10027,59 +10825,59 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardRollupByUuid(self
+    def CountGameStatisticLeaderboardRollupUuid(self
         , uuid
     ) :         
-        return self.act.CountGameStatisticLeaderboardRollupByUuid(
+        return self.act.CountGameStatisticLeaderboardRollupUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardRollupByGameId(self
+    def CountGameStatisticLeaderboardRollupGameId(self
         , game_id
     ) :         
-        return self.act.CountGameStatisticLeaderboardRollupByGameId(
+        return self.act.CountGameStatisticLeaderboardRollupGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardRollupByCode(self
+    def CountGameStatisticLeaderboardRollupCode(self
         , code
     ) :         
-        return self.act.CountGameStatisticLeaderboardRollupByCode(
+        return self.act.CountGameStatisticLeaderboardRollupCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardRollupByCodeByGameId(self
+    def CountGameStatisticLeaderboardRollupCodeGameId(self
         , code
         , game_id
     ) :         
-        return self.act.CountGameStatisticLeaderboardRollupByCodeByGameId(
+        return self.act.CountGameStatisticLeaderboardRollupCodeGameId(
         code
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+    def CountGameStatisticLeaderboardRollupCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
     ) :         
-        return self.act.CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+        return self.act.CountGameStatisticLeaderboardRollupCodeGameIdProfileId(
         code
         , game_id
         , profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+    def CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :         
-        return self.act.CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+        return self.act.CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
         code
         , game_id
         , profile_id
@@ -10087,107 +10885,107 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticLeaderboardRollupByProfileIdByGameId(self
+    def CountGameStatisticLeaderboardRollupProfileIdGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+        return self.act.CountGameStatisticLeaderboardRollupProfileIdGameId(
         profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameStatisticLeaderboardRollupListByFilter(self, filter_obj) :
-        return self.act.BrowseGameStatisticLeaderboardRollupListByFilter(filter_obj)
+    def BrowseGameStatisticLeaderboardRollupListFilter(self, filter_obj) :
+        return self.act.BrowseGameStatisticLeaderboardRollupListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByUuidType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByUuid(set_type, obj)
+    def SetGameStatisticLeaderboardRollupUuidType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupUuid(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByUuid(self, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByUuid('full', obj)
+    def SetGameStatisticLeaderboardRollupUuid(self, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestampType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp('full', obj)
+    def SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByCodeType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByCode(set_type, obj)
+    def SetGameStatisticLeaderboardRollupCodeType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupCode(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByCode(self, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByCode('full', obj)
+    def SetGameStatisticLeaderboardRollupCode(self, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByCodeByGameIdType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByCodeByGameId(set_type, obj)
+    def SetGameStatisticLeaderboardRollupCodeGameIdType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupCodeGameId(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByCodeByGameId(self, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByCodeByGameId('full', obj)
+    def SetGameStatisticLeaderboardRollupCodeGameId(self, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupCodeGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(set_type, obj)
+    def SetGameStatisticLeaderboardRollupCodeGameIdProfileIdType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupCodeGameIdProfileId(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId('full', obj)
+    def SetGameStatisticLeaderboardRollupCodeGameIdProfileId(self, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupCodeGameIdProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestampType(self, set_type, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(set_type, obj)
+    def SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(set_type, obj)
                
-    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self, obj) :
-        return self.act.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp('full', obj)
+    def SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self, obj) :
+        return self.act.SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardRollupByUuid(self
+    def DelGameStatisticLeaderboardRollupUuid(self
         , uuid
     ) :          
-        return self.act.DelGameStatisticLeaderboardRollupByUuid(
+        return self.act.DelGameStatisticLeaderboardRollupUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardRollupByCode(self
+    def DelGameStatisticLeaderboardRollupCode(self
         , code
     ) :          
-        return self.act.DelGameStatisticLeaderboardRollupByCode(
+        return self.act.DelGameStatisticLeaderboardRollupCode(
         code
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardRollupByCodeByGameId(self
+    def DelGameStatisticLeaderboardRollupCodeGameId(self
         , code
         , game_id
     ) :          
-        return self.act.DelGameStatisticLeaderboardRollupByCodeByGameId(
+        return self.act.DelGameStatisticLeaderboardRollupCodeGameId(
         code
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+    def DelGameStatisticLeaderboardRollupCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
     ) :          
-        return self.act.DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+        return self.act.DelGameStatisticLeaderboardRollupCodeGameIdProfileId(
         code
         , game_id
         , profile_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+    def DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :          
-        return self.act.DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+        return self.act.DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
         code
         , game_id
         , profile_id
         , timestamp
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticLeaderboardRollupByProfileIdByGameId(self
+    def DelGameStatisticLeaderboardRollupProfileIdGameId(self
         , profile_id
         , game_id
     ) :          
-        return self.act.DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+        return self.act.DelGameStatisticLeaderboardRollupProfileIdGameId(
         profile_id
         , game_id
         )
@@ -10239,32 +11037,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardRollupListByUuid(self
+    def GetGameStatisticLeaderboardRollupListUuid(self
         , uuid
         ) :
-            return self.act.GetGameStatisticLeaderboardRollupListByUuid(
+            return self.act.GetGameStatisticLeaderboardRollupListUuid(
                 uuid
             )
         
-    def GetGameStatisticLeaderboardRollupByUuid(self
+    def GetGameStatisticLeaderboardRollupUuid(self
         , uuid
     ) :
-        for item in self.GetGameStatisticLeaderboardRollupListByUuid(
+        for item in self.GetGameStatisticLeaderboardRollupListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardRollupListByUuid(self
+    def CachedGetGameStatisticLeaderboardRollupListUuid(self
         , uuid
     ) :
-        return CachedGetGameStatisticLeaderboardRollupListByUuid(
+        return CachedGetGameStatisticLeaderboardRollupListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameStatisticLeaderboardRollupListByUuid(self
+    def CachedGetGameStatisticLeaderboardRollupListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -10273,7 +11071,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboardRollup> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardRollupListByUuid";
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10289,7 +11087,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardRollupListByUuid(
+            objs = GetGameStatisticLeaderboardRollupListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10298,32 +11096,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardRollupListByGameId(self
+    def GetGameStatisticLeaderboardRollupListGameId(self
         , game_id
         ) :
-            return self.act.GetGameStatisticLeaderboardRollupListByGameId(
+            return self.act.GetGameStatisticLeaderboardRollupListGameId(
                 game_id
             )
         
-    def GetGameStatisticLeaderboardRollupByGameId(self
+    def GetGameStatisticLeaderboardRollupGameId(self
         , game_id
     ) :
-        for item in self.GetGameStatisticLeaderboardRollupListByGameId(
+        for item in self.GetGameStatisticLeaderboardRollupListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardRollupListByGameId(self
+    def CachedGetGameStatisticLeaderboardRollupListGameId(self
         , game_id
     ) :
-        return CachedGetGameStatisticLeaderboardRollupListByGameId(
+        return CachedGetGameStatisticLeaderboardRollupListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameStatisticLeaderboardRollupListByGameId(self
+    def CachedGetGameStatisticLeaderboardRollupListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -10332,7 +11130,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboardRollup> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardRollupListByGameId";
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10348,7 +11146,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardRollupListByGameId(
+            objs = GetGameStatisticLeaderboardRollupListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10357,32 +11155,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardRollupListByCode(self
+    def GetGameStatisticLeaderboardRollupListCode(self
         , code
         ) :
-            return self.act.GetGameStatisticLeaderboardRollupListByCode(
+            return self.act.GetGameStatisticLeaderboardRollupListCode(
                 code
             )
         
-    def GetGameStatisticLeaderboardRollupByCode(self
+    def GetGameStatisticLeaderboardRollupCode(self
         , code
     ) :
-        for item in self.GetGameStatisticLeaderboardRollupListByCode(
+        for item in self.GetGameStatisticLeaderboardRollupListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardRollupListByCode(self
+    def CachedGetGameStatisticLeaderboardRollupListCode(self
         , code
     ) :
-        return CachedGetGameStatisticLeaderboardRollupListByCode(
+        return CachedGetGameStatisticLeaderboardRollupListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameStatisticLeaderboardRollupListByCode(self
+    def CachedGetGameStatisticLeaderboardRollupListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -10391,7 +11189,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboardRollup> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardRollupListByCode";
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10407,7 +11205,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardRollupListByCode(
+            objs = GetGameStatisticLeaderboardRollupListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10416,38 +11214,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardRollupListByCodeByGameId(self
+    def GetGameStatisticLeaderboardRollupListCodeGameId(self
         , code
         , game_id
         ) :
-            return self.act.GetGameStatisticLeaderboardRollupListByCodeByGameId(
+            return self.act.GetGameStatisticLeaderboardRollupListCodeGameId(
                 code
                 , game_id
             )
         
-    def GetGameStatisticLeaderboardRollupByCodeByGameId(self
+    def GetGameStatisticLeaderboardRollupCodeGameId(self
         , code
         , game_id
     ) :
-        for item in self.GetGameStatisticLeaderboardRollupListByCodeByGameId(
+        for item in self.GetGameStatisticLeaderboardRollupListCodeGameId(
         code
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardRollupListByCodeByGameId(self
+    def CachedGetGameStatisticLeaderboardRollupListCodeGameId(self
         , code
         , game_id
     ) :
-        return CachedGetGameStatisticLeaderboardRollupListByCodeByGameId(
+        return CachedGetGameStatisticLeaderboardRollupListCodeGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , game_id
         )
         
-    def CachedGetGameStatisticLeaderboardRollupListByCodeByGameId(self
+    def CachedGetGameStatisticLeaderboardRollupListCodeGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -10457,7 +11255,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboardRollup> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardRollupListByCodeByGameId";
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListCodeGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10477,7 +11275,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardRollupListByCodeByGameId(
+            objs = GetGameStatisticLeaderboardRollupListCodeGameId(
                 code
                 , game_id
             );
@@ -10487,23 +11285,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(self
+    def GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
         ) :
-            return self.act.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+            return self.act.GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
                 code
                 , game_id
                 , profile_id
             )
         
-    def GetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+    def GetGameStatisticLeaderboardRollupCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
     ) :
-        for item in self.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+        for item in self.GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
         code
         , game_id
         , profile_id
@@ -10511,12 +11309,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(self
+    def CachedGetGameStatisticLeaderboardRollupListCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
     ) :
-        return CachedGetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+        return CachedGetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -10524,7 +11322,7 @@ class BaseGamingAPI(object):
             , profile_id
         )
         
-    def CachedGetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(self
+    def CachedGetGameStatisticLeaderboardRollupListCodeGameIdProfileId(self
         , overrideCache
         , cacheHours
         , code
@@ -10535,7 +11333,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboardRollup> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId";
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListCodeGameIdProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10559,7 +11357,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+            objs = GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
                 code
                 , game_id
                 , profile_id
@@ -10570,26 +11368,26 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(self
+    def GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
         ) :
-            return self.act.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+            return self.act.GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
                 code
                 , game_id
                 , profile_id
                 , timestamp
             )
         
-    def GetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+    def GetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :
-        for item in self.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+        for item in self.GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
         code
         , game_id
         , profile_id
@@ -10598,13 +11396,13 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(self
+    def CachedGetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :
-        return CachedGetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+        return CachedGetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -10613,7 +11411,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(self
+    def CachedGetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(self
         , overrideCache
         , cacheHours
         , code
@@ -10625,7 +11423,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboardRollup> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp";
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10653,7 +11451,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+            objs = GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
                 code
                 , game_id
                 , profile_id
@@ -10665,38 +11463,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+    def GetGameStatisticLeaderboardRollupListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            return self.act.GetGameStatisticLeaderboardRollupListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetGameStatisticLeaderboardRollupByProfileIdByGameId(self
+    def GetGameStatisticLeaderboardRollupProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        for item in self.GetGameStatisticLeaderboardRollupListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+    def CachedGetGameStatisticLeaderboardRollupListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        return CachedGetGameStatisticLeaderboardRollupListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+    def CachedGetGameStatisticLeaderboardRollupListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -10706,7 +11504,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboardRollup> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameId";
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10726,7 +11524,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            objs = GetGameStatisticLeaderboardRollupListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -10736,23 +11534,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+    def GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
         ) :
-            return self.act.GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            return self.act.GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
                 profile_id
                 , game_id
                 , timestamp
             )
         
-    def GetGameStatisticLeaderboardRollupByProfileIdByGameIdByTimestamp(self
+    def GetGameStatisticLeaderboardRollupProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
-        for item in self.GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        for item in self.GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
         profile_id
         , game_id
         , timestamp
@@ -10760,12 +11558,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
-        return CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        return CachedGetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
@@ -10773,7 +11571,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -10784,7 +11582,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticLeaderboardRollup> objs;
 
-        string method_name = "CachedGetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp";
+        string method_name = "CachedGetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10808,7 +11606,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            objs = GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
                 profile_id
                 , game_id
                 , timestamp
@@ -10825,51 +11623,51 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLiveQueueByUuid(self
+    def CountGameLiveQueueUuid(self
         , uuid
     ) :         
-        return self.act.CountGameLiveQueueByUuid(
+        return self.act.CountGameLiveQueueUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLiveQueueByProfileIdByGameId(self
+    def CountGameLiveQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameLiveQueueByProfileIdByGameId(
+        return self.act.CountGameLiveQueueProfileIdGameId(
         profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameLiveQueueListByFilter(self, filter_obj) :
-        return self.act.BrowseGameLiveQueueListByFilter(filter_obj)
+    def BrowseGameLiveQueueListFilter(self, filter_obj) :
+        return self.act.BrowseGameLiveQueueListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLiveQueueByUuidType(self, set_type, obj) :
-        return self.act.SetGameLiveQueueByUuid(set_type, obj)
+    def SetGameLiveQueueUuidType(self, set_type, obj) :
+        return self.act.SetGameLiveQueueUuid(set_type, obj)
                
-    def SetGameLiveQueueByUuid(self, obj) :
-        return self.act.SetGameLiveQueueByUuid('full', obj)
+    def SetGameLiveQueueUuid(self, obj) :
+        return self.act.SetGameLiveQueueUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLiveQueueByProfileIdByGameIdType(self, set_type, obj) :
-        return self.act.SetGameLiveQueueByProfileIdByGameId(set_type, obj)
+    def SetGameLiveQueueProfileIdGameIdType(self, set_type, obj) :
+        return self.act.SetGameLiveQueueProfileIdGameId(set_type, obj)
                
-    def SetGameLiveQueueByProfileIdByGameId(self, obj) :
-        return self.act.SetGameLiveQueueByProfileIdByGameId('full', obj)
+    def SetGameLiveQueueProfileIdGameId(self, obj) :
+        return self.act.SetGameLiveQueueProfileIdGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameLiveQueueByUuid(self
+    def DelGameLiveQueueUuid(self
         , uuid
     ) :          
-        return self.act.DelGameLiveQueueByUuid(
+        return self.act.DelGameLiveQueueUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameLiveQueueByProfileIdByGameId(self
+    def DelGameLiveQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :          
-        return self.act.DelGameLiveQueueByProfileIdByGameId(
+        return self.act.DelGameLiveQueueProfileIdGameId(
         profile_id
         , game_id
         )
@@ -10921,32 +11719,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLiveQueueListByUuid(self
+    def GetGameLiveQueueListUuid(self
         , uuid
         ) :
-            return self.act.GetGameLiveQueueListByUuid(
+            return self.act.GetGameLiveQueueListUuid(
                 uuid
             )
         
-    def GetGameLiveQueueByUuid(self
+    def GetGameLiveQueueUuid(self
         , uuid
     ) :
-        for item in self.GetGameLiveQueueListByUuid(
+        for item in self.GetGameLiveQueueListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameLiveQueueListByUuid(self
+    def CachedGetGameLiveQueueListUuid(self
         , uuid
     ) :
-        return CachedGetGameLiveQueueListByUuid(
+        return CachedGetGameLiveQueueListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameLiveQueueListByUuid(self
+    def CachedGetGameLiveQueueListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -10955,7 +11753,7 @@ class BaseGamingAPI(object):
         """
         List<GameLiveQueue> objs;
 
-        string method_name = "CachedGetGameLiveQueueListByUuid";
+        string method_name = "CachedGetGameLiveQueueListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10971,7 +11769,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLiveQueueListByUuid(
+            objs = GetGameLiveQueueListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10980,32 +11778,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLiveQueueListByGameId(self
+    def GetGameLiveQueueListGameId(self
         , game_id
         ) :
-            return self.act.GetGameLiveQueueListByGameId(
+            return self.act.GetGameLiveQueueListGameId(
                 game_id
             )
         
-    def GetGameLiveQueueByGameId(self
+    def GetGameLiveQueueGameId(self
         , game_id
     ) :
-        for item in self.GetGameLiveQueueListByGameId(
+        for item in self.GetGameLiveQueueListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameLiveQueueListByGameId(self
+    def CachedGetGameLiveQueueListGameId(self
         , game_id
     ) :
-        return CachedGetGameLiveQueueListByGameId(
+        return CachedGetGameLiveQueueListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameLiveQueueListByGameId(self
+    def CachedGetGameLiveQueueListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -11014,7 +11812,7 @@ class BaseGamingAPI(object):
         """
         List<GameLiveQueue> objs;
 
-        string method_name = "CachedGetGameLiveQueueListByGameId";
+        string method_name = "CachedGetGameLiveQueueListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11030,7 +11828,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLiveQueueListByGameId(
+            objs = GetGameLiveQueueListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11039,38 +11837,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLiveQueueListByProfileIdByGameId(self
+    def GetGameLiveQueueListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameLiveQueueListByProfileIdByGameId(
+            return self.act.GetGameLiveQueueListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetGameLiveQueueByProfileIdByGameId(self
+    def GetGameLiveQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameLiveQueueListByProfileIdByGameId(
+        for item in self.GetGameLiveQueueListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameLiveQueueListByProfileIdByGameId(self
+    def CachedGetGameLiveQueueListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetGameLiveQueueListByProfileIdByGameId(
+        return CachedGetGameLiveQueueListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetGameLiveQueueListByProfileIdByGameId(self
+    def CachedGetGameLiveQueueListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -11080,7 +11878,7 @@ class BaseGamingAPI(object):
         """
         List<GameLiveQueue> objs;
 
-        string method_name = "CachedGetGameLiveQueueListByProfileIdByGameId";
+        string method_name = "CachedGetGameLiveQueueListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11100,7 +11898,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLiveQueueListByProfileIdByGameId(
+            objs = GetGameLiveQueueListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -11116,51 +11914,51 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLiveRecentQueueByUuid(self
+    def CountGameLiveRecentQueueUuid(self
         , uuid
     ) :         
-        return self.act.CountGameLiveRecentQueueByUuid(
+        return self.act.CountGameLiveRecentQueueUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLiveRecentQueueByProfileIdByGameId(self
+    def CountGameLiveRecentQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameLiveRecentQueueByProfileIdByGameId(
+        return self.act.CountGameLiveRecentQueueProfileIdGameId(
         profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameLiveRecentQueueListByFilter(self, filter_obj) :
-        return self.act.BrowseGameLiveRecentQueueListByFilter(filter_obj)
+    def BrowseGameLiveRecentQueueListFilter(self, filter_obj) :
+        return self.act.BrowseGameLiveRecentQueueListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLiveRecentQueueByUuidType(self, set_type, obj) :
-        return self.act.SetGameLiveRecentQueueByUuid(set_type, obj)
+    def SetGameLiveRecentQueueUuidType(self, set_type, obj) :
+        return self.act.SetGameLiveRecentQueueUuid(set_type, obj)
                
-    def SetGameLiveRecentQueueByUuid(self, obj) :
-        return self.act.SetGameLiveRecentQueueByUuid('full', obj)
+    def SetGameLiveRecentQueueUuid(self, obj) :
+        return self.act.SetGameLiveRecentQueueUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLiveRecentQueueByProfileIdByGameIdType(self, set_type, obj) :
-        return self.act.SetGameLiveRecentQueueByProfileIdByGameId(set_type, obj)
+    def SetGameLiveRecentQueueProfileIdGameIdType(self, set_type, obj) :
+        return self.act.SetGameLiveRecentQueueProfileIdGameId(set_type, obj)
                
-    def SetGameLiveRecentQueueByProfileIdByGameId(self, obj) :
-        return self.act.SetGameLiveRecentQueueByProfileIdByGameId('full', obj)
+    def SetGameLiveRecentQueueProfileIdGameId(self, obj) :
+        return self.act.SetGameLiveRecentQueueProfileIdGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameLiveRecentQueueByUuid(self
+    def DelGameLiveRecentQueueUuid(self
         , uuid
     ) :          
-        return self.act.DelGameLiveRecentQueueByUuid(
+        return self.act.DelGameLiveRecentQueueUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameLiveRecentQueueByProfileIdByGameId(self
+    def DelGameLiveRecentQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :          
-        return self.act.DelGameLiveRecentQueueByProfileIdByGameId(
+        return self.act.DelGameLiveRecentQueueProfileIdGameId(
         profile_id
         , game_id
         )
@@ -11212,32 +12010,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLiveRecentQueueListByUuid(self
+    def GetGameLiveRecentQueueListUuid(self
         , uuid
         ) :
-            return self.act.GetGameLiveRecentQueueListByUuid(
+            return self.act.GetGameLiveRecentQueueListUuid(
                 uuid
             )
         
-    def GetGameLiveRecentQueueByUuid(self
+    def GetGameLiveRecentQueueUuid(self
         , uuid
     ) :
-        for item in self.GetGameLiveRecentQueueListByUuid(
+        for item in self.GetGameLiveRecentQueueListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameLiveRecentQueueListByUuid(self
+    def CachedGetGameLiveRecentQueueListUuid(self
         , uuid
     ) :
-        return CachedGetGameLiveRecentQueueListByUuid(
+        return CachedGetGameLiveRecentQueueListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameLiveRecentQueueListByUuid(self
+    def CachedGetGameLiveRecentQueueListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -11246,7 +12044,7 @@ class BaseGamingAPI(object):
         """
         List<GameLiveRecentQueue> objs;
 
-        string method_name = "CachedGetGameLiveRecentQueueListByUuid";
+        string method_name = "CachedGetGameLiveRecentQueueListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11262,7 +12060,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLiveRecentQueueListByUuid(
+            objs = GetGameLiveRecentQueueListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11271,32 +12069,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLiveRecentQueueListByGameId(self
+    def GetGameLiveRecentQueueListGameId(self
         , game_id
         ) :
-            return self.act.GetGameLiveRecentQueueListByGameId(
+            return self.act.GetGameLiveRecentQueueListGameId(
                 game_id
             )
         
-    def GetGameLiveRecentQueueByGameId(self
+    def GetGameLiveRecentQueueGameId(self
         , game_id
     ) :
-        for item in self.GetGameLiveRecentQueueListByGameId(
+        for item in self.GetGameLiveRecentQueueListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameLiveRecentQueueListByGameId(self
+    def CachedGetGameLiveRecentQueueListGameId(self
         , game_id
     ) :
-        return CachedGetGameLiveRecentQueueListByGameId(
+        return CachedGetGameLiveRecentQueueListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameLiveRecentQueueListByGameId(self
+    def CachedGetGameLiveRecentQueueListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -11305,7 +12103,7 @@ class BaseGamingAPI(object):
         """
         List<GameLiveRecentQueue> objs;
 
-        string method_name = "CachedGetGameLiveRecentQueueListByGameId";
+        string method_name = "CachedGetGameLiveRecentQueueListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11321,7 +12119,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLiveRecentQueueListByGameId(
+            objs = GetGameLiveRecentQueueListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11330,38 +12128,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLiveRecentQueueListByProfileIdByGameId(self
+    def GetGameLiveRecentQueueListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameLiveRecentQueueListByProfileIdByGameId(
+            return self.act.GetGameLiveRecentQueueListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetGameLiveRecentQueueByProfileIdByGameId(self
+    def GetGameLiveRecentQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameLiveRecentQueueListByProfileIdByGameId(
+        for item in self.GetGameLiveRecentQueueListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameLiveRecentQueueListByProfileIdByGameId(self
+    def CachedGetGameLiveRecentQueueListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetGameLiveRecentQueueListByProfileIdByGameId(
+        return CachedGetGameLiveRecentQueueListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetGameLiveRecentQueueListByProfileIdByGameId(self
+    def CachedGetGameLiveRecentQueueListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -11371,7 +12169,7 @@ class BaseGamingAPI(object):
         """
         List<GameLiveRecentQueue> objs;
 
-        string method_name = "CachedGetGameLiveRecentQueueListByProfileIdByGameId";
+        string method_name = "CachedGetGameLiveRecentQueueListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11391,7 +12189,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLiveRecentQueueListByProfileIdByGameId(
+            objs = GetGameLiveRecentQueueListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -11407,69 +12205,69 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticByUuid(self
+    def CountGameProfileStatisticUuid(self
         , uuid
     ) :         
-        return self.act.CountGameProfileStatisticByUuid(
+        return self.act.CountGameProfileStatisticUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticByCode(self
+    def CountGameProfileStatisticCode(self
         , code
     ) :         
-        return self.act.CountGameProfileStatisticByCode(
+        return self.act.CountGameProfileStatisticCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticByGameId(self
+    def CountGameProfileStatisticGameId(self
         , game_id
     ) :         
-        return self.act.CountGameProfileStatisticByGameId(
+        return self.act.CountGameProfileStatisticGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticByCodeByGameId(self
+    def CountGameProfileStatisticCodeGameId(self
         , code
         , game_id
     ) :         
-        return self.act.CountGameProfileStatisticByCodeByGameId(
+        return self.act.CountGameProfileStatisticCodeGameId(
         code
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticByProfileIdByGameId(self
+    def CountGameProfileStatisticProfileIdGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameProfileStatisticByProfileIdByGameId(
+        return self.act.CountGameProfileStatisticProfileIdGameId(
         profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticByCodeByProfileIdByGameId(self
+    def CountGameProfileStatisticCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameProfileStatisticByCodeByProfileIdByGameId(
+        return self.act.CountGameProfileStatisticCodeProfileIdGameId(
         code
         , profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self
+    def CountGameProfileStatisticCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.act.CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+        return self.act.CountGameProfileStatisticCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
@@ -11477,107 +12275,107 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameProfileStatisticListByFilter(self, filter_obj) :
-        return self.act.BrowseGameProfileStatisticListByFilter(filter_obj)
+    def BrowseGameProfileStatisticListFilter(self, filter_obj) :
+        return self.act.BrowseGameProfileStatisticListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByUuidType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticByUuid(set_type, obj)
+    def SetGameProfileStatisticUuidType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticUuid(set_type, obj)
                
-    def SetGameProfileStatisticByUuid(self, obj) :
-        return self.act.SetGameProfileStatisticByUuid('full', obj)
+    def SetGameProfileStatisticUuid(self, obj) :
+        return self.act.SetGameProfileStatisticUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestampType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameProfileStatisticUuidProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticUuidProfileIdGameIdTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(self, obj) :
-        return self.act.SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp('full', obj)
+    def SetGameProfileStatisticUuidProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameProfileStatisticUuidProfileIdGameIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByProfileIdByCodeType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticByProfileIdByCode(set_type, obj)
+    def SetGameProfileStatisticProfileIdCodeType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticProfileIdCode(set_type, obj)
                
-    def SetGameProfileStatisticByProfileIdByCode(self, obj) :
-        return self.act.SetGameProfileStatisticByProfileIdByCode('full', obj)
+    def SetGameProfileStatisticProfileIdCode(self, obj) :
+        return self.act.SetGameProfileStatisticProfileIdCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByProfileIdByCodeByTimestampType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticByProfileIdByCodeByTimestamp(set_type, obj)
+    def SetGameProfileStatisticProfileIdCodeTimestampType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticProfileIdCodeTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticByProfileIdByCodeByTimestamp(self, obj) :
-        return self.act.SetGameProfileStatisticByProfileIdByCodeByTimestamp('full', obj)
+    def SetGameProfileStatisticProfileIdCodeTimestamp(self, obj) :
+        return self.act.SetGameProfileStatisticProfileIdCodeTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestampType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameProfileStatisticCodeProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticCodeProfileIdGameIdTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self, obj) :
-        return self.act.SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp('full', obj)
+    def SetGameProfileStatisticCodeProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameProfileStatisticCodeProfileIdGameIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticByCodeByProfileIdByGameIdType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticByCodeByProfileIdByGameId(set_type, obj)
+    def SetGameProfileStatisticCodeProfileIdGameIdType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticCodeProfileIdGameId(set_type, obj)
                
-    def SetGameProfileStatisticByCodeByProfileIdByGameId(self, obj) :
-        return self.act.SetGameProfileStatisticByCodeByProfileIdByGameId('full', obj)
+    def SetGameProfileStatisticCodeProfileIdGameId(self, obj) :
+        return self.act.SetGameProfileStatisticCodeProfileIdGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticByUuid(self
+    def DelGameProfileStatisticUuid(self
         , uuid
     ) :          
-        return self.act.DelGameProfileStatisticByUuid(
+        return self.act.DelGameProfileStatisticUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticByCodeByGameId(self
+    def DelGameProfileStatisticCodeGameId(self
         , code
         , game_id
     ) :          
-        return self.act.DelGameProfileStatisticByCodeByGameId(
+        return self.act.DelGameProfileStatisticCodeGameId(
         code
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticByProfileIdByGameId(self
+    def DelGameProfileStatisticProfileIdGameId(self
         , profile_id
         , game_id
     ) :          
-        return self.act.DelGameProfileStatisticByProfileIdByGameId(
+        return self.act.DelGameProfileStatisticProfileIdGameId(
         profile_id
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticByCodeByProfileIdByGameId(self
+    def DelGameProfileStatisticCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :          
-        return self.act.DelGameProfileStatisticByCodeByProfileIdByGameId(
+        return self.act.DelGameProfileStatisticCodeProfileIdGameId(
         code
         , profile_id
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticListByUuid(self
+    def GetGameProfileStatisticListUuid(self
         , uuid
         ) :
-            return self.act.GetGameProfileStatisticListByUuid(
+            return self.act.GetGameProfileStatisticListUuid(
                 uuid
             )
         
-    def GetGameProfileStatisticByUuid(self
+    def GetGameProfileStatisticUuid(self
         , uuid
     ) :
-        for item in self.GetGameProfileStatisticListByUuid(
+        for item in self.GetGameProfileStatisticListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameProfileStatisticListByUuid(self
+    def CachedGetGameProfileStatisticListUuid(self
         , uuid
     ) :
-        return CachedGetGameProfileStatisticListByUuid(
+        return CachedGetGameProfileStatisticListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameProfileStatisticListByUuid(self
+    def CachedGetGameProfileStatisticListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -11586,7 +12384,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatistic> objs;
 
-        string method_name = "CachedGetGameProfileStatisticListByUuid";
+        string method_name = "CachedGetGameProfileStatisticListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11602,7 +12400,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticListByUuid(
+            objs = GetGameProfileStatisticListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11611,32 +12409,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticListByCode(self
+    def GetGameProfileStatisticListCode(self
         , code
         ) :
-            return self.act.GetGameProfileStatisticListByCode(
+            return self.act.GetGameProfileStatisticListCode(
                 code
             )
         
-    def GetGameProfileStatisticByCode(self
+    def GetGameProfileStatisticCode(self
         , code
     ) :
-        for item in self.GetGameProfileStatisticListByCode(
+        for item in self.GetGameProfileStatisticListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameProfileStatisticListByCode(self
+    def CachedGetGameProfileStatisticListCode(self
         , code
     ) :
-        return CachedGetGameProfileStatisticListByCode(
+        return CachedGetGameProfileStatisticListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameProfileStatisticListByCode(self
+    def CachedGetGameProfileStatisticListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -11645,7 +12443,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatistic> objs;
 
-        string method_name = "CachedGetGameProfileStatisticListByCode";
+        string method_name = "CachedGetGameProfileStatisticListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11661,7 +12459,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticListByCode(
+            objs = GetGameProfileStatisticListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11670,32 +12468,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticListByGameId(self
+    def GetGameProfileStatisticListGameId(self
         , game_id
         ) :
-            return self.act.GetGameProfileStatisticListByGameId(
+            return self.act.GetGameProfileStatisticListGameId(
                 game_id
             )
         
-    def GetGameProfileStatisticByGameId(self
+    def GetGameProfileStatisticGameId(self
         , game_id
     ) :
-        for item in self.GetGameProfileStatisticListByGameId(
+        for item in self.GetGameProfileStatisticListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProfileStatisticListByGameId(self
+    def CachedGetGameProfileStatisticListGameId(self
         , game_id
     ) :
-        return CachedGetGameProfileStatisticListByGameId(
+        return CachedGetGameProfileStatisticListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameProfileStatisticListByGameId(self
+    def CachedGetGameProfileStatisticListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -11704,7 +12502,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatistic> objs;
 
-        string method_name = "CachedGetGameProfileStatisticListByGameId";
+        string method_name = "CachedGetGameProfileStatisticListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11720,7 +12518,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticListByGameId(
+            objs = GetGameProfileStatisticListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11729,38 +12527,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticListByCodeByGameId(self
+    def GetGameProfileStatisticListCodeGameId(self
         , code
         , game_id
         ) :
-            return self.act.GetGameProfileStatisticListByCodeByGameId(
+            return self.act.GetGameProfileStatisticListCodeGameId(
                 code
                 , game_id
             )
         
-    def GetGameProfileStatisticByCodeByGameId(self
+    def GetGameProfileStatisticCodeGameId(self
         , code
         , game_id
     ) :
-        for item in self.GetGameProfileStatisticListByCodeByGameId(
+        for item in self.GetGameProfileStatisticListCodeGameId(
         code
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProfileStatisticListByCodeByGameId(self
+    def CachedGetGameProfileStatisticListCodeGameId(self
         , code
         , game_id
     ) :
-        return CachedGetGameProfileStatisticListByCodeByGameId(
+        return CachedGetGameProfileStatisticListCodeGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , game_id
         )
         
-    def CachedGetGameProfileStatisticListByCodeByGameId(self
+    def CachedGetGameProfileStatisticListCodeGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -11770,7 +12568,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatistic> objs;
 
-        string method_name = "CachedGetGameProfileStatisticListByCodeByGameId";
+        string method_name = "CachedGetGameProfileStatisticListCodeGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11790,7 +12588,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticListByCodeByGameId(
+            objs = GetGameProfileStatisticListCodeGameId(
                 code
                 , game_id
             );
@@ -11800,38 +12598,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticListByProfileIdByGameId(self
+    def GetGameProfileStatisticListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameProfileStatisticListByProfileIdByGameId(
+            return self.act.GetGameProfileStatisticListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetGameProfileStatisticByProfileIdByGameId(self
+    def GetGameProfileStatisticProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameProfileStatisticListByProfileIdByGameId(
+        for item in self.GetGameProfileStatisticListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProfileStatisticListByProfileIdByGameId(self
+    def CachedGetGameProfileStatisticListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetGameProfileStatisticListByProfileIdByGameId(
+        return CachedGetGameProfileStatisticListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetGameProfileStatisticListByProfileIdByGameId(self
+    def CachedGetGameProfileStatisticListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -11841,7 +12639,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatistic> objs;
 
-        string method_name = "CachedGetGameProfileStatisticListByProfileIdByGameId";
+        string method_name = "CachedGetGameProfileStatisticListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11861,7 +12659,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticListByProfileIdByGameId(
+            objs = GetGameProfileStatisticListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -11871,23 +12669,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
         ) :
-            return self.act.GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+            return self.act.GetGameProfileStatisticListProfileIdGameIdTimestamp(
                 profile_id
                 , game_id
                 , timestamp
             )
         
-    def GetGameProfileStatisticByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
-        for item in self.GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+        for item in self.GetGameProfileStatisticListProfileIdGameIdTimestamp(
         profile_id
         , game_id
         , timestamp
@@ -11895,12 +12693,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileStatisticListByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileStatisticListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
-        return CachedGetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+        return CachedGetGameProfileStatisticListProfileIdGameIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
@@ -11908,7 +12706,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameProfileStatisticListByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileStatisticListProfileIdGameIdTimestamp(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -11919,7 +12717,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatistic> objs;
 
-        string method_name = "CachedGetGameProfileStatisticListByProfileIdByGameIdByTimestamp";
+        string method_name = "CachedGetGameProfileStatisticListProfileIdGameIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11943,7 +12741,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+            objs = GetGameProfileStatisticListProfileIdGameIdTimestamp(
                 profile_id
                 , game_id
                 , timestamp
@@ -11954,23 +12752,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticListByCodeByProfileIdByGameId(self
+    def GetGameProfileStatisticListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameProfileStatisticListByCodeByProfileIdByGameId(
+            return self.act.GetGameProfileStatisticListCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
             )
         
-    def GetGameProfileStatisticByCodeByProfileIdByGameId(self
+    def GetGameProfileStatisticCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameProfileStatisticListByCodeByProfileIdByGameId(
+        for item in self.GetGameProfileStatisticListCodeProfileIdGameId(
         code
         , profile_id
         , game_id
@@ -11978,12 +12776,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileStatisticListByCodeByProfileIdByGameId(self
+    def CachedGetGameProfileStatisticListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        return CachedGetGameProfileStatisticListByCodeByProfileIdByGameId(
+        return CachedGetGameProfileStatisticListCodeProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -11991,7 +12789,7 @@ class BaseGamingAPI(object):
             , game_id
         )
         
-    def CachedGetGameProfileStatisticListByCodeByProfileIdByGameId(self
+    def CachedGetGameProfileStatisticListCodeProfileIdGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -12002,7 +12800,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatistic> objs;
 
-        string method_name = "CachedGetGameProfileStatisticListByCodeByProfileIdByGameId";
+        string method_name = "CachedGetGameProfileStatisticListCodeProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12026,7 +12824,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticListByCodeByProfileIdByGameId(
+            objs = GetGameProfileStatisticListCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
@@ -12037,26 +12835,26 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
         ) :
-            return self.act.GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+            return self.act.GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
                 , timestamp
             )
         
-    def GetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        for item in self.GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+        for item in self.GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
@@ -12065,13 +12863,13 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileStatisticListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        return CachedGetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+        return CachedGetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -12080,7 +12878,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileStatisticListCodeProfileIdGameIdTimestamp(self
         , overrideCache
         , cacheHours
         , code
@@ -12092,7 +12890,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatistic> objs;
 
-        string method_name = "CachedGetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp";
+        string method_name = "CachedGetGameProfileStatisticListCodeProfileIdGameIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12120,7 +12918,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+            objs = GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
@@ -12138,105 +12936,105 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticMetaByUuid(self
+    def CountGameStatisticMetaUuid(self
         , uuid
     ) :         
-        return self.act.CountGameStatisticMetaByUuid(
+        return self.act.CountGameStatisticMetaUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticMetaByCode(self
+    def CountGameStatisticMetaCode(self
         , code
     ) :         
-        return self.act.CountGameStatisticMetaByCode(
+        return self.act.CountGameStatisticMetaCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticMetaByCodeByGameId(self
+    def CountGameStatisticMetaCodeGameId(self
         , code
         , game_id
     ) :         
-        return self.act.CountGameStatisticMetaByCodeByGameId(
+        return self.act.CountGameStatisticMetaCodeGameId(
         code
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticMetaByName(self
+    def CountGameStatisticMetaName(self
         , name
     ) :         
-        return self.act.CountGameStatisticMetaByName(
+        return self.act.CountGameStatisticMetaName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameStatisticMetaByGameId(self
+    def CountGameStatisticMetaGameId(self
         , game_id
     ) :         
-        return self.act.CountGameStatisticMetaByGameId(
+        return self.act.CountGameStatisticMetaGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameStatisticMetaListByFilter(self, filter_obj) :
-        return self.act.BrowseGameStatisticMetaListByFilter(filter_obj)
+    def BrowseGameStatisticMetaListFilter(self, filter_obj) :
+        return self.act.BrowseGameStatisticMetaListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticMetaByUuidType(self, set_type, obj) :
-        return self.act.SetGameStatisticMetaByUuid(set_type, obj)
+    def SetGameStatisticMetaUuidType(self, set_type, obj) :
+        return self.act.SetGameStatisticMetaUuid(set_type, obj)
                
-    def SetGameStatisticMetaByUuid(self, obj) :
-        return self.act.SetGameStatisticMetaByUuid('full', obj)
+    def SetGameStatisticMetaUuid(self, obj) :
+        return self.act.SetGameStatisticMetaUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameStatisticMetaByCodeByGameIdType(self, set_type, obj) :
-        return self.act.SetGameStatisticMetaByCodeByGameId(set_type, obj)
+    def SetGameStatisticMetaCodeGameIdType(self, set_type, obj) :
+        return self.act.SetGameStatisticMetaCodeGameId(set_type, obj)
                
-    def SetGameStatisticMetaByCodeByGameId(self, obj) :
-        return self.act.SetGameStatisticMetaByCodeByGameId('full', obj)
+    def SetGameStatisticMetaCodeGameId(self, obj) :
+        return self.act.SetGameStatisticMetaCodeGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticMetaByUuid(self
+    def DelGameStatisticMetaUuid(self
         , uuid
     ) :          
-        return self.act.DelGameStatisticMetaByUuid(
+        return self.act.DelGameStatisticMetaUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameStatisticMetaByCodeByGameId(self
+    def DelGameStatisticMetaCodeGameId(self
         , code
         , game_id
     ) :          
-        return self.act.DelGameStatisticMetaByCodeByGameId(
+        return self.act.DelGameStatisticMetaCodeGameId(
         code
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticMetaListByUuid(self
+    def GetGameStatisticMetaListUuid(self
         , uuid
         ) :
-            return self.act.GetGameStatisticMetaListByUuid(
+            return self.act.GetGameStatisticMetaListUuid(
                 uuid
             )
         
-    def GetGameStatisticMetaByUuid(self
+    def GetGameStatisticMetaUuid(self
         , uuid
     ) :
-        for item in self.GetGameStatisticMetaListByUuid(
+        for item in self.GetGameStatisticMetaListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticMetaListByUuid(self
+    def CachedGetGameStatisticMetaListUuid(self
         , uuid
     ) :
-        return CachedGetGameStatisticMetaListByUuid(
+        return CachedGetGameStatisticMetaListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameStatisticMetaListByUuid(self
+    def CachedGetGameStatisticMetaListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -12245,7 +13043,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticMeta> objs;
 
-        string method_name = "CachedGetGameStatisticMetaListByUuid";
+        string method_name = "CachedGetGameStatisticMetaListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12261,7 +13059,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticMetaListByUuid(
+            objs = GetGameStatisticMetaListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12270,32 +13068,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticMetaListByCode(self
+    def GetGameStatisticMetaListCode(self
         , code
         ) :
-            return self.act.GetGameStatisticMetaListByCode(
+            return self.act.GetGameStatisticMetaListCode(
                 code
             )
         
-    def GetGameStatisticMetaByCode(self
+    def GetGameStatisticMetaCode(self
         , code
     ) :
-        for item in self.GetGameStatisticMetaListByCode(
+        for item in self.GetGameStatisticMetaListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticMetaListByCode(self
+    def CachedGetGameStatisticMetaListCode(self
         , code
     ) :
-        return CachedGetGameStatisticMetaListByCode(
+        return CachedGetGameStatisticMetaListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameStatisticMetaListByCode(self
+    def CachedGetGameStatisticMetaListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -12304,7 +13102,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticMeta> objs;
 
-        string method_name = "CachedGetGameStatisticMetaListByCode";
+        string method_name = "CachedGetGameStatisticMetaListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12320,7 +13118,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticMetaListByCode(
+            objs = GetGameStatisticMetaListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12329,32 +13127,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticMetaListByName(self
+    def GetGameStatisticMetaListName(self
         , name
         ) :
-            return self.act.GetGameStatisticMetaListByName(
+            return self.act.GetGameStatisticMetaListName(
                 name
             )
         
-    def GetGameStatisticMetaByName(self
+    def GetGameStatisticMetaName(self
         , name
     ) :
-        for item in self.GetGameStatisticMetaListByName(
+        for item in self.GetGameStatisticMetaListName(
         name
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticMetaListByName(self
+    def CachedGetGameStatisticMetaListName(self
         , name
     ) :
-        return CachedGetGameStatisticMetaListByName(
+        return CachedGetGameStatisticMetaListName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetGameStatisticMetaListByName(self
+    def CachedGetGameStatisticMetaListName(self
         , overrideCache
         , cacheHours
         , name
@@ -12363,7 +13161,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticMeta> objs;
 
-        string method_name = "CachedGetGameStatisticMetaListByName";
+        string method_name = "CachedGetGameStatisticMetaListName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12379,7 +13177,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticMetaListByName(
+            objs = GetGameStatisticMetaListName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12388,32 +13186,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticMetaListByGameId(self
+    def GetGameStatisticMetaListGameId(self
         , game_id
         ) :
-            return self.act.GetGameStatisticMetaListByGameId(
+            return self.act.GetGameStatisticMetaListGameId(
                 game_id
             )
         
-    def GetGameStatisticMetaByGameId(self
+    def GetGameStatisticMetaGameId(self
         , game_id
     ) :
-        for item in self.GetGameStatisticMetaListByGameId(
+        for item in self.GetGameStatisticMetaListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticMetaListByGameId(self
+    def CachedGetGameStatisticMetaListGameId(self
         , game_id
     ) :
-        return CachedGetGameStatisticMetaListByGameId(
+        return CachedGetGameStatisticMetaListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameStatisticMetaListByGameId(self
+    def CachedGetGameStatisticMetaListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -12422,7 +13220,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticMeta> objs;
 
-        string method_name = "CachedGetGameStatisticMetaListByGameId";
+        string method_name = "CachedGetGameStatisticMetaListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12438,7 +13236,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticMetaListByGameId(
+            objs = GetGameStatisticMetaListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12447,38 +13245,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameStatisticMetaListByCodeByGameId(self
+    def GetGameStatisticMetaListCodeGameId(self
         , code
         , game_id
         ) :
-            return self.act.GetGameStatisticMetaListByCodeByGameId(
+            return self.act.GetGameStatisticMetaListCodeGameId(
                 code
                 , game_id
             )
         
-    def GetGameStatisticMetaByCodeByGameId(self
+    def GetGameStatisticMetaCodeGameId(self
         , code
         , game_id
     ) :
-        for item in self.GetGameStatisticMetaListByCodeByGameId(
+        for item in self.GetGameStatisticMetaListCodeGameId(
         code
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameStatisticMetaListByCodeByGameId(self
+    def CachedGetGameStatisticMetaListCodeGameId(self
         , code
         , game_id
     ) :
-        return CachedGetGameStatisticMetaListByCodeByGameId(
+        return CachedGetGameStatisticMetaListCodeGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , game_id
         )
         
-    def CachedGetGameStatisticMetaListByCodeByGameId(self
+    def CachedGetGameStatisticMetaListCodeGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -12488,7 +13286,7 @@ class BaseGamingAPI(object):
         """
         List<GameStatisticMeta> objs;
 
-        string method_name = "CachedGetGameStatisticMetaListByCodeByGameId";
+        string method_name = "CachedGetGameStatisticMetaListCodeGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12508,7 +13306,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameStatisticMetaListByCodeByGameId(
+            objs = GetGameStatisticMetaListCodeGameId(
                 code
                 , game_id
             );
@@ -12524,33 +13322,33 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticTimestampByUuid(self
+    def CountGameProfileStatisticTimestampUuid(self
         , uuid
     ) :         
-        return self.act.CountGameProfileStatisticTimestampByUuid(
+        return self.act.CountGameProfileStatisticTimestampUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+    def CountGameProfileStatisticTimestampCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+        return self.act.CountGameProfileStatisticTimestampCodeProfileIdGameId(
         code
         , profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+    def CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.act.CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+        return self.act.CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
@@ -12558,84 +13356,84 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameProfileStatisticTimestampListByFilter(self, filter_obj) :
-        return self.act.BrowseGameProfileStatisticTimestampListByFilter(filter_obj)
+    def BrowseGameProfileStatisticTimestampListFilter(self, filter_obj) :
+        return self.act.BrowseGameProfileStatisticTimestampListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticTimestampByUuidType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticTimestampByUuid(set_type, obj)
+    def SetGameProfileStatisticTimestampUuidType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticTimestampUuid(set_type, obj)
                
-    def SetGameProfileStatisticTimestampByUuid(self, obj) :
-        return self.act.SetGameProfileStatisticTimestampByUuid('full', obj)
+    def SetGameProfileStatisticTimestampUuid(self, obj) :
+        return self.act.SetGameProfileStatisticTimestampUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(set_type, obj)
+    def SetGameProfileStatisticTimestampCodeProfileIdGameIdType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticTimestampCodeProfileIdGameId(set_type, obj)
                
-    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(self, obj) :
-        return self.act.SetGameProfileStatisticTimestampByCodeByProfileIdByGameId('full', obj)
+    def SetGameProfileStatisticTimestampCodeProfileIdGameId(self, obj) :
+        return self.act.SetGameProfileStatisticTimestampCodeProfileIdGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestampType(self, set_type, obj) :
-        return self.act.SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(set_type, obj)
                
-    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self, obj) :
-        return self.act.SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp('full', obj)
+    def SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticTimestampByUuid(self
+    def DelGameProfileStatisticTimestampUuid(self
         , uuid
     ) :          
-        return self.act.DelGameProfileStatisticTimestampByUuid(
+        return self.act.DelGameProfileStatisticTimestampUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+    def DelGameProfileStatisticTimestampCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :          
-        return self.act.DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+        return self.act.DelGameProfileStatisticTimestampCodeProfileIdGameId(
         code
         , profile_id
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+    def DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :          
-        return self.act.DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+        return self.act.DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
         , timestamp
         )
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticTimestampListByUuid(self
+    def GetGameProfileStatisticTimestampListUuid(self
         , uuid
         ) :
-            return self.act.GetGameProfileStatisticTimestampListByUuid(
+            return self.act.GetGameProfileStatisticTimestampListUuid(
                 uuid
             )
         
-    def GetGameProfileStatisticTimestampByUuid(self
+    def GetGameProfileStatisticTimestampUuid(self
         , uuid
     ) :
-        for item in self.GetGameProfileStatisticTimestampListByUuid(
+        for item in self.GetGameProfileStatisticTimestampListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameProfileStatisticTimestampListByUuid(self
+    def CachedGetGameProfileStatisticTimestampListUuid(self
         , uuid
     ) :
-        return CachedGetGameProfileStatisticTimestampListByUuid(
+        return CachedGetGameProfileStatisticTimestampListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameProfileStatisticTimestampListByUuid(self
+    def CachedGetGameProfileStatisticTimestampListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -12644,7 +13442,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatisticTimestamp> objs;
 
-        string method_name = "CachedGetGameProfileStatisticTimestampListByUuid";
+        string method_name = "CachedGetGameProfileStatisticTimestampListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12660,7 +13458,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticTimestampListByUuid(
+            objs = GetGameProfileStatisticTimestampListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12669,23 +13467,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(self
+    def GetGameProfileStatisticTimestampListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+            return self.act.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
             )
         
-    def GetGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+    def GetGameProfileStatisticTimestampCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+        for item in self.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
         code
         , profile_id
         , game_id
@@ -12693,12 +13491,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(self
+    def CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        return CachedGetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+        return CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -12706,7 +13504,7 @@ class BaseGamingAPI(object):
             , game_id
         )
         
-    def CachedGetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(self
+    def CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -12717,7 +13515,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatisticTimestamp> objs;
 
-        string method_name = "CachedGetGameProfileStatisticTimestampListByCodeByProfileIdByGameId";
+        string method_name = "CachedGetGameProfileStatisticTimestampListCodeProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12741,7 +13539,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+            objs = GetGameProfileStatisticTimestampListCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
@@ -12752,26 +13550,26 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
         ) :
-            return self.act.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+            return self.act.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
                 , timestamp
             )
         
-    def GetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        for item in self.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+        for item in self.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
@@ -12780,13 +13578,13 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        return CachedGetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+        return CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -12795,7 +13593,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(self
         , overrideCache
         , cacheHours
         , code
@@ -12807,7 +13605,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileStatisticTimestamp> objs;
 
-        string method_name = "CachedGetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp";
+        string method_name = "CachedGetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12835,7 +13633,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+            objs = GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
@@ -12853,144 +13651,144 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameKeyMetaByUuid(self
+    def CountGameKeyMetaUuid(self
         , uuid
     ) :         
-        return self.act.CountGameKeyMetaByUuid(
+        return self.act.CountGameKeyMetaUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameKeyMetaByCode(self
+    def CountGameKeyMetaCode(self
         , code
     ) :         
-        return self.act.CountGameKeyMetaByCode(
+        return self.act.CountGameKeyMetaCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameKeyMetaByCodeByGameId(self
+    def CountGameKeyMetaCodeGameId(self
         , code
         , game_id
     ) :         
-        return self.act.CountGameKeyMetaByCodeByGameId(
+        return self.act.CountGameKeyMetaCodeGameId(
         code
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameKeyMetaByName(self
+    def CountGameKeyMetaName(self
         , name
     ) :         
-        return self.act.CountGameKeyMetaByName(
+        return self.act.CountGameKeyMetaName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameKeyMetaByKey(self
+    def CountGameKeyMetaKey(self
         , key
     ) :         
-        return self.act.CountGameKeyMetaByKey(
+        return self.act.CountGameKeyMetaKey(
         key
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameKeyMetaByGameId(self
+    def CountGameKeyMetaGameId(self
         , game_id
     ) :         
-        return self.act.CountGameKeyMetaByGameId(
+        return self.act.CountGameKeyMetaGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameKeyMetaByKeyByGameId(self
+    def CountGameKeyMetaKeyGameId(self
         , key
         , game_id
     ) :         
-        return self.act.CountGameKeyMetaByKeyByGameId(
+        return self.act.CountGameKeyMetaKeyGameId(
         key
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameKeyMetaListByFilter(self, filter_obj) :
-        return self.act.BrowseGameKeyMetaListByFilter(filter_obj)
+    def BrowseGameKeyMetaListFilter(self, filter_obj) :
+        return self.act.BrowseGameKeyMetaListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameKeyMetaByUuidType(self, set_type, obj) :
-        return self.act.SetGameKeyMetaByUuid(set_type, obj)
+    def SetGameKeyMetaUuidType(self, set_type, obj) :
+        return self.act.SetGameKeyMetaUuid(set_type, obj)
                
-    def SetGameKeyMetaByUuid(self, obj) :
-        return self.act.SetGameKeyMetaByUuid('full', obj)
+    def SetGameKeyMetaUuid(self, obj) :
+        return self.act.SetGameKeyMetaUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameKeyMetaByCodeByGameIdType(self, set_type, obj) :
-        return self.act.SetGameKeyMetaByCodeByGameId(set_type, obj)
+    def SetGameKeyMetaCodeGameIdType(self, set_type, obj) :
+        return self.act.SetGameKeyMetaCodeGameId(set_type, obj)
                
-    def SetGameKeyMetaByCodeByGameId(self, obj) :
-        return self.act.SetGameKeyMetaByCodeByGameId('full', obj)
+    def SetGameKeyMetaCodeGameId(self, obj) :
+        return self.act.SetGameKeyMetaCodeGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameKeyMetaByKeyByGameIdType(self, set_type, obj) :
-        return self.act.SetGameKeyMetaByKeyByGameId(set_type, obj)
+    def SetGameKeyMetaKeyGameIdType(self, set_type, obj) :
+        return self.act.SetGameKeyMetaKeyGameId(set_type, obj)
                
-    def SetGameKeyMetaByKeyByGameId(self, obj) :
-        return self.act.SetGameKeyMetaByKeyByGameId('full', obj)
+    def SetGameKeyMetaKeyGameId(self, obj) :
+        return self.act.SetGameKeyMetaKeyGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameKeyMetaByKeyByGameIdByLevelType(self, set_type, obj) :
-        return self.act.SetGameKeyMetaByKeyByGameIdByLevel(set_type, obj)
+    def SetGameKeyMetaKeyGameIdLevelType(self, set_type, obj) :
+        return self.act.SetGameKeyMetaKeyGameIdLevel(set_type, obj)
                
-    def SetGameKeyMetaByKeyByGameIdByLevel(self, obj) :
-        return self.act.SetGameKeyMetaByKeyByGameIdByLevel('full', obj)
+    def SetGameKeyMetaKeyGameIdLevel(self, obj) :
+        return self.act.SetGameKeyMetaKeyGameIdLevel('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameKeyMetaByUuid(self
+    def DelGameKeyMetaUuid(self
         , uuid
     ) :          
-        return self.act.DelGameKeyMetaByUuid(
+        return self.act.DelGameKeyMetaUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameKeyMetaByCodeByGameId(self
+    def DelGameKeyMetaCodeGameId(self
         , code
         , game_id
     ) :          
-        return self.act.DelGameKeyMetaByCodeByGameId(
+        return self.act.DelGameKeyMetaCodeGameId(
         code
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def DelGameKeyMetaByKeyByGameId(self
+    def DelGameKeyMetaKeyGameId(self
         , key
         , game_id
     ) :          
-        return self.act.DelGameKeyMetaByKeyByGameId(
+        return self.act.DelGameKeyMetaKeyGameId(
         key
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def GetGameKeyMetaListByUuid(self
+    def GetGameKeyMetaListUuid(self
         , uuid
         ) :
-            return self.act.GetGameKeyMetaListByUuid(
+            return self.act.GetGameKeyMetaListUuid(
                 uuid
             )
         
-    def GetGameKeyMetaByUuid(self
+    def GetGameKeyMetaUuid(self
         , uuid
     ) :
-        for item in self.GetGameKeyMetaListByUuid(
+        for item in self.GetGameKeyMetaListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameKeyMetaListByUuid(self
+    def CachedGetGameKeyMetaListUuid(self
         , uuid
     ) :
-        return CachedGetGameKeyMetaListByUuid(
+        return CachedGetGameKeyMetaListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameKeyMetaListByUuid(self
+    def CachedGetGameKeyMetaListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -12999,7 +13797,7 @@ class BaseGamingAPI(object):
         """
         List<GameKeyMeta> objs;
 
-        string method_name = "CachedGetGameKeyMetaListByUuid";
+        string method_name = "CachedGetGameKeyMetaListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13015,7 +13813,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameKeyMetaListByUuid(
+            objs = GetGameKeyMetaListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13024,32 +13822,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameKeyMetaListByCode(self
+    def GetGameKeyMetaListCode(self
         , code
         ) :
-            return self.act.GetGameKeyMetaListByCode(
+            return self.act.GetGameKeyMetaListCode(
                 code
             )
         
-    def GetGameKeyMetaByCode(self
+    def GetGameKeyMetaCode(self
         , code
     ) :
-        for item in self.GetGameKeyMetaListByCode(
+        for item in self.GetGameKeyMetaListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameKeyMetaListByCode(self
+    def CachedGetGameKeyMetaListCode(self
         , code
     ) :
-        return CachedGetGameKeyMetaListByCode(
+        return CachedGetGameKeyMetaListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameKeyMetaListByCode(self
+    def CachedGetGameKeyMetaListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -13058,7 +13856,7 @@ class BaseGamingAPI(object):
         """
         List<GameKeyMeta> objs;
 
-        string method_name = "CachedGetGameKeyMetaListByCode";
+        string method_name = "CachedGetGameKeyMetaListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13074,7 +13872,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameKeyMetaListByCode(
+            objs = GetGameKeyMetaListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13083,38 +13881,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameKeyMetaListByCodeByGameId(self
+    def GetGameKeyMetaListCodeGameId(self
         , code
         , game_id
         ) :
-            return self.act.GetGameKeyMetaListByCodeByGameId(
+            return self.act.GetGameKeyMetaListCodeGameId(
                 code
                 , game_id
             )
         
-    def GetGameKeyMetaByCodeByGameId(self
+    def GetGameKeyMetaCodeGameId(self
         , code
         , game_id
     ) :
-        for item in self.GetGameKeyMetaListByCodeByGameId(
+        for item in self.GetGameKeyMetaListCodeGameId(
         code
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameKeyMetaListByCodeByGameId(self
+    def CachedGetGameKeyMetaListCodeGameId(self
         , code
         , game_id
     ) :
-        return CachedGetGameKeyMetaListByCodeByGameId(
+        return CachedGetGameKeyMetaListCodeGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , game_id
         )
         
-    def CachedGetGameKeyMetaListByCodeByGameId(self
+    def CachedGetGameKeyMetaListCodeGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -13124,7 +13922,7 @@ class BaseGamingAPI(object):
         """
         List<GameKeyMeta> objs;
 
-        string method_name = "CachedGetGameKeyMetaListByCodeByGameId";
+        string method_name = "CachedGetGameKeyMetaListCodeGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13144,7 +13942,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameKeyMetaListByCodeByGameId(
+            objs = GetGameKeyMetaListCodeGameId(
                 code
                 , game_id
             );
@@ -13154,32 +13952,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameKeyMetaListByName(self
+    def GetGameKeyMetaListName(self
         , name
         ) :
-            return self.act.GetGameKeyMetaListByName(
+            return self.act.GetGameKeyMetaListName(
                 name
             )
         
-    def GetGameKeyMetaByName(self
+    def GetGameKeyMetaName(self
         , name
     ) :
-        for item in self.GetGameKeyMetaListByName(
+        for item in self.GetGameKeyMetaListName(
         name
         ) :
             return item
         return None
     
-    def CachedGetGameKeyMetaListByName(self
+    def CachedGetGameKeyMetaListName(self
         , name
     ) :
-        return CachedGetGameKeyMetaListByName(
+        return CachedGetGameKeyMetaListName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetGameKeyMetaListByName(self
+    def CachedGetGameKeyMetaListName(self
         , overrideCache
         , cacheHours
         , name
@@ -13188,7 +13986,7 @@ class BaseGamingAPI(object):
         """
         List<GameKeyMeta> objs;
 
-        string method_name = "CachedGetGameKeyMetaListByName";
+        string method_name = "CachedGetGameKeyMetaListName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13204,7 +14002,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameKeyMetaListByName(
+            objs = GetGameKeyMetaListName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13213,32 +14011,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameKeyMetaListByKey(self
+    def GetGameKeyMetaListKey(self
         , key
         ) :
-            return self.act.GetGameKeyMetaListByKey(
+            return self.act.GetGameKeyMetaListKey(
                 key
             )
         
-    def GetGameKeyMetaByKey(self
+    def GetGameKeyMetaKey(self
         , key
     ) :
-        for item in self.GetGameKeyMetaListByKey(
+        for item in self.GetGameKeyMetaListKey(
         key
         ) :
             return item
         return None
     
-    def CachedGetGameKeyMetaListByKey(self
+    def CachedGetGameKeyMetaListKey(self
         , key
     ) :
-        return CachedGetGameKeyMetaListByKey(
+        return CachedGetGameKeyMetaListKey(
             false
             , self.CACHE_DEFAULT_HOURS
             , key
         )
         
-    def CachedGetGameKeyMetaListByKey(self
+    def CachedGetGameKeyMetaListKey(self
         , overrideCache
         , cacheHours
         , key
@@ -13247,7 +14045,7 @@ class BaseGamingAPI(object):
         """
         List<GameKeyMeta> objs;
 
-        string method_name = "CachedGetGameKeyMetaListByKey";
+        string method_name = "CachedGetGameKeyMetaListKey";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13263,7 +14061,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameKeyMetaListByKey(
+            objs = GetGameKeyMetaListKey(
                 key
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13272,32 +14070,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameKeyMetaListByGameId(self
+    def GetGameKeyMetaListGameId(self
         , game_id
         ) :
-            return self.act.GetGameKeyMetaListByGameId(
+            return self.act.GetGameKeyMetaListGameId(
                 game_id
             )
         
-    def GetGameKeyMetaByGameId(self
+    def GetGameKeyMetaGameId(self
         , game_id
     ) :
-        for item in self.GetGameKeyMetaListByGameId(
+        for item in self.GetGameKeyMetaListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameKeyMetaListByGameId(self
+    def CachedGetGameKeyMetaListGameId(self
         , game_id
     ) :
-        return CachedGetGameKeyMetaListByGameId(
+        return CachedGetGameKeyMetaListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameKeyMetaListByGameId(self
+    def CachedGetGameKeyMetaListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -13306,7 +14104,7 @@ class BaseGamingAPI(object):
         """
         List<GameKeyMeta> objs;
 
-        string method_name = "CachedGetGameKeyMetaListByGameId";
+        string method_name = "CachedGetGameKeyMetaListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13322,7 +14120,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameKeyMetaListByGameId(
+            objs = GetGameKeyMetaListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13331,38 +14129,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameKeyMetaListByKeyByGameId(self
+    def GetGameKeyMetaListKeyGameId(self
         , key
         , game_id
         ) :
-            return self.act.GetGameKeyMetaListByKeyByGameId(
+            return self.act.GetGameKeyMetaListKeyGameId(
                 key
                 , game_id
             )
         
-    def GetGameKeyMetaByKeyByGameId(self
+    def GetGameKeyMetaKeyGameId(self
         , key
         , game_id
     ) :
-        for item in self.GetGameKeyMetaListByKeyByGameId(
+        for item in self.GetGameKeyMetaListKeyGameId(
         key
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameKeyMetaListByKeyByGameId(self
+    def CachedGetGameKeyMetaListKeyGameId(self
         , key
         , game_id
     ) :
-        return CachedGetGameKeyMetaListByKeyByGameId(
+        return CachedGetGameKeyMetaListKeyGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , key
             , game_id
         )
         
-    def CachedGetGameKeyMetaListByKeyByGameId(self
+    def CachedGetGameKeyMetaListKeyGameId(self
         , overrideCache
         , cacheHours
         , key
@@ -13372,7 +14170,7 @@ class BaseGamingAPI(object):
         """
         List<GameKeyMeta> objs;
 
-        string method_name = "CachedGetGameKeyMetaListByKeyByGameId";
+        string method_name = "CachedGetGameKeyMetaListKeyGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13392,7 +14190,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameKeyMetaListByKeyByGameId(
+            objs = GetGameKeyMetaListKeyGameId(
                 key
                 , game_id
             );
@@ -13402,38 +14200,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameKeyMetaListByCodeByLevel(self
+    def GetGameKeyMetaListCodeLevel(self
         , code
         , level
         ) :
-            return self.act.GetGameKeyMetaListByCodeByLevel(
+            return self.act.GetGameKeyMetaListCodeLevel(
                 code
                 , level
             )
         
-    def GetGameKeyMetaByCodeByLevel(self
+    def GetGameKeyMetaCodeLevel(self
         , code
         , level
     ) :
-        for item in self.GetGameKeyMetaListByCodeByLevel(
+        for item in self.GetGameKeyMetaListCodeLevel(
         code
         , level
         ) :
             return item
         return None
     
-    def CachedGetGameKeyMetaListByCodeByLevel(self
+    def CachedGetGameKeyMetaListCodeLevel(self
         , code
         , level
     ) :
-        return CachedGetGameKeyMetaListByCodeByLevel(
+        return CachedGetGameKeyMetaListCodeLevel(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , level
         )
         
-    def CachedGetGameKeyMetaListByCodeByLevel(self
+    def CachedGetGameKeyMetaListCodeLevel(self
         , overrideCache
         , cacheHours
         , code
@@ -13443,7 +14241,7 @@ class BaseGamingAPI(object):
         """
         List<GameKeyMeta> objs;
 
-        string method_name = "CachedGetGameKeyMetaListByCodeByLevel";
+        string method_name = "CachedGetGameKeyMetaListCodeLevel";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13463,7 +14261,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameKeyMetaListByCodeByLevel(
+            objs = GetGameKeyMetaListCodeLevel(
                 code
                 , level
             );
@@ -13479,105 +14277,105 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLevelByUuid(self
+    def CountGameLevelUuid(self
         , uuid
     ) :         
-        return self.act.CountGameLevelByUuid(
+        return self.act.CountGameLevelUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLevelByCode(self
+    def CountGameLevelCode(self
         , code
     ) :         
-        return self.act.CountGameLevelByCode(
+        return self.act.CountGameLevelCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLevelByCodeByGameId(self
+    def CountGameLevelCodeGameId(self
         , code
         , game_id
     ) :         
-        return self.act.CountGameLevelByCodeByGameId(
+        return self.act.CountGameLevelCodeGameId(
         code
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLevelByName(self
+    def CountGameLevelName(self
         , name
     ) :         
-        return self.act.CountGameLevelByName(
+        return self.act.CountGameLevelName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameLevelByGameId(self
+    def CountGameLevelGameId(self
         , game_id
     ) :         
-        return self.act.CountGameLevelByGameId(
+        return self.act.CountGameLevelGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameLevelListByFilter(self, filter_obj) :
-        return self.act.BrowseGameLevelListByFilter(filter_obj)
+    def BrowseGameLevelListFilter(self, filter_obj) :
+        return self.act.BrowseGameLevelListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLevelByUuidType(self, set_type, obj) :
-        return self.act.SetGameLevelByUuid(set_type, obj)
+    def SetGameLevelUuidType(self, set_type, obj) :
+        return self.act.SetGameLevelUuid(set_type, obj)
                
-    def SetGameLevelByUuid(self, obj) :
-        return self.act.SetGameLevelByUuid('full', obj)
+    def SetGameLevelUuid(self, obj) :
+        return self.act.SetGameLevelUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameLevelByCodeByGameIdType(self, set_type, obj) :
-        return self.act.SetGameLevelByCodeByGameId(set_type, obj)
+    def SetGameLevelCodeGameIdType(self, set_type, obj) :
+        return self.act.SetGameLevelCodeGameId(set_type, obj)
                
-    def SetGameLevelByCodeByGameId(self, obj) :
-        return self.act.SetGameLevelByCodeByGameId('full', obj)
+    def SetGameLevelCodeGameId(self, obj) :
+        return self.act.SetGameLevelCodeGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameLevelByUuid(self
+    def DelGameLevelUuid(self
         , uuid
     ) :          
-        return self.act.DelGameLevelByUuid(
+        return self.act.DelGameLevelUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameLevelByCodeByGameId(self
+    def DelGameLevelCodeGameId(self
         , code
         , game_id
     ) :          
-        return self.act.DelGameLevelByCodeByGameId(
+        return self.act.DelGameLevelCodeGameId(
         code
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def GetGameLevelListByUuid(self
+    def GetGameLevelListUuid(self
         , uuid
         ) :
-            return self.act.GetGameLevelListByUuid(
+            return self.act.GetGameLevelListUuid(
                 uuid
             )
         
-    def GetGameLevelByUuid(self
+    def GetGameLevelUuid(self
         , uuid
     ) :
-        for item in self.GetGameLevelListByUuid(
+        for item in self.GetGameLevelListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameLevelListByUuid(self
+    def CachedGetGameLevelListUuid(self
         , uuid
     ) :
-        return CachedGetGameLevelListByUuid(
+        return CachedGetGameLevelListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameLevelListByUuid(self
+    def CachedGetGameLevelListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -13586,7 +14384,7 @@ class BaseGamingAPI(object):
         """
         List<GameLevel> objs;
 
-        string method_name = "CachedGetGameLevelListByUuid";
+        string method_name = "CachedGetGameLevelListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13602,7 +14400,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLevelListByUuid(
+            objs = GetGameLevelListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13611,32 +14409,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLevelListByCode(self
+    def GetGameLevelListCode(self
         , code
         ) :
-            return self.act.GetGameLevelListByCode(
+            return self.act.GetGameLevelListCode(
                 code
             )
         
-    def GetGameLevelByCode(self
+    def GetGameLevelCode(self
         , code
     ) :
-        for item in self.GetGameLevelListByCode(
+        for item in self.GetGameLevelListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameLevelListByCode(self
+    def CachedGetGameLevelListCode(self
         , code
     ) :
-        return CachedGetGameLevelListByCode(
+        return CachedGetGameLevelListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameLevelListByCode(self
+    def CachedGetGameLevelListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -13645,7 +14443,7 @@ class BaseGamingAPI(object):
         """
         List<GameLevel> objs;
 
-        string method_name = "CachedGetGameLevelListByCode";
+        string method_name = "CachedGetGameLevelListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13661,7 +14459,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLevelListByCode(
+            objs = GetGameLevelListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13670,38 +14468,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLevelListByCodeByGameId(self
+    def GetGameLevelListCodeGameId(self
         , code
         , game_id
         ) :
-            return self.act.GetGameLevelListByCodeByGameId(
+            return self.act.GetGameLevelListCodeGameId(
                 code
                 , game_id
             )
         
-    def GetGameLevelByCodeByGameId(self
+    def GetGameLevelCodeGameId(self
         , code
         , game_id
     ) :
-        for item in self.GetGameLevelListByCodeByGameId(
+        for item in self.GetGameLevelListCodeGameId(
         code
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameLevelListByCodeByGameId(self
+    def CachedGetGameLevelListCodeGameId(self
         , code
         , game_id
     ) :
-        return CachedGetGameLevelListByCodeByGameId(
+        return CachedGetGameLevelListCodeGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , game_id
         )
         
-    def CachedGetGameLevelListByCodeByGameId(self
+    def CachedGetGameLevelListCodeGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -13711,7 +14509,7 @@ class BaseGamingAPI(object):
         """
         List<GameLevel> objs;
 
-        string method_name = "CachedGetGameLevelListByCodeByGameId";
+        string method_name = "CachedGetGameLevelListCodeGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13731,7 +14529,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLevelListByCodeByGameId(
+            objs = GetGameLevelListCodeGameId(
                 code
                 , game_id
             );
@@ -13741,32 +14539,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLevelListByName(self
+    def GetGameLevelListName(self
         , name
         ) :
-            return self.act.GetGameLevelListByName(
+            return self.act.GetGameLevelListName(
                 name
             )
         
-    def GetGameLevelByName(self
+    def GetGameLevelName(self
         , name
     ) :
-        for item in self.GetGameLevelListByName(
+        for item in self.GetGameLevelListName(
         name
         ) :
             return item
         return None
     
-    def CachedGetGameLevelListByName(self
+    def CachedGetGameLevelListName(self
         , name
     ) :
-        return CachedGetGameLevelListByName(
+        return CachedGetGameLevelListName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetGameLevelListByName(self
+    def CachedGetGameLevelListName(self
         , overrideCache
         , cacheHours
         , name
@@ -13775,7 +14573,7 @@ class BaseGamingAPI(object):
         """
         List<GameLevel> objs;
 
-        string method_name = "CachedGetGameLevelListByName";
+        string method_name = "CachedGetGameLevelListName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13791,7 +14589,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLevelListByName(
+            objs = GetGameLevelListName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13800,32 +14598,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameLevelListByGameId(self
+    def GetGameLevelListGameId(self
         , game_id
         ) :
-            return self.act.GetGameLevelListByGameId(
+            return self.act.GetGameLevelListGameId(
                 game_id
             )
         
-    def GetGameLevelByGameId(self
+    def GetGameLevelGameId(self
         , game_id
     ) :
-        for item in self.GetGameLevelListByGameId(
+        for item in self.GetGameLevelListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameLevelListByGameId(self
+    def CachedGetGameLevelListGameId(self
         , game_id
     ) :
-        return CachedGetGameLevelListByGameId(
+        return CachedGetGameLevelListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameLevelListByGameId(self
+    def CachedGetGameLevelListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -13834,7 +14632,7 @@ class BaseGamingAPI(object):
         """
         List<GameLevel> objs;
 
-        string method_name = "CachedGetGameLevelListByGameId";
+        string method_name = "CachedGetGameLevelListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -13850,7 +14648,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameLevelListByGameId(
+            objs = GetGameLevelListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13865,51 +14663,51 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileAchievementByUuid(self
+    def CountGameProfileAchievementUuid(self
         , uuid
     ) :         
-        return self.act.CountGameProfileAchievementByUuid(
+        return self.act.CountGameProfileAchievementUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileAchievementByProfileIdByCode(self
+    def CountGameProfileAchievementProfileIdCode(self
         , profile_id
         , code
     ) :         
-        return self.act.CountGameProfileAchievementByProfileIdByCode(
+        return self.act.CountGameProfileAchievementProfileIdCode(
         profile_id
         , code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileAchievementByUsername(self
+    def CountGameProfileAchievementUsername(self
         , username
     ) :         
-        return self.act.CountGameProfileAchievementByUsername(
+        return self.act.CountGameProfileAchievementUsername(
         username
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileAchievementByCodeByProfileIdByGameId(self
+    def CountGameProfileAchievementCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :         
-        return self.act.CountGameProfileAchievementByCodeByProfileIdByGameId(
+        return self.act.CountGameProfileAchievementCodeProfileIdGameId(
         code
         , profile_id
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self
+    def CountGameProfileAchievementCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.act.CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+        return self.act.CountGameProfileAchievementCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
@@ -13917,90 +14715,90 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameProfileAchievementListByFilter(self, filter_obj) :
-        return self.act.BrowseGameProfileAchievementListByFilter(filter_obj)
+    def BrowseGameProfileAchievementListFilter(self, filter_obj) :
+        return self.act.BrowseGameProfileAchievementListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByUuidType(self, set_type, obj) :
-        return self.act.SetGameProfileAchievementByUuid(set_type, obj)
+    def SetGameProfileAchievementUuidType(self, set_type, obj) :
+        return self.act.SetGameProfileAchievementUuid(set_type, obj)
                
-    def SetGameProfileAchievementByUuid(self, obj) :
-        return self.act.SetGameProfileAchievementByUuid('full', obj)
+    def SetGameProfileAchievementUuid(self, obj) :
+        return self.act.SetGameProfileAchievementUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByUuidByCodeType(self, set_type, obj) :
-        return self.act.SetGameProfileAchievementByUuidByCode(set_type, obj)
+    def SetGameProfileAchievementUuidCodeType(self, set_type, obj) :
+        return self.act.SetGameProfileAchievementUuidCode(set_type, obj)
                
-    def SetGameProfileAchievementByUuidByCode(self, obj) :
-        return self.act.SetGameProfileAchievementByUuidByCode('full', obj)
+    def SetGameProfileAchievementUuidCode(self, obj) :
+        return self.act.SetGameProfileAchievementUuidCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByProfileIdByCodeType(self, set_type, obj) :
-        return self.act.SetGameProfileAchievementByProfileIdByCode(set_type, obj)
+    def SetGameProfileAchievementProfileIdCodeType(self, set_type, obj) :
+        return self.act.SetGameProfileAchievementProfileIdCode(set_type, obj)
                
-    def SetGameProfileAchievementByProfileIdByCode(self, obj) :
-        return self.act.SetGameProfileAchievementByProfileIdByCode('full', obj)
+    def SetGameProfileAchievementProfileIdCode(self, obj) :
+        return self.act.SetGameProfileAchievementProfileIdCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByCodeByProfileIdByGameIdType(self, set_type, obj) :
-        return self.act.SetGameProfileAchievementByCodeByProfileIdByGameId(set_type, obj)
+    def SetGameProfileAchievementCodeProfileIdGameIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAchievementCodeProfileIdGameId(set_type, obj)
                
-    def SetGameProfileAchievementByCodeByProfileIdByGameId(self, obj) :
-        return self.act.SetGameProfileAchievementByCodeByProfileIdByGameId('full', obj)
+    def SetGameProfileAchievementCodeProfileIdGameId(self, obj) :
+        return self.act.SetGameProfileAchievementCodeProfileIdGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestampType(self, set_type, obj) :
-        return self.act.SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
+    def SetGameProfileAchievementCodeProfileIdGameIdTimestampType(self, set_type, obj) :
+        return self.act.SetGameProfileAchievementCodeProfileIdGameIdTimestamp(set_type, obj)
                
-    def SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self, obj) :
-        return self.act.SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp('full', obj)
+    def SetGameProfileAchievementCodeProfileIdGameIdTimestamp(self, obj) :
+        return self.act.SetGameProfileAchievementCodeProfileIdGameIdTimestamp('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameProfileAchievementByUuid(self
+    def DelGameProfileAchievementUuid(self
         , uuid
     ) :          
-        return self.act.DelGameProfileAchievementByUuid(
+        return self.act.DelGameProfileAchievementUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileAchievementByProfileIdByCode(self
+    def DelGameProfileAchievementProfileIdCode(self
         , profile_id
         , code
     ) :          
-        return self.act.DelGameProfileAchievementByProfileIdByCode(
+        return self.act.DelGameProfileAchievementProfileIdCode(
         profile_id
         , code
         )
 #------------------------------------------------------------------------------                    
-    def DelGameProfileAchievementByUuidByCode(self
+    def DelGameProfileAchievementUuidCode(self
         , uuid
         , code
     ) :          
-        return self.act.DelGameProfileAchievementByUuidByCode(
+        return self.act.DelGameProfileAchievementUuidCode(
         uuid
         , code
         )
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByUuid(self
+    def GetGameProfileAchievementListUuid(self
         , uuid
         ) :
-            return self.act.GetGameProfileAchievementListByUuid(
+            return self.act.GetGameProfileAchievementListUuid(
                 uuid
             )
         
-    def GetGameProfileAchievementByUuid(self
+    def GetGameProfileAchievementUuid(self
         , uuid
     ) :
-        for item in self.GetGameProfileAchievementListByUuid(
+        for item in self.GetGameProfileAchievementListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByUuid(self
+    def CachedGetGameProfileAchievementListUuid(self
         , uuid
     ) :
-        return CachedGetGameProfileAchievementListByUuid(
+        return CachedGetGameProfileAchievementListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameProfileAchievementListByUuid(self
+    def CachedGetGameProfileAchievementListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -14009,7 +14807,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByUuid";
+        string method_name = "CachedGetGameProfileAchievementListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14025,7 +14823,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByUuid(
+            objs = GetGameProfileAchievementListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -14034,38 +14832,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByProfileIdByCode(self
+    def GetGameProfileAchievementListProfileIdCode(self
         , profile_id
         , code
         ) :
-            return self.act.GetGameProfileAchievementListByProfileIdByCode(
+            return self.act.GetGameProfileAchievementListProfileIdCode(
                 profile_id
                 , code
             )
         
-    def GetGameProfileAchievementByProfileIdByCode(self
+    def GetGameProfileAchievementProfileIdCode(self
         , profile_id
         , code
     ) :
-        for item in self.GetGameProfileAchievementListByProfileIdByCode(
+        for item in self.GetGameProfileAchievementListProfileIdCode(
         profile_id
         , code
         ) :
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByProfileIdByCode(self
+    def CachedGetGameProfileAchievementListProfileIdCode(self
         , profile_id
         , code
     ) :
-        return CachedGetGameProfileAchievementListByProfileIdByCode(
+        return CachedGetGameProfileAchievementListProfileIdCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , code
         )
         
-    def CachedGetGameProfileAchievementListByProfileIdByCode(self
+    def CachedGetGameProfileAchievementListProfileIdCode(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -14075,7 +14873,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByProfileIdByCode";
+        string method_name = "CachedGetGameProfileAchievementListProfileIdCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14095,7 +14893,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByProfileIdByCode(
+            objs = GetGameProfileAchievementListProfileIdCode(
                 profile_id
                 , code
             );
@@ -14105,32 +14903,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByUsername(self
+    def GetGameProfileAchievementListUsername(self
         , username
         ) :
-            return self.act.GetGameProfileAchievementListByUsername(
+            return self.act.GetGameProfileAchievementListUsername(
                 username
             )
         
-    def GetGameProfileAchievementByUsername(self
+    def GetGameProfileAchievementUsername(self
         , username
     ) :
-        for item in self.GetGameProfileAchievementListByUsername(
+        for item in self.GetGameProfileAchievementListUsername(
         username
         ) :
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByUsername(self
+    def CachedGetGameProfileAchievementListUsername(self
         , username
     ) :
-        return CachedGetGameProfileAchievementListByUsername(
+        return CachedGetGameProfileAchievementListUsername(
             false
             , self.CACHE_DEFAULT_HOURS
             , username
         )
         
-    def CachedGetGameProfileAchievementListByUsername(self
+    def CachedGetGameProfileAchievementListUsername(self
         , overrideCache
         , cacheHours
         , username
@@ -14139,7 +14937,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByUsername";
+        string method_name = "CachedGetGameProfileAchievementListUsername";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14155,7 +14953,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByUsername(
+            objs = GetGameProfileAchievementListUsername(
                 username
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -14164,32 +14962,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByCode(self
+    def GetGameProfileAchievementListCode(self
         , code
         ) :
-            return self.act.GetGameProfileAchievementListByCode(
+            return self.act.GetGameProfileAchievementListCode(
                 code
             )
         
-    def GetGameProfileAchievementByCode(self
+    def GetGameProfileAchievementCode(self
         , code
     ) :
-        for item in self.GetGameProfileAchievementListByCode(
+        for item in self.GetGameProfileAchievementListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByCode(self
+    def CachedGetGameProfileAchievementListCode(self
         , code
     ) :
-        return CachedGetGameProfileAchievementListByCode(
+        return CachedGetGameProfileAchievementListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameProfileAchievementListByCode(self
+    def CachedGetGameProfileAchievementListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -14198,7 +14996,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByCode";
+        string method_name = "CachedGetGameProfileAchievementListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14214,7 +15012,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByCode(
+            objs = GetGameProfileAchievementListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -14223,32 +15021,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByGameId(self
+    def GetGameProfileAchievementListGameId(self
         , game_id
         ) :
-            return self.act.GetGameProfileAchievementListByGameId(
+            return self.act.GetGameProfileAchievementListGameId(
                 game_id
             )
         
-    def GetGameProfileAchievementByGameId(self
+    def GetGameProfileAchievementGameId(self
         , game_id
     ) :
-        for item in self.GetGameProfileAchievementListByGameId(
+        for item in self.GetGameProfileAchievementListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByGameId(self
+    def CachedGetGameProfileAchievementListGameId(self
         , game_id
     ) :
-        return CachedGetGameProfileAchievementListByGameId(
+        return CachedGetGameProfileAchievementListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameProfileAchievementListByGameId(self
+    def CachedGetGameProfileAchievementListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -14257,7 +15055,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByGameId";
+        string method_name = "CachedGetGameProfileAchievementListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14273,7 +15071,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByGameId(
+            objs = GetGameProfileAchievementListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -14282,38 +15080,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByCodeByGameId(self
+    def GetGameProfileAchievementListCodeGameId(self
         , code
         , game_id
         ) :
-            return self.act.GetGameProfileAchievementListByCodeByGameId(
+            return self.act.GetGameProfileAchievementListCodeGameId(
                 code
                 , game_id
             )
         
-    def GetGameProfileAchievementByCodeByGameId(self
+    def GetGameProfileAchievementCodeGameId(self
         , code
         , game_id
     ) :
-        for item in self.GetGameProfileAchievementListByCodeByGameId(
+        for item in self.GetGameProfileAchievementListCodeGameId(
         code
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByCodeByGameId(self
+    def CachedGetGameProfileAchievementListCodeGameId(self
         , code
         , game_id
     ) :
-        return CachedGetGameProfileAchievementListByCodeByGameId(
+        return CachedGetGameProfileAchievementListCodeGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , game_id
         )
         
-    def CachedGetGameProfileAchievementListByCodeByGameId(self
+    def CachedGetGameProfileAchievementListCodeGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -14323,7 +15121,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByCodeByGameId";
+        string method_name = "CachedGetGameProfileAchievementListCodeGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14343,7 +15141,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByCodeByGameId(
+            objs = GetGameProfileAchievementListCodeGameId(
                 code
                 , game_id
             );
@@ -14353,38 +15151,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByProfileIdByGameId(self
+    def GetGameProfileAchievementListProfileIdGameId(self
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameProfileAchievementListByProfileIdByGameId(
+            return self.act.GetGameProfileAchievementListProfileIdGameId(
                 profile_id
                 , game_id
             )
         
-    def GetGameProfileAchievementByProfileIdByGameId(self
+    def GetGameProfileAchievementProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameProfileAchievementListByProfileIdByGameId(
+        for item in self.GetGameProfileAchievementListProfileIdGameId(
         profile_id
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByProfileIdByGameId(self
+    def CachedGetGameProfileAchievementListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
-        return CachedGetGameProfileAchievementListByProfileIdByGameId(
+        return CachedGetGameProfileAchievementListProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , game_id
         )
         
-    def CachedGetGameProfileAchievementListByProfileIdByGameId(self
+    def CachedGetGameProfileAchievementListProfileIdGameId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -14394,7 +15192,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByProfileIdByGameId";
+        string method_name = "CachedGetGameProfileAchievementListProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14414,7 +15212,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByProfileIdByGameId(
+            objs = GetGameProfileAchievementListProfileIdGameId(
                 profile_id
                 , game_id
             );
@@ -14424,23 +15222,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileAchievementListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
         ) :
-            return self.act.GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+            return self.act.GetGameProfileAchievementListProfileIdGameIdTimestamp(
                 profile_id
                 , game_id
                 , timestamp
             )
         
-    def GetGameProfileAchievementByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileAchievementProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
-        for item in self.GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+        for item in self.GetGameProfileAchievementListProfileIdGameIdTimestamp(
         profile_id
         , game_id
         , timestamp
@@ -14448,12 +15246,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileAchievementListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
-        return CachedGetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+        return CachedGetGameProfileAchievementListProfileIdGameIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
@@ -14461,7 +15259,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameProfileAchievementListByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileAchievementListProfileIdGameIdTimestamp(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -14472,7 +15270,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByProfileIdByGameIdByTimestamp";
+        string method_name = "CachedGetGameProfileAchievementListProfileIdGameIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14496,7 +15294,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+            objs = GetGameProfileAchievementListProfileIdGameIdTimestamp(
                 profile_id
                 , game_id
                 , timestamp
@@ -14507,23 +15305,23 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByCodeByProfileIdByGameId(self
+    def GetGameProfileAchievementListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
         ) :
-            return self.act.GetGameProfileAchievementListByCodeByProfileIdByGameId(
+            return self.act.GetGameProfileAchievementListCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
             )
         
-    def GetGameProfileAchievementByCodeByProfileIdByGameId(self
+    def GetGameProfileAchievementCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        for item in self.GetGameProfileAchievementListByCodeByProfileIdByGameId(
+        for item in self.GetGameProfileAchievementListCodeProfileIdGameId(
         code
         , profile_id
         , game_id
@@ -14531,12 +15329,12 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByCodeByProfileIdByGameId(self
+    def CachedGetGameProfileAchievementListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        return CachedGetGameProfileAchievementListByCodeByProfileIdByGameId(
+        return CachedGetGameProfileAchievementListCodeProfileIdGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -14544,7 +15342,7 @@ class BaseGamingAPI(object):
             , game_id
         )
         
-    def CachedGetGameProfileAchievementListByCodeByProfileIdByGameId(self
+    def CachedGetGameProfileAchievementListCodeProfileIdGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -14555,7 +15353,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByCodeByProfileIdByGameId";
+        string method_name = "CachedGetGameProfileAchievementListCodeProfileIdGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14579,7 +15377,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByCodeByProfileIdByGameId(
+            objs = GetGameProfileAchievementListCodeProfileIdGameId(
                 code
                 , profile_id
                 , game_id
@@ -14590,26 +15388,26 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
         ) :
-            return self.act.GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+            return self.act.GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
                 , timestamp
             )
         
-    def GetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileAchievementCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        for item in self.GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+        for item in self.GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
         code
         , profile_id
         , game_id
@@ -14618,13 +15416,13 @@ class BaseGamingAPI(object):
             return item
         return None
     
-    def CachedGetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileAchievementListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :
-        return CachedGetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+        return CachedGetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
@@ -14633,7 +15431,7 @@ class BaseGamingAPI(object):
             , timestamp
         )
         
-    def CachedGetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(self
+    def CachedGetGameProfileAchievementListCodeProfileIdGameIdTimestamp(self
         , overrideCache
         , cacheHours
         , code
@@ -14645,7 +15443,7 @@ class BaseGamingAPI(object):
         """
         List<GameProfileAchievement> objs;
 
-        string method_name = "CachedGetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp";
+        string method_name = "CachedGetGameProfileAchievementListCodeProfileIdGameIdTimestamp";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14673,7 +15471,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+            objs = GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
                 code
                 , profile_id
                 , game_id
@@ -14691,105 +15489,105 @@ class BaseGamingAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAchievementMetaByUuid(self
+    def CountGameAchievementMetaUuid(self
         , uuid
     ) :         
-        return self.act.CountGameAchievementMetaByUuid(
+        return self.act.CountGameAchievementMetaUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAchievementMetaByCode(self
+    def CountGameAchievementMetaCode(self
         , code
     ) :         
-        return self.act.CountGameAchievementMetaByCode(
+        return self.act.CountGameAchievementMetaCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAchievementMetaByCodeByGameId(self
+    def CountGameAchievementMetaCodeGameId(self
         , code
         , game_id
     ) :         
-        return self.act.CountGameAchievementMetaByCodeByGameId(
+        return self.act.CountGameAchievementMetaCodeGameId(
         code
         , game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAchievementMetaByName(self
+    def CountGameAchievementMetaName(self
         , name
     ) :         
-        return self.act.CountGameAchievementMetaByName(
+        return self.act.CountGameAchievementMetaName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountGameAchievementMetaByGameId(self
+    def CountGameAchievementMetaGameId(self
         , game_id
     ) :         
-        return self.act.CountGameAchievementMetaByGameId(
+        return self.act.CountGameAchievementMetaGameId(
         game_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseGameAchievementMetaListByFilter(self, filter_obj) :
-        return self.act.BrowseGameAchievementMetaListByFilter(filter_obj)
+    def BrowseGameAchievementMetaListFilter(self, filter_obj) :
+        return self.act.BrowseGameAchievementMetaListFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameAchievementMetaByUuidType(self, set_type, obj) :
-        return self.act.SetGameAchievementMetaByUuid(set_type, obj)
+    def SetGameAchievementMetaUuidType(self, set_type, obj) :
+        return self.act.SetGameAchievementMetaUuid(set_type, obj)
                
-    def SetGameAchievementMetaByUuid(self, obj) :
-        return self.act.SetGameAchievementMetaByUuid('full', obj)
+    def SetGameAchievementMetaUuid(self, obj) :
+        return self.act.SetGameAchievementMetaUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetGameAchievementMetaByCodeByGameIdType(self, set_type, obj) :
-        return self.act.SetGameAchievementMetaByCodeByGameId(set_type, obj)
+    def SetGameAchievementMetaCodeGameIdType(self, set_type, obj) :
+        return self.act.SetGameAchievementMetaCodeGameId(set_type, obj)
                
-    def SetGameAchievementMetaByCodeByGameId(self, obj) :
-        return self.act.SetGameAchievementMetaByCodeByGameId('full', obj)
+    def SetGameAchievementMetaCodeGameId(self, obj) :
+        return self.act.SetGameAchievementMetaCodeGameId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelGameAchievementMetaByUuid(self
+    def DelGameAchievementMetaUuid(self
         , uuid
     ) :          
-        return self.act.DelGameAchievementMetaByUuid(
+        return self.act.DelGameAchievementMetaUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelGameAchievementMetaByCodeByGameId(self
+    def DelGameAchievementMetaCodeGameId(self
         , code
         , game_id
     ) :          
-        return self.act.DelGameAchievementMetaByCodeByGameId(
+        return self.act.DelGameAchievementMetaCodeGameId(
         code
         , game_id
         )
 #------------------------------------------------------------------------------                    
-    def GetGameAchievementMetaListByUuid(self
+    def GetGameAchievementMetaListUuid(self
         , uuid
         ) :
-            return self.act.GetGameAchievementMetaListByUuid(
+            return self.act.GetGameAchievementMetaListUuid(
                 uuid
             )
         
-    def GetGameAchievementMetaByUuid(self
+    def GetGameAchievementMetaUuid(self
         , uuid
     ) :
-        for item in self.GetGameAchievementMetaListByUuid(
+        for item in self.GetGameAchievementMetaListUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetGameAchievementMetaListByUuid(self
+    def CachedGetGameAchievementMetaListUuid(self
         , uuid
     ) :
-        return CachedGetGameAchievementMetaListByUuid(
+        return CachedGetGameAchievementMetaListUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetGameAchievementMetaListByUuid(self
+    def CachedGetGameAchievementMetaListUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -14798,7 +15596,7 @@ class BaseGamingAPI(object):
         """
         List<GameAchievementMeta> objs;
 
-        string method_name = "CachedGetGameAchievementMetaListByUuid";
+        string method_name = "CachedGetGameAchievementMetaListUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14814,7 +15612,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAchievementMetaListByUuid(
+            objs = GetGameAchievementMetaListUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -14823,32 +15621,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameAchievementMetaListByCode(self
+    def GetGameAchievementMetaListCode(self
         , code
         ) :
-            return self.act.GetGameAchievementMetaListByCode(
+            return self.act.GetGameAchievementMetaListCode(
                 code
             )
         
-    def GetGameAchievementMetaByCode(self
+    def GetGameAchievementMetaCode(self
         , code
     ) :
-        for item in self.GetGameAchievementMetaListByCode(
+        for item in self.GetGameAchievementMetaListCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetGameAchievementMetaListByCode(self
+    def CachedGetGameAchievementMetaListCode(self
         , code
     ) :
-        return CachedGetGameAchievementMetaListByCode(
+        return CachedGetGameAchievementMetaListCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetGameAchievementMetaListByCode(self
+    def CachedGetGameAchievementMetaListCode(self
         , overrideCache
         , cacheHours
         , code
@@ -14857,7 +15655,7 @@ class BaseGamingAPI(object):
         """
         List<GameAchievementMeta> objs;
 
-        string method_name = "CachedGetGameAchievementMetaListByCode";
+        string method_name = "CachedGetGameAchievementMetaListCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14873,7 +15671,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAchievementMetaListByCode(
+            objs = GetGameAchievementMetaListCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -14882,38 +15680,38 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameAchievementMetaListByCodeByGameId(self
+    def GetGameAchievementMetaListCodeGameId(self
         , code
         , game_id
         ) :
-            return self.act.GetGameAchievementMetaListByCodeByGameId(
+            return self.act.GetGameAchievementMetaListCodeGameId(
                 code
                 , game_id
             )
         
-    def GetGameAchievementMetaByCodeByGameId(self
+    def GetGameAchievementMetaCodeGameId(self
         , code
         , game_id
     ) :
-        for item in self.GetGameAchievementMetaListByCodeByGameId(
+        for item in self.GetGameAchievementMetaListCodeGameId(
         code
         , game_id
         ) :
             return item
         return None
     
-    def CachedGetGameAchievementMetaListByCodeByGameId(self
+    def CachedGetGameAchievementMetaListCodeGameId(self
         , code
         , game_id
     ) :
-        return CachedGetGameAchievementMetaListByCodeByGameId(
+        return CachedGetGameAchievementMetaListCodeGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , game_id
         )
         
-    def CachedGetGameAchievementMetaListByCodeByGameId(self
+    def CachedGetGameAchievementMetaListCodeGameId(self
         , overrideCache
         , cacheHours
         , code
@@ -14923,7 +15721,7 @@ class BaseGamingAPI(object):
         """
         List<GameAchievementMeta> objs;
 
-        string method_name = "CachedGetGameAchievementMetaListByCodeByGameId";
+        string method_name = "CachedGetGameAchievementMetaListCodeGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -14943,7 +15741,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAchievementMetaListByCodeByGameId(
+            objs = GetGameAchievementMetaListCodeGameId(
                 code
                 , game_id
             );
@@ -14953,32 +15751,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameAchievementMetaListByName(self
+    def GetGameAchievementMetaListName(self
         , name
         ) :
-            return self.act.GetGameAchievementMetaListByName(
+            return self.act.GetGameAchievementMetaListName(
                 name
             )
         
-    def GetGameAchievementMetaByName(self
+    def GetGameAchievementMetaName(self
         , name
     ) :
-        for item in self.GetGameAchievementMetaListByName(
+        for item in self.GetGameAchievementMetaListName(
         name
         ) :
             return item
         return None
     
-    def CachedGetGameAchievementMetaListByName(self
+    def CachedGetGameAchievementMetaListName(self
         , name
     ) :
-        return CachedGetGameAchievementMetaListByName(
+        return CachedGetGameAchievementMetaListName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetGameAchievementMetaListByName(self
+    def CachedGetGameAchievementMetaListName(self
         , overrideCache
         , cacheHours
         , name
@@ -14987,7 +15785,7 @@ class BaseGamingAPI(object):
         """
         List<GameAchievementMeta> objs;
 
-        string method_name = "CachedGetGameAchievementMetaListByName";
+        string method_name = "CachedGetGameAchievementMetaListName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -15003,7 +15801,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAchievementMetaListByName(
+            objs = GetGameAchievementMetaListName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -15012,32 +15810,32 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetGameAchievementMetaListByGameId(self
+    def GetGameAchievementMetaListGameId(self
         , game_id
         ) :
-            return self.act.GetGameAchievementMetaListByGameId(
+            return self.act.GetGameAchievementMetaListGameId(
                 game_id
             )
         
-    def GetGameAchievementMetaByGameId(self
+    def GetGameAchievementMetaGameId(self
         , game_id
     ) :
-        for item in self.GetGameAchievementMetaListByGameId(
+        for item in self.GetGameAchievementMetaListGameId(
         game_id
         ) :
             return item
         return None
     
-    def CachedGetGameAchievementMetaListByGameId(self
+    def CachedGetGameAchievementMetaListGameId(self
         , game_id
     ) :
-        return CachedGetGameAchievementMetaListByGameId(
+        return CachedGetGameAchievementMetaListGameId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_id
         )
         
-    def CachedGetGameAchievementMetaListByGameId(self
+    def CachedGetGameAchievementMetaListGameId(self
         , overrideCache
         , cacheHours
         , game_id
@@ -15046,7 +15844,7 @@ class BaseGamingAPI(object):
         """
         List<GameAchievementMeta> objs;
 
-        string method_name = "CachedGetGameAchievementMetaListByGameId";
+        string method_name = "CachedGetGameAchievementMetaListGameId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -15062,7 +15860,7 @@ class BaseGamingAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetGameAchievementMetaListByGameId(
+            objs = GetGameAchievementMetaListGameId(
                 game_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);

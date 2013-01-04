@@ -600,7 +600,7 @@ class BomPlatform():
 								elif self.current_data_type == BomDataTypeEnum.DATA_MYSQL:
 										name += '_' + s
 								else :
-										name += '_by_' + s
+										name += '_' + s
 				return name
 		
 		def bom_model_index_fields(self, model, index):
@@ -640,7 +640,7 @@ class BomPlatform():
 						method_name += 'List'
 				if method_data.has_key('params'):
 						for param in method_data['params']:
-								method_name += 'By' + self.to_camel_cap(param, '_')
+								method_name += '' + self.to_camel_cap(param, '_')
 				return method_name
 		
 		def bom_method_code_name_item(self, model, item, method_data):
@@ -650,7 +650,7 @@ class BomPlatform():
 						method_name += 'List'
 				if method_data.has_key('params'):
 						for param in method_data['params']:
-								method_name += 'By' + self.to_camel_cap(param, '_')
+								method_name += self.to_camel_cap(param, '_')
 				return method_name   
 		
 		def bom_method_script_name(self, model, item, method_data):
@@ -664,14 +664,14 @@ class BomPlatform():
 										elif self.current_data_type == BomDataTypeEnum.DATA_MYSQL:
 												method_name += '_' + param       
 										else :
-												method_name += '_list_by_' + param 
+												method_name += '_list_' + param 
 								else:                
 										if self.current_data_type == BomDataTypeEnum.DATA_POSTGRES:
 												method_name += '_' + param
 										elif self.current_data_type == BomDataTypeEnum.DATA_MYSQL:
 												method_name += '_' + param    
 										else :
-												method_name += '_by_' + param
+												method_name += '_' + param
 				return method_name
 		
 		def bom_method_service_name(self, model, item, method_data):
@@ -679,9 +679,9 @@ class BomPlatform():
 				if method_data.has_key('params'):
 						for param in method_data['params']:
 								if item == 'get' or item == 'browse':
-										method_name += '/by' + '-' + param.replace('_','-')
+										method_name += '/' + param.replace('_','-')
 								else:                
-										method_name += '/by' + '-' + param.replace('_','-')
+										method_name += '/' + param.replace('_','-')
 				return method_name
 					
 		def bom_data_type_proc(self, name, property, method):

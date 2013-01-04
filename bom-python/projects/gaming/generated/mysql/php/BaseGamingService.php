@@ -91,1895 +91,1985 @@ namespace gaming {
             if(IsContext("game/count")){
                 CountGame();
             }
-            else if(IsContext("game/count/by-uuid")){
-                CountGameByUuid();
+            else if(IsContext("game/count/uuid")){
+                CountGameUuid();
             }
-            else if(IsContext("game/count/by-code")){
-                CountGameByCode();
+            else if(IsContext("game/count/code")){
+                CountGameCode();
             }
-            else if(IsContext("game/count/by-name")){
-                CountGameByName();
+            else if(IsContext("game/count/name")){
+                CountGameName();
             }
-            else if(IsContext("game/count/by-org-id")){
-                CountGameByOrgId();
+            else if(IsContext("game/count/org-id")){
+                CountGameOrgId();
             }
-            else if(IsContext("game/count/by-app-id")){
-                CountGameByAppId();
+            else if(IsContext("game/count/app-id")){
+                CountGameAppId();
             }
-            else if(IsContext("game/count/by-org-id/by-app-id")){
-                CountGameByOrgIdByAppId();
+            else if(IsContext("game/count/org-id/app-id")){
+                CountGameOrgIdAppId();
             }
-            else if(IsContext("game/browse/by-filter")){
-                BrowseGameListByFilter();
+            else if(IsContext("game/browse/filter")){
+                BrowseGameListFilter();
             }
-            else if(IsContext("game/set/by-uuid")){
-                SetGameByUuid();
+            else if(IsContext("game/set/uuid")){
+                SetGameUuid();
             }
-            else if(IsContext("game/set/by-code")){
-                SetGameByCode();
+            else if(IsContext("game/set/code")){
+                SetGameCode();
             }
-            else if(IsContext("game/set/by-name")){
-                SetGameByName();
+            else if(IsContext("game/set/name")){
+                SetGameName();
             }
-            else if(IsContext("game/set/by-org-id")){
-                SetGameByOrgId();
+            else if(IsContext("game/set/org-id")){
+                SetGameOrgId();
             }
-            else if(IsContext("game/set/by-app-id")){
-                SetGameByAppId();
+            else if(IsContext("game/set/app-id")){
+                SetGameAppId();
             }
-            else if(IsContext("game/set/by-org-id/by-app-id")){
-                SetGameByOrgIdByAppId();
+            else if(IsContext("game/set/org-id/app-id")){
+                SetGameOrgIdAppId();
             }
-            else if(IsContext("game/del/by-uuid")){
-                DelGameByUuid();
+            else if(IsContext("game/del/uuid")){
+                DelGameUuid();
             }
-            else if(IsContext("game/del/by-code")){
-                DelGameByCode();
+            else if(IsContext("game/del/code")){
+                DelGameCode();
             }
-            else if(IsContext("game/del/by-name")){
-                DelGameByName();
+            else if(IsContext("game/del/name")){
+                DelGameName();
             }
-            else if(IsContext("game/del/by-org-id")){
-                DelGameByOrgId();
+            else if(IsContext("game/del/org-id")){
+                DelGameOrgId();
             }
-            else if(IsContext("game/del/by-app-id")){
-                DelGameByAppId();
+            else if(IsContext("game/del/app-id")){
+                DelGameAppId();
             }
-            else if(IsContext("game/del/by-org-id/by-app-id")){
-                DelGameByOrgIdByAppId();
+            else if(IsContext("game/del/org-id/app-id")){
+                DelGameOrgIdAppId();
             }
             else if(IsContext("game/get")){
                 GetGameList();
             }
-            else if(IsContext("game/get/by-uuid")){
-                GetGameListByUuid();
+            else if(IsContext("game/get/uuid")){
+                GetGameListUuid();
             }
-            else if(IsContext("game/get/by-code")){
-                GetGameListByCode();
+            else if(IsContext("game/get/code")){
+                GetGameListCode();
             }
-            else if(IsContext("game/get/by-name")){
-                GetGameListByName();
+            else if(IsContext("game/get/name")){
+                GetGameListName();
             }
-            else if(IsContext("game/get/by-org-id")){
-                GetGameListByOrgId();
+            else if(IsContext("game/get/org-id")){
+                GetGameListOrgId();
             }
-            else if(IsContext("game/get/by-app-id")){
-                GetGameListByAppId();
+            else if(IsContext("game/get/app-id")){
+                GetGameListAppId();
             }
-            else if(IsContext("game/get/by-org-id/by-app-id")){
-                GetGameListByOrgIdByAppId();
+            else if(IsContext("game/get/org-id/app-id")){
+                GetGameListOrgIdAppId();
             }
             if(IsContext("game-category/count")){
                 CountGameCategory();
             }
-            else if(IsContext("game-category/count/by-uuid")){
-                CountGameCategoryByUuid();
+            else if(IsContext("game-category/count/uuid")){
+                CountGameCategoryUuid();
             }
-            else if(IsContext("game-category/count/by-code")){
-                CountGameCategoryByCode();
+            else if(IsContext("game-category/count/code")){
+                CountGameCategoryCode();
             }
-            else if(IsContext("game-category/count/by-name")){
-                CountGameCategoryByName();
+            else if(IsContext("game-category/count/name")){
+                CountGameCategoryName();
             }
-            else if(IsContext("game-category/count/by-org-id")){
-                CountGameCategoryByOrgId();
+            else if(IsContext("game-category/count/org-id")){
+                CountGameCategoryOrgId();
             }
-            else if(IsContext("game-category/count/by-type-id")){
-                CountGameCategoryByTypeId();
+            else if(IsContext("game-category/count/type-id")){
+                CountGameCategoryTypeId();
             }
-            else if(IsContext("game-category/count/by-org-id/by-type-id")){
-                CountGameCategoryByOrgIdByTypeId();
+            else if(IsContext("game-category/count/org-id/type-id")){
+                CountGameCategoryOrgIdTypeId();
             }
-            else if(IsContext("game-category/browse/by-filter")){
-                BrowseGameCategoryListByFilter();
+            else if(IsContext("game-category/browse/filter")){
+                BrowseGameCategoryListFilter();
             }
-            else if(IsContext("game-category/set/by-uuid")){
-                SetGameCategoryByUuid();
+            else if(IsContext("game-category/set/uuid")){
+                SetGameCategoryUuid();
             }
-            else if(IsContext("game-category/del/by-uuid")){
-                DelGameCategoryByUuid();
+            else if(IsContext("game-category/del/uuid")){
+                DelGameCategoryUuid();
             }
-            else if(IsContext("game-category/del/by-code/by-org-id")){
-                DelGameCategoryByCodeByOrgId();
+            else if(IsContext("game-category/del/code/org-id")){
+                DelGameCategoryCodeOrgId();
             }
-            else if(IsContext("game-category/del/by-code/by-org-id/by-type-id")){
-                DelGameCategoryByCodeByOrgIdByTypeId();
+            else if(IsContext("game-category/del/code/org-id/type-id")){
+                DelGameCategoryCodeOrgIdTypeId();
             }
             else if(IsContext("game-category/get")){
                 GetGameCategoryList();
             }
-            else if(IsContext("game-category/get/by-uuid")){
-                GetGameCategoryListByUuid();
+            else if(IsContext("game-category/get/uuid")){
+                GetGameCategoryListUuid();
             }
-            else if(IsContext("game-category/get/by-code")){
-                GetGameCategoryListByCode();
+            else if(IsContext("game-category/get/code")){
+                GetGameCategoryListCode();
             }
-            else if(IsContext("game-category/get/by-name")){
-                GetGameCategoryListByName();
+            else if(IsContext("game-category/get/name")){
+                GetGameCategoryListName();
             }
-            else if(IsContext("game-category/get/by-org-id")){
-                GetGameCategoryListByOrgId();
+            else if(IsContext("game-category/get/org-id")){
+                GetGameCategoryListOrgId();
             }
-            else if(IsContext("game-category/get/by-type-id")){
-                GetGameCategoryListByTypeId();
+            else if(IsContext("game-category/get/type-id")){
+                GetGameCategoryListTypeId();
             }
-            else if(IsContext("game-category/get/by-org-id/by-type-id")){
-                GetGameCategoryListByOrgIdByTypeId();
+            else if(IsContext("game-category/get/org-id/type-id")){
+                GetGameCategoryListOrgIdTypeId();
             }
             if(IsContext("game-category-tree/count")){
                 CountGameCategoryTree();
             }
-            else if(IsContext("game-category-tree/count/by-uuid")){
-                CountGameCategoryTreeByUuid();
+            else if(IsContext("game-category-tree/count/uuid")){
+                CountGameCategoryTreeUuid();
             }
-            else if(IsContext("game-category-tree/count/by-parent-id")){
-                CountGameCategoryTreeByParentId();
+            else if(IsContext("game-category-tree/count/parent-id")){
+                CountGameCategoryTreeParentId();
             }
-            else if(IsContext("game-category-tree/count/by-category-id")){
-                CountGameCategoryTreeByCategoryId();
+            else if(IsContext("game-category-tree/count/category-id")){
+                CountGameCategoryTreeCategoryId();
             }
-            else if(IsContext("game-category-tree/count/by-parent-id/by-category-id")){
-                CountGameCategoryTreeByParentIdByCategoryId();
+            else if(IsContext("game-category-tree/count/parent-id/category-id")){
+                CountGameCategoryTreeParentIdCategoryId();
             }
-            else if(IsContext("game-category-tree/browse/by-filter")){
-                BrowseGameCategoryTreeListByFilter();
+            else if(IsContext("game-category-tree/browse/filter")){
+                BrowseGameCategoryTreeListFilter();
             }
-            else if(IsContext("game-category-tree/set/by-uuid")){
-                SetGameCategoryTreeByUuid();
+            else if(IsContext("game-category-tree/set/uuid")){
+                SetGameCategoryTreeUuid();
             }
-            else if(IsContext("game-category-tree/del/by-uuid")){
-                DelGameCategoryTreeByUuid();
+            else if(IsContext("game-category-tree/del/uuid")){
+                DelGameCategoryTreeUuid();
             }
-            else if(IsContext("game-category-tree/del/by-parent-id")){
-                DelGameCategoryTreeByParentId();
+            else if(IsContext("game-category-tree/del/parent-id")){
+                DelGameCategoryTreeParentId();
             }
-            else if(IsContext("game-category-tree/del/by-category-id")){
-                DelGameCategoryTreeByCategoryId();
+            else if(IsContext("game-category-tree/del/category-id")){
+                DelGameCategoryTreeCategoryId();
             }
-            else if(IsContext("game-category-tree/del/by-parent-id/by-category-id")){
-                DelGameCategoryTreeByParentIdByCategoryId();
+            else if(IsContext("game-category-tree/del/parent-id/category-id")){
+                DelGameCategoryTreeParentIdCategoryId();
             }
             else if(IsContext("game-category-tree/get")){
                 GetGameCategoryTreeList();
             }
-            else if(IsContext("game-category-tree/get/by-uuid")){
-                GetGameCategoryTreeListByUuid();
+            else if(IsContext("game-category-tree/get/uuid")){
+                GetGameCategoryTreeListUuid();
             }
-            else if(IsContext("game-category-tree/get/by-parent-id")){
-                GetGameCategoryTreeListByParentId();
+            else if(IsContext("game-category-tree/get/parent-id")){
+                GetGameCategoryTreeListParentId();
             }
-            else if(IsContext("game-category-tree/get/by-category-id")){
-                GetGameCategoryTreeListByCategoryId();
+            else if(IsContext("game-category-tree/get/category-id")){
+                GetGameCategoryTreeListCategoryId();
             }
-            else if(IsContext("game-category-tree/get/by-parent-id/by-category-id")){
-                GetGameCategoryTreeListByParentIdByCategoryId();
+            else if(IsContext("game-category-tree/get/parent-id/category-id")){
+                GetGameCategoryTreeListParentIdCategoryId();
             }
             if(IsContext("game-category-assoc/count")){
                 CountGameCategoryAssoc();
             }
-            else if(IsContext("game-category-assoc/count/by-uuid")){
-                CountGameCategoryAssocByUuid();
+            else if(IsContext("game-category-assoc/count/uuid")){
+                CountGameCategoryAssocUuid();
             }
-            else if(IsContext("game-category-assoc/count/by-game-id")){
-                CountGameCategoryAssocByGameId();
+            else if(IsContext("game-category-assoc/count/game-id")){
+                CountGameCategoryAssocGameId();
             }
-            else if(IsContext("game-category-assoc/count/by-category-id")){
-                CountGameCategoryAssocByCategoryId();
+            else if(IsContext("game-category-assoc/count/category-id")){
+                CountGameCategoryAssocCategoryId();
             }
-            else if(IsContext("game-category-assoc/count/by-game-id/by-category-id")){
-                CountGameCategoryAssocByGameIdByCategoryId();
+            else if(IsContext("game-category-assoc/count/game-id/category-id")){
+                CountGameCategoryAssocGameIdCategoryId();
             }
-            else if(IsContext("game-category-assoc/browse/by-filter")){
-                BrowseGameCategoryAssocListByFilter();
+            else if(IsContext("game-category-assoc/browse/filter")){
+                BrowseGameCategoryAssocListFilter();
             }
-            else if(IsContext("game-category-assoc/set/by-uuid")){
-                SetGameCategoryAssocByUuid();
+            else if(IsContext("game-category-assoc/set/uuid")){
+                SetGameCategoryAssocUuid();
             }
-            else if(IsContext("game-category-assoc/del/by-uuid")){
-                DelGameCategoryAssocByUuid();
+            else if(IsContext("game-category-assoc/del/uuid")){
+                DelGameCategoryAssocUuid();
             }
             else if(IsContext("game-category-assoc/get")){
                 GetGameCategoryAssocList();
             }
-            else if(IsContext("game-category-assoc/get/by-uuid")){
-                GetGameCategoryAssocListByUuid();
+            else if(IsContext("game-category-assoc/get/uuid")){
+                GetGameCategoryAssocListUuid();
             }
-            else if(IsContext("game-category-assoc/get/by-game-id")){
-                GetGameCategoryAssocListByGameId();
+            else if(IsContext("game-category-assoc/get/game-id")){
+                GetGameCategoryAssocListGameId();
             }
-            else if(IsContext("game-category-assoc/get/by-category-id")){
-                GetGameCategoryAssocListByCategoryId();
+            else if(IsContext("game-category-assoc/get/category-id")){
+                GetGameCategoryAssocListCategoryId();
             }
-            else if(IsContext("game-category-assoc/get/by-game-id/by-category-id")){
-                GetGameCategoryAssocListByGameIdByCategoryId();
+            else if(IsContext("game-category-assoc/get/game-id/category-id")){
+                GetGameCategoryAssocListGameIdCategoryId();
             }
             if(IsContext("game-type/count")){
                 CountGameType();
             }
-            else if(IsContext("game-type/count/by-uuid")){
-                CountGameTypeByUuid();
+            else if(IsContext("game-type/count/uuid")){
+                CountGameTypeUuid();
             }
-            else if(IsContext("game-type/count/by-code")){
-                CountGameTypeByCode();
+            else if(IsContext("game-type/count/code")){
+                CountGameTypeCode();
             }
-            else if(IsContext("game-type/count/by-name")){
-                CountGameTypeByName();
+            else if(IsContext("game-type/count/name")){
+                CountGameTypeName();
             }
-            else if(IsContext("game-type/browse/by-filter")){
-                BrowseGameTypeListByFilter();
+            else if(IsContext("game-type/browse/filter")){
+                BrowseGameTypeListFilter();
             }
-            else if(IsContext("game-type/set/by-uuid")){
-                SetGameTypeByUuid();
+            else if(IsContext("game-type/set/uuid")){
+                SetGameTypeUuid();
             }
-            else if(IsContext("game-type/del/by-uuid")){
-                DelGameTypeByUuid();
+            else if(IsContext("game-type/del/uuid")){
+                DelGameTypeUuid();
             }
             else if(IsContext("game-type/get")){
                 GetGameTypeList();
             }
-            else if(IsContext("game-type/get/by-uuid")){
-                GetGameTypeListByUuid();
+            else if(IsContext("game-type/get/uuid")){
+                GetGameTypeListUuid();
             }
-            else if(IsContext("game-type/get/by-code")){
-                GetGameTypeListByCode();
+            else if(IsContext("game-type/get/code")){
+                GetGameTypeListCode();
             }
-            else if(IsContext("game-type/get/by-name")){
-                GetGameTypeListByName();
+            else if(IsContext("game-type/get/name")){
+                GetGameTypeListName();
             }
             if(IsContext("profile-game/count")){
                 CountProfileGame();
             }
-            else if(IsContext("profile-game/count/by-uuid")){
-                CountProfileGameByUuid();
+            else if(IsContext("profile-game/count/uuid")){
+                CountProfileGameUuid();
             }
-            else if(IsContext("profile-game/count/by-game-id")){
-                CountProfileGameByGameId();
+            else if(IsContext("profile-game/count/game-id")){
+                CountProfileGameGameId();
             }
-            else if(IsContext("profile-game/count/by-profile-id")){
-                CountProfileGameByProfileId();
+            else if(IsContext("profile-game/count/profile-id")){
+                CountProfileGameProfileId();
             }
-            else if(IsContext("profile-game/count/by-profile-id/by-game-id")){
-                CountProfileGameByProfileIdByGameId();
+            else if(IsContext("profile-game/count/profile-id/game-id")){
+                CountProfileGameProfileIdGameId();
             }
-            else if(IsContext("profile-game/browse/by-filter")){
-                BrowseProfileGameListByFilter();
+            else if(IsContext("profile-game/browse/filter")){
+                BrowseProfileGameListFilter();
             }
-            else if(IsContext("profile-game/set/by-uuid")){
-                SetProfileGameByUuid();
+            else if(IsContext("profile-game/set/uuid")){
+                SetProfileGameUuid();
             }
-            else if(IsContext("profile-game/del/by-uuid")){
-                DelProfileGameByUuid();
+            else if(IsContext("profile-game/del/uuid")){
+                DelProfileGameUuid();
             }
             else if(IsContext("profile-game/get")){
                 GetProfileGameList();
             }
-            else if(IsContext("profile-game/get/by-uuid")){
-                GetProfileGameListByUuid();
+            else if(IsContext("profile-game/get/uuid")){
+                GetProfileGameListUuid();
             }
-            else if(IsContext("profile-game/get/by-game-id")){
-                GetProfileGameListByGameId();
+            else if(IsContext("profile-game/get/game-id")){
+                GetProfileGameListGameId();
             }
-            else if(IsContext("profile-game/get/by-profile-id")){
-                GetProfileGameListByProfileId();
+            else if(IsContext("profile-game/get/profile-id")){
+                GetProfileGameListProfileId();
             }
-            else if(IsContext("profile-game/get/by-profile-id/by-game-id")){
-                GetProfileGameListByProfileIdByGameId();
+            else if(IsContext("profile-game/get/profile-id/game-id")){
+                GetProfileGameListProfileIdGameId();
             }
             if(IsContext("game-network/count")){
                 CountGameNetwork();
             }
-            else if(IsContext("game-network/count/by-uuid")){
-                CountGameNetworkByUuid();
+            else if(IsContext("game-network/count/uuid")){
+                CountGameNetworkUuid();
             }
-            else if(IsContext("game-network/count/by-code")){
-                CountGameNetworkByCode();
+            else if(IsContext("game-network/count/code")){
+                CountGameNetworkCode();
             }
-            else if(IsContext("game-network/count/by-uuid/by-type")){
-                CountGameNetworkByUuidByType();
+            else if(IsContext("game-network/count/uuid/type")){
+                CountGameNetworkUuidType();
             }
-            else if(IsContext("game-network/browse/by-filter")){
-                BrowseGameNetworkListByFilter();
+            else if(IsContext("game-network/browse/filter")){
+                BrowseGameNetworkListFilter();
             }
-            else if(IsContext("game-network/set/by-uuid")){
-                SetGameNetworkByUuid();
+            else if(IsContext("game-network/set/uuid")){
+                SetGameNetworkUuid();
             }
-            else if(IsContext("game-network/set/by-code")){
-                SetGameNetworkByCode();
+            else if(IsContext("game-network/set/code")){
+                SetGameNetworkCode();
             }
-            else if(IsContext("game-network/del/by-uuid")){
-                DelGameNetworkByUuid();
+            else if(IsContext("game-network/del/uuid")){
+                DelGameNetworkUuid();
             }
             else if(IsContext("game-network/get")){
                 GetGameNetworkList();
             }
-            else if(IsContext("game-network/get/by-uuid")){
-                GetGameNetworkListByUuid();
+            else if(IsContext("game-network/get/uuid")){
+                GetGameNetworkListUuid();
             }
-            else if(IsContext("game-network/get/by-code")){
-                GetGameNetworkListByCode();
+            else if(IsContext("game-network/get/code")){
+                GetGameNetworkListCode();
             }
-            else if(IsContext("game-network/get/by-uuid/by-type")){
-                GetGameNetworkListByUuidByType();
+            else if(IsContext("game-network/get/uuid/type")){
+                GetGameNetworkListUuidType();
             }
             if(IsContext("game-network-auth/count")){
                 CountGameNetworkAuth();
             }
-            else if(IsContext("game-network-auth/count/by-uuid")){
-                CountGameNetworkAuthByUuid();
+            else if(IsContext("game-network-auth/count/uuid")){
+                CountGameNetworkAuthUuid();
             }
-            else if(IsContext("game-network-auth/count/by-game-id/by-game-network-id")){
-                CountGameNetworkAuthByGameIdByGameNetworkId();
+            else if(IsContext("game-network-auth/count/game-id/game-network-id")){
+                CountGameNetworkAuthGameIdGameNetworkId();
             }
-            else if(IsContext("game-network-auth/browse/by-filter")){
-                BrowseGameNetworkAuthListByFilter();
+            else if(IsContext("game-network-auth/browse/filter")){
+                BrowseGameNetworkAuthListFilter();
             }
-            else if(IsContext("game-network-auth/set/by-uuid")){
-                SetGameNetworkAuthByUuid();
+            else if(IsContext("game-network-auth/set/uuid")){
+                SetGameNetworkAuthUuid();
             }
-            else if(IsContext("game-network-auth/set/by-game-id/by-game-network-id")){
-                SetGameNetworkAuthByGameIdByGameNetworkId();
+            else if(IsContext("game-network-auth/set/game-id/game-network-id")){
+                SetGameNetworkAuthGameIdGameNetworkId();
             }
-            else if(IsContext("game-network-auth/del/by-uuid")){
-                DelGameNetworkAuthByUuid();
+            else if(IsContext("game-network-auth/del/uuid")){
+                DelGameNetworkAuthUuid();
             }
             else if(IsContext("game-network-auth/get")){
                 GetGameNetworkAuthList();
             }
-            else if(IsContext("game-network-auth/get/by-uuid")){
-                GetGameNetworkAuthListByUuid();
+            else if(IsContext("game-network-auth/get/uuid")){
+                GetGameNetworkAuthListUuid();
             }
-            else if(IsContext("game-network-auth/get/by-game-id/by-game-network-id")){
-                GetGameNetworkAuthListByGameIdByGameNetworkId();
+            else if(IsContext("game-network-auth/get/game-id/game-network-id")){
+                GetGameNetworkAuthListGameIdGameNetworkId();
             }
             if(IsContext("profile-game-network/count")){
                 CountProfileGameNetwork();
             }
-            else if(IsContext("profile-game-network/count/by-uuid")){
-                CountProfileGameNetworkByUuid();
+            else if(IsContext("profile-game-network/count/uuid")){
+                CountProfileGameNetworkUuid();
             }
-            else if(IsContext("profile-game-network/count/by-game-id")){
-                CountProfileGameNetworkByGameId();
+            else if(IsContext("profile-game-network/count/game-id")){
+                CountProfileGameNetworkGameId();
             }
-            else if(IsContext("profile-game-network/count/by-profile-id")){
-                CountProfileGameNetworkByProfileId();
+            else if(IsContext("profile-game-network/count/profile-id")){
+                CountProfileGameNetworkProfileId();
             }
-            else if(IsContext("profile-game-network/count/by-profile-id/by-game-id")){
-                CountProfileGameNetworkByProfileIdByGameId();
+            else if(IsContext("profile-game-network/count/profile-id/game-id")){
+                CountProfileGameNetworkProfileIdGameId();
             }
-            else if(IsContext("profile-game-network/count/by-profile-id/by-game-id")){
-                CountProfileGameNetworkByProfileIdByGameId();
+            else if(IsContext("profile-game-network/count/profile-id/game-id")){
+                CountProfileGameNetworkProfileIdGameId();
             }
-            else if(IsContext("profile-game-network/count/by-profile-id/by-game-id/by-game-network-id")){
-                CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId();
+            else if(IsContext("profile-game-network/count/profile-id/game-id/game-network-id")){
+                CountProfileGameNetworkProfileIdGameIdGameNetworkId();
             }
-            else if(IsContext("profile-game-network/count/by-network-username/by-game-id/by-game-network-id")){
-                CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId();
+            else if(IsContext("profile-game-network/count/network-username/game-id/game-network-id")){
+                CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId();
             }
-            else if(IsContext("profile-game-network/browse/by-filter")){
-                BrowseProfileGameNetworkListByFilter();
+            else if(IsContext("profile-game-network/browse/filter")){
+                BrowseProfileGameNetworkListFilter();
             }
-            else if(IsContext("profile-game-network/set/by-uuid")){
-                SetProfileGameNetworkByUuid();
+            else if(IsContext("profile-game-network/set/uuid")){
+                SetProfileGameNetworkUuid();
             }
-            else if(IsContext("profile-game-network/set/by-profile-id/by-game-id")){
-                SetProfileGameNetworkByProfileIdByGameId();
+            else if(IsContext("profile-game-network/set/profile-id/game-id")){
+                SetProfileGameNetworkProfileIdGameId();
             }
-            else if(IsContext("profile-game-network/set/by-profile-id/by-game-id/by-game-network-id")){
-                SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId();
+            else if(IsContext("profile-game-network/set/profile-id/game-id/game-network-id")){
+                SetProfileGameNetworkProfileIdGameIdGameNetworkId();
             }
-            else if(IsContext("profile-game-network/set/by-network-username/by-game-id/by-game-network-id")){
-                SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId();
+            else if(IsContext("profile-game-network/set/network-username/game-id/game-network-id")){
+                SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId();
             }
-            else if(IsContext("profile-game-network/del/by-uuid")){
-                DelProfileGameNetworkByUuid();
+            else if(IsContext("profile-game-network/del/uuid")){
+                DelProfileGameNetworkUuid();
             }
-            else if(IsContext("profile-game-network/del/by-profile-id/by-game-id")){
-                DelProfileGameNetworkByProfileIdByGameId();
+            else if(IsContext("profile-game-network/del/profile-id/game-id")){
+                DelProfileGameNetworkProfileIdGameId();
             }
-            else if(IsContext("profile-game-network/del/by-profile-id/by-game-id/by-game-network-id")){
-                DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId();
+            else if(IsContext("profile-game-network/del/profile-id/game-id/game-network-id")){
+                DelProfileGameNetworkProfileIdGameIdGameNetworkId();
             }
-            else if(IsContext("profile-game-network/del/by-network-username/by-game-id/by-game-network-id")){
-                DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId();
+            else if(IsContext("profile-game-network/del/network-username/game-id/game-network-id")){
+                DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId();
             }
             else if(IsContext("profile-game-network/get")){
                 GetProfileGameNetworkList();
             }
-            else if(IsContext("profile-game-network/get/by-uuid")){
-                GetProfileGameNetworkListByUuid();
+            else if(IsContext("profile-game-network/get/uuid")){
+                GetProfileGameNetworkListUuid();
             }
-            else if(IsContext("profile-game-network/get/by-game-id")){
-                GetProfileGameNetworkListByGameId();
+            else if(IsContext("profile-game-network/get/game-id")){
+                GetProfileGameNetworkListGameId();
             }
-            else if(IsContext("profile-game-network/get/by-profile-id")){
-                GetProfileGameNetworkListByProfileId();
+            else if(IsContext("profile-game-network/get/profile-id")){
+                GetProfileGameNetworkListProfileId();
             }
-            else if(IsContext("profile-game-network/get/by-profile-id/by-game-id")){
-                GetProfileGameNetworkListByProfileIdByGameId();
+            else if(IsContext("profile-game-network/get/profile-id/game-id")){
+                GetProfileGameNetworkListProfileIdGameId();
             }
-            else if(IsContext("profile-game-network/get/by-profile-id/by-game-id/by-game-network-id")){
-                GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId();
+            else if(IsContext("profile-game-network/get/profile-id/game-id/game-network-id")){
+                GetProfileGameNetworkListProfileIdGameIdGameNetworkId();
             }
-            else if(IsContext("profile-game-network/get/by-network-username/by-game-id/by-game-network-id")){
-                GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId();
+            else if(IsContext("profile-game-network/get/network-username/game-id/game-network-id")){
+                GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId();
             }
             if(IsContext("profile-game-data-attribute/count")){
                 CountProfileGameDataAttribute();
             }
-            else if(IsContext("profile-game-data-attribute/count/by-uuid")){
-                CountProfileGameDataAttributeByUuid();
+            else if(IsContext("profile-game-data-attribute/count/uuid")){
+                CountProfileGameDataAttributeUuid();
             }
-            else if(IsContext("profile-game-data-attribute/count/by-profile-id")){
-                CountProfileGameDataAttributeByProfileId();
+            else if(IsContext("profile-game-data-attribute/count/profile-id")){
+                CountProfileGameDataAttributeProfileId();
             }
-            else if(IsContext("profile-game-data-attribute/count/by-profile-id/by-game-id/by-code")){
-                CountProfileGameDataAttributeByProfileIdByGameIdByCode();
+            else if(IsContext("profile-game-data-attribute/count/profile-id/game-id/code")){
+                CountProfileGameDataAttributeProfileIdGameIdCode();
             }
-            else if(IsContext("profile-game-data-attribute/browse/by-filter")){
-                BrowseProfileGameDataAttributeListByFilter();
+            else if(IsContext("profile-game-data-attribute/browse/filter")){
+                BrowseProfileGameDataAttributeListFilter();
             }
-            else if(IsContext("profile-game-data-attribute/set/by-uuid")){
-                SetProfileGameDataAttributeByUuid();
+            else if(IsContext("profile-game-data-attribute/set/uuid")){
+                SetProfileGameDataAttributeUuid();
             }
-            else if(IsContext("profile-game-data-attribute/set/by-profile-id")){
-                SetProfileGameDataAttributeByProfileId();
+            else if(IsContext("profile-game-data-attribute/set/profile-id")){
+                SetProfileGameDataAttributeProfileId();
             }
-            else if(IsContext("profile-game-data-attribute/set/by-profile-id/by-game-id/by-code")){
-                SetProfileGameDataAttributeByProfileIdByGameIdByCode();
+            else if(IsContext("profile-game-data-attribute/set/profile-id/game-id/code")){
+                SetProfileGameDataAttributeProfileIdGameIdCode();
             }
-            else if(IsContext("profile-game-data-attribute/del/by-uuid")){
-                DelProfileGameDataAttributeByUuid();
+            else if(IsContext("profile-game-data-attribute/del/uuid")){
+                DelProfileGameDataAttributeUuid();
             }
-            else if(IsContext("profile-game-data-attribute/del/by-profile-id")){
-                DelProfileGameDataAttributeByProfileId();
+            else if(IsContext("profile-game-data-attribute/del/profile-id")){
+                DelProfileGameDataAttributeProfileId();
             }
-            else if(IsContext("profile-game-data-attribute/del/by-profile-id/by-game-id/by-code")){
-                DelProfileGameDataAttributeByProfileIdByGameIdByCode();
+            else if(IsContext("profile-game-data-attribute/del/profile-id/game-id/code")){
+                DelProfileGameDataAttributeProfileIdGameIdCode();
             }
-            else if(IsContext("profile-game-data-attribute/get/by-uuid")){
-                GetProfileGameDataAttributeListByUuid();
+            else if(IsContext("profile-game-data-attribute/get/uuid")){
+                GetProfileGameDataAttributeListUuid();
             }
-            else if(IsContext("profile-game-data-attribute/get/by-profile-id")){
-                GetProfileGameDataAttributeListByProfileId();
+            else if(IsContext("profile-game-data-attribute/get/profile-id")){
+                GetProfileGameDataAttributeListProfileId();
             }
-            else if(IsContext("profile-game-data-attribute/get/by-profile-id/by-game-id/by-code")){
-                GetProfileGameDataAttributeListByProfileIdByGameIdByCode();
+            else if(IsContext("profile-game-data-attribute/get/profile-id/game-id/code")){
+                GetProfileGameDataAttributeListProfileIdGameIdCode();
             }
             if(IsContext("game-session/count")){
                 CountGameSession();
             }
-            else if(IsContext("game-session/count/by-uuid")){
-                CountGameSessionByUuid();
+            else if(IsContext("game-session/count/uuid")){
+                CountGameSessionUuid();
             }
-            else if(IsContext("game-session/count/by-game-id")){
-                CountGameSessionByGameId();
+            else if(IsContext("game-session/count/game-id")){
+                CountGameSessionGameId();
             }
-            else if(IsContext("game-session/count/by-profile-id")){
-                CountGameSessionByProfileId();
+            else if(IsContext("game-session/count/profile-id")){
+                CountGameSessionProfileId();
             }
-            else if(IsContext("game-session/count/by-profile-id/by-game-id")){
-                CountGameSessionByProfileIdByGameId();
+            else if(IsContext("game-session/count/profile-id/game-id")){
+                CountGameSessionProfileIdGameId();
             }
-            else if(IsContext("game-session/browse/by-filter")){
-                BrowseGameSessionListByFilter();
+            else if(IsContext("game-session/browse/filter")){
+                BrowseGameSessionListFilter();
             }
-            else if(IsContext("game-session/set/by-uuid")){
-                SetGameSessionByUuid();
+            else if(IsContext("game-session/set/uuid")){
+                SetGameSessionUuid();
             }
-            else if(IsContext("game-session/del/by-uuid")){
-                DelGameSessionByUuid();
+            else if(IsContext("game-session/del/uuid")){
+                DelGameSessionUuid();
             }
             else if(IsContext("game-session/get")){
                 GetGameSessionList();
             }
-            else if(IsContext("game-session/get/by-uuid")){
-                GetGameSessionListByUuid();
+            else if(IsContext("game-session/get/uuid")){
+                GetGameSessionListUuid();
             }
-            else if(IsContext("game-session/get/by-game-id")){
-                GetGameSessionListByGameId();
+            else if(IsContext("game-session/get/game-id")){
+                GetGameSessionListGameId();
             }
-            else if(IsContext("game-session/get/by-profile-id")){
-                GetGameSessionListByProfileId();
+            else if(IsContext("game-session/get/profile-id")){
+                GetGameSessionListProfileId();
             }
-            else if(IsContext("game-session/get/by-profile-id/by-game-id")){
-                GetGameSessionListByProfileIdByGameId();
+            else if(IsContext("game-session/get/profile-id/game-id")){
+                GetGameSessionListProfileIdGameId();
             }
             if(IsContext("game-session-data/count")){
                 CountGameSessionData();
             }
-            else if(IsContext("game-session-data/count/by-uuid")){
-                CountGameSessionDataByUuid();
+            else if(IsContext("game-session-data/count/uuid")){
+                CountGameSessionDataUuid();
             }
-            else if(IsContext("game-session-data/browse/by-filter")){
-                BrowseGameSessionDataListByFilter();
+            else if(IsContext("game-session-data/browse/filter")){
+                BrowseGameSessionDataListFilter();
             }
-            else if(IsContext("game-session-data/set/by-uuid")){
-                SetGameSessionDataByUuid();
+            else if(IsContext("game-session-data/set/uuid")){
+                SetGameSessionDataUuid();
             }
-            else if(IsContext("game-session-data/del/by-uuid")){
-                DelGameSessionDataByUuid();
+            else if(IsContext("game-session-data/del/uuid")){
+                DelGameSessionDataUuid();
             }
             else if(IsContext("game-session-data/get")){
                 GetGameSessionDataList();
             }
-            else if(IsContext("game-session-data/get/by-uuid")){
-                GetGameSessionDataListByUuid();
+            else if(IsContext("game-session-data/get/uuid")){
+                GetGameSessionDataListUuid();
             }
             if(IsContext("game-content/count")){
                 CountGameContent();
             }
-            else if(IsContext("game-content/count/by-uuid")){
-                CountGameContentByUuid();
+            else if(IsContext("game-content/count/uuid")){
+                CountGameContentUuid();
             }
-            else if(IsContext("game-content/count/by-game-id")){
-                CountGameContentByGameId();
+            else if(IsContext("game-content/count/game-id")){
+                CountGameContentGameId();
             }
-            else if(IsContext("game-content/count/by-game-id/by-path")){
-                CountGameContentByGameIdByPath();
+            else if(IsContext("game-content/count/game-id/path")){
+                CountGameContentGameIdPath();
             }
-            else if(IsContext("game-content/count/by-game-id/by-path/by-version")){
-                CountGameContentByGameIdByPathByVersion();
+            else if(IsContext("game-content/count/game-id/path/version")){
+                CountGameContentGameIdPathVersion();
             }
-            else if(IsContext("game-content/count/by-game-id/by-path/by-version/by-platform/by-increment")){
-                CountGameContentByGameIdByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-content/count/game-id/path/version/platform/increment")){
+                CountGameContentGameIdPathVersionPlatformIncrement();
             }
-            else if(IsContext("game-content/browse/by-filter")){
-                BrowseGameContentListByFilter();
+            else if(IsContext("game-content/browse/filter")){
+                BrowseGameContentListFilter();
             }
-            else if(IsContext("game-content/set/by-uuid")){
-                SetGameContentByUuid();
+            else if(IsContext("game-content/set/uuid")){
+                SetGameContentUuid();
             }
-            else if(IsContext("game-content/set/by-game-id")){
-                SetGameContentByGameId();
+            else if(IsContext("game-content/set/game-id")){
+                SetGameContentGameId();
             }
-            else if(IsContext("game-content/set/by-game-id/by-path")){
-                SetGameContentByGameIdByPath();
+            else if(IsContext("game-content/set/game-id/path")){
+                SetGameContentGameIdPath();
             }
-            else if(IsContext("game-content/set/by-game-id/by-path/by-version")){
-                SetGameContentByGameIdByPathByVersion();
+            else if(IsContext("game-content/set/game-id/path/version")){
+                SetGameContentGameIdPathVersion();
             }
-            else if(IsContext("game-content/set/by-game-id/by-path/by-version/by-platform/by-increment")){
-                SetGameContentByGameIdByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-content/set/game-id/path/version/platform/increment")){
+                SetGameContentGameIdPathVersionPlatformIncrement();
             }
-            else if(IsContext("game-content/del/by-uuid")){
-                DelGameContentByUuid();
+            else if(IsContext("game-content/del/uuid")){
+                DelGameContentUuid();
             }
-            else if(IsContext("game-content/del/by-game-id")){
-                DelGameContentByGameId();
+            else if(IsContext("game-content/del/game-id")){
+                DelGameContentGameId();
             }
-            else if(IsContext("game-content/del/by-game-id/by-path")){
-                DelGameContentByGameIdByPath();
+            else if(IsContext("game-content/del/game-id/path")){
+                DelGameContentGameIdPath();
             }
-            else if(IsContext("game-content/del/by-game-id/by-path/by-version")){
-                DelGameContentByGameIdByPathByVersion();
+            else if(IsContext("game-content/del/game-id/path/version")){
+                DelGameContentGameIdPathVersion();
             }
-            else if(IsContext("game-content/del/by-game-id/by-path/by-version/by-platform/by-increment")){
-                DelGameContentByGameIdByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-content/del/game-id/path/version/platform/increment")){
+                DelGameContentGameIdPathVersionPlatformIncrement();
             }
             else if(IsContext("game-content/get")){
                 GetGameContentList();
             }
-            else if(IsContext("game-content/get/by-uuid")){
-                GetGameContentListByUuid();
+            else if(IsContext("game-content/get/uuid")){
+                GetGameContentListUuid();
             }
-            else if(IsContext("game-content/get/by-game-id")){
-                GetGameContentListByGameId();
+            else if(IsContext("game-content/get/game-id")){
+                GetGameContentListGameId();
             }
-            else if(IsContext("game-content/get/by-game-id/by-path")){
-                GetGameContentListByGameIdByPath();
+            else if(IsContext("game-content/get/game-id/path")){
+                GetGameContentListGameIdPath();
             }
-            else if(IsContext("game-content/get/by-game-id/by-path/by-version")){
-                GetGameContentListByGameIdByPathByVersion();
+            else if(IsContext("game-content/get/game-id/path/version")){
+                GetGameContentListGameIdPathVersion();
             }
-            else if(IsContext("game-content/get/by-game-id/by-path/by-version/by-platform/by-increment")){
-                GetGameContentListByGameIdByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-content/get/game-id/path/version/platform/increment")){
+                GetGameContentListGameIdPathVersionPlatformIncrement();
             }
             if(IsContext("game-profile-content/count")){
                 CountGameProfileContent();
             }
-            else if(IsContext("game-profile-content/count/by-uuid")){
-                CountGameProfileContentByUuid();
+            else if(IsContext("game-profile-content/count/uuid")){
+                CountGameProfileContentUuid();
             }
-            else if(IsContext("game-profile-content/count/by-game-id/by-profile-id")){
-                CountGameProfileContentByGameIdByProfileId();
+            else if(IsContext("game-profile-content/count/game-id/profile-id")){
+                CountGameProfileContentGameIdProfileId();
             }
-            else if(IsContext("game-profile-content/count/by-game-id/by-username")){
-                CountGameProfileContentByGameIdByUsername();
+            else if(IsContext("game-profile-content/count/game-id/username")){
+                CountGameProfileContentGameIdUsername();
             }
-            else if(IsContext("game-profile-content/count/by-username")){
-                CountGameProfileContentByUsername();
+            else if(IsContext("game-profile-content/count/username")){
+                CountGameProfileContentUsername();
             }
-            else if(IsContext("game-profile-content/count/by-game-id/by-profile-id/by-path")){
-                CountGameProfileContentByGameIdByProfileIdByPath();
+            else if(IsContext("game-profile-content/count/game-id/profile-id/path")){
+                CountGameProfileContentGameIdProfileIdPath();
             }
-            else if(IsContext("game-profile-content/count/by-game-id/by-profile-id/by-path/by-version")){
-                CountGameProfileContentByGameIdByProfileIdByPathByVersion();
+            else if(IsContext("game-profile-content/count/game-id/profile-id/path/version")){
+                CountGameProfileContentGameIdProfileIdPathVersion();
             }
-            else if(IsContext("game-profile-content/count/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment")){
-                CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-profile-content/count/game-id/profile-id/path/version/platform/increment")){
+                CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement();
             }
-            else if(IsContext("game-profile-content/count/by-game-id/by-username/by-path")){
-                CountGameProfileContentByGameIdByUsernameByPath();
+            else if(IsContext("game-profile-content/count/game-id/username/path")){
+                CountGameProfileContentGameIdUsernamePath();
             }
-            else if(IsContext("game-profile-content/count/by-game-id/by-username/by-path/by-version")){
-                CountGameProfileContentByGameIdByUsernameByPathByVersion();
+            else if(IsContext("game-profile-content/count/game-id/username/path/version")){
+                CountGameProfileContentGameIdUsernamePathVersion();
             }
-            else if(IsContext("game-profile-content/count/by-game-id/by-username/by-path/by-version/by-platform/by-increment")){
-                CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-profile-content/count/game-id/username/path/version/platform/increment")){
+                CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement();
             }
-            else if(IsContext("game-profile-content/browse/by-filter")){
-                BrowseGameProfileContentListByFilter();
+            else if(IsContext("game-profile-content/browse/filter")){
+                BrowseGameProfileContentListFilter();
             }
-            else if(IsContext("game-profile-content/set/by-uuid")){
-                SetGameProfileContentByUuid();
+            else if(IsContext("game-profile-content/set/uuid")){
+                SetGameProfileContentUuid();
             }
-            else if(IsContext("game-profile-content/set/by-game-id/by-profile-id")){
-                SetGameProfileContentByGameIdByProfileId();
+            else if(IsContext("game-profile-content/set/game-id/profile-id")){
+                SetGameProfileContentGameIdProfileId();
             }
-            else if(IsContext("game-profile-content/set/by-game-id/by-username")){
-                SetGameProfileContentByGameIdByUsername();
+            else if(IsContext("game-profile-content/set/game-id/username")){
+                SetGameProfileContentGameIdUsername();
             }
-            else if(IsContext("game-profile-content/set/by-username")){
-                SetGameProfileContentByUsername();
+            else if(IsContext("game-profile-content/set/username")){
+                SetGameProfileContentUsername();
             }
-            else if(IsContext("game-profile-content/set/by-game-id/by-profile-id/by-path")){
-                SetGameProfileContentByGameIdByProfileIdByPath();
+            else if(IsContext("game-profile-content/set/game-id/profile-id/path")){
+                SetGameProfileContentGameIdProfileIdPath();
             }
-            else if(IsContext("game-profile-content/set/by-game-id/by-profile-id/by-path/by-version")){
-                SetGameProfileContentByGameIdByProfileIdByPathByVersion();
+            else if(IsContext("game-profile-content/set/game-id/profile-id/path/version")){
+                SetGameProfileContentGameIdProfileIdPathVersion();
             }
-            else if(IsContext("game-profile-content/set/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment")){
-                SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-profile-content/set/game-id/profile-id/path/version/platform/increment")){
+                SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement();
             }
-            else if(IsContext("game-profile-content/set/by-game-id/by-username/by-path")){
-                SetGameProfileContentByGameIdByUsernameByPath();
+            else if(IsContext("game-profile-content/set/game-id/username/path")){
+                SetGameProfileContentGameIdUsernamePath();
             }
-            else if(IsContext("game-profile-content/set/by-game-id/by-username/by-path/by-version")){
-                SetGameProfileContentByGameIdByUsernameByPathByVersion();
+            else if(IsContext("game-profile-content/set/game-id/username/path/version")){
+                SetGameProfileContentGameIdUsernamePathVersion();
             }
-            else if(IsContext("game-profile-content/set/by-game-id/by-username/by-path/by-version/by-platform/by-increment")){
-                SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-profile-content/set/game-id/username/path/version/platform/increment")){
+                SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement();
             }
-            else if(IsContext("game-profile-content/del/by-uuid")){
-                DelGameProfileContentByUuid();
+            else if(IsContext("game-profile-content/del/uuid")){
+                DelGameProfileContentUuid();
             }
-            else if(IsContext("game-profile-content/del/by-game-id/by-profile-id")){
-                DelGameProfileContentByGameIdByProfileId();
+            else if(IsContext("game-profile-content/del/game-id/profile-id")){
+                DelGameProfileContentGameIdProfileId();
             }
-            else if(IsContext("game-profile-content/del/by-game-id/by-username")){
-                DelGameProfileContentByGameIdByUsername();
+            else if(IsContext("game-profile-content/del/game-id/username")){
+                DelGameProfileContentGameIdUsername();
             }
-            else if(IsContext("game-profile-content/del/by-username")){
-                DelGameProfileContentByUsername();
+            else if(IsContext("game-profile-content/del/username")){
+                DelGameProfileContentUsername();
             }
-            else if(IsContext("game-profile-content/del/by-game-id/by-profile-id/by-path")){
-                DelGameProfileContentByGameIdByProfileIdByPath();
+            else if(IsContext("game-profile-content/del/game-id/profile-id/path")){
+                DelGameProfileContentGameIdProfileIdPath();
             }
-            else if(IsContext("game-profile-content/del/by-game-id/by-profile-id/by-path/by-version")){
-                DelGameProfileContentByGameIdByProfileIdByPathByVersion();
+            else if(IsContext("game-profile-content/del/game-id/profile-id/path/version")){
+                DelGameProfileContentGameIdProfileIdPathVersion();
             }
-            else if(IsContext("game-profile-content/del/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment")){
-                DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-profile-content/del/game-id/profile-id/path/version/platform/increment")){
+                DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement();
             }
-            else if(IsContext("game-profile-content/del/by-game-id/by-username/by-path")){
-                DelGameProfileContentByGameIdByUsernameByPath();
+            else if(IsContext("game-profile-content/del/game-id/username/path")){
+                DelGameProfileContentGameIdUsernamePath();
             }
-            else if(IsContext("game-profile-content/del/by-game-id/by-username/by-path/by-version")){
-                DelGameProfileContentByGameIdByUsernameByPathByVersion();
+            else if(IsContext("game-profile-content/del/game-id/username/path/version")){
+                DelGameProfileContentGameIdUsernamePathVersion();
             }
-            else if(IsContext("game-profile-content/del/by-game-id/by-username/by-path/by-version/by-platform/by-increment")){
-                DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-profile-content/del/game-id/username/path/version/platform/increment")){
+                DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement();
             }
             else if(IsContext("game-profile-content/get")){
                 GetGameProfileContentList();
             }
-            else if(IsContext("game-profile-content/get/by-uuid")){
-                GetGameProfileContentListByUuid();
+            else if(IsContext("game-profile-content/get/uuid")){
+                GetGameProfileContentListUuid();
             }
-            else if(IsContext("game-profile-content/get/by-game-id/by-profile-id")){
-                GetGameProfileContentListByGameIdByProfileId();
+            else if(IsContext("game-profile-content/get/game-id/profile-id")){
+                GetGameProfileContentListGameIdProfileId();
             }
-            else if(IsContext("game-profile-content/get/by-game-id/by-username")){
-                GetGameProfileContentListByGameIdByUsername();
+            else if(IsContext("game-profile-content/get/game-id/username")){
+                GetGameProfileContentListGameIdUsername();
             }
-            else if(IsContext("game-profile-content/get/by-username")){
-                GetGameProfileContentListByUsername();
+            else if(IsContext("game-profile-content/get/username")){
+                GetGameProfileContentListUsername();
             }
-            else if(IsContext("game-profile-content/get/by-game-id/by-profile-id/by-path")){
-                GetGameProfileContentListByGameIdByProfileIdByPath();
+            else if(IsContext("game-profile-content/get/game-id/profile-id/path")){
+                GetGameProfileContentListGameIdProfileIdPath();
             }
-            else if(IsContext("game-profile-content/get/by-game-id/by-profile-id/by-path/by-version")){
-                GetGameProfileContentListByGameIdByProfileIdByPathByVersion();
+            else if(IsContext("game-profile-content/get/game-id/profile-id/path/version")){
+                GetGameProfileContentListGameIdProfileIdPathVersion();
             }
-            else if(IsContext("game-profile-content/get/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment")){
-                GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-profile-content/get/game-id/profile-id/path/version/platform/increment")){
+                GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement();
             }
-            else if(IsContext("game-profile-content/get/by-game-id/by-username/by-path")){
-                GetGameProfileContentListByGameIdByUsernameByPath();
+            else if(IsContext("game-profile-content/get/game-id/username/path")){
+                GetGameProfileContentListGameIdUsernamePath();
             }
-            else if(IsContext("game-profile-content/get/by-game-id/by-username/by-path/by-version")){
-                GetGameProfileContentListByGameIdByUsernameByPathByVersion();
+            else if(IsContext("game-profile-content/get/game-id/username/path/version")){
+                GetGameProfileContentListGameIdUsernamePathVersion();
             }
-            else if(IsContext("game-profile-content/get/by-game-id/by-username/by-path/by-version/by-platform/by-increment")){
-                GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement();
+            else if(IsContext("game-profile-content/get/game-id/username/path/version/platform/increment")){
+                GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement();
             }
             if(IsContext("game-app/count")){
                 CountGameApp();
             }
-            else if(IsContext("game-app/count/by-uuid")){
-                CountGameAppByUuid();
+            else if(IsContext("game-app/count/uuid")){
+                CountGameAppUuid();
             }
-            else if(IsContext("game-app/count/by-game-id")){
-                CountGameAppByGameId();
+            else if(IsContext("game-app/count/game-id")){
+                CountGameAppGameId();
             }
-            else if(IsContext("game-app/count/by-app-id")){
-                CountGameAppByAppId();
+            else if(IsContext("game-app/count/app-id")){
+                CountGameAppAppId();
             }
-            else if(IsContext("game-app/count/by-game-id/by-app-id")){
-                CountGameAppByGameIdByAppId();
+            else if(IsContext("game-app/count/game-id/app-id")){
+                CountGameAppGameIdAppId();
             }
-            else if(IsContext("game-app/browse/by-filter")){
-                BrowseGameAppListByFilter();
+            else if(IsContext("game-app/browse/filter")){
+                BrowseGameAppListFilter();
             }
-            else if(IsContext("game-app/set/by-uuid")){
-                SetGameAppByUuid();
+            else if(IsContext("game-app/set/uuid")){
+                SetGameAppUuid();
             }
-            else if(IsContext("game-app/del/by-uuid")){
-                DelGameAppByUuid();
+            else if(IsContext("game-app/del/uuid")){
+                DelGameAppUuid();
             }
             else if(IsContext("game-app/get")){
                 GetGameAppList();
             }
-            else if(IsContext("game-app/get/by-uuid")){
-                GetGameAppListByUuid();
+            else if(IsContext("game-app/get/uuid")){
+                GetGameAppListUuid();
             }
-            else if(IsContext("game-app/get/by-game-id")){
-                GetGameAppListByGameId();
+            else if(IsContext("game-app/get/game-id")){
+                GetGameAppListGameId();
             }
-            else if(IsContext("game-app/get/by-app-id")){
-                GetGameAppListByAppId();
+            else if(IsContext("game-app/get/app-id")){
+                GetGameAppListAppId();
             }
-            else if(IsContext("game-app/get/by-game-id/by-app-id")){
-                GetGameAppListByGameIdByAppId();
+            else if(IsContext("game-app/get/game-id/app-id")){
+                GetGameAppListGameIdAppId();
             }
             if(IsContext("profile-game-location/count")){
                 CountProfileGameLocation();
             }
-            else if(IsContext("profile-game-location/count/by-uuid")){
-                CountProfileGameLocationByUuid();
+            else if(IsContext("profile-game-location/count/uuid")){
+                CountProfileGameLocationUuid();
             }
-            else if(IsContext("profile-game-location/count/by-game-location-id")){
-                CountProfileGameLocationByGameLocationId();
+            else if(IsContext("profile-game-location/count/game-location-id")){
+                CountProfileGameLocationGameLocationId();
             }
-            else if(IsContext("profile-game-location/count/by-profile-id")){
-                CountProfileGameLocationByProfileId();
+            else if(IsContext("profile-game-location/count/profile-id")){
+                CountProfileGameLocationProfileId();
             }
-            else if(IsContext("profile-game-location/count/by-profile-id/by-game-location-id")){
-                CountProfileGameLocationByProfileIdByGameLocationId();
+            else if(IsContext("profile-game-location/count/profile-id/game-location-id")){
+                CountProfileGameLocationProfileIdGameLocationId();
             }
-            else if(IsContext("profile-game-location/browse/by-filter")){
-                BrowseProfileGameLocationListByFilter();
+            else if(IsContext("profile-game-location/browse/filter")){
+                BrowseProfileGameLocationListFilter();
             }
-            else if(IsContext("profile-game-location/set/by-uuid")){
-                SetProfileGameLocationByUuid();
+            else if(IsContext("profile-game-location/set/uuid")){
+                SetProfileGameLocationUuid();
             }
-            else if(IsContext("profile-game-location/del/by-uuid")){
-                DelProfileGameLocationByUuid();
+            else if(IsContext("profile-game-location/del/uuid")){
+                DelProfileGameLocationUuid();
             }
             else if(IsContext("profile-game-location/get")){
                 GetProfileGameLocationList();
             }
-            else if(IsContext("profile-game-location/get/by-uuid")){
-                GetProfileGameLocationListByUuid();
+            else if(IsContext("profile-game-location/get/uuid")){
+                GetProfileGameLocationListUuid();
             }
-            else if(IsContext("profile-game-location/get/by-game-location-id")){
-                GetProfileGameLocationListByGameLocationId();
+            else if(IsContext("profile-game-location/get/game-location-id")){
+                GetProfileGameLocationListGameLocationId();
             }
-            else if(IsContext("profile-game-location/get/by-profile-id")){
-                GetProfileGameLocationListByProfileId();
+            else if(IsContext("profile-game-location/get/profile-id")){
+                GetProfileGameLocationListProfileId();
             }
-            else if(IsContext("profile-game-location/get/by-profile-id/by-game-location-id")){
-                GetProfileGameLocationListByProfileIdByGameLocationId();
+            else if(IsContext("profile-game-location/get/profile-id/game-location-id")){
+                GetProfileGameLocationListProfileIdGameLocationId();
             }
             if(IsContext("game-photo/count")){
                 CountGamePhoto();
             }
-            else if(IsContext("game-photo/count/by-uuid")){
-                CountGamePhotoByUuid();
+            else if(IsContext("game-photo/count/uuid")){
+                CountGamePhotoUuid();
             }
-            else if(IsContext("game-photo/count/by-external-id")){
-                CountGamePhotoByExternalId();
+            else if(IsContext("game-photo/count/external-id")){
+                CountGamePhotoExternalId();
             }
-            else if(IsContext("game-photo/count/by-url")){
-                CountGamePhotoByUrl();
+            else if(IsContext("game-photo/count/url")){
+                CountGamePhotoUrl();
             }
-            else if(IsContext("game-photo/count/by-url/by-external-id")){
-                CountGamePhotoByUrlByExternalId();
+            else if(IsContext("game-photo/count/url/external-id")){
+                CountGamePhotoUrlExternalId();
             }
-            else if(IsContext("game-photo/count/by-uuid/by-external-id")){
-                CountGamePhotoByUuidByExternalId();
+            else if(IsContext("game-photo/count/uuid/external-id")){
+                CountGamePhotoUuidExternalId();
             }
-            else if(IsContext("game-photo/browse/by-filter")){
-                BrowseGamePhotoListByFilter();
+            else if(IsContext("game-photo/browse/filter")){
+                BrowseGamePhotoListFilter();
             }
-            else if(IsContext("game-photo/set/by-uuid")){
-                SetGamePhotoByUuid();
+            else if(IsContext("game-photo/set/uuid")){
+                SetGamePhotoUuid();
             }
-            else if(IsContext("game-photo/set/by-external-id")){
-                SetGamePhotoByExternalId();
+            else if(IsContext("game-photo/set/external-id")){
+                SetGamePhotoExternalId();
             }
-            else if(IsContext("game-photo/set/by-url")){
-                SetGamePhotoByUrl();
+            else if(IsContext("game-photo/set/url")){
+                SetGamePhotoUrl();
             }
-            else if(IsContext("game-photo/set/by-url/by-external-id")){
-                SetGamePhotoByUrlByExternalId();
+            else if(IsContext("game-photo/set/url/external-id")){
+                SetGamePhotoUrlExternalId();
             }
-            else if(IsContext("game-photo/set/by-uuid/by-external-id")){
-                SetGamePhotoByUuidByExternalId();
+            else if(IsContext("game-photo/set/uuid/external-id")){
+                SetGamePhotoUuidExternalId();
             }
-            else if(IsContext("game-photo/del/by-uuid")){
-                DelGamePhotoByUuid();
+            else if(IsContext("game-photo/del/uuid")){
+                DelGamePhotoUuid();
             }
-            else if(IsContext("game-photo/del/by-external-id")){
-                DelGamePhotoByExternalId();
+            else if(IsContext("game-photo/del/external-id")){
+                DelGamePhotoExternalId();
             }
-            else if(IsContext("game-photo/del/by-url")){
-                DelGamePhotoByUrl();
+            else if(IsContext("game-photo/del/url")){
+                DelGamePhotoUrl();
             }
-            else if(IsContext("game-photo/del/by-url/by-external-id")){
-                DelGamePhotoByUrlByExternalId();
+            else if(IsContext("game-photo/del/url/external-id")){
+                DelGamePhotoUrlExternalId();
             }
-            else if(IsContext("game-photo/del/by-uuid/by-external-id")){
-                DelGamePhotoByUuidByExternalId();
+            else if(IsContext("game-photo/del/uuid/external-id")){
+                DelGamePhotoUuidExternalId();
             }
             else if(IsContext("game-photo/get")){
                 GetGamePhotoList();
             }
-            else if(IsContext("game-photo/get/by-uuid")){
-                GetGamePhotoListByUuid();
+            else if(IsContext("game-photo/get/uuid")){
+                GetGamePhotoListUuid();
             }
-            else if(IsContext("game-photo/get/by-external-id")){
-                GetGamePhotoListByExternalId();
+            else if(IsContext("game-photo/get/external-id")){
+                GetGamePhotoListExternalId();
             }
-            else if(IsContext("game-photo/get/by-url")){
-                GetGamePhotoListByUrl();
+            else if(IsContext("game-photo/get/url")){
+                GetGamePhotoListUrl();
             }
-            else if(IsContext("game-photo/get/by-url/by-external-id")){
-                GetGamePhotoListByUrlByExternalId();
+            else if(IsContext("game-photo/get/url/external-id")){
+                GetGamePhotoListUrlExternalId();
             }
-            else if(IsContext("game-photo/get/by-uuid/by-external-id")){
-                GetGamePhotoListByUuidByExternalId();
+            else if(IsContext("game-photo/get/uuid/external-id")){
+                GetGamePhotoListUuidExternalId();
             }
             if(IsContext("game-video/count")){
                 CountGameVideo();
             }
-            else if(IsContext("game-video/count/by-uuid")){
-                CountGameVideoByUuid();
+            else if(IsContext("game-video/count/uuid")){
+                CountGameVideoUuid();
             }
-            else if(IsContext("game-video/count/by-external-id")){
-                CountGameVideoByExternalId();
+            else if(IsContext("game-video/count/external-id")){
+                CountGameVideoExternalId();
             }
-            else if(IsContext("game-video/count/by-url")){
-                CountGameVideoByUrl();
+            else if(IsContext("game-video/count/url")){
+                CountGameVideoUrl();
             }
-            else if(IsContext("game-video/count/by-url/by-external-id")){
-                CountGameVideoByUrlByExternalId();
+            else if(IsContext("game-video/count/url/external-id")){
+                CountGameVideoUrlExternalId();
             }
-            else if(IsContext("game-video/count/by-uuid/by-external-id")){
-                CountGameVideoByUuidByExternalId();
+            else if(IsContext("game-video/count/uuid/external-id")){
+                CountGameVideoUuidExternalId();
             }
-            else if(IsContext("game-video/browse/by-filter")){
-                BrowseGameVideoListByFilter();
+            else if(IsContext("game-video/browse/filter")){
+                BrowseGameVideoListFilter();
             }
-            else if(IsContext("game-video/set/by-uuid")){
-                SetGameVideoByUuid();
+            else if(IsContext("game-video/set/uuid")){
+                SetGameVideoUuid();
             }
-            else if(IsContext("game-video/set/by-external-id")){
-                SetGameVideoByExternalId();
+            else if(IsContext("game-video/set/external-id")){
+                SetGameVideoExternalId();
             }
-            else if(IsContext("game-video/set/by-url")){
-                SetGameVideoByUrl();
+            else if(IsContext("game-video/set/url")){
+                SetGameVideoUrl();
             }
-            else if(IsContext("game-video/set/by-url/by-external-id")){
-                SetGameVideoByUrlByExternalId();
+            else if(IsContext("game-video/set/url/external-id")){
+                SetGameVideoUrlExternalId();
             }
-            else if(IsContext("game-video/set/by-uuid/by-external-id")){
-                SetGameVideoByUuidByExternalId();
+            else if(IsContext("game-video/set/uuid/external-id")){
+                SetGameVideoUuidExternalId();
             }
-            else if(IsContext("game-video/del/by-uuid")){
-                DelGameVideoByUuid();
+            else if(IsContext("game-video/del/uuid")){
+                DelGameVideoUuid();
             }
-            else if(IsContext("game-video/del/by-external-id")){
-                DelGameVideoByExternalId();
+            else if(IsContext("game-video/del/external-id")){
+                DelGameVideoExternalId();
             }
-            else if(IsContext("game-video/del/by-url")){
-                DelGameVideoByUrl();
+            else if(IsContext("game-video/del/url")){
+                DelGameVideoUrl();
             }
-            else if(IsContext("game-video/del/by-url/by-external-id")){
-                DelGameVideoByUrlByExternalId();
+            else if(IsContext("game-video/del/url/external-id")){
+                DelGameVideoUrlExternalId();
             }
-            else if(IsContext("game-video/del/by-uuid/by-external-id")){
-                DelGameVideoByUuidByExternalId();
+            else if(IsContext("game-video/del/uuid/external-id")){
+                DelGameVideoUuidExternalId();
             }
             else if(IsContext("game-video/get")){
                 GetGameVideoList();
             }
-            else if(IsContext("game-video/get/by-uuid")){
-                GetGameVideoListByUuid();
+            else if(IsContext("game-video/get/uuid")){
+                GetGameVideoListUuid();
             }
-            else if(IsContext("game-video/get/by-external-id")){
-                GetGameVideoListByExternalId();
+            else if(IsContext("game-video/get/external-id")){
+                GetGameVideoListExternalId();
             }
-            else if(IsContext("game-video/get/by-url")){
-                GetGameVideoListByUrl();
+            else if(IsContext("game-video/get/url")){
+                GetGameVideoListUrl();
             }
-            else if(IsContext("game-video/get/by-url/by-external-id")){
-                GetGameVideoListByUrlByExternalId();
+            else if(IsContext("game-video/get/url/external-id")){
+                GetGameVideoListUrlExternalId();
             }
-            else if(IsContext("game-video/get/by-uuid/by-external-id")){
-                GetGameVideoListByUuidByExternalId();
+            else if(IsContext("game-video/get/uuid/external-id")){
+                GetGameVideoListUuidExternalId();
             }
             if(IsContext("game-rpg-item/count")){
                 CountGameRpgItem();
             }
-            else if(IsContext("game-rpg-item/count/by-uuid")){
-                CountGameRpgItemByUuid();
+            else if(IsContext("game-rpg-item/count/uuid")){
+                CountGameRpgItemUuid();
             }
-            else if(IsContext("game-rpg-item/count/by-game-id")){
-                CountGameRpgItemByGameId();
+            else if(IsContext("game-rpg-item/count/game-id")){
+                CountGameRpgItemGameId();
             }
-            else if(IsContext("game-rpg-item/count/by-url")){
-                CountGameRpgItemByUrl();
+            else if(IsContext("game-rpg-item/count/url")){
+                CountGameRpgItemUrl();
             }
-            else if(IsContext("game-rpg-item/count/by-url/by-game-id")){
-                CountGameRpgItemByUrlByGameId();
+            else if(IsContext("game-rpg-item/count/url/game-id")){
+                CountGameRpgItemUrlGameId();
             }
-            else if(IsContext("game-rpg-item/count/by-uuid/by-game-id")){
-                CountGameRpgItemByUuidByGameId();
+            else if(IsContext("game-rpg-item/count/uuid/game-id")){
+                CountGameRpgItemUuidGameId();
             }
-            else if(IsContext("game-rpg-item/browse/by-filter")){
-                BrowseGameRpgItemListByFilter();
+            else if(IsContext("game-rpg-item/browse/filter")){
+                BrowseGameRpgItemListFilter();
             }
-            else if(IsContext("game-rpg-item/set/by-uuid")){
-                SetGameRpgItemByUuid();
+            else if(IsContext("game-rpg-item/set/uuid")){
+                SetGameRpgItemUuid();
             }
-            else if(IsContext("game-rpg-item/set/by-game-id")){
-                SetGameRpgItemByGameId();
+            else if(IsContext("game-rpg-item/set/game-id")){
+                SetGameRpgItemGameId();
             }
-            else if(IsContext("game-rpg-item/set/by-url")){
-                SetGameRpgItemByUrl();
+            else if(IsContext("game-rpg-item/set/url")){
+                SetGameRpgItemUrl();
             }
-            else if(IsContext("game-rpg-item/set/by-url/by-game-id")){
-                SetGameRpgItemByUrlByGameId();
+            else if(IsContext("game-rpg-item/set/url/game-id")){
+                SetGameRpgItemUrlGameId();
             }
-            else if(IsContext("game-rpg-item/set/by-uuid/by-game-id")){
-                SetGameRpgItemByUuidByGameId();
+            else if(IsContext("game-rpg-item/set/uuid/game-id")){
+                SetGameRpgItemUuidGameId();
             }
-            else if(IsContext("game-rpg-item/del/by-uuid")){
-                DelGameRpgItemByUuid();
+            else if(IsContext("game-rpg-item/del/uuid")){
+                DelGameRpgItemUuid();
             }
-            else if(IsContext("game-rpg-item/del/by-game-id")){
-                DelGameRpgItemByGameId();
+            else if(IsContext("game-rpg-item/del/game-id")){
+                DelGameRpgItemGameId();
             }
-            else if(IsContext("game-rpg-item/del/by-url")){
-                DelGameRpgItemByUrl();
+            else if(IsContext("game-rpg-item/del/url")){
+                DelGameRpgItemUrl();
             }
-            else if(IsContext("game-rpg-item/del/by-url/by-game-id")){
-                DelGameRpgItemByUrlByGameId();
+            else if(IsContext("game-rpg-item/del/url/game-id")){
+                DelGameRpgItemUrlGameId();
             }
-            else if(IsContext("game-rpg-item/del/by-uuid/by-game-id")){
-                DelGameRpgItemByUuidByGameId();
+            else if(IsContext("game-rpg-item/del/uuid/game-id")){
+                DelGameRpgItemUuidGameId();
             }
             else if(IsContext("game-rpg-item/get")){
                 GetGameRpgItemList();
             }
-            else if(IsContext("game-rpg-item/get/by-uuid")){
-                GetGameRpgItemListByUuid();
+            else if(IsContext("game-rpg-item/get/uuid")){
+                GetGameRpgItemListUuid();
             }
-            else if(IsContext("game-rpg-item/get/by-game-id")){
-                GetGameRpgItemListByGameId();
+            else if(IsContext("game-rpg-item/get/game-id")){
+                GetGameRpgItemListGameId();
             }
-            else if(IsContext("game-rpg-item/get/by-url")){
-                GetGameRpgItemListByUrl();
+            else if(IsContext("game-rpg-item/get/url")){
+                GetGameRpgItemListUrl();
             }
-            else if(IsContext("game-rpg-item/get/by-url/by-game-id")){
-                GetGameRpgItemListByUrlByGameId();
+            else if(IsContext("game-rpg-item/get/url/game-id")){
+                GetGameRpgItemListUrlGameId();
             }
-            else if(IsContext("game-rpg-item/get/by-uuid/by-game-id")){
-                GetGameRpgItemListByUuidByGameId();
+            else if(IsContext("game-rpg-item/get/uuid/game-id")){
+                GetGameRpgItemListUuidGameId();
             }
             if(IsContext("game-rpg-item-weapon/count")){
                 CountGameRpgItemWeapon();
             }
-            else if(IsContext("game-rpg-item-weapon/count/by-uuid")){
-                CountGameRpgItemWeaponByUuid();
+            else if(IsContext("game-rpg-item-weapon/count/uuid")){
+                CountGameRpgItemWeaponUuid();
             }
-            else if(IsContext("game-rpg-item-weapon/count/by-game-id")){
-                CountGameRpgItemWeaponByGameId();
+            else if(IsContext("game-rpg-item-weapon/count/game-id")){
+                CountGameRpgItemWeaponGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/count/by-url")){
-                CountGameRpgItemWeaponByUrl();
+            else if(IsContext("game-rpg-item-weapon/count/url")){
+                CountGameRpgItemWeaponUrl();
             }
-            else if(IsContext("game-rpg-item-weapon/count/by-url/by-game-id")){
-                CountGameRpgItemWeaponByUrlByGameId();
+            else if(IsContext("game-rpg-item-weapon/count/url/game-id")){
+                CountGameRpgItemWeaponUrlGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/count/by-uuid/by-game-id")){
-                CountGameRpgItemWeaponByUuidByGameId();
+            else if(IsContext("game-rpg-item-weapon/count/uuid/game-id")){
+                CountGameRpgItemWeaponUuidGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/browse/by-filter")){
-                BrowseGameRpgItemWeaponListByFilter();
+            else if(IsContext("game-rpg-item-weapon/browse/filter")){
+                BrowseGameRpgItemWeaponListFilter();
             }
-            else if(IsContext("game-rpg-item-weapon/set/by-uuid")){
-                SetGameRpgItemWeaponByUuid();
+            else if(IsContext("game-rpg-item-weapon/set/uuid")){
+                SetGameRpgItemWeaponUuid();
             }
-            else if(IsContext("game-rpg-item-weapon/set/by-game-id")){
-                SetGameRpgItemWeaponByGameId();
+            else if(IsContext("game-rpg-item-weapon/set/game-id")){
+                SetGameRpgItemWeaponGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/set/by-url")){
-                SetGameRpgItemWeaponByUrl();
+            else if(IsContext("game-rpg-item-weapon/set/url")){
+                SetGameRpgItemWeaponUrl();
             }
-            else if(IsContext("game-rpg-item-weapon/set/by-url/by-game-id")){
-                SetGameRpgItemWeaponByUrlByGameId();
+            else if(IsContext("game-rpg-item-weapon/set/url/game-id")){
+                SetGameRpgItemWeaponUrlGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/set/by-uuid/by-game-id")){
-                SetGameRpgItemWeaponByUuidByGameId();
+            else if(IsContext("game-rpg-item-weapon/set/uuid/game-id")){
+                SetGameRpgItemWeaponUuidGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/del/by-uuid")){
-                DelGameRpgItemWeaponByUuid();
+            else if(IsContext("game-rpg-item-weapon/del/uuid")){
+                DelGameRpgItemWeaponUuid();
             }
-            else if(IsContext("game-rpg-item-weapon/del/by-game-id")){
-                DelGameRpgItemWeaponByGameId();
+            else if(IsContext("game-rpg-item-weapon/del/game-id")){
+                DelGameRpgItemWeaponGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/del/by-url")){
-                DelGameRpgItemWeaponByUrl();
+            else if(IsContext("game-rpg-item-weapon/del/url")){
+                DelGameRpgItemWeaponUrl();
             }
-            else if(IsContext("game-rpg-item-weapon/del/by-url/by-game-id")){
-                DelGameRpgItemWeaponByUrlByGameId();
+            else if(IsContext("game-rpg-item-weapon/del/url/game-id")){
+                DelGameRpgItemWeaponUrlGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/del/by-uuid/by-game-id")){
-                DelGameRpgItemWeaponByUuidByGameId();
+            else if(IsContext("game-rpg-item-weapon/del/uuid/game-id")){
+                DelGameRpgItemWeaponUuidGameId();
             }
             else if(IsContext("game-rpg-item-weapon/get")){
                 GetGameRpgItemWeaponList();
             }
-            else if(IsContext("game-rpg-item-weapon/get/by-uuid")){
-                GetGameRpgItemWeaponListByUuid();
+            else if(IsContext("game-rpg-item-weapon/get/uuid")){
+                GetGameRpgItemWeaponListUuid();
             }
-            else if(IsContext("game-rpg-item-weapon/get/by-game-id")){
-                GetGameRpgItemWeaponListByGameId();
+            else if(IsContext("game-rpg-item-weapon/get/game-id")){
+                GetGameRpgItemWeaponListGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/get/by-url")){
-                GetGameRpgItemWeaponListByUrl();
+            else if(IsContext("game-rpg-item-weapon/get/url")){
+                GetGameRpgItemWeaponListUrl();
             }
-            else if(IsContext("game-rpg-item-weapon/get/by-url/by-game-id")){
-                GetGameRpgItemWeaponListByUrlByGameId();
+            else if(IsContext("game-rpg-item-weapon/get/url/game-id")){
+                GetGameRpgItemWeaponListUrlGameId();
             }
-            else if(IsContext("game-rpg-item-weapon/get/by-uuid/by-game-id")){
-                GetGameRpgItemWeaponListByUuidByGameId();
+            else if(IsContext("game-rpg-item-weapon/get/uuid/game-id")){
+                GetGameRpgItemWeaponListUuidGameId();
             }
             if(IsContext("game-rpg-item-skill/count")){
                 CountGameRpgItemSkill();
             }
-            else if(IsContext("game-rpg-item-skill/count/by-uuid")){
-                CountGameRpgItemSkillByUuid();
+            else if(IsContext("game-rpg-item-skill/count/uuid")){
+                CountGameRpgItemSkillUuid();
             }
-            else if(IsContext("game-rpg-item-skill/count/by-game-id")){
-                CountGameRpgItemSkillByGameId();
+            else if(IsContext("game-rpg-item-skill/count/game-id")){
+                CountGameRpgItemSkillGameId();
             }
-            else if(IsContext("game-rpg-item-skill/count/by-url")){
-                CountGameRpgItemSkillByUrl();
+            else if(IsContext("game-rpg-item-skill/count/url")){
+                CountGameRpgItemSkillUrl();
             }
-            else if(IsContext("game-rpg-item-skill/count/by-url/by-game-id")){
-                CountGameRpgItemSkillByUrlByGameId();
+            else if(IsContext("game-rpg-item-skill/count/url/game-id")){
+                CountGameRpgItemSkillUrlGameId();
             }
-            else if(IsContext("game-rpg-item-skill/count/by-uuid/by-game-id")){
-                CountGameRpgItemSkillByUuidByGameId();
+            else if(IsContext("game-rpg-item-skill/count/uuid/game-id")){
+                CountGameRpgItemSkillUuidGameId();
             }
-            else if(IsContext("game-rpg-item-skill/browse/by-filter")){
-                BrowseGameRpgItemSkillListByFilter();
+            else if(IsContext("game-rpg-item-skill/browse/filter")){
+                BrowseGameRpgItemSkillListFilter();
             }
-            else if(IsContext("game-rpg-item-skill/set/by-uuid")){
-                SetGameRpgItemSkillByUuid();
+            else if(IsContext("game-rpg-item-skill/set/uuid")){
+                SetGameRpgItemSkillUuid();
             }
-            else if(IsContext("game-rpg-item-skill/set/by-game-id")){
-                SetGameRpgItemSkillByGameId();
+            else if(IsContext("game-rpg-item-skill/set/game-id")){
+                SetGameRpgItemSkillGameId();
             }
-            else if(IsContext("game-rpg-item-skill/set/by-url")){
-                SetGameRpgItemSkillByUrl();
+            else if(IsContext("game-rpg-item-skill/set/url")){
+                SetGameRpgItemSkillUrl();
             }
-            else if(IsContext("game-rpg-item-skill/set/by-url/by-game-id")){
-                SetGameRpgItemSkillByUrlByGameId();
+            else if(IsContext("game-rpg-item-skill/set/url/game-id")){
+                SetGameRpgItemSkillUrlGameId();
             }
-            else if(IsContext("game-rpg-item-skill/set/by-uuid/by-game-id")){
-                SetGameRpgItemSkillByUuidByGameId();
+            else if(IsContext("game-rpg-item-skill/set/uuid/game-id")){
+                SetGameRpgItemSkillUuidGameId();
             }
-            else if(IsContext("game-rpg-item-skill/del/by-uuid")){
-                DelGameRpgItemSkillByUuid();
+            else if(IsContext("game-rpg-item-skill/del/uuid")){
+                DelGameRpgItemSkillUuid();
             }
-            else if(IsContext("game-rpg-item-skill/del/by-game-id")){
-                DelGameRpgItemSkillByGameId();
+            else if(IsContext("game-rpg-item-skill/del/game-id")){
+                DelGameRpgItemSkillGameId();
             }
-            else if(IsContext("game-rpg-item-skill/del/by-url")){
-                DelGameRpgItemSkillByUrl();
+            else if(IsContext("game-rpg-item-skill/del/url")){
+                DelGameRpgItemSkillUrl();
             }
-            else if(IsContext("game-rpg-item-skill/del/by-url/by-game-id")){
-                DelGameRpgItemSkillByUrlByGameId();
+            else if(IsContext("game-rpg-item-skill/del/url/game-id")){
+                DelGameRpgItemSkillUrlGameId();
             }
-            else if(IsContext("game-rpg-item-skill/del/by-uuid/by-game-id")){
-                DelGameRpgItemSkillByUuidByGameId();
+            else if(IsContext("game-rpg-item-skill/del/uuid/game-id")){
+                DelGameRpgItemSkillUuidGameId();
             }
             else if(IsContext("game-rpg-item-skill/get")){
                 GetGameRpgItemSkillList();
             }
-            else if(IsContext("game-rpg-item-skill/get/by-uuid")){
-                GetGameRpgItemSkillListByUuid();
+            else if(IsContext("game-rpg-item-skill/get/uuid")){
+                GetGameRpgItemSkillListUuid();
             }
-            else if(IsContext("game-rpg-item-skill/get/by-game-id")){
-                GetGameRpgItemSkillListByGameId();
+            else if(IsContext("game-rpg-item-skill/get/game-id")){
+                GetGameRpgItemSkillListGameId();
             }
-            else if(IsContext("game-rpg-item-skill/get/by-url")){
-                GetGameRpgItemSkillListByUrl();
+            else if(IsContext("game-rpg-item-skill/get/url")){
+                GetGameRpgItemSkillListUrl();
             }
-            else if(IsContext("game-rpg-item-skill/get/by-url/by-game-id")){
-                GetGameRpgItemSkillListByUrlByGameId();
+            else if(IsContext("game-rpg-item-skill/get/url/game-id")){
+                GetGameRpgItemSkillListUrlGameId();
             }
-            else if(IsContext("game-rpg-item-skill/get/by-uuid/by-game-id")){
-                GetGameRpgItemSkillListByUuidByGameId();
+            else if(IsContext("game-rpg-item-skill/get/uuid/game-id")){
+                GetGameRpgItemSkillListUuidGameId();
             }
             if(IsContext("game-product/count")){
                 CountGameProduct();
             }
-            else if(IsContext("game-product/count/by-uuid")){
-                CountGameProductByUuid();
+            else if(IsContext("game-product/count/uuid")){
+                CountGameProductUuid();
             }
-            else if(IsContext("game-product/count/by-game-id")){
-                CountGameProductByGameId();
+            else if(IsContext("game-product/count/game-id")){
+                CountGameProductGameId();
             }
-            else if(IsContext("game-product/count/by-url")){
-                CountGameProductByUrl();
+            else if(IsContext("game-product/count/url")){
+                CountGameProductUrl();
             }
-            else if(IsContext("game-product/count/by-url/by-game-id")){
-                CountGameProductByUrlByGameId();
+            else if(IsContext("game-product/count/url/game-id")){
+                CountGameProductUrlGameId();
             }
-            else if(IsContext("game-product/count/by-uuid/by-game-id")){
-                CountGameProductByUuidByGameId();
+            else if(IsContext("game-product/count/uuid/game-id")){
+                CountGameProductUuidGameId();
             }
-            else if(IsContext("game-product/browse/by-filter")){
-                BrowseGameProductListByFilter();
+            else if(IsContext("game-product/browse/filter")){
+                BrowseGameProductListFilter();
             }
-            else if(IsContext("game-product/set/by-uuid")){
-                SetGameProductByUuid();
+            else if(IsContext("game-product/set/uuid")){
+                SetGameProductUuid();
             }
-            else if(IsContext("game-product/set/by-game-id")){
-                SetGameProductByGameId();
+            else if(IsContext("game-product/set/game-id")){
+                SetGameProductGameId();
             }
-            else if(IsContext("game-product/set/by-url")){
-                SetGameProductByUrl();
+            else if(IsContext("game-product/set/url")){
+                SetGameProductUrl();
             }
-            else if(IsContext("game-product/set/by-url/by-game-id")){
-                SetGameProductByUrlByGameId();
+            else if(IsContext("game-product/set/url/game-id")){
+                SetGameProductUrlGameId();
             }
-            else if(IsContext("game-product/set/by-uuid/by-game-id")){
-                SetGameProductByUuidByGameId();
+            else if(IsContext("game-product/set/uuid/game-id")){
+                SetGameProductUuidGameId();
             }
-            else if(IsContext("game-product/del/by-uuid")){
-                DelGameProductByUuid();
+            else if(IsContext("game-product/del/uuid")){
+                DelGameProductUuid();
             }
-            else if(IsContext("game-product/del/by-game-id")){
-                DelGameProductByGameId();
+            else if(IsContext("game-product/del/game-id")){
+                DelGameProductGameId();
             }
-            else if(IsContext("game-product/del/by-url")){
-                DelGameProductByUrl();
+            else if(IsContext("game-product/del/url")){
+                DelGameProductUrl();
             }
-            else if(IsContext("game-product/del/by-url/by-game-id")){
-                DelGameProductByUrlByGameId();
+            else if(IsContext("game-product/del/url/game-id")){
+                DelGameProductUrlGameId();
             }
-            else if(IsContext("game-product/del/by-uuid/by-game-id")){
-                DelGameProductByUuidByGameId();
+            else if(IsContext("game-product/del/uuid/game-id")){
+                DelGameProductUuidGameId();
             }
             else if(IsContext("game-product/get")){
                 GetGameProductList();
             }
-            else if(IsContext("game-product/get/by-uuid")){
-                GetGameProductListByUuid();
+            else if(IsContext("game-product/get/uuid")){
+                GetGameProductListUuid();
             }
-            else if(IsContext("game-product/get/by-game-id")){
-                GetGameProductListByGameId();
+            else if(IsContext("game-product/get/game-id")){
+                GetGameProductListGameId();
             }
-            else if(IsContext("game-product/get/by-url")){
-                GetGameProductListByUrl();
+            else if(IsContext("game-product/get/url")){
+                GetGameProductListUrl();
             }
-            else if(IsContext("game-product/get/by-url/by-game-id")){
-                GetGameProductListByUrlByGameId();
+            else if(IsContext("game-product/get/url/game-id")){
+                GetGameProductListUrlGameId();
             }
-            else if(IsContext("game-product/get/by-uuid/by-game-id")){
-                GetGameProductListByUuidByGameId();
+            else if(IsContext("game-product/get/uuid/game-id")){
+                GetGameProductListUuidGameId();
             }
             if(IsContext("game-statistic-leaderboard/count")){
                 CountGameStatisticLeaderboard();
             }
-            else if(IsContext("game-statistic-leaderboard/count/by-uuid")){
-                CountGameStatisticLeaderboardByUuid();
+            else if(IsContext("game-statistic-leaderboard/count/uuid")){
+                CountGameStatisticLeaderboardUuid();
             }
-            else if(IsContext("game-statistic-leaderboard/count/by-game-id")){
-                CountGameStatisticLeaderboardByGameId();
+            else if(IsContext("game-statistic-leaderboard/count/game-id")){
+                CountGameStatisticLeaderboardGameId();
             }
-            else if(IsContext("game-statistic-leaderboard/count/by-code")){
-                CountGameStatisticLeaderboardByCode();
+            else if(IsContext("game-statistic-leaderboard/count/code")){
+                CountGameStatisticLeaderboardCode();
             }
-            else if(IsContext("game-statistic-leaderboard/count/by-code/by-game-id")){
-                CountGameStatisticLeaderboardByCodeByGameId();
+            else if(IsContext("game-statistic-leaderboard/count/code/game-id")){
+                CountGameStatisticLeaderboardCodeGameId();
             }
-            else if(IsContext("game-statistic-leaderboard/count/by-code/by-game-id/by-profile-id")){
-                CountGameStatisticLeaderboardByCodeByGameIdByProfileId();
+            else if(IsContext("game-statistic-leaderboard/count/code/game-id/profile-id")){
+                CountGameStatisticLeaderboardCodeGameIdProfileId();
             }
-            else if(IsContext("game-statistic-leaderboard/count/by-code/by-game-id/by-profile-id/by-timestamp")){
-                CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard/count/code/game-id/profile-id/timestamp")){
+                CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard/count/by-profile-id/by-game-id")){
-                CountGameStatisticLeaderboardByProfileIdByGameId();
+            else if(IsContext("game-statistic-leaderboard/count/profile-id/game-id")){
+                CountGameStatisticLeaderboardProfileIdGameId();
             }
-            else if(IsContext("game-statistic-leaderboard/browse/by-filter")){
-                BrowseGameStatisticLeaderboardListByFilter();
+            else if(IsContext("game-statistic-leaderboard/browse/filter")){
+                BrowseGameStatisticLeaderboardListFilter();
             }
-            else if(IsContext("game-statistic-leaderboard/set/by-uuid")){
-                SetGameStatisticLeaderboardByUuid();
+            else if(IsContext("game-statistic-leaderboard/set/uuid")){
+                SetGameStatisticLeaderboardUuid();
             }
-            else if(IsContext("game-statistic-leaderboard/set/by-uuid/by-profile-id/by-game-id/by-timestamp")){
-                SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard/set/uuid/profile-id/game-id/timestamp")){
+                SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard/set/by-code")){
-                SetGameStatisticLeaderboardByCode();
+            else if(IsContext("game-statistic-leaderboard/set/code")){
+                SetGameStatisticLeaderboardCode();
             }
-            else if(IsContext("game-statistic-leaderboard/set/by-code/by-game-id")){
-                SetGameStatisticLeaderboardByCodeByGameId();
+            else if(IsContext("game-statistic-leaderboard/set/code/game-id")){
+                SetGameStatisticLeaderboardCodeGameId();
             }
-            else if(IsContext("game-statistic-leaderboard/set/by-code/by-game-id/by-profile-id")){
-                SetGameStatisticLeaderboardByCodeByGameIdByProfileId();
+            else if(IsContext("game-statistic-leaderboard/set/code/game-id/profile-id")){
+                SetGameStatisticLeaderboardCodeGameIdProfileId();
             }
-            else if(IsContext("game-statistic-leaderboard/set/by-code/by-game-id/by-profile-id/by-timestamp")){
-                SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard/set/code/game-id/profile-id/timestamp")){
+                SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard/del/by-uuid")){
-                DelGameStatisticLeaderboardByUuid();
+            else if(IsContext("game-statistic-leaderboard/del/uuid")){
+                DelGameStatisticLeaderboardUuid();
             }
-            else if(IsContext("game-statistic-leaderboard/del/by-code")){
-                DelGameStatisticLeaderboardByCode();
+            else if(IsContext("game-statistic-leaderboard/del/code")){
+                DelGameStatisticLeaderboardCode();
             }
-            else if(IsContext("game-statistic-leaderboard/del/by-code/by-game-id")){
-                DelGameStatisticLeaderboardByCodeByGameId();
+            else if(IsContext("game-statistic-leaderboard/del/code/game-id")){
+                DelGameStatisticLeaderboardCodeGameId();
             }
-            else if(IsContext("game-statistic-leaderboard/del/by-code/by-game-id/by-profile-id")){
-                DelGameStatisticLeaderboardByCodeByGameIdByProfileId();
+            else if(IsContext("game-statistic-leaderboard/del/code/game-id/profile-id")){
+                DelGameStatisticLeaderboardCodeGameIdProfileId();
             }
-            else if(IsContext("game-statistic-leaderboard/del/by-code/by-game-id/by-profile-id/by-timestamp")){
-                DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard/del/code/game-id/profile-id/timestamp")){
+                DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard/del/by-profile-id/by-game-id")){
-                DelGameStatisticLeaderboardByProfileIdByGameId();
+            else if(IsContext("game-statistic-leaderboard/del/profile-id/game-id")){
+                DelGameStatisticLeaderboardProfileIdGameId();
             }
             else if(IsContext("game-statistic-leaderboard/get")){
                 GetGameStatisticLeaderboardList();
             }
-            else if(IsContext("game-statistic-leaderboard/get/by-uuid")){
-                GetGameStatisticLeaderboardListByUuid();
+            else if(IsContext("game-statistic-leaderboard/get/uuid")){
+                GetGameStatisticLeaderboardListUuid();
             }
-            else if(IsContext("game-statistic-leaderboard/get/by-game-id")){
-                GetGameStatisticLeaderboardListByGameId();
+            else if(IsContext("game-statistic-leaderboard/get/game-id")){
+                GetGameStatisticLeaderboardListGameId();
             }
-            else if(IsContext("game-statistic-leaderboard/get/by-code")){
-                GetGameStatisticLeaderboardListByCode();
+            else if(IsContext("game-statistic-leaderboard/get/code")){
+                GetGameStatisticLeaderboardListCode();
             }
-            else if(IsContext("game-statistic-leaderboard/get/by-code/by-game-id")){
-                GetGameStatisticLeaderboardListByCodeByGameId();
+            else if(IsContext("game-statistic-leaderboard/get/code/game-id")){
+                GetGameStatisticLeaderboardListCodeGameId();
             }
-            else if(IsContext("game-statistic-leaderboard/get/by-code/by-game-id/by-profile-id")){
-                GetGameStatisticLeaderboardListByCodeByGameIdByProfileId();
+            else if(IsContext("game-statistic-leaderboard/get/code/game-id/profile-id")){
+                GetGameStatisticLeaderboardListCodeGameIdProfileId();
             }
-            else if(IsContext("game-statistic-leaderboard/get/by-code/by-game-id/by-profile-id/by-timestamp")){
-                GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard/get/code/game-id/profile-id/timestamp")){
+                GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard/get/by-profile-id/by-game-id")){
-                GetGameStatisticLeaderboardListByProfileIdByGameId();
+            else if(IsContext("game-statistic-leaderboard/get/profile-id/game-id")){
+                GetGameStatisticLeaderboardListProfileIdGameId();
             }
-            else if(IsContext("game-statistic-leaderboard/get/by-profile-id/by-game-id/by-timestamp")){
-                GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard/get/profile-id/game-id/timestamp")){
+                GetGameStatisticLeaderboardListProfileIdGameIdTimestamp();
+            }
+            if(IsContext("game-statistic-leaderboard-item/count")){
+                CountGameStatisticLeaderboardItem();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/count/uuid")){
+                CountGameStatisticLeaderboardItemUuid();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/count/game-id")){
+                CountGameStatisticLeaderboardItemGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/count/code")){
+                CountGameStatisticLeaderboardItemCode();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/count/code/game-id")){
+                CountGameStatisticLeaderboardItemCodeGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/count/code/game-id/profile-id")){
+                CountGameStatisticLeaderboardItemCodeGameIdProfileId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/count/code/game-id/profile-id/timestamp")){
+                CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/count/profile-id/game-id")){
+                CountGameStatisticLeaderboardItemProfileIdGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/browse/filter")){
+                BrowseGameStatisticLeaderboardItemListFilter();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/set/uuid")){
+                SetGameStatisticLeaderboardItemUuid();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/set/uuid/profile-id/game-id/timestamp")){
+                SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/set/code")){
+                SetGameStatisticLeaderboardItemCode();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/set/code/game-id")){
+                SetGameStatisticLeaderboardItemCodeGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/set/code/game-id/profile-id")){
+                SetGameStatisticLeaderboardItemCodeGameIdProfileId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/set/code/game-id/profile-id/timestamp")){
+                SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/del/uuid")){
+                DelGameStatisticLeaderboardItemUuid();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/del/code")){
+                DelGameStatisticLeaderboardItemCode();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/del/code/game-id")){
+                DelGameStatisticLeaderboardItemCodeGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/del/code/game-id/profile-id")){
+                DelGameStatisticLeaderboardItemCodeGameIdProfileId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/del/code/game-id/profile-id/timestamp")){
+                DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/del/profile-id/game-id")){
+                DelGameStatisticLeaderboardItemProfileIdGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get")){
+                GetGameStatisticLeaderboardItemList();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get/uuid")){
+                GetGameStatisticLeaderboardItemListUuid();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get/game-id")){
+                GetGameStatisticLeaderboardItemListGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get/code")){
+                GetGameStatisticLeaderboardItemListCode();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get/code/game-id")){
+                GetGameStatisticLeaderboardItemListCodeGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get/code/game-id/profile-id")){
+                GetGameStatisticLeaderboardItemListCodeGameIdProfileId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get/code/game-id/profile-id/timestamp")){
+                GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get/profile-id/game-id")){
+                GetGameStatisticLeaderboardItemListProfileIdGameId();
+            }
+            else if(IsContext("game-statistic-leaderboard-item/get/profile-id/game-id/timestamp")){
+                GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp();
             }
             if(IsContext("game-statistic-leaderboard-rollup/count")){
                 CountGameStatisticLeaderboardRollup();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/count/by-uuid")){
-                CountGameStatisticLeaderboardRollupByUuid();
+            else if(IsContext("game-statistic-leaderboard-rollup/count/uuid")){
+                CountGameStatisticLeaderboardRollupUuid();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/count/by-game-id")){
-                CountGameStatisticLeaderboardRollupByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/count/game-id")){
+                CountGameStatisticLeaderboardRollupGameId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/count/by-code")){
-                CountGameStatisticLeaderboardRollupByCode();
+            else if(IsContext("game-statistic-leaderboard-rollup/count/code")){
+                CountGameStatisticLeaderboardRollupCode();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/count/by-code/by-game-id")){
-                CountGameStatisticLeaderboardRollupByCodeByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/count/code/game-id")){
+                CountGameStatisticLeaderboardRollupCodeGameId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/count/by-code/by-game-id/by-profile-id")){
-                CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId();
+            else if(IsContext("game-statistic-leaderboard-rollup/count/code/game-id/profile-id")){
+                CountGameStatisticLeaderboardRollupCodeGameIdProfileId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/count/by-code/by-game-id/by-profile-id/by-timestamp")){
-                CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard-rollup/count/code/game-id/profile-id/timestamp")){
+                CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/count/by-profile-id/by-game-id")){
-                CountGameStatisticLeaderboardRollupByProfileIdByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/count/profile-id/game-id")){
+                CountGameStatisticLeaderboardRollupProfileIdGameId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/browse/by-filter")){
-                BrowseGameStatisticLeaderboardRollupListByFilter();
+            else if(IsContext("game-statistic-leaderboard-rollup/browse/filter")){
+                BrowseGameStatisticLeaderboardRollupListFilter();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/set/by-uuid")){
-                SetGameStatisticLeaderboardRollupByUuid();
+            else if(IsContext("game-statistic-leaderboard-rollup/set/uuid")){
+                SetGameStatisticLeaderboardRollupUuid();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/set/by-uuid/by-profile-id/by-game-id/by-timestamp")){
-                SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard-rollup/set/uuid/profile-id/game-id/timestamp")){
+                SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/set/by-code")){
-                SetGameStatisticLeaderboardRollupByCode();
+            else if(IsContext("game-statistic-leaderboard-rollup/set/code")){
+                SetGameStatisticLeaderboardRollupCode();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/set/by-code/by-game-id")){
-                SetGameStatisticLeaderboardRollupByCodeByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/set/code/game-id")){
+                SetGameStatisticLeaderboardRollupCodeGameId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/set/by-code/by-game-id/by-profile-id")){
-                SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId();
+            else if(IsContext("game-statistic-leaderboard-rollup/set/code/game-id/profile-id")){
+                SetGameStatisticLeaderboardRollupCodeGameIdProfileId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/set/by-code/by-game-id/by-profile-id/by-timestamp")){
-                SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard-rollup/set/code/game-id/profile-id/timestamp")){
+                SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/del/by-uuid")){
-                DelGameStatisticLeaderboardRollupByUuid();
+            else if(IsContext("game-statistic-leaderboard-rollup/del/uuid")){
+                DelGameStatisticLeaderboardRollupUuid();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/del/by-code")){
-                DelGameStatisticLeaderboardRollupByCode();
+            else if(IsContext("game-statistic-leaderboard-rollup/del/code")){
+                DelGameStatisticLeaderboardRollupCode();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/del/by-code/by-game-id")){
-                DelGameStatisticLeaderboardRollupByCodeByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/del/code/game-id")){
+                DelGameStatisticLeaderboardRollupCodeGameId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/del/by-code/by-game-id/by-profile-id")){
-                DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId();
+            else if(IsContext("game-statistic-leaderboard-rollup/del/code/game-id/profile-id")){
+                DelGameStatisticLeaderboardRollupCodeGameIdProfileId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/del/by-code/by-game-id/by-profile-id/by-timestamp")){
-                DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard-rollup/del/code/game-id/profile-id/timestamp")){
+                DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/del/by-profile-id/by-game-id")){
-                DelGameStatisticLeaderboardRollupByProfileIdByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/del/profile-id/game-id")){
+                DelGameStatisticLeaderboardRollupProfileIdGameId();
             }
             else if(IsContext("game-statistic-leaderboard-rollup/get")){
                 GetGameStatisticLeaderboardRollupList();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/get/by-uuid")){
-                GetGameStatisticLeaderboardRollupListByUuid();
+            else if(IsContext("game-statistic-leaderboard-rollup/get/uuid")){
+                GetGameStatisticLeaderboardRollupListUuid();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/get/by-game-id")){
-                GetGameStatisticLeaderboardRollupListByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/get/game-id")){
+                GetGameStatisticLeaderboardRollupListGameId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/get/by-code")){
-                GetGameStatisticLeaderboardRollupListByCode();
+            else if(IsContext("game-statistic-leaderboard-rollup/get/code")){
+                GetGameStatisticLeaderboardRollupListCode();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/get/by-code/by-game-id")){
-                GetGameStatisticLeaderboardRollupListByCodeByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/get/code/game-id")){
+                GetGameStatisticLeaderboardRollupListCodeGameId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/get/by-code/by-game-id/by-profile-id")){
-                GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId();
+            else if(IsContext("game-statistic-leaderboard-rollup/get/code/game-id/profile-id")){
+                GetGameStatisticLeaderboardRollupListCodeGameIdProfileId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/get/by-code/by-game-id/by-profile-id/by-timestamp")){
-                GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard-rollup/get/code/game-id/profile-id/timestamp")){
+                GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/get/by-profile-id/by-game-id")){
-                GetGameStatisticLeaderboardRollupListByProfileIdByGameId();
+            else if(IsContext("game-statistic-leaderboard-rollup/get/profile-id/game-id")){
+                GetGameStatisticLeaderboardRollupListProfileIdGameId();
             }
-            else if(IsContext("game-statistic-leaderboard-rollup/get/by-profile-id/by-game-id/by-timestamp")){
-                GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-statistic-leaderboard-rollup/get/profile-id/game-id/timestamp")){
+                GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp();
             }
             if(IsContext("game-live-queue/count")){
                 CountGameLiveQueue();
             }
-            else if(IsContext("game-live-queue/count/by-uuid")){
-                CountGameLiveQueueByUuid();
+            else if(IsContext("game-live-queue/count/uuid")){
+                CountGameLiveQueueUuid();
             }
-            else if(IsContext("game-live-queue/count/by-profile-id/by-game-id")){
-                CountGameLiveQueueByProfileIdByGameId();
+            else if(IsContext("game-live-queue/count/profile-id/game-id")){
+                CountGameLiveQueueProfileIdGameId();
             }
-            else if(IsContext("game-live-queue/browse/by-filter")){
-                BrowseGameLiveQueueListByFilter();
+            else if(IsContext("game-live-queue/browse/filter")){
+                BrowseGameLiveQueueListFilter();
             }
-            else if(IsContext("game-live-queue/set/by-uuid")){
-                SetGameLiveQueueByUuid();
+            else if(IsContext("game-live-queue/set/uuid")){
+                SetGameLiveQueueUuid();
             }
-            else if(IsContext("game-live-queue/set/by-profile-id/by-game-id")){
-                SetGameLiveQueueByProfileIdByGameId();
+            else if(IsContext("game-live-queue/set/profile-id/game-id")){
+                SetGameLiveQueueProfileIdGameId();
             }
-            else if(IsContext("game-live-queue/del/by-uuid")){
-                DelGameLiveQueueByUuid();
+            else if(IsContext("game-live-queue/del/uuid")){
+                DelGameLiveQueueUuid();
             }
-            else if(IsContext("game-live-queue/del/by-profile-id/by-game-id")){
-                DelGameLiveQueueByProfileIdByGameId();
+            else if(IsContext("game-live-queue/del/profile-id/game-id")){
+                DelGameLiveQueueProfileIdGameId();
             }
             else if(IsContext("game-live-queue/get")){
                 GetGameLiveQueueList();
             }
-            else if(IsContext("game-live-queue/get/by-uuid")){
-                GetGameLiveQueueListByUuid();
+            else if(IsContext("game-live-queue/get/uuid")){
+                GetGameLiveQueueListUuid();
             }
-            else if(IsContext("game-live-queue/get/by-game-id")){
-                GetGameLiveQueueListByGameId();
+            else if(IsContext("game-live-queue/get/game-id")){
+                GetGameLiveQueueListGameId();
             }
-            else if(IsContext("game-live-queue/get/by-profile-id/by-game-id")){
-                GetGameLiveQueueListByProfileIdByGameId();
+            else if(IsContext("game-live-queue/get/profile-id/game-id")){
+                GetGameLiveQueueListProfileIdGameId();
             }
             if(IsContext("game-live-recent-queue/count")){
                 CountGameLiveRecentQueue();
             }
-            else if(IsContext("game-live-recent-queue/count/by-uuid")){
-                CountGameLiveRecentQueueByUuid();
+            else if(IsContext("game-live-recent-queue/count/uuid")){
+                CountGameLiveRecentQueueUuid();
             }
-            else if(IsContext("game-live-recent-queue/count/by-profile-id/by-game-id")){
-                CountGameLiveRecentQueueByProfileIdByGameId();
+            else if(IsContext("game-live-recent-queue/count/profile-id/game-id")){
+                CountGameLiveRecentQueueProfileIdGameId();
             }
-            else if(IsContext("game-live-recent-queue/browse/by-filter")){
-                BrowseGameLiveRecentQueueListByFilter();
+            else if(IsContext("game-live-recent-queue/browse/filter")){
+                BrowseGameLiveRecentQueueListFilter();
             }
-            else if(IsContext("game-live-recent-queue/set/by-uuid")){
-                SetGameLiveRecentQueueByUuid();
+            else if(IsContext("game-live-recent-queue/set/uuid")){
+                SetGameLiveRecentQueueUuid();
             }
-            else if(IsContext("game-live-recent-queue/set/by-profile-id/by-game-id")){
-                SetGameLiveRecentQueueByProfileIdByGameId();
+            else if(IsContext("game-live-recent-queue/set/profile-id/game-id")){
+                SetGameLiveRecentQueueProfileIdGameId();
             }
-            else if(IsContext("game-live-recent-queue/del/by-uuid")){
-                DelGameLiveRecentQueueByUuid();
+            else if(IsContext("game-live-recent-queue/del/uuid")){
+                DelGameLiveRecentQueueUuid();
             }
-            else if(IsContext("game-live-recent-queue/del/by-profile-id/by-game-id")){
-                DelGameLiveRecentQueueByProfileIdByGameId();
+            else if(IsContext("game-live-recent-queue/del/profile-id/game-id")){
+                DelGameLiveRecentQueueProfileIdGameId();
             }
             else if(IsContext("game-live-recent-queue/get")){
                 GetGameLiveRecentQueueList();
             }
-            else if(IsContext("game-live-recent-queue/get/by-uuid")){
-                GetGameLiveRecentQueueListByUuid();
+            else if(IsContext("game-live-recent-queue/get/uuid")){
+                GetGameLiveRecentQueueListUuid();
             }
-            else if(IsContext("game-live-recent-queue/get/by-game-id")){
-                GetGameLiveRecentQueueListByGameId();
+            else if(IsContext("game-live-recent-queue/get/game-id")){
+                GetGameLiveRecentQueueListGameId();
             }
-            else if(IsContext("game-live-recent-queue/get/by-profile-id/by-game-id")){
-                GetGameLiveRecentQueueListByProfileIdByGameId();
+            else if(IsContext("game-live-recent-queue/get/profile-id/game-id")){
+                GetGameLiveRecentQueueListProfileIdGameId();
             }
             if(IsContext("game-profile-statistic/count")){
                 CountGameProfileStatistic();
             }
-            else if(IsContext("game-profile-statistic/count/by-uuid")){
-                CountGameProfileStatisticByUuid();
+            else if(IsContext("game-profile-statistic/count/uuid")){
+                CountGameProfileStatisticUuid();
             }
-            else if(IsContext("game-profile-statistic/count/by-code")){
-                CountGameProfileStatisticByCode();
+            else if(IsContext("game-profile-statistic/count/code")){
+                CountGameProfileStatisticCode();
             }
-            else if(IsContext("game-profile-statistic/count/by-game-id")){
-                CountGameProfileStatisticByGameId();
+            else if(IsContext("game-profile-statistic/count/game-id")){
+                CountGameProfileStatisticGameId();
             }
-            else if(IsContext("game-profile-statistic/count/by-code/by-game-id")){
-                CountGameProfileStatisticByCodeByGameId();
+            else if(IsContext("game-profile-statistic/count/code/game-id")){
+                CountGameProfileStatisticCodeGameId();
             }
-            else if(IsContext("game-profile-statistic/count/by-profile-id/by-game-id")){
-                CountGameProfileStatisticByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic/count/profile-id/game-id")){
+                CountGameProfileStatisticProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic/count/by-code/by-profile-id/by-game-id")){
-                CountGameProfileStatisticByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic/count/code/profile-id/game-id")){
+                CountGameProfileStatisticCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic/count/by-code/by-profile-id/by-game-id/by-timestamp")){
-                CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic/count/code/profile-id/game-id/timestamp")){
+                CountGameProfileStatisticCodeProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic/browse/by-filter")){
-                BrowseGameProfileStatisticListByFilter();
+            else if(IsContext("game-profile-statistic/browse/filter")){
+                BrowseGameProfileStatisticListFilter();
             }
-            else if(IsContext("game-profile-statistic/set/by-uuid")){
-                SetGameProfileStatisticByUuid();
+            else if(IsContext("game-profile-statistic/set/uuid")){
+                SetGameProfileStatisticUuid();
             }
-            else if(IsContext("game-profile-statistic/set/by-uuid/by-profile-id/by-game-id/by-timestamp")){
-                SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic/set/uuid/profile-id/game-id/timestamp")){
+                SetGameProfileStatisticUuidProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic/set/by-profile-id/by-code")){
-                SetGameProfileStatisticByProfileIdByCode();
+            else if(IsContext("game-profile-statistic/set/profile-id/code")){
+                SetGameProfileStatisticProfileIdCode();
             }
-            else if(IsContext("game-profile-statistic/set/by-profile-id/by-code/by-timestamp")){
-                SetGameProfileStatisticByProfileIdByCodeByTimestamp();
+            else if(IsContext("game-profile-statistic/set/profile-id/code/timestamp")){
+                SetGameProfileStatisticProfileIdCodeTimestamp();
             }
-            else if(IsContext("game-profile-statistic/set/by-code/by-profile-id/by-game-id/by-timestamp")){
-                SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic/set/code/profile-id/game-id/timestamp")){
+                SetGameProfileStatisticCodeProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic/set/by-code/by-profile-id/by-game-id")){
-                SetGameProfileStatisticByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic/set/code/profile-id/game-id")){
+                SetGameProfileStatisticCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic/del/by-uuid")){
-                DelGameProfileStatisticByUuid();
+            else if(IsContext("game-profile-statistic/del/uuid")){
+                DelGameProfileStatisticUuid();
             }
-            else if(IsContext("game-profile-statistic/del/by-code/by-game-id")){
-                DelGameProfileStatisticByCodeByGameId();
+            else if(IsContext("game-profile-statistic/del/code/game-id")){
+                DelGameProfileStatisticCodeGameId();
             }
-            else if(IsContext("game-profile-statistic/del/by-profile-id/by-game-id")){
-                DelGameProfileStatisticByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic/del/profile-id/game-id")){
+                DelGameProfileStatisticProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic/del/by-code/by-profile-id/by-game-id")){
-                DelGameProfileStatisticByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic/del/code/profile-id/game-id")){
+                DelGameProfileStatisticCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic/get/by-uuid")){
-                GetGameProfileStatisticListByUuid();
+            else if(IsContext("game-profile-statistic/get/uuid")){
+                GetGameProfileStatisticListUuid();
             }
-            else if(IsContext("game-profile-statistic/get/by-code")){
-                GetGameProfileStatisticListByCode();
+            else if(IsContext("game-profile-statistic/get/code")){
+                GetGameProfileStatisticListCode();
             }
-            else if(IsContext("game-profile-statistic/get/by-game-id")){
-                GetGameProfileStatisticListByGameId();
+            else if(IsContext("game-profile-statistic/get/game-id")){
+                GetGameProfileStatisticListGameId();
             }
-            else if(IsContext("game-profile-statistic/get/by-code/by-game-id")){
-                GetGameProfileStatisticListByCodeByGameId();
+            else if(IsContext("game-profile-statistic/get/code/game-id")){
+                GetGameProfileStatisticListCodeGameId();
             }
-            else if(IsContext("game-profile-statistic/get/by-profile-id/by-game-id")){
-                GetGameProfileStatisticListByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic/get/profile-id/game-id")){
+                GetGameProfileStatisticListProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic/get/by-profile-id/by-game-id/by-timestamp")){
-                GetGameProfileStatisticListByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic/get/profile-id/game-id/timestamp")){
+                GetGameProfileStatisticListProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic/get/by-code/by-profile-id/by-game-id")){
-                GetGameProfileStatisticListByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic/get/code/profile-id/game-id")){
+                GetGameProfileStatisticListCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic/get/by-code/by-profile-id/by-game-id/by-timestamp")){
-                GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic/get/code/profile-id/game-id/timestamp")){
+                GetGameProfileStatisticListCodeProfileIdGameIdTimestamp();
             }
             if(IsContext("game-statistic-meta/count")){
                 CountGameStatisticMeta();
             }
-            else if(IsContext("game-statistic-meta/count/by-uuid")){
-                CountGameStatisticMetaByUuid();
+            else if(IsContext("game-statistic-meta/count/uuid")){
+                CountGameStatisticMetaUuid();
             }
-            else if(IsContext("game-statistic-meta/count/by-code")){
-                CountGameStatisticMetaByCode();
+            else if(IsContext("game-statistic-meta/count/code")){
+                CountGameStatisticMetaCode();
             }
-            else if(IsContext("game-statistic-meta/count/by-code/by-game-id")){
-                CountGameStatisticMetaByCodeByGameId();
+            else if(IsContext("game-statistic-meta/count/code/game-id")){
+                CountGameStatisticMetaCodeGameId();
             }
-            else if(IsContext("game-statistic-meta/count/by-name")){
-                CountGameStatisticMetaByName();
+            else if(IsContext("game-statistic-meta/count/name")){
+                CountGameStatisticMetaName();
             }
-            else if(IsContext("game-statistic-meta/count/by-game-id")){
-                CountGameStatisticMetaByGameId();
+            else if(IsContext("game-statistic-meta/count/game-id")){
+                CountGameStatisticMetaGameId();
             }
-            else if(IsContext("game-statistic-meta/browse/by-filter")){
-                BrowseGameStatisticMetaListByFilter();
+            else if(IsContext("game-statistic-meta/browse/filter")){
+                BrowseGameStatisticMetaListFilter();
             }
-            else if(IsContext("game-statistic-meta/set/by-uuid")){
-                SetGameStatisticMetaByUuid();
+            else if(IsContext("game-statistic-meta/set/uuid")){
+                SetGameStatisticMetaUuid();
             }
-            else if(IsContext("game-statistic-meta/set/by-code/by-game-id")){
-                SetGameStatisticMetaByCodeByGameId();
+            else if(IsContext("game-statistic-meta/set/code/game-id")){
+                SetGameStatisticMetaCodeGameId();
             }
-            else if(IsContext("game-statistic-meta/del/by-uuid")){
-                DelGameStatisticMetaByUuid();
+            else if(IsContext("game-statistic-meta/del/uuid")){
+                DelGameStatisticMetaUuid();
             }
-            else if(IsContext("game-statistic-meta/del/by-code/by-game-id")){
-                DelGameStatisticMetaByCodeByGameId();
+            else if(IsContext("game-statistic-meta/del/code/game-id")){
+                DelGameStatisticMetaCodeGameId();
             }
-            else if(IsContext("game-statistic-meta/get/by-uuid")){
-                GetGameStatisticMetaListByUuid();
+            else if(IsContext("game-statistic-meta/get/uuid")){
+                GetGameStatisticMetaListUuid();
             }
-            else if(IsContext("game-statistic-meta/get/by-code")){
-                GetGameStatisticMetaListByCode();
+            else if(IsContext("game-statistic-meta/get/code")){
+                GetGameStatisticMetaListCode();
             }
-            else if(IsContext("game-statistic-meta/get/by-name")){
-                GetGameStatisticMetaListByName();
+            else if(IsContext("game-statistic-meta/get/name")){
+                GetGameStatisticMetaListName();
             }
-            else if(IsContext("game-statistic-meta/get/by-game-id")){
-                GetGameStatisticMetaListByGameId();
+            else if(IsContext("game-statistic-meta/get/game-id")){
+                GetGameStatisticMetaListGameId();
             }
-            else if(IsContext("game-statistic-meta/get/by-code/by-game-id")){
-                GetGameStatisticMetaListByCodeByGameId();
+            else if(IsContext("game-statistic-meta/get/code/game-id")){
+                GetGameStatisticMetaListCodeGameId();
             }
             if(IsContext("game-profile-statistic-timestamp/count")){
                 CountGameProfileStatisticTimestamp();
             }
-            else if(IsContext("game-profile-statistic-timestamp/count/by-uuid")){
-                CountGameProfileStatisticTimestampByUuid();
+            else if(IsContext("game-profile-statistic-timestamp/count/uuid")){
+                CountGameProfileStatisticTimestampUuid();
             }
-            else if(IsContext("game-profile-statistic-timestamp/count/by-code/by-profile-id/by-game-id")){
-                CountGameProfileStatisticTimestampByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic-timestamp/count/code/profile-id/game-id")){
+                CountGameProfileStatisticTimestampCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic-timestamp/count/by-code/by-profile-id/by-game-id/by-timestamp")){
-                CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic-timestamp/count/code/profile-id/game-id/timestamp")){
+                CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic-timestamp/browse/by-filter")){
-                BrowseGameProfileStatisticTimestampListByFilter();
+            else if(IsContext("game-profile-statistic-timestamp/browse/filter")){
+                BrowseGameProfileStatisticTimestampListFilter();
             }
-            else if(IsContext("game-profile-statistic-timestamp/set/by-uuid")){
-                SetGameProfileStatisticTimestampByUuid();
+            else if(IsContext("game-profile-statistic-timestamp/set/uuid")){
+                SetGameProfileStatisticTimestampUuid();
             }
-            else if(IsContext("game-profile-statistic-timestamp/set/by-code/by-profile-id/by-game-id")){
-                SetGameProfileStatisticTimestampByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic-timestamp/set/code/profile-id/game-id")){
+                SetGameProfileStatisticTimestampCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic-timestamp/set/by-code/by-profile-id/by-game-id/by-timestamp")){
-                SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic-timestamp/set/code/profile-id/game-id/timestamp")){
+                SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic-timestamp/del/by-uuid")){
-                DelGameProfileStatisticTimestampByUuid();
+            else if(IsContext("game-profile-statistic-timestamp/del/uuid")){
+                DelGameProfileStatisticTimestampUuid();
             }
-            else if(IsContext("game-profile-statistic-timestamp/del/by-code/by-profile-id/by-game-id")){
-                DelGameProfileStatisticTimestampByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic-timestamp/del/code/profile-id/game-id")){
+                DelGameProfileStatisticTimestampCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic-timestamp/del/by-code/by-profile-id/by-game-id/by-timestamp")){
-                DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic-timestamp/del/code/profile-id/game-id/timestamp")){
+                DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-statistic-timestamp/get/by-uuid")){
-                GetGameProfileStatisticTimestampListByUuid();
+            else if(IsContext("game-profile-statistic-timestamp/get/uuid")){
+                GetGameProfileStatisticTimestampListUuid();
             }
-            else if(IsContext("game-profile-statistic-timestamp/get/by-code/by-profile-id/by-game-id")){
-                GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-statistic-timestamp/get/code/profile-id/game-id")){
+                GetGameProfileStatisticTimestampListCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-statistic-timestamp/get/by-code/by-profile-id/by-game-id/by-timestamp")){
-                GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-statistic-timestamp/get/code/profile-id/game-id/timestamp")){
+                GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp();
             }
             if(IsContext("game-key-meta/count")){
                 CountGameKeyMeta();
             }
-            else if(IsContext("game-key-meta/count/by-uuid")){
-                CountGameKeyMetaByUuid();
+            else if(IsContext("game-key-meta/count/uuid")){
+                CountGameKeyMetaUuid();
             }
-            else if(IsContext("game-key-meta/count/by-code")){
-                CountGameKeyMetaByCode();
+            else if(IsContext("game-key-meta/count/code")){
+                CountGameKeyMetaCode();
             }
-            else if(IsContext("game-key-meta/count/by-code/by-game-id")){
-                CountGameKeyMetaByCodeByGameId();
+            else if(IsContext("game-key-meta/count/code/game-id")){
+                CountGameKeyMetaCodeGameId();
             }
-            else if(IsContext("game-key-meta/count/by-name")){
-                CountGameKeyMetaByName();
+            else if(IsContext("game-key-meta/count/name")){
+                CountGameKeyMetaName();
             }
-            else if(IsContext("game-key-meta/count/by-key")){
-                CountGameKeyMetaByKey();
+            else if(IsContext("game-key-meta/count/key")){
+                CountGameKeyMetaKey();
             }
-            else if(IsContext("game-key-meta/count/by-game-id")){
-                CountGameKeyMetaByGameId();
+            else if(IsContext("game-key-meta/count/game-id")){
+                CountGameKeyMetaGameId();
             }
-            else if(IsContext("game-key-meta/count/by-key/by-game-id")){
-                CountGameKeyMetaByKeyByGameId();
+            else if(IsContext("game-key-meta/count/key/game-id")){
+                CountGameKeyMetaKeyGameId();
             }
-            else if(IsContext("game-key-meta/browse/by-filter")){
-                BrowseGameKeyMetaListByFilter();
+            else if(IsContext("game-key-meta/browse/filter")){
+                BrowseGameKeyMetaListFilter();
             }
-            else if(IsContext("game-key-meta/set/by-uuid")){
-                SetGameKeyMetaByUuid();
+            else if(IsContext("game-key-meta/set/uuid")){
+                SetGameKeyMetaUuid();
             }
-            else if(IsContext("game-key-meta/set/by-code/by-game-id")){
-                SetGameKeyMetaByCodeByGameId();
+            else if(IsContext("game-key-meta/set/code/game-id")){
+                SetGameKeyMetaCodeGameId();
             }
-            else if(IsContext("game-key-meta/set/by-key/by-game-id")){
-                SetGameKeyMetaByKeyByGameId();
+            else if(IsContext("game-key-meta/set/key/game-id")){
+                SetGameKeyMetaKeyGameId();
             }
-            else if(IsContext("game-key-meta/set/by-key/by-game-id/by-level")){
-                SetGameKeyMetaByKeyByGameIdByLevel();
+            else if(IsContext("game-key-meta/set/key/game-id/level")){
+                SetGameKeyMetaKeyGameIdLevel();
             }
-            else if(IsContext("game-key-meta/del/by-uuid")){
-                DelGameKeyMetaByUuid();
+            else if(IsContext("game-key-meta/del/uuid")){
+                DelGameKeyMetaUuid();
             }
-            else if(IsContext("game-key-meta/del/by-code/by-game-id")){
-                DelGameKeyMetaByCodeByGameId();
+            else if(IsContext("game-key-meta/del/code/game-id")){
+                DelGameKeyMetaCodeGameId();
             }
-            else if(IsContext("game-key-meta/del/by-key/by-game-id")){
-                DelGameKeyMetaByKeyByGameId();
+            else if(IsContext("game-key-meta/del/key/game-id")){
+                DelGameKeyMetaKeyGameId();
             }
-            else if(IsContext("game-key-meta/get/by-uuid")){
-                GetGameKeyMetaListByUuid();
+            else if(IsContext("game-key-meta/get/uuid")){
+                GetGameKeyMetaListUuid();
             }
-            else if(IsContext("game-key-meta/get/by-code")){
-                GetGameKeyMetaListByCode();
+            else if(IsContext("game-key-meta/get/code")){
+                GetGameKeyMetaListCode();
             }
-            else if(IsContext("game-key-meta/get/by-code/by-game-id")){
-                GetGameKeyMetaListByCodeByGameId();
+            else if(IsContext("game-key-meta/get/code/game-id")){
+                GetGameKeyMetaListCodeGameId();
             }
-            else if(IsContext("game-key-meta/get/by-name")){
-                GetGameKeyMetaListByName();
+            else if(IsContext("game-key-meta/get/name")){
+                GetGameKeyMetaListName();
             }
-            else if(IsContext("game-key-meta/get/by-key")){
-                GetGameKeyMetaListByKey();
+            else if(IsContext("game-key-meta/get/key")){
+                GetGameKeyMetaListKey();
             }
-            else if(IsContext("game-key-meta/get/by-game-id")){
-                GetGameKeyMetaListByGameId();
+            else if(IsContext("game-key-meta/get/game-id")){
+                GetGameKeyMetaListGameId();
             }
-            else if(IsContext("game-key-meta/get/by-key/by-game-id")){
-                GetGameKeyMetaListByKeyByGameId();
+            else if(IsContext("game-key-meta/get/key/game-id")){
+                GetGameKeyMetaListKeyGameId();
             }
-            else if(IsContext("game-key-meta/get/by-code/by-level")){
-                GetGameKeyMetaListByCodeByLevel();
+            else if(IsContext("game-key-meta/get/code/level")){
+                GetGameKeyMetaListCodeLevel();
             }
             if(IsContext("game-level/count")){
                 CountGameLevel();
             }
-            else if(IsContext("game-level/count/by-uuid")){
-                CountGameLevelByUuid();
+            else if(IsContext("game-level/count/uuid")){
+                CountGameLevelUuid();
             }
-            else if(IsContext("game-level/count/by-code")){
-                CountGameLevelByCode();
+            else if(IsContext("game-level/count/code")){
+                CountGameLevelCode();
             }
-            else if(IsContext("game-level/count/by-code/by-game-id")){
-                CountGameLevelByCodeByGameId();
+            else if(IsContext("game-level/count/code/game-id")){
+                CountGameLevelCodeGameId();
             }
-            else if(IsContext("game-level/count/by-name")){
-                CountGameLevelByName();
+            else if(IsContext("game-level/count/name")){
+                CountGameLevelName();
             }
-            else if(IsContext("game-level/count/by-game-id")){
-                CountGameLevelByGameId();
+            else if(IsContext("game-level/count/game-id")){
+                CountGameLevelGameId();
             }
-            else if(IsContext("game-level/browse/by-filter")){
-                BrowseGameLevelListByFilter();
+            else if(IsContext("game-level/browse/filter")){
+                BrowseGameLevelListFilter();
             }
-            else if(IsContext("game-level/set/by-uuid")){
-                SetGameLevelByUuid();
+            else if(IsContext("game-level/set/uuid")){
+                SetGameLevelUuid();
             }
-            else if(IsContext("game-level/set/by-code/by-game-id")){
-                SetGameLevelByCodeByGameId();
+            else if(IsContext("game-level/set/code/game-id")){
+                SetGameLevelCodeGameId();
             }
-            else if(IsContext("game-level/del/by-uuid")){
-                DelGameLevelByUuid();
+            else if(IsContext("game-level/del/uuid")){
+                DelGameLevelUuid();
             }
-            else if(IsContext("game-level/del/by-code/by-game-id")){
-                DelGameLevelByCodeByGameId();
+            else if(IsContext("game-level/del/code/game-id")){
+                DelGameLevelCodeGameId();
             }
-            else if(IsContext("game-level/get/by-uuid")){
-                GetGameLevelListByUuid();
+            else if(IsContext("game-level/get/uuid")){
+                GetGameLevelListUuid();
             }
-            else if(IsContext("game-level/get/by-code")){
-                GetGameLevelListByCode();
+            else if(IsContext("game-level/get/code")){
+                GetGameLevelListCode();
             }
-            else if(IsContext("game-level/get/by-code/by-game-id")){
-                GetGameLevelListByCodeByGameId();
+            else if(IsContext("game-level/get/code/game-id")){
+                GetGameLevelListCodeGameId();
             }
-            else if(IsContext("game-level/get/by-name")){
-                GetGameLevelListByName();
+            else if(IsContext("game-level/get/name")){
+                GetGameLevelListName();
             }
-            else if(IsContext("game-level/get/by-game-id")){
-                GetGameLevelListByGameId();
+            else if(IsContext("game-level/get/game-id")){
+                GetGameLevelListGameId();
             }
             if(IsContext("game-profile-achievement/count")){
                 CountGameProfileAchievement();
             }
-            else if(IsContext("game-profile-achievement/count/by-uuid")){
-                CountGameProfileAchievementByUuid();
+            else if(IsContext("game-profile-achievement/count/uuid")){
+                CountGameProfileAchievementUuid();
             }
-            else if(IsContext("game-profile-achievement/count/by-profile-id/by-code")){
-                CountGameProfileAchievementByProfileIdByCode();
+            else if(IsContext("game-profile-achievement/count/profile-id/code")){
+                CountGameProfileAchievementProfileIdCode();
             }
-            else if(IsContext("game-profile-achievement/count/by-username")){
-                CountGameProfileAchievementByUsername();
+            else if(IsContext("game-profile-achievement/count/username")){
+                CountGameProfileAchievementUsername();
             }
-            else if(IsContext("game-profile-achievement/count/by-code/by-profile-id/by-game-id")){
-                CountGameProfileAchievementByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-achievement/count/code/profile-id/game-id")){
+                CountGameProfileAchievementCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-achievement/count/by-code/by-profile-id/by-game-id/by-timestamp")){
-                CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-achievement/count/code/profile-id/game-id/timestamp")){
+                CountGameProfileAchievementCodeProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-achievement/browse/by-filter")){
-                BrowseGameProfileAchievementListByFilter();
+            else if(IsContext("game-profile-achievement/browse/filter")){
+                BrowseGameProfileAchievementListFilter();
             }
-            else if(IsContext("game-profile-achievement/set/by-uuid")){
-                SetGameProfileAchievementByUuid();
+            else if(IsContext("game-profile-achievement/set/uuid")){
+                SetGameProfileAchievementUuid();
             }
-            else if(IsContext("game-profile-achievement/set/by-uuid/by-code")){
-                SetGameProfileAchievementByUuidByCode();
+            else if(IsContext("game-profile-achievement/set/uuid/code")){
+                SetGameProfileAchievementUuidCode();
             }
-            else if(IsContext("game-profile-achievement/set/by-profile-id/by-code")){
-                SetGameProfileAchievementByProfileIdByCode();
+            else if(IsContext("game-profile-achievement/set/profile-id/code")){
+                SetGameProfileAchievementProfileIdCode();
             }
-            else if(IsContext("game-profile-achievement/set/by-code/by-profile-id/by-game-id")){
-                SetGameProfileAchievementByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-achievement/set/code/profile-id/game-id")){
+                SetGameProfileAchievementCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-achievement/set/by-code/by-profile-id/by-game-id/by-timestamp")){
-                SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-achievement/set/code/profile-id/game-id/timestamp")){
+                SetGameProfileAchievementCodeProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-achievement/del/by-uuid")){
-                DelGameProfileAchievementByUuid();
+            else if(IsContext("game-profile-achievement/del/uuid")){
+                DelGameProfileAchievementUuid();
             }
-            else if(IsContext("game-profile-achievement/del/by-profile-id/by-code")){
-                DelGameProfileAchievementByProfileIdByCode();
+            else if(IsContext("game-profile-achievement/del/profile-id/code")){
+                DelGameProfileAchievementProfileIdCode();
             }
-            else if(IsContext("game-profile-achievement/del/by-uuid/by-code")){
-                DelGameProfileAchievementByUuidByCode();
+            else if(IsContext("game-profile-achievement/del/uuid/code")){
+                DelGameProfileAchievementUuidCode();
             }
-            else if(IsContext("game-profile-achievement/get/by-uuid")){
-                GetGameProfileAchievementListByUuid();
+            else if(IsContext("game-profile-achievement/get/uuid")){
+                GetGameProfileAchievementListUuid();
             }
-            else if(IsContext("game-profile-achievement/get/by-profile-id/by-code")){
-                GetGameProfileAchievementListByProfileIdByCode();
+            else if(IsContext("game-profile-achievement/get/profile-id/code")){
+                GetGameProfileAchievementListProfileIdCode();
             }
-            else if(IsContext("game-profile-achievement/get/by-username")){
-                GetGameProfileAchievementListByUsername();
+            else if(IsContext("game-profile-achievement/get/username")){
+                GetGameProfileAchievementListUsername();
             }
-            else if(IsContext("game-profile-achievement/get/by-code")){
-                GetGameProfileAchievementListByCode();
+            else if(IsContext("game-profile-achievement/get/code")){
+                GetGameProfileAchievementListCode();
             }
-            else if(IsContext("game-profile-achievement/get/by-game-id")){
-                GetGameProfileAchievementListByGameId();
+            else if(IsContext("game-profile-achievement/get/game-id")){
+                GetGameProfileAchievementListGameId();
             }
-            else if(IsContext("game-profile-achievement/get/by-code/by-game-id")){
-                GetGameProfileAchievementListByCodeByGameId();
+            else if(IsContext("game-profile-achievement/get/code/game-id")){
+                GetGameProfileAchievementListCodeGameId();
             }
-            else if(IsContext("game-profile-achievement/get/by-profile-id/by-game-id")){
-                GetGameProfileAchievementListByProfileIdByGameId();
+            else if(IsContext("game-profile-achievement/get/profile-id/game-id")){
+                GetGameProfileAchievementListProfileIdGameId();
             }
-            else if(IsContext("game-profile-achievement/get/by-profile-id/by-game-id/by-timestamp")){
-                GetGameProfileAchievementListByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-achievement/get/profile-id/game-id/timestamp")){
+                GetGameProfileAchievementListProfileIdGameIdTimestamp();
             }
-            else if(IsContext("game-profile-achievement/get/by-code/by-profile-id/by-game-id")){
-                GetGameProfileAchievementListByCodeByProfileIdByGameId();
+            else if(IsContext("game-profile-achievement/get/code/profile-id/game-id")){
+                GetGameProfileAchievementListCodeProfileIdGameId();
             }
-            else if(IsContext("game-profile-achievement/get/by-code/by-profile-id/by-game-id/by-timestamp")){
-                GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp();
+            else if(IsContext("game-profile-achievement/get/code/profile-id/game-id/timestamp")){
+                GetGameProfileAchievementListCodeProfileIdGameIdTimestamp();
             }
             if(IsContext("game-achievement-meta/count")){
                 CountGameAchievementMeta();
             }
-            else if(IsContext("game-achievement-meta/count/by-uuid")){
-                CountGameAchievementMetaByUuid();
+            else if(IsContext("game-achievement-meta/count/uuid")){
+                CountGameAchievementMetaUuid();
             }
-            else if(IsContext("game-achievement-meta/count/by-code")){
-                CountGameAchievementMetaByCode();
+            else if(IsContext("game-achievement-meta/count/code")){
+                CountGameAchievementMetaCode();
             }
-            else if(IsContext("game-achievement-meta/count/by-code/by-game-id")){
-                CountGameAchievementMetaByCodeByGameId();
+            else if(IsContext("game-achievement-meta/count/code/game-id")){
+                CountGameAchievementMetaCodeGameId();
             }
-            else if(IsContext("game-achievement-meta/count/by-name")){
-                CountGameAchievementMetaByName();
+            else if(IsContext("game-achievement-meta/count/name")){
+                CountGameAchievementMetaName();
             }
-            else if(IsContext("game-achievement-meta/count/by-game-id")){
-                CountGameAchievementMetaByGameId();
+            else if(IsContext("game-achievement-meta/count/game-id")){
+                CountGameAchievementMetaGameId();
             }
-            else if(IsContext("game-achievement-meta/browse/by-filter")){
-                BrowseGameAchievementMetaListByFilter();
+            else if(IsContext("game-achievement-meta/browse/filter")){
+                BrowseGameAchievementMetaListFilter();
             }
-            else if(IsContext("game-achievement-meta/set/by-uuid")){
-                SetGameAchievementMetaByUuid();
+            else if(IsContext("game-achievement-meta/set/uuid")){
+                SetGameAchievementMetaUuid();
             }
-            else if(IsContext("game-achievement-meta/set/by-code/by-game-id")){
-                SetGameAchievementMetaByCodeByGameId();
+            else if(IsContext("game-achievement-meta/set/code/game-id")){
+                SetGameAchievementMetaCodeGameId();
             }
-            else if(IsContext("game-achievement-meta/del/by-uuid")){
-                DelGameAchievementMetaByUuid();
+            else if(IsContext("game-achievement-meta/del/uuid")){
+                DelGameAchievementMetaUuid();
             }
-            else if(IsContext("game-achievement-meta/del/by-code/by-game-id")){
-                DelGameAchievementMetaByCodeByGameId();
+            else if(IsContext("game-achievement-meta/del/code/game-id")){
+                DelGameAchievementMetaCodeGameId();
             }
-            else if(IsContext("game-achievement-meta/get/by-uuid")){
-                GetGameAchievementMetaListByUuid();
+            else if(IsContext("game-achievement-meta/get/uuid")){
+                GetGameAchievementMetaListUuid();
             }
-            else if(IsContext("game-achievement-meta/get/by-code")){
-                GetGameAchievementMetaListByCode();
+            else if(IsContext("game-achievement-meta/get/code")){
+                GetGameAchievementMetaListCode();
             }
-            else if(IsContext("game-achievement-meta/get/by-code/by-game-id")){
-                GetGameAchievementMetaListByCodeByGameId();
+            else if(IsContext("game-achievement-meta/get/code/game-id")){
+                GetGameAchievementMetaListCodeGameId();
             }
-            else if(IsContext("game-achievement-meta/get/by-name")){
-                GetGameAchievementMetaListByName();
+            else if(IsContext("game-achievement-meta/get/name")){
+                GetGameAchievementMetaListName();
             }
-            else if(IsContext("game-achievement-meta/get/by-game-id")){
-                GetGameAchievementMetaListByGameId();
+            else if(IsContext("game-achievement-meta/get/game-id")){
+                GetGameAchievementMetaListGameId();
             }
         }    
         
@@ -2008,21 +2098,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameByUuid() {
+        public virtual void CountGameUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameInt wrapper = new ResponseGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/count/by-uuid";
+            wrapper.action = "game/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameByUuid(
+            int i = api.CountGameUuid(
                 _uuid
             );
             
@@ -2033,21 +2123,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameByCode() {
+        public virtual void CountGameCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameInt wrapper = new ResponseGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/count/by-code";
+            wrapper.action = "game/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameByCode(
+            int i = api.CountGameCode(
                 _code
             );
             
@@ -2058,21 +2148,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameByName() {
+        public virtual void CountGameName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameInt wrapper = new ResponseGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/count/by-name";
+            wrapper.action = "game/count/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameByName(
+            int i = api.CountGameName(
                 _name
             );
             
@@ -2083,21 +2173,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameByOrgId() {
+        public virtual void CountGameOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseGameInt wrapper = new ResponseGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/count/by-org-id";
+            wrapper.action = "game/count/org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameByOrgId(
+            int i = api.CountGameOrgId(
                 _org_id
             );
             
@@ -2108,21 +2198,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameByAppId() {
+        public virtual void CountGameAppId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
 
             ResponseGameInt wrapper = new ResponseGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/count/by-app-id";
+            wrapper.action = "game/count/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameByAppId(
+            int i = api.CountGameAppId(
                 _app_id
             );
             
@@ -2133,7 +2223,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameByOrgIdByAppId() {
+        public virtual void CountGameOrgIdAppId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _app_id = ()util.GetParamValue(_context, "@app_id");
@@ -2141,14 +2231,14 @@ namespace gaming {
             ResponseGameInt wrapper = new ResponseGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/count/by-org-id/by-app-id";
+            wrapper.action = "game/count/org-id/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameByOrgIdByAppId(
+            int i = api.CountGameOrgIdAppId(
                 _org_id
                 , _app_id
             );
@@ -2159,12 +2249,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameListByFilter()  {
+        public virtual void BrowseGameListFilter()  {
         
             ResponseGameList wrapper = new ResponseGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/browse/by-filter";
+            wrapper.action = "game/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2176,7 +2266,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameResult result = api.BrowseGameListByFilter(obj);
+            GameResult result = api.BrowseGameListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -2188,12 +2278,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameByUuid()  {
+        public virtual void SetGameUuid()  {
         
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/set/by-uuid";
+            wrapper.action = "game/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2256,17 +2346,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameByUuid(obj);
+            wrapper.data = api.SetGameUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameByCode()  {
+        public virtual void SetGameCode()  {
         
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/set/by-code";
+            wrapper.action = "game/set/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2329,17 +2419,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameByCode(obj);
+            wrapper.data = api.SetGameCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameByName()  {
+        public virtual void SetGameName()  {
         
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/set/by-name";
+            wrapper.action = "game/set/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2402,17 +2492,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameByName(obj);
+            wrapper.data = api.SetGameName(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameByOrgId()  {
+        public virtual void SetGameOrgId()  {
         
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/set/by-org-id";
+            wrapper.action = "game/set/org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2475,17 +2565,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameByOrgId(obj);
+            wrapper.data = api.SetGameOrgId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameByAppId()  {
+        public virtual void SetGameAppId()  {
         
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/set/by-app-id";
+            wrapper.action = "game/set/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2548,17 +2638,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameByAppId(obj);
+            wrapper.data = api.SetGameAppId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameByOrgIdByAppId()  {
+        public virtual void SetGameOrgIdAppId()  {
         
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/set/by-org-id/by-app-id";
+            wrapper.action = "game/set/org-id/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2621,26 +2711,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameByOrgIdByAppId(obj);
+            wrapper.data = api.SetGameOrgIdAppId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameByUuid() {
+        public virtual void DelGameUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/del/by-uuid";
+            wrapper.action = "game/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameByUuid(
+            bool completed = api.DelGameUuid(
                         
                 _uuid
             );
@@ -2651,21 +2741,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameByCode() {
+        public virtual void DelGameCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/del/by-code";
+            wrapper.action = "game/del/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameByCode(
+            bool completed = api.DelGameCode(
                         
                 _code
             );
@@ -2676,21 +2766,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameByName() {
+        public virtual void DelGameName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/del/by-name";
+            wrapper.action = "game/del/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameByName(
+            bool completed = api.DelGameName(
                         
                 _name
             );
@@ -2701,21 +2791,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameByOrgId() {
+        public virtual void DelGameOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/del/by-org-id";
+            wrapper.action = "game/del/org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameByOrgId(
+            bool completed = api.DelGameOrgId(
                         
                 _org_id
             );
@@ -2726,21 +2816,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameByAppId() {
+        public virtual void DelGameAppId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
 
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/del/by-app-id";
+            wrapper.action = "game/del/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameByAppId(
+            bool completed = api.DelGameAppId(
                         
                 _app_id
             );
@@ -2751,7 +2841,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameByOrgIdByAppId() {
+        public virtual void DelGameOrgIdAppId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _app_id = ()util.GetParamValue(_context, "@app_id");
@@ -2759,14 +2849,14 @@ namespace gaming {
             ResponseGameBool wrapper = new ResponseGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/del/by-org-id/by-app-id";
+            wrapper.action = "game/del/org-id/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameByOrgIdByAppId(
+            bool completed = api.DelGameOrgIdAppId(
                         
                 _org_id
                 , _app_id
@@ -2802,21 +2892,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameListByUuid() {
+        public virtual void GetGameListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameList wrapper = new ResponseGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/get/by-uuid";
+            wrapper.action = "game/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Game> objs = api.GetGameListByUuid(
+            List<Game> objs = api.GetGameListUuid(
                 _uuid
             );
             
@@ -2827,21 +2917,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameListByCode() {
+        public virtual void GetGameListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameList wrapper = new ResponseGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/get/by-code";
+            wrapper.action = "game/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Game> objs = api.GetGameListByCode(
+            List<Game> objs = api.GetGameListCode(
                 _code
             );
             
@@ -2852,21 +2942,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameListByName() {
+        public virtual void GetGameListName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameList wrapper = new ResponseGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/get/by-name";
+            wrapper.action = "game/get/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Game> objs = api.GetGameListByName(
+            List<Game> objs = api.GetGameListName(
                 _name
             );
             
@@ -2877,21 +2967,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameListByOrgId() {
+        public virtual void GetGameListOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseGameList wrapper = new ResponseGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/get/by-org-id";
+            wrapper.action = "game/get/org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Game> objs = api.GetGameListByOrgId(
+            List<Game> objs = api.GetGameListOrgId(
                 _org_id
             );
             
@@ -2902,21 +2992,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameListByAppId() {
+        public virtual void GetGameListAppId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
 
             ResponseGameList wrapper = new ResponseGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/get/by-app-id";
+            wrapper.action = "game/get/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Game> objs = api.GetGameListByAppId(
+            List<Game> objs = api.GetGameListAppId(
                 _app_id
             );
             
@@ -2927,7 +3017,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameListByOrgIdByAppId() {
+        public virtual void GetGameListOrgIdAppId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _app_id = ()util.GetParamValue(_context, "@app_id");
@@ -2935,14 +3025,14 @@ namespace gaming {
             ResponseGameList wrapper = new ResponseGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game/get/by-org-id/by-app-id";
+            wrapper.action = "game/get/org-id/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Game> objs = api.GetGameListByOrgIdByAppId(
+            List<Game> objs = api.GetGameListOrgIdAppId(
                 _org_id
                 , _app_id
             );
@@ -2977,21 +3067,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryByUuid() {
+        public virtual void CountGameCategoryUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryInt wrapper = new ResponseGameCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/count/by-uuid";
+            wrapper.action = "game-category/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryByUuid(
+            int i = api.CountGameCategoryUuid(
                 _uuid
             );
             
@@ -3002,21 +3092,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryByCode() {
+        public virtual void CountGameCategoryCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameCategoryInt wrapper = new ResponseGameCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/count/by-code";
+            wrapper.action = "game-category/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryByCode(
+            int i = api.CountGameCategoryCode(
                 _code
             );
             
@@ -3027,21 +3117,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryByName() {
+        public virtual void CountGameCategoryName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameCategoryInt wrapper = new ResponseGameCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/count/by-name";
+            wrapper.action = "game-category/count/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryByName(
+            int i = api.CountGameCategoryName(
                 _name
             );
             
@@ -3052,21 +3142,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryByOrgId() {
+        public virtual void CountGameCategoryOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseGameCategoryInt wrapper = new ResponseGameCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/count/by-org-id";
+            wrapper.action = "game-category/count/org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryByOrgId(
+            int i = api.CountGameCategoryOrgId(
                 _org_id
             );
             
@@ -3077,21 +3167,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryByTypeId() {
+        public virtual void CountGameCategoryTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseGameCategoryInt wrapper = new ResponseGameCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/count/by-type-id";
+            wrapper.action = "game-category/count/type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryByTypeId(
+            int i = api.CountGameCategoryTypeId(
                 _type_id
             );
             
@@ -3102,7 +3192,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryByOrgIdByTypeId() {
+        public virtual void CountGameCategoryOrgIdTypeId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -3110,14 +3200,14 @@ namespace gaming {
             ResponseGameCategoryInt wrapper = new ResponseGameCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/count/by-org-id/by-type-id";
+            wrapper.action = "game-category/count/org-id/type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryByOrgIdByTypeId(
+            int i = api.CountGameCategoryOrgIdTypeId(
                 _org_id
                 , _type_id
             );
@@ -3128,12 +3218,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameCategoryListByFilter()  {
+        public virtual void BrowseGameCategoryListFilter()  {
         
             ResponseGameCategoryList wrapper = new ResponseGameCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/browse/by-filter";
+            wrapper.action = "game-category/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3145,7 +3235,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameCategoryResult result = api.BrowseGameCategoryListByFilter(obj);
+            GameCategoryResult result = api.BrowseGameCategoryListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -3157,12 +3247,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameCategoryByUuid()  {
+        public virtual void SetGameCategoryUuid()  {
         
             ResponseGameCategoryBool wrapper = new ResponseGameCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/set/by-uuid";
+            wrapper.action = "game-category/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3225,26 +3315,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameCategoryByUuid(obj);
+            wrapper.data = api.SetGameCategoryUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameCategoryByUuid() {
+        public virtual void DelGameCategoryUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryBool wrapper = new ResponseGameCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/del/by-uuid";
+            wrapper.action = "game-category/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameCategoryByUuid(
+            bool completed = api.DelGameCategoryUuid(
                         
                 _uuid
             );
@@ -3255,7 +3345,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameCategoryByCodeByOrgId() {
+        public virtual void DelGameCategoryCodeOrgId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -3263,14 +3353,14 @@ namespace gaming {
             ResponseGameCategoryBool wrapper = new ResponseGameCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/del/by-code/by-org-id";
+            wrapper.action = "game-category/del/code/org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameCategoryByCodeByOrgId(
+            bool completed = api.DelGameCategoryCodeOrgId(
                         
                 _code
                 , _org_id
@@ -3282,7 +3372,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameCategoryByCodeByOrgIdByTypeId() {
+        public virtual void DelGameCategoryCodeOrgIdTypeId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -3291,14 +3381,14 @@ namespace gaming {
             ResponseGameCategoryBool wrapper = new ResponseGameCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/del/by-code/by-org-id/by-type-id";
+            wrapper.action = "game-category/del/code/org-id/type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameCategoryByCodeByOrgIdByTypeId(
+            bool completed = api.DelGameCategoryCodeOrgIdTypeId(
                         
                 _code
                 , _org_id
@@ -3335,21 +3425,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryListByUuid() {
+        public virtual void GetGameCategoryListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryList wrapper = new ResponseGameCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/get/by-uuid";
+            wrapper.action = "game-category/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategory> objs = api.GetGameCategoryListByUuid(
+            List<GameCategory> objs = api.GetGameCategoryListUuid(
                 _uuid
             );
             
@@ -3360,21 +3450,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryListByCode() {
+        public virtual void GetGameCategoryListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameCategoryList wrapper = new ResponseGameCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/get/by-code";
+            wrapper.action = "game-category/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategory> objs = api.GetGameCategoryListByCode(
+            List<GameCategory> objs = api.GetGameCategoryListCode(
                 _code
             );
             
@@ -3385,21 +3475,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryListByName() {
+        public virtual void GetGameCategoryListName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameCategoryList wrapper = new ResponseGameCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/get/by-name";
+            wrapper.action = "game-category/get/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategory> objs = api.GetGameCategoryListByName(
+            List<GameCategory> objs = api.GetGameCategoryListName(
                 _name
             );
             
@@ -3410,21 +3500,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryListByOrgId() {
+        public virtual void GetGameCategoryListOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseGameCategoryList wrapper = new ResponseGameCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/get/by-org-id";
+            wrapper.action = "game-category/get/org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategory> objs = api.GetGameCategoryListByOrgId(
+            List<GameCategory> objs = api.GetGameCategoryListOrgId(
                 _org_id
             );
             
@@ -3435,21 +3525,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryListByTypeId() {
+        public virtual void GetGameCategoryListTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseGameCategoryList wrapper = new ResponseGameCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/get/by-type-id";
+            wrapper.action = "game-category/get/type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategory> objs = api.GetGameCategoryListByTypeId(
+            List<GameCategory> objs = api.GetGameCategoryListTypeId(
                 _type_id
             );
             
@@ -3460,7 +3550,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryListByOrgIdByTypeId() {
+        public virtual void GetGameCategoryListOrgIdTypeId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -3468,14 +3558,14 @@ namespace gaming {
             ResponseGameCategoryList wrapper = new ResponseGameCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category/get/by-org-id/by-type-id";
+            wrapper.action = "game-category/get/org-id/type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategory> objs = api.GetGameCategoryListByOrgIdByTypeId(
+            List<GameCategory> objs = api.GetGameCategoryListOrgIdTypeId(
                 _org_id
                 , _type_id
             );
@@ -3510,21 +3600,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryTreeByUuid() {
+        public virtual void CountGameCategoryTreeUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryTreeInt wrapper = new ResponseGameCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/count/by-uuid";
+            wrapper.action = "game-category-tree/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryTreeByUuid(
+            int i = api.CountGameCategoryTreeUuid(
                 _uuid
             );
             
@@ -3535,21 +3625,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryTreeByParentId() {
+        public virtual void CountGameCategoryTreeParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseGameCategoryTreeInt wrapper = new ResponseGameCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/count/by-parent-id";
+            wrapper.action = "game-category-tree/count/parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryTreeByParentId(
+            int i = api.CountGameCategoryTreeParentId(
                 _parent_id
             );
             
@@ -3560,21 +3650,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryTreeByCategoryId() {
+        public virtual void CountGameCategoryTreeCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseGameCategoryTreeInt wrapper = new ResponseGameCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/count/by-category-id";
+            wrapper.action = "game-category-tree/count/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryTreeByCategoryId(
+            int i = api.CountGameCategoryTreeCategoryId(
                 _category_id
             );
             
@@ -3585,7 +3675,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryTreeByParentIdByCategoryId() {
+        public virtual void CountGameCategoryTreeParentIdCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -3593,14 +3683,14 @@ namespace gaming {
             ResponseGameCategoryTreeInt wrapper = new ResponseGameCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/count/by-parent-id/by-category-id";
+            wrapper.action = "game-category-tree/count/parent-id/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryTreeByParentIdByCategoryId(
+            int i = api.CountGameCategoryTreeParentIdCategoryId(
                 _parent_id
                 , _category_id
             );
@@ -3611,12 +3701,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameCategoryTreeListByFilter()  {
+        public virtual void BrowseGameCategoryTreeListFilter()  {
         
             ResponseGameCategoryTreeList wrapper = new ResponseGameCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/browse/by-filter";
+            wrapper.action = "game-category-tree/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3628,7 +3718,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameCategoryTreeResult result = api.BrowseGameCategoryTreeListByFilter(obj);
+            GameCategoryTreeResult result = api.BrowseGameCategoryTreeListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -3640,12 +3730,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameCategoryTreeByUuid()  {
+        public virtual void SetGameCategoryTreeUuid()  {
         
             ResponseGameCategoryTreeBool wrapper = new ResponseGameCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/set/by-uuid";
+            wrapper.action = "game-category-tree/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3692,26 +3782,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameCategoryTreeByUuid(obj);
+            wrapper.data = api.SetGameCategoryTreeUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameCategoryTreeByUuid() {
+        public virtual void DelGameCategoryTreeUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryTreeBool wrapper = new ResponseGameCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/del/by-uuid";
+            wrapper.action = "game-category-tree/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameCategoryTreeByUuid(
+            bool completed = api.DelGameCategoryTreeUuid(
                         
                 _uuid
             );
@@ -3722,21 +3812,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameCategoryTreeByParentId() {
+        public virtual void DelGameCategoryTreeParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseGameCategoryTreeBool wrapper = new ResponseGameCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/del/by-parent-id";
+            wrapper.action = "game-category-tree/del/parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameCategoryTreeByParentId(
+            bool completed = api.DelGameCategoryTreeParentId(
                         
                 _parent_id
             );
@@ -3747,21 +3837,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameCategoryTreeByCategoryId() {
+        public virtual void DelGameCategoryTreeCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseGameCategoryTreeBool wrapper = new ResponseGameCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/del/by-category-id";
+            wrapper.action = "game-category-tree/del/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameCategoryTreeByCategoryId(
+            bool completed = api.DelGameCategoryTreeCategoryId(
                         
                 _category_id
             );
@@ -3772,7 +3862,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameCategoryTreeByParentIdByCategoryId() {
+        public virtual void DelGameCategoryTreeParentIdCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -3780,14 +3870,14 @@ namespace gaming {
             ResponseGameCategoryTreeBool wrapper = new ResponseGameCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/del/by-parent-id/by-category-id";
+            wrapper.action = "game-category-tree/del/parent-id/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameCategoryTreeByParentIdByCategoryId(
+            bool completed = api.DelGameCategoryTreeParentIdCategoryId(
                         
                 _parent_id
                 , _category_id
@@ -3823,21 +3913,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryTreeListByUuid() {
+        public virtual void GetGameCategoryTreeListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryTreeList wrapper = new ResponseGameCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/get/by-uuid";
+            wrapper.action = "game-category-tree/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategoryTree> objs = api.GetGameCategoryTreeListByUuid(
+            List<GameCategoryTree> objs = api.GetGameCategoryTreeListUuid(
                 _uuid
             );
             
@@ -3848,21 +3938,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryTreeListByParentId() {
+        public virtual void GetGameCategoryTreeListParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseGameCategoryTreeList wrapper = new ResponseGameCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/get/by-parent-id";
+            wrapper.action = "game-category-tree/get/parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategoryTree> objs = api.GetGameCategoryTreeListByParentId(
+            List<GameCategoryTree> objs = api.GetGameCategoryTreeListParentId(
                 _parent_id
             );
             
@@ -3873,21 +3963,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryTreeListByCategoryId() {
+        public virtual void GetGameCategoryTreeListCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseGameCategoryTreeList wrapper = new ResponseGameCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/get/by-category-id";
+            wrapper.action = "game-category-tree/get/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategoryTree> objs = api.GetGameCategoryTreeListByCategoryId(
+            List<GameCategoryTree> objs = api.GetGameCategoryTreeListCategoryId(
                 _category_id
             );
             
@@ -3898,7 +3988,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryTreeListByParentIdByCategoryId() {
+        public virtual void GetGameCategoryTreeListParentIdCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -3906,14 +3996,14 @@ namespace gaming {
             ResponseGameCategoryTreeList wrapper = new ResponseGameCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-tree/get/by-parent-id/by-category-id";
+            wrapper.action = "game-category-tree/get/parent-id/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategoryTree> objs = api.GetGameCategoryTreeListByParentIdByCategoryId(
+            List<GameCategoryTree> objs = api.GetGameCategoryTreeListParentIdCategoryId(
                 _parent_id
                 , _category_id
             );
@@ -3948,21 +4038,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryAssocByUuid() {
+        public virtual void CountGameCategoryAssocUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryAssocInt wrapper = new ResponseGameCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/count/by-uuid";
+            wrapper.action = "game-category-assoc/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryAssocByUuid(
+            int i = api.CountGameCategoryAssocUuid(
                 _uuid
             );
             
@@ -3973,21 +4063,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryAssocByGameId() {
+        public virtual void CountGameCategoryAssocGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameCategoryAssocInt wrapper = new ResponseGameCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/count/by-game-id";
+            wrapper.action = "game-category-assoc/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryAssocByGameId(
+            int i = api.CountGameCategoryAssocGameId(
                 _game_id
             );
             
@@ -3998,21 +4088,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryAssocByCategoryId() {
+        public virtual void CountGameCategoryAssocCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseGameCategoryAssocInt wrapper = new ResponseGameCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/count/by-category-id";
+            wrapper.action = "game-category-assoc/count/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryAssocByCategoryId(
+            int i = api.CountGameCategoryAssocCategoryId(
                 _category_id
             );
             
@@ -4023,7 +4113,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameCategoryAssocByGameIdByCategoryId() {
+        public virtual void CountGameCategoryAssocGameIdCategoryId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -4031,14 +4121,14 @@ namespace gaming {
             ResponseGameCategoryAssocInt wrapper = new ResponseGameCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/count/by-game-id/by-category-id";
+            wrapper.action = "game-category-assoc/count/game-id/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameCategoryAssocByGameIdByCategoryId(
+            int i = api.CountGameCategoryAssocGameIdCategoryId(
                 _game_id
                 , _category_id
             );
@@ -4049,12 +4139,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameCategoryAssocListByFilter()  {
+        public virtual void BrowseGameCategoryAssocListFilter()  {
         
             ResponseGameCategoryAssocList wrapper = new ResponseGameCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/browse/by-filter";
+            wrapper.action = "game-category-assoc/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4066,7 +4156,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameCategoryAssocResult result = api.BrowseGameCategoryAssocListByFilter(obj);
+            GameCategoryAssocResult result = api.BrowseGameCategoryAssocListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -4078,12 +4168,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameCategoryAssocByUuid()  {
+        public virtual void SetGameCategoryAssocUuid()  {
         
             ResponseGameCategoryAssocBool wrapper = new ResponseGameCategoryAssocBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/set/by-uuid";
+            wrapper.action = "game-category-assoc/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4130,26 +4220,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameCategoryAssocByUuid(obj);
+            wrapper.data = api.SetGameCategoryAssocUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameCategoryAssocByUuid() {
+        public virtual void DelGameCategoryAssocUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryAssocBool wrapper = new ResponseGameCategoryAssocBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/del/by-uuid";
+            wrapper.action = "game-category-assoc/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameCategoryAssocByUuid(
+            bool completed = api.DelGameCategoryAssocUuid(
                         
                 _uuid
             );
@@ -4184,21 +4274,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryAssocListByUuid() {
+        public virtual void GetGameCategoryAssocListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameCategoryAssocList wrapper = new ResponseGameCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/get/by-uuid";
+            wrapper.action = "game-category-assoc/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategoryAssoc> objs = api.GetGameCategoryAssocListByUuid(
+            List<GameCategoryAssoc> objs = api.GetGameCategoryAssocListUuid(
                 _uuid
             );
             
@@ -4209,21 +4299,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryAssocListByGameId() {
+        public virtual void GetGameCategoryAssocListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameCategoryAssocList wrapper = new ResponseGameCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/get/by-game-id";
+            wrapper.action = "game-category-assoc/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategoryAssoc> objs = api.GetGameCategoryAssocListByGameId(
+            List<GameCategoryAssoc> objs = api.GetGameCategoryAssocListGameId(
                 _game_id
             );
             
@@ -4234,21 +4324,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryAssocListByCategoryId() {
+        public virtual void GetGameCategoryAssocListCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseGameCategoryAssocList wrapper = new ResponseGameCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/get/by-category-id";
+            wrapper.action = "game-category-assoc/get/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategoryAssoc> objs = api.GetGameCategoryAssocListByCategoryId(
+            List<GameCategoryAssoc> objs = api.GetGameCategoryAssocListCategoryId(
                 _category_id
             );
             
@@ -4259,7 +4349,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameCategoryAssocListByGameIdByCategoryId() {
+        public virtual void GetGameCategoryAssocListGameIdCategoryId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -4267,14 +4357,14 @@ namespace gaming {
             ResponseGameCategoryAssocList wrapper = new ResponseGameCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-category-assoc/get/by-game-id/by-category-id";
+            wrapper.action = "game-category-assoc/get/game-id/category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameCategoryAssoc> objs = api.GetGameCategoryAssocListByGameIdByCategoryId(
+            List<GameCategoryAssoc> objs = api.GetGameCategoryAssocListGameIdCategoryId(
                 _game_id
                 , _category_id
             );
@@ -4309,21 +4399,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameTypeByUuid() {
+        public virtual void CountGameTypeUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameTypeInt wrapper = new ResponseGameTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/count/by-uuid";
+            wrapper.action = "game-type/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameTypeByUuid(
+            int i = api.CountGameTypeUuid(
                 _uuid
             );
             
@@ -4334,21 +4424,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameTypeByCode() {
+        public virtual void CountGameTypeCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameTypeInt wrapper = new ResponseGameTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/count/by-code";
+            wrapper.action = "game-type/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameTypeByCode(
+            int i = api.CountGameTypeCode(
                 _code
             );
             
@@ -4359,21 +4449,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameTypeByName() {
+        public virtual void CountGameTypeName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameTypeInt wrapper = new ResponseGameTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/count/by-name";
+            wrapper.action = "game-type/count/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameTypeByName(
+            int i = api.CountGameTypeName(
                 _name
             );
             
@@ -4383,12 +4473,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameTypeListByFilter()  {
+        public virtual void BrowseGameTypeListFilter()  {
         
             ResponseGameTypeList wrapper = new ResponseGameTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/browse/by-filter";
+            wrapper.action = "game-type/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4400,7 +4490,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameTypeResult result = api.BrowseGameTypeListByFilter(obj);
+            GameTypeResult result = api.BrowseGameTypeListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -4412,12 +4502,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameTypeByUuid()  {
+        public virtual void SetGameTypeUuid()  {
         
             ResponseGameTypeBool wrapper = new ResponseGameTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/set/by-uuid";
+            wrapper.action = "game-type/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4472,26 +4562,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameTypeByUuid(obj);
+            wrapper.data = api.SetGameTypeUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameTypeByUuid() {
+        public virtual void DelGameTypeUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameTypeBool wrapper = new ResponseGameTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/del/by-uuid";
+            wrapper.action = "game-type/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameTypeByUuid(
+            bool completed = api.DelGameTypeUuid(
                         
                 _uuid
             );
@@ -4526,21 +4616,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameTypeListByUuid() {
+        public virtual void GetGameTypeListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameTypeList wrapper = new ResponseGameTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/get/by-uuid";
+            wrapper.action = "game-type/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameType> objs = api.GetGameTypeListByUuid(
+            List<GameType> objs = api.GetGameTypeListUuid(
                 _uuid
             );
             
@@ -4551,21 +4641,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameTypeListByCode() {
+        public virtual void GetGameTypeListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameTypeList wrapper = new ResponseGameTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/get/by-code";
+            wrapper.action = "game-type/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameType> objs = api.GetGameTypeListByCode(
+            List<GameType> objs = api.GetGameTypeListCode(
                 _code
             );
             
@@ -4576,21 +4666,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameTypeListByName() {
+        public virtual void GetGameTypeListName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameTypeList wrapper = new ResponseGameTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-type/get/by-name";
+            wrapper.action = "game-type/get/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameType> objs = api.GetGameTypeListByName(
+            List<GameType> objs = api.GetGameTypeListName(
                 _name
             );
             
@@ -4624,21 +4714,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameByUuid() {
+        public virtual void CountProfileGameUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameInt wrapper = new ResponseProfileGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/count/by-uuid";
+            wrapper.action = "profile-game/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameByUuid(
+            int i = api.CountProfileGameUuid(
                 _uuid
             );
             
@@ -4649,21 +4739,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameByGameId() {
+        public virtual void CountProfileGameGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseProfileGameInt wrapper = new ResponseProfileGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/count/by-game-id";
+            wrapper.action = "profile-game/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameByGameId(
+            int i = api.CountProfileGameGameId(
                 _game_id
             );
             
@@ -4674,21 +4764,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameByProfileId() {
+        public virtual void CountProfileGameProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameInt wrapper = new ResponseProfileGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/count/by-profile-id";
+            wrapper.action = "profile-game/count/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameByProfileId(
+            int i = api.CountProfileGameProfileId(
                 _profile_id
             );
             
@@ -4699,7 +4789,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameByProfileIdByGameId() {
+        public virtual void CountProfileGameProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -4707,14 +4797,14 @@ namespace gaming {
             ResponseProfileGameInt wrapper = new ResponseProfileGameInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/count/by-profile-id/by-game-id";
+            wrapper.action = "profile-game/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameByProfileIdByGameId(
+            int i = api.CountProfileGameProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -4725,12 +4815,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileGameListByFilter()  {
+        public virtual void BrowseProfileGameListFilter()  {
         
             ResponseProfileGameList wrapper = new ResponseProfileGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/browse/by-filter";
+            wrapper.action = "profile-game/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4742,7 +4832,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileGameResult result = api.BrowseProfileGameListByFilter(obj);
+            ProfileGameResult result = api.BrowseProfileGameListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -4754,12 +4844,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameByUuid()  {
+        public virtual void SetProfileGameUuid()  {
         
             ResponseProfileGameBool wrapper = new ResponseProfileGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/set/by-uuid";
+            wrapper.action = "profile-game/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4818,26 +4908,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameByUuid(obj);
+            wrapper.data = api.SetProfileGameUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameByUuid() {
+        public virtual void DelProfileGameUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameBool wrapper = new ResponseProfileGameBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/del/by-uuid";
+            wrapper.action = "profile-game/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameByUuid(
+            bool completed = api.DelProfileGameUuid(
                         
                 _uuid
             );
@@ -4872,21 +4962,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameListByUuid() {
+        public virtual void GetProfileGameListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameList wrapper = new ResponseProfileGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/get/by-uuid";
+            wrapper.action = "profile-game/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGame> objs = api.GetProfileGameListByUuid(
+            List<ProfileGame> objs = api.GetProfileGameListUuid(
                 _uuid
             );
             
@@ -4897,21 +4987,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameListByGameId() {
+        public virtual void GetProfileGameListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseProfileGameList wrapper = new ResponseProfileGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/get/by-game-id";
+            wrapper.action = "profile-game/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGame> objs = api.GetProfileGameListByGameId(
+            List<ProfileGame> objs = api.GetProfileGameListGameId(
                 _game_id
             );
             
@@ -4922,21 +5012,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameListByProfileId() {
+        public virtual void GetProfileGameListProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameList wrapper = new ResponseProfileGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/get/by-profile-id";
+            wrapper.action = "profile-game/get/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGame> objs = api.GetProfileGameListByProfileId(
+            List<ProfileGame> objs = api.GetProfileGameListProfileId(
                 _profile_id
             );
             
@@ -4947,7 +5037,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameListByProfileIdByGameId() {
+        public virtual void GetProfileGameListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -4955,14 +5045,14 @@ namespace gaming {
             ResponseProfileGameList wrapper = new ResponseProfileGameList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game/get/by-profile-id/by-game-id";
+            wrapper.action = "profile-game/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGame> objs = api.GetProfileGameListByProfileIdByGameId(
+            List<ProfileGame> objs = api.GetProfileGameListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -4997,21 +5087,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameNetworkByUuid() {
+        public virtual void CountGameNetworkUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameNetworkInt wrapper = new ResponseGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/count/by-uuid";
+            wrapper.action = "game-network/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameNetworkByUuid(
+            int i = api.CountGameNetworkUuid(
                 _uuid
             );
             
@@ -5022,21 +5112,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameNetworkByCode() {
+        public virtual void CountGameNetworkCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameNetworkInt wrapper = new ResponseGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/count/by-code";
+            wrapper.action = "game-network/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameNetworkByCode(
+            int i = api.CountGameNetworkCode(
                 _code
             );
             
@@ -5047,7 +5137,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameNetworkByUuidByType() {
+        public virtual void CountGameNetworkUuidType() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _type = ()util.GetParamValue(_context, "@type");
@@ -5055,14 +5145,14 @@ namespace gaming {
             ResponseGameNetworkInt wrapper = new ResponseGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/count/by-uuid/by-type";
+            wrapper.action = "game-network/count/uuid/type";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameNetworkByUuidByType(
+            int i = api.CountGameNetworkUuidType(
                 _uuid
                 , _type
             );
@@ -5073,12 +5163,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameNetworkListByFilter()  {
+        public virtual void BrowseGameNetworkListFilter()  {
         
             ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/browse/by-filter";
+            wrapper.action = "game-network/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5090,7 +5180,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameNetworkResult result = api.BrowseGameNetworkListByFilter(obj);
+            GameNetworkResult result = api.BrowseGameNetworkListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -5102,12 +5192,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameNetworkByUuid()  {
+        public virtual void SetGameNetworkUuid()  {
         
             ResponseGameNetworkBool wrapper = new ResponseGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/set/by-uuid";
+            wrapper.action = "game-network/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5174,17 +5264,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameNetworkByUuid(obj);
+            wrapper.data = api.SetGameNetworkUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameNetworkByCode()  {
+        public virtual void SetGameNetworkCode()  {
         
             ResponseGameNetworkBool wrapper = new ResponseGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/set/by-code";
+            wrapper.action = "game-network/set/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5251,26 +5341,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameNetworkByCode(obj);
+            wrapper.data = api.SetGameNetworkCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameNetworkByUuid() {
+        public virtual void DelGameNetworkUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameNetworkBool wrapper = new ResponseGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/del/by-uuid";
+            wrapper.action = "game-network/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameNetworkByUuid(
+            bool completed = api.DelGameNetworkUuid(
                         
                 _uuid
             );
@@ -5305,21 +5395,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameNetworkListByUuid() {
+        public virtual void GetGameNetworkListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/get/by-uuid";
+            wrapper.action = "game-network/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameNetwork> objs = api.GetGameNetworkListByUuid(
+            List<GameNetwork> objs = api.GetGameNetworkListUuid(
                 _uuid
             );
             
@@ -5330,21 +5420,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameNetworkListByCode() {
+        public virtual void GetGameNetworkListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/get/by-code";
+            wrapper.action = "game-network/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameNetwork> objs = api.GetGameNetworkListByCode(
+            List<GameNetwork> objs = api.GetGameNetworkListCode(
                 _code
             );
             
@@ -5355,7 +5445,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameNetworkListByUuidByType() {
+        public virtual void GetGameNetworkListUuidType() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _type = ()util.GetParamValue(_context, "@type");
@@ -5363,14 +5453,14 @@ namespace gaming {
             ResponseGameNetworkList wrapper = new ResponseGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network/get/by-uuid/by-type";
+            wrapper.action = "game-network/get/uuid/type";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameNetwork> objs = api.GetGameNetworkListByUuidByType(
+            List<GameNetwork> objs = api.GetGameNetworkListUuidType(
                 _uuid
                 , _type
             );
@@ -5405,21 +5495,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameNetworkAuthByUuid() {
+        public virtual void CountGameNetworkAuthUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameNetworkAuthInt wrapper = new ResponseGameNetworkAuthInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network-auth/count/by-uuid";
+            wrapper.action = "game-network-auth/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameNetworkAuthByUuid(
+            int i = api.CountGameNetworkAuthUuid(
                 _uuid
             );
             
@@ -5430,7 +5520,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameNetworkAuthByGameIdByGameNetworkId() {
+        public virtual void CountGameNetworkAuthGameIdGameNetworkId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _game_network_id = ()util.GetParamValue(_context, "@game_network_id");
@@ -5438,14 +5528,14 @@ namespace gaming {
             ResponseGameNetworkAuthInt wrapper = new ResponseGameNetworkAuthInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network-auth/count/by-game-id/by-game-network-id";
+            wrapper.action = "game-network-auth/count/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameNetworkAuthByGameIdByGameNetworkId(
+            int i = api.CountGameNetworkAuthGameIdGameNetworkId(
                 _game_id
                 , _game_network_id
             );
@@ -5456,12 +5546,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameNetworkAuthListByFilter()  {
+        public virtual void BrowseGameNetworkAuthListFilter()  {
         
             ResponseGameNetworkAuthList wrapper = new ResponseGameNetworkAuthList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network-auth/browse/by-filter";
+            wrapper.action = "game-network-auth/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5473,7 +5563,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameNetworkAuthResult result = api.BrowseGameNetworkAuthListByFilter(obj);
+            GameNetworkAuthResult result = api.BrowseGameNetworkAuthListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -5485,12 +5575,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameNetworkAuthByUuid()  {
+        public virtual void SetGameNetworkAuthUuid()  {
         
             ResponseGameNetworkAuthBool wrapper = new ResponseGameNetworkAuthBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network-auth/set/by-uuid";
+            wrapper.action = "game-network-auth/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5569,17 +5659,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameNetworkAuthByUuid(obj);
+            wrapper.data = api.SetGameNetworkAuthUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameNetworkAuthByGameIdByGameNetworkId()  {
+        public virtual void SetGameNetworkAuthGameIdGameNetworkId()  {
         
             ResponseGameNetworkAuthBool wrapper = new ResponseGameNetworkAuthBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network-auth/set/by-game-id/by-game-network-id";
+            wrapper.action = "game-network-auth/set/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5658,26 +5748,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameNetworkAuthByGameIdByGameNetworkId(obj);
+            wrapper.data = api.SetGameNetworkAuthGameIdGameNetworkId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameNetworkAuthByUuid() {
+        public virtual void DelGameNetworkAuthUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameNetworkAuthBool wrapper = new ResponseGameNetworkAuthBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network-auth/del/by-uuid";
+            wrapper.action = "game-network-auth/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameNetworkAuthByUuid(
+            bool completed = api.DelGameNetworkAuthUuid(
                         
                 _uuid
             );
@@ -5712,21 +5802,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameNetworkAuthListByUuid() {
+        public virtual void GetGameNetworkAuthListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameNetworkAuthList wrapper = new ResponseGameNetworkAuthList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network-auth/get/by-uuid";
+            wrapper.action = "game-network-auth/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameNetworkAuth> objs = api.GetGameNetworkAuthListByUuid(
+            List<GameNetworkAuth> objs = api.GetGameNetworkAuthListUuid(
                 _uuid
             );
             
@@ -5737,7 +5827,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameNetworkAuthListByGameIdByGameNetworkId() {
+        public virtual void GetGameNetworkAuthListGameIdGameNetworkId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _game_network_id = ()util.GetParamValue(_context, "@game_network_id");
@@ -5745,14 +5835,14 @@ namespace gaming {
             ResponseGameNetworkAuthList wrapper = new ResponseGameNetworkAuthList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-network-auth/get/by-game-id/by-game-network-id";
+            wrapper.action = "game-network-auth/get/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameNetworkAuth> objs = api.GetGameNetworkAuthListByGameIdByGameNetworkId(
+            List<GameNetworkAuth> objs = api.GetGameNetworkAuthListGameIdGameNetworkId(
                 _game_id
                 , _game_network_id
             );
@@ -5787,21 +5877,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameNetworkByUuid() {
+        public virtual void CountProfileGameNetworkUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameNetworkInt wrapper = new ResponseProfileGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/count/by-uuid";
+            wrapper.action = "profile-game-network/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameNetworkByUuid(
+            int i = api.CountProfileGameNetworkUuid(
                 _uuid
             );
             
@@ -5812,21 +5902,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameNetworkByGameId() {
+        public virtual void CountProfileGameNetworkGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseProfileGameNetworkInt wrapper = new ResponseProfileGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/count/by-game-id";
+            wrapper.action = "profile-game-network/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameNetworkByGameId(
+            int i = api.CountProfileGameNetworkGameId(
                 _game_id
             );
             
@@ -5837,21 +5927,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameNetworkByProfileId() {
+        public virtual void CountProfileGameNetworkProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameNetworkInt wrapper = new ResponseProfileGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/count/by-profile-id";
+            wrapper.action = "profile-game-network/count/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameNetworkByProfileId(
+            int i = api.CountProfileGameNetworkProfileId(
                 _profile_id
             );
             
@@ -5862,7 +5952,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameNetworkByProfileIdByGameId() {
+        public virtual void CountProfileGameNetworkProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -5870,14 +5960,14 @@ namespace gaming {
             ResponseProfileGameNetworkInt wrapper = new ResponseProfileGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/count/by-profile-id/by-game-id";
+            wrapper.action = "profile-game-network/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameNetworkByProfileIdByGameId(
+            int i = api.CountProfileGameNetworkProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -5889,7 +5979,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameNetworkByProfileIdByGameId() {
+        public virtual void CountProfileGameNetworkProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -5897,14 +5987,14 @@ namespace gaming {
             ResponseProfileGameNetworkInt wrapper = new ResponseProfileGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/count/by-profile-id/by-game-id";
+            wrapper.action = "profile-game-network/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameNetworkByProfileIdByGameId(
+            int i = api.CountProfileGameNetworkProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -5916,7 +6006,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId() {
+        public virtual void CountProfileGameNetworkProfileIdGameIdGameNetworkId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -5925,14 +6015,14 @@ namespace gaming {
             ResponseProfileGameNetworkInt wrapper = new ResponseProfileGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/count/by-profile-id/by-game-id/by-game-network-id";
+            wrapper.action = "profile-game-network/count/profile-id/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            int i = api.CountProfileGameNetworkProfileIdGameIdGameNetworkId(
                 _profile_id
                 , _game_id
                 , _game_network_id
@@ -5945,7 +6035,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId() {
+        public virtual void CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId() {
         
              _network_username = ()util.GetParamValue(_context, "@network_username");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -5954,14 +6044,14 @@ namespace gaming {
             ResponseProfileGameNetworkInt wrapper = new ResponseProfileGameNetworkInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/count/by-network-username/by-game-id/by-game-network-id";
+            wrapper.action = "profile-game-network/count/network-username/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            int i = api.CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
                 _network_username
                 , _game_id
                 , _game_network_id
@@ -5973,12 +6063,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileGameNetworkListByFilter()  {
+        public virtual void BrowseProfileGameNetworkListFilter()  {
         
             ResponseProfileGameNetworkList wrapper = new ResponseProfileGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/browse/by-filter";
+            wrapper.action = "profile-game-network/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5990,7 +6080,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileGameNetworkResult result = api.BrowseProfileGameNetworkListByFilter(obj);
+            ProfileGameNetworkResult result = api.BrowseProfileGameNetworkListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -6002,12 +6092,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameNetworkByUuid()  {
+        public virtual void SetProfileGameNetworkUuid()  {
         
             ResponseProfileGameNetworkBool wrapper = new ResponseProfileGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/set/by-uuid";
+            wrapper.action = "profile-game-network/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6090,17 +6180,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameNetworkByUuid(obj);
+            wrapper.data = api.SetProfileGameNetworkUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameNetworkByProfileIdByGameId()  {
+        public virtual void SetProfileGameNetworkProfileIdGameId()  {
         
             ResponseProfileGameNetworkBool wrapper = new ResponseProfileGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/set/by-profile-id/by-game-id";
+            wrapper.action = "profile-game-network/set/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6183,17 +6273,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameNetworkByProfileIdByGameId(obj);
+            wrapper.data = api.SetProfileGameNetworkProfileIdGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId()  {
+        public virtual void SetProfileGameNetworkProfileIdGameIdGameNetworkId()  {
         
             ResponseProfileGameNetworkBool wrapper = new ResponseProfileGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/set/by-profile-id/by-game-id/by-game-network-id";
+            wrapper.action = "profile-game-network/set/profile-id/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6276,17 +6366,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(obj);
+            wrapper.data = api.SetProfileGameNetworkProfileIdGameIdGameNetworkId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId()  {
+        public virtual void SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId()  {
         
             ResponseProfileGameNetworkBool wrapper = new ResponseProfileGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/set/by-network-username/by-game-id/by-game-network-id";
+            wrapper.action = "profile-game-network/set/network-username/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6369,26 +6459,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(obj);
+            wrapper.data = api.SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameNetworkByUuid() {
+        public virtual void DelProfileGameNetworkUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameNetworkBool wrapper = new ResponseProfileGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/del/by-uuid";
+            wrapper.action = "profile-game-network/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameNetworkByUuid(
+            bool completed = api.DelProfileGameNetworkUuid(
                         
                 _uuid
             );
@@ -6399,7 +6489,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameNetworkByProfileIdByGameId() {
+        public virtual void DelProfileGameNetworkProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -6407,14 +6497,14 @@ namespace gaming {
             ResponseProfileGameNetworkBool wrapper = new ResponseProfileGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/del/by-profile-id/by-game-id";
+            wrapper.action = "profile-game-network/del/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameNetworkByProfileIdByGameId(
+            bool completed = api.DelProfileGameNetworkProfileIdGameId(
                         
                 _profile_id
                 , _game_id
@@ -6426,7 +6516,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId() {
+        public virtual void DelProfileGameNetworkProfileIdGameIdGameNetworkId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -6435,14 +6525,14 @@ namespace gaming {
             ResponseProfileGameNetworkBool wrapper = new ResponseProfileGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/del/by-profile-id/by-game-id/by-game-network-id";
+            wrapper.action = "profile-game-network/del/profile-id/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+            bool completed = api.DelProfileGameNetworkProfileIdGameIdGameNetworkId(
                         
                 _profile_id
                 , _game_id
@@ -6455,7 +6545,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId() {
+        public virtual void DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId() {
         
              _network_username = ()util.GetParamValue(_context, "@network_username");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -6464,14 +6554,14 @@ namespace gaming {
             ResponseProfileGameNetworkBool wrapper = new ResponseProfileGameNetworkBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/del/by-network-username/by-game-id/by-game-network-id";
+            wrapper.action = "profile-game-network/del/network-username/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+            bool completed = api.DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
                         
                 _network_username
                 , _game_id
@@ -6508,21 +6598,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameNetworkListByUuid() {
+        public virtual void GetProfileGameNetworkListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameNetworkList wrapper = new ResponseProfileGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/get/by-uuid";
+            wrapper.action = "profile-game-network/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListByUuid(
+            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListUuid(
                 _uuid
             );
             
@@ -6533,21 +6623,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameNetworkListByGameId() {
+        public virtual void GetProfileGameNetworkListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseProfileGameNetworkList wrapper = new ResponseProfileGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/get/by-game-id";
+            wrapper.action = "profile-game-network/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListByGameId(
+            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListGameId(
                 _game_id
             );
             
@@ -6558,21 +6648,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameNetworkListByProfileId() {
+        public virtual void GetProfileGameNetworkListProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameNetworkList wrapper = new ResponseProfileGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/get/by-profile-id";
+            wrapper.action = "profile-game-network/get/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListByProfileId(
+            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListProfileId(
                 _profile_id
             );
             
@@ -6583,7 +6673,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameNetworkListByProfileIdByGameId() {
+        public virtual void GetProfileGameNetworkListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -6591,14 +6681,14 @@ namespace gaming {
             ResponseProfileGameNetworkList wrapper = new ResponseProfileGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/get/by-profile-id/by-game-id";
+            wrapper.action = "profile-game-network/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListByProfileIdByGameId(
+            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -6610,7 +6700,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId() {
+        public virtual void GetProfileGameNetworkListProfileIdGameIdGameNetworkId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -6619,14 +6709,14 @@ namespace gaming {
             ResponseProfileGameNetworkList wrapper = new ResponseProfileGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/get/by-profile-id/by-game-id/by-game-network-id";
+            wrapper.action = "profile-game-network/get/profile-id/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
                 _profile_id
                 , _game_id
                 , _game_network_id
@@ -6639,7 +6729,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId() {
+        public virtual void GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId() {
         
              _network_username = ()util.GetParamValue(_context, "@network_username");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -6648,14 +6738,14 @@ namespace gaming {
             ResponseProfileGameNetworkList wrapper = new ResponseProfileGameNetworkList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-network/get/by-network-username/by-game-id/by-game-network-id";
+            wrapper.action = "profile-game-network/get/network-username/game-id/game-network-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+            List<ProfileGameNetwork> objs = api.GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
                 _network_username
                 , _game_id
                 , _game_network_id
@@ -6691,21 +6781,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameDataAttributeByUuid() {
+        public virtual void CountProfileGameDataAttributeUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameDataAttributeInt wrapper = new ResponseProfileGameDataAttributeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/count/by-uuid";
+            wrapper.action = "profile-game-data-attribute/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameDataAttributeByUuid(
+            int i = api.CountProfileGameDataAttributeUuid(
                 _uuid
             );
             
@@ -6716,21 +6806,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameDataAttributeByProfileId() {
+        public virtual void CountProfileGameDataAttributeProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameDataAttributeInt wrapper = new ResponseProfileGameDataAttributeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/count/by-profile-id";
+            wrapper.action = "profile-game-data-attribute/count/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameDataAttributeByProfileId(
+            int i = api.CountProfileGameDataAttributeProfileId(
                 _profile_id
             );
             
@@ -6741,7 +6831,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameDataAttributeByProfileIdByGameIdByCode() {
+        public virtual void CountProfileGameDataAttributeProfileIdGameIdCode() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -6750,14 +6840,14 @@ namespace gaming {
             ResponseProfileGameDataAttributeInt wrapper = new ResponseProfileGameDataAttributeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/count/by-profile-id/by-game-id/by-code";
+            wrapper.action = "profile-game-data-attribute/count/profile-id/game-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameDataAttributeByProfileIdByGameIdByCode(
+            int i = api.CountProfileGameDataAttributeProfileIdGameIdCode(
                 _profile_id
                 , _game_id
                 , _code
@@ -6769,12 +6859,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileGameDataAttributeListByFilter()  {
+        public virtual void BrowseProfileGameDataAttributeListFilter()  {
         
             ResponseProfileGameDataAttributeList wrapper = new ResponseProfileGameDataAttributeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/browse/by-filter";
+            wrapper.action = "profile-game-data-attribute/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6786,7 +6876,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileGameDataAttributeResult result = api.BrowseProfileGameDataAttributeListByFilter(obj);
+            ProfileGameDataAttributeResult result = api.BrowseProfileGameDataAttributeListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -6798,12 +6888,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameDataAttributeByUuid()  {
+        public virtual void SetProfileGameDataAttributeUuid()  {
         
             ResponseProfileGameDataAttributeBool wrapper = new ResponseProfileGameDataAttributeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/set/by-uuid";
+            wrapper.action = "profile-game-data-attribute/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6866,17 +6956,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameDataAttributeByUuid(obj);
+            wrapper.data = api.SetProfileGameDataAttributeUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameDataAttributeByProfileId()  {
+        public virtual void SetProfileGameDataAttributeProfileId()  {
         
             ResponseProfileGameDataAttributeBool wrapper = new ResponseProfileGameDataAttributeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/set/by-profile-id";
+            wrapper.action = "profile-game-data-attribute/set/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6939,17 +7029,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameDataAttributeByProfileId(obj);
+            wrapper.data = api.SetProfileGameDataAttributeProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameDataAttributeByProfileIdByGameIdByCode()  {
+        public virtual void SetProfileGameDataAttributeProfileIdGameIdCode()  {
         
             ResponseProfileGameDataAttributeBool wrapper = new ResponseProfileGameDataAttributeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/set/by-profile-id/by-game-id/by-code";
+            wrapper.action = "profile-game-data-attribute/set/profile-id/game-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7012,26 +7102,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameDataAttributeByProfileIdByGameIdByCode(obj);
+            wrapper.data = api.SetProfileGameDataAttributeProfileIdGameIdCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameDataAttributeByUuid() {
+        public virtual void DelProfileGameDataAttributeUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameDataAttributeBool wrapper = new ResponseProfileGameDataAttributeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/del/by-uuid";
+            wrapper.action = "profile-game-data-attribute/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameDataAttributeByUuid(
+            bool completed = api.DelProfileGameDataAttributeUuid(
                         
                 _uuid
             );
@@ -7042,21 +7132,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameDataAttributeByProfileId() {
+        public virtual void DelProfileGameDataAttributeProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameDataAttributeBool wrapper = new ResponseProfileGameDataAttributeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/del/by-profile-id";
+            wrapper.action = "profile-game-data-attribute/del/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameDataAttributeByProfileId(
+            bool completed = api.DelProfileGameDataAttributeProfileId(
                         
                 _profile_id
             );
@@ -7067,7 +7157,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameDataAttributeByProfileIdByGameIdByCode() {
+        public virtual void DelProfileGameDataAttributeProfileIdGameIdCode() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -7076,14 +7166,14 @@ namespace gaming {
             ResponseProfileGameDataAttributeBool wrapper = new ResponseProfileGameDataAttributeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/del/by-profile-id/by-game-id/by-code";
+            wrapper.action = "profile-game-data-attribute/del/profile-id/game-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameDataAttributeByProfileIdByGameIdByCode(
+            bool completed = api.DelProfileGameDataAttributeProfileIdGameIdCode(
                         
                 _profile_id
                 , _game_id
@@ -7097,21 +7187,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameDataAttributeListByUuid() {
+        public virtual void GetProfileGameDataAttributeListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameDataAttributeList wrapper = new ResponseProfileGameDataAttributeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/get/by-uuid";
+            wrapper.action = "profile-game-data-attribute/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameDataAttribute> objs = api.GetProfileGameDataAttributeListByUuid(
+            List<ProfileGameDataAttribute> objs = api.GetProfileGameDataAttributeListUuid(
                 _uuid
             );
             
@@ -7122,21 +7212,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameDataAttributeListByProfileId() {
+        public virtual void GetProfileGameDataAttributeListProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameDataAttributeList wrapper = new ResponseProfileGameDataAttributeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/get/by-profile-id";
+            wrapper.action = "profile-game-data-attribute/get/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameDataAttribute> objs = api.GetProfileGameDataAttributeListByProfileId(
+            List<ProfileGameDataAttribute> objs = api.GetProfileGameDataAttributeListProfileId(
                 _profile_id
             );
             
@@ -7147,7 +7237,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameDataAttributeListByProfileIdByGameIdByCode() {
+        public virtual void GetProfileGameDataAttributeListProfileIdGameIdCode() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -7156,14 +7246,14 @@ namespace gaming {
             ResponseProfileGameDataAttributeList wrapper = new ResponseProfileGameDataAttributeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-data-attribute/get/by-profile-id/by-game-id/by-code";
+            wrapper.action = "profile-game-data-attribute/get/profile-id/game-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameDataAttribute> objs = api.GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+            List<ProfileGameDataAttribute> objs = api.GetProfileGameDataAttributeListProfileIdGameIdCode(
                 _profile_id
                 , _game_id
                 , _code
@@ -7199,21 +7289,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameSessionByUuid() {
+        public virtual void CountGameSessionUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameSessionInt wrapper = new ResponseGameSessionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/count/by-uuid";
+            wrapper.action = "game-session/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameSessionByUuid(
+            int i = api.CountGameSessionUuid(
                 _uuid
             );
             
@@ -7224,21 +7314,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameSessionByGameId() {
+        public virtual void CountGameSessionGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameSessionInt wrapper = new ResponseGameSessionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/count/by-game-id";
+            wrapper.action = "game-session/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameSessionByGameId(
+            int i = api.CountGameSessionGameId(
                 _game_id
             );
             
@@ -7249,21 +7339,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameSessionByProfileId() {
+        public virtual void CountGameSessionProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseGameSessionInt wrapper = new ResponseGameSessionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/count/by-profile-id";
+            wrapper.action = "game-session/count/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameSessionByProfileId(
+            int i = api.CountGameSessionProfileId(
                 _profile_id
             );
             
@@ -7274,7 +7364,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameSessionByProfileIdByGameId() {
+        public virtual void CountGameSessionProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -7282,14 +7372,14 @@ namespace gaming {
             ResponseGameSessionInt wrapper = new ResponseGameSessionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/count/by-profile-id/by-game-id";
+            wrapper.action = "game-session/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameSessionByProfileIdByGameId(
+            int i = api.CountGameSessionProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -7300,12 +7390,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameSessionListByFilter()  {
+        public virtual void BrowseGameSessionListFilter()  {
         
             ResponseGameSessionList wrapper = new ResponseGameSessionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/browse/by-filter";
+            wrapper.action = "game-session/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7317,7 +7407,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameSessionResult result = api.BrowseGameSessionListByFilter(obj);
+            GameSessionResult result = api.BrowseGameSessionListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -7329,12 +7419,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameSessionByUuid()  {
+        public virtual void SetGameSessionUuid()  {
         
             ResponseGameSessionBool wrapper = new ResponseGameSessionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/set/by-uuid";
+            wrapper.action = "game-session/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7477,26 +7567,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameSessionByUuid(obj);
+            wrapper.data = api.SetGameSessionUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameSessionByUuid() {
+        public virtual void DelGameSessionUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameSessionBool wrapper = new ResponseGameSessionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/del/by-uuid";
+            wrapper.action = "game-session/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameSessionByUuid(
+            bool completed = api.DelGameSessionUuid(
                         
                 _uuid
             );
@@ -7531,21 +7621,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameSessionListByUuid() {
+        public virtual void GetGameSessionListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameSessionList wrapper = new ResponseGameSessionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/get/by-uuid";
+            wrapper.action = "game-session/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameSession> objs = api.GetGameSessionListByUuid(
+            List<GameSession> objs = api.GetGameSessionListUuid(
                 _uuid
             );
             
@@ -7556,21 +7646,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameSessionListByGameId() {
+        public virtual void GetGameSessionListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameSessionList wrapper = new ResponseGameSessionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/get/by-game-id";
+            wrapper.action = "game-session/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameSession> objs = api.GetGameSessionListByGameId(
+            List<GameSession> objs = api.GetGameSessionListGameId(
                 _game_id
             );
             
@@ -7581,21 +7671,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameSessionListByProfileId() {
+        public virtual void GetGameSessionListProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseGameSessionList wrapper = new ResponseGameSessionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/get/by-profile-id";
+            wrapper.action = "game-session/get/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameSession> objs = api.GetGameSessionListByProfileId(
+            List<GameSession> objs = api.GetGameSessionListProfileId(
                 _profile_id
             );
             
@@ -7606,7 +7696,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameSessionListByProfileIdByGameId() {
+        public virtual void GetGameSessionListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -7614,14 +7704,14 @@ namespace gaming {
             ResponseGameSessionList wrapper = new ResponseGameSessionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session/get/by-profile-id/by-game-id";
+            wrapper.action = "game-session/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameSession> objs = api.GetGameSessionListByProfileIdByGameId(
+            List<GameSession> objs = api.GetGameSessionListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -7656,21 +7746,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameSessionDataByUuid() {
+        public virtual void CountGameSessionDataUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameSessionDataInt wrapper = new ResponseGameSessionDataInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session-data/count/by-uuid";
+            wrapper.action = "game-session-data/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameSessionDataByUuid(
+            int i = api.CountGameSessionDataUuid(
                 _uuid
             );
             
@@ -7680,12 +7770,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameSessionDataListByFilter()  {
+        public virtual void BrowseGameSessionDataListFilter()  {
         
             ResponseGameSessionDataList wrapper = new ResponseGameSessionDataList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session-data/browse/by-filter";
+            wrapper.action = "game-session-data/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7697,7 +7787,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameSessionDataResult result = api.BrowseGameSessionDataListByFilter(obj);
+            GameSessionDataResult result = api.BrowseGameSessionDataListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -7709,12 +7799,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameSessionDataByUuid()  {
+        public virtual void SetGameSessionDataUuid()  {
         
             ResponseGameSessionDataBool wrapper = new ResponseGameSessionDataBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session-data/set/by-uuid";
+            wrapper.action = "game-session-data/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7789,26 +7879,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameSessionDataByUuid(obj);
+            wrapper.data = api.SetGameSessionDataUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameSessionDataByUuid() {
+        public virtual void DelGameSessionDataUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameSessionDataBool wrapper = new ResponseGameSessionDataBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session-data/del/by-uuid";
+            wrapper.action = "game-session-data/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameSessionDataByUuid(
+            bool completed = api.DelGameSessionDataUuid(
                         
                 _uuid
             );
@@ -7843,21 +7933,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameSessionDataListByUuid() {
+        public virtual void GetGameSessionDataListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameSessionDataList wrapper = new ResponseGameSessionDataList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-session-data/get/by-uuid";
+            wrapper.action = "game-session-data/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameSessionData> objs = api.GetGameSessionDataListByUuid(
+            List<GameSessionData> objs = api.GetGameSessionDataListUuid(
                 _uuid
             );
             
@@ -7891,21 +7981,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameContentByUuid() {
+        public virtual void CountGameContentUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameContentInt wrapper = new ResponseGameContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/count/by-uuid";
+            wrapper.action = "game-content/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameContentByUuid(
+            int i = api.CountGameContentUuid(
                 _uuid
             );
             
@@ -7916,21 +8006,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameContentByGameId() {
+        public virtual void CountGameContentGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameContentInt wrapper = new ResponseGameContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/count/by-game-id";
+            wrapper.action = "game-content/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameContentByGameId(
+            int i = api.CountGameContentGameId(
                 _game_id
             );
             
@@ -7941,7 +8031,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameContentByGameIdByPath() {
+        public virtual void CountGameContentGameIdPath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -7949,14 +8039,14 @@ namespace gaming {
             ResponseGameContentInt wrapper = new ResponseGameContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/count/by-game-id/by-path";
+            wrapper.action = "game-content/count/game-id/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameContentByGameIdByPath(
+            int i = api.CountGameContentGameIdPath(
                 _game_id
                 , _path
             );
@@ -7968,7 +8058,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameContentByGameIdByPathByVersion() {
+        public virtual void CountGameContentGameIdPathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -7977,14 +8067,14 @@ namespace gaming {
             ResponseGameContentInt wrapper = new ResponseGameContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/count/by-game-id/by-path/by-version";
+            wrapper.action = "game-content/count/game-id/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameContentByGameIdByPathByVersion(
+            int i = api.CountGameContentGameIdPathVersion(
                 _game_id
                 , _path
                 , _version
@@ -7997,7 +8087,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameContentByGameIdByPathByVersionByPlatformByIncrement() {
+        public virtual void CountGameContentGameIdPathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -8008,14 +8098,14 @@ namespace gaming {
             ResponseGameContentInt wrapper = new ResponseGameContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/count/by-game-id/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-content/count/game-id/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameContentByGameIdByPathByVersionByPlatformByIncrement(
+            int i = api.CountGameContentGameIdPathVersionPlatformIncrement(
                 _game_id
                 , _path
                 , _version
@@ -8029,12 +8119,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameContentListByFilter()  {
+        public virtual void BrowseGameContentListFilter()  {
         
             ResponseGameContentList wrapper = new ResponseGameContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/browse/by-filter";
+            wrapper.action = "game-content/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8046,7 +8136,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameContentResult result = api.BrowseGameContentListByFilter(obj);
+            GameContentResult result = api.BrowseGameContentListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -8058,12 +8148,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameContentByUuid()  {
+        public virtual void SetGameContentUuid()  {
         
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/set/by-uuid";
+            wrapper.action = "game-content/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8162,17 +8252,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameContentByUuid(obj);
+            wrapper.data = api.SetGameContentUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameContentByGameId()  {
+        public virtual void SetGameContentGameId()  {
         
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/set/by-game-id";
+            wrapper.action = "game-content/set/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8271,17 +8361,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameContentByGameId(obj);
+            wrapper.data = api.SetGameContentGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameContentByGameIdByPath()  {
+        public virtual void SetGameContentGameIdPath()  {
         
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/set/by-game-id/by-path";
+            wrapper.action = "game-content/set/game-id/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8380,17 +8470,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameContentByGameIdByPath(obj);
+            wrapper.data = api.SetGameContentGameIdPath(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameContentByGameIdByPathByVersion()  {
+        public virtual void SetGameContentGameIdPathVersion()  {
         
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/set/by-game-id/by-path/by-version";
+            wrapper.action = "game-content/set/game-id/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8489,17 +8579,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameContentByGameIdByPathByVersion(obj);
+            wrapper.data = api.SetGameContentGameIdPathVersion(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameContentByGameIdByPathByVersionByPlatformByIncrement()  {
+        public virtual void SetGameContentGameIdPathVersionPlatformIncrement()  {
         
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/set/by-game-id/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-content/set/game-id/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8598,26 +8688,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameContentByGameIdByPathByVersionByPlatformByIncrement(obj);
+            wrapper.data = api.SetGameContentGameIdPathVersionPlatformIncrement(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameContentByUuid() {
+        public virtual void DelGameContentUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/del/by-uuid";
+            wrapper.action = "game-content/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameContentByUuid(
+            bool completed = api.DelGameContentUuid(
                         
                 _uuid
             );
@@ -8628,21 +8718,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameContentByGameId() {
+        public virtual void DelGameContentGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/del/by-game-id";
+            wrapper.action = "game-content/del/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameContentByGameId(
+            bool completed = api.DelGameContentGameId(
                         
                 _game_id
             );
@@ -8653,7 +8743,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameContentByGameIdByPath() {
+        public virtual void DelGameContentGameIdPath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -8661,14 +8751,14 @@ namespace gaming {
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/del/by-game-id/by-path";
+            wrapper.action = "game-content/del/game-id/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameContentByGameIdByPath(
+            bool completed = api.DelGameContentGameIdPath(
                         
                 _game_id
                 , _path
@@ -8680,7 +8770,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameContentByGameIdByPathByVersion() {
+        public virtual void DelGameContentGameIdPathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -8689,14 +8779,14 @@ namespace gaming {
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/del/by-game-id/by-path/by-version";
+            wrapper.action = "game-content/del/game-id/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameContentByGameIdByPathByVersion(
+            bool completed = api.DelGameContentGameIdPathVersion(
                         
                 _game_id
                 , _path
@@ -8709,7 +8799,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameContentByGameIdByPathByVersionByPlatformByIncrement() {
+        public virtual void DelGameContentGameIdPathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -8720,14 +8810,14 @@ namespace gaming {
             ResponseGameContentBool wrapper = new ResponseGameContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/del/by-game-id/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-content/del/game-id/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameContentByGameIdByPathByVersionByPlatformByIncrement(
+            bool completed = api.DelGameContentGameIdPathVersionPlatformIncrement(
                         
                 _game_id
                 , _path
@@ -8766,21 +8856,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameContentListByUuid() {
+        public virtual void GetGameContentListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameContentList wrapper = new ResponseGameContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/get/by-uuid";
+            wrapper.action = "game-content/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameContent> objs = api.GetGameContentListByUuid(
+            List<GameContent> objs = api.GetGameContentListUuid(
                 _uuid
             );
             
@@ -8791,21 +8881,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameContentListByGameId() {
+        public virtual void GetGameContentListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameContentList wrapper = new ResponseGameContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/get/by-game-id";
+            wrapper.action = "game-content/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameContent> objs = api.GetGameContentListByGameId(
+            List<GameContent> objs = api.GetGameContentListGameId(
                 _game_id
             );
             
@@ -8816,7 +8906,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameContentListByGameIdByPath() {
+        public virtual void GetGameContentListGameIdPath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -8824,14 +8914,14 @@ namespace gaming {
             ResponseGameContentList wrapper = new ResponseGameContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/get/by-game-id/by-path";
+            wrapper.action = "game-content/get/game-id/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameContent> objs = api.GetGameContentListByGameIdByPath(
+            List<GameContent> objs = api.GetGameContentListGameIdPath(
                 _game_id
                 , _path
             );
@@ -8843,7 +8933,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameContentListByGameIdByPathByVersion() {
+        public virtual void GetGameContentListGameIdPathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -8852,14 +8942,14 @@ namespace gaming {
             ResponseGameContentList wrapper = new ResponseGameContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/get/by-game-id/by-path/by-version";
+            wrapper.action = "game-content/get/game-id/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameContent> objs = api.GetGameContentListByGameIdByPathByVersion(
+            List<GameContent> objs = api.GetGameContentListGameIdPathVersion(
                 _game_id
                 , _path
                 , _version
@@ -8872,7 +8962,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameContentListByGameIdByPathByVersionByPlatformByIncrement() {
+        public virtual void GetGameContentListGameIdPathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -8883,14 +8973,14 @@ namespace gaming {
             ResponseGameContentList wrapper = new ResponseGameContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-content/get/by-game-id/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-content/get/game-id/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameContent> objs = api.GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+            List<GameContent> objs = api.GetGameContentListGameIdPathVersionPlatformIncrement(
                 _game_id
                 , _path
                 , _version
@@ -8928,21 +9018,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByUuid() {
+        public virtual void CountGameProfileContentUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-uuid";
+            wrapper.action = "game-profile-content/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByUuid(
+            int i = api.CountGameProfileContentUuid(
                 _uuid
             );
             
@@ -8953,7 +9043,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByGameIdByProfileId() {
+        public virtual void CountGameProfileContentGameIdProfileId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -8961,14 +9051,14 @@ namespace gaming {
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-game-id/by-profile-id";
+            wrapper.action = "game-profile-content/count/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByGameIdByProfileId(
+            int i = api.CountGameProfileContentGameIdProfileId(
                 _game_id
                 , _profile_id
             );
@@ -8980,7 +9070,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByGameIdByUsername() {
+        public virtual void CountGameProfileContentGameIdUsername() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -8988,14 +9078,14 @@ namespace gaming {
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-game-id/by-username";
+            wrapper.action = "game-profile-content/count/game-id/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByGameIdByUsername(
+            int i = api.CountGameProfileContentGameIdUsername(
                 _game_id
                 , _username
             );
@@ -9007,21 +9097,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByUsername() {
+        public virtual void CountGameProfileContentUsername() {
         
              _username = ()util.GetParamValue(_context, "@username");
 
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-username";
+            wrapper.action = "game-profile-content/count/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByUsername(
+            int i = api.CountGameProfileContentUsername(
                 _username
             );
             
@@ -9032,7 +9122,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByGameIdByProfileIdByPath() {
+        public virtual void CountGameProfileContentGameIdProfileIdPath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -9041,14 +9131,14 @@ namespace gaming {
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-game-id/by-profile-id/by-path";
+            wrapper.action = "game-profile-content/count/game-id/profile-id/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByGameIdByProfileIdByPath(
+            int i = api.CountGameProfileContentGameIdProfileIdPath(
                 _game_id
                 , _profile_id
                 , _path
@@ -9061,7 +9151,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByGameIdByProfileIdByPathByVersion() {
+        public virtual void CountGameProfileContentGameIdProfileIdPathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -9071,14 +9161,14 @@ namespace gaming {
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-game-id/by-profile-id/by-path/by-version";
+            wrapper.action = "game-profile-content/count/game-id/profile-id/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByGameIdByProfileIdByPathByVersion(
+            int i = api.CountGameProfileContentGameIdProfileIdPathVersion(
                 _game_id
                 , _profile_id
                 , _path
@@ -9092,7 +9182,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement() {
+        public virtual void CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -9104,14 +9194,14 @@ namespace gaming {
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-profile-content/count/game-id/profile-id/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+            int i = api.CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
                 _game_id
                 , _profile_id
                 , _path
@@ -9127,7 +9217,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByGameIdByUsernameByPath() {
+        public virtual void CountGameProfileContentGameIdUsernamePath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -9136,14 +9226,14 @@ namespace gaming {
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-game-id/by-username/by-path";
+            wrapper.action = "game-profile-content/count/game-id/username/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByGameIdByUsernameByPath(
+            int i = api.CountGameProfileContentGameIdUsernamePath(
                 _game_id
                 , _username
                 , _path
@@ -9156,7 +9246,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByGameIdByUsernameByPathByVersion() {
+        public virtual void CountGameProfileContentGameIdUsernamePathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -9166,14 +9256,14 @@ namespace gaming {
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-game-id/by-username/by-path/by-version";
+            wrapper.action = "game-profile-content/count/game-id/username/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByGameIdByUsernameByPathByVersion(
+            int i = api.CountGameProfileContentGameIdUsernamePathVersion(
                 _game_id
                 , _username
                 , _path
@@ -9187,7 +9277,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement() {
+        public virtual void CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -9199,14 +9289,14 @@ namespace gaming {
             ResponseGameProfileContentInt wrapper = new ResponseGameProfileContentInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/count/by-game-id/by-username/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-profile-content/count/game-id/username/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+            int i = api.CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
                 _game_id
                 , _username
                 , _path
@@ -9221,12 +9311,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameProfileContentListByFilter()  {
+        public virtual void BrowseGameProfileContentListFilter()  {
         
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/browse/by-filter";
+            wrapper.action = "game-profile-content/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9238,7 +9328,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameProfileContentResult result = api.BrowseGameProfileContentListByFilter(obj);
+            GameProfileContentResult result = api.BrowseGameProfileContentListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -9250,12 +9340,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByUuid()  {
+        public virtual void SetGameProfileContentUuid()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-uuid";
+            wrapper.action = "game-profile-content/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9366,17 +9456,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByUuid(obj);
+            wrapper.data = api.SetGameProfileContentUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByGameIdByProfileId()  {
+        public virtual void SetGameProfileContentGameIdProfileId()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-game-id/by-profile-id";
+            wrapper.action = "game-profile-content/set/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9487,17 +9577,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByGameIdByProfileId(obj);
+            wrapper.data = api.SetGameProfileContentGameIdProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByGameIdByUsername()  {
+        public virtual void SetGameProfileContentGameIdUsername()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-game-id/by-username";
+            wrapper.action = "game-profile-content/set/game-id/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9608,17 +9698,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByGameIdByUsername(obj);
+            wrapper.data = api.SetGameProfileContentGameIdUsername(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByUsername()  {
+        public virtual void SetGameProfileContentUsername()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-username";
+            wrapper.action = "game-profile-content/set/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9729,17 +9819,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByUsername(obj);
+            wrapper.data = api.SetGameProfileContentUsername(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByGameIdByProfileIdByPath()  {
+        public virtual void SetGameProfileContentGameIdProfileIdPath()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-game-id/by-profile-id/by-path";
+            wrapper.action = "game-profile-content/set/game-id/profile-id/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9850,17 +9940,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByGameIdByProfileIdByPath(obj);
+            wrapper.data = api.SetGameProfileContentGameIdProfileIdPath(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByGameIdByProfileIdByPathByVersion()  {
+        public virtual void SetGameProfileContentGameIdProfileIdPathVersion()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-game-id/by-profile-id/by-path/by-version";
+            wrapper.action = "game-profile-content/set/game-id/profile-id/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9971,17 +10061,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByGameIdByProfileIdByPathByVersion(obj);
+            wrapper.data = api.SetGameProfileContentGameIdProfileIdPathVersion(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement()  {
+        public virtual void SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-profile-content/set/game-id/profile-id/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10092,17 +10182,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(obj);
+            wrapper.data = api.SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByGameIdByUsernameByPath()  {
+        public virtual void SetGameProfileContentGameIdUsernamePath()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-game-id/by-username/by-path";
+            wrapper.action = "game-profile-content/set/game-id/username/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10213,17 +10303,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByGameIdByUsernameByPath(obj);
+            wrapper.data = api.SetGameProfileContentGameIdUsernamePath(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByGameIdByUsernameByPathByVersion()  {
+        public virtual void SetGameProfileContentGameIdUsernamePathVersion()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-game-id/by-username/by-path/by-version";
+            wrapper.action = "game-profile-content/set/game-id/username/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10334,17 +10424,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByGameIdByUsernameByPathByVersion(obj);
+            wrapper.data = api.SetGameProfileContentGameIdUsernamePathVersion(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement()  {
+        public virtual void SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement()  {
         
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/set/by-game-id/by-username/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-profile-content/set/game-id/username/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10455,26 +10545,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(obj);
+            wrapper.data = api.SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByUuid() {
+        public virtual void DelGameProfileContentUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-uuid";
+            wrapper.action = "game-profile-content/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByUuid(
+            bool completed = api.DelGameProfileContentUuid(
                         
                 _uuid
             );
@@ -10485,7 +10575,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByGameIdByProfileId() {
+        public virtual void DelGameProfileContentGameIdProfileId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -10493,14 +10583,14 @@ namespace gaming {
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-game-id/by-profile-id";
+            wrapper.action = "game-profile-content/del/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByGameIdByProfileId(
+            bool completed = api.DelGameProfileContentGameIdProfileId(
                         
                 _game_id
                 , _profile_id
@@ -10512,7 +10602,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByGameIdByUsername() {
+        public virtual void DelGameProfileContentGameIdUsername() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -10520,14 +10610,14 @@ namespace gaming {
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-game-id/by-username";
+            wrapper.action = "game-profile-content/del/game-id/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByGameIdByUsername(
+            bool completed = api.DelGameProfileContentGameIdUsername(
                         
                 _game_id
                 , _username
@@ -10539,21 +10629,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByUsername() {
+        public virtual void DelGameProfileContentUsername() {
         
              _username = ()util.GetParamValue(_context, "@username");
 
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-username";
+            wrapper.action = "game-profile-content/del/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByUsername(
+            bool completed = api.DelGameProfileContentUsername(
                         
                 _username
             );
@@ -10564,7 +10654,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByGameIdByProfileIdByPath() {
+        public virtual void DelGameProfileContentGameIdProfileIdPath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -10573,14 +10663,14 @@ namespace gaming {
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-game-id/by-profile-id/by-path";
+            wrapper.action = "game-profile-content/del/game-id/profile-id/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByGameIdByProfileIdByPath(
+            bool completed = api.DelGameProfileContentGameIdProfileIdPath(
                         
                 _game_id
                 , _profile_id
@@ -10593,7 +10683,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByGameIdByProfileIdByPathByVersion() {
+        public virtual void DelGameProfileContentGameIdProfileIdPathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -10603,14 +10693,14 @@ namespace gaming {
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-game-id/by-profile-id/by-path/by-version";
+            wrapper.action = "game-profile-content/del/game-id/profile-id/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByGameIdByProfileIdByPathByVersion(
+            bool completed = api.DelGameProfileContentGameIdProfileIdPathVersion(
                         
                 _game_id
                 , _profile_id
@@ -10624,7 +10714,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement() {
+        public virtual void DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -10636,14 +10726,14 @@ namespace gaming {
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-profile-content/del/game-id/profile-id/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+            bool completed = api.DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
                         
                 _game_id
                 , _profile_id
@@ -10659,7 +10749,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByGameIdByUsernameByPath() {
+        public virtual void DelGameProfileContentGameIdUsernamePath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -10668,14 +10758,14 @@ namespace gaming {
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-game-id/by-username/by-path";
+            wrapper.action = "game-profile-content/del/game-id/username/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByGameIdByUsernameByPath(
+            bool completed = api.DelGameProfileContentGameIdUsernamePath(
                         
                 _game_id
                 , _username
@@ -10688,7 +10778,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByGameIdByUsernameByPathByVersion() {
+        public virtual void DelGameProfileContentGameIdUsernamePathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -10698,14 +10788,14 @@ namespace gaming {
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-game-id/by-username/by-path/by-version";
+            wrapper.action = "game-profile-content/del/game-id/username/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByGameIdByUsernameByPathByVersion(
+            bool completed = api.DelGameProfileContentGameIdUsernamePathVersion(
                         
                 _game_id
                 , _username
@@ -10719,7 +10809,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement() {
+        public virtual void DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -10731,14 +10821,14 @@ namespace gaming {
             ResponseGameProfileContentBool wrapper = new ResponseGameProfileContentBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/del/by-game-id/by-username/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-profile-content/del/game-id/username/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+            bool completed = api.DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
                         
                 _game_id
                 , _username
@@ -10778,21 +10868,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByUuid() {
+        public virtual void GetGameProfileContentListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-uuid";
+            wrapper.action = "game-profile-content/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByUuid(
+            List<GameProfileContent> objs = api.GetGameProfileContentListUuid(
                 _uuid
             );
             
@@ -10803,7 +10893,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByGameIdByProfileId() {
+        public virtual void GetGameProfileContentListGameIdProfileId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -10811,14 +10901,14 @@ namespace gaming {
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-game-id/by-profile-id";
+            wrapper.action = "game-profile-content/get/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByGameIdByProfileId(
+            List<GameProfileContent> objs = api.GetGameProfileContentListGameIdProfileId(
                 _game_id
                 , _profile_id
             );
@@ -10830,7 +10920,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByGameIdByUsername() {
+        public virtual void GetGameProfileContentListGameIdUsername() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -10838,14 +10928,14 @@ namespace gaming {
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-game-id/by-username";
+            wrapper.action = "game-profile-content/get/game-id/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByGameIdByUsername(
+            List<GameProfileContent> objs = api.GetGameProfileContentListGameIdUsername(
                 _game_id
                 , _username
             );
@@ -10857,21 +10947,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByUsername() {
+        public virtual void GetGameProfileContentListUsername() {
         
              _username = ()util.GetParamValue(_context, "@username");
 
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-username";
+            wrapper.action = "game-profile-content/get/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByUsername(
+            List<GameProfileContent> objs = api.GetGameProfileContentListUsername(
                 _username
             );
             
@@ -10882,7 +10972,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByGameIdByProfileIdByPath() {
+        public virtual void GetGameProfileContentListGameIdProfileIdPath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -10891,14 +10981,14 @@ namespace gaming {
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-game-id/by-profile-id/by-path";
+            wrapper.action = "game-profile-content/get/game-id/profile-id/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByGameIdByProfileIdByPath(
+            List<GameProfileContent> objs = api.GetGameProfileContentListGameIdProfileIdPath(
                 _game_id
                 , _profile_id
                 , _path
@@ -10911,7 +11001,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByGameIdByProfileIdByPathByVersion() {
+        public virtual void GetGameProfileContentListGameIdProfileIdPathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -10921,14 +11011,14 @@ namespace gaming {
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-game-id/by-profile-id/by-path/by-version";
+            wrapper.action = "game-profile-content/get/game-id/profile-id/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+            List<GameProfileContent> objs = api.GetGameProfileContentListGameIdProfileIdPathVersion(
                 _game_id
                 , _profile_id
                 , _path
@@ -10942,7 +11032,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement() {
+        public virtual void GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -10954,14 +11044,14 @@ namespace gaming {
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-game-id/by-profile-id/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-profile-content/get/game-id/profile-id/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+            List<GameProfileContent> objs = api.GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
                 _game_id
                 , _profile_id
                 , _path
@@ -10977,7 +11067,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByGameIdByUsernameByPath() {
+        public virtual void GetGameProfileContentListGameIdUsernamePath() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -10986,14 +11076,14 @@ namespace gaming {
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-game-id/by-username/by-path";
+            wrapper.action = "game-profile-content/get/game-id/username/path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByGameIdByUsernameByPath(
+            List<GameProfileContent> objs = api.GetGameProfileContentListGameIdUsernamePath(
                 _game_id
                 , _username
                 , _path
@@ -11006,7 +11096,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByGameIdByUsernameByPathByVersion() {
+        public virtual void GetGameProfileContentListGameIdUsernamePathVersion() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -11016,14 +11106,14 @@ namespace gaming {
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-game-id/by-username/by-path/by-version";
+            wrapper.action = "game-profile-content/get/game-id/username/path/version";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByGameIdByUsernameByPathByVersion(
+            List<GameProfileContent> objs = api.GetGameProfileContentListGameIdUsernamePathVersion(
                 _game_id
                 , _username
                 , _path
@@ -11037,7 +11127,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement() {
+        public virtual void GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _username = ()util.GetParamValue(_context, "@username");
@@ -11049,14 +11139,14 @@ namespace gaming {
             ResponseGameProfileContentList wrapper = new ResponseGameProfileContentList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-content/get/by-game-id/by-username/by-path/by-version/by-platform/by-increment";
+            wrapper.action = "game-profile-content/get/game-id/username/path/version/platform/increment";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileContent> objs = api.GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+            List<GameProfileContent> objs = api.GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
                 _game_id
                 , _username
                 , _path
@@ -11095,21 +11185,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAppByUuid() {
+        public virtual void CountGameAppUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameAppInt wrapper = new ResponseGameAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/count/by-uuid";
+            wrapper.action = "game-app/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAppByUuid(
+            int i = api.CountGameAppUuid(
                 _uuid
             );
             
@@ -11120,21 +11210,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAppByGameId() {
+        public virtual void CountGameAppGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameAppInt wrapper = new ResponseGameAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/count/by-game-id";
+            wrapper.action = "game-app/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAppByGameId(
+            int i = api.CountGameAppGameId(
                 _game_id
             );
             
@@ -11145,21 +11235,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAppByAppId() {
+        public virtual void CountGameAppAppId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
 
             ResponseGameAppInt wrapper = new ResponseGameAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/count/by-app-id";
+            wrapper.action = "game-app/count/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAppByAppId(
+            int i = api.CountGameAppAppId(
                 _app_id
             );
             
@@ -11170,7 +11260,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAppByGameIdByAppId() {
+        public virtual void CountGameAppGameIdAppId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _app_id = ()util.GetParamValue(_context, "@app_id");
@@ -11178,14 +11268,14 @@ namespace gaming {
             ResponseGameAppInt wrapper = new ResponseGameAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/count/by-game-id/by-app-id";
+            wrapper.action = "game-app/count/game-id/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAppByGameIdByAppId(
+            int i = api.CountGameAppGameIdAppId(
                 _game_id
                 , _app_id
             );
@@ -11196,12 +11286,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameAppListByFilter()  {
+        public virtual void BrowseGameAppListFilter()  {
         
             ResponseGameAppList wrapper = new ResponseGameAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/browse/by-filter";
+            wrapper.action = "game-app/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11213,7 +11303,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameAppResult result = api.BrowseGameAppListByFilter(obj);
+            GameAppResult result = api.BrowseGameAppListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -11225,12 +11315,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameAppByUuid()  {
+        public virtual void SetGameAppUuid()  {
         
             ResponseGameAppBool wrapper = new ResponseGameAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/set/by-uuid";
+            wrapper.action = "game-app/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11277,26 +11367,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameAppByUuid(obj);
+            wrapper.data = api.SetGameAppUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameAppByUuid() {
+        public virtual void DelGameAppUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameAppBool wrapper = new ResponseGameAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/del/by-uuid";
+            wrapper.action = "game-app/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameAppByUuid(
+            bool completed = api.DelGameAppUuid(
                         
                 _uuid
             );
@@ -11331,21 +11421,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAppListByUuid() {
+        public virtual void GetGameAppListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameAppList wrapper = new ResponseGameAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/get/by-uuid";
+            wrapper.action = "game-app/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameApp> objs = api.GetGameAppListByUuid(
+            List<GameApp> objs = api.GetGameAppListUuid(
                 _uuid
             );
             
@@ -11356,21 +11446,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAppListByGameId() {
+        public virtual void GetGameAppListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameAppList wrapper = new ResponseGameAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/get/by-game-id";
+            wrapper.action = "game-app/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameApp> objs = api.GetGameAppListByGameId(
+            List<GameApp> objs = api.GetGameAppListGameId(
                 _game_id
             );
             
@@ -11381,21 +11471,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAppListByAppId() {
+        public virtual void GetGameAppListAppId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
 
             ResponseGameAppList wrapper = new ResponseGameAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/get/by-app-id";
+            wrapper.action = "game-app/get/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameApp> objs = api.GetGameAppListByAppId(
+            List<GameApp> objs = api.GetGameAppListAppId(
                 _app_id
             );
             
@@ -11406,7 +11496,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAppListByGameIdByAppId() {
+        public virtual void GetGameAppListGameIdAppId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
              _app_id = ()util.GetParamValue(_context, "@app_id");
@@ -11414,14 +11504,14 @@ namespace gaming {
             ResponseGameAppList wrapper = new ResponseGameAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-app/get/by-game-id/by-app-id";
+            wrapper.action = "game-app/get/game-id/app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameApp> objs = api.GetGameAppListByGameIdByAppId(
+            List<GameApp> objs = api.GetGameAppListGameIdAppId(
                 _game_id
                 , _app_id
             );
@@ -11456,21 +11546,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameLocationByUuid() {
+        public virtual void CountProfileGameLocationUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameLocationInt wrapper = new ResponseProfileGameLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/count/by-uuid";
+            wrapper.action = "profile-game-location/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameLocationByUuid(
+            int i = api.CountProfileGameLocationUuid(
                 _uuid
             );
             
@@ -11481,21 +11571,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameLocationByGameLocationId() {
+        public virtual void CountProfileGameLocationGameLocationId() {
         
              _game_location_id = ()util.GetParamValue(_context, "@game_location_id");
 
             ResponseProfileGameLocationInt wrapper = new ResponseProfileGameLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/count/by-game-location-id";
+            wrapper.action = "profile-game-location/count/game-location-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameLocationByGameLocationId(
+            int i = api.CountProfileGameLocationGameLocationId(
                 _game_location_id
             );
             
@@ -11506,21 +11596,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameLocationByProfileId() {
+        public virtual void CountProfileGameLocationProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameLocationInt wrapper = new ResponseProfileGameLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/count/by-profile-id";
+            wrapper.action = "profile-game-location/count/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameLocationByProfileId(
+            int i = api.CountProfileGameLocationProfileId(
                 _profile_id
             );
             
@@ -11531,7 +11621,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileGameLocationByProfileIdByGameLocationId() {
+        public virtual void CountProfileGameLocationProfileIdGameLocationId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_location_id = ()util.GetParamValue(_context, "@game_location_id");
@@ -11539,14 +11629,14 @@ namespace gaming {
             ResponseProfileGameLocationInt wrapper = new ResponseProfileGameLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/count/by-profile-id/by-game-location-id";
+            wrapper.action = "profile-game-location/count/profile-id/game-location-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileGameLocationByProfileIdByGameLocationId(
+            int i = api.CountProfileGameLocationProfileIdGameLocationId(
                 _profile_id
                 , _game_location_id
             );
@@ -11557,12 +11647,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileGameLocationListByFilter()  {
+        public virtual void BrowseProfileGameLocationListFilter()  {
         
             ResponseProfileGameLocationList wrapper = new ResponseProfileGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/browse/by-filter";
+            wrapper.action = "profile-game-location/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11574,7 +11664,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileGameLocationResult result = api.BrowseProfileGameLocationListByFilter(obj);
+            ProfileGameLocationResult result = api.BrowseProfileGameLocationListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -11586,12 +11676,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileGameLocationByUuid()  {
+        public virtual void SetProfileGameLocationUuid()  {
         
             ResponseProfileGameLocationBool wrapper = new ResponseProfileGameLocationBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/set/by-uuid";
+            wrapper.action = "profile-game-location/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11642,26 +11732,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetProfileGameLocationByUuid(obj);
+            wrapper.data = api.SetProfileGameLocationUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileGameLocationByUuid() {
+        public virtual void DelProfileGameLocationUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameLocationBool wrapper = new ResponseProfileGameLocationBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/del/by-uuid";
+            wrapper.action = "profile-game-location/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileGameLocationByUuid(
+            bool completed = api.DelProfileGameLocationUuid(
                         
                 _uuid
             );
@@ -11696,21 +11786,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameLocationListByUuid() {
+        public virtual void GetProfileGameLocationListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileGameLocationList wrapper = new ResponseProfileGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/get/by-uuid";
+            wrapper.action = "profile-game-location/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameLocation> objs = api.GetProfileGameLocationListByUuid(
+            List<ProfileGameLocation> objs = api.GetProfileGameLocationListUuid(
                 _uuid
             );
             
@@ -11721,21 +11811,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameLocationListByGameLocationId() {
+        public virtual void GetProfileGameLocationListGameLocationId() {
         
              _game_location_id = ()util.GetParamValue(_context, "@game_location_id");
 
             ResponseProfileGameLocationList wrapper = new ResponseProfileGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/get/by-game-location-id";
+            wrapper.action = "profile-game-location/get/game-location-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameLocation> objs = api.GetProfileGameLocationListByGameLocationId(
+            List<ProfileGameLocation> objs = api.GetProfileGameLocationListGameLocationId(
                 _game_location_id
             );
             
@@ -11746,21 +11836,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameLocationListByProfileId() {
+        public virtual void GetProfileGameLocationListProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileGameLocationList wrapper = new ResponseProfileGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/get/by-profile-id";
+            wrapper.action = "profile-game-location/get/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameLocation> objs = api.GetProfileGameLocationListByProfileId(
+            List<ProfileGameLocation> objs = api.GetProfileGameLocationListProfileId(
                 _profile_id
             );
             
@@ -11771,7 +11861,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileGameLocationListByProfileIdByGameLocationId() {
+        public virtual void GetProfileGameLocationListProfileIdGameLocationId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_location_id = ()util.GetParamValue(_context, "@game_location_id");
@@ -11779,14 +11869,14 @@ namespace gaming {
             ResponseProfileGameLocationList wrapper = new ResponseProfileGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-game-location/get/by-profile-id/by-game-location-id";
+            wrapper.action = "profile-game-location/get/profile-id/game-location-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileGameLocation> objs = api.GetProfileGameLocationListByProfileIdByGameLocationId(
+            List<ProfileGameLocation> objs = api.GetProfileGameLocationListProfileIdGameLocationId(
                 _profile_id
                 , _game_location_id
             );
@@ -11821,21 +11911,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGamePhotoByUuid() {
+        public virtual void CountGamePhotoUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGamePhotoInt wrapper = new ResponseGamePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/count/by-uuid";
+            wrapper.action = "game-photo/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGamePhotoByUuid(
+            int i = api.CountGamePhotoUuid(
                 _uuid
             );
             
@@ -11846,21 +11936,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGamePhotoByExternalId() {
+        public virtual void CountGamePhotoExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseGamePhotoInt wrapper = new ResponseGamePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/count/by-external-id";
+            wrapper.action = "game-photo/count/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGamePhotoByExternalId(
+            int i = api.CountGamePhotoExternalId(
                 _external_id
             );
             
@@ -11871,21 +11961,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGamePhotoByUrl() {
+        public virtual void CountGamePhotoUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGamePhotoInt wrapper = new ResponseGamePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/count/by-url";
+            wrapper.action = "game-photo/count/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGamePhotoByUrl(
+            int i = api.CountGamePhotoUrl(
                 _url
             );
             
@@ -11896,7 +11986,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGamePhotoByUrlByExternalId() {
+        public virtual void CountGamePhotoUrlExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -11904,14 +11994,14 @@ namespace gaming {
             ResponseGamePhotoInt wrapper = new ResponseGamePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/count/by-url/by-external-id";
+            wrapper.action = "game-photo/count/url/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGamePhotoByUrlByExternalId(
+            int i = api.CountGamePhotoUrlExternalId(
                 _url
                 , _external_id
             );
@@ -11923,7 +12013,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGamePhotoByUuidByExternalId() {
+        public virtual void CountGamePhotoUuidExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -11931,14 +12021,14 @@ namespace gaming {
             ResponseGamePhotoInt wrapper = new ResponseGamePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/count/by-uuid/by-external-id";
+            wrapper.action = "game-photo/count/uuid/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGamePhotoByUuidByExternalId(
+            int i = api.CountGamePhotoUuidExternalId(
                 _uuid
                 , _external_id
             );
@@ -11949,12 +12039,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGamePhotoListByFilter()  {
+        public virtual void BrowseGamePhotoListFilter()  {
         
             ResponseGamePhotoList wrapper = new ResponseGamePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/browse/by-filter";
+            wrapper.action = "game-photo/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11966,7 +12056,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GamePhotoResult result = api.BrowseGamePhotoListByFilter(obj);
+            GamePhotoResult result = api.BrowseGamePhotoListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -11978,12 +12068,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGamePhotoByUuid()  {
+        public virtual void SetGamePhotoUuid()  {
         
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/set/by-uuid";
+            wrapper.action = "game-photo/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12066,17 +12156,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGamePhotoByUuid(obj);
+            wrapper.data = api.SetGamePhotoUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGamePhotoByExternalId()  {
+        public virtual void SetGamePhotoExternalId()  {
         
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/set/by-external-id";
+            wrapper.action = "game-photo/set/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12159,17 +12249,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGamePhotoByExternalId(obj);
+            wrapper.data = api.SetGamePhotoExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGamePhotoByUrl()  {
+        public virtual void SetGamePhotoUrl()  {
         
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/set/by-url";
+            wrapper.action = "game-photo/set/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12252,17 +12342,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGamePhotoByUrl(obj);
+            wrapper.data = api.SetGamePhotoUrl(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGamePhotoByUrlByExternalId()  {
+        public virtual void SetGamePhotoUrlExternalId()  {
         
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/set/by-url/by-external-id";
+            wrapper.action = "game-photo/set/url/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12345,17 +12435,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGamePhotoByUrlByExternalId(obj);
+            wrapper.data = api.SetGamePhotoUrlExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGamePhotoByUuidByExternalId()  {
+        public virtual void SetGamePhotoUuidExternalId()  {
         
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/set/by-uuid/by-external-id";
+            wrapper.action = "game-photo/set/uuid/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12438,26 +12528,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGamePhotoByUuidByExternalId(obj);
+            wrapper.data = api.SetGamePhotoUuidExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGamePhotoByUuid() {
+        public virtual void DelGamePhotoUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/del/by-uuid";
+            wrapper.action = "game-photo/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGamePhotoByUuid(
+            bool completed = api.DelGamePhotoUuid(
                         
                 _uuid
             );
@@ -12468,21 +12558,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGamePhotoByExternalId() {
+        public virtual void DelGamePhotoExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/del/by-external-id";
+            wrapper.action = "game-photo/del/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGamePhotoByExternalId(
+            bool completed = api.DelGamePhotoExternalId(
                         
                 _external_id
             );
@@ -12493,21 +12583,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGamePhotoByUrl() {
+        public virtual void DelGamePhotoUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/del/by-url";
+            wrapper.action = "game-photo/del/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGamePhotoByUrl(
+            bool completed = api.DelGamePhotoUrl(
                         
                 _url
             );
@@ -12518,7 +12608,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGamePhotoByUrlByExternalId() {
+        public virtual void DelGamePhotoUrlExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -12526,14 +12616,14 @@ namespace gaming {
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/del/by-url/by-external-id";
+            wrapper.action = "game-photo/del/url/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGamePhotoByUrlByExternalId(
+            bool completed = api.DelGamePhotoUrlExternalId(
                         
                 _url
                 , _external_id
@@ -12545,7 +12635,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGamePhotoByUuidByExternalId() {
+        public virtual void DelGamePhotoUuidExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -12553,14 +12643,14 @@ namespace gaming {
             ResponseGamePhotoBool wrapper = new ResponseGamePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/del/by-uuid/by-external-id";
+            wrapper.action = "game-photo/del/uuid/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGamePhotoByUuidByExternalId(
+            bool completed = api.DelGamePhotoUuidExternalId(
                         
                 _uuid
                 , _external_id
@@ -12596,21 +12686,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGamePhotoListByUuid() {
+        public virtual void GetGamePhotoListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGamePhotoList wrapper = new ResponseGamePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/get/by-uuid";
+            wrapper.action = "game-photo/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GamePhoto> objs = api.GetGamePhotoListByUuid(
+            List<GamePhoto> objs = api.GetGamePhotoListUuid(
                 _uuid
             );
             
@@ -12621,21 +12711,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGamePhotoListByExternalId() {
+        public virtual void GetGamePhotoListExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseGamePhotoList wrapper = new ResponseGamePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/get/by-external-id";
+            wrapper.action = "game-photo/get/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GamePhoto> objs = api.GetGamePhotoListByExternalId(
+            List<GamePhoto> objs = api.GetGamePhotoListExternalId(
                 _external_id
             );
             
@@ -12646,21 +12736,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGamePhotoListByUrl() {
+        public virtual void GetGamePhotoListUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGamePhotoList wrapper = new ResponseGamePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/get/by-url";
+            wrapper.action = "game-photo/get/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GamePhoto> objs = api.GetGamePhotoListByUrl(
+            List<GamePhoto> objs = api.GetGamePhotoListUrl(
                 _url
             );
             
@@ -12671,7 +12761,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGamePhotoListByUrlByExternalId() {
+        public virtual void GetGamePhotoListUrlExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -12679,14 +12769,14 @@ namespace gaming {
             ResponseGamePhotoList wrapper = new ResponseGamePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/get/by-url/by-external-id";
+            wrapper.action = "game-photo/get/url/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GamePhoto> objs = api.GetGamePhotoListByUrlByExternalId(
+            List<GamePhoto> objs = api.GetGamePhotoListUrlExternalId(
                 _url
                 , _external_id
             );
@@ -12698,7 +12788,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGamePhotoListByUuidByExternalId() {
+        public virtual void GetGamePhotoListUuidExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -12706,14 +12796,14 @@ namespace gaming {
             ResponseGamePhotoList wrapper = new ResponseGamePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-photo/get/by-uuid/by-external-id";
+            wrapper.action = "game-photo/get/uuid/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GamePhoto> objs = api.GetGamePhotoListByUuidByExternalId(
+            List<GamePhoto> objs = api.GetGamePhotoListUuidExternalId(
                 _uuid
                 , _external_id
             );
@@ -12748,21 +12838,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameVideoByUuid() {
+        public virtual void CountGameVideoUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameVideoInt wrapper = new ResponseGameVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/count/by-uuid";
+            wrapper.action = "game-video/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameVideoByUuid(
+            int i = api.CountGameVideoUuid(
                 _uuid
             );
             
@@ -12773,21 +12863,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameVideoByExternalId() {
+        public virtual void CountGameVideoExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseGameVideoInt wrapper = new ResponseGameVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/count/by-external-id";
+            wrapper.action = "game-video/count/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameVideoByExternalId(
+            int i = api.CountGameVideoExternalId(
                 _external_id
             );
             
@@ -12798,21 +12888,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameVideoByUrl() {
+        public virtual void CountGameVideoUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameVideoInt wrapper = new ResponseGameVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/count/by-url";
+            wrapper.action = "game-video/count/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameVideoByUrl(
+            int i = api.CountGameVideoUrl(
                 _url
             );
             
@@ -12823,7 +12913,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameVideoByUrlByExternalId() {
+        public virtual void CountGameVideoUrlExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -12831,14 +12921,14 @@ namespace gaming {
             ResponseGameVideoInt wrapper = new ResponseGameVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/count/by-url/by-external-id";
+            wrapper.action = "game-video/count/url/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameVideoByUrlByExternalId(
+            int i = api.CountGameVideoUrlExternalId(
                 _url
                 , _external_id
             );
@@ -12850,7 +12940,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameVideoByUuidByExternalId() {
+        public virtual void CountGameVideoUuidExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -12858,14 +12948,14 @@ namespace gaming {
             ResponseGameVideoInt wrapper = new ResponseGameVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/count/by-uuid/by-external-id";
+            wrapper.action = "game-video/count/uuid/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameVideoByUuidByExternalId(
+            int i = api.CountGameVideoUuidExternalId(
                 _uuid
                 , _external_id
             );
@@ -12876,12 +12966,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameVideoListByFilter()  {
+        public virtual void BrowseGameVideoListFilter()  {
         
             ResponseGameVideoList wrapper = new ResponseGameVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/browse/by-filter";
+            wrapper.action = "game-video/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12893,7 +12983,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameVideoResult result = api.BrowseGameVideoListByFilter(obj);
+            GameVideoResult result = api.BrowseGameVideoListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -12905,12 +12995,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameVideoByUuid()  {
+        public virtual void SetGameVideoUuid()  {
         
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/set/by-uuid";
+            wrapper.action = "game-video/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12993,17 +13083,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameVideoByUuid(obj);
+            wrapper.data = api.SetGameVideoUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameVideoByExternalId()  {
+        public virtual void SetGameVideoExternalId()  {
         
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/set/by-external-id";
+            wrapper.action = "game-video/set/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13086,17 +13176,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameVideoByExternalId(obj);
+            wrapper.data = api.SetGameVideoExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameVideoByUrl()  {
+        public virtual void SetGameVideoUrl()  {
         
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/set/by-url";
+            wrapper.action = "game-video/set/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13179,17 +13269,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameVideoByUrl(obj);
+            wrapper.data = api.SetGameVideoUrl(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameVideoByUrlByExternalId()  {
+        public virtual void SetGameVideoUrlExternalId()  {
         
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/set/by-url/by-external-id";
+            wrapper.action = "game-video/set/url/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13272,17 +13362,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameVideoByUrlByExternalId(obj);
+            wrapper.data = api.SetGameVideoUrlExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameVideoByUuidByExternalId()  {
+        public virtual void SetGameVideoUuidExternalId()  {
         
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/set/by-uuid/by-external-id";
+            wrapper.action = "game-video/set/uuid/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13365,26 +13455,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameVideoByUuidByExternalId(obj);
+            wrapper.data = api.SetGameVideoUuidExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameVideoByUuid() {
+        public virtual void DelGameVideoUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/del/by-uuid";
+            wrapper.action = "game-video/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameVideoByUuid(
+            bool completed = api.DelGameVideoUuid(
                         
                 _uuid
             );
@@ -13395,21 +13485,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameVideoByExternalId() {
+        public virtual void DelGameVideoExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/del/by-external-id";
+            wrapper.action = "game-video/del/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameVideoByExternalId(
+            bool completed = api.DelGameVideoExternalId(
                         
                 _external_id
             );
@@ -13420,21 +13510,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameVideoByUrl() {
+        public virtual void DelGameVideoUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/del/by-url";
+            wrapper.action = "game-video/del/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameVideoByUrl(
+            bool completed = api.DelGameVideoUrl(
                         
                 _url
             );
@@ -13445,7 +13535,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameVideoByUrlByExternalId() {
+        public virtual void DelGameVideoUrlExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -13453,14 +13543,14 @@ namespace gaming {
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/del/by-url/by-external-id";
+            wrapper.action = "game-video/del/url/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameVideoByUrlByExternalId(
+            bool completed = api.DelGameVideoUrlExternalId(
                         
                 _url
                 , _external_id
@@ -13472,7 +13562,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameVideoByUuidByExternalId() {
+        public virtual void DelGameVideoUuidExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -13480,14 +13570,14 @@ namespace gaming {
             ResponseGameVideoBool wrapper = new ResponseGameVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/del/by-uuid/by-external-id";
+            wrapper.action = "game-video/del/uuid/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameVideoByUuidByExternalId(
+            bool completed = api.DelGameVideoUuidExternalId(
                         
                 _uuid
                 , _external_id
@@ -13523,21 +13613,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameVideoListByUuid() {
+        public virtual void GetGameVideoListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameVideoList wrapper = new ResponseGameVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/get/by-uuid";
+            wrapper.action = "game-video/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameVideo> objs = api.GetGameVideoListByUuid(
+            List<GameVideo> objs = api.GetGameVideoListUuid(
                 _uuid
             );
             
@@ -13548,21 +13638,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameVideoListByExternalId() {
+        public virtual void GetGameVideoListExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseGameVideoList wrapper = new ResponseGameVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/get/by-external-id";
+            wrapper.action = "game-video/get/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameVideo> objs = api.GetGameVideoListByExternalId(
+            List<GameVideo> objs = api.GetGameVideoListExternalId(
                 _external_id
             );
             
@@ -13573,21 +13663,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameVideoListByUrl() {
+        public virtual void GetGameVideoListUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameVideoList wrapper = new ResponseGameVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/get/by-url";
+            wrapper.action = "game-video/get/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameVideo> objs = api.GetGameVideoListByUrl(
+            List<GameVideo> objs = api.GetGameVideoListUrl(
                 _url
             );
             
@@ -13598,7 +13688,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameVideoListByUrlByExternalId() {
+        public virtual void GetGameVideoListUrlExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -13606,14 +13696,14 @@ namespace gaming {
             ResponseGameVideoList wrapper = new ResponseGameVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/get/by-url/by-external-id";
+            wrapper.action = "game-video/get/url/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameVideo> objs = api.GetGameVideoListByUrlByExternalId(
+            List<GameVideo> objs = api.GetGameVideoListUrlExternalId(
                 _url
                 , _external_id
             );
@@ -13625,7 +13715,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameVideoListByUuidByExternalId() {
+        public virtual void GetGameVideoListUuidExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -13633,14 +13723,14 @@ namespace gaming {
             ResponseGameVideoList wrapper = new ResponseGameVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-video/get/by-uuid/by-external-id";
+            wrapper.action = "game-video/get/uuid/external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameVideo> objs = api.GetGameVideoListByUuidByExternalId(
+            List<GameVideo> objs = api.GetGameVideoListUuidExternalId(
                 _uuid
                 , _external_id
             );
@@ -13675,21 +13765,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemByUuid() {
+        public virtual void CountGameRpgItemUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemInt wrapper = new ResponseGameRpgItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/count/by-uuid";
+            wrapper.action = "game-rpg-item/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemByUuid(
+            int i = api.CountGameRpgItemUuid(
                 _uuid
             );
             
@@ -13700,21 +13790,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemByGameId() {
+        public virtual void CountGameRpgItemGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemInt wrapper = new ResponseGameRpgItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/count/by-game-id";
+            wrapper.action = "game-rpg-item/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemByGameId(
+            int i = api.CountGameRpgItemGameId(
                 _game_id
             );
             
@@ -13725,21 +13815,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemByUrl() {
+        public virtual void CountGameRpgItemUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemInt wrapper = new ResponseGameRpgItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/count/by-url";
+            wrapper.action = "game-rpg-item/count/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemByUrl(
+            int i = api.CountGameRpgItemUrl(
                 _url
             );
             
@@ -13750,7 +13840,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemByUrlByGameId() {
+        public virtual void CountGameRpgItemUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -13758,14 +13848,14 @@ namespace gaming {
             ResponseGameRpgItemInt wrapper = new ResponseGameRpgItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/count/by-url/by-game-id";
+            wrapper.action = "game-rpg-item/count/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemByUrlByGameId(
+            int i = api.CountGameRpgItemUrlGameId(
                 _url
                 , _game_id
             );
@@ -13777,7 +13867,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemByUuidByGameId() {
+        public virtual void CountGameRpgItemUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -13785,14 +13875,14 @@ namespace gaming {
             ResponseGameRpgItemInt wrapper = new ResponseGameRpgItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/count/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item/count/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemByUuidByGameId(
+            int i = api.CountGameRpgItemUuidGameId(
                 _uuid
                 , _game_id
             );
@@ -13803,12 +13893,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameRpgItemListByFilter()  {
+        public virtual void BrowseGameRpgItemListFilter()  {
         
             ResponseGameRpgItemList wrapper = new ResponseGameRpgItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/browse/by-filter";
+            wrapper.action = "game-rpg-item/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13820,7 +13910,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameRpgItemResult result = api.BrowseGameRpgItemListByFilter(obj);
+            GameRpgItemResult result = api.BrowseGameRpgItemListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -13832,12 +13922,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemByUuid()  {
+        public virtual void SetGameRpgItemUuid()  {
         
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/set/by-uuid";
+            wrapper.action = "game-rpg-item/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13952,17 +14042,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemByUuid(obj);
+            wrapper.data = api.SetGameRpgItemUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemByGameId()  {
+        public virtual void SetGameRpgItemGameId()  {
         
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/set/by-game-id";
+            wrapper.action = "game-rpg-item/set/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14077,17 +14167,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemByGameId(obj);
+            wrapper.data = api.SetGameRpgItemGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemByUrl()  {
+        public virtual void SetGameRpgItemUrl()  {
         
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/set/by-url";
+            wrapper.action = "game-rpg-item/set/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14202,17 +14292,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemByUrl(obj);
+            wrapper.data = api.SetGameRpgItemUrl(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemByUrlByGameId()  {
+        public virtual void SetGameRpgItemUrlGameId()  {
         
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/set/by-url/by-game-id";
+            wrapper.action = "game-rpg-item/set/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14327,17 +14417,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemByUrlByGameId(obj);
+            wrapper.data = api.SetGameRpgItemUrlGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemByUuidByGameId()  {
+        public virtual void SetGameRpgItemUuidGameId()  {
         
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/set/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item/set/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14452,26 +14542,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemByUuidByGameId(obj);
+            wrapper.data = api.SetGameRpgItemUuidGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemByUuid() {
+        public virtual void DelGameRpgItemUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/del/by-uuid";
+            wrapper.action = "game-rpg-item/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemByUuid(
+            bool completed = api.DelGameRpgItemUuid(
                         
                 _uuid
             );
@@ -14482,21 +14572,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemByGameId() {
+        public virtual void DelGameRpgItemGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/del/by-game-id";
+            wrapper.action = "game-rpg-item/del/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemByGameId(
+            bool completed = api.DelGameRpgItemGameId(
                         
                 _game_id
             );
@@ -14507,21 +14597,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemByUrl() {
+        public virtual void DelGameRpgItemUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/del/by-url";
+            wrapper.action = "game-rpg-item/del/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemByUrl(
+            bool completed = api.DelGameRpgItemUrl(
                         
                 _url
             );
@@ -14532,7 +14622,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemByUrlByGameId() {
+        public virtual void DelGameRpgItemUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -14540,14 +14630,14 @@ namespace gaming {
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/del/by-url/by-game-id";
+            wrapper.action = "game-rpg-item/del/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemByUrlByGameId(
+            bool completed = api.DelGameRpgItemUrlGameId(
                         
                 _url
                 , _game_id
@@ -14559,7 +14649,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemByUuidByGameId() {
+        public virtual void DelGameRpgItemUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -14567,14 +14657,14 @@ namespace gaming {
             ResponseGameRpgItemBool wrapper = new ResponseGameRpgItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/del/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item/del/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemByUuidByGameId(
+            bool completed = api.DelGameRpgItemUuidGameId(
                         
                 _uuid
                 , _game_id
@@ -14610,21 +14700,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemListByUuid() {
+        public virtual void GetGameRpgItemListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemList wrapper = new ResponseGameRpgItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/get/by-uuid";
+            wrapper.action = "game-rpg-item/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItem> objs = api.GetGameRpgItemListByUuid(
+            List<GameRpgItem> objs = api.GetGameRpgItemListUuid(
                 _uuid
             );
             
@@ -14635,21 +14725,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemListByGameId() {
+        public virtual void GetGameRpgItemListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemList wrapper = new ResponseGameRpgItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/get/by-game-id";
+            wrapper.action = "game-rpg-item/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItem> objs = api.GetGameRpgItemListByGameId(
+            List<GameRpgItem> objs = api.GetGameRpgItemListGameId(
                 _game_id
             );
             
@@ -14660,21 +14750,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemListByUrl() {
+        public virtual void GetGameRpgItemListUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemList wrapper = new ResponseGameRpgItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/get/by-url";
+            wrapper.action = "game-rpg-item/get/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItem> objs = api.GetGameRpgItemListByUrl(
+            List<GameRpgItem> objs = api.GetGameRpgItemListUrl(
                 _url
             );
             
@@ -14685,7 +14775,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemListByUrlByGameId() {
+        public virtual void GetGameRpgItemListUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -14693,14 +14783,14 @@ namespace gaming {
             ResponseGameRpgItemList wrapper = new ResponseGameRpgItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/get/by-url/by-game-id";
+            wrapper.action = "game-rpg-item/get/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItem> objs = api.GetGameRpgItemListByUrlByGameId(
+            List<GameRpgItem> objs = api.GetGameRpgItemListUrlGameId(
                 _url
                 , _game_id
             );
@@ -14712,7 +14802,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemListByUuidByGameId() {
+        public virtual void GetGameRpgItemListUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -14720,14 +14810,14 @@ namespace gaming {
             ResponseGameRpgItemList wrapper = new ResponseGameRpgItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item/get/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item/get/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItem> objs = api.GetGameRpgItemListByUuidByGameId(
+            List<GameRpgItem> objs = api.GetGameRpgItemListUuidGameId(
                 _uuid
                 , _game_id
             );
@@ -14762,21 +14852,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemWeaponByUuid() {
+        public virtual void CountGameRpgItemWeaponUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemWeaponInt wrapper = new ResponseGameRpgItemWeaponInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/count/by-uuid";
+            wrapper.action = "game-rpg-item-weapon/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemWeaponByUuid(
+            int i = api.CountGameRpgItemWeaponUuid(
                 _uuid
             );
             
@@ -14787,21 +14877,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemWeaponByGameId() {
+        public virtual void CountGameRpgItemWeaponGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemWeaponInt wrapper = new ResponseGameRpgItemWeaponInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/count/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemWeaponByGameId(
+            int i = api.CountGameRpgItemWeaponGameId(
                 _game_id
             );
             
@@ -14812,21 +14902,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemWeaponByUrl() {
+        public virtual void CountGameRpgItemWeaponUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemWeaponInt wrapper = new ResponseGameRpgItemWeaponInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/count/by-url";
+            wrapper.action = "game-rpg-item-weapon/count/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemWeaponByUrl(
+            int i = api.CountGameRpgItemWeaponUrl(
                 _url
             );
             
@@ -14837,7 +14927,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemWeaponByUrlByGameId() {
+        public virtual void CountGameRpgItemWeaponUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -14845,14 +14935,14 @@ namespace gaming {
             ResponseGameRpgItemWeaponInt wrapper = new ResponseGameRpgItemWeaponInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/count/by-url/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/count/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemWeaponByUrlByGameId(
+            int i = api.CountGameRpgItemWeaponUrlGameId(
                 _url
                 , _game_id
             );
@@ -14864,7 +14954,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemWeaponByUuidByGameId() {
+        public virtual void CountGameRpgItemWeaponUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -14872,14 +14962,14 @@ namespace gaming {
             ResponseGameRpgItemWeaponInt wrapper = new ResponseGameRpgItemWeaponInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/count/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/count/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemWeaponByUuidByGameId(
+            int i = api.CountGameRpgItemWeaponUuidGameId(
                 _uuid
                 , _game_id
             );
@@ -14890,12 +14980,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameRpgItemWeaponListByFilter()  {
+        public virtual void BrowseGameRpgItemWeaponListFilter()  {
         
             ResponseGameRpgItemWeaponList wrapper = new ResponseGameRpgItemWeaponList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/browse/by-filter";
+            wrapper.action = "game-rpg-item-weapon/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14907,7 +14997,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameRpgItemWeaponResult result = api.BrowseGameRpgItemWeaponListByFilter(obj);
+            GameRpgItemWeaponResult result = api.BrowseGameRpgItemWeaponListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -14919,12 +15009,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemWeaponByUuid()  {
+        public virtual void SetGameRpgItemWeaponUuid()  {
         
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/set/by-uuid";
+            wrapper.action = "game-rpg-item-weapon/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15039,17 +15129,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemWeaponByUuid(obj);
+            wrapper.data = api.SetGameRpgItemWeaponUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemWeaponByGameId()  {
+        public virtual void SetGameRpgItemWeaponGameId()  {
         
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/set/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/set/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15164,17 +15254,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemWeaponByGameId(obj);
+            wrapper.data = api.SetGameRpgItemWeaponGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemWeaponByUrl()  {
+        public virtual void SetGameRpgItemWeaponUrl()  {
         
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/set/by-url";
+            wrapper.action = "game-rpg-item-weapon/set/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15289,17 +15379,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemWeaponByUrl(obj);
+            wrapper.data = api.SetGameRpgItemWeaponUrl(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemWeaponByUrlByGameId()  {
+        public virtual void SetGameRpgItemWeaponUrlGameId()  {
         
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/set/by-url/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/set/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15414,17 +15504,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemWeaponByUrlByGameId(obj);
+            wrapper.data = api.SetGameRpgItemWeaponUrlGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemWeaponByUuidByGameId()  {
+        public virtual void SetGameRpgItemWeaponUuidGameId()  {
         
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/set/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/set/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15539,26 +15629,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemWeaponByUuidByGameId(obj);
+            wrapper.data = api.SetGameRpgItemWeaponUuidGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemWeaponByUuid() {
+        public virtual void DelGameRpgItemWeaponUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/del/by-uuid";
+            wrapper.action = "game-rpg-item-weapon/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemWeaponByUuid(
+            bool completed = api.DelGameRpgItemWeaponUuid(
                         
                 _uuid
             );
@@ -15569,21 +15659,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemWeaponByGameId() {
+        public virtual void DelGameRpgItemWeaponGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/del/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/del/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemWeaponByGameId(
+            bool completed = api.DelGameRpgItemWeaponGameId(
                         
                 _game_id
             );
@@ -15594,21 +15684,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemWeaponByUrl() {
+        public virtual void DelGameRpgItemWeaponUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/del/by-url";
+            wrapper.action = "game-rpg-item-weapon/del/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemWeaponByUrl(
+            bool completed = api.DelGameRpgItemWeaponUrl(
                         
                 _url
             );
@@ -15619,7 +15709,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemWeaponByUrlByGameId() {
+        public virtual void DelGameRpgItemWeaponUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -15627,14 +15717,14 @@ namespace gaming {
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/del/by-url/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/del/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemWeaponByUrlByGameId(
+            bool completed = api.DelGameRpgItemWeaponUrlGameId(
                         
                 _url
                 , _game_id
@@ -15646,7 +15736,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemWeaponByUuidByGameId() {
+        public virtual void DelGameRpgItemWeaponUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -15654,14 +15744,14 @@ namespace gaming {
             ResponseGameRpgItemWeaponBool wrapper = new ResponseGameRpgItemWeaponBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/del/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/del/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemWeaponByUuidByGameId(
+            bool completed = api.DelGameRpgItemWeaponUuidGameId(
                         
                 _uuid
                 , _game_id
@@ -15697,21 +15787,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemWeaponListByUuid() {
+        public virtual void GetGameRpgItemWeaponListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemWeaponList wrapper = new ResponseGameRpgItemWeaponList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/get/by-uuid";
+            wrapper.action = "game-rpg-item-weapon/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListByUuid(
+            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListUuid(
                 _uuid
             );
             
@@ -15722,21 +15812,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemWeaponListByGameId() {
+        public virtual void GetGameRpgItemWeaponListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemWeaponList wrapper = new ResponseGameRpgItemWeaponList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/get/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListByGameId(
+            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListGameId(
                 _game_id
             );
             
@@ -15747,21 +15837,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemWeaponListByUrl() {
+        public virtual void GetGameRpgItemWeaponListUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemWeaponList wrapper = new ResponseGameRpgItemWeaponList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/get/by-url";
+            wrapper.action = "game-rpg-item-weapon/get/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListByUrl(
+            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListUrl(
                 _url
             );
             
@@ -15772,7 +15862,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemWeaponListByUrlByGameId() {
+        public virtual void GetGameRpgItemWeaponListUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -15780,14 +15870,14 @@ namespace gaming {
             ResponseGameRpgItemWeaponList wrapper = new ResponseGameRpgItemWeaponList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/get/by-url/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/get/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListByUrlByGameId(
+            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListUrlGameId(
                 _url
                 , _game_id
             );
@@ -15799,7 +15889,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemWeaponListByUuidByGameId() {
+        public virtual void GetGameRpgItemWeaponListUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -15807,14 +15897,14 @@ namespace gaming {
             ResponseGameRpgItemWeaponList wrapper = new ResponseGameRpgItemWeaponList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-weapon/get/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item-weapon/get/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListByUuidByGameId(
+            List<GameRpgItemWeapon> objs = api.GetGameRpgItemWeaponListUuidGameId(
                 _uuid
                 , _game_id
             );
@@ -15849,21 +15939,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemSkillByUuid() {
+        public virtual void CountGameRpgItemSkillUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemSkillInt wrapper = new ResponseGameRpgItemSkillInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/count/by-uuid";
+            wrapper.action = "game-rpg-item-skill/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemSkillByUuid(
+            int i = api.CountGameRpgItemSkillUuid(
                 _uuid
             );
             
@@ -15874,21 +15964,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemSkillByGameId() {
+        public virtual void CountGameRpgItemSkillGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemSkillInt wrapper = new ResponseGameRpgItemSkillInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/count/by-game-id";
+            wrapper.action = "game-rpg-item-skill/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemSkillByGameId(
+            int i = api.CountGameRpgItemSkillGameId(
                 _game_id
             );
             
@@ -15899,21 +15989,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemSkillByUrl() {
+        public virtual void CountGameRpgItemSkillUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemSkillInt wrapper = new ResponseGameRpgItemSkillInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/count/by-url";
+            wrapper.action = "game-rpg-item-skill/count/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemSkillByUrl(
+            int i = api.CountGameRpgItemSkillUrl(
                 _url
             );
             
@@ -15924,7 +16014,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemSkillByUrlByGameId() {
+        public virtual void CountGameRpgItemSkillUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -15932,14 +16022,14 @@ namespace gaming {
             ResponseGameRpgItemSkillInt wrapper = new ResponseGameRpgItemSkillInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/count/by-url/by-game-id";
+            wrapper.action = "game-rpg-item-skill/count/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemSkillByUrlByGameId(
+            int i = api.CountGameRpgItemSkillUrlGameId(
                 _url
                 , _game_id
             );
@@ -15951,7 +16041,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameRpgItemSkillByUuidByGameId() {
+        public virtual void CountGameRpgItemSkillUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -15959,14 +16049,14 @@ namespace gaming {
             ResponseGameRpgItemSkillInt wrapper = new ResponseGameRpgItemSkillInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/count/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item-skill/count/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameRpgItemSkillByUuidByGameId(
+            int i = api.CountGameRpgItemSkillUuidGameId(
                 _uuid
                 , _game_id
             );
@@ -15977,12 +16067,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameRpgItemSkillListByFilter()  {
+        public virtual void BrowseGameRpgItemSkillListFilter()  {
         
             ResponseGameRpgItemSkillList wrapper = new ResponseGameRpgItemSkillList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/browse/by-filter";
+            wrapper.action = "game-rpg-item-skill/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15994,7 +16084,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameRpgItemSkillResult result = api.BrowseGameRpgItemSkillListByFilter(obj);
+            GameRpgItemSkillResult result = api.BrowseGameRpgItemSkillListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -16006,12 +16096,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemSkillByUuid()  {
+        public virtual void SetGameRpgItemSkillUuid()  {
         
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/set/by-uuid";
+            wrapper.action = "game-rpg-item-skill/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16126,17 +16216,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemSkillByUuid(obj);
+            wrapper.data = api.SetGameRpgItemSkillUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemSkillByGameId()  {
+        public virtual void SetGameRpgItemSkillGameId()  {
         
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/set/by-game-id";
+            wrapper.action = "game-rpg-item-skill/set/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16251,17 +16341,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemSkillByGameId(obj);
+            wrapper.data = api.SetGameRpgItemSkillGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemSkillByUrl()  {
+        public virtual void SetGameRpgItemSkillUrl()  {
         
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/set/by-url";
+            wrapper.action = "game-rpg-item-skill/set/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16376,17 +16466,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemSkillByUrl(obj);
+            wrapper.data = api.SetGameRpgItemSkillUrl(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemSkillByUrlByGameId()  {
+        public virtual void SetGameRpgItemSkillUrlGameId()  {
         
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/set/by-url/by-game-id";
+            wrapper.action = "game-rpg-item-skill/set/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16501,17 +16591,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemSkillByUrlByGameId(obj);
+            wrapper.data = api.SetGameRpgItemSkillUrlGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameRpgItemSkillByUuidByGameId()  {
+        public virtual void SetGameRpgItemSkillUuidGameId()  {
         
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/set/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item-skill/set/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16626,26 +16716,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameRpgItemSkillByUuidByGameId(obj);
+            wrapper.data = api.SetGameRpgItemSkillUuidGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemSkillByUuid() {
+        public virtual void DelGameRpgItemSkillUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/del/by-uuid";
+            wrapper.action = "game-rpg-item-skill/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemSkillByUuid(
+            bool completed = api.DelGameRpgItemSkillUuid(
                         
                 _uuid
             );
@@ -16656,21 +16746,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemSkillByGameId() {
+        public virtual void DelGameRpgItemSkillGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/del/by-game-id";
+            wrapper.action = "game-rpg-item-skill/del/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemSkillByGameId(
+            bool completed = api.DelGameRpgItemSkillGameId(
                         
                 _game_id
             );
@@ -16681,21 +16771,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemSkillByUrl() {
+        public virtual void DelGameRpgItemSkillUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/del/by-url";
+            wrapper.action = "game-rpg-item-skill/del/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemSkillByUrl(
+            bool completed = api.DelGameRpgItemSkillUrl(
                         
                 _url
             );
@@ -16706,7 +16796,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemSkillByUrlByGameId() {
+        public virtual void DelGameRpgItemSkillUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -16714,14 +16804,14 @@ namespace gaming {
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/del/by-url/by-game-id";
+            wrapper.action = "game-rpg-item-skill/del/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemSkillByUrlByGameId(
+            bool completed = api.DelGameRpgItemSkillUrlGameId(
                         
                 _url
                 , _game_id
@@ -16733,7 +16823,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameRpgItemSkillByUuidByGameId() {
+        public virtual void DelGameRpgItemSkillUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -16741,14 +16831,14 @@ namespace gaming {
             ResponseGameRpgItemSkillBool wrapper = new ResponseGameRpgItemSkillBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/del/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item-skill/del/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameRpgItemSkillByUuidByGameId(
+            bool completed = api.DelGameRpgItemSkillUuidGameId(
                         
                 _uuid
                 , _game_id
@@ -16784,21 +16874,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemSkillListByUuid() {
+        public virtual void GetGameRpgItemSkillListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameRpgItemSkillList wrapper = new ResponseGameRpgItemSkillList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/get/by-uuid";
+            wrapper.action = "game-rpg-item-skill/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListByUuid(
+            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListUuid(
                 _uuid
             );
             
@@ -16809,21 +16899,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemSkillListByGameId() {
+        public virtual void GetGameRpgItemSkillListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameRpgItemSkillList wrapper = new ResponseGameRpgItemSkillList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/get/by-game-id";
+            wrapper.action = "game-rpg-item-skill/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListByGameId(
+            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListGameId(
                 _game_id
             );
             
@@ -16834,21 +16924,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemSkillListByUrl() {
+        public virtual void GetGameRpgItemSkillListUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameRpgItemSkillList wrapper = new ResponseGameRpgItemSkillList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/get/by-url";
+            wrapper.action = "game-rpg-item-skill/get/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListByUrl(
+            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListUrl(
                 _url
             );
             
@@ -16859,7 +16949,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemSkillListByUrlByGameId() {
+        public virtual void GetGameRpgItemSkillListUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -16867,14 +16957,14 @@ namespace gaming {
             ResponseGameRpgItemSkillList wrapper = new ResponseGameRpgItemSkillList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/get/by-url/by-game-id";
+            wrapper.action = "game-rpg-item-skill/get/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListByUrlByGameId(
+            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListUrlGameId(
                 _url
                 , _game_id
             );
@@ -16886,7 +16976,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameRpgItemSkillListByUuidByGameId() {
+        public virtual void GetGameRpgItemSkillListUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -16894,14 +16984,14 @@ namespace gaming {
             ResponseGameRpgItemSkillList wrapper = new ResponseGameRpgItemSkillList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-rpg-item-skill/get/by-uuid/by-game-id";
+            wrapper.action = "game-rpg-item-skill/get/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListByUuidByGameId(
+            List<GameRpgItemSkill> objs = api.GetGameRpgItemSkillListUuidGameId(
                 _uuid
                 , _game_id
             );
@@ -16936,21 +17026,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProductByUuid() {
+        public virtual void CountGameProductUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProductInt wrapper = new ResponseGameProductInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/count/by-uuid";
+            wrapper.action = "game-product/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProductByUuid(
+            int i = api.CountGameProductUuid(
                 _uuid
             );
             
@@ -16961,21 +17051,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProductByGameId() {
+        public virtual void CountGameProductGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameProductInt wrapper = new ResponseGameProductInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/count/by-game-id";
+            wrapper.action = "game-product/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProductByGameId(
+            int i = api.CountGameProductGameId(
                 _game_id
             );
             
@@ -16986,21 +17076,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProductByUrl() {
+        public virtual void CountGameProductUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameProductInt wrapper = new ResponseGameProductInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/count/by-url";
+            wrapper.action = "game-product/count/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProductByUrl(
+            int i = api.CountGameProductUrl(
                 _url
             );
             
@@ -17011,7 +17101,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProductByUrlByGameId() {
+        public virtual void CountGameProductUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17019,14 +17109,14 @@ namespace gaming {
             ResponseGameProductInt wrapper = new ResponseGameProductInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/count/by-url/by-game-id";
+            wrapper.action = "game-product/count/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProductByUrlByGameId(
+            int i = api.CountGameProductUrlGameId(
                 _url
                 , _game_id
             );
@@ -17038,7 +17128,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProductByUuidByGameId() {
+        public virtual void CountGameProductUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17046,14 +17136,14 @@ namespace gaming {
             ResponseGameProductInt wrapper = new ResponseGameProductInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/count/by-uuid/by-game-id";
+            wrapper.action = "game-product/count/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProductByUuidByGameId(
+            int i = api.CountGameProductUuidGameId(
                 _uuid
                 , _game_id
             );
@@ -17064,12 +17154,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameProductListByFilter()  {
+        public virtual void BrowseGameProductListFilter()  {
         
             ResponseGameProductList wrapper = new ResponseGameProductList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/browse/by-filter";
+            wrapper.action = "game-product/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -17081,7 +17171,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameProductResult result = api.BrowseGameProductListByFilter(obj);
+            GameProductResult result = api.BrowseGameProductListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -17093,12 +17183,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProductByUuid()  {
+        public virtual void SetGameProductUuid()  {
         
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/set/by-uuid";
+            wrapper.action = "game-product/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -17161,17 +17251,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProductByUuid(obj);
+            wrapper.data = api.SetGameProductUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProductByGameId()  {
+        public virtual void SetGameProductGameId()  {
         
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/set/by-game-id";
+            wrapper.action = "game-product/set/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -17234,17 +17324,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProductByGameId(obj);
+            wrapper.data = api.SetGameProductGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProductByUrl()  {
+        public virtual void SetGameProductUrl()  {
         
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/set/by-url";
+            wrapper.action = "game-product/set/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -17307,17 +17397,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProductByUrl(obj);
+            wrapper.data = api.SetGameProductUrl(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProductByUrlByGameId()  {
+        public virtual void SetGameProductUrlGameId()  {
         
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/set/by-url/by-game-id";
+            wrapper.action = "game-product/set/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -17380,17 +17470,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProductByUrlByGameId(obj);
+            wrapper.data = api.SetGameProductUrlGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProductByUuidByGameId()  {
+        public virtual void SetGameProductUuidGameId()  {
         
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/set/by-uuid/by-game-id";
+            wrapper.action = "game-product/set/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -17453,26 +17543,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProductByUuidByGameId(obj);
+            wrapper.data = api.SetGameProductUuidGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProductByUuid() {
+        public virtual void DelGameProductUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/del/by-uuid";
+            wrapper.action = "game-product/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProductByUuid(
+            bool completed = api.DelGameProductUuid(
                         
                 _uuid
             );
@@ -17483,21 +17573,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProductByGameId() {
+        public virtual void DelGameProductGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/del/by-game-id";
+            wrapper.action = "game-product/del/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProductByGameId(
+            bool completed = api.DelGameProductGameId(
                         
                 _game_id
             );
@@ -17508,21 +17598,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProductByUrl() {
+        public virtual void DelGameProductUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/del/by-url";
+            wrapper.action = "game-product/del/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProductByUrl(
+            bool completed = api.DelGameProductUrl(
                         
                 _url
             );
@@ -17533,7 +17623,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProductByUrlByGameId() {
+        public virtual void DelGameProductUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17541,14 +17631,14 @@ namespace gaming {
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/del/by-url/by-game-id";
+            wrapper.action = "game-product/del/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProductByUrlByGameId(
+            bool completed = api.DelGameProductUrlGameId(
                         
                 _url
                 , _game_id
@@ -17560,7 +17650,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProductByUuidByGameId() {
+        public virtual void DelGameProductUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17568,14 +17658,14 @@ namespace gaming {
             ResponseGameProductBool wrapper = new ResponseGameProductBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/del/by-uuid/by-game-id";
+            wrapper.action = "game-product/del/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProductByUuidByGameId(
+            bool completed = api.DelGameProductUuidGameId(
                         
                 _uuid
                 , _game_id
@@ -17611,21 +17701,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProductListByUuid() {
+        public virtual void GetGameProductListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProductList wrapper = new ResponseGameProductList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/get/by-uuid";
+            wrapper.action = "game-product/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProduct> objs = api.GetGameProductListByUuid(
+            List<GameProduct> objs = api.GetGameProductListUuid(
                 _uuid
             );
             
@@ -17636,21 +17726,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProductListByGameId() {
+        public virtual void GetGameProductListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameProductList wrapper = new ResponseGameProductList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/get/by-game-id";
+            wrapper.action = "game-product/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProduct> objs = api.GetGameProductListByGameId(
+            List<GameProduct> objs = api.GetGameProductListGameId(
                 _game_id
             );
             
@@ -17661,21 +17751,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProductListByUrl() {
+        public virtual void GetGameProductListUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseGameProductList wrapper = new ResponseGameProductList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/get/by-url";
+            wrapper.action = "game-product/get/url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProduct> objs = api.GetGameProductListByUrl(
+            List<GameProduct> objs = api.GetGameProductListUrl(
                 _url
             );
             
@@ -17686,7 +17776,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProductListByUrlByGameId() {
+        public virtual void GetGameProductListUrlGameId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17694,14 +17784,14 @@ namespace gaming {
             ResponseGameProductList wrapper = new ResponseGameProductList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/get/by-url/by-game-id";
+            wrapper.action = "game-product/get/url/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProduct> objs = api.GetGameProductListByUrlByGameId(
+            List<GameProduct> objs = api.GetGameProductListUrlGameId(
                 _url
                 , _game_id
             );
@@ -17713,7 +17803,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProductListByUuidByGameId() {
+        public virtual void GetGameProductListUuidGameId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17721,14 +17811,14 @@ namespace gaming {
             ResponseGameProductList wrapper = new ResponseGameProductList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-product/get/by-uuid/by-game-id";
+            wrapper.action = "game-product/get/uuid/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProduct> objs = api.GetGameProductListByUuidByGameId(
+            List<GameProduct> objs = api.GetGameProductListUuidGameId(
                 _uuid
                 , _game_id
             );
@@ -17763,21 +17853,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardByUuid() {
+        public virtual void CountGameStatisticLeaderboardUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticLeaderboardInt wrapper = new ResponseGameStatisticLeaderboardInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/count/by-uuid";
+            wrapper.action = "game-statistic-leaderboard/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardByUuid(
+            int i = api.CountGameStatisticLeaderboardUuid(
                 _uuid
             );
             
@@ -17788,21 +17878,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardByGameId() {
+        public virtual void CountGameStatisticLeaderboardGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameStatisticLeaderboardInt wrapper = new ResponseGameStatisticLeaderboardInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/count/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardByGameId(
+            int i = api.CountGameStatisticLeaderboardGameId(
                 _game_id
             );
             
@@ -17813,21 +17903,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardByCode() {
+        public virtual void CountGameStatisticLeaderboardCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameStatisticLeaderboardInt wrapper = new ResponseGameStatisticLeaderboardInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/count/by-code";
+            wrapper.action = "game-statistic-leaderboard/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardByCode(
+            int i = api.CountGameStatisticLeaderboardCode(
                 _code
             );
             
@@ -17838,7 +17928,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardByCodeByGameId() {
+        public virtual void CountGameStatisticLeaderboardCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17846,14 +17936,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardInt wrapper = new ResponseGameStatisticLeaderboardInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/count/by-code/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/count/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardByCodeByGameId(
+            int i = api.CountGameStatisticLeaderboardCodeGameId(
                 _code
                 , _game_id
             );
@@ -17865,7 +17955,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardByCodeByGameIdByProfileId() {
+        public virtual void CountGameStatisticLeaderboardCodeGameIdProfileId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17874,14 +17964,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardInt wrapper = new ResponseGameStatisticLeaderboardInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/count/by-code/by-game-id/by-profile-id";
+            wrapper.action = "game-statistic-leaderboard/count/code/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            int i = api.CountGameStatisticLeaderboardCodeGameIdProfileId(
                 _code
                 , _game_id
                 , _profile_id
@@ -17894,7 +17984,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp() {
+        public virtual void CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17904,14 +17994,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardInt wrapper = new ResponseGameStatisticLeaderboardInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/count/by-code/by-game-id/by-profile-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard/count/code/game-id/profile-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            int i = api.CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
                 _code
                 , _game_id
                 , _profile_id
@@ -17925,7 +18015,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardByProfileIdByGameId() {
+        public virtual void CountGameStatisticLeaderboardProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -17933,14 +18023,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardInt wrapper = new ResponseGameStatisticLeaderboardInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/count/by-profile-id/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardByProfileIdByGameId(
+            int i = api.CountGameStatisticLeaderboardProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -17951,12 +18041,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameStatisticLeaderboardListByFilter()  {
+        public virtual void BrowseGameStatisticLeaderboardListFilter()  {
         
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/browse/by-filter";
+            wrapper.action = "game-statistic-leaderboard/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -17968,7 +18058,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameStatisticLeaderboardResult result = api.BrowseGameStatisticLeaderboardListByFilter(obj);
+            GameStatisticLeaderboardResult result = api.BrowseGameStatisticLeaderboardListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -17980,12 +18070,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardByUuid()  {
+        public virtual void SetGameStatisticLeaderboardUuid()  {
         
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/set/by-uuid";
+            wrapper.action = "game-statistic-leaderboard/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -18080,17 +18170,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardByUuid(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp()  {
+        public virtual void SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp()  {
         
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/set/by-uuid/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard/set/uuid/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -18185,17 +18275,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardByCode()  {
+        public virtual void SetGameStatisticLeaderboardCode()  {
         
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/set/by-code";
+            wrapper.action = "game-statistic-leaderboard/set/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -18290,17 +18380,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardByCode(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardByCodeByGameId()  {
+        public virtual void SetGameStatisticLeaderboardCodeGameId()  {
         
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/set/by-code/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/set/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -18395,17 +18485,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardByCodeByGameId(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardCodeGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardByCodeByGameIdByProfileId()  {
+        public virtual void SetGameStatisticLeaderboardCodeGameIdProfileId()  {
         
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/set/by-code/by-game-id/by-profile-id";
+            wrapper.action = "game-statistic-leaderboard/set/code/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -18500,17 +18590,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardByCodeByGameIdByProfileId(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardCodeGameIdProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp()  {
+        public virtual void SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp()  {
         
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/set/by-code/by-game-id/by-profile-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard/set/code/game-id/profile-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -18605,26 +18695,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardByUuid() {
+        public virtual void DelGameStatisticLeaderboardUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/del/by-uuid";
+            wrapper.action = "game-statistic-leaderboard/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardByUuid(
+            bool completed = api.DelGameStatisticLeaderboardUuid(
                         
                 _uuid
             );
@@ -18635,21 +18725,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardByCode() {
+        public virtual void DelGameStatisticLeaderboardCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/del/by-code";
+            wrapper.action = "game-statistic-leaderboard/del/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardByCode(
+            bool completed = api.DelGameStatisticLeaderboardCode(
                         
                 _code
             );
@@ -18660,7 +18750,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardByCodeByGameId() {
+        public virtual void DelGameStatisticLeaderboardCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18668,14 +18758,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/del/by-code/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/del/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardByCodeByGameId(
+            bool completed = api.DelGameStatisticLeaderboardCodeGameId(
                         
                 _code
                 , _game_id
@@ -18687,7 +18777,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardByCodeByGameIdByProfileId() {
+        public virtual void DelGameStatisticLeaderboardCodeGameIdProfileId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18696,14 +18786,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/del/by-code/by-game-id/by-profile-id";
+            wrapper.action = "game-statistic-leaderboard/del/code/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+            bool completed = api.DelGameStatisticLeaderboardCodeGameIdProfileId(
                         
                 _code
                 , _game_id
@@ -18716,7 +18806,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp() {
+        public virtual void DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18726,14 +18816,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/del/by-code/by-game-id/by-profile-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard/del/code/game-id/profile-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+            bool completed = api.DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
                         
                 _code
                 , _game_id
@@ -18747,7 +18837,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardByProfileIdByGameId() {
+        public virtual void DelGameStatisticLeaderboardProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18755,14 +18845,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardBool wrapper = new ResponseGameStatisticLeaderboardBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/del/by-profile-id/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/del/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardByProfileIdByGameId(
+            bool completed = api.DelGameStatisticLeaderboardProfileIdGameId(
                         
                 _profile_id
                 , _game_id
@@ -18798,21 +18888,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardListByUuid() {
+        public virtual void GetGameStatisticLeaderboardListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/get/by-uuid";
+            wrapper.action = "game-statistic-leaderboard/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListByUuid(
+            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListUuid(
                 _uuid
             );
             
@@ -18823,21 +18913,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardListByGameId() {
+        public virtual void GetGameStatisticLeaderboardListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/get/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListByGameId(
+            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListGameId(
                 _game_id
             );
             
@@ -18848,21 +18938,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardListByCode() {
+        public virtual void GetGameStatisticLeaderboardListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/get/by-code";
+            wrapper.action = "game-statistic-leaderboard/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListByCode(
+            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListCode(
                 _code
             );
             
@@ -18873,7 +18963,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardListByCodeByGameId() {
+        public virtual void GetGameStatisticLeaderboardListCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18881,14 +18971,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/get/by-code/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/get/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListByCodeByGameId(
+            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListCodeGameId(
                 _code
                 , _game_id
             );
@@ -18900,7 +18990,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardListByCodeByGameIdByProfileId() {
+        public virtual void GetGameStatisticLeaderboardListCodeGameIdProfileId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18909,14 +18999,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/get/by-code/by-game-id/by-profile-id";
+            wrapper.action = "game-statistic-leaderboard/get/code/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListCodeGameIdProfileId(
                 _code
                 , _game_id
                 , _profile_id
@@ -18929,7 +19019,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp() {
+        public virtual void GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18939,14 +19029,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/get/by-code/by-game-id/by-profile-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard/get/code/game-id/profile-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
                 _code
                 , _game_id
                 , _profile_id
@@ -18960,7 +19050,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardListByProfileIdByGameId() {
+        public virtual void GetGameStatisticLeaderboardListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18968,14 +19058,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/get/by-profile-id/by-game-id";
+            wrapper.action = "game-statistic-leaderboard/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListByProfileIdByGameId(
+            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -18987,7 +19077,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp() {
+        public virtual void GetGameStatisticLeaderboardListProfileIdGameIdTimestamp() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -18996,14 +19086,1290 @@ namespace gaming {
             ResponseGameStatisticLeaderboardList wrapper = new ResponseGameStatisticLeaderboardList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard/get/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard/get/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+            List<GameStatisticLeaderboard> objs = api.GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
+                _profile_id
+                , _game_id
+                , _timestamp
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameStatisticLeaderboardItem() {
+        
+
+            ResponseGameStatisticLeaderboardItemInt wrapper = new ResponseGameStatisticLeaderboardItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameStatisticLeaderboardItem(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameStatisticLeaderboardItemUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameStatisticLeaderboardItemInt wrapper = new ResponseGameStatisticLeaderboardItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/count/uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameStatisticLeaderboardItemUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameStatisticLeaderboardItemGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameStatisticLeaderboardItemInt wrapper = new ResponseGameStatisticLeaderboardItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/count/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameStatisticLeaderboardItemGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameStatisticLeaderboardItemCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameStatisticLeaderboardItemInt wrapper = new ResponseGameStatisticLeaderboardItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/count/code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameStatisticLeaderboardItemCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameStatisticLeaderboardItemCodeGameId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameStatisticLeaderboardItemInt wrapper = new ResponseGameStatisticLeaderboardItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/count/code/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameStatisticLeaderboardItemCodeGameId(
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameStatisticLeaderboardItemCodeGameIdProfileId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameStatisticLeaderboardItemInt wrapper = new ResponseGameStatisticLeaderboardItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/count/code/game-id/profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameStatisticLeaderboardItemCodeGameIdProfileId(
+                _code
+                , _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _timestamp = ()util.GetParamValue(_context, "@timestamp");
+
+            ResponseGameStatisticLeaderboardItemInt wrapper = new ResponseGameStatisticLeaderboardItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/count/code/game-id/profile-id/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+                _code
+                , _game_id
+                , _profile_id
+                , _timestamp
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameStatisticLeaderboardItemProfileIdGameId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameStatisticLeaderboardItemInt wrapper = new ResponseGameStatisticLeaderboardItemInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/count/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameStatisticLeaderboardItemProfileIdGameId(
+                _profile_id
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameStatisticLeaderboardItemListFilter()  {
+        
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/browse/filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameStatisticLeaderboardItemResult result = api.BrowseGameStatisticLeaderboardItemListFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameStatisticLeaderboardItemUuid()  {
+        
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/set/uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameStatisticLeaderboardItem obj = new GameStatisticLeaderboardItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _rank = util.GetParamValue(_context, "@rank");
+            if(!String.IsNoneOrEmpty(_rank))
+                obj.rank = Convert.ToInt32(_rank);
+            
+            string _rank_change = util.GetParamValue(_context, "@rank_change");
+            if(!String.IsNoneOrEmpty(_rank_change))
+                obj.rank_change = Convert.ToInt32(_rank_change);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _rank_total_count = util.GetParamValue(_context, "@rank_total_count");
+            if(!String.IsNoneOrEmpty(_rank_total_count))
+                obj.rank_total_count = Convert.ToInt32(_rank_total_count);
+            
+            string _absolute_value = util.GetParamValue(_context, "@absolute_value");
+            if(!String.IsNoneOrEmpty(_absolute_value))
+                obj.absolute_value = float.Parse(_absolute_value);
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _network = util.GetParamValue(_context, "@network");
+            if(!String.IsNoneOrEmpty(_network))
+                obj.network = ()_network;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameStatisticLeaderboardItemUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp()  {
+        
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/set/uuid/profile-id/game-id/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameStatisticLeaderboardItem obj = new GameStatisticLeaderboardItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _rank = util.GetParamValue(_context, "@rank");
+            if(!String.IsNoneOrEmpty(_rank))
+                obj.rank = Convert.ToInt32(_rank);
+            
+            string _rank_change = util.GetParamValue(_context, "@rank_change");
+            if(!String.IsNoneOrEmpty(_rank_change))
+                obj.rank_change = Convert.ToInt32(_rank_change);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _rank_total_count = util.GetParamValue(_context, "@rank_total_count");
+            if(!String.IsNoneOrEmpty(_rank_total_count))
+                obj.rank_total_count = Convert.ToInt32(_rank_total_count);
+            
+            string _absolute_value = util.GetParamValue(_context, "@absolute_value");
+            if(!String.IsNoneOrEmpty(_absolute_value))
+                obj.absolute_value = float.Parse(_absolute_value);
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _network = util.GetParamValue(_context, "@network");
+            if(!String.IsNoneOrEmpty(_network))
+                obj.network = ()_network;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameStatisticLeaderboardItemCode()  {
+        
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/set/code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameStatisticLeaderboardItem obj = new GameStatisticLeaderboardItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _rank = util.GetParamValue(_context, "@rank");
+            if(!String.IsNoneOrEmpty(_rank))
+                obj.rank = Convert.ToInt32(_rank);
+            
+            string _rank_change = util.GetParamValue(_context, "@rank_change");
+            if(!String.IsNoneOrEmpty(_rank_change))
+                obj.rank_change = Convert.ToInt32(_rank_change);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _rank_total_count = util.GetParamValue(_context, "@rank_total_count");
+            if(!String.IsNoneOrEmpty(_rank_total_count))
+                obj.rank_total_count = Convert.ToInt32(_rank_total_count);
+            
+            string _absolute_value = util.GetParamValue(_context, "@absolute_value");
+            if(!String.IsNoneOrEmpty(_absolute_value))
+                obj.absolute_value = float.Parse(_absolute_value);
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _network = util.GetParamValue(_context, "@network");
+            if(!String.IsNoneOrEmpty(_network))
+                obj.network = ()_network;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameStatisticLeaderboardItemCode(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameStatisticLeaderboardItemCodeGameId()  {
+        
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/set/code/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameStatisticLeaderboardItem obj = new GameStatisticLeaderboardItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _rank = util.GetParamValue(_context, "@rank");
+            if(!String.IsNoneOrEmpty(_rank))
+                obj.rank = Convert.ToInt32(_rank);
+            
+            string _rank_change = util.GetParamValue(_context, "@rank_change");
+            if(!String.IsNoneOrEmpty(_rank_change))
+                obj.rank_change = Convert.ToInt32(_rank_change);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _rank_total_count = util.GetParamValue(_context, "@rank_total_count");
+            if(!String.IsNoneOrEmpty(_rank_total_count))
+                obj.rank_total_count = Convert.ToInt32(_rank_total_count);
+            
+            string _absolute_value = util.GetParamValue(_context, "@absolute_value");
+            if(!String.IsNoneOrEmpty(_absolute_value))
+                obj.absolute_value = float.Parse(_absolute_value);
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _network = util.GetParamValue(_context, "@network");
+            if(!String.IsNoneOrEmpty(_network))
+                obj.network = ()_network;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameStatisticLeaderboardItemCodeGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameStatisticLeaderboardItemCodeGameIdProfileId()  {
+        
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/set/code/game-id/profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameStatisticLeaderboardItem obj = new GameStatisticLeaderboardItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _rank = util.GetParamValue(_context, "@rank");
+            if(!String.IsNoneOrEmpty(_rank))
+                obj.rank = Convert.ToInt32(_rank);
+            
+            string _rank_change = util.GetParamValue(_context, "@rank_change");
+            if(!String.IsNoneOrEmpty(_rank_change))
+                obj.rank_change = Convert.ToInt32(_rank_change);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _rank_total_count = util.GetParamValue(_context, "@rank_total_count");
+            if(!String.IsNoneOrEmpty(_rank_total_count))
+                obj.rank_total_count = Convert.ToInt32(_rank_total_count);
+            
+            string _absolute_value = util.GetParamValue(_context, "@absolute_value");
+            if(!String.IsNoneOrEmpty(_absolute_value))
+                obj.absolute_value = float.Parse(_absolute_value);
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _network = util.GetParamValue(_context, "@network");
+            if(!String.IsNoneOrEmpty(_network))
+                obj.network = ()_network;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameStatisticLeaderboardItemCodeGameIdProfileId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp()  {
+        
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/set/code/game-id/profile-id/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameStatisticLeaderboardItem obj = new GameStatisticLeaderboardItem();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _username = util.GetParamValue(_context, "@username");
+            if(!String.IsNoneOrEmpty(_username))
+                obj.username = ()_username;
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _rank = util.GetParamValue(_context, "@rank");
+            if(!String.IsNoneOrEmpty(_rank))
+                obj.rank = Convert.ToInt32(_rank);
+            
+            string _rank_change = util.GetParamValue(_context, "@rank_change");
+            if(!String.IsNoneOrEmpty(_rank_change))
+                obj.rank_change = Convert.ToInt32(_rank_change);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _rank_total_count = util.GetParamValue(_context, "@rank_total_count");
+            if(!String.IsNoneOrEmpty(_rank_total_count))
+                obj.rank_total_count = Convert.ToInt32(_rank_total_count);
+            
+            string _absolute_value = util.GetParamValue(_context, "@absolute_value");
+            if(!String.IsNoneOrEmpty(_absolute_value))
+                obj.absolute_value = float.Parse(_absolute_value);
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
+            string _stat_value = util.GetParamValue(_context, "@stat_value");
+            if(!String.IsNoneOrEmpty(_stat_value))
+                obj.stat_value = float.Parse(_stat_value);
+            
+            string _network = util.GetParamValue(_context, "@network");
+            if(!String.IsNoneOrEmpty(_network))
+                obj.network = ()_network;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _level = util.GetParamValue(_context, "@level");
+            if(!String.IsNoneOrEmpty(_level))
+                obj.level = ()_level;
+            
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameStatisticLeaderboardItemUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/del/uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameStatisticLeaderboardItemUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameStatisticLeaderboardItemCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/del/code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameStatisticLeaderboardItemCode(
+                        
+                _code
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameStatisticLeaderboardItemCodeGameId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/del/code/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameStatisticLeaderboardItemCodeGameId(
+                        
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameStatisticLeaderboardItemCodeGameIdProfileId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/del/code/game-id/profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameStatisticLeaderboardItemCodeGameIdProfileId(
+                        
+                _code
+                , _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _timestamp = ()util.GetParamValue(_context, "@timestamp");
+
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/del/code/game-id/profile-id/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+                        
+                _code
+                , _game_id
+                , _profile_id
+                , _timestamp
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameStatisticLeaderboardItemProfileIdGameId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameStatisticLeaderboardItemBool wrapper = new ResponseGameStatisticLeaderboardItemBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/del/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameStatisticLeaderboardItemProfileIdGameId(
+                        
+                _profile_id
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemList() {
+        
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemList(
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemListUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get/uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemListUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemListGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemListGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemListCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get/code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemListCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemListCodeGameId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get/code/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemListCodeGameId(
+                _code
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemListCodeGameIdProfileId() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get/code/game-id/profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+                _code
+                , _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _timestamp = ()util.GetParamValue(_context, "@timestamp");
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get/code/game-id/profile-id/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+                _code
+                , _game_id
+                , _profile_id
+                , _timestamp
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemListProfileIdGameId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get/profile-id/game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemListProfileIdGameId(
+                _profile_id
+                , _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _timestamp = ()util.GetParamValue(_context, "@timestamp");
+
+            ResponseGameStatisticLeaderboardItemList wrapper = new ResponseGameStatisticLeaderboardItemList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-statistic-leaderboard-item/get/profile-id/game-id/timestamp";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameStatisticLeaderboardItem> objs = api.GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
                 _profile_id
                 , _game_id
                 , _timestamp
@@ -19039,21 +20405,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardRollupByUuid() {
+        public virtual void CountGameStatisticLeaderboardRollupUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticLeaderboardRollupInt wrapper = new ResponseGameStatisticLeaderboardRollupInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/count/by-uuid";
+            wrapper.action = "game-statistic-leaderboard-rollup/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardRollupByUuid(
+            int i = api.CountGameStatisticLeaderboardRollupUuid(
                 _uuid
             );
             
@@ -19064,21 +20430,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardRollupByGameId() {
+        public virtual void CountGameStatisticLeaderboardRollupGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameStatisticLeaderboardRollupInt wrapper = new ResponseGameStatisticLeaderboardRollupInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/count/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardRollupByGameId(
+            int i = api.CountGameStatisticLeaderboardRollupGameId(
                 _game_id
             );
             
@@ -19089,21 +20455,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardRollupByCode() {
+        public virtual void CountGameStatisticLeaderboardRollupCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameStatisticLeaderboardRollupInt wrapper = new ResponseGameStatisticLeaderboardRollupInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/count/by-code";
+            wrapper.action = "game-statistic-leaderboard-rollup/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardRollupByCode(
+            int i = api.CountGameStatisticLeaderboardRollupCode(
                 _code
             );
             
@@ -19114,7 +20480,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardRollupByCodeByGameId() {
+        public virtual void CountGameStatisticLeaderboardRollupCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -19122,14 +20488,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupInt wrapper = new ResponseGameStatisticLeaderboardRollupInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/count/by-code/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/count/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardRollupByCodeByGameId(
+            int i = api.CountGameStatisticLeaderboardRollupCodeGameId(
                 _code
                 , _game_id
             );
@@ -19141,7 +20507,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId() {
+        public virtual void CountGameStatisticLeaderboardRollupCodeGameIdProfileId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -19150,14 +20516,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupInt wrapper = new ResponseGameStatisticLeaderboardRollupInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/count/by-code/by-game-id/by-profile-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/count/code/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            int i = api.CountGameStatisticLeaderboardRollupCodeGameIdProfileId(
                 _code
                 , _game_id
                 , _profile_id
@@ -19170,7 +20536,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp() {
+        public virtual void CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -19180,14 +20546,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupInt wrapper = new ResponseGameStatisticLeaderboardRollupInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/count/by-code/by-game-id/by-profile-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard-rollup/count/code/game-id/profile-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            int i = api.CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
                 _code
                 , _game_id
                 , _profile_id
@@ -19201,7 +20567,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticLeaderboardRollupByProfileIdByGameId() {
+        public virtual void CountGameStatisticLeaderboardRollupProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -19209,14 +20575,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupInt wrapper = new ResponseGameStatisticLeaderboardRollupInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/count/by-profile-id/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+            int i = api.CountGameStatisticLeaderboardRollupProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -19227,12 +20593,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameStatisticLeaderboardRollupListByFilter()  {
+        public virtual void BrowseGameStatisticLeaderboardRollupListFilter()  {
         
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/browse/by-filter";
+            wrapper.action = "game-statistic-leaderboard-rollup/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -19244,7 +20610,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameStatisticLeaderboardRollupResult result = api.BrowseGameStatisticLeaderboardRollupListByFilter(obj);
+            GameStatisticLeaderboardRollupResult result = api.BrowseGameStatisticLeaderboardRollupListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -19256,12 +20622,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardRollupByUuid()  {
+        public virtual void SetGameStatisticLeaderboardRollupUuid()  {
         
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/set/by-uuid";
+            wrapper.action = "game-statistic-leaderboard-rollup/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -19356,17 +20722,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardRollupByUuid(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardRollupUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp()  {
+        public virtual void SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp()  {
         
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/set/by-uuid/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard-rollup/set/uuid/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -19461,17 +20827,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardRollupByCode()  {
+        public virtual void SetGameStatisticLeaderboardRollupCode()  {
         
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/set/by-code";
+            wrapper.action = "game-statistic-leaderboard-rollup/set/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -19566,17 +20932,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardRollupByCode(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardRollupCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardRollupByCodeByGameId()  {
+        public virtual void SetGameStatisticLeaderboardRollupCodeGameId()  {
         
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/set/by-code/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/set/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -19671,17 +21037,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardRollupByCodeByGameId(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardRollupCodeGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId()  {
+        public virtual void SetGameStatisticLeaderboardRollupCodeGameIdProfileId()  {
         
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/set/by-code/by-game-id/by-profile-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/set/code/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -19776,17 +21142,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardRollupCodeGameIdProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp()  {
+        public virtual void SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp()  {
         
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/set/by-code/by-game-id/by-profile-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard-rollup/set/code/game-id/profile-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -19881,26 +21247,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(obj);
+            wrapper.data = api.SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardRollupByUuid() {
+        public virtual void DelGameStatisticLeaderboardRollupUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/del/by-uuid";
+            wrapper.action = "game-statistic-leaderboard-rollup/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardRollupByUuid(
+            bool completed = api.DelGameStatisticLeaderboardRollupUuid(
                         
                 _uuid
             );
@@ -19911,21 +21277,21 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardRollupByCode() {
+        public virtual void DelGameStatisticLeaderboardRollupCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/del/by-code";
+            wrapper.action = "game-statistic-leaderboard-rollup/del/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardRollupByCode(
+            bool completed = api.DelGameStatisticLeaderboardRollupCode(
                         
                 _code
             );
@@ -19936,7 +21302,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardRollupByCodeByGameId() {
+        public virtual void DelGameStatisticLeaderboardRollupCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -19944,14 +21310,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/del/by-code/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/del/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardRollupByCodeByGameId(
+            bool completed = api.DelGameStatisticLeaderboardRollupCodeGameId(
                         
                 _code
                 , _game_id
@@ -19963,7 +21329,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId() {
+        public virtual void DelGameStatisticLeaderboardRollupCodeGameIdProfileId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -19972,14 +21338,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/del/by-code/by-game-id/by-profile-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/del/code/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+            bool completed = api.DelGameStatisticLeaderboardRollupCodeGameIdProfileId(
                         
                 _code
                 , _game_id
@@ -19992,7 +21358,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp() {
+        public virtual void DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20002,14 +21368,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/del/by-code/by-game-id/by-profile-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard-rollup/del/code/game-id/profile-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+            bool completed = api.DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
                         
                 _code
                 , _game_id
@@ -20023,7 +21389,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticLeaderboardRollupByProfileIdByGameId() {
+        public virtual void DelGameStatisticLeaderboardRollupProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20031,14 +21397,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupBool wrapper = new ResponseGameStatisticLeaderboardRollupBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/del/by-profile-id/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/del/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+            bool completed = api.DelGameStatisticLeaderboardRollupProfileIdGameId(
                         
                 _profile_id
                 , _game_id
@@ -20074,21 +21440,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardRollupListByUuid() {
+        public virtual void GetGameStatisticLeaderboardRollupListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/get/by-uuid";
+            wrapper.action = "game-statistic-leaderboard-rollup/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListByUuid(
+            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListUuid(
                 _uuid
             );
             
@@ -20099,21 +21465,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardRollupListByGameId() {
+        public virtual void GetGameStatisticLeaderboardRollupListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/get/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListByGameId(
+            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListGameId(
                 _game_id
             );
             
@@ -20124,21 +21490,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardRollupListByCode() {
+        public virtual void GetGameStatisticLeaderboardRollupListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/get/by-code";
+            wrapper.action = "game-statistic-leaderboard-rollup/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListByCode(
+            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListCode(
                 _code
             );
             
@@ -20149,7 +21515,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardRollupListByCodeByGameId() {
+        public virtual void GetGameStatisticLeaderboardRollupListCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20157,14 +21523,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/get/by-code/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/get/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListByCodeByGameId(
+            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListCodeGameId(
                 _code
                 , _game_id
             );
@@ -20176,7 +21542,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId() {
+        public virtual void GetGameStatisticLeaderboardRollupListCodeGameIdProfileId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20185,14 +21551,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/get/by-code/by-game-id/by-profile-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/get/code/game-id/profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
                 _code
                 , _game_id
                 , _profile_id
@@ -20205,7 +21571,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp() {
+        public virtual void GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20215,14 +21581,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/get/by-code/by-game-id/by-profile-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard-rollup/get/code/game-id/profile-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
                 _code
                 , _game_id
                 , _profile_id
@@ -20236,7 +21602,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardRollupListByProfileIdByGameId() {
+        public virtual void GetGameStatisticLeaderboardRollupListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20244,14 +21610,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/get/by-profile-id/by-game-id";
+            wrapper.action = "game-statistic-leaderboard-rollup/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -20263,7 +21629,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp() {
+        public virtual void GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20272,14 +21638,14 @@ namespace gaming {
             ResponseGameStatisticLeaderboardRollupList wrapper = new ResponseGameStatisticLeaderboardRollupList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-leaderboard-rollup/get/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-statistic-leaderboard-rollup/get/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+            List<GameStatisticLeaderboardRollup> objs = api.GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
                 _profile_id
                 , _game_id
                 , _timestamp
@@ -20315,21 +21681,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLiveQueueByUuid() {
+        public virtual void CountGameLiveQueueUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLiveQueueInt wrapper = new ResponseGameLiveQueueInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/count/by-uuid";
+            wrapper.action = "game-live-queue/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLiveQueueByUuid(
+            int i = api.CountGameLiveQueueUuid(
                 _uuid
             );
             
@@ -20340,7 +21706,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLiveQueueByProfileIdByGameId() {
+        public virtual void CountGameLiveQueueProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20348,14 +21714,14 @@ namespace gaming {
             ResponseGameLiveQueueInt wrapper = new ResponseGameLiveQueueInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/count/by-profile-id/by-game-id";
+            wrapper.action = "game-live-queue/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLiveQueueByProfileIdByGameId(
+            int i = api.CountGameLiveQueueProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -20366,12 +21732,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameLiveQueueListByFilter()  {
+        public virtual void BrowseGameLiveQueueListFilter()  {
         
             ResponseGameLiveQueueList wrapper = new ResponseGameLiveQueueList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/browse/by-filter";
+            wrapper.action = "game-live-queue/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -20383,7 +21749,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameLiveQueueResult result = api.BrowseGameLiveQueueListByFilter(obj);
+            GameLiveQueueResult result = api.BrowseGameLiveQueueListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -20395,12 +21761,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameLiveQueueByUuid()  {
+        public virtual void SetGameLiveQueueUuid()  {
         
             ResponseGameLiveQueueBool wrapper = new ResponseGameLiveQueueBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/set/by-uuid";
+            wrapper.action = "game-live-queue/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -20455,17 +21821,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameLiveQueueByUuid(obj);
+            wrapper.data = api.SetGameLiveQueueUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameLiveQueueByProfileIdByGameId()  {
+        public virtual void SetGameLiveQueueProfileIdGameId()  {
         
             ResponseGameLiveQueueBool wrapper = new ResponseGameLiveQueueBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/set/by-profile-id/by-game-id";
+            wrapper.action = "game-live-queue/set/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -20520,26 +21886,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameLiveQueueByProfileIdByGameId(obj);
+            wrapper.data = api.SetGameLiveQueueProfileIdGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameLiveQueueByUuid() {
+        public virtual void DelGameLiveQueueUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLiveQueueBool wrapper = new ResponseGameLiveQueueBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/del/by-uuid";
+            wrapper.action = "game-live-queue/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameLiveQueueByUuid(
+            bool completed = api.DelGameLiveQueueUuid(
                         
                 _uuid
             );
@@ -20550,7 +21916,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameLiveQueueByProfileIdByGameId() {
+        public virtual void DelGameLiveQueueProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20558,14 +21924,14 @@ namespace gaming {
             ResponseGameLiveQueueBool wrapper = new ResponseGameLiveQueueBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/del/by-profile-id/by-game-id";
+            wrapper.action = "game-live-queue/del/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameLiveQueueByProfileIdByGameId(
+            bool completed = api.DelGameLiveQueueProfileIdGameId(
                         
                 _profile_id
                 , _game_id
@@ -20601,21 +21967,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLiveQueueListByUuid() {
+        public virtual void GetGameLiveQueueListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLiveQueueList wrapper = new ResponseGameLiveQueueList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/get/by-uuid";
+            wrapper.action = "game-live-queue/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLiveQueue> objs = api.GetGameLiveQueueListByUuid(
+            List<GameLiveQueue> objs = api.GetGameLiveQueueListUuid(
                 _uuid
             );
             
@@ -20626,21 +21992,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLiveQueueListByGameId() {
+        public virtual void GetGameLiveQueueListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameLiveQueueList wrapper = new ResponseGameLiveQueueList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/get/by-game-id";
+            wrapper.action = "game-live-queue/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLiveQueue> objs = api.GetGameLiveQueueListByGameId(
+            List<GameLiveQueue> objs = api.GetGameLiveQueueListGameId(
                 _game_id
             );
             
@@ -20651,7 +22017,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLiveQueueListByProfileIdByGameId() {
+        public virtual void GetGameLiveQueueListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20659,14 +22025,14 @@ namespace gaming {
             ResponseGameLiveQueueList wrapper = new ResponseGameLiveQueueList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-queue/get/by-profile-id/by-game-id";
+            wrapper.action = "game-live-queue/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLiveQueue> objs = api.GetGameLiveQueueListByProfileIdByGameId(
+            List<GameLiveQueue> objs = api.GetGameLiveQueueListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -20701,21 +22067,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLiveRecentQueueByUuid() {
+        public virtual void CountGameLiveRecentQueueUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLiveRecentQueueInt wrapper = new ResponseGameLiveRecentQueueInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/count/by-uuid";
+            wrapper.action = "game-live-recent-queue/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLiveRecentQueueByUuid(
+            int i = api.CountGameLiveRecentQueueUuid(
                 _uuid
             );
             
@@ -20726,7 +22092,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLiveRecentQueueByProfileIdByGameId() {
+        public virtual void CountGameLiveRecentQueueProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20734,14 +22100,14 @@ namespace gaming {
             ResponseGameLiveRecentQueueInt wrapper = new ResponseGameLiveRecentQueueInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/count/by-profile-id/by-game-id";
+            wrapper.action = "game-live-recent-queue/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLiveRecentQueueByProfileIdByGameId(
+            int i = api.CountGameLiveRecentQueueProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -20752,12 +22118,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameLiveRecentQueueListByFilter()  {
+        public virtual void BrowseGameLiveRecentQueueListFilter()  {
         
             ResponseGameLiveRecentQueueList wrapper = new ResponseGameLiveRecentQueueList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/browse/by-filter";
+            wrapper.action = "game-live-recent-queue/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -20769,7 +22135,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameLiveRecentQueueResult result = api.BrowseGameLiveRecentQueueListByFilter(obj);
+            GameLiveRecentQueueResult result = api.BrowseGameLiveRecentQueueListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -20781,12 +22147,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameLiveRecentQueueByUuid()  {
+        public virtual void SetGameLiveRecentQueueUuid()  {
         
             ResponseGameLiveRecentQueueBool wrapper = new ResponseGameLiveRecentQueueBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/set/by-uuid";
+            wrapper.action = "game-live-recent-queue/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -20861,17 +22227,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameLiveRecentQueueByUuid(obj);
+            wrapper.data = api.SetGameLiveRecentQueueUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameLiveRecentQueueByProfileIdByGameId()  {
+        public virtual void SetGameLiveRecentQueueProfileIdGameId()  {
         
             ResponseGameLiveRecentQueueBool wrapper = new ResponseGameLiveRecentQueueBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/set/by-profile-id/by-game-id";
+            wrapper.action = "game-live-recent-queue/set/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -20946,26 +22312,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameLiveRecentQueueByProfileIdByGameId(obj);
+            wrapper.data = api.SetGameLiveRecentQueueProfileIdGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameLiveRecentQueueByUuid() {
+        public virtual void DelGameLiveRecentQueueUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLiveRecentQueueBool wrapper = new ResponseGameLiveRecentQueueBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/del/by-uuid";
+            wrapper.action = "game-live-recent-queue/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameLiveRecentQueueByUuid(
+            bool completed = api.DelGameLiveRecentQueueUuid(
                         
                 _uuid
             );
@@ -20976,7 +22342,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameLiveRecentQueueByProfileIdByGameId() {
+        public virtual void DelGameLiveRecentQueueProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -20984,14 +22350,14 @@ namespace gaming {
             ResponseGameLiveRecentQueueBool wrapper = new ResponseGameLiveRecentQueueBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/del/by-profile-id/by-game-id";
+            wrapper.action = "game-live-recent-queue/del/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameLiveRecentQueueByProfileIdByGameId(
+            bool completed = api.DelGameLiveRecentQueueProfileIdGameId(
                         
                 _profile_id
                 , _game_id
@@ -21027,21 +22393,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLiveRecentQueueListByUuid() {
+        public virtual void GetGameLiveRecentQueueListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLiveRecentQueueList wrapper = new ResponseGameLiveRecentQueueList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/get/by-uuid";
+            wrapper.action = "game-live-recent-queue/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLiveRecentQueue> objs = api.GetGameLiveRecentQueueListByUuid(
+            List<GameLiveRecentQueue> objs = api.GetGameLiveRecentQueueListUuid(
                 _uuid
             );
             
@@ -21052,21 +22418,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLiveRecentQueueListByGameId() {
+        public virtual void GetGameLiveRecentQueueListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameLiveRecentQueueList wrapper = new ResponseGameLiveRecentQueueList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/get/by-game-id";
+            wrapper.action = "game-live-recent-queue/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLiveRecentQueue> objs = api.GetGameLiveRecentQueueListByGameId(
+            List<GameLiveRecentQueue> objs = api.GetGameLiveRecentQueueListGameId(
                 _game_id
             );
             
@@ -21077,7 +22443,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLiveRecentQueueListByProfileIdByGameId() {
+        public virtual void GetGameLiveRecentQueueListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -21085,14 +22451,14 @@ namespace gaming {
             ResponseGameLiveRecentQueueList wrapper = new ResponseGameLiveRecentQueueList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-live-recent-queue/get/by-profile-id/by-game-id";
+            wrapper.action = "game-live-recent-queue/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLiveRecentQueue> objs = api.GetGameLiveRecentQueueListByProfileIdByGameId(
+            List<GameLiveRecentQueue> objs = api.GetGameLiveRecentQueueListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -21127,21 +22493,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticByUuid() {
+        public virtual void CountGameProfileStatisticUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileStatisticInt wrapper = new ResponseGameProfileStatisticInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/count/by-uuid";
+            wrapper.action = "game-profile-statistic/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticByUuid(
+            int i = api.CountGameProfileStatisticUuid(
                 _uuid
             );
             
@@ -21152,21 +22518,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticByCode() {
+        public virtual void CountGameProfileStatisticCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameProfileStatisticInt wrapper = new ResponseGameProfileStatisticInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/count/by-code";
+            wrapper.action = "game-profile-statistic/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticByCode(
+            int i = api.CountGameProfileStatisticCode(
                 _code
             );
             
@@ -21177,21 +22543,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticByGameId() {
+        public virtual void CountGameProfileStatisticGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameProfileStatisticInt wrapper = new ResponseGameProfileStatisticInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/count/by-game-id";
+            wrapper.action = "game-profile-statistic/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticByGameId(
+            int i = api.CountGameProfileStatisticGameId(
                 _game_id
             );
             
@@ -21202,7 +22568,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticByCodeByGameId() {
+        public virtual void CountGameProfileStatisticCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -21210,14 +22576,14 @@ namespace gaming {
             ResponseGameProfileStatisticInt wrapper = new ResponseGameProfileStatisticInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/count/by-code/by-game-id";
+            wrapper.action = "game-profile-statistic/count/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticByCodeByGameId(
+            int i = api.CountGameProfileStatisticCodeGameId(
                 _code
                 , _game_id
             );
@@ -21229,7 +22595,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticByProfileIdByGameId() {
+        public virtual void CountGameProfileStatisticProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -21237,14 +22603,14 @@ namespace gaming {
             ResponseGameProfileStatisticInt wrapper = new ResponseGameProfileStatisticInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/count/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic/count/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticByProfileIdByGameId(
+            int i = api.CountGameProfileStatisticProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -21256,7 +22622,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticByCodeByProfileIdByGameId() {
+        public virtual void CountGameProfileStatisticCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -21265,14 +22631,14 @@ namespace gaming {
             ResponseGameProfileStatisticInt wrapper = new ResponseGameProfileStatisticInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/count/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic/count/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticByCodeByProfileIdByGameId(
+            int i = api.CountGameProfileStatisticCodeProfileIdGameId(
                 _code
                 , _profile_id
                 , _game_id
@@ -21285,7 +22651,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp() {
+        public virtual void CountGameProfileStatisticCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -21295,14 +22661,14 @@ namespace gaming {
             ResponseGameProfileStatisticInt wrapper = new ResponseGameProfileStatisticInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/count/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic/count/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+            int i = api.CountGameProfileStatisticCodeProfileIdGameIdTimestamp(
                 _code
                 , _profile_id
                 , _game_id
@@ -21315,12 +22681,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameProfileStatisticListByFilter()  {
+        public virtual void BrowseGameProfileStatisticListFilter()  {
         
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/browse/by-filter";
+            wrapper.action = "game-profile-statistic/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -21332,7 +22698,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameProfileStatisticResult result = api.BrowseGameProfileStatisticListByFilter(obj);
+            GameProfileStatisticResult result = api.BrowseGameProfileStatisticListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -21344,12 +22710,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticByUuid()  {
+        public virtual void SetGameProfileStatisticUuid()  {
         
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/set/by-uuid";
+            wrapper.action = "game-profile-statistic/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -21370,9 +22736,9 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = float.Parse(_timestamp);
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
             
             string _profile_id = util.GetParamValue(_context, "@profile_id");
             if(!String.IsNoneOrEmpty(_profile_id))
@@ -21412,6 +22778,10 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_points))
                 obj.points = float.Parse(_points);
             
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
                 obj.date_created = Convert.ToDateTime(_date_created);
@@ -21424,17 +22794,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticByUuid(obj);
+            wrapper.data = api.SetGameProfileStatisticUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp()  {
+        public virtual void SetGameProfileStatisticUuidProfileIdGameIdTimestamp()  {
         
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/set/by-uuid/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic/set/uuid/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -21455,9 +22825,9 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = float.Parse(_timestamp);
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
             
             string _profile_id = util.GetParamValue(_context, "@profile_id");
             if(!String.IsNoneOrEmpty(_profile_id))
@@ -21497,6 +22867,10 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_points))
                 obj.points = float.Parse(_points);
             
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
                 obj.date_created = Convert.ToDateTime(_date_created);
@@ -21509,17 +22883,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(obj);
+            wrapper.data = api.SetGameProfileStatisticUuidProfileIdGameIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticByProfileIdByCode()  {
+        public virtual void SetGameProfileStatisticProfileIdCode()  {
         
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/set/by-profile-id/by-code";
+            wrapper.action = "game-profile-statistic/set/profile-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -21540,9 +22914,9 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = float.Parse(_timestamp);
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
             
             string _profile_id = util.GetParamValue(_context, "@profile_id");
             if(!String.IsNoneOrEmpty(_profile_id))
@@ -21582,6 +22956,10 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_points))
                 obj.points = float.Parse(_points);
             
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
                 obj.date_created = Convert.ToDateTime(_date_created);
@@ -21594,17 +22972,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticByProfileIdByCode(obj);
+            wrapper.data = api.SetGameProfileStatisticProfileIdCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticByProfileIdByCodeByTimestamp()  {
+        public virtual void SetGameProfileStatisticProfileIdCodeTimestamp()  {
         
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/set/by-profile-id/by-code/by-timestamp";
+            wrapper.action = "game-profile-statistic/set/profile-id/code/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -21625,9 +23003,9 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = float.Parse(_timestamp);
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
             
             string _profile_id = util.GetParamValue(_context, "@profile_id");
             if(!String.IsNoneOrEmpty(_profile_id))
@@ -21667,6 +23045,10 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_points))
                 obj.points = float.Parse(_points);
             
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
                 obj.date_created = Convert.ToDateTime(_date_created);
@@ -21679,17 +23061,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticByProfileIdByCodeByTimestamp(obj);
+            wrapper.data = api.SetGameProfileStatisticProfileIdCodeTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp()  {
+        public virtual void SetGameProfileStatisticCodeProfileIdGameIdTimestamp()  {
         
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/set/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic/set/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -21710,9 +23092,9 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = float.Parse(_timestamp);
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
             
             string _profile_id = util.GetParamValue(_context, "@profile_id");
             if(!String.IsNoneOrEmpty(_profile_id))
@@ -21752,6 +23134,10 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_points))
                 obj.points = float.Parse(_points);
             
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
                 obj.date_created = Convert.ToDateTime(_date_created);
@@ -21764,17 +23150,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(obj);
+            wrapper.data = api.SetGameProfileStatisticCodeProfileIdGameIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticByCodeByProfileIdByGameId()  {
+        public virtual void SetGameProfileStatisticCodeProfileIdGameId()  {
         
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/set/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic/set/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -21795,9 +23181,9 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_code))
                 obj.code = ()_code;
             
-            string _timestamp = util.GetParamValue(_context, "@timestamp");
-            if(!String.IsNoneOrEmpty(_timestamp))
-                obj.timestamp = float.Parse(_timestamp);
+            string _stat_value_formatted = util.GetParamValue(_context, "@stat_value_formatted");
+            if(!String.IsNoneOrEmpty(_stat_value_formatted))
+                obj.stat_value_formatted = ()_stat_value_formatted;
             
             string _profile_id = util.GetParamValue(_context, "@profile_id");
             if(!String.IsNoneOrEmpty(_profile_id))
@@ -21837,6 +23223,10 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_points))
                 obj.points = float.Parse(_points);
             
+            string _timestamp = util.GetParamValue(_context, "@timestamp");
+            if(!String.IsNoneOrEmpty(_timestamp))
+                obj.timestamp = float.Parse(_timestamp);
+            
             string _date_created = util.GetParamValue(_context, "@date_created");
             if(!String.IsNoneOrEmpty(_date_created))
                 obj.date_created = Convert.ToDateTime(_date_created);
@@ -21849,26 +23239,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticByCodeByProfileIdByGameId(obj);
+            wrapper.data = api.SetGameProfileStatisticCodeProfileIdGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticByUuid() {
+        public virtual void DelGameProfileStatisticUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/del/by-uuid";
+            wrapper.action = "game-profile-statistic/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticByUuid(
+            bool completed = api.DelGameProfileStatisticUuid(
                         
                 _uuid
             );
@@ -21879,7 +23269,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticByCodeByGameId() {
+        public virtual void DelGameProfileStatisticCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -21887,14 +23277,14 @@ namespace gaming {
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/del/by-code/by-game-id";
+            wrapper.action = "game-profile-statistic/del/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticByCodeByGameId(
+            bool completed = api.DelGameProfileStatisticCodeGameId(
                         
                 _code
                 , _game_id
@@ -21906,7 +23296,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticByProfileIdByGameId() {
+        public virtual void DelGameProfileStatisticProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -21914,14 +23304,14 @@ namespace gaming {
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/del/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic/del/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticByProfileIdByGameId(
+            bool completed = api.DelGameProfileStatisticProfileIdGameId(
                         
                 _profile_id
                 , _game_id
@@ -21933,7 +23323,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticByCodeByProfileIdByGameId() {
+        public virtual void DelGameProfileStatisticCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -21942,14 +23332,14 @@ namespace gaming {
             ResponseGameProfileStatisticBool wrapper = new ResponseGameProfileStatisticBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/del/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic/del/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticByCodeByProfileIdByGameId(
+            bool completed = api.DelGameProfileStatisticCodeProfileIdGameId(
                         
                 _code
                 , _profile_id
@@ -21963,21 +23353,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticListByUuid() {
+        public virtual void GetGameProfileStatisticListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/get/by-uuid";
+            wrapper.action = "game-profile-statistic/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListByUuid(
+            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListUuid(
                 _uuid
             );
             
@@ -21988,21 +23378,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticListByCode() {
+        public virtual void GetGameProfileStatisticListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/get/by-code";
+            wrapper.action = "game-profile-statistic/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListByCode(
+            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListCode(
                 _code
             );
             
@@ -22013,21 +23403,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticListByGameId() {
+        public virtual void GetGameProfileStatisticListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/get/by-game-id";
+            wrapper.action = "game-profile-statistic/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListByGameId(
+            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListGameId(
                 _game_id
             );
             
@@ -22038,7 +23428,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticListByCodeByGameId() {
+        public virtual void GetGameProfileStatisticListCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -22046,14 +23436,14 @@ namespace gaming {
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/get/by-code/by-game-id";
+            wrapper.action = "game-profile-statistic/get/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListByCodeByGameId(
+            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListCodeGameId(
                 _code
                 , _game_id
             );
@@ -22065,7 +23455,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticListByProfileIdByGameId() {
+        public virtual void GetGameProfileStatisticListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -22073,14 +23463,14 @@ namespace gaming {
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/get/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListByProfileIdByGameId(
+            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -22092,7 +23482,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticListByProfileIdByGameIdByTimestamp() {
+        public virtual void GetGameProfileStatisticListProfileIdGameIdTimestamp() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -22101,14 +23491,14 @@ namespace gaming {
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/get/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic/get/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListProfileIdGameIdTimestamp(
                 _profile_id
                 , _game_id
                 , _timestamp
@@ -22121,7 +23511,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticListByCodeByProfileIdByGameId() {
+        public virtual void GetGameProfileStatisticListCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -22130,14 +23520,14 @@ namespace gaming {
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/get/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic/get/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListByCodeByProfileIdByGameId(
+            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListCodeProfileIdGameId(
                 _code
                 , _profile_id
                 , _game_id
@@ -22150,7 +23540,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp() {
+        public virtual void GetGameProfileStatisticListCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -22160,14 +23550,14 @@ namespace gaming {
             ResponseGameProfileStatisticList wrapper = new ResponseGameProfileStatisticList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic/get/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic/get/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+            List<GameProfileStatistic> objs = api.GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
                 _code
                 , _profile_id
                 , _game_id
@@ -22204,21 +23594,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticMetaByUuid() {
+        public virtual void CountGameStatisticMetaUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticMetaInt wrapper = new ResponseGameStatisticMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/count/by-uuid";
+            wrapper.action = "game-statistic-meta/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticMetaByUuid(
+            int i = api.CountGameStatisticMetaUuid(
                 _uuid
             );
             
@@ -22229,21 +23619,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticMetaByCode() {
+        public virtual void CountGameStatisticMetaCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameStatisticMetaInt wrapper = new ResponseGameStatisticMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/count/by-code";
+            wrapper.action = "game-statistic-meta/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticMetaByCode(
+            int i = api.CountGameStatisticMetaCode(
                 _code
             );
             
@@ -22254,7 +23644,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticMetaByCodeByGameId() {
+        public virtual void CountGameStatisticMetaCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -22262,14 +23652,14 @@ namespace gaming {
             ResponseGameStatisticMetaInt wrapper = new ResponseGameStatisticMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/count/by-code/by-game-id";
+            wrapper.action = "game-statistic-meta/count/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticMetaByCodeByGameId(
+            int i = api.CountGameStatisticMetaCodeGameId(
                 _code
                 , _game_id
             );
@@ -22281,21 +23671,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticMetaByName() {
+        public virtual void CountGameStatisticMetaName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameStatisticMetaInt wrapper = new ResponseGameStatisticMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/count/by-name";
+            wrapper.action = "game-statistic-meta/count/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticMetaByName(
+            int i = api.CountGameStatisticMetaName(
                 _name
             );
             
@@ -22306,21 +23696,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameStatisticMetaByGameId() {
+        public virtual void CountGameStatisticMetaGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameStatisticMetaInt wrapper = new ResponseGameStatisticMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/count/by-game-id";
+            wrapper.action = "game-statistic-meta/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameStatisticMetaByGameId(
+            int i = api.CountGameStatisticMetaGameId(
                 _game_id
             );
             
@@ -22330,12 +23720,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameStatisticMetaListByFilter()  {
+        public virtual void BrowseGameStatisticMetaListFilter()  {
         
             ResponseGameStatisticMetaList wrapper = new ResponseGameStatisticMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/browse/by-filter";
+            wrapper.action = "game-statistic-meta/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -22347,7 +23737,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameStatisticMetaResult result = api.BrowseGameStatisticMetaListByFilter(obj);
+            GameStatisticMetaResult result = api.BrowseGameStatisticMetaListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -22359,12 +23749,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticMetaByUuid()  {
+        public virtual void SetGameStatisticMetaUuid()  {
         
             ResponseGameStatisticMetaBool wrapper = new ResponseGameStatisticMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/set/by-uuid";
+            wrapper.action = "game-statistic-meta/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -22443,17 +23833,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticMetaByUuid(obj);
+            wrapper.data = api.SetGameStatisticMetaUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameStatisticMetaByCodeByGameId()  {
+        public virtual void SetGameStatisticMetaCodeGameId()  {
         
             ResponseGameStatisticMetaBool wrapper = new ResponseGameStatisticMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/set/by-code/by-game-id";
+            wrapper.action = "game-statistic-meta/set/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -22532,26 +23922,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameStatisticMetaByCodeByGameId(obj);
+            wrapper.data = api.SetGameStatisticMetaCodeGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticMetaByUuid() {
+        public virtual void DelGameStatisticMetaUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticMetaBool wrapper = new ResponseGameStatisticMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/del/by-uuid";
+            wrapper.action = "game-statistic-meta/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticMetaByUuid(
+            bool completed = api.DelGameStatisticMetaUuid(
                         
                 _uuid
             );
@@ -22562,7 +23952,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameStatisticMetaByCodeByGameId() {
+        public virtual void DelGameStatisticMetaCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -22570,14 +23960,14 @@ namespace gaming {
             ResponseGameStatisticMetaBool wrapper = new ResponseGameStatisticMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/del/by-code/by-game-id";
+            wrapper.action = "game-statistic-meta/del/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameStatisticMetaByCodeByGameId(
+            bool completed = api.DelGameStatisticMetaCodeGameId(
                         
                 _code
                 , _game_id
@@ -22590,21 +23980,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticMetaListByUuid() {
+        public virtual void GetGameStatisticMetaListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameStatisticMetaList wrapper = new ResponseGameStatisticMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/get/by-uuid";
+            wrapper.action = "game-statistic-meta/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListByUuid(
+            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListUuid(
                 _uuid
             );
             
@@ -22615,21 +24005,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticMetaListByCode() {
+        public virtual void GetGameStatisticMetaListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameStatisticMetaList wrapper = new ResponseGameStatisticMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/get/by-code";
+            wrapper.action = "game-statistic-meta/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListByCode(
+            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListCode(
                 _code
             );
             
@@ -22640,21 +24030,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticMetaListByName() {
+        public virtual void GetGameStatisticMetaListName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameStatisticMetaList wrapper = new ResponseGameStatisticMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/get/by-name";
+            wrapper.action = "game-statistic-meta/get/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListByName(
+            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListName(
                 _name
             );
             
@@ -22665,21 +24055,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticMetaListByGameId() {
+        public virtual void GetGameStatisticMetaListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameStatisticMetaList wrapper = new ResponseGameStatisticMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/get/by-game-id";
+            wrapper.action = "game-statistic-meta/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListByGameId(
+            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListGameId(
                 _game_id
             );
             
@@ -22690,7 +24080,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameStatisticMetaListByCodeByGameId() {
+        public virtual void GetGameStatisticMetaListCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -22698,14 +24088,14 @@ namespace gaming {
             ResponseGameStatisticMetaList wrapper = new ResponseGameStatisticMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-statistic-meta/get/by-code/by-game-id";
+            wrapper.action = "game-statistic-meta/get/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListByCodeByGameId(
+            List<GameStatisticMeta> objs = api.GetGameStatisticMetaListCodeGameId(
                 _code
                 , _game_id
             );
@@ -22740,21 +24130,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticTimestampByUuid() {
+        public virtual void CountGameProfileStatisticTimestampUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileStatisticTimestampInt wrapper = new ResponseGameProfileStatisticTimestampInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/count/by-uuid";
+            wrapper.action = "game-profile-statistic-timestamp/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticTimestampByUuid(
+            int i = api.CountGameProfileStatisticTimestampUuid(
                 _uuid
             );
             
@@ -22765,7 +24155,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticTimestampByCodeByProfileIdByGameId() {
+        public virtual void CountGameProfileStatisticTimestampCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -22774,14 +24164,14 @@ namespace gaming {
             ResponseGameProfileStatisticTimestampInt wrapper = new ResponseGameProfileStatisticTimestampInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/count/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic-timestamp/count/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            int i = api.CountGameProfileStatisticTimestampCodeProfileIdGameId(
                 _code
                 , _profile_id
                 , _game_id
@@ -22794,7 +24184,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp() {
+        public virtual void CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -22804,14 +24194,14 @@ namespace gaming {
             ResponseGameProfileStatisticTimestampInt wrapper = new ResponseGameProfileStatisticTimestampInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/count/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic-timestamp/count/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            int i = api.CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
                 _code
                 , _profile_id
                 , _game_id
@@ -22824,12 +24214,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameProfileStatisticTimestampListByFilter()  {
+        public virtual void BrowseGameProfileStatisticTimestampListFilter()  {
         
             ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/browse/by-filter";
+            wrapper.action = "game-profile-statistic-timestamp/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -22841,7 +24231,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameProfileStatisticTimestampResult result = api.BrowseGameProfileStatisticTimestampListByFilter(obj);
+            GameProfileStatisticTimestampResult result = api.BrowseGameProfileStatisticTimestampListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -22853,12 +24243,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticTimestampByUuid()  {
+        public virtual void SetGameProfileStatisticTimestampUuid()  {
         
             ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/set/by-uuid";
+            wrapper.action = "game-profile-statistic-timestamp/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -22915,17 +24305,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticTimestampByUuid(obj);
+            wrapper.data = api.SetGameProfileStatisticTimestampUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticTimestampByCodeByProfileIdByGameId()  {
+        public virtual void SetGameProfileStatisticTimestampCodeProfileIdGameId()  {
         
             ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/set/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic-timestamp/set/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -22982,17 +24372,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(obj);
+            wrapper.data = api.SetGameProfileStatisticTimestampCodeProfileIdGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp()  {
+        public virtual void SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp()  {
         
             ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/set/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic-timestamp/set/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -23049,26 +24439,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(obj);
+            wrapper.data = api.SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticTimestampByUuid() {
+        public virtual void DelGameProfileStatisticTimestampUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/del/by-uuid";
+            wrapper.action = "game-profile-statistic-timestamp/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticTimestampByUuid(
+            bool completed = api.DelGameProfileStatisticTimestampUuid(
                         
                 _uuid
             );
@@ -23079,7 +24469,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticTimestampByCodeByProfileIdByGameId() {
+        public virtual void DelGameProfileStatisticTimestampCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -23088,14 +24478,14 @@ namespace gaming {
             ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/del/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic-timestamp/del/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+            bool completed = api.DelGameProfileStatisticTimestampCodeProfileIdGameId(
                         
                 _code
                 , _profile_id
@@ -23108,7 +24498,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp() {
+        public virtual void DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -23118,14 +24508,14 @@ namespace gaming {
             ResponseGameProfileStatisticTimestampBool wrapper = new ResponseGameProfileStatisticTimestampBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/del/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic-timestamp/del/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+            bool completed = api.DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
                         
                 _code
                 , _profile_id
@@ -23140,21 +24530,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticTimestampListByUuid() {
+        public virtual void GetGameProfileStatisticTimestampListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/get/by-uuid";
+            wrapper.action = "game-profile-statistic-timestamp/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListByUuid(
+            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListUuid(
                 _uuid
             );
             
@@ -23165,7 +24555,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId() {
+        public virtual void GetGameProfileStatisticTimestampListCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -23174,14 +24564,14 @@ namespace gaming {
             ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/get/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-statistic-timestamp/get/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListCodeProfileIdGameId(
                 _code
                 , _profile_id
                 , _game_id
@@ -23194,7 +24584,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp() {
+        public virtual void GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -23204,14 +24594,14 @@ namespace gaming {
             ResponseGameProfileStatisticTimestampList wrapper = new ResponseGameProfileStatisticTimestampList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-statistic-timestamp/get/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-statistic-timestamp/get/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+            List<GameProfileStatisticTimestamp> objs = api.GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
                 _code
                 , _profile_id
                 , _game_id
@@ -23248,21 +24638,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameKeyMetaByUuid() {
+        public virtual void CountGameKeyMetaUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameKeyMetaInt wrapper = new ResponseGameKeyMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/count/by-uuid";
+            wrapper.action = "game-key-meta/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameKeyMetaByUuid(
+            int i = api.CountGameKeyMetaUuid(
                 _uuid
             );
             
@@ -23273,21 +24663,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameKeyMetaByCode() {
+        public virtual void CountGameKeyMetaCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameKeyMetaInt wrapper = new ResponseGameKeyMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/count/by-code";
+            wrapper.action = "game-key-meta/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameKeyMetaByCode(
+            int i = api.CountGameKeyMetaCode(
                 _code
             );
             
@@ -23298,7 +24688,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameKeyMetaByCodeByGameId() {
+        public virtual void CountGameKeyMetaCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -23306,14 +24696,14 @@ namespace gaming {
             ResponseGameKeyMetaInt wrapper = new ResponseGameKeyMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/count/by-code/by-game-id";
+            wrapper.action = "game-key-meta/count/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameKeyMetaByCodeByGameId(
+            int i = api.CountGameKeyMetaCodeGameId(
                 _code
                 , _game_id
             );
@@ -23325,21 +24715,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameKeyMetaByName() {
+        public virtual void CountGameKeyMetaName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameKeyMetaInt wrapper = new ResponseGameKeyMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/count/by-name";
+            wrapper.action = "game-key-meta/count/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameKeyMetaByName(
+            int i = api.CountGameKeyMetaName(
                 _name
             );
             
@@ -23350,21 +24740,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameKeyMetaByKey() {
+        public virtual void CountGameKeyMetaKey() {
         
              _key = ()util.GetParamValue(_context, "@key");
 
             ResponseGameKeyMetaInt wrapper = new ResponseGameKeyMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/count/by-key";
+            wrapper.action = "game-key-meta/count/key";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameKeyMetaByKey(
+            int i = api.CountGameKeyMetaKey(
                 _key
             );
             
@@ -23375,21 +24765,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameKeyMetaByGameId() {
+        public virtual void CountGameKeyMetaGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameKeyMetaInt wrapper = new ResponseGameKeyMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/count/by-game-id";
+            wrapper.action = "game-key-meta/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameKeyMetaByGameId(
+            int i = api.CountGameKeyMetaGameId(
                 _game_id
             );
             
@@ -23400,7 +24790,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameKeyMetaByKeyByGameId() {
+        public virtual void CountGameKeyMetaKeyGameId() {
         
              _key = ()util.GetParamValue(_context, "@key");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -23408,14 +24798,14 @@ namespace gaming {
             ResponseGameKeyMetaInt wrapper = new ResponseGameKeyMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/count/by-key/by-game-id";
+            wrapper.action = "game-key-meta/count/key/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameKeyMetaByKeyByGameId(
+            int i = api.CountGameKeyMetaKeyGameId(
                 _key
                 , _game_id
             );
@@ -23426,12 +24816,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameKeyMetaListByFilter()  {
+        public virtual void BrowseGameKeyMetaListFilter()  {
         
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/browse/by-filter";
+            wrapper.action = "game-key-meta/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -23443,7 +24833,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameKeyMetaResult result = api.BrowseGameKeyMetaListByFilter(obj);
+            GameKeyMetaResult result = api.BrowseGameKeyMetaListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -23455,12 +24845,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameKeyMetaByUuid()  {
+        public virtual void SetGameKeyMetaUuid()  {
         
             ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/set/by-uuid";
+            wrapper.action = "game-key-meta/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -23551,17 +24941,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameKeyMetaByUuid(obj);
+            wrapper.data = api.SetGameKeyMetaUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameKeyMetaByCodeByGameId()  {
+        public virtual void SetGameKeyMetaCodeGameId()  {
         
             ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/set/by-code/by-game-id";
+            wrapper.action = "game-key-meta/set/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -23652,17 +25042,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameKeyMetaByCodeByGameId(obj);
+            wrapper.data = api.SetGameKeyMetaCodeGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameKeyMetaByKeyByGameId()  {
+        public virtual void SetGameKeyMetaKeyGameId()  {
         
             ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/set/by-key/by-game-id";
+            wrapper.action = "game-key-meta/set/key/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -23753,17 +25143,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameKeyMetaByKeyByGameId(obj);
+            wrapper.data = api.SetGameKeyMetaKeyGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameKeyMetaByKeyByGameIdByLevel()  {
+        public virtual void SetGameKeyMetaKeyGameIdLevel()  {
         
             ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/set/by-key/by-game-id/by-level";
+            wrapper.action = "game-key-meta/set/key/game-id/level";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -23854,26 +25244,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameKeyMetaByKeyByGameIdByLevel(obj);
+            wrapper.data = api.SetGameKeyMetaKeyGameIdLevel(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameKeyMetaByUuid() {
+        public virtual void DelGameKeyMetaUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/del/by-uuid";
+            wrapper.action = "game-key-meta/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameKeyMetaByUuid(
+            bool completed = api.DelGameKeyMetaUuid(
                         
                 _uuid
             );
@@ -23884,7 +25274,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameKeyMetaByCodeByGameId() {
+        public virtual void DelGameKeyMetaCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -23892,14 +25282,14 @@ namespace gaming {
             ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/del/by-code/by-game-id";
+            wrapper.action = "game-key-meta/del/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameKeyMetaByCodeByGameId(
+            bool completed = api.DelGameKeyMetaCodeGameId(
                         
                 _code
                 , _game_id
@@ -23911,7 +25301,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameKeyMetaByKeyByGameId() {
+        public virtual void DelGameKeyMetaKeyGameId() {
         
              _key = ()util.GetParamValue(_context, "@key");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -23919,14 +25309,14 @@ namespace gaming {
             ResponseGameKeyMetaBool wrapper = new ResponseGameKeyMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/del/by-key/by-game-id";
+            wrapper.action = "game-key-meta/del/key/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameKeyMetaByKeyByGameId(
+            bool completed = api.DelGameKeyMetaKeyGameId(
                         
                 _key
                 , _game_id
@@ -23939,21 +25329,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameKeyMetaListByUuid() {
+        public virtual void GetGameKeyMetaListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/get/by-uuid";
+            wrapper.action = "game-key-meta/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameKeyMeta> objs = api.GetGameKeyMetaListByUuid(
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListUuid(
                 _uuid
             );
             
@@ -23964,21 +25354,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameKeyMetaListByCode() {
+        public virtual void GetGameKeyMetaListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/get/by-code";
+            wrapper.action = "game-key-meta/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameKeyMeta> objs = api.GetGameKeyMetaListByCode(
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListCode(
                 _code
             );
             
@@ -23989,7 +25379,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameKeyMetaListByCodeByGameId() {
+        public virtual void GetGameKeyMetaListCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -23997,14 +25387,14 @@ namespace gaming {
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/get/by-code/by-game-id";
+            wrapper.action = "game-key-meta/get/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameKeyMeta> objs = api.GetGameKeyMetaListByCodeByGameId(
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListCodeGameId(
                 _code
                 , _game_id
             );
@@ -24016,21 +25406,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameKeyMetaListByName() {
+        public virtual void GetGameKeyMetaListName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/get/by-name";
+            wrapper.action = "game-key-meta/get/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameKeyMeta> objs = api.GetGameKeyMetaListByName(
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListName(
                 _name
             );
             
@@ -24041,21 +25431,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameKeyMetaListByKey() {
+        public virtual void GetGameKeyMetaListKey() {
         
              _key = ()util.GetParamValue(_context, "@key");
 
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/get/by-key";
+            wrapper.action = "game-key-meta/get/key";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameKeyMeta> objs = api.GetGameKeyMetaListByKey(
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListKey(
                 _key
             );
             
@@ -24066,21 +25456,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameKeyMetaListByGameId() {
+        public virtual void GetGameKeyMetaListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/get/by-game-id";
+            wrapper.action = "game-key-meta/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameKeyMeta> objs = api.GetGameKeyMetaListByGameId(
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListGameId(
                 _game_id
             );
             
@@ -24091,7 +25481,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameKeyMetaListByKeyByGameId() {
+        public virtual void GetGameKeyMetaListKeyGameId() {
         
              _key = ()util.GetParamValue(_context, "@key");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -24099,14 +25489,14 @@ namespace gaming {
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/get/by-key/by-game-id";
+            wrapper.action = "game-key-meta/get/key/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameKeyMeta> objs = api.GetGameKeyMetaListByKeyByGameId(
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListKeyGameId(
                 _key
                 , _game_id
             );
@@ -24118,7 +25508,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameKeyMetaListByCodeByLevel() {
+        public virtual void GetGameKeyMetaListCodeLevel() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _level = ()util.GetParamValue(_context, "@level");
@@ -24126,14 +25516,14 @@ namespace gaming {
             ResponseGameKeyMetaList wrapper = new ResponseGameKeyMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-key-meta/get/by-code/by-level";
+            wrapper.action = "game-key-meta/get/code/level";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameKeyMeta> objs = api.GetGameKeyMetaListByCodeByLevel(
+            List<GameKeyMeta> objs = api.GetGameKeyMetaListCodeLevel(
                 _code
                 , _level
             );
@@ -24168,21 +25558,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLevelByUuid() {
+        public virtual void CountGameLevelUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLevelInt wrapper = new ResponseGameLevelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/count/by-uuid";
+            wrapper.action = "game-level/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLevelByUuid(
+            int i = api.CountGameLevelUuid(
                 _uuid
             );
             
@@ -24193,21 +25583,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLevelByCode() {
+        public virtual void CountGameLevelCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameLevelInt wrapper = new ResponseGameLevelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/count/by-code";
+            wrapper.action = "game-level/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLevelByCode(
+            int i = api.CountGameLevelCode(
                 _code
             );
             
@@ -24218,7 +25608,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLevelByCodeByGameId() {
+        public virtual void CountGameLevelCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -24226,14 +25616,14 @@ namespace gaming {
             ResponseGameLevelInt wrapper = new ResponseGameLevelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/count/by-code/by-game-id";
+            wrapper.action = "game-level/count/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLevelByCodeByGameId(
+            int i = api.CountGameLevelCodeGameId(
                 _code
                 , _game_id
             );
@@ -24245,21 +25635,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLevelByName() {
+        public virtual void CountGameLevelName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameLevelInt wrapper = new ResponseGameLevelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/count/by-name";
+            wrapper.action = "game-level/count/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLevelByName(
+            int i = api.CountGameLevelName(
                 _name
             );
             
@@ -24270,21 +25660,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameLevelByGameId() {
+        public virtual void CountGameLevelGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameLevelInt wrapper = new ResponseGameLevelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/count/by-game-id";
+            wrapper.action = "game-level/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameLevelByGameId(
+            int i = api.CountGameLevelGameId(
                 _game_id
             );
             
@@ -24294,12 +25684,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameLevelListByFilter()  {
+        public virtual void BrowseGameLevelListFilter()  {
         
             ResponseGameLevelList wrapper = new ResponseGameLevelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/browse/by-filter";
+            wrapper.action = "game-level/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -24311,7 +25701,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameLevelResult result = api.BrowseGameLevelListByFilter(obj);
+            GameLevelResult result = api.BrowseGameLevelListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -24323,12 +25713,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameLevelByUuid()  {
+        public virtual void SetGameLevelUuid()  {
         
             ResponseGameLevelBool wrapper = new ResponseGameLevelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/set/by-uuid";
+            wrapper.action = "game-level/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -24399,17 +25789,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameLevelByUuid(obj);
+            wrapper.data = api.SetGameLevelUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameLevelByCodeByGameId()  {
+        public virtual void SetGameLevelCodeGameId()  {
         
             ResponseGameLevelBool wrapper = new ResponseGameLevelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/set/by-code/by-game-id";
+            wrapper.action = "game-level/set/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -24480,26 +25870,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameLevelByCodeByGameId(obj);
+            wrapper.data = api.SetGameLevelCodeGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameLevelByUuid() {
+        public virtual void DelGameLevelUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLevelBool wrapper = new ResponseGameLevelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/del/by-uuid";
+            wrapper.action = "game-level/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameLevelByUuid(
+            bool completed = api.DelGameLevelUuid(
                         
                 _uuid
             );
@@ -24510,7 +25900,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameLevelByCodeByGameId() {
+        public virtual void DelGameLevelCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -24518,14 +25908,14 @@ namespace gaming {
             ResponseGameLevelBool wrapper = new ResponseGameLevelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/del/by-code/by-game-id";
+            wrapper.action = "game-level/del/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameLevelByCodeByGameId(
+            bool completed = api.DelGameLevelCodeGameId(
                         
                 _code
                 , _game_id
@@ -24538,21 +25928,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLevelListByUuid() {
+        public virtual void GetGameLevelListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameLevelList wrapper = new ResponseGameLevelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/get/by-uuid";
+            wrapper.action = "game-level/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLevel> objs = api.GetGameLevelListByUuid(
+            List<GameLevel> objs = api.GetGameLevelListUuid(
                 _uuid
             );
             
@@ -24563,21 +25953,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLevelListByCode() {
+        public virtual void GetGameLevelListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameLevelList wrapper = new ResponseGameLevelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/get/by-code";
+            wrapper.action = "game-level/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLevel> objs = api.GetGameLevelListByCode(
+            List<GameLevel> objs = api.GetGameLevelListCode(
                 _code
             );
             
@@ -24588,7 +25978,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLevelListByCodeByGameId() {
+        public virtual void GetGameLevelListCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -24596,14 +25986,14 @@ namespace gaming {
             ResponseGameLevelList wrapper = new ResponseGameLevelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/get/by-code/by-game-id";
+            wrapper.action = "game-level/get/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLevel> objs = api.GetGameLevelListByCodeByGameId(
+            List<GameLevel> objs = api.GetGameLevelListCodeGameId(
                 _code
                 , _game_id
             );
@@ -24615,21 +26005,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLevelListByName() {
+        public virtual void GetGameLevelListName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameLevelList wrapper = new ResponseGameLevelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/get/by-name";
+            wrapper.action = "game-level/get/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLevel> objs = api.GetGameLevelListByName(
+            List<GameLevel> objs = api.GetGameLevelListName(
                 _name
             );
             
@@ -24640,21 +26030,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameLevelListByGameId() {
+        public virtual void GetGameLevelListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameLevelList wrapper = new ResponseGameLevelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-level/get/by-game-id";
+            wrapper.action = "game-level/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameLevel> objs = api.GetGameLevelListByGameId(
+            List<GameLevel> objs = api.GetGameLevelListGameId(
                 _game_id
             );
             
@@ -24688,21 +26078,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileAchievementByUuid() {
+        public virtual void CountGameProfileAchievementUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileAchievementInt wrapper = new ResponseGameProfileAchievementInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/count/by-uuid";
+            wrapper.action = "game-profile-achievement/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileAchievementByUuid(
+            int i = api.CountGameProfileAchievementUuid(
                 _uuid
             );
             
@@ -24713,7 +26103,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileAchievementByProfileIdByCode() {
+        public virtual void CountGameProfileAchievementProfileIdCode() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _code = ()util.GetParamValue(_context, "@code");
@@ -24721,14 +26111,14 @@ namespace gaming {
             ResponseGameProfileAchievementInt wrapper = new ResponseGameProfileAchievementInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/count/by-profile-id/by-code";
+            wrapper.action = "game-profile-achievement/count/profile-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileAchievementByProfileIdByCode(
+            int i = api.CountGameProfileAchievementProfileIdCode(
                 _profile_id
                 , _code
             );
@@ -24740,21 +26130,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileAchievementByUsername() {
+        public virtual void CountGameProfileAchievementUsername() {
         
              _username = ()util.GetParamValue(_context, "@username");
 
             ResponseGameProfileAchievementInt wrapper = new ResponseGameProfileAchievementInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/count/by-username";
+            wrapper.action = "game-profile-achievement/count/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileAchievementByUsername(
+            int i = api.CountGameProfileAchievementUsername(
                 _username
             );
             
@@ -24765,7 +26155,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileAchievementByCodeByProfileIdByGameId() {
+        public virtual void CountGameProfileAchievementCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -24774,14 +26164,14 @@ namespace gaming {
             ResponseGameProfileAchievementInt wrapper = new ResponseGameProfileAchievementInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/count/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-achievement/count/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileAchievementByCodeByProfileIdByGameId(
+            int i = api.CountGameProfileAchievementCodeProfileIdGameId(
                 _code
                 , _profile_id
                 , _game_id
@@ -24794,7 +26184,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp() {
+        public virtual void CountGameProfileAchievementCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -24804,14 +26194,14 @@ namespace gaming {
             ResponseGameProfileAchievementInt wrapper = new ResponseGameProfileAchievementInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/count/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-achievement/count/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+            int i = api.CountGameProfileAchievementCodeProfileIdGameIdTimestamp(
                 _code
                 , _profile_id
                 , _game_id
@@ -24824,12 +26214,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameProfileAchievementListByFilter()  {
+        public virtual void BrowseGameProfileAchievementListFilter()  {
         
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/browse/by-filter";
+            wrapper.action = "game-profile-achievement/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -24841,7 +26231,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameProfileAchievementResult result = api.BrowseGameProfileAchievementListByFilter(obj);
+            GameProfileAchievementResult result = api.BrowseGameProfileAchievementListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -24853,12 +26243,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileAchievementByUuid()  {
+        public virtual void SetGameProfileAchievementUuid()  {
         
             ResponseGameProfileAchievementBool wrapper = new ResponseGameProfileAchievementBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/set/by-uuid";
+            wrapper.action = "game-profile-achievement/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -24933,17 +26323,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileAchievementByUuid(obj);
+            wrapper.data = api.SetGameProfileAchievementUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileAchievementByUuidByCode()  {
+        public virtual void SetGameProfileAchievementUuidCode()  {
         
             ResponseGameProfileAchievementBool wrapper = new ResponseGameProfileAchievementBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/set/by-uuid/by-code";
+            wrapper.action = "game-profile-achievement/set/uuid/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -25018,17 +26408,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileAchievementByUuidByCode(obj);
+            wrapper.data = api.SetGameProfileAchievementUuidCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileAchievementByProfileIdByCode()  {
+        public virtual void SetGameProfileAchievementProfileIdCode()  {
         
             ResponseGameProfileAchievementBool wrapper = new ResponseGameProfileAchievementBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/set/by-profile-id/by-code";
+            wrapper.action = "game-profile-achievement/set/profile-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -25103,17 +26493,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileAchievementByProfileIdByCode(obj);
+            wrapper.data = api.SetGameProfileAchievementProfileIdCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileAchievementByCodeByProfileIdByGameId()  {
+        public virtual void SetGameProfileAchievementCodeProfileIdGameId()  {
         
             ResponseGameProfileAchievementBool wrapper = new ResponseGameProfileAchievementBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/set/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-achievement/set/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -25188,17 +26578,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileAchievementByCodeByProfileIdByGameId(obj);
+            wrapper.data = api.SetGameProfileAchievementCodeProfileIdGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp()  {
+        public virtual void SetGameProfileAchievementCodeProfileIdGameIdTimestamp()  {
         
             ResponseGameProfileAchievementBool wrapper = new ResponseGameProfileAchievementBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/set/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-achievement/set/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -25273,26 +26663,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(obj);
+            wrapper.data = api.SetGameProfileAchievementCodeProfileIdGameIdTimestamp(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileAchievementByUuid() {
+        public virtual void DelGameProfileAchievementUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileAchievementBool wrapper = new ResponseGameProfileAchievementBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/del/by-uuid";
+            wrapper.action = "game-profile-achievement/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileAchievementByUuid(
+            bool completed = api.DelGameProfileAchievementUuid(
                         
                 _uuid
             );
@@ -25303,7 +26693,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileAchievementByProfileIdByCode() {
+        public virtual void DelGameProfileAchievementProfileIdCode() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _code = ()util.GetParamValue(_context, "@code");
@@ -25311,14 +26701,14 @@ namespace gaming {
             ResponseGameProfileAchievementBool wrapper = new ResponseGameProfileAchievementBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/del/by-profile-id/by-code";
+            wrapper.action = "game-profile-achievement/del/profile-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileAchievementByProfileIdByCode(
+            bool completed = api.DelGameProfileAchievementProfileIdCode(
                         
                 _profile_id
                 , _code
@@ -25330,7 +26720,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameProfileAchievementByUuidByCode() {
+        public virtual void DelGameProfileAchievementUuidCode() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _code = ()util.GetParamValue(_context, "@code");
@@ -25338,14 +26728,14 @@ namespace gaming {
             ResponseGameProfileAchievementBool wrapper = new ResponseGameProfileAchievementBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/del/by-uuid/by-code";
+            wrapper.action = "game-profile-achievement/del/uuid/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameProfileAchievementByUuidByCode(
+            bool completed = api.DelGameProfileAchievementUuidCode(
                         
                 _uuid
                 , _code
@@ -25358,21 +26748,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByUuid() {
+        public virtual void GetGameProfileAchievementListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-uuid";
+            wrapper.action = "game-profile-achievement/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByUuid(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListUuid(
                 _uuid
             );
             
@@ -25383,7 +26773,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByProfileIdByCode() {
+        public virtual void GetGameProfileAchievementListProfileIdCode() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _code = ()util.GetParamValue(_context, "@code");
@@ -25391,14 +26781,14 @@ namespace gaming {
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-profile-id/by-code";
+            wrapper.action = "game-profile-achievement/get/profile-id/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByProfileIdByCode(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListProfileIdCode(
                 _profile_id
                 , _code
             );
@@ -25410,21 +26800,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByUsername() {
+        public virtual void GetGameProfileAchievementListUsername() {
         
              _username = ()util.GetParamValue(_context, "@username");
 
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-username";
+            wrapper.action = "game-profile-achievement/get/username";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByUsername(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListUsername(
                 _username
             );
             
@@ -25435,21 +26825,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByCode() {
+        public virtual void GetGameProfileAchievementListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-code";
+            wrapper.action = "game-profile-achievement/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByCode(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListCode(
                 _code
             );
             
@@ -25460,21 +26850,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByGameId() {
+        public virtual void GetGameProfileAchievementListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-game-id";
+            wrapper.action = "game-profile-achievement/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByGameId(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListGameId(
                 _game_id
             );
             
@@ -25485,7 +26875,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByCodeByGameId() {
+        public virtual void GetGameProfileAchievementListCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -25493,14 +26883,14 @@ namespace gaming {
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-code/by-game-id";
+            wrapper.action = "game-profile-achievement/get/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByCodeByGameId(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListCodeGameId(
                 _code
                 , _game_id
             );
@@ -25512,7 +26902,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByProfileIdByGameId() {
+        public virtual void GetGameProfileAchievementListProfileIdGameId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -25520,14 +26910,14 @@ namespace gaming {
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-achievement/get/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByProfileIdByGameId(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListProfileIdGameId(
                 _profile_id
                 , _game_id
             );
@@ -25539,7 +26929,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByProfileIdByGameIdByTimestamp() {
+        public virtual void GetGameProfileAchievementListProfileIdGameIdTimestamp() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -25548,14 +26938,14 @@ namespace gaming {
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-achievement/get/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListProfileIdGameIdTimestamp(
                 _profile_id
                 , _game_id
                 , _timestamp
@@ -25568,7 +26958,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByCodeByProfileIdByGameId() {
+        public virtual void GetGameProfileAchievementListCodeProfileIdGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -25577,14 +26967,14 @@ namespace gaming {
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-code/by-profile-id/by-game-id";
+            wrapper.action = "game-profile-achievement/get/code/profile-id/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByCodeByProfileIdByGameId(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListCodeProfileIdGameId(
                 _code
                 , _profile_id
                 , _game_id
@@ -25597,7 +26987,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp() {
+        public virtual void GetGameProfileAchievementListCodeProfileIdGameIdTimestamp() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -25607,14 +26997,14 @@ namespace gaming {
             ResponseGameProfileAchievementList wrapper = new ResponseGameProfileAchievementList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-profile-achievement/get/by-code/by-profile-id/by-game-id/by-timestamp";
+            wrapper.action = "game-profile-achievement/get/code/profile-id/game-id/timestamp";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+            List<GameProfileAchievement> objs = api.GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
                 _code
                 , _profile_id
                 , _game_id
@@ -25651,21 +27041,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAchievementMetaByUuid() {
+        public virtual void CountGameAchievementMetaUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameAchievementMetaInt wrapper = new ResponseGameAchievementMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/count/by-uuid";
+            wrapper.action = "game-achievement-meta/count/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAchievementMetaByUuid(
+            int i = api.CountGameAchievementMetaUuid(
                 _uuid
             );
             
@@ -25676,21 +27066,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAchievementMetaByCode() {
+        public virtual void CountGameAchievementMetaCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameAchievementMetaInt wrapper = new ResponseGameAchievementMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/count/by-code";
+            wrapper.action = "game-achievement-meta/count/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAchievementMetaByCode(
+            int i = api.CountGameAchievementMetaCode(
                 _code
             );
             
@@ -25701,7 +27091,7 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAchievementMetaByCodeByGameId() {
+        public virtual void CountGameAchievementMetaCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -25709,14 +27099,14 @@ namespace gaming {
             ResponseGameAchievementMetaInt wrapper = new ResponseGameAchievementMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/count/by-code/by-game-id";
+            wrapper.action = "game-achievement-meta/count/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAchievementMetaByCodeByGameId(
+            int i = api.CountGameAchievementMetaCodeGameId(
                 _code
                 , _game_id
             );
@@ -25728,21 +27118,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAchievementMetaByName() {
+        public virtual void CountGameAchievementMetaName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameAchievementMetaInt wrapper = new ResponseGameAchievementMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/count/by-name";
+            wrapper.action = "game-achievement-meta/count/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAchievementMetaByName(
+            int i = api.CountGameAchievementMetaName(
                 _name
             );
             
@@ -25753,21 +27143,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountGameAchievementMetaByGameId() {
+        public virtual void CountGameAchievementMetaGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameAchievementMetaInt wrapper = new ResponseGameAchievementMetaInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/count/by-game-id";
+            wrapper.action = "game-achievement-meta/count/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountGameAchievementMetaByGameId(
+            int i = api.CountGameAchievementMetaGameId(
                 _game_id
             );
             
@@ -25777,12 +27167,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseGameAchievementMetaListByFilter()  {
+        public virtual void BrowseGameAchievementMetaListFilter()  {
         
             ResponseGameAchievementMetaList wrapper = new ResponseGameAchievementMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/browse/by-filter";
+            wrapper.action = "game-achievement-meta/browse/filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -25794,7 +27184,7 @@ namespace gaming {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            GameAchievementMetaResult result = api.BrowseGameAchievementMetaListByFilter(obj);
+            GameAchievementMetaResult result = api.BrowseGameAchievementMetaListFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -25806,12 +27196,12 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameAchievementMetaByUuid()  {
+        public virtual void SetGameAchievementMetaUuid()  {
         
             ResponseGameAchievementMetaBool wrapper = new ResponseGameAchievementMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/set/by-uuid";
+            wrapper.action = "game-achievement-meta/set/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -25898,17 +27288,17 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameAchievementMetaByUuid(obj);
+            wrapper.data = api.SetGameAchievementMetaUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetGameAchievementMetaByCodeByGameId()  {
+        public virtual void SetGameAchievementMetaCodeGameId()  {
         
             ResponseGameAchievementMetaBool wrapper = new ResponseGameAchievementMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/set/by-code/by-game-id";
+            wrapper.action = "game-achievement-meta/set/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -25995,26 +27385,26 @@ namespace gaming {
             
             
             // get data
-            wrapper.data = api.SetGameAchievementMetaByCodeByGameId(obj);
+            wrapper.data = api.SetGameAchievementMetaCodeGameId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameAchievementMetaByUuid() {
+        public virtual void DelGameAchievementMetaUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameAchievementMetaBool wrapper = new ResponseGameAchievementMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/del/by-uuid";
+            wrapper.action = "game-achievement-meta/del/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameAchievementMetaByUuid(
+            bool completed = api.DelGameAchievementMetaUuid(
                         
                 _uuid
             );
@@ -26025,7 +27415,7 @@ namespace gaming {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelGameAchievementMetaByCodeByGameId() {
+        public virtual void DelGameAchievementMetaCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -26033,14 +27423,14 @@ namespace gaming {
             ResponseGameAchievementMetaBool wrapper = new ResponseGameAchievementMetaBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/del/by-code/by-game-id";
+            wrapper.action = "game-achievement-meta/del/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelGameAchievementMetaByCodeByGameId(
+            bool completed = api.DelGameAchievementMetaCodeGameId(
                         
                 _code
                 , _game_id
@@ -26053,21 +27443,21 @@ namespace gaming {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAchievementMetaListByUuid() {
+        public virtual void GetGameAchievementMetaListUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseGameAchievementMetaList wrapper = new ResponseGameAchievementMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/get/by-uuid";
+            wrapper.action = "game-achievement-meta/get/uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListByUuid(
+            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListUuid(
                 _uuid
             );
             
@@ -26078,21 +27468,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAchievementMetaListByCode() {
+        public virtual void GetGameAchievementMetaListCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseGameAchievementMetaList wrapper = new ResponseGameAchievementMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/get/by-code";
+            wrapper.action = "game-achievement-meta/get/code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListByCode(
+            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListCode(
                 _code
             );
             
@@ -26103,7 +27493,7 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAchievementMetaListByCodeByGameId() {
+        public virtual void GetGameAchievementMetaListCodeGameId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _game_id = ()util.GetParamValue(_context, "@game_id");
@@ -26111,14 +27501,14 @@ namespace gaming {
             ResponseGameAchievementMetaList wrapper = new ResponseGameAchievementMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/get/by-code/by-game-id";
+            wrapper.action = "game-achievement-meta/get/code/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListByCodeByGameId(
+            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListCodeGameId(
                 _code
                 , _game_id
             );
@@ -26130,21 +27520,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAchievementMetaListByName() {
+        public virtual void GetGameAchievementMetaListName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseGameAchievementMetaList wrapper = new ResponseGameAchievementMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/get/by-name";
+            wrapper.action = "game-achievement-meta/get/name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListByName(
+            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListName(
                 _name
             );
             
@@ -26155,21 +27545,21 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetGameAchievementMetaListByGameId() {
+        public virtual void GetGameAchievementMetaListGameId() {
         
              _game_id = ()util.GetParamValue(_context, "@game_id");
 
             ResponseGameAchievementMetaList wrapper = new ResponseGameAchievementMetaList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "game-achievement-meta/get/by-game-id";
+            wrapper.action = "game-achievement-meta/get/game-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListByGameId(
+            List<GameAchievementMeta> objs = api.GetGameAchievementMetaListGameId(
                 _game_id
             );
             

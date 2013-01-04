@@ -71,6 +71,9 @@ DROP TABLE IF EXISTS "game_product" CASCADE;
 DROP TABLE IF EXISTS "game_statistic_leaderboard" CASCADE;
     
         
+DROP TABLE IF EXISTS "game_statistic_leaderboard_item" CASCADE;
+    
+        
 DROP TABLE IF EXISTS "game_statistic_leaderboard_rollup" CASCADE;
     
         
@@ -668,6 +671,36 @@ CREATE TABLE "game_statistic_leaderboard"
 ALTER TABLE "game_statistic_leaderboard" ADD PRIMARY KEY ("uuid");
     
         
+CREATE TABLE "game_statistic_leaderboard_item" 
+(
+    "status" varchar (255)
+    , "username" varchar (500)
+    , "code" varchar (500)
+    , "timestamp" decimal
+    , "profile_id" uuid
+    , "rank" INTEGER
+    , "rank_change" INTEGER
+    , "game_id" uuid
+    , "active" boolean
+                --CONSTRAINT DF_game_statistic_leaderboard_item_active_bool DEFAULT 1
+    , "rank_total_count" INTEGER
+    , "absolute_value" decimal
+    , "data" varchar
+    , "stat_value" decimal
+    , "network" varchar (500)
+    , "uuid" uuid NOT NULL
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_statistic_leaderboard_item_date_modified DEFAULT GETDATE()
+    , "level" varchar (500)
+    , "stat_value_formatted" varchar (500)
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_statistic_leaderboard_item_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+);
+
+ALTER TABLE "game_statistic_leaderboard_item" ADD PRIMARY KEY ("uuid");
+    
+        
 CREATE TABLE "game_statistic_leaderboard_rollup" 
 (
     "status" varchar (255)
@@ -748,7 +781,7 @@ CREATE TABLE "game_profile_statistic"
     "status" varchar (255)
     , "username" varchar (500)
     , "code" varchar (500)
-    , "timestamp" decimal
+    , "stat_value_formatted" varchar (500)
     , "profile_id" uuid
     , "active" boolean
                 --CONSTRAINT DF_game_profile_statistic_active_bool DEFAULT 1
@@ -760,6 +793,7 @@ CREATE TABLE "game_profile_statistic"
                 --CONSTRAINT DF_game_profile_statistic_date_modified DEFAULT GETDATE()
     , "level" varchar (500)
     , "points" decimal
+    , "timestamp" decimal
     , "date_created" TIMESTAMP
                 --CONSTRAINT DF_game_profile_statistic_date_created DEFAULT GETDATE()
     , "type" varchar (500)
@@ -992,6 +1026,9 @@ DROP type IF EXISTS "game_product_result" CASCADE;
     
         
 DROP type IF EXISTS "game_statistic_leaderboard_result" CASCADE;
+    
+        
+DROP type IF EXISTS "game_statistic_leaderboard_item_result" CASCADE;
     
         
 DROP type IF EXISTS "game_statistic_leaderboard_rollup_result" CASCADE;
@@ -1456,6 +1493,30 @@ CREATE TYPE "game_statistic_leaderboard_result" as
     , "date_created" TIMESTAMP
     , "type" varchar
 );    
+CREATE TYPE "game_statistic_leaderboard_item_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "username" varchar
+    , "code" varchar
+    , "timestamp" decimal
+    , "profile_id" uuid
+    , "rank" INTEGER
+    , "rank_change" INTEGER
+    , "game_id" uuid
+    , "active" boolean
+    , "rank_total_count" INTEGER
+    , "absolute_value" decimal
+    , "data" varchar
+    , "stat_value" decimal
+    , "network" varchar
+    , "uuid" uuid
+    , "date_modified" TIMESTAMP
+    , "level" varchar
+    , "stat_value_formatted" varchar
+    , "date_created" TIMESTAMP
+    , "type" varchar
+);    
 CREATE TYPE "game_statistic_leaderboard_rollup_result" as
 (
     total_rows bigint
@@ -1519,7 +1580,7 @@ CREATE TYPE "game_profile_statistic_result" as
     , "status" varchar
     , "username" varchar
     , "code" varchar
-    , "timestamp" decimal
+    , "stat_value_formatted" varchar
     , "profile_id" uuid
     , "active" boolean
     , "game_id" uuid
@@ -1529,6 +1590,7 @@ CREATE TYPE "game_profile_statistic_result" as
     , "date_modified" TIMESTAMP
     , "level" varchar
     , "points" decimal
+    , "timestamp" decimal
     , "date_created" TIMESTAMP
     , "type" varchar
 );    
@@ -1895,6 +1957,179 @@ CREATE INDEX IX_game_statistic_leaderboard_code_game_id_profile_id ON game_stati
 DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_game_id_type";
                 
 CREATE INDEX IX_game_statistic_leaderboard_code_game_id_type ON game_statistic_leaderboard 
+(
+                    
+    "game_id" ASC
+                    
+    , "code" ASC
+                    
+    , "type" ASC
+);
+        
+-- INDEX CREATES
+
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code ON game_statistic_leaderboard_item 
+(
+                    
+    "code" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_profile_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_profile_id ON game_statistic_leaderboard_item 
+(
+                    
+    "profile_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_username";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_username ON game_statistic_leaderboard_item 
+(
+                    
+    "username" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_game_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_game_id ON game_statistic_leaderboard_item 
+(
+                    
+    "game_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_game_id_level";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_level ON game_statistic_leaderboard_item 
+(
+                    
+    "game_id" ASC
+                    
+    , "code" ASC
+                    
+    , "level" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_profile_id_game_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_profile_id_game_id ON game_statistic_leaderboard_item 
+(
+                    
+    "game_id" ASC
+                    
+    , "profile_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_username_game_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_username_game_id ON game_statistic_leaderboard_item 
+(
+                    
+    "username" ASC
+                    
+    , "game_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_username";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_username ON game_statistic_leaderboard_item 
+(
+                    
+    "username" ASC
+                    
+    , "code" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_username_game_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_username_game_id ON game_statistic_leaderboard_item 
+(
+                    
+    "username" ASC
+                    
+    , "game_id" ASC
+                    
+    , "code" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_username_game_id_type";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_username_game_id_type ON game_statistic_leaderboard_item 
+(
+                    
+    "username" ASC
+                    
+    , "game_id" ASC
+                    
+    , "code" ASC
+                    
+    , "type" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_profile_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id ON game_statistic_leaderboard_item 
+(
+                    
+    "profile_id" ASC
+                    
+    , "code" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_profile_id_game_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id_game_id ON game_statistic_leaderboard_item 
+(
+                    
+    "profile_id" ASC
+                    
+    , "game_id" ASC
+                    
+    , "code" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_profile_id_game_id_type";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id_game_id_type ON game_statistic_leaderboard_item 
+(
+                    
+    "profile_id" ASC
+                    
+    , "game_id" ASC
+                    
+    , "code" ASC
+                    
+    , "type" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_game_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id ON game_statistic_leaderboard_item 
+(
+                    
+    "game_id" ASC
+                    
+    , "code" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_game_id_profile_id";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_profile_id ON game_statistic_leaderboard_item 
+(
+                    
+    "profile_id" ASC
+                    
+    , "game_id" ASC
+                    
+    , "code" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_game_id_type";
+                
+CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_type ON game_statistic_leaderboard_item 
 (
                     
     "game_id" ASC
@@ -33190,6 +33425,2439 @@ $$ LANGUAGE plpgsql;
 -- COUNT
 
 -- ------------------------------------
+-- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_game_id
+(
+    in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_code
+(
+    in_code varchar (500) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_code_game_id
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id_profile_
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_code_game_id_profile_
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id_profile_
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_code_game_id_profile_
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_timestamp decimal = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "timestamp" = in_timestamp
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_profile_id_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_profile_id_game_id
+(
+    in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_statistic_leaderboard_item_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "username"'
+    || ', "code"'
+    || ', "timestamp"'
+    || ', "profile_id"'
+    || ', "rank"'
+    || ', "rank_change"'
+    || ', "game_id"'
+    || ', "active"'
+    || ', "rank_total_count"'
+    || ', "absolute_value"'
+    || ', "data"'
+    || ', "stat_value"'
+    || ', "network"'
+    || ', "uuid"'
+    || ', "date_modified"'
+    || ', "level"'
+    || ', "stat_value_formatted"'
+    || ', "date_created"'
+    || ', "type"'
+    || ' FROM "game_statistic_leaderboard_item" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "username" '
+    || ', "code" '
+    || ', "timestamp" '
+    || ', "profile_id" '
+    || ', "rank" '
+    || ', "rank_change" '
+    || ', "game_id" '
+    || ', "active" '
+    || ', "rank_total_count" '
+    || ', "absolute_value" '
+    || ', "data" '
+    || ', "stat_value" '
+    || ', "network" '
+    || ', "uuid" '
+    || ', "date_modified" '
+    || ', "level" '
+    || ', "stat_value_formatted" '
+    || ', "date_created" '
+    || ', "type" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_statistic_leaderboard_item"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_statistic_leaderboard_item" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_statistic_leaderboard_item"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_statistic_leaderboard_item"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
+                    AND "timestamp" = in_timestamp
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_statistic_leaderboard_item" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
+                    AND "timestamp" = in_timestamp
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_statistic_leaderboard_item"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_code
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_statistic_leaderboard_item"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_statistic_leaderboard_item" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_statistic_leaderboard_item"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_code_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_statistic_leaderboard_item"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_statistic_leaderboard_item" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_statistic_leaderboard_item"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_statistic_leaderboard_item"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_statistic_leaderboard_item" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_statistic_leaderboard_item"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_statistic_leaderboard_item"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "timestamp" = in_timestamp
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_statistic_leaderboard_item" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "timestamp" = in_timestamp
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_statistic_leaderboard_item"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_code
+(
+    in_code varchar (500) = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_code_game_id
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_timestamp decimal = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "timestamp" = in_timestamp
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_profile_id_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_profile_id_game_id
+(
+    in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get
+(
+)                        
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_game_id
+(
+    in_game_id uuid = NULL
+)
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_code
+(
+    in_code varchar (500) = NULL
+)
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_code_game_id
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+)
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+(
+    in_code varchar (500) = NULL
+    , in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_timestamp decimal = NULL
+)
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "timestamp" = in_timestamp
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_profile_id_game_id
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_profile_id_game_id
+(
+    in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+)
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_profile_id_game_id_time
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_profile_id_game_id_time
+(
+    in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_timestamp decimal = NULL
+)
+RETURNS setof "game_statistic_leaderboard_item"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "username"
+        , "code"
+        , "timestamp"
+        , "profile_id"
+        , "rank"
+        , "rank_change"
+        , "game_id"
+        , "active"
+        , "rank_total_count"
+        , "absolute_value"
+        , "data"
+        , "stat_value"
+        , "network"
+        , "uuid"
+        , "date_modified"
+        , "level"
+        , "stat_value_formatted"
+        , "date_created"
+        , "type"
+    FROM "game_statistic_leaderboard_item"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    AND "timestamp" = in_timestamp
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
 -- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
 
 /*
@@ -37234,7 +39902,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37243,6 +39911,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37270,7 +39939,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_uuid
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37279,6 +39948,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_uuid
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37308,7 +39978,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_code
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37317,6 +39987,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_code
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37346,7 +40017,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37355,6 +40026,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37384,7 +40056,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_code_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37393,6 +40065,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_code_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37424,7 +40097,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_profile_id_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37433,6 +40106,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_profile_id_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37464,7 +40138,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_code_profile_id_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37473,6 +40147,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_code_profile_id_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37506,7 +40181,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_code_profile_id_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37515,6 +40190,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_count_code_profile_id_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37564,7 +40240,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_browse_filter
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37573,6 +40249,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_browse_filter
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37603,7 +40280,7 @@ BEGIN
     || ', "status"'
     || ', "username"'
     || ', "code"'
-    || ', "timestamp"'
+    || ', "stat_value_formatted"'
     || ', "profile_id"'
     || ', "active"'
     || ', "game_id"'
@@ -37613,6 +40290,7 @@ BEGIN
     || ', "date_modified"'
     || ', "level"'
     || ', "points"'
+    || ', "timestamp"'
     || ', "date_created"'
     || ', "type"'
     || ' FROM "game_profile_statistic" WHERE 1=1 ';
@@ -37628,7 +40306,7 @@ BEGIN
     || '"status" '
     || ', "username" '
     || ', "code" '
-    || ', "timestamp" '
+    || ', "stat_value_formatted" '
     || ', "profile_id" '
     || ', "active" '
     || ', "game_id" '
@@ -37638,6 +40316,7 @@ BEGIN
     || ', "date_modified" '
     || ', "level" '
     || ', "points" '
+    || ', "timestamp" '
     || ', "date_created" '
     || ', "type" '
     ;
@@ -37674,7 +40353,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_uuid
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37683,6 +40362,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_uuid
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37694,7 +40374,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_uuid
     , in_status varchar (255) = NULL
     , in_username varchar (500) = NULL
     , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
+    , in_stat_value_formatted varchar (500) = NULL
     , in_profile_id uuid = NULL
     , in_active boolean = NULL
     , in_game_id uuid = NULL
@@ -37704,6 +40384,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_uuid
     , in_date_modified TIMESTAMP = now()
     , in_level varchar (500) = NULL
     , in_points decimal = NULL
+    , in_timestamp decimal = NULL
     , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
     , OUT out_id int                        
@@ -37749,7 +40430,7 @@ BEGIN
                         "status" = in_status
                         , "username" = in_username
                         , "code" = in_code
-                        , "timestamp" = in_timestamp
+                        , "stat_value_formatted" = in_stat_value_formatted
                         , "profile_id" = in_profile_id
                         , "active" = in_active
                         , "game_id" = in_game_id
@@ -37759,6 +40440,7 @@ BEGIN
                         , "date_modified" = in_date_modified
                         , "level" = in_level
                         , "points" = in_points
+                        , "timestamp" = in_timestamp
                         , "date_created" = in_date_created
                         , "type" = in_type
                     WHERE 1=1
@@ -37777,7 +40459,7 @@ BEGIN
                         "status"
                         , "username"
                         , "code"
-                        , "timestamp"
+                        , "stat_value_formatted"
                         , "profile_id"
                         , "active"
                         , "game_id"
@@ -37787,6 +40469,7 @@ BEGIN
                         , "date_modified"
                         , "level"
                         , "points"
+                        , "timestamp"
                         , "date_created"
                         , "type"
                     )
@@ -37795,7 +40478,7 @@ BEGIN
                         in_status
                         , in_username
                         , in_code
-                        , in_timestamp
+                        , in_stat_value_formatted
                         , in_profile_id
                         , in_active
                         , in_game_id
@@ -37805,6 +40488,7 @@ BEGIN
                         , in_date_modified
                         , in_level
                         , in_points
+                        , in_timestamp
                         , in_date_created
                         , in_type
                     )
@@ -37824,7 +40508,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_uuid_profile_id_game_id_t
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37833,6 +40517,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_uuid_profile_id_game_id_t
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -37844,7 +40529,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_uuid_profile_id_game_i
     , in_status varchar (255) = NULL
     , in_username varchar (500) = NULL
     , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
+    , in_stat_value_formatted varchar (500) = NULL
     , in_profile_id uuid = NULL
     , in_active boolean = NULL
     , in_game_id uuid = NULL
@@ -37854,6 +40539,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_uuid_profile_id_game_i
     , in_date_modified TIMESTAMP = now()
     , in_level varchar (500) = NULL
     , in_points decimal = NULL
+    , in_timestamp decimal = NULL
     , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
     , OUT out_id int                        
@@ -37902,7 +40588,7 @@ BEGIN
                         "status" = in_status
                         , "username" = in_username
                         , "code" = in_code
-                        , "timestamp" = in_timestamp
+                        , "stat_value_formatted" = in_stat_value_formatted
                         , "profile_id" = in_profile_id
                         , "active" = in_active
                         , "game_id" = in_game_id
@@ -37912,6 +40598,7 @@ BEGIN
                         , "date_modified" = in_date_modified
                         , "level" = in_level
                         , "points" = in_points
+                        , "timestamp" = in_timestamp
                         , "date_created" = in_date_created
                         , "type" = in_type
                     WHERE 1=1
@@ -37933,7 +40620,7 @@ BEGIN
                         "status"
                         , "username"
                         , "code"
-                        , "timestamp"
+                        , "stat_value_formatted"
                         , "profile_id"
                         , "active"
                         , "game_id"
@@ -37943,6 +40630,7 @@ BEGIN
                         , "date_modified"
                         , "level"
                         , "points"
+                        , "timestamp"
                         , "date_created"
                         , "type"
                     )
@@ -37951,7 +40639,7 @@ BEGIN
                         in_status
                         , in_username
                         , in_code
-                        , in_timestamp
+                        , in_stat_value_formatted
                         , in_profile_id
                         , in_active
                         , in_game_id
@@ -37961,6 +40649,7 @@ BEGIN
                         , in_date_modified
                         , in_level
                         , in_points
+                        , in_timestamp
                         , in_date_created
                         , in_type
                     )
@@ -37980,7 +40669,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_profile_id_code
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -37989,6 +40678,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_profile_id_code
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38000,7 +40690,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_profile_id_code
     , in_status varchar (255) = NULL
     , in_username varchar (500) = NULL
     , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
+    , in_stat_value_formatted varchar (500) = NULL
     , in_profile_id uuid = NULL
     , in_active boolean = NULL
     , in_game_id uuid = NULL
@@ -38010,6 +40700,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_profile_id_code
     , in_date_modified TIMESTAMP = now()
     , in_level varchar (500) = NULL
     , in_points decimal = NULL
+    , in_timestamp decimal = NULL
     , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
     , OUT out_id int                        
@@ -38056,7 +40747,7 @@ BEGIN
                         "status" = in_status
                         , "username" = in_username
                         , "code" = in_code
-                        , "timestamp" = in_timestamp
+                        , "stat_value_formatted" = in_stat_value_formatted
                         , "profile_id" = in_profile_id
                         , "active" = in_active
                         , "game_id" = in_game_id
@@ -38066,6 +40757,7 @@ BEGIN
                         , "date_modified" = in_date_modified
                         , "level" = in_level
                         , "points" = in_points
+                        , "timestamp" = in_timestamp
                         , "date_created" = in_date_created
                         , "type" = in_type
                     WHERE 1=1
@@ -38085,7 +40777,7 @@ BEGIN
                         "status"
                         , "username"
                         , "code"
-                        , "timestamp"
+                        , "stat_value_formatted"
                         , "profile_id"
                         , "active"
                         , "game_id"
@@ -38095,6 +40787,7 @@ BEGIN
                         , "date_modified"
                         , "level"
                         , "points"
+                        , "timestamp"
                         , "date_created"
                         , "type"
                     )
@@ -38103,7 +40796,7 @@ BEGIN
                         in_status
                         , in_username
                         , in_code
-                        , in_timestamp
+                        , in_stat_value_formatted
                         , in_profile_id
                         , in_active
                         , in_game_id
@@ -38113,6 +40806,7 @@ BEGIN
                         , in_date_modified
                         , in_level
                         , in_points
+                        , in_timestamp
                         , in_date_created
                         , in_type
                     )
@@ -38132,7 +40826,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_profile_id_code_timestamp
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38141,6 +40835,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_profile_id_code_timestamp
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38152,7 +40847,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_profile_id_code_timest
     , in_status varchar (255) = NULL
     , in_username varchar (500) = NULL
     , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
+    , in_stat_value_formatted varchar (500) = NULL
     , in_profile_id uuid = NULL
     , in_active boolean = NULL
     , in_game_id uuid = NULL
@@ -38162,6 +40857,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_profile_id_code_timest
     , in_date_modified TIMESTAMP = now()
     , in_level varchar (500) = NULL
     , in_points decimal = NULL
+    , in_timestamp decimal = NULL
     , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
     , OUT out_id int                        
@@ -38209,7 +40905,7 @@ BEGIN
                         "status" = in_status
                         , "username" = in_username
                         , "code" = in_code
-                        , "timestamp" = in_timestamp
+                        , "stat_value_formatted" = in_stat_value_formatted
                         , "profile_id" = in_profile_id
                         , "active" = in_active
                         , "game_id" = in_game_id
@@ -38219,6 +40915,7 @@ BEGIN
                         , "date_modified" = in_date_modified
                         , "level" = in_level
                         , "points" = in_points
+                        , "timestamp" = in_timestamp
                         , "date_created" = in_date_created
                         , "type" = in_type
                     WHERE 1=1
@@ -38239,7 +40936,7 @@ BEGIN
                         "status"
                         , "username"
                         , "code"
-                        , "timestamp"
+                        , "stat_value_formatted"
                         , "profile_id"
                         , "active"
                         , "game_id"
@@ -38249,6 +40946,7 @@ BEGIN
                         , "date_modified"
                         , "level"
                         , "points"
+                        , "timestamp"
                         , "date_created"
                         , "type"
                     )
@@ -38257,7 +40955,7 @@ BEGIN
                         in_status
                         , in_username
                         , in_code
-                        , in_timestamp
+                        , in_stat_value_formatted
                         , in_profile_id
                         , in_active
                         , in_game_id
@@ -38267,6 +40965,7 @@ BEGIN
                         , in_date_modified
                         , in_level
                         , in_points
+                        , in_timestamp
                         , in_date_created
                         , in_type
                     )
@@ -38286,7 +40985,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_code_profile_id_game_id_t
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38295,6 +40994,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_code_profile_id_game_id_t
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38306,7 +41006,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_code_profile_id_game_i
     , in_status varchar (255) = NULL
     , in_username varchar (500) = NULL
     , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
+    , in_stat_value_formatted varchar (500) = NULL
     , in_profile_id uuid = NULL
     , in_active boolean = NULL
     , in_game_id uuid = NULL
@@ -38316,6 +41016,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_code_profile_id_game_i
     , in_date_modified TIMESTAMP = now()
     , in_level varchar (500) = NULL
     , in_points decimal = NULL
+    , in_timestamp decimal = NULL
     , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
     , OUT out_id int                        
@@ -38364,7 +41065,7 @@ BEGIN
                         "status" = in_status
                         , "username" = in_username
                         , "code" = in_code
-                        , "timestamp" = in_timestamp
+                        , "stat_value_formatted" = in_stat_value_formatted
                         , "profile_id" = in_profile_id
                         , "active" = in_active
                         , "game_id" = in_game_id
@@ -38374,6 +41075,7 @@ BEGIN
                         , "date_modified" = in_date_modified
                         , "level" = in_level
                         , "points" = in_points
+                        , "timestamp" = in_timestamp
                         , "date_created" = in_date_created
                         , "type" = in_type
                     WHERE 1=1
@@ -38395,7 +41097,7 @@ BEGIN
                         "status"
                         , "username"
                         , "code"
-                        , "timestamp"
+                        , "stat_value_formatted"
                         , "profile_id"
                         , "active"
                         , "game_id"
@@ -38405,6 +41107,7 @@ BEGIN
                         , "date_modified"
                         , "level"
                         , "points"
+                        , "timestamp"
                         , "date_created"
                         , "type"
                     )
@@ -38413,7 +41116,7 @@ BEGIN
                         in_status
                         , in_username
                         , in_code
-                        , in_timestamp
+                        , in_stat_value_formatted
                         , in_profile_id
                         , in_active
                         , in_game_id
@@ -38423,6 +41126,7 @@ BEGIN
                         , in_date_modified
                         , in_level
                         , in_points
+                        , in_timestamp
                         , in_date_created
                         , in_type
                     )
@@ -38442,7 +41146,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_code_profile_id_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38451,6 +41155,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_set_code_profile_id_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38462,7 +41167,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_code_profile_id_game_i
     , in_status varchar (255) = NULL
     , in_username varchar (500) = NULL
     , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
+    , in_stat_value_formatted varchar (500) = NULL
     , in_profile_id uuid = NULL
     , in_active boolean = NULL
     , in_game_id uuid = NULL
@@ -38472,6 +41177,7 @@ CREATE OR REPLACE FUNCTION usp_game_profile_statistic_set_code_profile_id_game_i
     , in_date_modified TIMESTAMP = now()
     , in_level varchar (500) = NULL
     , in_points decimal = NULL
+    , in_timestamp decimal = NULL
     , in_date_created TIMESTAMP = now()
     , in_type varchar (500) = NULL
     , OUT out_id int                        
@@ -38519,7 +41225,7 @@ BEGIN
                         "status" = in_status
                         , "username" = in_username
                         , "code" = in_code
-                        , "timestamp" = in_timestamp
+                        , "stat_value_formatted" = in_stat_value_formatted
                         , "profile_id" = in_profile_id
                         , "active" = in_active
                         , "game_id" = in_game_id
@@ -38529,6 +41235,7 @@ BEGIN
                         , "date_modified" = in_date_modified
                         , "level" = in_level
                         , "points" = in_points
+                        , "timestamp" = in_timestamp
                         , "date_created" = in_date_created
                         , "type" = in_type
                     WHERE 1=1
@@ -38549,7 +41256,7 @@ BEGIN
                         "status"
                         , "username"
                         , "code"
-                        , "timestamp"
+                        , "stat_value_formatted"
                         , "profile_id"
                         , "active"
                         , "game_id"
@@ -38559,6 +41266,7 @@ BEGIN
                         , "date_modified"
                         , "level"
                         , "points"
+                        , "timestamp"
                         , "date_created"
                         , "type"
                     )
@@ -38567,7 +41275,7 @@ BEGIN
                         in_status
                         , in_username
                         , in_code
-                        , in_timestamp
+                        , in_stat_value_formatted
                         , in_profile_id
                         , in_active
                         , in_game_id
@@ -38577,6 +41285,7 @@ BEGIN
                         , in_date_modified
                         , in_level
                         , in_points
+                        , in_timestamp
                         , in_date_created
                         , in_type
                     )
@@ -38610,7 +41319,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_del_uuid
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38619,6 +41328,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_del_uuid
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38646,7 +41356,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_del_code_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38655,6 +41365,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_del_code_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38684,7 +41395,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_del_profile_id_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38693,6 +41404,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_del_profile_id_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38722,7 +41434,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_del_code_profile_id_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38731,6 +41443,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_del_code_profile_id_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38776,7 +41489,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_uuid
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38785,6 +41498,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_uuid
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38802,7 +41516,7 @@ BEGIN
         "status"
         , "username"
         , "code"
-        , "timestamp"
+        , "stat_value_formatted"
         , "profile_id"
         , "active"
         , "game_id"
@@ -38812,6 +41526,7 @@ BEGIN
         , "date_modified"
         , "level"
         , "points"
+        , "timestamp"
         , "date_created"
         , "type"
     FROM "game_profile_statistic"
@@ -38827,7 +41542,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_code
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38836,6 +41551,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_code
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38853,7 +41569,7 @@ BEGIN
         "status"
         , "username"
         , "code"
-        , "timestamp"
+        , "stat_value_formatted"
         , "profile_id"
         , "active"
         , "game_id"
@@ -38863,6 +41579,7 @@ BEGIN
         , "date_modified"
         , "level"
         , "points"
+        , "timestamp"
         , "date_created"
         , "type"
     FROM "game_profile_statistic"
@@ -38878,7 +41595,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38887,6 +41604,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38904,7 +41622,7 @@ BEGIN
         "status"
         , "username"
         , "code"
-        , "timestamp"
+        , "stat_value_formatted"
         , "profile_id"
         , "active"
         , "game_id"
@@ -38914,6 +41632,7 @@ BEGIN
         , "date_modified"
         , "level"
         , "points"
+        , "timestamp"
         , "date_created"
         , "type"
     FROM "game_profile_statistic"
@@ -38929,7 +41648,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_code_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38938,6 +41657,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_code_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -38956,7 +41676,7 @@ BEGIN
         "status"
         , "username"
         , "code"
-        , "timestamp"
+        , "stat_value_formatted"
         , "profile_id"
         , "active"
         , "game_id"
@@ -38966,6 +41686,7 @@ BEGIN
         , "date_modified"
         , "level"
         , "points"
+        , "timestamp"
         , "date_created"
         , "type"
     FROM "game_profile_statistic"
@@ -38982,7 +41703,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_profile_id_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -38991,6 +41712,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_profile_id_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -39009,7 +41731,7 @@ BEGIN
         "status"
         , "username"
         , "code"
-        , "timestamp"
+        , "stat_value_formatted"
         , "profile_id"
         , "active"
         , "game_id"
@@ -39019,6 +41741,7 @@ BEGIN
         , "date_modified"
         , "level"
         , "points"
+        , "timestamp"
         , "date_created"
         , "type"
     FROM "game_profile_statistic"
@@ -39035,7 +41758,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_profile_id_game_id_timest
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -39044,6 +41767,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_profile_id_game_id_timest
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -39063,7 +41787,7 @@ BEGIN
         "status"
         , "username"
         , "code"
-        , "timestamp"
+        , "stat_value_formatted"
         , "profile_id"
         , "active"
         , "game_id"
@@ -39073,6 +41797,7 @@ BEGIN
         , "date_modified"
         , "level"
         , "points"
+        , "timestamp"
         , "date_created"
         , "type"
     FROM "game_profile_statistic"
@@ -39090,7 +41815,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_code_profile_id_game_id
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -39099,6 +41824,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_code_profile_id_game_id
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -39118,7 +41844,7 @@ BEGIN
         "status"
         , "username"
         , "code"
-        , "timestamp"
+        , "stat_value_formatted"
         , "profile_id"
         , "active"
         , "game_id"
@@ -39128,6 +41854,7 @@ BEGIN
         , "date_modified"
         , "level"
         , "points"
+        , "timestamp"
         , "date_created"
         , "type"
     FROM "game_profile_statistic"
@@ -39145,7 +41872,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_code_profile_id_game_id_t
     varchar
     , varchar
     , varchar
-    , decimal
+    , varchar
     , uuid
     , boolean
     , uuid
@@ -39154,6 +41881,7 @@ DROP FUNCTION IF EXISTS usp_game_profile_statistic_get_code_profile_id_game_id_t
     , uuid
     , TIMESTAMP
     , varchar
+    , decimal
     , decimal
     , TIMESTAMP
     , varchar
@@ -39174,7 +41902,7 @@ BEGIN
         "status"
         , "username"
         , "code"
-        , "timestamp"
+        , "stat_value_formatted"
         , "profile_id"
         , "active"
         , "game_id"
@@ -39184,6 +41912,7 @@ BEGIN
         , "date_modified"
         , "level"
         , "points"
+        , "timestamp"
         , "date_created"
         , "type"
     FROM "game_profile_statistic"

@@ -72,40 +72,40 @@ class BaseProfileACT {
         );
     }
                
-    public function CountProfileByUuid(
+    public function CountProfileUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileByUuid(
+        return $this->data->CountProfileUuid(
             $uuid
         );
     }
                
-    public function CountProfileByUsernameByHash(
+    public function CountProfileUsernameHash(
         $username
         , $hash
     ) {       
-        return $this->data->CountProfileByUsernameByHash(
+        return $this->data->CountProfileUsernameHash(
             $username
             , $hash
         );
     }
                
-    public function CountProfileByUsername(
+    public function CountProfileUsername(
         $username
     ) {       
-        return $this->data->CountProfileByUsername(
+        return $this->data->CountProfileUsername(
             $username
         );
     }
                
-    public function BrowseProfileListByFilter($filter_obj) {
+    public function BrowseProfileListFilter($filter_obj) {
         $result = new ProfileResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile = $this->FillProfile($row);
@@ -119,36 +119,36 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetProfileByUuid($set_type, $obj) {           
-        return $this->data->SetProfileByUuid($set_type, $obj);
+    public function SetProfileUuid($set_type, $obj) {           
+        return $this->data->SetProfileUuid($set_type, $obj);
     }
             
-    public function SetProfileByUsername($set_type, $obj) {           
-        return $this->data->SetProfileByUsername($set_type, $obj);
+    public function SetProfileUsername($set_type, $obj) {           
+        return $this->data->SetProfileUsername($set_type, $obj);
     }
             
-    public function DelProfileByUuid(
+    public function DelProfileUuid(
         $uuid
     ) {
-        return $this->data->DelProfileByUuid(
+        return $this->data->DelProfileUuid(
             $uuid
         );
     }
         
-    public function DelProfileByUsername(
+    public function DelProfileUsername(
         $username
     ) {
-        return $this->data->DelProfileByUsername(
+        return $this->data->DelProfileUsername(
             $username
         );
     }
         
-    public function GetProfileListByUuid(
+    public function GetProfileListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileListByUuid(
+        $rows = $this->data->GetProfileListUuid(
             $uuid
         );
         
@@ -162,13 +162,13 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileListByUsernameByHash(
+    public function GetProfileListUsernameHash(
         $username
         , $hash
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileListByUsernameByHash(
+        $rows = $this->data->GetProfileListUsernameHash(
             $username
             , $hash
         );
@@ -183,12 +183,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileListByUsername(
+    public function GetProfileListUsername(
         $username
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileListByUsername(
+        $rows = $this->data->GetProfileListUsername(
             $username
         );
         
@@ -246,30 +246,30 @@ class BaseProfileACT {
         );
     }
                
-    public function CountProfileTypeByUuid(
+    public function CountProfileTypeUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileTypeByUuid(
+        return $this->data->CountProfileTypeUuid(
             $uuid
         );
     }
                
-    public function CountProfileTypeByTypeId(
+    public function CountProfileTypeTypeId(
         $type_id
     ) {       
-        return $this->data->CountProfileTypeByTypeId(
+        return $this->data->CountProfileTypeTypeId(
             $type_id
         );
     }
                
-    public function BrowseProfileTypeListByFilter($filter_obj) {
+    public function BrowseProfileTypeListFilter($filter_obj) {
         $result = new ProfileTypeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileTypeListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileTypeListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_type = $this->FillProfileType($row);
@@ -283,24 +283,24 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetProfileTypeByUuid($set_type, $obj) {           
-        return $this->data->SetProfileTypeByUuid($set_type, $obj);
+    public function SetProfileTypeUuid($set_type, $obj) {           
+        return $this->data->SetProfileTypeUuid($set_type, $obj);
     }
             
-    public function DelProfileTypeByUuid(
+    public function DelProfileTypeUuid(
         $uuid
     ) {
-        return $this->data->DelProfileTypeByUuid(
+        return $this->data->DelProfileTypeUuid(
             $uuid
         );
     }
         
-    public function GetProfileTypeListByUuid(
+    public function GetProfileTypeListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileTypeListByUuid(
+        $rows = $this->data->GetProfileTypeListUuid(
             $uuid
         );
         
@@ -314,12 +314,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileTypeListByCode(
+    public function GetProfileTypeListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileTypeListByCode(
+        $rows = $this->data->GetProfileTypeListCode(
             $code
         );
         
@@ -333,12 +333,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileTypeListByTypeId(
+    public function GetProfileTypeListTypeId(
         $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileTypeListByTypeId(
+        $rows = $this->data->GetProfileTypeListTypeId(
             $type_id
         );
         
@@ -405,56 +405,56 @@ class BaseProfileACT {
         );
     }
                
-    public function CountProfileAttributeByUuid(
+    public function CountProfileAttributeUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileAttributeByUuid(
+        return $this->data->CountProfileAttributeUuid(
             $uuid
         );
     }
                
-    public function CountProfileAttributeByCode(
+    public function CountProfileAttributeCode(
         $code
     ) {       
-        return $this->data->CountProfileAttributeByCode(
+        return $this->data->CountProfileAttributeCode(
             $code
         );
     }
                
-    public function CountProfileAttributeByType(
+    public function CountProfileAttributeType(
         $type
     ) {       
-        return $this->data->CountProfileAttributeByType(
+        return $this->data->CountProfileAttributeType(
             $type
         );
     }
                
-    public function CountProfileAttributeByGroup(
+    public function CountProfileAttributeGroup(
         $group
     ) {       
-        return $this->data->CountProfileAttributeByGroup(
+        return $this->data->CountProfileAttributeGroup(
             $group
         );
     }
                
-    public function CountProfileAttributeByCodeByType(
+    public function CountProfileAttributeCodeType(
         $code
         , $type
     ) {       
-        return $this->data->CountProfileAttributeByCodeByType(
+        return $this->data->CountProfileAttributeCodeType(
             $code
             , $type
         );
     }
                
-    public function BrowseProfileAttributeListByFilter($filter_obj) {
+    public function BrowseProfileAttributeListFilter($filter_obj) {
         $result = new ProfileAttributeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileAttributeListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileAttributeListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_attribute = $this->FillProfileAttribute($row);
@@ -468,36 +468,36 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetProfileAttributeByUuid($set_type, $obj) {           
-        return $this->data->SetProfileAttributeByUuid($set_type, $obj);
+    public function SetProfileAttributeUuid($set_type, $obj) {           
+        return $this->data->SetProfileAttributeUuid($set_type, $obj);
     }
             
-    public function SetProfileAttributeByCode($set_type, $obj) {           
-        return $this->data->SetProfileAttributeByCode($set_type, $obj);
+    public function SetProfileAttributeCode($set_type, $obj) {           
+        return $this->data->SetProfileAttributeCode($set_type, $obj);
     }
             
-    public function DelProfileAttributeByUuid(
+    public function DelProfileAttributeUuid(
         $uuid
     ) {
-        return $this->data->DelProfileAttributeByUuid(
+        return $this->data->DelProfileAttributeUuid(
             $uuid
         );
     }
         
-    public function DelProfileAttributeByCode(
+    public function DelProfileAttributeCode(
         $code
     ) {
-        return $this->data->DelProfileAttributeByCode(
+        return $this->data->DelProfileAttributeCode(
             $code
         );
     }
         
-    public function GetProfileAttributeListByUuid(
+    public function GetProfileAttributeListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeListByUuid(
+        $rows = $this->data->GetProfileAttributeListUuid(
             $uuid
         );
         
@@ -511,12 +511,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileAttributeListByCode(
+    public function GetProfileAttributeListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeListByCode(
+        $rows = $this->data->GetProfileAttributeListCode(
             $code
         );
         
@@ -530,12 +530,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileAttributeListByType(
+    public function GetProfileAttributeListType(
         $type
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeListByType(
+        $rows = $this->data->GetProfileAttributeListType(
             $type
         );
         
@@ -549,12 +549,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileAttributeListByGroup(
+    public function GetProfileAttributeListGroup(
         $group
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeListByGroup(
+        $rows = $this->data->GetProfileAttributeListGroup(
             $group
         );
         
@@ -568,13 +568,13 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileAttributeListByCodeByType(
+    public function GetProfileAttributeListCodeType(
         $code
         , $type
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeListByCodeByType(
+        $rows = $this->data->GetProfileAttributeListCodeType(
             $code
             , $type
         );
@@ -639,40 +639,40 @@ class BaseProfileACT {
         );
     }
                
-    public function CountProfileAttributeTextByUuid(
+    public function CountProfileAttributeTextUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileAttributeTextByUuid(
+        return $this->data->CountProfileAttributeTextUuid(
             $uuid
         );
     }
                
-    public function CountProfileAttributeTextByProfileId(
+    public function CountProfileAttributeTextProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileAttributeTextByProfileId(
+        return $this->data->CountProfileAttributeTextProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileAttributeTextByProfileIdByAttributeId(
+    public function CountProfileAttributeTextProfileIdAttributeId(
         $profile_id
         , $attribute_id
     ) {       
-        return $this->data->CountProfileAttributeTextByProfileIdByAttributeId(
+        return $this->data->CountProfileAttributeTextProfileIdAttributeId(
             $profile_id
             , $attribute_id
         );
     }
                
-    public function BrowseProfileAttributeTextListByFilter($filter_obj) {
+    public function BrowseProfileAttributeTextListFilter($filter_obj) {
         $result = new ProfileAttributeTextResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileAttributeTextListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileAttributeTextListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_attribute_text = $this->FillProfileAttributeText($row);
@@ -686,50 +686,50 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetProfileAttributeTextByUuid($set_type, $obj) {           
-        return $this->data->SetProfileAttributeTextByUuid($set_type, $obj);
+    public function SetProfileAttributeTextUuid($set_type, $obj) {           
+        return $this->data->SetProfileAttributeTextUuid($set_type, $obj);
     }
             
-    public function SetProfileAttributeTextByProfileId($set_type, $obj) {           
-        return $this->data->SetProfileAttributeTextByProfileId($set_type, $obj);
+    public function SetProfileAttributeTextProfileId($set_type, $obj) {           
+        return $this->data->SetProfileAttributeTextProfileId($set_type, $obj);
     }
             
-    public function SetProfileAttributeTextByProfileIdByAttributeId($set_type, $obj) {           
-        return $this->data->SetProfileAttributeTextByProfileIdByAttributeId($set_type, $obj);
+    public function SetProfileAttributeTextProfileIdAttributeId($set_type, $obj) {           
+        return $this->data->SetProfileAttributeTextProfileIdAttributeId($set_type, $obj);
     }
             
-    public function DelProfileAttributeTextByUuid(
+    public function DelProfileAttributeTextUuid(
         $uuid
     ) {
-        return $this->data->DelProfileAttributeTextByUuid(
+        return $this->data->DelProfileAttributeTextUuid(
             $uuid
         );
     }
         
-    public function DelProfileAttributeTextByProfileId(
+    public function DelProfileAttributeTextProfileId(
         $profile_id
     ) {
-        return $this->data->DelProfileAttributeTextByProfileId(
+        return $this->data->DelProfileAttributeTextProfileId(
             $profile_id
         );
     }
         
-    public function DelProfileAttributeTextByProfileIdByAttributeId(
+    public function DelProfileAttributeTextProfileIdAttributeId(
         $profile_id
         , $attribute_id
     ) {
-        return $this->data->DelProfileAttributeTextByProfileIdByAttributeId(
+        return $this->data->DelProfileAttributeTextProfileIdAttributeId(
             $profile_id
             , $attribute_id
         );
     }
         
-    public function GetProfileAttributeTextListByUuid(
+    public function GetProfileAttributeTextListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeTextListByUuid(
+        $rows = $this->data->GetProfileAttributeTextListUuid(
             $uuid
         );
         
@@ -743,12 +743,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileAttributeTextListByProfileId(
+    public function GetProfileAttributeTextListProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeTextListByProfileId(
+        $rows = $this->data->GetProfileAttributeTextListProfileId(
             $profile_id
         );
         
@@ -762,13 +762,13 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileAttributeTextListByProfileIdByAttributeId(
+    public function GetProfileAttributeTextListProfileIdAttributeId(
         $profile_id
         , $attribute_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeTextListByProfileIdByAttributeId(
+        $rows = $this->data->GetProfileAttributeTextListProfileIdAttributeId(
             $profile_id
             , $attribute_id
         );
@@ -833,40 +833,40 @@ class BaseProfileACT {
         );
     }
                
-    public function CountProfileAttributeDataByUuid(
+    public function CountProfileAttributeDataUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileAttributeDataByUuid(
+        return $this->data->CountProfileAttributeDataUuid(
             $uuid
         );
     }
                
-    public function CountProfileAttributeDataByProfileId(
+    public function CountProfileAttributeDataProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileAttributeDataByProfileId(
+        return $this->data->CountProfileAttributeDataProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileAttributeDataByProfileIdByAttributeId(
+    public function CountProfileAttributeDataProfileIdAttributeId(
         $profile_id
         , $attribute_id
     ) {       
-        return $this->data->CountProfileAttributeDataByProfileIdByAttributeId(
+        return $this->data->CountProfileAttributeDataProfileIdAttributeId(
             $profile_id
             , $attribute_id
         );
     }
                
-    public function BrowseProfileAttributeDataListByFilter($filter_obj) {
+    public function BrowseProfileAttributeDataListFilter($filter_obj) {
         $result = new ProfileAttributeDataResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileAttributeDataListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileAttributeDataListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_attribute_data = $this->FillProfileAttributeData($row);
@@ -880,50 +880,50 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetProfileAttributeDataByUuid($set_type, $obj) {           
-        return $this->data->SetProfileAttributeDataByUuid($set_type, $obj);
+    public function SetProfileAttributeDataUuid($set_type, $obj) {           
+        return $this->data->SetProfileAttributeDataUuid($set_type, $obj);
     }
             
-    public function SetProfileAttributeDataByProfileId($set_type, $obj) {           
-        return $this->data->SetProfileAttributeDataByProfileId($set_type, $obj);
+    public function SetProfileAttributeDataProfileId($set_type, $obj) {           
+        return $this->data->SetProfileAttributeDataProfileId($set_type, $obj);
     }
             
-    public function SetProfileAttributeDataByProfileIdByAttributeId($set_type, $obj) {           
-        return $this->data->SetProfileAttributeDataByProfileIdByAttributeId($set_type, $obj);
+    public function SetProfileAttributeDataProfileIdAttributeId($set_type, $obj) {           
+        return $this->data->SetProfileAttributeDataProfileIdAttributeId($set_type, $obj);
     }
             
-    public function DelProfileAttributeDataByUuid(
+    public function DelProfileAttributeDataUuid(
         $uuid
     ) {
-        return $this->data->DelProfileAttributeDataByUuid(
+        return $this->data->DelProfileAttributeDataUuid(
             $uuid
         );
     }
         
-    public function DelProfileAttributeDataByProfileId(
+    public function DelProfileAttributeDataProfileId(
         $profile_id
     ) {
-        return $this->data->DelProfileAttributeDataByProfileId(
+        return $this->data->DelProfileAttributeDataProfileId(
             $profile_id
         );
     }
         
-    public function DelProfileAttributeDataByProfileIdByAttributeId(
+    public function DelProfileAttributeDataProfileIdAttributeId(
         $profile_id
         , $attribute_id
     ) {
-        return $this->data->DelProfileAttributeDataByProfileIdByAttributeId(
+        return $this->data->DelProfileAttributeDataProfileIdAttributeId(
             $profile_id
             , $attribute_id
         );
     }
         
-    public function GetProfileAttributeDataListByUuid(
+    public function GetProfileAttributeDataListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeDataListByUuid(
+        $rows = $this->data->GetProfileAttributeDataListUuid(
             $uuid
         );
         
@@ -937,12 +937,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileAttributeDataListByProfileId(
+    public function GetProfileAttributeDataListProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeDataListByProfileId(
+        $rows = $this->data->GetProfileAttributeDataListProfileId(
             $profile_id
         );
         
@@ -956,13 +956,13 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileAttributeDataListByProfileIdByAttributeId(
+    public function GetProfileAttributeDataListProfileIdAttributeId(
         $profile_id
         , $attribute_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAttributeDataListByProfileIdByAttributeId(
+        $rows = $this->data->GetProfileAttributeDataListProfileIdAttributeId(
             $profile_id
             , $attribute_id
         );
@@ -1030,66 +1030,66 @@ class BaseProfileACT {
         );
     }
                
-    public function CountProfileDeviceByUuid(
+    public function CountProfileDeviceUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileDeviceByUuid(
+        return $this->data->CountProfileDeviceUuid(
             $uuid
         );
     }
                
-    public function CountProfileDeviceByProfileIdByDeviceId(
+    public function CountProfileDeviceProfileIdDeviceId(
         $profile_id
         , $device_id
     ) {       
-        return $this->data->CountProfileDeviceByProfileIdByDeviceId(
+        return $this->data->CountProfileDeviceProfileIdDeviceId(
             $profile_id
             , $device_id
         );
     }
                
-    public function CountProfileDeviceByProfileIdByToken(
+    public function CountProfileDeviceProfileIdToken(
         $profile_id
         , $token
     ) {       
-        return $this->data->CountProfileDeviceByProfileIdByToken(
+        return $this->data->CountProfileDeviceProfileIdToken(
             $profile_id
             , $token
         );
     }
                
-    public function CountProfileDeviceByProfileId(
+    public function CountProfileDeviceProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileDeviceByProfileId(
+        return $this->data->CountProfileDeviceProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileDeviceByDeviceId(
+    public function CountProfileDeviceDeviceId(
         $device_id
     ) {       
-        return $this->data->CountProfileDeviceByDeviceId(
+        return $this->data->CountProfileDeviceDeviceId(
             $device_id
         );
     }
                
-    public function CountProfileDeviceByToken(
+    public function CountProfileDeviceToken(
         $token
     ) {       
-        return $this->data->CountProfileDeviceByToken(
+        return $this->data->CountProfileDeviceToken(
             $token
         );
     }
                
-    public function BrowseProfileDeviceListByFilter($filter_obj) {
+    public function BrowseProfileDeviceListFilter($filter_obj) {
         $result = new ProfileDeviceResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileDeviceListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileDeviceListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_device = $this->FillProfileDevice($row);
@@ -1103,52 +1103,52 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetProfileDeviceByUuid($set_type, $obj) {           
-        return $this->data->SetProfileDeviceByUuid($set_type, $obj);
+    public function SetProfileDeviceUuid($set_type, $obj) {           
+        return $this->data->SetProfileDeviceUuid($set_type, $obj);
     }
             
-    public function DelProfileDeviceByUuid(
+    public function DelProfileDeviceUuid(
         $uuid
     ) {
-        return $this->data->DelProfileDeviceByUuid(
+        return $this->data->DelProfileDeviceUuid(
             $uuid
         );
     }
         
-    public function DelProfileDeviceByProfileIdByDeviceId(
+    public function DelProfileDeviceProfileIdDeviceId(
         $profile_id
         , $device_id
     ) {
-        return $this->data->DelProfileDeviceByProfileIdByDeviceId(
+        return $this->data->DelProfileDeviceProfileIdDeviceId(
             $profile_id
             , $device_id
         );
     }
         
-    public function DelProfileDeviceByProfileIdByToken(
+    public function DelProfileDeviceProfileIdToken(
         $profile_id
         , $token
     ) {
-        return $this->data->DelProfileDeviceByProfileIdByToken(
+        return $this->data->DelProfileDeviceProfileIdToken(
             $profile_id
             , $token
         );
     }
         
-    public function DelProfileDeviceByToken(
+    public function DelProfileDeviceToken(
         $token
     ) {
-        return $this->data->DelProfileDeviceByToken(
+        return $this->data->DelProfileDeviceToken(
             $token
         );
     }
         
-    public function GetProfileDeviceListByUuid(
+    public function GetProfileDeviceListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileDeviceListByUuid(
+        $rows = $this->data->GetProfileDeviceListUuid(
             $uuid
         );
         
@@ -1162,13 +1162,13 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileDeviceListByProfileIdByDeviceId(
+    public function GetProfileDeviceListProfileIdDeviceId(
         $profile_id
         , $device_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileDeviceListByProfileIdByDeviceId(
+        $rows = $this->data->GetProfileDeviceListProfileIdDeviceId(
             $profile_id
             , $device_id
         );
@@ -1183,13 +1183,13 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileDeviceListByProfileIdByToken(
+    public function GetProfileDeviceListProfileIdToken(
         $profile_id
         , $token
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileDeviceListByProfileIdByToken(
+        $rows = $this->data->GetProfileDeviceListProfileIdToken(
             $profile_id
             , $token
         );
@@ -1204,12 +1204,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileDeviceListByProfileId(
+    public function GetProfileDeviceListProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileDeviceListByProfileId(
+        $rows = $this->data->GetProfileDeviceListProfileId(
             $profile_id
         );
         
@@ -1223,12 +1223,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileDeviceListByDeviceId(
+    public function GetProfileDeviceListDeviceId(
         $device_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileDeviceListByDeviceId(
+        $rows = $this->data->GetProfileDeviceListDeviceId(
             $device_id
         );
         
@@ -1242,12 +1242,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetProfileDeviceListByToken(
+    public function GetProfileDeviceListToken(
         $token
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileDeviceListByToken(
+        $rows = $this->data->GetProfileDeviceListToken(
             $token
         );
         
@@ -1302,30 +1302,30 @@ class BaseProfileACT {
         );
     }
                
-    public function CountCountryByUuid(
+    public function CountCountryUuid(
         $uuid
     ) {       
-        return $this->data->CountCountryByUuid(
+        return $this->data->CountCountryUuid(
             $uuid
         );
     }
                
-    public function CountCountryByCode(
+    public function CountCountryCode(
         $code
     ) {       
-        return $this->data->CountCountryByCode(
+        return $this->data->CountCountryCode(
             $code
         );
     }
                
-    public function BrowseCountryListByFilter($filter_obj) {
+    public function BrowseCountryListFilter($filter_obj) {
         $result = new CountryResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseCountryListByFilter(filter_obj);
+        $rows = $this->data->BrowseCountryListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $country = $this->FillCountry($row);
@@ -1339,26 +1339,26 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetCountryByUuid($set_type, $obj) {           
-        return $this->data->SetCountryByUuid($set_type, $obj);
+    public function SetCountryUuid($set_type, $obj) {           
+        return $this->data->SetCountryUuid($set_type, $obj);
     }
             
-    public function SetCountryByCode($set_type, $obj) {           
-        return $this->data->SetCountryByCode($set_type, $obj);
+    public function SetCountryCode($set_type, $obj) {           
+        return $this->data->SetCountryCode($set_type, $obj);
     }
             
-    public function DelCountryByUuid(
+    public function DelCountryUuid(
         $uuid
     ) {
-        return $this->data->DelCountryByUuid(
+        return $this->data->DelCountryUuid(
             $uuid
         );
     }
         
-    public function DelCountryByCode(
+    public function DelCountryCode(
         $code
     ) {
-        return $this->data->DelCountryByCode(
+        return $this->data->DelCountryCode(
             $code
         );
     }
@@ -1380,12 +1380,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetCountryListByUuid(
+    public function GetCountryListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetCountryListByUuid(
+        $rows = $this->data->GetCountryListUuid(
             $uuid
         );
         
@@ -1399,12 +1399,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetCountryListByCode(
+    public function GetCountryListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetCountryListByCode(
+        $rows = $this->data->GetCountryListCode(
             $code
         );
         
@@ -1459,30 +1459,30 @@ class BaseProfileACT {
         );
     }
                
-    public function CountStateByUuid(
+    public function CountStateUuid(
         $uuid
     ) {       
-        return $this->data->CountStateByUuid(
+        return $this->data->CountStateUuid(
             $uuid
         );
     }
                
-    public function CountStateByCode(
+    public function CountStateCode(
         $code
     ) {       
-        return $this->data->CountStateByCode(
+        return $this->data->CountStateCode(
             $code
         );
     }
                
-    public function BrowseStateListByFilter($filter_obj) {
+    public function BrowseStateListFilter($filter_obj) {
         $result = new StateResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseStateListByFilter(filter_obj);
+        $rows = $this->data->BrowseStateListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $state = $this->FillState($row);
@@ -1496,26 +1496,26 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetStateByUuid($set_type, $obj) {           
-        return $this->data->SetStateByUuid($set_type, $obj);
+    public function SetStateUuid($set_type, $obj) {           
+        return $this->data->SetStateUuid($set_type, $obj);
     }
             
-    public function SetStateByCode($set_type, $obj) {           
-        return $this->data->SetStateByCode($set_type, $obj);
+    public function SetStateCode($set_type, $obj) {           
+        return $this->data->SetStateCode($set_type, $obj);
     }
             
-    public function DelStateByUuid(
+    public function DelStateUuid(
         $uuid
     ) {
-        return $this->data->DelStateByUuid(
+        return $this->data->DelStateUuid(
             $uuid
         );
     }
         
-    public function DelStateByCode(
+    public function DelStateCode(
         $code
     ) {
-        return $this->data->DelStateByCode(
+        return $this->data->DelStateCode(
             $code
         );
     }
@@ -1537,12 +1537,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetStateListByUuid(
+    public function GetStateListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetStateListByUuid(
+        $rows = $this->data->GetStateListUuid(
             $uuid
         );
         
@@ -1556,12 +1556,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetStateListByCode(
+    public function GetStateListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetStateListByCode(
+        $rows = $this->data->GetStateListCode(
             $code
         );
         
@@ -1616,30 +1616,30 @@ class BaseProfileACT {
         );
     }
                
-    public function CountCityByUuid(
+    public function CountCityUuid(
         $uuid
     ) {       
-        return $this->data->CountCityByUuid(
+        return $this->data->CountCityUuid(
             $uuid
         );
     }
                
-    public function CountCityByCode(
+    public function CountCityCode(
         $code
     ) {       
-        return $this->data->CountCityByCode(
+        return $this->data->CountCityCode(
             $code
         );
     }
                
-    public function BrowseCityListByFilter($filter_obj) {
+    public function BrowseCityListFilter($filter_obj) {
         $result = new CityResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseCityListByFilter(filter_obj);
+        $rows = $this->data->BrowseCityListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $city = $this->FillCity($row);
@@ -1653,26 +1653,26 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetCityByUuid($set_type, $obj) {           
-        return $this->data->SetCityByUuid($set_type, $obj);
+    public function SetCityUuid($set_type, $obj) {           
+        return $this->data->SetCityUuid($set_type, $obj);
     }
             
-    public function SetCityByCode($set_type, $obj) {           
-        return $this->data->SetCityByCode($set_type, $obj);
+    public function SetCityCode($set_type, $obj) {           
+        return $this->data->SetCityCode($set_type, $obj);
     }
             
-    public function DelCityByUuid(
+    public function DelCityUuid(
         $uuid
     ) {
-        return $this->data->DelCityByUuid(
+        return $this->data->DelCityUuid(
             $uuid
         );
     }
         
-    public function DelCityByCode(
+    public function DelCityCode(
         $code
     ) {
-        return $this->data->DelCityByCode(
+        return $this->data->DelCityCode(
             $code
         );
     }
@@ -1694,12 +1694,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetCityListByUuid(
+    public function GetCityListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetCityListByUuid(
+        $rows = $this->data->GetCityListUuid(
             $uuid
         );
         
@@ -1713,12 +1713,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetCityListByCode(
+    public function GetCityListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetCityListByCode(
+        $rows = $this->data->GetCityListCode(
             $code
         );
         
@@ -1773,30 +1773,30 @@ class BaseProfileACT {
         );
     }
                
-    public function CountPostalCodeByUuid(
+    public function CountPostalCodeUuid(
         $uuid
     ) {       
-        return $this->data->CountPostalCodeByUuid(
+        return $this->data->CountPostalCodeUuid(
             $uuid
         );
     }
                
-    public function CountPostalCodeByCode(
+    public function CountPostalCodeCode(
         $code
     ) {       
-        return $this->data->CountPostalCodeByCode(
+        return $this->data->CountPostalCodeCode(
             $code
         );
     }
                
-    public function BrowsePostalCodeListByFilter($filter_obj) {
+    public function BrowsePostalCodeListFilter($filter_obj) {
         $result = new PostalCodeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowsePostalCodeListByFilter(filter_obj);
+        $rows = $this->data->BrowsePostalCodeListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $postal_code = $this->FillPostalCode($row);
@@ -1810,26 +1810,26 @@ class BaseProfileACT {
         return $result;
     }
 
-    public function SetPostalCodeByUuid($set_type, $obj) {           
-        return $this->data->SetPostalCodeByUuid($set_type, $obj);
+    public function SetPostalCodeUuid($set_type, $obj) {           
+        return $this->data->SetPostalCodeUuid($set_type, $obj);
     }
             
-    public function SetPostalCodeByCode($set_type, $obj) {           
-        return $this->data->SetPostalCodeByCode($set_type, $obj);
+    public function SetPostalCodeCode($set_type, $obj) {           
+        return $this->data->SetPostalCodeCode($set_type, $obj);
     }
             
-    public function DelPostalCodeByUuid(
+    public function DelPostalCodeUuid(
         $uuid
     ) {
-        return $this->data->DelPostalCodeByUuid(
+        return $this->data->DelPostalCodeUuid(
             $uuid
         );
     }
         
-    public function DelPostalCodeByCode(
+    public function DelPostalCodeCode(
         $code
     ) {
-        return $this->data->DelPostalCodeByCode(
+        return $this->data->DelPostalCodeCode(
             $code
         );
     }
@@ -1851,12 +1851,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetPostalCodeListByUuid(
+    public function GetPostalCodeListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetPostalCodeListByUuid(
+        $rows = $this->data->GetPostalCodeListUuid(
             $uuid
         );
         
@@ -1870,12 +1870,12 @@ class BaseProfileACT {
         return $results;
     }
         
-    public function GetPostalCodeListByCode(
+    public function GetPostalCodeListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetPostalCodeListByCode(
+        $rows = $this->data->GetPostalCodeListCode(
             $code
         );
         

@@ -52,11 +52,12 @@ public class GameProfileStatistic : BaseEntity {
     // profile conversions.
     public string username { get; set; }
     public string code { get; set; }
+    public float timestamp { get; set; }
     public string level { get; set; }
-    public string type { get; set; }
+    public string stat_value_formatted { get; set; }
     public string profile_id { get; set; }
     public float points { get; set; }
-    public float timestamp { get; set; }
+    public string type { get; set; }
     public string game_id { get; set; }
     public string data { get; set; }
     public float stat_value { get; set; }
@@ -77,17 +78,20 @@ public class GameProfileStatistic : BaseEntity {
 	if (code != null) {
 	    dict = DataUtil.SetDictValue(dict, "code", code);
 	}
+	dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
 	if (level != null) {
 	    dict = DataUtil.SetDictValue(dict, "level", level);
 	}
-	if (type != null) {
-	    dict = DataUtil.SetDictValue(dict, "type", type);
+	if (stat_value_formatted != null) {
+	    dict = DataUtil.SetDictValue(dict, "stat_value_formatted", stat_value_formatted);
 	}
 	if (profile_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
 	}
 	dict = DataUtil.SetDictValue(dict, "points", points);
-	dict = DataUtil.SetDictValue(dict, "timestamp", timestamp);
+	if (type != null) {
+	    dict = DataUtil.SetDictValue(dict, "type", type);
+	}
 	if (game_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "game_id", game_id);
 	}
@@ -109,14 +113,19 @@ public class GameProfileStatistic : BaseEntity {
 	    	code = DataType.Instance.FillString(dict["code"]);
 	    }		
 	}
+	if(dict.ContainsKey("timestamp")) {
+	    if(dict["timestamp"] != null) {
+	    	timestamp = DataType.Instance.FillFloat(dict["timestamp"]);
+	    }		
+	}
 	if(dict.ContainsKey("level")) {
 	    if(dict["level"] != null) {
 	    	level = DataType.Instance.FillString(dict["level"]);
 	    }		
 	}
-	if(dict.ContainsKey("type")) {
-	    if(dict["type"] != null) {
-	    	type = DataType.Instance.FillString(dict["type"]);
+	if(dict.ContainsKey("stat_value_formatted")) {
+	    if(dict["stat_value_formatted"] != null) {
+	    	stat_value_formatted = DataType.Instance.FillString(dict["stat_value_formatted"]);
 	    }		
 	}
 	if(dict.ContainsKey("profile_id")) {
@@ -129,9 +138,9 @@ public class GameProfileStatistic : BaseEntity {
 	    	points = DataType.Instance.FillFloat(dict["points"]);
 	    }		
 	}
-	if(dict.ContainsKey("timestamp")) {
-	    if(dict["timestamp"] != null) {
-	    	timestamp = DataType.Instance.FillFloat(dict["timestamp"]);
+	if(dict.ContainsKey("type")) {
+	    if(dict["type"] != null) {
+	    	type = DataType.Instance.FillString(dict["type"]);
 	    }		
 	}
 	if(dict.ContainsKey("game_id")) {

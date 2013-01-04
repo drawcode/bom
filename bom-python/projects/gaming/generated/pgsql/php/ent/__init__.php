@@ -21,6 +21,7 @@ require_once('GameRpgItemWeapon.php');
 require_once('GameRpgItemSkill.php');
 require_once('GameProduct.php');
 require_once('GameStatisticLeaderboard.php');
+require_once('GameStatisticLeaderboardItem.php');
 require_once('GameStatisticLeaderboardRollup.php');
 require_once('GameLiveQueue.php');
 require_once('GameLiveRecentQueue.php');

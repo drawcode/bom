@@ -22,6 +22,7 @@ require_once('ent/GameRpgItemWeapon.php');
 require_once('ent/GameRpgItemSkill.php');
 require_once('ent/GameProduct.php');
 require_once('ent/GameStatisticLeaderboard.php');
+require_once('ent/GameStatisticLeaderboardItem.php');
 require_once('ent/GameStatisticLeaderboardRollup.php');
 require_once('ent/GameLiveQueue.php');
 require_once('ent/GameLiveRecentQueue.php');
@@ -97,64 +98,64 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameByUuid(
+    public function CountGameUuid(
         $uuid
     ) {       
-        return $this->data->CountGameByUuid(
+        return $this->data->CountGameUuid(
             $uuid
         );
     }
                
-    public function CountGameByCode(
+    public function CountGameCode(
         $code
     ) {       
-        return $this->data->CountGameByCode(
+        return $this->data->CountGameCode(
             $code
         );
     }
                
-    public function CountGameByName(
+    public function CountGameName(
         $name
     ) {       
-        return $this->data->CountGameByName(
+        return $this->data->CountGameName(
             $name
         );
     }
                
-    public function CountGameByOrgId(
+    public function CountGameOrgId(
         $org_id
     ) {       
-        return $this->data->CountGameByOrgId(
+        return $this->data->CountGameOrgId(
             $org_id
         );
     }
                
-    public function CountGameByAppId(
+    public function CountGameAppId(
         $app_id
     ) {       
-        return $this->data->CountGameByAppId(
+        return $this->data->CountGameAppId(
             $app_id
         );
     }
                
-    public function CountGameByOrgIdByAppId(
+    public function CountGameOrgIdAppId(
         $org_id
         , $app_id
     ) {       
-        return $this->data->CountGameByOrgIdByAppId(
+        return $this->data->CountGameOrgIdAppId(
             $org_id
             , $app_id
         );
     }
                
-    public function BrowseGameListByFilter($filter_obj) {
+    public function BrowseGameListFilter($filter_obj) {
         $result = new GameResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game = $this->FillGame($row);
@@ -168,75 +169,75 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameByUuid($set_type, $obj) {           
-        return $this->data->SetGameByUuid($set_type, $obj);
+    public function SetGameUuid($set_type, $obj) {           
+        return $this->data->SetGameUuid($set_type, $obj);
     }
             
-    public function SetGameByCode($set_type, $obj) {           
-        return $this->data->SetGameByCode($set_type, $obj);
+    public function SetGameCode($set_type, $obj) {           
+        return $this->data->SetGameCode($set_type, $obj);
     }
             
-    public function SetGameByName($set_type, $obj) {           
-        return $this->data->SetGameByName($set_type, $obj);
+    public function SetGameName($set_type, $obj) {           
+        return $this->data->SetGameName($set_type, $obj);
     }
             
-    public function SetGameByOrgId($set_type, $obj) {           
-        return $this->data->SetGameByOrgId($set_type, $obj);
+    public function SetGameOrgId($set_type, $obj) {           
+        return $this->data->SetGameOrgId($set_type, $obj);
     }
             
-    public function SetGameByAppId($set_type, $obj) {           
-        return $this->data->SetGameByAppId($set_type, $obj);
+    public function SetGameAppId($set_type, $obj) {           
+        return $this->data->SetGameAppId($set_type, $obj);
     }
             
-    public function SetGameByOrgIdByAppId($set_type, $obj) {           
-        return $this->data->SetGameByOrgIdByAppId($set_type, $obj);
+    public function SetGameOrgIdAppId($set_type, $obj) {           
+        return $this->data->SetGameOrgIdAppId($set_type, $obj);
     }
             
-    public function DelGameByUuid(
+    public function DelGameUuid(
         $uuid
     ) {
-        return $this->data->DelGameByUuid(
+        return $this->data->DelGameUuid(
             $uuid
         );
     }
         
-    public function DelGameByCode(
+    public function DelGameCode(
         $code
     ) {
-        return $this->data->DelGameByCode(
+        return $this->data->DelGameCode(
             $code
         );
     }
         
-    public function DelGameByName(
+    public function DelGameName(
         $name
     ) {
-        return $this->data->DelGameByName(
+        return $this->data->DelGameName(
             $name
         );
     }
         
-    public function DelGameByOrgId(
+    public function DelGameOrgId(
         $org_id
     ) {
-        return $this->data->DelGameByOrgId(
+        return $this->data->DelGameOrgId(
             $org_id
         );
     }
         
-    public function DelGameByAppId(
+    public function DelGameAppId(
         $app_id
     ) {
-        return $this->data->DelGameByAppId(
+        return $this->data->DelGameAppId(
             $app_id
         );
     }
         
-    public function DelGameByOrgIdByAppId(
+    public function DelGameOrgIdAppId(
         $org_id
         , $app_id
     ) {
-        return $this->data->DelGameByOrgIdByAppId(
+        return $this->data->DelGameOrgIdAppId(
             $org_id
             , $app_id
         );
@@ -259,12 +260,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameListByUuid(
+    public function GetGameListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameListByUuid(
+        $rows = $this->data->GetGameListUuid(
             $uuid
         );
         
@@ -278,12 +279,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameListByCode(
+    public function GetGameListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameListByCode(
+        $rows = $this->data->GetGameListCode(
             $code
         );
         
@@ -297,12 +298,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameListByName(
+    public function GetGameListName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameListByName(
+        $rows = $this->data->GetGameListName(
             $name
         );
         
@@ -316,12 +317,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameListByOrgId(
+    public function GetGameListOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameListByOrgId(
+        $rows = $this->data->GetGameListOrgId(
             $org_id
         );
         
@@ -335,12 +336,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameListByAppId(
+    public function GetGameListAppId(
         $app_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameListByAppId(
+        $rows = $this->data->GetGameListAppId(
             $app_id
         );
         
@@ -354,13 +355,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameListByOrgIdByAppId(
+    public function GetGameListOrgIdAppId(
         $org_id
         , $app_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameListByOrgIdByAppId(
+        $rows = $this->data->GetGameListOrgIdAppId(
             $org_id
             , $app_id
         );
@@ -425,64 +426,64 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameCategoryByUuid(
+    public function CountGameCategoryUuid(
         $uuid
     ) {       
-        return $this->data->CountGameCategoryByUuid(
+        return $this->data->CountGameCategoryUuid(
             $uuid
         );
     }
                
-    public function CountGameCategoryByCode(
+    public function CountGameCategoryCode(
         $code
     ) {       
-        return $this->data->CountGameCategoryByCode(
+        return $this->data->CountGameCategoryCode(
             $code
         );
     }
                
-    public function CountGameCategoryByName(
+    public function CountGameCategoryName(
         $name
     ) {       
-        return $this->data->CountGameCategoryByName(
+        return $this->data->CountGameCategoryName(
             $name
         );
     }
                
-    public function CountGameCategoryByOrgId(
+    public function CountGameCategoryOrgId(
         $org_id
     ) {       
-        return $this->data->CountGameCategoryByOrgId(
+        return $this->data->CountGameCategoryOrgId(
             $org_id
         );
     }
                
-    public function CountGameCategoryByTypeId(
+    public function CountGameCategoryTypeId(
         $type_id
     ) {       
-        return $this->data->CountGameCategoryByTypeId(
+        return $this->data->CountGameCategoryTypeId(
             $type_id
         );
     }
                
-    public function CountGameCategoryByOrgIdByTypeId(
+    public function CountGameCategoryOrgIdTypeId(
         $org_id
         , $type_id
     ) {       
-        return $this->data->CountGameCategoryByOrgIdByTypeId(
+        return $this->data->CountGameCategoryOrgIdTypeId(
             $org_id
             , $type_id
         );
     }
                
-    public function BrowseGameCategoryListByFilter($filter_obj) {
+    public function BrowseGameCategoryListFilter($filter_obj) {
         $result = new GameCategoryResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameCategoryListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameCategoryListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_category = $this->FillGameCategory($row);
@@ -496,34 +497,34 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameCategoryByUuid($set_type, $obj) {           
-        return $this->data->SetGameCategoryByUuid($set_type, $obj);
+    public function SetGameCategoryUuid($set_type, $obj) {           
+        return $this->data->SetGameCategoryUuid($set_type, $obj);
     }
             
-    public function DelGameCategoryByUuid(
+    public function DelGameCategoryUuid(
         $uuid
     ) {
-        return $this->data->DelGameCategoryByUuid(
+        return $this->data->DelGameCategoryUuid(
             $uuid
         );
     }
         
-    public function DelGameCategoryByCodeByOrgId(
+    public function DelGameCategoryCodeOrgId(
         $code
         , $org_id
     ) {
-        return $this->data->DelGameCategoryByCodeByOrgId(
+        return $this->data->DelGameCategoryCodeOrgId(
             $code
             , $org_id
         );
     }
         
-    public function DelGameCategoryByCodeByOrgIdByTypeId(
+    public function DelGameCategoryCodeOrgIdTypeId(
         $code
         , $org_id
         , $type_id
     ) {
-        return $this->data->DelGameCategoryByCodeByOrgIdByTypeId(
+        return $this->data->DelGameCategoryCodeOrgIdTypeId(
             $code
             , $org_id
             , $type_id
@@ -547,12 +548,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryListByUuid(
+    public function GetGameCategoryListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryListByUuid(
+        $rows = $this->data->GetGameCategoryListUuid(
             $uuid
         );
         
@@ -566,12 +567,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryListByCode(
+    public function GetGameCategoryListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryListByCode(
+        $rows = $this->data->GetGameCategoryListCode(
             $code
         );
         
@@ -585,12 +586,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryListByName(
+    public function GetGameCategoryListName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryListByName(
+        $rows = $this->data->GetGameCategoryListName(
             $name
         );
         
@@ -604,12 +605,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryListByOrgId(
+    public function GetGameCategoryListOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryListByOrgId(
+        $rows = $this->data->GetGameCategoryListOrgId(
             $org_id
         );
         
@@ -623,12 +624,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryListByTypeId(
+    public function GetGameCategoryListTypeId(
         $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryListByTypeId(
+        $rows = $this->data->GetGameCategoryListTypeId(
             $type_id
         );
         
@@ -642,13 +643,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryListByOrgIdByTypeId(
+    public function GetGameCategoryListOrgIdTypeId(
         $org_id
         , $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryListByOrgIdByTypeId(
+        $rows = $this->data->GetGameCategoryListOrgIdTypeId(
             $org_id
             , $type_id
         );
@@ -701,48 +702,48 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameCategoryTreeByUuid(
+    public function CountGameCategoryTreeUuid(
         $uuid
     ) {       
-        return $this->data->CountGameCategoryTreeByUuid(
+        return $this->data->CountGameCategoryTreeUuid(
             $uuid
         );
     }
                
-    public function CountGameCategoryTreeByParentId(
+    public function CountGameCategoryTreeParentId(
         $parent_id
     ) {       
-        return $this->data->CountGameCategoryTreeByParentId(
+        return $this->data->CountGameCategoryTreeParentId(
             $parent_id
         );
     }
                
-    public function CountGameCategoryTreeByCategoryId(
+    public function CountGameCategoryTreeCategoryId(
         $category_id
     ) {       
-        return $this->data->CountGameCategoryTreeByCategoryId(
+        return $this->data->CountGameCategoryTreeCategoryId(
             $category_id
         );
     }
                
-    public function CountGameCategoryTreeByParentIdByCategoryId(
+    public function CountGameCategoryTreeParentIdCategoryId(
         $parent_id
         , $category_id
     ) {       
-        return $this->data->CountGameCategoryTreeByParentIdByCategoryId(
+        return $this->data->CountGameCategoryTreeParentIdCategoryId(
             $parent_id
             , $category_id
         );
     }
                
-    public function BrowseGameCategoryTreeListByFilter($filter_obj) {
+    public function BrowseGameCategoryTreeListFilter($filter_obj) {
         $result = new GameCategoryTreeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameCategoryTreeListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameCategoryTreeListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_category_tree = $this->FillGameCategoryTree($row);
@@ -756,39 +757,39 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameCategoryTreeByUuid($set_type, $obj) {           
-        return $this->data->SetGameCategoryTreeByUuid($set_type, $obj);
+    public function SetGameCategoryTreeUuid($set_type, $obj) {           
+        return $this->data->SetGameCategoryTreeUuid($set_type, $obj);
     }
             
-    public function DelGameCategoryTreeByUuid(
+    public function DelGameCategoryTreeUuid(
         $uuid
     ) {
-        return $this->data->DelGameCategoryTreeByUuid(
+        return $this->data->DelGameCategoryTreeUuid(
             $uuid
         );
     }
         
-    public function DelGameCategoryTreeByParentId(
+    public function DelGameCategoryTreeParentId(
         $parent_id
     ) {
-        return $this->data->DelGameCategoryTreeByParentId(
+        return $this->data->DelGameCategoryTreeParentId(
             $parent_id
         );
     }
         
-    public function DelGameCategoryTreeByCategoryId(
+    public function DelGameCategoryTreeCategoryId(
         $category_id
     ) {
-        return $this->data->DelGameCategoryTreeByCategoryId(
+        return $this->data->DelGameCategoryTreeCategoryId(
             $category_id
         );
     }
         
-    public function DelGameCategoryTreeByParentIdByCategoryId(
+    public function DelGameCategoryTreeParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
-        return $this->data->DelGameCategoryTreeByParentIdByCategoryId(
+        return $this->data->DelGameCategoryTreeParentIdCategoryId(
             $parent_id
             , $category_id
         );
@@ -811,12 +812,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryTreeListByUuid(
+    public function GetGameCategoryTreeListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryTreeListByUuid(
+        $rows = $this->data->GetGameCategoryTreeListUuid(
             $uuid
         );
         
@@ -830,12 +831,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryTreeListByParentId(
+    public function GetGameCategoryTreeListParentId(
         $parent_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryTreeListByParentId(
+        $rows = $this->data->GetGameCategoryTreeListParentId(
             $parent_id
         );
         
@@ -849,12 +850,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryTreeListByCategoryId(
+    public function GetGameCategoryTreeListCategoryId(
         $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryTreeListByCategoryId(
+        $rows = $this->data->GetGameCategoryTreeListCategoryId(
             $category_id
         );
         
@@ -868,13 +869,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryTreeListByParentIdByCategoryId(
+    public function GetGameCategoryTreeListParentIdCategoryId(
         $parent_id
         , $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryTreeListByParentIdByCategoryId(
+        $rows = $this->data->GetGameCategoryTreeListParentIdCategoryId(
             $parent_id
             , $category_id
         );
@@ -927,48 +928,48 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameCategoryAssocByUuid(
+    public function CountGameCategoryAssocUuid(
         $uuid
     ) {       
-        return $this->data->CountGameCategoryAssocByUuid(
+        return $this->data->CountGameCategoryAssocUuid(
             $uuid
         );
     }
                
-    public function CountGameCategoryAssocByGameId(
+    public function CountGameCategoryAssocGameId(
         $game_id
     ) {       
-        return $this->data->CountGameCategoryAssocByGameId(
+        return $this->data->CountGameCategoryAssocGameId(
             $game_id
         );
     }
                
-    public function CountGameCategoryAssocByCategoryId(
+    public function CountGameCategoryAssocCategoryId(
         $category_id
     ) {       
-        return $this->data->CountGameCategoryAssocByCategoryId(
+        return $this->data->CountGameCategoryAssocCategoryId(
             $category_id
         );
     }
                
-    public function CountGameCategoryAssocByGameIdByCategoryId(
+    public function CountGameCategoryAssocGameIdCategoryId(
         $game_id
         , $category_id
     ) {       
-        return $this->data->CountGameCategoryAssocByGameIdByCategoryId(
+        return $this->data->CountGameCategoryAssocGameIdCategoryId(
             $game_id
             , $category_id
         );
     }
                
-    public function BrowseGameCategoryAssocListByFilter($filter_obj) {
+    public function BrowseGameCategoryAssocListFilter($filter_obj) {
         $result = new GameCategoryAssocResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameCategoryAssocListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameCategoryAssocListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_category_assoc = $this->FillGameCategoryAssoc($row);
@@ -982,14 +983,14 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameCategoryAssocByUuid($set_type, $obj) {           
-        return $this->data->SetGameCategoryAssocByUuid($set_type, $obj);
+    public function SetGameCategoryAssocUuid($set_type, $obj) {           
+        return $this->data->SetGameCategoryAssocUuid($set_type, $obj);
     }
             
-    public function DelGameCategoryAssocByUuid(
+    public function DelGameCategoryAssocUuid(
         $uuid
     ) {
-        return $this->data->DelGameCategoryAssocByUuid(
+        return $this->data->DelGameCategoryAssocUuid(
             $uuid
         );
     }
@@ -1011,12 +1012,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryAssocListByUuid(
+    public function GetGameCategoryAssocListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryAssocListByUuid(
+        $rows = $this->data->GetGameCategoryAssocListUuid(
             $uuid
         );
         
@@ -1030,12 +1031,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryAssocListByGameId(
+    public function GetGameCategoryAssocListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryAssocListByGameId(
+        $rows = $this->data->GetGameCategoryAssocListGameId(
             $game_id
         );
         
@@ -1049,12 +1050,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryAssocListByCategoryId(
+    public function GetGameCategoryAssocListCategoryId(
         $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryAssocListByCategoryId(
+        $rows = $this->data->GetGameCategoryAssocListCategoryId(
             $category_id
         );
         
@@ -1068,13 +1069,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameCategoryAssocListByGameIdByCategoryId(
+    public function GetGameCategoryAssocListGameIdCategoryId(
         $game_id
         , $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameCategoryAssocListByGameIdByCategoryId(
+        $rows = $this->data->GetGameCategoryAssocListGameIdCategoryId(
             $game_id
             , $category_id
         );
@@ -1133,38 +1134,38 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameTypeByUuid(
+    public function CountGameTypeUuid(
         $uuid
     ) {       
-        return $this->data->CountGameTypeByUuid(
+        return $this->data->CountGameTypeUuid(
             $uuid
         );
     }
                
-    public function CountGameTypeByCode(
+    public function CountGameTypeCode(
         $code
     ) {       
-        return $this->data->CountGameTypeByCode(
+        return $this->data->CountGameTypeCode(
             $code
         );
     }
                
-    public function CountGameTypeByName(
+    public function CountGameTypeName(
         $name
     ) {       
-        return $this->data->CountGameTypeByName(
+        return $this->data->CountGameTypeName(
             $name
         );
     }
                
-    public function BrowseGameTypeListByFilter($filter_obj) {
+    public function BrowseGameTypeListFilter($filter_obj) {
         $result = new GameTypeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameTypeListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameTypeListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_type = $this->FillGameType($row);
@@ -1178,14 +1179,14 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameTypeByUuid($set_type, $obj) {           
-        return $this->data->SetGameTypeByUuid($set_type, $obj);
+    public function SetGameTypeUuid($set_type, $obj) {           
+        return $this->data->SetGameTypeUuid($set_type, $obj);
     }
             
-    public function DelGameTypeByUuid(
+    public function DelGameTypeUuid(
         $uuid
     ) {
-        return $this->data->DelGameTypeByUuid(
+        return $this->data->DelGameTypeUuid(
             $uuid
         );
     }
@@ -1207,12 +1208,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameTypeListByUuid(
+    public function GetGameTypeListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameTypeListByUuid(
+        $rows = $this->data->GetGameTypeListUuid(
             $uuid
         );
         
@@ -1226,12 +1227,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameTypeListByCode(
+    public function GetGameTypeListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameTypeListByCode(
+        $rows = $this->data->GetGameTypeListCode(
             $code
         );
         
@@ -1245,12 +1246,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameTypeListByName(
+    public function GetGameTypeListName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameTypeListByName(
+        $rows = $this->data->GetGameTypeListName(
             $name
         );
         
@@ -1311,48 +1312,48 @@ class BaseGamingACT {
         );
     }
                
-    public function CountProfileGameByUuid(
+    public function CountProfileGameUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileGameByUuid(
+        return $this->data->CountProfileGameUuid(
             $uuid
         );
     }
                
-    public function CountProfileGameByGameId(
+    public function CountProfileGameGameId(
         $game_id
     ) {       
-        return $this->data->CountProfileGameByGameId(
+        return $this->data->CountProfileGameGameId(
             $game_id
         );
     }
                
-    public function CountProfileGameByProfileId(
+    public function CountProfileGameProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileGameByProfileId(
+        return $this->data->CountProfileGameProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileGameByProfileIdByGameId(
+    public function CountProfileGameProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountProfileGameByProfileIdByGameId(
+        return $this->data->CountProfileGameProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function BrowseProfileGameListByFilter($filter_obj) {
+    public function BrowseProfileGameListFilter($filter_obj) {
         $result = new ProfileGameResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileGameListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileGameListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_game = $this->FillProfileGame($row);
@@ -1366,14 +1367,14 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetProfileGameByUuid($set_type, $obj) {           
-        return $this->data->SetProfileGameByUuid($set_type, $obj);
+    public function SetProfileGameUuid($set_type, $obj) {           
+        return $this->data->SetProfileGameUuid($set_type, $obj);
     }
             
-    public function DelProfileGameByUuid(
+    public function DelProfileGameUuid(
         $uuid
     ) {
-        return $this->data->DelProfileGameByUuid(
+        return $this->data->DelProfileGameUuid(
             $uuid
         );
     }
@@ -1395,12 +1396,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameListByUuid(
+    public function GetProfileGameListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameListByUuid(
+        $rows = $this->data->GetProfileGameListUuid(
             $uuid
         );
         
@@ -1414,12 +1415,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameListByGameId(
+    public function GetProfileGameListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameListByGameId(
+        $rows = $this->data->GetProfileGameListGameId(
             $game_id
         );
         
@@ -1433,12 +1434,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameListByProfileId(
+    public function GetProfileGameListProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameListByProfileId(
+        $rows = $this->data->GetProfileGameListProfileId(
             $profile_id
         );
         
@@ -1452,13 +1453,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameListByProfileIdByGameId(
+    public function GetProfileGameListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameListByProfileIdByGameId(
+        $rows = $this->data->GetProfileGameListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -1526,40 +1527,40 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameNetworkByUuid(
+    public function CountGameNetworkUuid(
         $uuid
     ) {       
-        return $this->data->CountGameNetworkByUuid(
+        return $this->data->CountGameNetworkUuid(
             $uuid
         );
     }
                
-    public function CountGameNetworkByCode(
+    public function CountGameNetworkCode(
         $code
     ) {       
-        return $this->data->CountGameNetworkByCode(
+        return $this->data->CountGameNetworkCode(
             $code
         );
     }
                
-    public function CountGameNetworkByUuidByType(
+    public function CountGameNetworkUuidType(
         $uuid
         , $type
     ) {       
-        return $this->data->CountGameNetworkByUuidByType(
+        return $this->data->CountGameNetworkUuidType(
             $uuid
             , $type
         );
     }
                
-    public function BrowseGameNetworkListByFilter($filter_obj) {
+    public function BrowseGameNetworkListFilter($filter_obj) {
         $result = new GameNetworkResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameNetworkListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameNetworkListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_network = $this->FillGameNetwork($row);
@@ -1573,18 +1574,18 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameNetworkByUuid($set_type, $obj) {           
-        return $this->data->SetGameNetworkByUuid($set_type, $obj);
+    public function SetGameNetworkUuid($set_type, $obj) {           
+        return $this->data->SetGameNetworkUuid($set_type, $obj);
     }
             
-    public function SetGameNetworkByCode($set_type, $obj) {           
-        return $this->data->SetGameNetworkByCode($set_type, $obj);
+    public function SetGameNetworkCode($set_type, $obj) {           
+        return $this->data->SetGameNetworkCode($set_type, $obj);
     }
             
-    public function DelGameNetworkByUuid(
+    public function DelGameNetworkUuid(
         $uuid
     ) {
-        return $this->data->DelGameNetworkByUuid(
+        return $this->data->DelGameNetworkUuid(
             $uuid
         );
     }
@@ -1606,12 +1607,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameNetworkListByUuid(
+    public function GetGameNetworkListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameNetworkListByUuid(
+        $rows = $this->data->GetGameNetworkListUuid(
             $uuid
         );
         
@@ -1625,12 +1626,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameNetworkListByCode(
+    public function GetGameNetworkListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameNetworkListByCode(
+        $rows = $this->data->GetGameNetworkListCode(
             $code
         );
         
@@ -1644,13 +1645,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameNetworkListByUuidByType(
+    public function GetGameNetworkListUuidType(
         $uuid
         , $type
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameNetworkListByUuidByType(
+        $rows = $this->data->GetGameNetworkListUuidType(
             $uuid
             , $type
         );
@@ -1727,32 +1728,32 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameNetworkAuthByUuid(
+    public function CountGameNetworkAuthUuid(
         $uuid
     ) {       
-        return $this->data->CountGameNetworkAuthByUuid(
+        return $this->data->CountGameNetworkAuthUuid(
             $uuid
         );
     }
                
-    public function CountGameNetworkAuthByGameIdByGameNetworkId(
+    public function CountGameNetworkAuthGameIdGameNetworkId(
         $game_id
         , $game_network_id
     ) {       
-        return $this->data->CountGameNetworkAuthByGameIdByGameNetworkId(
+        return $this->data->CountGameNetworkAuthGameIdGameNetworkId(
             $game_id
             , $game_network_id
         );
     }
                
-    public function BrowseGameNetworkAuthListByFilter($filter_obj) {
+    public function BrowseGameNetworkAuthListFilter($filter_obj) {
         $result = new GameNetworkAuthResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameNetworkAuthListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameNetworkAuthListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_network_auth = $this->FillGameNetworkAuth($row);
@@ -1766,18 +1767,18 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameNetworkAuthByUuid($set_type, $obj) {           
-        return $this->data->SetGameNetworkAuthByUuid($set_type, $obj);
+    public function SetGameNetworkAuthUuid($set_type, $obj) {           
+        return $this->data->SetGameNetworkAuthUuid($set_type, $obj);
     }
             
-    public function SetGameNetworkAuthByGameIdByGameNetworkId($set_type, $obj) {           
-        return $this->data->SetGameNetworkAuthByGameIdByGameNetworkId($set_type, $obj);
+    public function SetGameNetworkAuthGameIdGameNetworkId($set_type, $obj) {           
+        return $this->data->SetGameNetworkAuthGameIdGameNetworkId($set_type, $obj);
     }
             
-    public function DelGameNetworkAuthByUuid(
+    public function DelGameNetworkAuthUuid(
         $uuid
     ) {
-        return $this->data->DelGameNetworkAuthByUuid(
+        return $this->data->DelGameNetworkAuthUuid(
             $uuid
         );
     }
@@ -1799,12 +1800,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameNetworkAuthListByUuid(
+    public function GetGameNetworkAuthListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameNetworkAuthListByUuid(
+        $rows = $this->data->GetGameNetworkAuthListUuid(
             $uuid
         );
         
@@ -1818,13 +1819,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameNetworkAuthListByGameIdByGameNetworkId(
+    public function GetGameNetworkAuthListGameIdGameNetworkId(
         $game_id
         , $game_network_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameNetworkAuthListByGameIdByGameNetworkId(
+        $rows = $this->data->GetGameNetworkAuthListGameIdGameNetworkId(
             $game_id
             , $game_network_id
         );
@@ -1904,82 +1905,82 @@ class BaseGamingACT {
         );
     }
                
-    public function CountProfileGameNetworkByUuid(
+    public function CountProfileGameNetworkUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileGameNetworkByUuid(
+        return $this->data->CountProfileGameNetworkUuid(
             $uuid
         );
     }
                
-    public function CountProfileGameNetworkByGameId(
+    public function CountProfileGameNetworkGameId(
         $game_id
     ) {       
-        return $this->data->CountProfileGameNetworkByGameId(
+        return $this->data->CountProfileGameNetworkGameId(
             $game_id
         );
     }
                
-    public function CountProfileGameNetworkByProfileId(
+    public function CountProfileGameNetworkProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileGameNetworkByProfileId(
+        return $this->data->CountProfileGameNetworkProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileGameNetworkByProfileIdByGameId(
+    public function CountProfileGameNetworkProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountProfileGameNetworkByProfileIdByGameId(
+        return $this->data->CountProfileGameNetworkProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function CountProfileGameNetworkByProfileIdByGameId(
+    public function CountProfileGameNetworkProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountProfileGameNetworkByProfileIdByGameId(
+        return $this->data->CountProfileGameNetworkProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+    public function CountProfileGameNetworkProfileIdGameIdGameNetworkId(
         $profile_id
         , $game_id
         , $game_network_id
     ) {       
-        return $this->data->CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+        return $this->data->CountProfileGameNetworkProfileIdGameIdGameNetworkId(
             $profile_id
             , $game_id
             , $game_network_id
         );
     }
                
-    public function CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+    public function CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
         $network_username
         , $game_id
         , $game_network_id
     ) {       
-        return $this->data->CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+        return $this->data->CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
             $network_username
             , $game_id
             , $game_network_id
         );
     }
                
-    public function BrowseProfileGameNetworkListByFilter($filter_obj) {
+    public function BrowseProfileGameNetworkListFilter($filter_obj) {
         $result = new ProfileGameNetworkResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileGameNetworkListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileGameNetworkListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_game_network = $this->FillProfileGameNetwork($row);
@@ -1993,58 +1994,58 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetProfileGameNetworkByUuid($set_type, $obj) {           
-        return $this->data->SetProfileGameNetworkByUuid($set_type, $obj);
+    public function SetProfileGameNetworkUuid($set_type, $obj) {           
+        return $this->data->SetProfileGameNetworkUuid($set_type, $obj);
     }
             
-    public function SetProfileGameNetworkByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetProfileGameNetworkByProfileIdByGameId($set_type, $obj);
+    public function SetProfileGameNetworkProfileIdGameId($set_type, $obj) {           
+        return $this->data->SetProfileGameNetworkProfileIdGameId($set_type, $obj);
     }
             
-    public function SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId($set_type, $obj) {           
-        return $this->data->SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId($set_type, $obj);
+    public function SetProfileGameNetworkProfileIdGameIdGameNetworkId($set_type, $obj) {           
+        return $this->data->SetProfileGameNetworkProfileIdGameIdGameNetworkId($set_type, $obj);
     }
             
-    public function SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId($set_type, $obj) {           
-        return $this->data->SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId($set_type, $obj);
+    public function SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId($set_type, $obj) {           
+        return $this->data->SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId($set_type, $obj);
     }
             
-    public function DelProfileGameNetworkByUuid(
+    public function DelProfileGameNetworkUuid(
         $uuid
     ) {
-        return $this->data->DelProfileGameNetworkByUuid(
+        return $this->data->DelProfileGameNetworkUuid(
             $uuid
         );
     }
         
-    public function DelProfileGameNetworkByProfileIdByGameId(
+    public function DelProfileGameNetworkProfileIdGameId(
         $profile_id
         , $game_id
     ) {
-        return $this->data->DelProfileGameNetworkByProfileIdByGameId(
+        return $this->data->DelProfileGameNetworkProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
         
-    public function DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+    public function DelProfileGameNetworkProfileIdGameIdGameNetworkId(
         $profile_id
         , $game_id
         , $game_network_id
     ) {
-        return $this->data->DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+        return $this->data->DelProfileGameNetworkProfileIdGameIdGameNetworkId(
             $profile_id
             , $game_id
             , $game_network_id
         );
     }
         
-    public function DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+    public function DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
         $network_username
         , $game_id
         , $game_network_id
     ) {
-        return $this->data->DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+        return $this->data->DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
             $network_username
             , $game_id
             , $game_network_id
@@ -2068,12 +2069,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameNetworkListByUuid(
+    public function GetProfileGameNetworkListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameNetworkListByUuid(
+        $rows = $this->data->GetProfileGameNetworkListUuid(
             $uuid
         );
         
@@ -2087,12 +2088,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameNetworkListByGameId(
+    public function GetProfileGameNetworkListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameNetworkListByGameId(
+        $rows = $this->data->GetProfileGameNetworkListGameId(
             $game_id
         );
         
@@ -2106,12 +2107,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameNetworkListByProfileId(
+    public function GetProfileGameNetworkListProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameNetworkListByProfileId(
+        $rows = $this->data->GetProfileGameNetworkListProfileId(
             $profile_id
         );
         
@@ -2125,13 +2126,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameNetworkListByProfileIdByGameId(
+    public function GetProfileGameNetworkListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameNetworkListByProfileIdByGameId(
+        $rows = $this->data->GetProfileGameNetworkListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -2146,14 +2147,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+    public function GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
         $profile_id
         , $game_id
         , $game_network_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+        $rows = $this->data->GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
             $profile_id
             , $game_id
             , $game_network_id
@@ -2169,14 +2170,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+    public function GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
         $network_username
         , $game_id
         , $game_network_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+        $rows = $this->data->GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
             $network_username
             , $game_id
             , $game_network_id
@@ -2242,42 +2243,42 @@ class BaseGamingACT {
         );
     }
                
-    public function CountProfileGameDataAttributeByUuid(
+    public function CountProfileGameDataAttributeUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileGameDataAttributeByUuid(
+        return $this->data->CountProfileGameDataAttributeUuid(
             $uuid
         );
     }
                
-    public function CountProfileGameDataAttributeByProfileId(
+    public function CountProfileGameDataAttributeProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileGameDataAttributeByProfileId(
+        return $this->data->CountProfileGameDataAttributeProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileGameDataAttributeByProfileIdByGameIdByCode(
+    public function CountProfileGameDataAttributeProfileIdGameIdCode(
         $profile_id
         , $game_id
         , $code
     ) {       
-        return $this->data->CountProfileGameDataAttributeByProfileIdByGameIdByCode(
+        return $this->data->CountProfileGameDataAttributeProfileIdGameIdCode(
             $profile_id
             , $game_id
             , $code
         );
     }
                
-    public function BrowseProfileGameDataAttributeListByFilter($filter_obj) {
+    public function BrowseProfileGameDataAttributeListFilter($filter_obj) {
         $result = new ProfileGameDataAttributeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileGameDataAttributeListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileGameDataAttributeListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_game_data_attribute = $this->FillProfileGameDataAttribute($row);
@@ -2291,52 +2292,52 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetProfileGameDataAttributeByUuid($set_type, $obj) {           
-        return $this->data->SetProfileGameDataAttributeByUuid($set_type, $obj);
+    public function SetProfileGameDataAttributeUuid($set_type, $obj) {           
+        return $this->data->SetProfileGameDataAttributeUuid($set_type, $obj);
     }
             
-    public function SetProfileGameDataAttributeByProfileId($set_type, $obj) {           
-        return $this->data->SetProfileGameDataAttributeByProfileId($set_type, $obj);
+    public function SetProfileGameDataAttributeProfileId($set_type, $obj) {           
+        return $this->data->SetProfileGameDataAttributeProfileId($set_type, $obj);
     }
             
-    public function SetProfileGameDataAttributeByProfileIdByGameIdByCode($set_type, $obj) {           
-        return $this->data->SetProfileGameDataAttributeByProfileIdByGameIdByCode($set_type, $obj);
+    public function SetProfileGameDataAttributeProfileIdGameIdCode($set_type, $obj) {           
+        return $this->data->SetProfileGameDataAttributeProfileIdGameIdCode($set_type, $obj);
     }
             
-    public function DelProfileGameDataAttributeByUuid(
+    public function DelProfileGameDataAttributeUuid(
         $uuid
     ) {
-        return $this->data->DelProfileGameDataAttributeByUuid(
+        return $this->data->DelProfileGameDataAttributeUuid(
             $uuid
         );
     }
         
-    public function DelProfileGameDataAttributeByProfileId(
+    public function DelProfileGameDataAttributeProfileId(
         $profile_id
     ) {
-        return $this->data->DelProfileGameDataAttributeByProfileId(
+        return $this->data->DelProfileGameDataAttributeProfileId(
             $profile_id
         );
     }
         
-    public function DelProfileGameDataAttributeByProfileIdByGameIdByCode(
+    public function DelProfileGameDataAttributeProfileIdGameIdCode(
         $profile_id
         , $game_id
         , $code
     ) {
-        return $this->data->DelProfileGameDataAttributeByProfileIdByGameIdByCode(
+        return $this->data->DelProfileGameDataAttributeProfileIdGameIdCode(
             $profile_id
             , $game_id
             , $code
         );
     }
         
-    public function GetProfileGameDataAttributeListByUuid(
+    public function GetProfileGameDataAttributeListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameDataAttributeListByUuid(
+        $rows = $this->data->GetProfileGameDataAttributeListUuid(
             $uuid
         );
         
@@ -2350,12 +2351,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameDataAttributeListByProfileId(
+    public function GetProfileGameDataAttributeListProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameDataAttributeListByProfileId(
+        $rows = $this->data->GetProfileGameDataAttributeListProfileId(
             $profile_id
         );
         
@@ -2369,14 +2370,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+    public function GetProfileGameDataAttributeListProfileIdGameIdCode(
         $profile_id
         , $game_id
         , $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+        $rows = $this->data->GetProfileGameDataAttributeListProfileIdGameIdCode(
             $profile_id
             , $game_id
             , $code
@@ -2502,48 +2503,48 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameSessionByUuid(
+    public function CountGameSessionUuid(
         $uuid
     ) {       
-        return $this->data->CountGameSessionByUuid(
+        return $this->data->CountGameSessionUuid(
             $uuid
         );
     }
                
-    public function CountGameSessionByGameId(
+    public function CountGameSessionGameId(
         $game_id
     ) {       
-        return $this->data->CountGameSessionByGameId(
+        return $this->data->CountGameSessionGameId(
             $game_id
         );
     }
                
-    public function CountGameSessionByProfileId(
+    public function CountGameSessionProfileId(
         $profile_id
     ) {       
-        return $this->data->CountGameSessionByProfileId(
+        return $this->data->CountGameSessionProfileId(
             $profile_id
         );
     }
                
-    public function CountGameSessionByProfileIdByGameId(
+    public function CountGameSessionProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameSessionByProfileIdByGameId(
+        return $this->data->CountGameSessionProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function BrowseGameSessionListByFilter($filter_obj) {
+    public function BrowseGameSessionListFilter($filter_obj) {
         $result = new GameSessionResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameSessionListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameSessionListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_session = $this->FillGameSession($row);
@@ -2557,14 +2558,14 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameSessionByUuid($set_type, $obj) {           
-        return $this->data->SetGameSessionByUuid($set_type, $obj);
+    public function SetGameSessionUuid($set_type, $obj) {           
+        return $this->data->SetGameSessionUuid($set_type, $obj);
     }
             
-    public function DelGameSessionByUuid(
+    public function DelGameSessionUuid(
         $uuid
     ) {
-        return $this->data->DelGameSessionByUuid(
+        return $this->data->DelGameSessionUuid(
             $uuid
         );
     }
@@ -2586,12 +2587,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameSessionListByUuid(
+    public function GetGameSessionListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameSessionListByUuid(
+        $rows = $this->data->GetGameSessionListUuid(
             $uuid
         );
         
@@ -2605,12 +2606,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameSessionListByGameId(
+    public function GetGameSessionListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameSessionListByGameId(
+        $rows = $this->data->GetGameSessionListGameId(
             $game_id
         );
         
@@ -2624,12 +2625,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameSessionListByProfileId(
+    public function GetGameSessionListProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameSessionListByProfileId(
+        $rows = $this->data->GetGameSessionListProfileId(
             $profile_id
         );
         
@@ -2643,13 +2644,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameSessionListByProfileIdByGameId(
+    public function GetGameSessionListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameSessionListByProfileIdByGameId(
+        $rows = $this->data->GetGameSessionListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -2723,22 +2724,22 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameSessionDataByUuid(
+    public function CountGameSessionDataUuid(
         $uuid
     ) {       
-        return $this->data->CountGameSessionDataByUuid(
+        return $this->data->CountGameSessionDataUuid(
             $uuid
         );
     }
                
-    public function BrowseGameSessionDataListByFilter($filter_obj) {
+    public function BrowseGameSessionDataListFilter($filter_obj) {
         $result = new GameSessionDataResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameSessionDataListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameSessionDataListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_session_data = $this->FillGameSessionData($row);
@@ -2752,14 +2753,14 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameSessionDataByUuid($set_type, $obj) {           
-        return $this->data->SetGameSessionDataByUuid($set_type, $obj);
+    public function SetGameSessionDataUuid($set_type, $obj) {           
+        return $this->data->SetGameSessionDataUuid($set_type, $obj);
     }
             
-    public function DelGameSessionDataByUuid(
+    public function DelGameSessionDataUuid(
         $uuid
     ) {
-        return $this->data->DelGameSessionDataByUuid(
+        return $this->data->DelGameSessionDataUuid(
             $uuid
         );
     }
@@ -2781,12 +2782,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameSessionDataListByUuid(
+    public function GetGameSessionDataListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameSessionDataListByUuid(
+        $rows = $this->data->GetGameSessionDataListUuid(
             $uuid
         );
         
@@ -2877,52 +2878,52 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameContentByUuid(
+    public function CountGameContentUuid(
         $uuid
     ) {       
-        return $this->data->CountGameContentByUuid(
+        return $this->data->CountGameContentUuid(
             $uuid
         );
     }
                
-    public function CountGameContentByGameId(
+    public function CountGameContentGameId(
         $game_id
     ) {       
-        return $this->data->CountGameContentByGameId(
+        return $this->data->CountGameContentGameId(
             $game_id
         );
     }
                
-    public function CountGameContentByGameIdByPath(
+    public function CountGameContentGameIdPath(
         $game_id
         , $path
     ) {       
-        return $this->data->CountGameContentByGameIdByPath(
+        return $this->data->CountGameContentGameIdPath(
             $game_id
             , $path
         );
     }
                
-    public function CountGameContentByGameIdByPathByVersion(
+    public function CountGameContentGameIdPathVersion(
         $game_id
         , $path
         , $version
     ) {       
-        return $this->data->CountGameContentByGameIdByPathByVersion(
+        return $this->data->CountGameContentGameIdPathVersion(
             $game_id
             , $path
             , $version
         );
     }
                
-    public function CountGameContentByGameIdByPathByVersionByPlatformByIncrement(
+    public function CountGameContentGameIdPathVersionPlatformIncrement(
         $game_id
         , $path
         , $version
         , $platform
         , $increment
     ) {       
-        return $this->data->CountGameContentByGameIdByPathByVersionByPlatformByIncrement(
+        return $this->data->CountGameContentGameIdPathVersionPlatformIncrement(
             $game_id
             , $path
             , $version
@@ -2931,14 +2932,14 @@ class BaseGamingACT {
         );
     }
                
-    public function BrowseGameContentListByFilter($filter_obj) {
+    public function BrowseGameContentListFilter($filter_obj) {
         $result = new GameContentResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameContentListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameContentListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_content = $this->FillGameContent($row);
@@ -2952,72 +2953,72 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameContentByUuid($set_type, $obj) {           
-        return $this->data->SetGameContentByUuid($set_type, $obj);
+    public function SetGameContentUuid($set_type, $obj) {           
+        return $this->data->SetGameContentUuid($set_type, $obj);
     }
             
-    public function SetGameContentByGameId($set_type, $obj) {           
-        return $this->data->SetGameContentByGameId($set_type, $obj);
+    public function SetGameContentGameId($set_type, $obj) {           
+        return $this->data->SetGameContentGameId($set_type, $obj);
     }
             
-    public function SetGameContentByGameIdByPath($set_type, $obj) {           
-        return $this->data->SetGameContentByGameIdByPath($set_type, $obj);
+    public function SetGameContentGameIdPath($set_type, $obj) {           
+        return $this->data->SetGameContentGameIdPath($set_type, $obj);
     }
             
-    public function SetGameContentByGameIdByPathByVersion($set_type, $obj) {           
-        return $this->data->SetGameContentByGameIdByPathByVersion($set_type, $obj);
+    public function SetGameContentGameIdPathVersion($set_type, $obj) {           
+        return $this->data->SetGameContentGameIdPathVersion($set_type, $obj);
     }
             
-    public function SetGameContentByGameIdByPathByVersionByPlatformByIncrement($set_type, $obj) {           
-        return $this->data->SetGameContentByGameIdByPathByVersionByPlatformByIncrement($set_type, $obj);
+    public function SetGameContentGameIdPathVersionPlatformIncrement($set_type, $obj) {           
+        return $this->data->SetGameContentGameIdPathVersionPlatformIncrement($set_type, $obj);
     }
             
-    public function DelGameContentByUuid(
+    public function DelGameContentUuid(
         $uuid
     ) {
-        return $this->data->DelGameContentByUuid(
+        return $this->data->DelGameContentUuid(
             $uuid
         );
     }
         
-    public function DelGameContentByGameId(
+    public function DelGameContentGameId(
         $game_id
     ) {
-        return $this->data->DelGameContentByGameId(
+        return $this->data->DelGameContentGameId(
             $game_id
         );
     }
         
-    public function DelGameContentByGameIdByPath(
+    public function DelGameContentGameIdPath(
         $game_id
         , $path
     ) {
-        return $this->data->DelGameContentByGameIdByPath(
+        return $this->data->DelGameContentGameIdPath(
             $game_id
             , $path
         );
     }
         
-    public function DelGameContentByGameIdByPathByVersion(
+    public function DelGameContentGameIdPathVersion(
         $game_id
         , $path
         , $version
     ) {
-        return $this->data->DelGameContentByGameIdByPathByVersion(
+        return $this->data->DelGameContentGameIdPathVersion(
             $game_id
             , $path
             , $version
         );
     }
         
-    public function DelGameContentByGameIdByPathByVersionByPlatformByIncrement(
+    public function DelGameContentGameIdPathVersionPlatformIncrement(
         $game_id
         , $path
         , $version
         , $platform
         , $increment
     ) {
-        return $this->data->DelGameContentByGameIdByPathByVersionByPlatformByIncrement(
+        return $this->data->DelGameContentGameIdPathVersionPlatformIncrement(
             $game_id
             , $path
             , $version
@@ -3043,12 +3044,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameContentListByUuid(
+    public function GetGameContentListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameContentListByUuid(
+        $rows = $this->data->GetGameContentListUuid(
             $uuid
         );
         
@@ -3062,12 +3063,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameContentListByGameId(
+    public function GetGameContentListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameContentListByGameId(
+        $rows = $this->data->GetGameContentListGameId(
             $game_id
         );
         
@@ -3081,13 +3082,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameContentListByGameIdByPath(
+    public function GetGameContentListGameIdPath(
         $game_id
         , $path
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameContentListByGameIdByPath(
+        $rows = $this->data->GetGameContentListGameIdPath(
             $game_id
             , $path
         );
@@ -3102,14 +3103,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameContentListByGameIdByPathByVersion(
+    public function GetGameContentListGameIdPathVersion(
         $game_id
         , $path
         , $version
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameContentListByGameIdByPathByVersion(
+        $rows = $this->data->GetGameContentListGameIdPathVersion(
             $game_id
             , $path
             , $version
@@ -3125,7 +3126,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+    public function GetGameContentListGameIdPathVersionPlatformIncrement(
         $game_id
         , $path
         , $version
@@ -3134,7 +3135,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+        $rows = $this->data->GetGameContentListGameIdPathVersionPlatformIncrement(
             $game_id
             , $path
             , $version
@@ -3238,61 +3239,61 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileContentByUuid(
+    public function CountGameProfileContentUuid(
         $uuid
     ) {       
-        return $this->data->CountGameProfileContentByUuid(
+        return $this->data->CountGameProfileContentUuid(
             $uuid
         );
     }
                
-    public function CountGameProfileContentByGameIdByProfileId(
+    public function CountGameProfileContentGameIdProfileId(
         $game_id
         , $profile_id
     ) {       
-        return $this->data->CountGameProfileContentByGameIdByProfileId(
+        return $this->data->CountGameProfileContentGameIdProfileId(
             $game_id
             , $profile_id
         );
     }
                
-    public function CountGameProfileContentByGameIdByUsername(
+    public function CountGameProfileContentGameIdUsername(
         $game_id
         , $username
     ) {       
-        return $this->data->CountGameProfileContentByGameIdByUsername(
+        return $this->data->CountGameProfileContentGameIdUsername(
             $game_id
             , $username
         );
     }
                
-    public function CountGameProfileContentByUsername(
+    public function CountGameProfileContentUsername(
         $username
     ) {       
-        return $this->data->CountGameProfileContentByUsername(
+        return $this->data->CountGameProfileContentUsername(
             $username
         );
     }
                
-    public function CountGameProfileContentByGameIdByProfileIdByPath(
+    public function CountGameProfileContentGameIdProfileIdPath(
         $game_id
         , $profile_id
         , $path
     ) {       
-        return $this->data->CountGameProfileContentByGameIdByProfileIdByPath(
+        return $this->data->CountGameProfileContentGameIdProfileIdPath(
             $game_id
             , $profile_id
             , $path
         );
     }
                
-    public function CountGameProfileContentByGameIdByProfileIdByPathByVersion(
+    public function CountGameProfileContentGameIdProfileIdPathVersion(
         $game_id
         , $profile_id
         , $path
         , $version
     ) {       
-        return $this->data->CountGameProfileContentByGameIdByProfileIdByPathByVersion(
+        return $this->data->CountGameProfileContentGameIdProfileIdPathVersion(
             $game_id
             , $profile_id
             , $path
@@ -3300,7 +3301,7 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+    public function CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
         $game_id
         , $profile_id
         , $path
@@ -3308,7 +3309,7 @@ class BaseGamingACT {
         , $platform
         , $increment
     ) {       
-        return $this->data->CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        return $this->data->CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
             $game_id
             , $profile_id
             , $path
@@ -3318,25 +3319,25 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileContentByGameIdByUsernameByPath(
+    public function CountGameProfileContentGameIdUsernamePath(
         $game_id
         , $username
         , $path
     ) {       
-        return $this->data->CountGameProfileContentByGameIdByUsernameByPath(
+        return $this->data->CountGameProfileContentGameIdUsernamePath(
             $game_id
             , $username
             , $path
         );
     }
                
-    public function CountGameProfileContentByGameIdByUsernameByPathByVersion(
+    public function CountGameProfileContentGameIdUsernamePathVersion(
         $game_id
         , $username
         , $path
         , $version
     ) {       
-        return $this->data->CountGameProfileContentByGameIdByUsernameByPathByVersion(
+        return $this->data->CountGameProfileContentGameIdUsernamePathVersion(
             $game_id
             , $username
             , $path
@@ -3344,7 +3345,7 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+    public function CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
         $game_id
         , $username
         , $path
@@ -3352,7 +3353,7 @@ class BaseGamingACT {
         , $platform
         , $increment
     ) {       
-        return $this->data->CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        return $this->data->CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
             $game_id
             , $username
             , $path
@@ -3362,14 +3363,14 @@ class BaseGamingACT {
         );
     }
                
-    public function BrowseGameProfileContentListByFilter($filter_obj) {
+    public function BrowseGameProfileContentListFilter($filter_obj) {
         $result = new GameProfileContentResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameProfileContentListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameProfileContentListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_profile_content = $this->FillGameProfileContent($row);
@@ -3383,101 +3384,101 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameProfileContentByUuid($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByUuid($set_type, $obj);
+    public function SetGameProfileContentUuid($set_type, $obj) {           
+        return $this->data->SetGameProfileContentUuid($set_type, $obj);
     }
             
-    public function SetGameProfileContentByGameIdByProfileId($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByGameIdByProfileId($set_type, $obj);
+    public function SetGameProfileContentGameIdProfileId($set_type, $obj) {           
+        return $this->data->SetGameProfileContentGameIdProfileId($set_type, $obj);
     }
             
-    public function SetGameProfileContentByGameIdByUsername($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByGameIdByUsername($set_type, $obj);
+    public function SetGameProfileContentGameIdUsername($set_type, $obj) {           
+        return $this->data->SetGameProfileContentGameIdUsername($set_type, $obj);
     }
             
-    public function SetGameProfileContentByUsername($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByUsername($set_type, $obj);
+    public function SetGameProfileContentUsername($set_type, $obj) {           
+        return $this->data->SetGameProfileContentUsername($set_type, $obj);
     }
             
-    public function SetGameProfileContentByGameIdByProfileIdByPath($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByGameIdByProfileIdByPath($set_type, $obj);
+    public function SetGameProfileContentGameIdProfileIdPath($set_type, $obj) {           
+        return $this->data->SetGameProfileContentGameIdProfileIdPath($set_type, $obj);
     }
             
-    public function SetGameProfileContentByGameIdByProfileIdByPathByVersion($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByGameIdByProfileIdByPathByVersion($set_type, $obj);
+    public function SetGameProfileContentGameIdProfileIdPathVersion($set_type, $obj) {           
+        return $this->data->SetGameProfileContentGameIdProfileIdPathVersion($set_type, $obj);
     }
             
-    public function SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement($set_type, $obj);
+    public function SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement($set_type, $obj) {           
+        return $this->data->SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement($set_type, $obj);
     }
             
-    public function SetGameProfileContentByGameIdByUsernameByPath($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByGameIdByUsernameByPath($set_type, $obj);
+    public function SetGameProfileContentGameIdUsernamePath($set_type, $obj) {           
+        return $this->data->SetGameProfileContentGameIdUsernamePath($set_type, $obj);
     }
             
-    public function SetGameProfileContentByGameIdByUsernameByPathByVersion($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByGameIdByUsernameByPathByVersion($set_type, $obj);
+    public function SetGameProfileContentGameIdUsernamePathVersion($set_type, $obj) {           
+        return $this->data->SetGameProfileContentGameIdUsernamePathVersion($set_type, $obj);
     }
             
-    public function SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement($set_type, $obj) {           
-        return $this->data->SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement($set_type, $obj);
+    public function SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement($set_type, $obj) {           
+        return $this->data->SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement($set_type, $obj);
     }
             
-    public function DelGameProfileContentByUuid(
+    public function DelGameProfileContentUuid(
         $uuid
     ) {
-        return $this->data->DelGameProfileContentByUuid(
+        return $this->data->DelGameProfileContentUuid(
             $uuid
         );
     }
         
-    public function DelGameProfileContentByGameIdByProfileId(
+    public function DelGameProfileContentGameIdProfileId(
         $game_id
         , $profile_id
     ) {
-        return $this->data->DelGameProfileContentByGameIdByProfileId(
+        return $this->data->DelGameProfileContentGameIdProfileId(
             $game_id
             , $profile_id
         );
     }
         
-    public function DelGameProfileContentByGameIdByUsername(
+    public function DelGameProfileContentGameIdUsername(
         $game_id
         , $username
     ) {
-        return $this->data->DelGameProfileContentByGameIdByUsername(
+        return $this->data->DelGameProfileContentGameIdUsername(
             $game_id
             , $username
         );
     }
         
-    public function DelGameProfileContentByUsername(
+    public function DelGameProfileContentUsername(
         $username
     ) {
-        return $this->data->DelGameProfileContentByUsername(
+        return $this->data->DelGameProfileContentUsername(
             $username
         );
     }
         
-    public function DelGameProfileContentByGameIdByProfileIdByPath(
+    public function DelGameProfileContentGameIdProfileIdPath(
         $game_id
         , $profile_id
         , $path
     ) {
-        return $this->data->DelGameProfileContentByGameIdByProfileIdByPath(
+        return $this->data->DelGameProfileContentGameIdProfileIdPath(
             $game_id
             , $profile_id
             , $path
         );
     }
         
-    public function DelGameProfileContentByGameIdByProfileIdByPathByVersion(
+    public function DelGameProfileContentGameIdProfileIdPathVersion(
         $game_id
         , $profile_id
         , $path
         , $version
     ) {
-        return $this->data->DelGameProfileContentByGameIdByProfileIdByPathByVersion(
+        return $this->data->DelGameProfileContentGameIdProfileIdPathVersion(
             $game_id
             , $profile_id
             , $path
@@ -3485,7 +3486,7 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+    public function DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
         $game_id
         , $profile_id
         , $path
@@ -3493,7 +3494,7 @@ class BaseGamingACT {
         , $platform
         , $increment
     ) {
-        return $this->data->DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        return $this->data->DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
             $game_id
             , $profile_id
             , $path
@@ -3503,25 +3504,25 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameProfileContentByGameIdByUsernameByPath(
+    public function DelGameProfileContentGameIdUsernamePath(
         $game_id
         , $username
         , $path
     ) {
-        return $this->data->DelGameProfileContentByGameIdByUsernameByPath(
+        return $this->data->DelGameProfileContentGameIdUsernamePath(
             $game_id
             , $username
             , $path
         );
     }
         
-    public function DelGameProfileContentByGameIdByUsernameByPathByVersion(
+    public function DelGameProfileContentGameIdUsernamePathVersion(
         $game_id
         , $username
         , $path
         , $version
     ) {
-        return $this->data->DelGameProfileContentByGameIdByUsernameByPathByVersion(
+        return $this->data->DelGameProfileContentGameIdUsernamePathVersion(
             $game_id
             , $username
             , $path
@@ -3529,7 +3530,7 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+    public function DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
         $game_id
         , $username
         , $path
@@ -3537,7 +3538,7 @@ class BaseGamingACT {
         , $platform
         , $increment
     ) {
-        return $this->data->DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        return $this->data->DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
             $game_id
             , $username
             , $path
@@ -3564,12 +3565,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByUuid(
+    public function GetGameProfileContentListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByUuid(
+        $rows = $this->data->GetGameProfileContentListUuid(
             $uuid
         );
         
@@ -3583,13 +3584,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByGameIdByProfileId(
+    public function GetGameProfileContentListGameIdProfileId(
         $game_id
         , $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByGameIdByProfileId(
+        $rows = $this->data->GetGameProfileContentListGameIdProfileId(
             $game_id
             , $profile_id
         );
@@ -3604,13 +3605,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByGameIdByUsername(
+    public function GetGameProfileContentListGameIdUsername(
         $game_id
         , $username
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByGameIdByUsername(
+        $rows = $this->data->GetGameProfileContentListGameIdUsername(
             $game_id
             , $username
         );
@@ -3625,12 +3626,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByUsername(
+    public function GetGameProfileContentListUsername(
         $username
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByUsername(
+        $rows = $this->data->GetGameProfileContentListUsername(
             $username
         );
         
@@ -3644,14 +3645,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByGameIdByProfileIdByPath(
+    public function GetGameProfileContentListGameIdProfileIdPath(
         $game_id
         , $profile_id
         , $path
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByGameIdByProfileIdByPath(
+        $rows = $this->data->GetGameProfileContentListGameIdProfileIdPath(
             $game_id
             , $profile_id
             , $path
@@ -3667,7 +3668,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+    public function GetGameProfileContentListGameIdProfileIdPathVersion(
         $game_id
         , $profile_id
         , $path
@@ -3675,7 +3676,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+        $rows = $this->data->GetGameProfileContentListGameIdProfileIdPathVersion(
             $game_id
             , $profile_id
             , $path
@@ -3692,7 +3693,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+    public function GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
         $game_id
         , $profile_id
         , $path
@@ -3702,7 +3703,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        $rows = $this->data->GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
             $game_id
             , $profile_id
             , $path
@@ -3721,14 +3722,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByGameIdByUsernameByPath(
+    public function GetGameProfileContentListGameIdUsernamePath(
         $game_id
         , $username
         , $path
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByGameIdByUsernameByPath(
+        $rows = $this->data->GetGameProfileContentListGameIdUsernamePath(
             $game_id
             , $username
             , $path
@@ -3744,7 +3745,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByGameIdByUsernameByPathByVersion(
+    public function GetGameProfileContentListGameIdUsernamePathVersion(
         $game_id
         , $username
         , $path
@@ -3752,7 +3753,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByGameIdByUsernameByPathByVersion(
+        $rows = $this->data->GetGameProfileContentListGameIdUsernamePathVersion(
             $game_id
             , $username
             , $path
@@ -3769,7 +3770,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+    public function GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
         $game_id
         , $username
         , $path
@@ -3779,7 +3780,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        $rows = $this->data->GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
             $game_id
             , $username
             , $path
@@ -3836,48 +3837,48 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameAppByUuid(
+    public function CountGameAppUuid(
         $uuid
     ) {       
-        return $this->data->CountGameAppByUuid(
+        return $this->data->CountGameAppUuid(
             $uuid
         );
     }
                
-    public function CountGameAppByGameId(
+    public function CountGameAppGameId(
         $game_id
     ) {       
-        return $this->data->CountGameAppByGameId(
+        return $this->data->CountGameAppGameId(
             $game_id
         );
     }
                
-    public function CountGameAppByAppId(
+    public function CountGameAppAppId(
         $app_id
     ) {       
-        return $this->data->CountGameAppByAppId(
+        return $this->data->CountGameAppAppId(
             $app_id
         );
     }
                
-    public function CountGameAppByGameIdByAppId(
+    public function CountGameAppGameIdAppId(
         $game_id
         , $app_id
     ) {       
-        return $this->data->CountGameAppByGameIdByAppId(
+        return $this->data->CountGameAppGameIdAppId(
             $game_id
             , $app_id
         );
     }
                
-    public function BrowseGameAppListByFilter($filter_obj) {
+    public function BrowseGameAppListFilter($filter_obj) {
         $result = new GameAppResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameAppListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameAppListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_app = $this->FillGameApp($row);
@@ -3891,14 +3892,14 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameAppByUuid($set_type, $obj) {           
-        return $this->data->SetGameAppByUuid($set_type, $obj);
+    public function SetGameAppUuid($set_type, $obj) {           
+        return $this->data->SetGameAppUuid($set_type, $obj);
     }
             
-    public function DelGameAppByUuid(
+    public function DelGameAppUuid(
         $uuid
     ) {
-        return $this->data->DelGameAppByUuid(
+        return $this->data->DelGameAppUuid(
             $uuid
         );
     }
@@ -3920,12 +3921,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAppListByUuid(
+    public function GetGameAppListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAppListByUuid(
+        $rows = $this->data->GetGameAppListUuid(
             $uuid
         );
         
@@ -3939,12 +3940,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAppListByGameId(
+    public function GetGameAppListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAppListByGameId(
+        $rows = $this->data->GetGameAppListGameId(
             $game_id
         );
         
@@ -3958,12 +3959,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAppListByAppId(
+    public function GetGameAppListAppId(
         $app_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAppListByAppId(
+        $rows = $this->data->GetGameAppListAppId(
             $app_id
         );
         
@@ -3977,13 +3978,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAppListByGameIdByAppId(
+    public function GetGameAppListGameIdAppId(
         $game_id
         , $app_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAppListByGameIdByAppId(
+        $rows = $this->data->GetGameAppListGameIdAppId(
             $game_id
             , $app_id
         );
@@ -4039,48 +4040,48 @@ class BaseGamingACT {
         );
     }
                
-    public function CountProfileGameLocationByUuid(
+    public function CountProfileGameLocationUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileGameLocationByUuid(
+        return $this->data->CountProfileGameLocationUuid(
             $uuid
         );
     }
                
-    public function CountProfileGameLocationByGameLocationId(
+    public function CountProfileGameLocationGameLocationId(
         $game_location_id
     ) {       
-        return $this->data->CountProfileGameLocationByGameLocationId(
+        return $this->data->CountProfileGameLocationGameLocationId(
             $game_location_id
         );
     }
                
-    public function CountProfileGameLocationByProfileId(
+    public function CountProfileGameLocationProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileGameLocationByProfileId(
+        return $this->data->CountProfileGameLocationProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileGameLocationByProfileIdByGameLocationId(
+    public function CountProfileGameLocationProfileIdGameLocationId(
         $profile_id
         , $game_location_id
     ) {       
-        return $this->data->CountProfileGameLocationByProfileIdByGameLocationId(
+        return $this->data->CountProfileGameLocationProfileIdGameLocationId(
             $profile_id
             , $game_location_id
         );
     }
                
-    public function BrowseProfileGameLocationListByFilter($filter_obj) {
+    public function BrowseProfileGameLocationListFilter($filter_obj) {
         $result = new ProfileGameLocationResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileGameLocationListByFilter(filter_obj);
+        $rows = $this->data->BrowseProfileGameLocationListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_game_location = $this->FillProfileGameLocation($row);
@@ -4094,14 +4095,14 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetProfileGameLocationByUuid($set_type, $obj) {           
-        return $this->data->SetProfileGameLocationByUuid($set_type, $obj);
+    public function SetProfileGameLocationUuid($set_type, $obj) {           
+        return $this->data->SetProfileGameLocationUuid($set_type, $obj);
     }
             
-    public function DelProfileGameLocationByUuid(
+    public function DelProfileGameLocationUuid(
         $uuid
     ) {
-        return $this->data->DelProfileGameLocationByUuid(
+        return $this->data->DelProfileGameLocationUuid(
             $uuid
         );
     }
@@ -4123,12 +4124,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameLocationListByUuid(
+    public function GetProfileGameLocationListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameLocationListByUuid(
+        $rows = $this->data->GetProfileGameLocationListUuid(
             $uuid
         );
         
@@ -4142,12 +4143,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameLocationListByGameLocationId(
+    public function GetProfileGameLocationListGameLocationId(
         $game_location_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameLocationListByGameLocationId(
+        $rows = $this->data->GetProfileGameLocationListGameLocationId(
             $game_location_id
         );
         
@@ -4161,12 +4162,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameLocationListByProfileId(
+    public function GetProfileGameLocationListProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameLocationListByProfileId(
+        $rows = $this->data->GetProfileGameLocationListProfileId(
             $profile_id
         );
         
@@ -4180,13 +4181,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetProfileGameLocationListByProfileIdByGameLocationId(
+    public function GetProfileGameLocationListProfileIdGameLocationId(
         $profile_id
         , $game_location_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileGameLocationListByProfileIdByGameLocationId(
+        $rows = $this->data->GetProfileGameLocationListProfileIdGameLocationId(
             $profile_id
             , $game_location_id
         );
@@ -4266,58 +4267,58 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGamePhotoByUuid(
+    public function CountGamePhotoUuid(
         $uuid
     ) {       
-        return $this->data->CountGamePhotoByUuid(
+        return $this->data->CountGamePhotoUuid(
             $uuid
         );
     }
                
-    public function CountGamePhotoByExternalId(
+    public function CountGamePhotoExternalId(
         $external_id
     ) {       
-        return $this->data->CountGamePhotoByExternalId(
+        return $this->data->CountGamePhotoExternalId(
             $external_id
         );
     }
                
-    public function CountGamePhotoByUrl(
+    public function CountGamePhotoUrl(
         $url
     ) {       
-        return $this->data->CountGamePhotoByUrl(
+        return $this->data->CountGamePhotoUrl(
             $url
         );
     }
                
-    public function CountGamePhotoByUrlByExternalId(
+    public function CountGamePhotoUrlExternalId(
         $url
         , $external_id
     ) {       
-        return $this->data->CountGamePhotoByUrlByExternalId(
+        return $this->data->CountGamePhotoUrlExternalId(
             $url
             , $external_id
         );
     }
                
-    public function CountGamePhotoByUuidByExternalId(
+    public function CountGamePhotoUuidExternalId(
         $uuid
         , $external_id
     ) {       
-        return $this->data->CountGamePhotoByUuidByExternalId(
+        return $this->data->CountGamePhotoUuidExternalId(
             $uuid
             , $external_id
         );
     }
                
-    public function BrowseGamePhotoListByFilter($filter_obj) {
+    public function BrowseGamePhotoListFilter($filter_obj) {
         $result = new GamePhotoResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGamePhotoListByFilter(filter_obj);
+        $rows = $this->data->BrowseGamePhotoListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_photo = $this->FillGamePhoto($row);
@@ -4331,65 +4332,65 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGamePhotoByUuid($set_type, $obj) {           
-        return $this->data->SetGamePhotoByUuid($set_type, $obj);
+    public function SetGamePhotoUuid($set_type, $obj) {           
+        return $this->data->SetGamePhotoUuid($set_type, $obj);
     }
             
-    public function SetGamePhotoByExternalId($set_type, $obj) {           
-        return $this->data->SetGamePhotoByExternalId($set_type, $obj);
+    public function SetGamePhotoExternalId($set_type, $obj) {           
+        return $this->data->SetGamePhotoExternalId($set_type, $obj);
     }
             
-    public function SetGamePhotoByUrl($set_type, $obj) {           
-        return $this->data->SetGamePhotoByUrl($set_type, $obj);
+    public function SetGamePhotoUrl($set_type, $obj) {           
+        return $this->data->SetGamePhotoUrl($set_type, $obj);
     }
             
-    public function SetGamePhotoByUrlByExternalId($set_type, $obj) {           
-        return $this->data->SetGamePhotoByUrlByExternalId($set_type, $obj);
+    public function SetGamePhotoUrlExternalId($set_type, $obj) {           
+        return $this->data->SetGamePhotoUrlExternalId($set_type, $obj);
     }
             
-    public function SetGamePhotoByUuidByExternalId($set_type, $obj) {           
-        return $this->data->SetGamePhotoByUuidByExternalId($set_type, $obj);
+    public function SetGamePhotoUuidExternalId($set_type, $obj) {           
+        return $this->data->SetGamePhotoUuidExternalId($set_type, $obj);
     }
             
-    public function DelGamePhotoByUuid(
+    public function DelGamePhotoUuid(
         $uuid
     ) {
-        return $this->data->DelGamePhotoByUuid(
+        return $this->data->DelGamePhotoUuid(
             $uuid
         );
     }
         
-    public function DelGamePhotoByExternalId(
+    public function DelGamePhotoExternalId(
         $external_id
     ) {
-        return $this->data->DelGamePhotoByExternalId(
+        return $this->data->DelGamePhotoExternalId(
             $external_id
         );
     }
         
-    public function DelGamePhotoByUrl(
+    public function DelGamePhotoUrl(
         $url
     ) {
-        return $this->data->DelGamePhotoByUrl(
+        return $this->data->DelGamePhotoUrl(
             $url
         );
     }
         
-    public function DelGamePhotoByUrlByExternalId(
+    public function DelGamePhotoUrlExternalId(
         $url
         , $external_id
     ) {
-        return $this->data->DelGamePhotoByUrlByExternalId(
+        return $this->data->DelGamePhotoUrlExternalId(
             $url
             , $external_id
         );
     }
         
-    public function DelGamePhotoByUuidByExternalId(
+    public function DelGamePhotoUuidExternalId(
         $uuid
         , $external_id
     ) {
-        return $this->data->DelGamePhotoByUuidByExternalId(
+        return $this->data->DelGamePhotoUuidExternalId(
             $uuid
             , $external_id
         );
@@ -4412,12 +4413,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGamePhotoListByUuid(
+    public function GetGamePhotoListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGamePhotoListByUuid(
+        $rows = $this->data->GetGamePhotoListUuid(
             $uuid
         );
         
@@ -4431,12 +4432,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGamePhotoListByExternalId(
+    public function GetGamePhotoListExternalId(
         $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGamePhotoListByExternalId(
+        $rows = $this->data->GetGamePhotoListExternalId(
             $external_id
         );
         
@@ -4450,12 +4451,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGamePhotoListByUrl(
+    public function GetGamePhotoListUrl(
         $url
     ) {
 
         $results = array();
-        $rows = $this->data->GetGamePhotoListByUrl(
+        $rows = $this->data->GetGamePhotoListUrl(
             $url
         );
         
@@ -4469,13 +4470,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGamePhotoListByUrlByExternalId(
+    public function GetGamePhotoListUrlExternalId(
         $url
         , $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGamePhotoListByUrlByExternalId(
+        $rows = $this->data->GetGamePhotoListUrlExternalId(
             $url
             , $external_id
         );
@@ -4490,13 +4491,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGamePhotoListByUuidByExternalId(
+    public function GetGamePhotoListUuidExternalId(
         $uuid
         , $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGamePhotoListByUuidByExternalId(
+        $rows = $this->data->GetGamePhotoListUuidExternalId(
             $uuid
             , $external_id
         );
@@ -4576,58 +4577,58 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameVideoByUuid(
+    public function CountGameVideoUuid(
         $uuid
     ) {       
-        return $this->data->CountGameVideoByUuid(
+        return $this->data->CountGameVideoUuid(
             $uuid
         );
     }
                
-    public function CountGameVideoByExternalId(
+    public function CountGameVideoExternalId(
         $external_id
     ) {       
-        return $this->data->CountGameVideoByExternalId(
+        return $this->data->CountGameVideoExternalId(
             $external_id
         );
     }
                
-    public function CountGameVideoByUrl(
+    public function CountGameVideoUrl(
         $url
     ) {       
-        return $this->data->CountGameVideoByUrl(
+        return $this->data->CountGameVideoUrl(
             $url
         );
     }
                
-    public function CountGameVideoByUrlByExternalId(
+    public function CountGameVideoUrlExternalId(
         $url
         , $external_id
     ) {       
-        return $this->data->CountGameVideoByUrlByExternalId(
+        return $this->data->CountGameVideoUrlExternalId(
             $url
             , $external_id
         );
     }
                
-    public function CountGameVideoByUuidByExternalId(
+    public function CountGameVideoUuidExternalId(
         $uuid
         , $external_id
     ) {       
-        return $this->data->CountGameVideoByUuidByExternalId(
+        return $this->data->CountGameVideoUuidExternalId(
             $uuid
             , $external_id
         );
     }
                
-    public function BrowseGameVideoListByFilter($filter_obj) {
+    public function BrowseGameVideoListFilter($filter_obj) {
         $result = new GameVideoResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameVideoListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameVideoListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_video = $this->FillGameVideo($row);
@@ -4641,65 +4642,65 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameVideoByUuid($set_type, $obj) {           
-        return $this->data->SetGameVideoByUuid($set_type, $obj);
+    public function SetGameVideoUuid($set_type, $obj) {           
+        return $this->data->SetGameVideoUuid($set_type, $obj);
     }
             
-    public function SetGameVideoByExternalId($set_type, $obj) {           
-        return $this->data->SetGameVideoByExternalId($set_type, $obj);
+    public function SetGameVideoExternalId($set_type, $obj) {           
+        return $this->data->SetGameVideoExternalId($set_type, $obj);
     }
             
-    public function SetGameVideoByUrl($set_type, $obj) {           
-        return $this->data->SetGameVideoByUrl($set_type, $obj);
+    public function SetGameVideoUrl($set_type, $obj) {           
+        return $this->data->SetGameVideoUrl($set_type, $obj);
     }
             
-    public function SetGameVideoByUrlByExternalId($set_type, $obj) {           
-        return $this->data->SetGameVideoByUrlByExternalId($set_type, $obj);
+    public function SetGameVideoUrlExternalId($set_type, $obj) {           
+        return $this->data->SetGameVideoUrlExternalId($set_type, $obj);
     }
             
-    public function SetGameVideoByUuidByExternalId($set_type, $obj) {           
-        return $this->data->SetGameVideoByUuidByExternalId($set_type, $obj);
+    public function SetGameVideoUuidExternalId($set_type, $obj) {           
+        return $this->data->SetGameVideoUuidExternalId($set_type, $obj);
     }
             
-    public function DelGameVideoByUuid(
+    public function DelGameVideoUuid(
         $uuid
     ) {
-        return $this->data->DelGameVideoByUuid(
+        return $this->data->DelGameVideoUuid(
             $uuid
         );
     }
         
-    public function DelGameVideoByExternalId(
+    public function DelGameVideoExternalId(
         $external_id
     ) {
-        return $this->data->DelGameVideoByExternalId(
+        return $this->data->DelGameVideoExternalId(
             $external_id
         );
     }
         
-    public function DelGameVideoByUrl(
+    public function DelGameVideoUrl(
         $url
     ) {
-        return $this->data->DelGameVideoByUrl(
+        return $this->data->DelGameVideoUrl(
             $url
         );
     }
         
-    public function DelGameVideoByUrlByExternalId(
+    public function DelGameVideoUrlExternalId(
         $url
         , $external_id
     ) {
-        return $this->data->DelGameVideoByUrlByExternalId(
+        return $this->data->DelGameVideoUrlExternalId(
             $url
             , $external_id
         );
     }
         
-    public function DelGameVideoByUuidByExternalId(
+    public function DelGameVideoUuidExternalId(
         $uuid
         , $external_id
     ) {
-        return $this->data->DelGameVideoByUuidByExternalId(
+        return $this->data->DelGameVideoUuidExternalId(
             $uuid
             , $external_id
         );
@@ -4722,12 +4723,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameVideoListByUuid(
+    public function GetGameVideoListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameVideoListByUuid(
+        $rows = $this->data->GetGameVideoListUuid(
             $uuid
         );
         
@@ -4741,12 +4742,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameVideoListByExternalId(
+    public function GetGameVideoListExternalId(
         $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameVideoListByExternalId(
+        $rows = $this->data->GetGameVideoListExternalId(
             $external_id
         );
         
@@ -4760,12 +4761,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameVideoListByUrl(
+    public function GetGameVideoListUrl(
         $url
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameVideoListByUrl(
+        $rows = $this->data->GetGameVideoListUrl(
             $url
         );
         
@@ -4779,13 +4780,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameVideoListByUrlByExternalId(
+    public function GetGameVideoListUrlExternalId(
         $url
         , $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameVideoListByUrlByExternalId(
+        $rows = $this->data->GetGameVideoListUrlExternalId(
             $url
             , $external_id
         );
@@ -4800,13 +4801,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameVideoListByUuidByExternalId(
+    public function GetGameVideoListUuidExternalId(
         $uuid
         , $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameVideoListByUuidByExternalId(
+        $rows = $this->data->GetGameVideoListUuidExternalId(
             $uuid
             , $external_id
         );
@@ -4910,58 +4911,58 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameRpgItemWeaponByUuid(
+    public function CountGameRpgItemWeaponUuid(
         $uuid
     ) {       
-        return $this->data->CountGameRpgItemWeaponByUuid(
+        return $this->data->CountGameRpgItemWeaponUuid(
             $uuid
         );
     }
                
-    public function CountGameRpgItemWeaponByGameId(
+    public function CountGameRpgItemWeaponGameId(
         $game_id
     ) {       
-        return $this->data->CountGameRpgItemWeaponByGameId(
+        return $this->data->CountGameRpgItemWeaponGameId(
             $game_id
         );
     }
                
-    public function CountGameRpgItemWeaponByUrl(
+    public function CountGameRpgItemWeaponUrl(
         $url
     ) {       
-        return $this->data->CountGameRpgItemWeaponByUrl(
+        return $this->data->CountGameRpgItemWeaponUrl(
             $url
         );
     }
                
-    public function CountGameRpgItemWeaponByUrlByGameId(
+    public function CountGameRpgItemWeaponUrlGameId(
         $url
         , $game_id
     ) {       
-        return $this->data->CountGameRpgItemWeaponByUrlByGameId(
+        return $this->data->CountGameRpgItemWeaponUrlGameId(
             $url
             , $game_id
         );
     }
                
-    public function CountGameRpgItemWeaponByUuidByGameId(
+    public function CountGameRpgItemWeaponUuidGameId(
         $uuid
         , $game_id
     ) {       
-        return $this->data->CountGameRpgItemWeaponByUuidByGameId(
+        return $this->data->CountGameRpgItemWeaponUuidGameId(
             $uuid
             , $game_id
         );
     }
                
-    public function BrowseGameRpgItemWeaponListByFilter($filter_obj) {
+    public function BrowseGameRpgItemWeaponListFilter($filter_obj) {
         $result = new GameRpgItemWeaponResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameRpgItemWeaponListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameRpgItemWeaponListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_rpg_item_weapon = $this->FillGameRpgItemWeapon($row);
@@ -4975,65 +4976,65 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameRpgItemWeaponByUuid($set_type, $obj) {           
-        return $this->data->SetGameRpgItemWeaponByUuid($set_type, $obj);
+    public function SetGameRpgItemWeaponUuid($set_type, $obj) {           
+        return $this->data->SetGameRpgItemWeaponUuid($set_type, $obj);
     }
             
-    public function SetGameRpgItemWeaponByGameId($set_type, $obj) {           
-        return $this->data->SetGameRpgItemWeaponByGameId($set_type, $obj);
+    public function SetGameRpgItemWeaponGameId($set_type, $obj) {           
+        return $this->data->SetGameRpgItemWeaponGameId($set_type, $obj);
     }
             
-    public function SetGameRpgItemWeaponByUrl($set_type, $obj) {           
-        return $this->data->SetGameRpgItemWeaponByUrl($set_type, $obj);
+    public function SetGameRpgItemWeaponUrl($set_type, $obj) {           
+        return $this->data->SetGameRpgItemWeaponUrl($set_type, $obj);
     }
             
-    public function SetGameRpgItemWeaponByUrlByGameId($set_type, $obj) {           
-        return $this->data->SetGameRpgItemWeaponByUrlByGameId($set_type, $obj);
+    public function SetGameRpgItemWeaponUrlGameId($set_type, $obj) {           
+        return $this->data->SetGameRpgItemWeaponUrlGameId($set_type, $obj);
     }
             
-    public function SetGameRpgItemWeaponByUuidByGameId($set_type, $obj) {           
-        return $this->data->SetGameRpgItemWeaponByUuidByGameId($set_type, $obj);
+    public function SetGameRpgItemWeaponUuidGameId($set_type, $obj) {           
+        return $this->data->SetGameRpgItemWeaponUuidGameId($set_type, $obj);
     }
             
-    public function DelGameRpgItemWeaponByUuid(
+    public function DelGameRpgItemWeaponUuid(
         $uuid
     ) {
-        return $this->data->DelGameRpgItemWeaponByUuid(
+        return $this->data->DelGameRpgItemWeaponUuid(
             $uuid
         );
     }
         
-    public function DelGameRpgItemWeaponByGameId(
+    public function DelGameRpgItemWeaponGameId(
         $game_id
     ) {
-        return $this->data->DelGameRpgItemWeaponByGameId(
+        return $this->data->DelGameRpgItemWeaponGameId(
             $game_id
         );
     }
         
-    public function DelGameRpgItemWeaponByUrl(
+    public function DelGameRpgItemWeaponUrl(
         $url
     ) {
-        return $this->data->DelGameRpgItemWeaponByUrl(
+        return $this->data->DelGameRpgItemWeaponUrl(
             $url
         );
     }
         
-    public function DelGameRpgItemWeaponByUrlByGameId(
+    public function DelGameRpgItemWeaponUrlGameId(
         $url
         , $game_id
     ) {
-        return $this->data->DelGameRpgItemWeaponByUrlByGameId(
+        return $this->data->DelGameRpgItemWeaponUrlGameId(
             $url
             , $game_id
         );
     }
         
-    public function DelGameRpgItemWeaponByUuidByGameId(
+    public function DelGameRpgItemWeaponUuidGameId(
         $uuid
         , $game_id
     ) {
-        return $this->data->DelGameRpgItemWeaponByUuidByGameId(
+        return $this->data->DelGameRpgItemWeaponUuidGameId(
             $uuid
             , $game_id
         );
@@ -5056,12 +5057,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemWeaponListByUuid(
+    public function GetGameRpgItemWeaponListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemWeaponListByUuid(
+        $rows = $this->data->GetGameRpgItemWeaponListUuid(
             $uuid
         );
         
@@ -5075,12 +5076,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemWeaponListByGameId(
+    public function GetGameRpgItemWeaponListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemWeaponListByGameId(
+        $rows = $this->data->GetGameRpgItemWeaponListGameId(
             $game_id
         );
         
@@ -5094,12 +5095,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemWeaponListByUrl(
+    public function GetGameRpgItemWeaponListUrl(
         $url
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemWeaponListByUrl(
+        $rows = $this->data->GetGameRpgItemWeaponListUrl(
             $url
         );
         
@@ -5113,13 +5114,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemWeaponListByUrlByGameId(
+    public function GetGameRpgItemWeaponListUrlGameId(
         $url
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemWeaponListByUrlByGameId(
+        $rows = $this->data->GetGameRpgItemWeaponListUrlGameId(
             $url
             , $game_id
         );
@@ -5134,13 +5135,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemWeaponListByUuidByGameId(
+    public function GetGameRpgItemWeaponListUuidGameId(
         $uuid
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemWeaponListByUuidByGameId(
+        $rows = $this->data->GetGameRpgItemWeaponListUuidGameId(
             $uuid
             , $game_id
         );
@@ -5244,58 +5245,58 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameRpgItemSkillByUuid(
+    public function CountGameRpgItemSkillUuid(
         $uuid
     ) {       
-        return $this->data->CountGameRpgItemSkillByUuid(
+        return $this->data->CountGameRpgItemSkillUuid(
             $uuid
         );
     }
                
-    public function CountGameRpgItemSkillByGameId(
+    public function CountGameRpgItemSkillGameId(
         $game_id
     ) {       
-        return $this->data->CountGameRpgItemSkillByGameId(
+        return $this->data->CountGameRpgItemSkillGameId(
             $game_id
         );
     }
                
-    public function CountGameRpgItemSkillByUrl(
+    public function CountGameRpgItemSkillUrl(
         $url
     ) {       
-        return $this->data->CountGameRpgItemSkillByUrl(
+        return $this->data->CountGameRpgItemSkillUrl(
             $url
         );
     }
                
-    public function CountGameRpgItemSkillByUrlByGameId(
+    public function CountGameRpgItemSkillUrlGameId(
         $url
         , $game_id
     ) {       
-        return $this->data->CountGameRpgItemSkillByUrlByGameId(
+        return $this->data->CountGameRpgItemSkillUrlGameId(
             $url
             , $game_id
         );
     }
                
-    public function CountGameRpgItemSkillByUuidByGameId(
+    public function CountGameRpgItemSkillUuidGameId(
         $uuid
         , $game_id
     ) {       
-        return $this->data->CountGameRpgItemSkillByUuidByGameId(
+        return $this->data->CountGameRpgItemSkillUuidGameId(
             $uuid
             , $game_id
         );
     }
                
-    public function BrowseGameRpgItemSkillListByFilter($filter_obj) {
+    public function BrowseGameRpgItemSkillListFilter($filter_obj) {
         $result = new GameRpgItemSkillResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameRpgItemSkillListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameRpgItemSkillListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_rpg_item_skill = $this->FillGameRpgItemSkill($row);
@@ -5309,65 +5310,65 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameRpgItemSkillByUuid($set_type, $obj) {           
-        return $this->data->SetGameRpgItemSkillByUuid($set_type, $obj);
+    public function SetGameRpgItemSkillUuid($set_type, $obj) {           
+        return $this->data->SetGameRpgItemSkillUuid($set_type, $obj);
     }
             
-    public function SetGameRpgItemSkillByGameId($set_type, $obj) {           
-        return $this->data->SetGameRpgItemSkillByGameId($set_type, $obj);
+    public function SetGameRpgItemSkillGameId($set_type, $obj) {           
+        return $this->data->SetGameRpgItemSkillGameId($set_type, $obj);
     }
             
-    public function SetGameRpgItemSkillByUrl($set_type, $obj) {           
-        return $this->data->SetGameRpgItemSkillByUrl($set_type, $obj);
+    public function SetGameRpgItemSkillUrl($set_type, $obj) {           
+        return $this->data->SetGameRpgItemSkillUrl($set_type, $obj);
     }
             
-    public function SetGameRpgItemSkillByUrlByGameId($set_type, $obj) {           
-        return $this->data->SetGameRpgItemSkillByUrlByGameId($set_type, $obj);
+    public function SetGameRpgItemSkillUrlGameId($set_type, $obj) {           
+        return $this->data->SetGameRpgItemSkillUrlGameId($set_type, $obj);
     }
             
-    public function SetGameRpgItemSkillByUuidByGameId($set_type, $obj) {           
-        return $this->data->SetGameRpgItemSkillByUuidByGameId($set_type, $obj);
+    public function SetGameRpgItemSkillUuidGameId($set_type, $obj) {           
+        return $this->data->SetGameRpgItemSkillUuidGameId($set_type, $obj);
     }
             
-    public function DelGameRpgItemSkillByUuid(
+    public function DelGameRpgItemSkillUuid(
         $uuid
     ) {
-        return $this->data->DelGameRpgItemSkillByUuid(
+        return $this->data->DelGameRpgItemSkillUuid(
             $uuid
         );
     }
         
-    public function DelGameRpgItemSkillByGameId(
+    public function DelGameRpgItemSkillGameId(
         $game_id
     ) {
-        return $this->data->DelGameRpgItemSkillByGameId(
+        return $this->data->DelGameRpgItemSkillGameId(
             $game_id
         );
     }
         
-    public function DelGameRpgItemSkillByUrl(
+    public function DelGameRpgItemSkillUrl(
         $url
     ) {
-        return $this->data->DelGameRpgItemSkillByUrl(
+        return $this->data->DelGameRpgItemSkillUrl(
             $url
         );
     }
         
-    public function DelGameRpgItemSkillByUrlByGameId(
+    public function DelGameRpgItemSkillUrlGameId(
         $url
         , $game_id
     ) {
-        return $this->data->DelGameRpgItemSkillByUrlByGameId(
+        return $this->data->DelGameRpgItemSkillUrlGameId(
             $url
             , $game_id
         );
     }
         
-    public function DelGameRpgItemSkillByUuidByGameId(
+    public function DelGameRpgItemSkillUuidGameId(
         $uuid
         , $game_id
     ) {
-        return $this->data->DelGameRpgItemSkillByUuidByGameId(
+        return $this->data->DelGameRpgItemSkillUuidGameId(
             $uuid
             , $game_id
         );
@@ -5390,12 +5391,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemSkillListByUuid(
+    public function GetGameRpgItemSkillListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemSkillListByUuid(
+        $rows = $this->data->GetGameRpgItemSkillListUuid(
             $uuid
         );
         
@@ -5409,12 +5410,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemSkillListByGameId(
+    public function GetGameRpgItemSkillListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemSkillListByGameId(
+        $rows = $this->data->GetGameRpgItemSkillListGameId(
             $game_id
         );
         
@@ -5428,12 +5429,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemSkillListByUrl(
+    public function GetGameRpgItemSkillListUrl(
         $url
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemSkillListByUrl(
+        $rows = $this->data->GetGameRpgItemSkillListUrl(
             $url
         );
         
@@ -5447,13 +5448,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemSkillListByUrlByGameId(
+    public function GetGameRpgItemSkillListUrlGameId(
         $url
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemSkillListByUrlByGameId(
+        $rows = $this->data->GetGameRpgItemSkillListUrlGameId(
             $url
             , $game_id
         );
@@ -5468,13 +5469,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameRpgItemSkillListByUuidByGameId(
+    public function GetGameRpgItemSkillListUuidGameId(
         $uuid
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameRpgItemSkillListByUuidByGameId(
+        $rows = $this->data->GetGameRpgItemSkillListUuidGameId(
             $uuid
             , $game_id
         );
@@ -5539,58 +5540,58 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProductByUuid(
+    public function CountGameProductUuid(
         $uuid
     ) {       
-        return $this->data->CountGameProductByUuid(
+        return $this->data->CountGameProductUuid(
             $uuid
         );
     }
                
-    public function CountGameProductByGameId(
+    public function CountGameProductGameId(
         $game_id
     ) {       
-        return $this->data->CountGameProductByGameId(
+        return $this->data->CountGameProductGameId(
             $game_id
         );
     }
                
-    public function CountGameProductByUrl(
+    public function CountGameProductUrl(
         $url
     ) {       
-        return $this->data->CountGameProductByUrl(
+        return $this->data->CountGameProductUrl(
             $url
         );
     }
                
-    public function CountGameProductByUrlByGameId(
+    public function CountGameProductUrlGameId(
         $url
         , $game_id
     ) {       
-        return $this->data->CountGameProductByUrlByGameId(
+        return $this->data->CountGameProductUrlGameId(
             $url
             , $game_id
         );
     }
                
-    public function CountGameProductByUuidByGameId(
+    public function CountGameProductUuidGameId(
         $uuid
         , $game_id
     ) {       
-        return $this->data->CountGameProductByUuidByGameId(
+        return $this->data->CountGameProductUuidGameId(
             $uuid
             , $game_id
         );
     }
                
-    public function BrowseGameProductListByFilter($filter_obj) {
+    public function BrowseGameProductListFilter($filter_obj) {
         $result = new GameProductResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameProductListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameProductListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_product = $this->FillGameProduct($row);
@@ -5604,65 +5605,65 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameProductByUuid($set_type, $obj) {           
-        return $this->data->SetGameProductByUuid($set_type, $obj);
+    public function SetGameProductUuid($set_type, $obj) {           
+        return $this->data->SetGameProductUuid($set_type, $obj);
     }
             
-    public function SetGameProductByGameId($set_type, $obj) {           
-        return $this->data->SetGameProductByGameId($set_type, $obj);
+    public function SetGameProductGameId($set_type, $obj) {           
+        return $this->data->SetGameProductGameId($set_type, $obj);
     }
             
-    public function SetGameProductByUrl($set_type, $obj) {           
-        return $this->data->SetGameProductByUrl($set_type, $obj);
+    public function SetGameProductUrl($set_type, $obj) {           
+        return $this->data->SetGameProductUrl($set_type, $obj);
     }
             
-    public function SetGameProductByUrlByGameId($set_type, $obj) {           
-        return $this->data->SetGameProductByUrlByGameId($set_type, $obj);
+    public function SetGameProductUrlGameId($set_type, $obj) {           
+        return $this->data->SetGameProductUrlGameId($set_type, $obj);
     }
             
-    public function SetGameProductByUuidByGameId($set_type, $obj) {           
-        return $this->data->SetGameProductByUuidByGameId($set_type, $obj);
+    public function SetGameProductUuidGameId($set_type, $obj) {           
+        return $this->data->SetGameProductUuidGameId($set_type, $obj);
     }
             
-    public function DelGameProductByUuid(
+    public function DelGameProductUuid(
         $uuid
     ) {
-        return $this->data->DelGameProductByUuid(
+        return $this->data->DelGameProductUuid(
             $uuid
         );
     }
         
-    public function DelGameProductByGameId(
+    public function DelGameProductGameId(
         $game_id
     ) {
-        return $this->data->DelGameProductByGameId(
+        return $this->data->DelGameProductGameId(
             $game_id
         );
     }
         
-    public function DelGameProductByUrl(
+    public function DelGameProductUrl(
         $url
     ) {
-        return $this->data->DelGameProductByUrl(
+        return $this->data->DelGameProductUrl(
             $url
         );
     }
         
-    public function DelGameProductByUrlByGameId(
+    public function DelGameProductUrlGameId(
         $url
         , $game_id
     ) {
-        return $this->data->DelGameProductByUrlByGameId(
+        return $this->data->DelGameProductUrlGameId(
             $url
             , $game_id
         );
     }
         
-    public function DelGameProductByUuidByGameId(
+    public function DelGameProductUuidGameId(
         $uuid
         , $game_id
     ) {
-        return $this->data->DelGameProductByUuidByGameId(
+        return $this->data->DelGameProductUuidGameId(
             $uuid
             , $game_id
         );
@@ -5685,12 +5686,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProductListByUuid(
+    public function GetGameProductListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProductListByUuid(
+        $rows = $this->data->GetGameProductListUuid(
             $uuid
         );
         
@@ -5704,12 +5705,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProductListByGameId(
+    public function GetGameProductListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProductListByGameId(
+        $rows = $this->data->GetGameProductListGameId(
             $game_id
         );
         
@@ -5723,12 +5724,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProductListByUrl(
+    public function GetGameProductListUrl(
         $url
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProductListByUrl(
+        $rows = $this->data->GetGameProductListUrl(
             $url
         );
         
@@ -5742,13 +5743,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProductListByUrlByGameId(
+    public function GetGameProductListUrlGameId(
         $url
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProductListByUrlByGameId(
+        $rows = $this->data->GetGameProductListUrlGameId(
             $url
             , $game_id
         );
@@ -5763,13 +5764,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProductListByUuidByGameId(
+    public function GetGameProductListUuidGameId(
         $uuid
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProductListByUuidByGameId(
+        $rows = $this->data->GetGameProductListUuidGameId(
             $uuid
             , $game_id
         );
@@ -5858,59 +5859,59 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardByUuid(
+    public function CountGameStatisticLeaderboardUuid(
         $uuid
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByUuid(
+        return $this->data->CountGameStatisticLeaderboardUuid(
             $uuid
         );
     }
                
-    public function CountGameStatisticLeaderboardByGameId(
+    public function CountGameStatisticLeaderboardGameId(
         $game_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByGameId(
+        return $this->data->CountGameStatisticLeaderboardGameId(
             $game_id
         );
     }
                
-    public function CountGameStatisticLeaderboardByCode(
+    public function CountGameStatisticLeaderboardCode(
         $code
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByCode(
+        return $this->data->CountGameStatisticLeaderboardCode(
             $code
         );
     }
                
-    public function CountGameStatisticLeaderboardByCodeByGameId(
+    public function CountGameStatisticLeaderboardCodeGameId(
         $code
         , $game_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByCodeByGameId(
+        return $this->data->CountGameStatisticLeaderboardCodeGameId(
             $code
             , $game_id
         );
     }
                
-    public function CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+    public function CountGameStatisticLeaderboardCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+        return $this->data->CountGameStatisticLeaderboardCodeGameIdProfileId(
             $code
             , $game_id
             , $profile_id
         );
     }
                
-    public function CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+    public function CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
         , $timestamp
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+        return $this->data->CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
             $code
             , $game_id
             , $profile_id
@@ -5918,24 +5919,24 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardByProfileIdByGameId(
+    public function CountGameStatisticLeaderboardProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardByProfileIdByGameId(
+        return $this->data->CountGameStatisticLeaderboardProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function BrowseGameStatisticLeaderboardListByFilter($filter_obj) {
+    public function BrowseGameStatisticLeaderboardListFilter($filter_obj) {
         $result = new GameStatisticLeaderboardResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameStatisticLeaderboardListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameStatisticLeaderboardListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_statistic_leaderboard = $this->FillGameStatisticLeaderboard($row);
@@ -5949,75 +5950,75 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameStatisticLeaderboardByUuid($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByUuid($set_type, $obj);
+    public function SetGameStatisticLeaderboardUuid($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardUuid($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByCode($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByCode($set_type, $obj);
+    public function SetGameStatisticLeaderboardCode($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardCode($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByCodeByGameId($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByCodeByGameId($set_type, $obj);
+    public function SetGameStatisticLeaderboardCodeGameId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardCodeGameId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByCodeByGameIdByProfileId($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByCodeByGameIdByProfileId($set_type, $obj);
+    public function SetGameStatisticLeaderboardCodeGameIdProfileId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardCodeGameIdProfileId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp($set_type, $obj);
     }
             
-    public function DelGameStatisticLeaderboardByUuid(
+    public function DelGameStatisticLeaderboardUuid(
         $uuid
     ) {
-        return $this->data->DelGameStatisticLeaderboardByUuid(
+        return $this->data->DelGameStatisticLeaderboardUuid(
             $uuid
         );
     }
         
-    public function DelGameStatisticLeaderboardByCode(
+    public function DelGameStatisticLeaderboardCode(
         $code
     ) {
-        return $this->data->DelGameStatisticLeaderboardByCode(
+        return $this->data->DelGameStatisticLeaderboardCode(
             $code
         );
     }
         
-    public function DelGameStatisticLeaderboardByCodeByGameId(
+    public function DelGameStatisticLeaderboardCodeGameId(
         $code
         , $game_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardByCodeByGameId(
+        return $this->data->DelGameStatisticLeaderboardCodeGameId(
             $code
             , $game_id
         );
     }
         
-    public function DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+    public function DelGameStatisticLeaderboardCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+        return $this->data->DelGameStatisticLeaderboardCodeGameIdProfileId(
             $code
             , $game_id
             , $profile_id
         );
     }
         
-    public function DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+    public function DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
         , $timestamp
     ) {
-        return $this->data->DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+        return $this->data->DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
             $code
             , $game_id
             , $profile_id
@@ -6025,11 +6026,11 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameStatisticLeaderboardByProfileIdByGameId(
+    public function DelGameStatisticLeaderboardProfileIdGameId(
         $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardByProfileIdByGameId(
+        return $this->data->DelGameStatisticLeaderboardProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -6052,12 +6053,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByUuid(
+    public function GetGameStatisticLeaderboardListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByUuid(
+        $rows = $this->data->GetGameStatisticLeaderboardListUuid(
             $uuid
         );
         
@@ -6071,12 +6072,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByGameId(
+    public function GetGameStatisticLeaderboardListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByGameId(
+        $rows = $this->data->GetGameStatisticLeaderboardListGameId(
             $game_id
         );
         
@@ -6090,12 +6091,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByCode(
+    public function GetGameStatisticLeaderboardListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByCode(
+        $rows = $this->data->GetGameStatisticLeaderboardListCode(
             $code
         );
         
@@ -6109,13 +6110,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByCodeByGameId(
+    public function GetGameStatisticLeaderboardListCodeGameId(
         $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByCodeByGameId(
+        $rows = $this->data->GetGameStatisticLeaderboardListCodeGameId(
             $code
             , $game_id
         );
@@ -6130,14 +6131,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+    public function GetGameStatisticLeaderboardListCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+        $rows = $this->data->GetGameStatisticLeaderboardListCodeGameIdProfileId(
             $code
             , $game_id
             , $profile_id
@@ -6153,7 +6154,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+    public function GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
@@ -6161,7 +6162,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+        $rows = $this->data->GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
             $code
             , $game_id
             , $profile_id
@@ -6178,13 +6179,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByProfileIdByGameId(
+    public function GetGameStatisticLeaderboardListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByProfileIdByGameId(
+        $rows = $this->data->GetGameStatisticLeaderboardListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -6199,14 +6200,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+    public function GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
         $profile_id
         , $game_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        $rows = $this->data->GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
             $profile_id
             , $game_id
             , $timestamp
@@ -6216,6 +6217,444 @@ class BaseGamingACT {
             foreach ($rows as $row) {
                 $game_statistic_leaderboard  = $this->FillGameStatisticLeaderboard($row);
                 $results[] = $game_statistic_leaderboard;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameStatisticLeaderboardItem($row) {
+        $obj = new GameStatisticLeaderboardItem();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['username'] != NULL) {                
+            $obj->username = $row['username'];#dataType.FillDataString(dr, "username");
+        }
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
+        }
+        if ($row['timestamp'] != NULL) {                
+            $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
+        }
+        if ($row['profile_id'] != NULL) {                
+            $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
+        }
+        if ($row['rank'] != NULL) {                
+            $obj->rank = $row['rank'];#dataType.FillDataInt(dr, "rank");
+        }
+        if ($row['rank_change'] != NULL) {                
+            $obj->rank_change = $row['rank_change'];#dataType.FillDataInt(dr, "rank_change");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['rank_total_count'] != NULL) {                
+            $obj->rank_total_count = $row['rank_total_count'];#dataType.FillDataInt(dr, "rank_total_count");
+        }
+        if ($row['absolute_value'] != NULL) {                
+            $obj->absolute_value = $row['absolute_value'];#dataType.FillDataFloat(dr, "absolute_value");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
+        if ($row['stat_value'] != NULL) {                
+            $obj->stat_value = $row['stat_value'];#dataType.FillDataFloat(dr, "stat_value");
+        }
+        if ($row['network'] != NULL) {                
+            $obj->network = $row['network'];#dataType.FillDataString(dr, "network");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['level'] != NULL) {                
+            $obj->level = $row['level'];#dataType.FillDataString(dr, "level");
+        }
+        if ($row['stat_value_formatted'] != NULL) {                
+            $obj->stat_value_formatted = $row['stat_value_formatted'];#dataType.FillDataString(dr, "stat_value_formatted");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataString(dr, "type");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameStatisticLeaderboardItem(
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardItem(
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardItemUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardItemUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardItemGameId(
+        $game_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardItemGameId(
+            $game_id
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardItemCode(
+        $code
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardItemCode(
+            $code
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardItemCodeGameId(
+        $code
+        , $game_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardItemCodeGameId(
+            $code
+            , $game_id
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardItemCodeGameIdProfileId(
+        $code
+        , $game_id
+        , $profile_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardItemCodeGameIdProfileId(
+            $code
+            , $game_id
+            , $profile_id
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+        $code
+        , $game_id
+        , $profile_id
+        , $timestamp
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+            $code
+            , $game_id
+            , $profile_id
+            , $timestamp
+        );
+    }
+               
+    public function CountGameStatisticLeaderboardItemProfileIdGameId(
+        $profile_id
+        , $game_id
+    ) {       
+        return $this->data->CountGameStatisticLeaderboardItemProfileIdGameId(
+            $profile_id
+            , $game_id
+        );
+    }
+               
+    public function BrowseGameStatisticLeaderboardItemListFilter($filter_obj) {
+        $result = new GameStatisticLeaderboardItemResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameStatisticLeaderboardItemListFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item = $this->FillGameStatisticLeaderboardItem($row);
+                $result->data[] = $game_statistic_leaderboard_item;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameStatisticLeaderboardItemUuid($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardItemUuid($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardItemCode($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardItemCode($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardItemCodeGameId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardItemCodeGameId($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardItemCodeGameIdProfileId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardItemCodeGameIdProfileId($set_type, $obj);
+    }
+            
+    public function SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp($set_type, $obj);
+    }
+            
+    public function DelGameStatisticLeaderboardItemUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameStatisticLeaderboardItemUuid(
+            $uuid
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardItemCode(
+        $code
+    ) {
+        return $this->data->DelGameStatisticLeaderboardItemCode(
+            $code
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardItemCodeGameId(
+        $code
+        , $game_id
+    ) {
+        return $this->data->DelGameStatisticLeaderboardItemCodeGameId(
+            $code
+            , $game_id
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardItemCodeGameIdProfileId(
+        $code
+        , $game_id
+        , $profile_id
+    ) {
+        return $this->data->DelGameStatisticLeaderboardItemCodeGameIdProfileId(
+            $code
+            , $game_id
+            , $profile_id
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+        $code
+        , $game_id
+        , $profile_id
+        , $timestamp
+    ) {
+        return $this->data->DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+            $code
+            , $game_id
+            , $profile_id
+            , $timestamp
+        );
+    }
+        
+    public function DelGameStatisticLeaderboardItemProfileIdGameId(
+        $profile_id
+        , $game_id
+    ) {
+        return $this->data->DelGameStatisticLeaderboardItemProfileIdGameId(
+            $profile_id
+            , $game_id
+        );
+    }
+        
+    public function GetGameStatisticLeaderboardItemList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardItemListUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemListUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardItemListGameId(
+        $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemListGameId(
+            $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardItemListCode(
+        $code
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemListCode(
+            $code
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardItemListCodeGameId(
+        $code
+        , $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemListCodeGameId(
+            $code
+            , $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+        $code
+        , $game_id
+        , $profile_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+            $code
+            , $game_id
+            , $profile_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+        $code
+        , $game_id
+        , $profile_id
+        , $timestamp
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+            $code
+            , $game_id
+            , $profile_id
+            , $timestamp
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardItemListProfileIdGameId(
+        $profile_id
+        , $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemListProfileIdGameId(
+            $profile_id
+            , $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
+        $profile_id
+        , $game_id
+        , $timestamp
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
+            $profile_id
+            , $game_id
+            , $timestamp
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_statistic_leaderboard_item  = $this->FillGameStatisticLeaderboardItem($row);
+                $results[] = $game_statistic_leaderboard_item;
             }
         }
         
@@ -6296,59 +6735,59 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByUuid(
+    public function CountGameStatisticLeaderboardRollupUuid(
         $uuid
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByUuid(
+        return $this->data->CountGameStatisticLeaderboardRollupUuid(
             $uuid
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByGameId(
+    public function CountGameStatisticLeaderboardRollupGameId(
         $game_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByGameId(
+        return $this->data->CountGameStatisticLeaderboardRollupGameId(
             $game_id
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByCode(
+    public function CountGameStatisticLeaderboardRollupCode(
         $code
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByCode(
+        return $this->data->CountGameStatisticLeaderboardRollupCode(
             $code
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByCodeByGameId(
+    public function CountGameStatisticLeaderboardRollupCodeGameId(
         $code
         , $game_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByCodeByGameId(
+        return $this->data->CountGameStatisticLeaderboardRollupCodeGameId(
             $code
             , $game_id
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+    public function CountGameStatisticLeaderboardRollupCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+        return $this->data->CountGameStatisticLeaderboardRollupCodeGameIdProfileId(
             $code
             , $game_id
             , $profile_id
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+    public function CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
         , $timestamp
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+        return $this->data->CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
             $code
             , $game_id
             , $profile_id
@@ -6356,24 +6795,24 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+    public function CountGameStatisticLeaderboardRollupProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+        return $this->data->CountGameStatisticLeaderboardRollupProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function BrowseGameStatisticLeaderboardRollupListByFilter($filter_obj) {
+    public function BrowseGameStatisticLeaderboardRollupListFilter($filter_obj) {
         $result = new GameStatisticLeaderboardRollupResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameStatisticLeaderboardRollupListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameStatisticLeaderboardRollupListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_statistic_leaderboard_rollup = $this->FillGameStatisticLeaderboardRollup($row);
@@ -6387,75 +6826,75 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameStatisticLeaderboardRollupByUuid($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByUuid($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupUuid($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupUuid($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByCode($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByCode($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupCode($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupCode($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByCodeByGameId($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByCodeByGameId($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupCodeGameId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupCodeGameId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupCodeGameIdProfileId($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupCodeGameIdProfileId($set_type, $obj);
     }
             
-    public function SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp($set_type, $obj);
+    public function SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp($set_type, $obj);
     }
             
-    public function DelGameStatisticLeaderboardRollupByUuid(
+    public function DelGameStatisticLeaderboardRollupUuid(
         $uuid
     ) {
-        return $this->data->DelGameStatisticLeaderboardRollupByUuid(
+        return $this->data->DelGameStatisticLeaderboardRollupUuid(
             $uuid
         );
     }
         
-    public function DelGameStatisticLeaderboardRollupByCode(
+    public function DelGameStatisticLeaderboardRollupCode(
         $code
     ) {
-        return $this->data->DelGameStatisticLeaderboardRollupByCode(
+        return $this->data->DelGameStatisticLeaderboardRollupCode(
             $code
         );
     }
         
-    public function DelGameStatisticLeaderboardRollupByCodeByGameId(
+    public function DelGameStatisticLeaderboardRollupCodeGameId(
         $code
         , $game_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardRollupByCodeByGameId(
+        return $this->data->DelGameStatisticLeaderboardRollupCodeGameId(
             $code
             , $game_id
         );
     }
         
-    public function DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+    public function DelGameStatisticLeaderboardRollupCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+        return $this->data->DelGameStatisticLeaderboardRollupCodeGameIdProfileId(
             $code
             , $game_id
             , $profile_id
         );
     }
         
-    public function DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+    public function DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
         , $timestamp
     ) {
-        return $this->data->DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+        return $this->data->DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
             $code
             , $game_id
             , $profile_id
@@ -6463,11 +6902,11 @@ class BaseGamingACT {
         );
     }
         
-    public function DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+    public function DelGameStatisticLeaderboardRollupProfileIdGameId(
         $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+        return $this->data->DelGameStatisticLeaderboardRollupProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -6490,12 +6929,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByUuid(
+    public function GetGameStatisticLeaderboardRollupListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByUuid(
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListUuid(
             $uuid
         );
         
@@ -6509,12 +6948,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByGameId(
+    public function GetGameStatisticLeaderboardRollupListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByGameId(
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListGameId(
             $game_id
         );
         
@@ -6528,12 +6967,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByCode(
+    public function GetGameStatisticLeaderboardRollupListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByCode(
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListCode(
             $code
         );
         
@@ -6547,13 +6986,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByCodeByGameId(
+    public function GetGameStatisticLeaderboardRollupListCodeGameId(
         $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByCodeByGameId(
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListCodeGameId(
             $code
             , $game_id
         );
@@ -6568,14 +7007,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+    public function GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
         $code
         , $game_id
         , $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
             $code
             , $game_id
             , $profile_id
@@ -6591,7 +7030,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+    public function GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
         $code
         , $game_id
         , $profile_id
@@ -6599,7 +7038,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
             $code
             , $game_id
             , $profile_id
@@ -6616,13 +7055,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+    public function GetGameStatisticLeaderboardRollupListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -6637,14 +7076,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+    public function GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
         $profile_id
         , $game_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        $rows = $this->data->GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
             $profile_id
             , $game_id
             , $timestamp
@@ -6704,32 +7143,32 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameLiveQueueByUuid(
+    public function CountGameLiveQueueUuid(
         $uuid
     ) {       
-        return $this->data->CountGameLiveQueueByUuid(
+        return $this->data->CountGameLiveQueueUuid(
             $uuid
         );
     }
                
-    public function CountGameLiveQueueByProfileIdByGameId(
+    public function CountGameLiveQueueProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameLiveQueueByProfileIdByGameId(
+        return $this->data->CountGameLiveQueueProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function BrowseGameLiveQueueListByFilter($filter_obj) {
+    public function BrowseGameLiveQueueListFilter($filter_obj) {
         $result = new GameLiveQueueResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameLiveQueueListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameLiveQueueListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_live_queue = $this->FillGameLiveQueue($row);
@@ -6743,27 +7182,27 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameLiveQueueByUuid($set_type, $obj) {           
-        return $this->data->SetGameLiveQueueByUuid($set_type, $obj);
+    public function SetGameLiveQueueUuid($set_type, $obj) {           
+        return $this->data->SetGameLiveQueueUuid($set_type, $obj);
     }
             
-    public function SetGameLiveQueueByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameLiveQueueByProfileIdByGameId($set_type, $obj);
+    public function SetGameLiveQueueProfileIdGameId($set_type, $obj) {           
+        return $this->data->SetGameLiveQueueProfileIdGameId($set_type, $obj);
     }
             
-    public function DelGameLiveQueueByUuid(
+    public function DelGameLiveQueueUuid(
         $uuid
     ) {
-        return $this->data->DelGameLiveQueueByUuid(
+        return $this->data->DelGameLiveQueueUuid(
             $uuid
         );
     }
         
-    public function DelGameLiveQueueByProfileIdByGameId(
+    public function DelGameLiveQueueProfileIdGameId(
         $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameLiveQueueByProfileIdByGameId(
+        return $this->data->DelGameLiveQueueProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -6786,12 +7225,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLiveQueueListByUuid(
+    public function GetGameLiveQueueListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLiveQueueListByUuid(
+        $rows = $this->data->GetGameLiveQueueListUuid(
             $uuid
         );
         
@@ -6805,12 +7244,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLiveQueueListByGameId(
+    public function GetGameLiveQueueListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLiveQueueListByGameId(
+        $rows = $this->data->GetGameLiveQueueListGameId(
             $game_id
         );
         
@@ -6824,13 +7263,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLiveQueueListByProfileIdByGameId(
+    public function GetGameLiveQueueListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLiveQueueListByProfileIdByGameId(
+        $rows = $this->data->GetGameLiveQueueListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -6904,32 +7343,32 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameLiveRecentQueueByUuid(
+    public function CountGameLiveRecentQueueUuid(
         $uuid
     ) {       
-        return $this->data->CountGameLiveRecentQueueByUuid(
+        return $this->data->CountGameLiveRecentQueueUuid(
             $uuid
         );
     }
                
-    public function CountGameLiveRecentQueueByProfileIdByGameId(
+    public function CountGameLiveRecentQueueProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameLiveRecentQueueByProfileIdByGameId(
+        return $this->data->CountGameLiveRecentQueueProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function BrowseGameLiveRecentQueueListByFilter($filter_obj) {
+    public function BrowseGameLiveRecentQueueListFilter($filter_obj) {
         $result = new GameLiveRecentQueueResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameLiveRecentQueueListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameLiveRecentQueueListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_live_recent_queue = $this->FillGameLiveRecentQueue($row);
@@ -6943,27 +7382,27 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameLiveRecentQueueByUuid($set_type, $obj) {           
-        return $this->data->SetGameLiveRecentQueueByUuid($set_type, $obj);
+    public function SetGameLiveRecentQueueUuid($set_type, $obj) {           
+        return $this->data->SetGameLiveRecentQueueUuid($set_type, $obj);
     }
             
-    public function SetGameLiveRecentQueueByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameLiveRecentQueueByProfileIdByGameId($set_type, $obj);
+    public function SetGameLiveRecentQueueProfileIdGameId($set_type, $obj) {           
+        return $this->data->SetGameLiveRecentQueueProfileIdGameId($set_type, $obj);
     }
             
-    public function DelGameLiveRecentQueueByUuid(
+    public function DelGameLiveRecentQueueUuid(
         $uuid
     ) {
-        return $this->data->DelGameLiveRecentQueueByUuid(
+        return $this->data->DelGameLiveRecentQueueUuid(
             $uuid
         );
     }
         
-    public function DelGameLiveRecentQueueByProfileIdByGameId(
+    public function DelGameLiveRecentQueueProfileIdGameId(
         $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameLiveRecentQueueByProfileIdByGameId(
+        return $this->data->DelGameLiveRecentQueueProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -6986,12 +7425,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLiveRecentQueueListByUuid(
+    public function GetGameLiveRecentQueueListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLiveRecentQueueListByUuid(
+        $rows = $this->data->GetGameLiveRecentQueueListUuid(
             $uuid
         );
         
@@ -7005,12 +7444,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLiveRecentQueueListByGameId(
+    public function GetGameLiveRecentQueueListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLiveRecentQueueListByGameId(
+        $rows = $this->data->GetGameLiveRecentQueueListGameId(
             $game_id
         );
         
@@ -7024,13 +7463,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLiveRecentQueueListByProfileIdByGameId(
+    public function GetGameLiveRecentQueueListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLiveRecentQueueListByProfileIdByGameId(
+        $rows = $this->data->GetGameLiveRecentQueueListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -7058,8 +7497,8 @@ class BaseGamingACT {
         if ($row['code'] != NULL) {                
             $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
         }
-        if ($row['timestamp'] != NULL) {                
-            $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
+        if ($row['stat_value_formatted'] != NULL) {                
+            $obj->stat_value_formatted = $row['stat_value_formatted'];#dataType.FillDataString(dr, "stat_value_formatted");
         }
         if ($row['profile_id'] != NULL) {                
             $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
@@ -7088,6 +7527,9 @@ class BaseGamingACT {
         if ($row['points'] != NULL) {                
             $obj->points = $row['points'];#dataType.FillDataFloat(dr, "points");
         }
+        if ($row['timestamp'] != NULL) {                
+            $obj->timestamp = $row['timestamp'];#dataType.FillDataFloat(dr, "timestamp");
+        }
         if ($row['date_created'] != NULL) {                
             $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
         }
@@ -7104,69 +7546,69 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileStatisticByUuid(
+    public function CountGameProfileStatisticUuid(
         $uuid
     ) {       
-        return $this->data->CountGameProfileStatisticByUuid(
+        return $this->data->CountGameProfileStatisticUuid(
             $uuid
         );
     }
                
-    public function CountGameProfileStatisticByCode(
+    public function CountGameProfileStatisticCode(
         $code
     ) {       
-        return $this->data->CountGameProfileStatisticByCode(
+        return $this->data->CountGameProfileStatisticCode(
             $code
         );
     }
                
-    public function CountGameProfileStatisticByGameId(
+    public function CountGameProfileStatisticGameId(
         $game_id
     ) {       
-        return $this->data->CountGameProfileStatisticByGameId(
+        return $this->data->CountGameProfileStatisticGameId(
             $game_id
         );
     }
                
-    public function CountGameProfileStatisticByCodeByGameId(
+    public function CountGameProfileStatisticCodeGameId(
         $code
         , $game_id
     ) {       
-        return $this->data->CountGameProfileStatisticByCodeByGameId(
+        return $this->data->CountGameProfileStatisticCodeGameId(
             $code
             , $game_id
         );
     }
                
-    public function CountGameProfileStatisticByProfileIdByGameId(
+    public function CountGameProfileStatisticProfileIdGameId(
         $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameProfileStatisticByProfileIdByGameId(
+        return $this->data->CountGameProfileStatisticProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
                
-    public function CountGameProfileStatisticByCodeByProfileIdByGameId(
+    public function CountGameProfileStatisticCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameProfileStatisticByCodeByProfileIdByGameId(
+        return $this->data->CountGameProfileStatisticCodeProfileIdGameId(
             $code
             , $profile_id
             , $game_id
         );
     }
                
-    public function CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+    public function CountGameProfileStatisticCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {       
-        return $this->data->CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+        return $this->data->CountGameProfileStatisticCodeProfileIdGameIdTimestamp(
             $code
             , $profile_id
             , $game_id
@@ -7174,14 +7616,14 @@ class BaseGamingACT {
         );
     }
                
-    public function BrowseGameProfileStatisticListByFilter($filter_obj) {
+    public function BrowseGameProfileStatisticListFilter($filter_obj) {
         $result = new GameProfileStatisticResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameProfileStatisticListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameProfileStatisticListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_profile_statistic = $this->FillGameProfileStatistic($row);
@@ -7195,76 +7637,76 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameProfileStatisticByUuid($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByUuid($set_type, $obj);
+    public function SetGameProfileStatisticUuid($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticUuid($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameProfileStatisticUuidProfileIdGameIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticUuidProfileIdGameIdTimestamp($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByProfileIdByCode($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByProfileIdByCode($set_type, $obj);
+    public function SetGameProfileStatisticProfileIdCode($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticProfileIdCode($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByProfileIdByCodeByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByProfileIdByCodeByTimestamp($set_type, $obj);
+    public function SetGameProfileStatisticProfileIdCodeTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticProfileIdCodeTimestamp($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameProfileStatisticCodeProfileIdGameIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticCodeProfileIdGameIdTimestamp($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticByCodeByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticByCodeByProfileIdByGameId($set_type, $obj);
+    public function SetGameProfileStatisticCodeProfileIdGameId($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticCodeProfileIdGameId($set_type, $obj);
     }
             
-    public function DelGameProfileStatisticByUuid(
+    public function DelGameProfileStatisticUuid(
         $uuid
     ) {
-        return $this->data->DelGameProfileStatisticByUuid(
+        return $this->data->DelGameProfileStatisticUuid(
             $uuid
         );
     }
         
-    public function DelGameProfileStatisticByCodeByGameId(
+    public function DelGameProfileStatisticCodeGameId(
         $code
         , $game_id
     ) {
-        return $this->data->DelGameProfileStatisticByCodeByGameId(
+        return $this->data->DelGameProfileStatisticCodeGameId(
             $code
             , $game_id
         );
     }
         
-    public function DelGameProfileStatisticByProfileIdByGameId(
+    public function DelGameProfileStatisticProfileIdGameId(
         $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameProfileStatisticByProfileIdByGameId(
+        return $this->data->DelGameProfileStatisticProfileIdGameId(
             $profile_id
             , $game_id
         );
     }
         
-    public function DelGameProfileStatisticByCodeByProfileIdByGameId(
+    public function DelGameProfileStatisticCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameProfileStatisticByCodeByProfileIdByGameId(
+        return $this->data->DelGameProfileStatisticCodeProfileIdGameId(
             $code
             , $profile_id
             , $game_id
         );
     }
         
-    public function GetGameProfileStatisticListByUuid(
+    public function GetGameProfileStatisticListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByUuid(
+        $rows = $this->data->GetGameProfileStatisticListUuid(
             $uuid
         );
         
@@ -7278,12 +7720,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByCode(
+    public function GetGameProfileStatisticListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByCode(
+        $rows = $this->data->GetGameProfileStatisticListCode(
             $code
         );
         
@@ -7297,12 +7739,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByGameId(
+    public function GetGameProfileStatisticListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByGameId(
+        $rows = $this->data->GetGameProfileStatisticListGameId(
             $game_id
         );
         
@@ -7316,13 +7758,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByCodeByGameId(
+    public function GetGameProfileStatisticListCodeGameId(
         $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByCodeByGameId(
+        $rows = $this->data->GetGameProfileStatisticListCodeGameId(
             $code
             , $game_id
         );
@@ -7337,13 +7779,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByProfileIdByGameId(
+    public function GetGameProfileStatisticListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByProfileIdByGameId(
+        $rows = $this->data->GetGameProfileStatisticListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -7358,14 +7800,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileStatisticListProfileIdGameIdTimestamp(
         $profile_id
         , $game_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+        $rows = $this->data->GetGameProfileStatisticListProfileIdGameIdTimestamp(
             $profile_id
             , $game_id
             , $timestamp
@@ -7381,14 +7823,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByCodeByProfileIdByGameId(
+    public function GetGameProfileStatisticListCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByCodeByProfileIdByGameId(
+        $rows = $this->data->GetGameProfileStatisticListCodeProfileIdGameId(
             $code
             , $profile_id
             , $game_id
@@ -7404,7 +7846,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -7412,7 +7854,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+        $rows = $this->data->GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
             $code
             , $profile_id
             , $game_id
@@ -7491,56 +7933,56 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameStatisticMetaByUuid(
+    public function CountGameStatisticMetaUuid(
         $uuid
     ) {       
-        return $this->data->CountGameStatisticMetaByUuid(
+        return $this->data->CountGameStatisticMetaUuid(
             $uuid
         );
     }
                
-    public function CountGameStatisticMetaByCode(
+    public function CountGameStatisticMetaCode(
         $code
     ) {       
-        return $this->data->CountGameStatisticMetaByCode(
+        return $this->data->CountGameStatisticMetaCode(
             $code
         );
     }
                
-    public function CountGameStatisticMetaByCodeByGameId(
+    public function CountGameStatisticMetaCodeGameId(
         $code
         , $game_id
     ) {       
-        return $this->data->CountGameStatisticMetaByCodeByGameId(
+        return $this->data->CountGameStatisticMetaCodeGameId(
             $code
             , $game_id
         );
     }
                
-    public function CountGameStatisticMetaByName(
+    public function CountGameStatisticMetaName(
         $name
     ) {       
-        return $this->data->CountGameStatisticMetaByName(
+        return $this->data->CountGameStatisticMetaName(
             $name
         );
     }
                
-    public function CountGameStatisticMetaByGameId(
+    public function CountGameStatisticMetaGameId(
         $game_id
     ) {       
-        return $this->data->CountGameStatisticMetaByGameId(
+        return $this->data->CountGameStatisticMetaGameId(
             $game_id
         );
     }
                
-    public function BrowseGameStatisticMetaListByFilter($filter_obj) {
+    public function BrowseGameStatisticMetaListFilter($filter_obj) {
         $result = new GameStatisticMetaResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameStatisticMetaListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameStatisticMetaListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_statistic_meta = $this->FillGameStatisticMeta($row);
@@ -7554,38 +7996,38 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameStatisticMetaByUuid($set_type, $obj) {           
-        return $this->data->SetGameStatisticMetaByUuid($set_type, $obj);
+    public function SetGameStatisticMetaUuid($set_type, $obj) {           
+        return $this->data->SetGameStatisticMetaUuid($set_type, $obj);
     }
             
-    public function SetGameStatisticMetaByCodeByGameId($set_type, $obj) {           
-        return $this->data->SetGameStatisticMetaByCodeByGameId($set_type, $obj);
+    public function SetGameStatisticMetaCodeGameId($set_type, $obj) {           
+        return $this->data->SetGameStatisticMetaCodeGameId($set_type, $obj);
     }
             
-    public function DelGameStatisticMetaByUuid(
+    public function DelGameStatisticMetaUuid(
         $uuid
     ) {
-        return $this->data->DelGameStatisticMetaByUuid(
+        return $this->data->DelGameStatisticMetaUuid(
             $uuid
         );
     }
         
-    public function DelGameStatisticMetaByCodeByGameId(
+    public function DelGameStatisticMetaCodeGameId(
         $code
         , $game_id
     ) {
-        return $this->data->DelGameStatisticMetaByCodeByGameId(
+        return $this->data->DelGameStatisticMetaCodeGameId(
             $code
             , $game_id
         );
     }
         
-    public function GetGameStatisticMetaListByUuid(
+    public function GetGameStatisticMetaListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticMetaListByUuid(
+        $rows = $this->data->GetGameStatisticMetaListUuid(
             $uuid
         );
         
@@ -7599,12 +8041,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticMetaListByCode(
+    public function GetGameStatisticMetaListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticMetaListByCode(
+        $rows = $this->data->GetGameStatisticMetaListCode(
             $code
         );
         
@@ -7618,12 +8060,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticMetaListByName(
+    public function GetGameStatisticMetaListName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticMetaListByName(
+        $rows = $this->data->GetGameStatisticMetaListName(
             $name
         );
         
@@ -7637,12 +8079,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticMetaListByGameId(
+    public function GetGameStatisticMetaListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticMetaListByGameId(
+        $rows = $this->data->GetGameStatisticMetaListGameId(
             $game_id
         );
         
@@ -7656,13 +8098,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameStatisticMetaListByCodeByGameId(
+    public function GetGameStatisticMetaListCodeGameId(
         $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameStatisticMetaListByCodeByGameId(
+        $rows = $this->data->GetGameStatisticMetaListCodeGameId(
             $code
             , $game_id
         );
@@ -7721,33 +8163,33 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileStatisticTimestampByUuid(
+    public function CountGameProfileStatisticTimestampUuid(
         $uuid
     ) {       
-        return $this->data->CountGameProfileStatisticTimestampByUuid(
+        return $this->data->CountGameProfileStatisticTimestampUuid(
             $uuid
         );
     }
                
-    public function CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+    public function CountGameProfileStatisticTimestampCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+        return $this->data->CountGameProfileStatisticTimestampCodeProfileIdGameId(
             $code
             , $profile_id
             , $game_id
         );
     }
                
-    public function CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+    public function CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {       
-        return $this->data->CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+        return $this->data->CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
             $code
             , $profile_id
             , $game_id
@@ -7755,14 +8197,14 @@ class BaseGamingACT {
         );
     }
                
-    public function BrowseGameProfileStatisticTimestampListByFilter($filter_obj) {
+    public function BrowseGameProfileStatisticTimestampListFilter($filter_obj) {
         $result = new GameProfileStatisticTimestampResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameProfileStatisticTimestampListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameProfileStatisticTimestampListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_profile_statistic_timestamp = $this->FillGameProfileStatisticTimestamp($row);
@@ -7776,45 +8218,45 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameProfileStatisticTimestampByUuid($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticTimestampByUuid($set_type, $obj);
+    public function SetGameProfileStatisticTimestampUuid($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticTimestampUuid($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticTimestampByCodeByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticTimestampByCodeByProfileIdByGameId($set_type, $obj);
+    public function SetGameProfileStatisticTimestampCodeProfileIdGameId($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticTimestampCodeProfileIdGameId($set_type, $obj);
     }
             
-    public function SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp($set_type, $obj);
     }
             
-    public function DelGameProfileStatisticTimestampByUuid(
+    public function DelGameProfileStatisticTimestampUuid(
         $uuid
     ) {
-        return $this->data->DelGameProfileStatisticTimestampByUuid(
+        return $this->data->DelGameProfileStatisticTimestampUuid(
             $uuid
         );
     }
         
-    public function DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+    public function DelGameProfileStatisticTimestampCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
     ) {
-        return $this->data->DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+        return $this->data->DelGameProfileStatisticTimestampCodeProfileIdGameId(
             $code
             , $profile_id
             , $game_id
         );
     }
         
-    public function DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+    public function DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {
-        return $this->data->DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+        return $this->data->DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
             $code
             , $profile_id
             , $game_id
@@ -7822,12 +8264,12 @@ class BaseGamingACT {
         );
     }
         
-    public function GetGameProfileStatisticTimestampListByUuid(
+    public function GetGameProfileStatisticTimestampListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticTimestampListByUuid(
+        $rows = $this->data->GetGameProfileStatisticTimestampListUuid(
             $uuid
         );
         
@@ -7841,14 +8283,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+    public function GetGameProfileStatisticTimestampListCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+        $rows = $this->data->GetGameProfileStatisticTimestampListCodeProfileIdGameId(
             $code
             , $profile_id
             , $game_id
@@ -7864,7 +8306,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -7872,7 +8314,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+        $rows = $this->data->GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
             $code
             , $profile_id
             , $game_id
@@ -7960,74 +8402,74 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameKeyMetaByUuid(
+    public function CountGameKeyMetaUuid(
         $uuid
     ) {       
-        return $this->data->CountGameKeyMetaByUuid(
+        return $this->data->CountGameKeyMetaUuid(
             $uuid
         );
     }
                
-    public function CountGameKeyMetaByCode(
+    public function CountGameKeyMetaCode(
         $code
     ) {       
-        return $this->data->CountGameKeyMetaByCode(
+        return $this->data->CountGameKeyMetaCode(
             $code
         );
     }
                
-    public function CountGameKeyMetaByCodeByGameId(
+    public function CountGameKeyMetaCodeGameId(
         $code
         , $game_id
     ) {       
-        return $this->data->CountGameKeyMetaByCodeByGameId(
+        return $this->data->CountGameKeyMetaCodeGameId(
             $code
             , $game_id
         );
     }
                
-    public function CountGameKeyMetaByName(
+    public function CountGameKeyMetaName(
         $name
     ) {       
-        return $this->data->CountGameKeyMetaByName(
+        return $this->data->CountGameKeyMetaName(
             $name
         );
     }
                
-    public function CountGameKeyMetaByKey(
+    public function CountGameKeyMetaKey(
         $key
     ) {       
-        return $this->data->CountGameKeyMetaByKey(
+        return $this->data->CountGameKeyMetaKey(
             $key
         );
     }
                
-    public function CountGameKeyMetaByGameId(
+    public function CountGameKeyMetaGameId(
         $game_id
     ) {       
-        return $this->data->CountGameKeyMetaByGameId(
+        return $this->data->CountGameKeyMetaGameId(
             $game_id
         );
     }
                
-    public function CountGameKeyMetaByKeyByGameId(
+    public function CountGameKeyMetaKeyGameId(
         $key
         , $game_id
     ) {       
-        return $this->data->CountGameKeyMetaByKeyByGameId(
+        return $this->data->CountGameKeyMetaKeyGameId(
             $key
             , $game_id
         );
     }
                
-    public function BrowseGameKeyMetaListByFilter($filter_obj) {
+    public function BrowseGameKeyMetaListFilter($filter_obj) {
         $result = new GameKeyMetaResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameKeyMetaListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameKeyMetaListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_key_meta = $this->FillGameKeyMeta($row);
@@ -8041,56 +8483,56 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameKeyMetaByUuid($set_type, $obj) {           
-        return $this->data->SetGameKeyMetaByUuid($set_type, $obj);
+    public function SetGameKeyMetaUuid($set_type, $obj) {           
+        return $this->data->SetGameKeyMetaUuid($set_type, $obj);
     }
             
-    public function SetGameKeyMetaByCodeByGameId($set_type, $obj) {           
-        return $this->data->SetGameKeyMetaByCodeByGameId($set_type, $obj);
+    public function SetGameKeyMetaCodeGameId($set_type, $obj) {           
+        return $this->data->SetGameKeyMetaCodeGameId($set_type, $obj);
     }
             
-    public function SetGameKeyMetaByKeyByGameId($set_type, $obj) {           
-        return $this->data->SetGameKeyMetaByKeyByGameId($set_type, $obj);
+    public function SetGameKeyMetaKeyGameId($set_type, $obj) {           
+        return $this->data->SetGameKeyMetaKeyGameId($set_type, $obj);
     }
             
-    public function SetGameKeyMetaByKeyByGameIdByLevel($set_type, $obj) {           
-        return $this->data->SetGameKeyMetaByKeyByGameIdByLevel($set_type, $obj);
+    public function SetGameKeyMetaKeyGameIdLevel($set_type, $obj) {           
+        return $this->data->SetGameKeyMetaKeyGameIdLevel($set_type, $obj);
     }
             
-    public function DelGameKeyMetaByUuid(
+    public function DelGameKeyMetaUuid(
         $uuid
     ) {
-        return $this->data->DelGameKeyMetaByUuid(
+        return $this->data->DelGameKeyMetaUuid(
             $uuid
         );
     }
         
-    public function DelGameKeyMetaByCodeByGameId(
+    public function DelGameKeyMetaCodeGameId(
         $code
         , $game_id
     ) {
-        return $this->data->DelGameKeyMetaByCodeByGameId(
+        return $this->data->DelGameKeyMetaCodeGameId(
             $code
             , $game_id
         );
     }
         
-    public function DelGameKeyMetaByKeyByGameId(
+    public function DelGameKeyMetaKeyGameId(
         $key
         , $game_id
     ) {
-        return $this->data->DelGameKeyMetaByKeyByGameId(
+        return $this->data->DelGameKeyMetaKeyGameId(
             $key
             , $game_id
         );
     }
         
-    public function GetGameKeyMetaListByUuid(
+    public function GetGameKeyMetaListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameKeyMetaListByUuid(
+        $rows = $this->data->GetGameKeyMetaListUuid(
             $uuid
         );
         
@@ -8104,12 +8546,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameKeyMetaListByCode(
+    public function GetGameKeyMetaListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameKeyMetaListByCode(
+        $rows = $this->data->GetGameKeyMetaListCode(
             $code
         );
         
@@ -8123,13 +8565,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameKeyMetaListByCodeByGameId(
+    public function GetGameKeyMetaListCodeGameId(
         $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameKeyMetaListByCodeByGameId(
+        $rows = $this->data->GetGameKeyMetaListCodeGameId(
             $code
             , $game_id
         );
@@ -8144,12 +8586,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameKeyMetaListByName(
+    public function GetGameKeyMetaListName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameKeyMetaListByName(
+        $rows = $this->data->GetGameKeyMetaListName(
             $name
         );
         
@@ -8163,12 +8605,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameKeyMetaListByKey(
+    public function GetGameKeyMetaListKey(
         $key
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameKeyMetaListByKey(
+        $rows = $this->data->GetGameKeyMetaListKey(
             $key
         );
         
@@ -8182,12 +8624,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameKeyMetaListByGameId(
+    public function GetGameKeyMetaListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameKeyMetaListByGameId(
+        $rows = $this->data->GetGameKeyMetaListGameId(
             $game_id
         );
         
@@ -8201,13 +8643,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameKeyMetaListByKeyByGameId(
+    public function GetGameKeyMetaListKeyGameId(
         $key
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameKeyMetaListByKeyByGameId(
+        $rows = $this->data->GetGameKeyMetaListKeyGameId(
             $key
             , $game_id
         );
@@ -8222,13 +8664,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameKeyMetaListByCodeByLevel(
+    public function GetGameKeyMetaListCodeLevel(
         $code
         , $level
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameKeyMetaListByCodeByLevel(
+        $rows = $this->data->GetGameKeyMetaListCodeLevel(
             $code
             , $level
         );
@@ -8299,56 +8741,56 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameLevelByUuid(
+    public function CountGameLevelUuid(
         $uuid
     ) {       
-        return $this->data->CountGameLevelByUuid(
+        return $this->data->CountGameLevelUuid(
             $uuid
         );
     }
                
-    public function CountGameLevelByCode(
+    public function CountGameLevelCode(
         $code
     ) {       
-        return $this->data->CountGameLevelByCode(
+        return $this->data->CountGameLevelCode(
             $code
         );
     }
                
-    public function CountGameLevelByCodeByGameId(
+    public function CountGameLevelCodeGameId(
         $code
         , $game_id
     ) {       
-        return $this->data->CountGameLevelByCodeByGameId(
+        return $this->data->CountGameLevelCodeGameId(
             $code
             , $game_id
         );
     }
                
-    public function CountGameLevelByName(
+    public function CountGameLevelName(
         $name
     ) {       
-        return $this->data->CountGameLevelByName(
+        return $this->data->CountGameLevelName(
             $name
         );
     }
                
-    public function CountGameLevelByGameId(
+    public function CountGameLevelGameId(
         $game_id
     ) {       
-        return $this->data->CountGameLevelByGameId(
+        return $this->data->CountGameLevelGameId(
             $game_id
         );
     }
                
-    public function BrowseGameLevelListByFilter($filter_obj) {
+    public function BrowseGameLevelListFilter($filter_obj) {
         $result = new GameLevelResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameLevelListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameLevelListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_level = $this->FillGameLevel($row);
@@ -8362,38 +8804,38 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameLevelByUuid($set_type, $obj) {           
-        return $this->data->SetGameLevelByUuid($set_type, $obj);
+    public function SetGameLevelUuid($set_type, $obj) {           
+        return $this->data->SetGameLevelUuid($set_type, $obj);
     }
             
-    public function SetGameLevelByCodeByGameId($set_type, $obj) {           
-        return $this->data->SetGameLevelByCodeByGameId($set_type, $obj);
+    public function SetGameLevelCodeGameId($set_type, $obj) {           
+        return $this->data->SetGameLevelCodeGameId($set_type, $obj);
     }
             
-    public function DelGameLevelByUuid(
+    public function DelGameLevelUuid(
         $uuid
     ) {
-        return $this->data->DelGameLevelByUuid(
+        return $this->data->DelGameLevelUuid(
             $uuid
         );
     }
         
-    public function DelGameLevelByCodeByGameId(
+    public function DelGameLevelCodeGameId(
         $code
         , $game_id
     ) {
-        return $this->data->DelGameLevelByCodeByGameId(
+        return $this->data->DelGameLevelCodeGameId(
             $code
             , $game_id
         );
     }
         
-    public function GetGameLevelListByUuid(
+    public function GetGameLevelListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLevelListByUuid(
+        $rows = $this->data->GetGameLevelListUuid(
             $uuid
         );
         
@@ -8407,12 +8849,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLevelListByCode(
+    public function GetGameLevelListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLevelListByCode(
+        $rows = $this->data->GetGameLevelListCode(
             $code
         );
         
@@ -8426,13 +8868,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLevelListByCodeByGameId(
+    public function GetGameLevelListCodeGameId(
         $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLevelListByCodeByGameId(
+        $rows = $this->data->GetGameLevelListCodeGameId(
             $code
             , $game_id
         );
@@ -8447,12 +8889,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLevelListByName(
+    public function GetGameLevelListName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLevelListByName(
+        $rows = $this->data->GetGameLevelListName(
             $name
         );
         
@@ -8466,12 +8908,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameLevelListByGameId(
+    public function GetGameLevelListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameLevelListByGameId(
+        $rows = $this->data->GetGameLevelListGameId(
             $game_id
         );
         
@@ -8544,51 +8986,51 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameProfileAchievementByUuid(
+    public function CountGameProfileAchievementUuid(
         $uuid
     ) {       
-        return $this->data->CountGameProfileAchievementByUuid(
+        return $this->data->CountGameProfileAchievementUuid(
             $uuid
         );
     }
                
-    public function CountGameProfileAchievementByProfileIdByCode(
+    public function CountGameProfileAchievementProfileIdCode(
         $profile_id
         , $code
     ) {       
-        return $this->data->CountGameProfileAchievementByProfileIdByCode(
+        return $this->data->CountGameProfileAchievementProfileIdCode(
             $profile_id
             , $code
         );
     }
                
-    public function CountGameProfileAchievementByUsername(
+    public function CountGameProfileAchievementUsername(
         $username
     ) {       
-        return $this->data->CountGameProfileAchievementByUsername(
+        return $this->data->CountGameProfileAchievementUsername(
             $username
         );
     }
                
-    public function CountGameProfileAchievementByCodeByProfileIdByGameId(
+    public function CountGameProfileAchievementCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
     ) {       
-        return $this->data->CountGameProfileAchievementByCodeByProfileIdByGameId(
+        return $this->data->CountGameProfileAchievementCodeProfileIdGameId(
             $code
             , $profile_id
             , $game_id
         );
     }
                
-    public function CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+    public function CountGameProfileAchievementCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
         , $timestamp
     ) {       
-        return $this->data->CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+        return $this->data->CountGameProfileAchievementCodeProfileIdGameIdTimestamp(
             $code
             , $profile_id
             , $game_id
@@ -8596,14 +9038,14 @@ class BaseGamingACT {
         );
     }
                
-    public function BrowseGameProfileAchievementListByFilter($filter_obj) {
+    public function BrowseGameProfileAchievementListFilter($filter_obj) {
         $result = new GameProfileAchievementResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameProfileAchievementListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameProfileAchievementListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_profile_achievement = $this->FillGameProfileAchievement($row);
@@ -8617,60 +9059,60 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameProfileAchievementByUuid($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByUuid($set_type, $obj);
+    public function SetGameProfileAchievementUuid($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementUuid($set_type, $obj);
     }
             
-    public function SetGameProfileAchievementByUuidByCode($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByUuidByCode($set_type, $obj);
+    public function SetGameProfileAchievementUuidCode($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementUuidCode($set_type, $obj);
     }
             
-    public function SetGameProfileAchievementByProfileIdByCode($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByProfileIdByCode($set_type, $obj);
+    public function SetGameProfileAchievementProfileIdCode($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementProfileIdCode($set_type, $obj);
     }
             
-    public function SetGameProfileAchievementByCodeByProfileIdByGameId($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByCodeByProfileIdByGameId($set_type, $obj);
+    public function SetGameProfileAchievementCodeProfileIdGameId($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementCodeProfileIdGameId($set_type, $obj);
     }
             
-    public function SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp($set_type, $obj) {           
-        return $this->data->SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp($set_type, $obj);
+    public function SetGameProfileAchievementCodeProfileIdGameIdTimestamp($set_type, $obj) {           
+        return $this->data->SetGameProfileAchievementCodeProfileIdGameIdTimestamp($set_type, $obj);
     }
             
-    public function DelGameProfileAchievementByUuid(
+    public function DelGameProfileAchievementUuid(
         $uuid
     ) {
-        return $this->data->DelGameProfileAchievementByUuid(
+        return $this->data->DelGameProfileAchievementUuid(
             $uuid
         );
     }
         
-    public function DelGameProfileAchievementByProfileIdByCode(
+    public function DelGameProfileAchievementProfileIdCode(
         $profile_id
         , $code
     ) {
-        return $this->data->DelGameProfileAchievementByProfileIdByCode(
+        return $this->data->DelGameProfileAchievementProfileIdCode(
             $profile_id
             , $code
         );
     }
         
-    public function DelGameProfileAchievementByUuidByCode(
+    public function DelGameProfileAchievementUuidCode(
         $uuid
         , $code
     ) {
-        return $this->data->DelGameProfileAchievementByUuidByCode(
+        return $this->data->DelGameProfileAchievementUuidCode(
             $uuid
             , $code
         );
     }
         
-    public function GetGameProfileAchievementListByUuid(
+    public function GetGameProfileAchievementListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByUuid(
+        $rows = $this->data->GetGameProfileAchievementListUuid(
             $uuid
         );
         
@@ -8684,13 +9126,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByProfileIdByCode(
+    public function GetGameProfileAchievementListProfileIdCode(
         $profile_id
         , $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByProfileIdByCode(
+        $rows = $this->data->GetGameProfileAchievementListProfileIdCode(
             $profile_id
             , $code
         );
@@ -8705,12 +9147,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByUsername(
+    public function GetGameProfileAchievementListUsername(
         $username
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByUsername(
+        $rows = $this->data->GetGameProfileAchievementListUsername(
             $username
         );
         
@@ -8724,12 +9166,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByCode(
+    public function GetGameProfileAchievementListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByCode(
+        $rows = $this->data->GetGameProfileAchievementListCode(
             $code
         );
         
@@ -8743,12 +9185,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByGameId(
+    public function GetGameProfileAchievementListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByGameId(
+        $rows = $this->data->GetGameProfileAchievementListGameId(
             $game_id
         );
         
@@ -8762,13 +9204,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByCodeByGameId(
+    public function GetGameProfileAchievementListCodeGameId(
         $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByCodeByGameId(
+        $rows = $this->data->GetGameProfileAchievementListCodeGameId(
             $code
             , $game_id
         );
@@ -8783,13 +9225,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByProfileIdByGameId(
+    public function GetGameProfileAchievementListProfileIdGameId(
         $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByProfileIdByGameId(
+        $rows = $this->data->GetGameProfileAchievementListProfileIdGameId(
             $profile_id
             , $game_id
         );
@@ -8804,14 +9246,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileAchievementListProfileIdGameIdTimestamp(
         $profile_id
         , $game_id
         , $timestamp
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+        $rows = $this->data->GetGameProfileAchievementListProfileIdGameIdTimestamp(
             $profile_id
             , $game_id
             , $timestamp
@@ -8827,14 +9269,14 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByCodeByProfileIdByGameId(
+    public function GetGameProfileAchievementListCodeProfileIdGameId(
         $code
         , $profile_id
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByCodeByProfileIdByGameId(
+        $rows = $this->data->GetGameProfileAchievementListCodeProfileIdGameId(
             $code
             , $profile_id
             , $game_id
@@ -8850,7 +9292,7 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+    public function GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
         $code
         , $profile_id
         , $game_id
@@ -8858,7 +9300,7 @@ class BaseGamingACT {
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+        $rows = $this->data->GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
             $code
             , $profile_id
             , $game_id
@@ -8943,56 +9385,56 @@ class BaseGamingACT {
         );
     }
                
-    public function CountGameAchievementMetaByUuid(
+    public function CountGameAchievementMetaUuid(
         $uuid
     ) {       
-        return $this->data->CountGameAchievementMetaByUuid(
+        return $this->data->CountGameAchievementMetaUuid(
             $uuid
         );
     }
                
-    public function CountGameAchievementMetaByCode(
+    public function CountGameAchievementMetaCode(
         $code
     ) {       
-        return $this->data->CountGameAchievementMetaByCode(
+        return $this->data->CountGameAchievementMetaCode(
             $code
         );
     }
                
-    public function CountGameAchievementMetaByCodeByGameId(
+    public function CountGameAchievementMetaCodeGameId(
         $code
         , $game_id
     ) {       
-        return $this->data->CountGameAchievementMetaByCodeByGameId(
+        return $this->data->CountGameAchievementMetaCodeGameId(
             $code
             , $game_id
         );
     }
                
-    public function CountGameAchievementMetaByName(
+    public function CountGameAchievementMetaName(
         $name
     ) {       
-        return $this->data->CountGameAchievementMetaByName(
+        return $this->data->CountGameAchievementMetaName(
             $name
         );
     }
                
-    public function CountGameAchievementMetaByGameId(
+    public function CountGameAchievementMetaGameId(
         $game_id
     ) {       
-        return $this->data->CountGameAchievementMetaByGameId(
+        return $this->data->CountGameAchievementMetaGameId(
             $game_id
         );
     }
                
-    public function BrowseGameAchievementMetaListByFilter($filter_obj) {
+    public function BrowseGameAchievementMetaListFilter($filter_obj) {
         $result = new GameAchievementMetaResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseGameAchievementMetaListByFilter(filter_obj);
+        $rows = $this->data->BrowseGameAchievementMetaListFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $game_achievement_meta = $this->FillGameAchievementMeta($row);
@@ -9006,38 +9448,38 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameAchievementMetaByUuid($set_type, $obj) {           
-        return $this->data->SetGameAchievementMetaByUuid($set_type, $obj);
+    public function SetGameAchievementMetaUuid($set_type, $obj) {           
+        return $this->data->SetGameAchievementMetaUuid($set_type, $obj);
     }
             
-    public function SetGameAchievementMetaByCodeByGameId($set_type, $obj) {           
-        return $this->data->SetGameAchievementMetaByCodeByGameId($set_type, $obj);
+    public function SetGameAchievementMetaCodeGameId($set_type, $obj) {           
+        return $this->data->SetGameAchievementMetaCodeGameId($set_type, $obj);
     }
             
-    public function DelGameAchievementMetaByUuid(
+    public function DelGameAchievementMetaUuid(
         $uuid
     ) {
-        return $this->data->DelGameAchievementMetaByUuid(
+        return $this->data->DelGameAchievementMetaUuid(
             $uuid
         );
     }
         
-    public function DelGameAchievementMetaByCodeByGameId(
+    public function DelGameAchievementMetaCodeGameId(
         $code
         , $game_id
     ) {
-        return $this->data->DelGameAchievementMetaByCodeByGameId(
+        return $this->data->DelGameAchievementMetaCodeGameId(
             $code
             , $game_id
         );
     }
         
-    public function GetGameAchievementMetaListByUuid(
+    public function GetGameAchievementMetaListUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAchievementMetaListByUuid(
+        $rows = $this->data->GetGameAchievementMetaListUuid(
             $uuid
         );
         
@@ -9051,12 +9493,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAchievementMetaListByCode(
+    public function GetGameAchievementMetaListCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAchievementMetaListByCode(
+        $rows = $this->data->GetGameAchievementMetaListCode(
             $code
         );
         
@@ -9070,13 +9512,13 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAchievementMetaListByCodeByGameId(
+    public function GetGameAchievementMetaListCodeGameId(
         $code
         , $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAchievementMetaListByCodeByGameId(
+        $rows = $this->data->GetGameAchievementMetaListCodeGameId(
             $code
             , $game_id
         );
@@ -9091,12 +9533,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAchievementMetaListByName(
+    public function GetGameAchievementMetaListName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAchievementMetaListByName(
+        $rows = $this->data->GetGameAchievementMetaListName(
             $name
         );
         
@@ -9110,12 +9552,12 @@ class BaseGamingACT {
         return $results;
     }
         
-    public function GetGameAchievementMetaListByGameId(
+    public function GetGameAchievementMetaListGameId(
         $game_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetGameAchievementMetaListByGameId(
+        $rows = $this->data->GetGameAchievementMetaListGameId(
             $game_id
         );
         

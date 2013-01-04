@@ -259,14 +259,14 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_by_uuid: function
+    count_app_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -279,7 +279,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_by_uuid_callback: function(data) {
+    count_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -290,26 +290,26 @@ platform.app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_count_app_by_uuid_callback", true);
+            _log("ERRORS::app_count_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_app_by_uuid(data);} catch(e) { _log("Error calling: error_count_app_by_uuid: " + e);}
+            try {error_count_app_uuid(data);} catch(e) { _log("Error calling: error_count_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::app_count_app_by_uuid_callback", false);
+            _log("SUCCESS::app_count_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_app_by_uuid(data);} catch(e) { _log("Error calling: handle_count_app_by_uuid: " + e);}
+            try {handle_count_app_uuid(data);} catch(e) { _log("Error calling: handle_count_app_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_app_by_code: function
+    count_app_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -322,7 +322,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_by_code_callback: function(data) {
+    count_app_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -333,26 +333,26 @@ platform.app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_count_app_by_code_callback", true);
+            _log("ERRORS::app_count_app_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_app_by_code(data);} catch(e) { _log("Error calling: error_count_app_by_code: " + e);}
+            try {error_count_app_code(data);} catch(e) { _log("Error calling: error_count_app_code: " + e);}
         }
         else {
-            _log("SUCCESS::app_count_app_by_code_callback", false);
+            _log("SUCCESS::app_count_app_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_app_by_code(data);} catch(e) { _log("Error calling: handle_count_app_by_code: " + e);}
+            try {handle_count_app_code(data);} catch(e) { _log("Error calling: handle_count_app_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_app_by_type_id: function
+    count_app_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -365,7 +365,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_by_type_id_callback: function(data) {
+    count_app_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -376,19 +376,19 @@ platform.app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_count_app_by_type_id_callback", true);
+            _log("ERRORS::app_count_app_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_app_by_type_id(data);} catch(e) { _log("Error calling: error_count_app_by_type_id: " + e);}
+            try {error_count_app_type_id(data);} catch(e) { _log("Error calling: error_count_app_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::app_count_app_by_type_id_callback", false);
+            _log("SUCCESS::app_count_app_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_app_by_type_id(data);} catch(e) { _log("Error calling: handle_count_app_by_type_id: " + e);}
+            try {handle_count_app_type_id(data);} catch(e) { _log("Error calling: handle_count_app_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_app_by_code_by_type_id: function
+    count_app_code_type_id: function
     (
         code,
         type_id,
@@ -396,7 +396,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-code/by-type-id"
+                + "/code/type-id"
                 + "/@code/" + code            
                 + "/@type_id/" + type_id            
                 ;
@@ -410,7 +410,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_by_code_by_type_id_callback: function(data) {
+    count_app_code_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -421,19 +421,19 @@ platform.app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_count_app_by_code_by_type_id_callback", true);
+            _log("ERRORS::app_count_app_code_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_app_by_code_by_type_id(data);} catch(e) { _log("Error calling: error_count_app_by_code_by_type_id: " + e);}
+            try {error_count_app_code_type_id(data);} catch(e) { _log("Error calling: error_count_app_code_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::app_count_app_by_code_by_type_id_callback", false);
+            _log("SUCCESS::app_count_app_code_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_app_by_code_by_type_id(data);} catch(e) { _log("Error calling: handle_count_app_by_code_by_type_id: " + e);}
+            try {handle_count_app_code_type_id(data);} catch(e) { _log("Error calling: handle_count_app_code_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_app_by_platform_by_type_id: function
+    count_app_platform_type_id: function
     (
         platform,
         type_id,
@@ -441,7 +441,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-platform/by-type-id"
+                + "/platform/type-id"
                 + "/@platform/" + platform            
                 + "/@type_id/" + type_id            
                 ;
@@ -455,7 +455,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_by_platform_by_type_id_callback: function(data) {
+    count_app_platform_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -466,26 +466,26 @@ platform.app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_count_app_by_platform_by_type_id_callback", true);
+            _log("ERRORS::app_count_app_platform_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_app_by_platform_by_type_id(data);} catch(e) { _log("Error calling: error_count_app_by_platform_by_type_id: " + e);}
+            try {error_count_app_platform_type_id(data);} catch(e) { _log("Error calling: error_count_app_platform_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::app_count_app_by_platform_by_type_id_callback", false);
+            _log("SUCCESS::app_count_app_platform_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_app_by_platform_by_type_id(data);} catch(e) { _log("Error calling: handle_count_app_by_platform_by_type_id: " + e);}
+            try {handle_count_app_platform_type_id(data);} catch(e) { _log("Error calling: handle_count_app_platform_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_app_by_platform: function
+    count_app_platform: function
     (
         platform,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'count'
-                + "/by-platform"
+                + "/platform"
                 + "/@platform/" + platform            
                 ;
 
@@ -498,7 +498,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_by_platform_callback: function(data) {
+    count_app_platform_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -509,19 +509,19 @@ platform.app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_count_app_by_platform_callback", true);
+            _log("ERRORS::app_count_app_platform_callback", true);
             // call a method that can be inline callback
-            try {error_count_app_by_platform(data);} catch(e) { _log("Error calling: error_count_app_by_platform: " + e);}
+            try {error_count_app_platform(data);} catch(e) { _log("Error calling: error_count_app_platform: " + e);}
         }
         else {
-            _log("SUCCESS::app_count_app_by_platform_callback", false);
+            _log("SUCCESS::app_count_app_platform_callback", false);
             // call a method that can be inline callback
-            try {handle_count_app_by_platform(data);} catch(e) { _log("Error calling: handle_count_app_by_platform: " + e);}
+            try {handle_count_app_platform(data);} catch(e) { _log("Error calling: handle_count_app_platform: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_app_list_by_filter: function
+    browse_app_list_filter: function
     (
         page,
         page_size,
@@ -530,7 +530,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -545,7 +545,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_app_list_by_filter_callback: function(data) {
+    browse_app_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -555,20 +555,20 @@ platform.app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_browse_app_list_by_filter_callback", true);
+            _log("ERRORS::app_browse_app_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_app_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_app_list_by_filter: " + e);}
+            try {error_browse_app_list_filter(data);} catch(e) { _log("Error calling: error_browse_app_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::app_browse_app_list_by_filter_callback", false);
+            _log("SUCCESS::app_browse_app_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_app_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_app_list_by_filter: " + e);}
+            try {handle_browse_app_list_filter(data);} catch(e) { _log("Error calling: handle_browse_app_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_app_by_uuid: function
+    set_app_uuid: function
     (
         status,
         code,
@@ -586,7 +586,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -615,7 +615,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_app_by_uuid_callback: function(data) {
+    set_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -625,19 +625,19 @@ platform.app.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_set_app_by_uuid_callback", true);
+            _log("ERRORS::app_set_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_app_by_uuid(data);} catch(e) { _log("Error calling: error_set_app_by_uuid: " + e);}
+            try {error_set_app_uuid(data);} catch(e) { _log("Error calling: error_set_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::app_set_app_by_uuid_callback", false);
+            _log("SUCCESS::app_set_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_app_by_uuid(data);} catch(e) { _log("Error calling: handle_set_app_by_uuid: " + e);}
+            try {handle_set_app_uuid(data);} catch(e) { _log("Error calling: handle_set_app_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_app_by_code: function
+    set_app_code: function
     (
         status,
         code,
@@ -655,7 +655,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -684,7 +684,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_app_by_code_callback: function(data) {
+    set_app_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -694,26 +694,26 @@ platform.app.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_set_app_by_code_callback", true);
+            _log("ERRORS::app_set_app_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_app_by_code(data);} catch(e) { _log("Error calling: error_set_app_by_code: " + e);}
+            try {error_set_app_code(data);} catch(e) { _log("Error calling: error_set_app_code: " + e);}
         }
         else {
-            _log("SUCCESS::app_set_app_by_code_callback", false);
+            _log("SUCCESS::app_set_app_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_app_by_code(data);} catch(e) { _log("Error calling: handle_set_app_by_code: " + e);}
+            try {handle_set_app_code(data);} catch(e) { _log("Error calling: handle_set_app_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_app_by_uuid: function
+    del_app_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -726,7 +726,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_app_by_uuid_callback: function(data) {
+    del_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -736,27 +736,27 @@ platform.app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_del_app_by_uuid_callback", true);
+            _log("ERRORS::app_del_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_app_by_uuid(data);} catch(e) { _log("Error calling: error_del_app_by_uuid: " + e);}
+            try {error_del_app_uuid(data);} catch(e) { _log("Error calling: error_del_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::app_del_app_by_uuid_callback", false);
+            _log("SUCCESS::app_del_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_app_by_uuid(data);} catch(e) { _log("Error calling: handle_del_app_by_uuid: " + e);}
+            try {handle_del_app_uuid(data);} catch(e) { _log("Error calling: handle_del_app_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_app_by_code: function
+    del_app_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -769,7 +769,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_app_by_code_callback: function(data) {
+    del_app_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -779,14 +779,14 @@ platform.app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_del_app_by_code_callback", true);
+            _log("ERRORS::app_del_app_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_app_by_code(data);} catch(e) { _log("Error calling: error_del_app_by_code: " + e);}
+            try {error_del_app_code(data);} catch(e) { _log("Error calling: error_del_app_code: " + e);}
         }
         else {
-            _log("SUCCESS::app_del_app_by_code_callback", false);
+            _log("SUCCESS::app_del_app_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_app_by_code(data);} catch(e) { _log("Error calling: handle_del_app_by_code: " + e);}
+            try {handle_del_app_code(data);} catch(e) { _log("Error calling: handle_del_app_code: " + e);}
         }
         
     }
@@ -834,14 +834,14 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_uuid: function
+    get_app_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -855,7 +855,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_uuid_callback: function(data) {
+    get_app_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -865,27 +865,27 @@ platform.app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_get_app_list_by_uuid_callback", true);
+            _log("ERRORS::app_get_app_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_app_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_app_list_by_uuid: " + e);}
+            try {error_get_app_list_uuid(data);} catch(e) { _log("Error calling: error_get_app_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::app_get_app_list_by_uuid_callback", false);
+            _log("SUCCESS::app_get_app_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_app_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_app_list_by_uuid: " + e);}
+            try {handle_get_app_list_uuid(data);} catch(e) { _log("Error calling: handle_get_app_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_code: function
+    get_app_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -899,7 +899,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_code_callback: function(data) {
+    get_app_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -909,27 +909,27 @@ platform.app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_get_app_list_by_code_callback", true);
+            _log("ERRORS::app_get_app_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_app_list_by_code(data);} catch(e) { _log("Error calling: error_get_app_list_by_code: " + e);}
+            try {error_get_app_list_code(data);} catch(e) { _log("Error calling: error_get_app_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::app_get_app_list_by_code_callback", false);
+            _log("SUCCESS::app_get_app_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_app_list_by_code(data);} catch(e) { _log("Error calling: handle_get_app_list_by_code: " + e);}
+            try {handle_get_app_list_code(data);} catch(e) { _log("Error calling: handle_get_app_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_type_id: function
+    get_app_list_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -943,7 +943,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_type_id_callback: function(data) {
+    get_app_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -953,20 +953,20 @@ platform.app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_get_app_list_by_type_id_callback", true);
+            _log("ERRORS::app_get_app_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_app_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_app_list_by_type_id: " + e);}
+            try {error_get_app_list_type_id(data);} catch(e) { _log("Error calling: error_get_app_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::app_get_app_list_by_type_id_callback", false);
+            _log("SUCCESS::app_get_app_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_app_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_app_list_by_type_id: " + e);}
+            try {handle_get_app_list_type_id(data);} catch(e) { _log("Error calling: handle_get_app_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_code_list_by_type_id: function
+    get_app_list_code_list_type_id: function
     (
         code,
         type_id,
@@ -974,7 +974,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-code/by-type-id"
+                + "/code/type-id"
                 + "/@code/" + code            
                 + "/@type_id/" + type_id            
                 ;
@@ -989,7 +989,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_code_list_by_type_id_callback: function(data) {
+    get_app_list_code_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -999,20 +999,20 @@ platform.app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_get_app_list_by_code_list_by_type_id_callback", true);
+            _log("ERRORS::app_get_app_list_code_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_app_list_by_code_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_app_list_by_code_list_by_type_id: " + e);}
+            try {error_get_app_list_code_list_type_id(data);} catch(e) { _log("Error calling: error_get_app_list_code_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::app_get_app_list_by_code_list_by_type_id_callback", false);
+            _log("SUCCESS::app_get_app_list_code_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_app_list_by_code_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_app_list_by_code_list_by_type_id: " + e);}
+            try {handle_get_app_list_code_list_type_id(data);} catch(e) { _log("Error calling: handle_get_app_list_code_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_platform_list_by_type_id: function
+    get_app_list_platform_list_type_id: function
     (
         platform,
         type_id,
@@ -1020,7 +1020,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-platform/by-type-id"
+                + "/platform/type-id"
                 + "/@platform/" + platform            
                 + "/@type_id/" + type_id            
                 ;
@@ -1035,7 +1035,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_platform_list_by_type_id_callback: function(data) {
+    get_app_list_platform_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1045,27 +1045,27 @@ platform.app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_get_app_list_by_platform_list_by_type_id_callback", true);
+            _log("ERRORS::app_get_app_list_platform_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_app_list_by_platform_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_app_list_by_platform_list_by_type_id: " + e);}
+            try {error_get_app_list_platform_list_type_id(data);} catch(e) { _log("Error calling: error_get_app_list_platform_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::app_get_app_list_by_platform_list_by_type_id_callback", false);
+            _log("SUCCESS::app_get_app_list_platform_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_app_list_by_platform_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_app_list_by_platform_list_by_type_id: " + e);}
+            try {handle_get_app_list_platform_list_type_id(data);} catch(e) { _log("Error calling: handle_get_app_list_platform_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_platform: function
+    get_app_list_platform: function
     (
         platform,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_service + 'get'
-                + "/by-platform"
+                + "/platform"
                 + "/@platform/" + platform            
                 ;
 
@@ -1079,7 +1079,7 @@ platform.app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_list_by_platform_callback: function(data) {
+    get_app_list_platform_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1089,14 +1089,14 @@ platform.app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_get_app_list_by_platform_callback", true);
+            _log("ERRORS::app_get_app_list_platform_callback", true);
             // call a method that can be inline callback
-            try {error_get_app_list_by_platform(data);} catch(e) { _log("Error calling: error_get_app_list_by_platform: " + e);}
+            try {error_get_app_list_platform(data);} catch(e) { _log("Error calling: error_get_app_list_platform: " + e);}
         }
         else {
-            _log("SUCCESS::app_get_app_list_by_platform_callback", false);
+            _log("SUCCESS::app_get_app_list_platform_callback", false);
             // call a method that can be inline callback
-            try {handle_get_app_list_by_platform(data);} catch(e) { _log("Error calling: handle_get_app_list_by_platform: " + e);}
+            try {handle_get_app_list_platform(data);} catch(e) { _log("Error calling: handle_get_app_list_platform: " + e);}
         }
         
     }
@@ -1156,14 +1156,14 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_type_by_uuid: function
+    count_app_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1176,7 +1176,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_type_by_uuid_callback: function(data) {
+    count_app_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1187,26 +1187,26 @@ platform.app_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_count_app_type_by_uuid_callback", true);
+            _log("ERRORS::app_type_count_app_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_app_type_by_uuid(data);} catch(e) { _log("Error calling: error_count_app_type_by_uuid: " + e);}
+            try {error_count_app_type_uuid(data);} catch(e) { _log("Error calling: error_count_app_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_count_app_type_by_uuid_callback", false);
+            _log("SUCCESS::app_type_count_app_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_app_type_by_uuid(data);} catch(e) { _log("Error calling: handle_count_app_type_by_uuid: " + e);}
+            try {handle_count_app_type_uuid(data);} catch(e) { _log("Error calling: handle_count_app_type_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_app_type_by_code: function
+    count_app_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1219,7 +1219,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_app_type_by_code_callback: function(data) {
+    count_app_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1230,19 +1230,19 @@ platform.app_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_count_app_type_by_code_callback", true);
+            _log("ERRORS::app_type_count_app_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_app_type_by_code(data);} catch(e) { _log("Error calling: error_count_app_type_by_code: " + e);}
+            try {error_count_app_type_code(data);} catch(e) { _log("Error calling: error_count_app_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_count_app_type_by_code_callback", false);
+            _log("SUCCESS::app_type_count_app_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_app_type_by_code(data);} catch(e) { _log("Error calling: handle_count_app_type_by_code: " + e);}
+            try {handle_count_app_type_code(data);} catch(e) { _log("Error calling: handle_count_app_type_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_app_type_list_by_filter: function
+    browse_app_type_list_filter: function
     (
         page,
         page_size,
@@ -1251,7 +1251,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -1266,7 +1266,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_app_type_list_by_filter_callback: function(data) {
+    browse_app_type_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1276,20 +1276,20 @@ platform.app_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_browse_app_type_list_by_filter_callback", true);
+            _log("ERRORS::app_type_browse_app_type_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_app_type_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_app_type_list_by_filter: " + e);}
+            try {error_browse_app_type_list_filter(data);} catch(e) { _log("Error calling: error_browse_app_type_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_browse_app_type_list_by_filter_callback", false);
+            _log("SUCCESS::app_type_browse_app_type_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_app_type_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_app_type_list_by_filter: " + e);}
+            try {handle_browse_app_type_list_filter(data);} catch(e) { _log("Error calling: handle_browse_app_type_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_app_type_by_uuid: function
+    set_app_type_uuid: function
     (
         status,
         code,
@@ -1305,7 +1305,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -1332,7 +1332,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_app_type_by_uuid_callback: function(data) {
+    set_app_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1342,19 +1342,19 @@ platform.app_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_set_app_type_by_uuid_callback", true);
+            _log("ERRORS::app_type_set_app_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_app_type_by_uuid(data);} catch(e) { _log("Error calling: error_set_app_type_by_uuid: " + e);}
+            try {error_set_app_type_uuid(data);} catch(e) { _log("Error calling: error_set_app_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_set_app_type_by_uuid_callback", false);
+            _log("SUCCESS::app_type_set_app_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_app_type_by_uuid(data);} catch(e) { _log("Error calling: handle_set_app_type_by_uuid: " + e);}
+            try {handle_set_app_type_uuid(data);} catch(e) { _log("Error calling: handle_set_app_type_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_app_type_by_code: function
+    set_app_type_code: function
     (
         status,
         code,
@@ -1370,7 +1370,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -1397,7 +1397,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_app_type_by_code_callback: function(data) {
+    set_app_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1407,26 +1407,26 @@ platform.app_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_set_app_type_by_code_callback", true);
+            _log("ERRORS::app_type_set_app_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_app_type_by_code(data);} catch(e) { _log("Error calling: error_set_app_type_by_code: " + e);}
+            try {error_set_app_type_code(data);} catch(e) { _log("Error calling: error_set_app_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_set_app_type_by_code_callback", false);
+            _log("SUCCESS::app_type_set_app_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_app_type_by_code(data);} catch(e) { _log("Error calling: handle_set_app_type_by_code: " + e);}
+            try {handle_set_app_type_code(data);} catch(e) { _log("Error calling: handle_set_app_type_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_app_type_by_uuid: function
+    del_app_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1439,7 +1439,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_app_type_by_uuid_callback: function(data) {
+    del_app_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1449,27 +1449,27 @@ platform.app_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_del_app_type_by_uuid_callback", true);
+            _log("ERRORS::app_type_del_app_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_app_type_by_uuid(data);} catch(e) { _log("Error calling: error_del_app_type_by_uuid: " + e);}
+            try {error_del_app_type_uuid(data);} catch(e) { _log("Error calling: error_del_app_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_del_app_type_by_uuid_callback", false);
+            _log("SUCCESS::app_type_del_app_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_app_type_by_uuid(data);} catch(e) { _log("Error calling: handle_del_app_type_by_uuid: " + e);}
+            try {handle_del_app_type_uuid(data);} catch(e) { _log("Error calling: handle_del_app_type_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_app_type_by_code: function
+    del_app_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1482,7 +1482,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_app_type_by_code_callback: function(data) {
+    del_app_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1492,14 +1492,14 @@ platform.app_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_del_app_type_by_code_callback", true);
+            _log("ERRORS::app_type_del_app_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_app_type_by_code(data);} catch(e) { _log("Error calling: error_del_app_type_by_code: " + e);}
+            try {error_del_app_type_code(data);} catch(e) { _log("Error calling: error_del_app_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_del_app_type_by_code_callback", false);
+            _log("SUCCESS::app_type_del_app_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_app_type_by_code(data);} catch(e) { _log("Error calling: handle_del_app_type_by_code: " + e);}
+            try {handle_del_app_type_code(data);} catch(e) { _log("Error calling: handle_del_app_type_code: " + e);}
         }
         
     }
@@ -1547,14 +1547,14 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_type_list_by_uuid: function
+    get_app_type_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1568,7 +1568,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_type_list_by_uuid_callback: function(data) {
+    get_app_type_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1578,27 +1578,27 @@ platform.app_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_get_app_type_list_by_uuid_callback", true);
+            _log("ERRORS::app_type_get_app_type_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_app_type_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_app_type_list_by_uuid: " + e);}
+            try {error_get_app_type_list_uuid(data);} catch(e) { _log("Error calling: error_get_app_type_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_get_app_type_list_by_uuid_callback", false);
+            _log("SUCCESS::app_type_get_app_type_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_app_type_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_app_type_list_by_uuid: " + e);}
+            try {handle_get_app_type_list_uuid(data);} catch(e) { _log("Error calling: handle_get_app_type_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_app_type_list_by_code: function
+    get_app_type_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.app_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1612,7 +1612,7 @@ platform.app_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_app_type_list_by_code_callback: function(data) {
+    get_app_type_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1622,14 +1622,14 @@ platform.app_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::app_type_get_app_type_list_by_code_callback", true);
+            _log("ERRORS::app_type_get_app_type_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_app_type_list_by_code(data);} catch(e) { _log("Error calling: error_get_app_type_list_by_code: " + e);}
+            try {error_get_app_type_list_code(data);} catch(e) { _log("Error calling: error_get_app_type_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::app_type_get_app_type_list_by_code_callback", false);
+            _log("SUCCESS::app_type_get_app_type_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_app_type_list_by_code(data);} catch(e) { _log("Error calling: handle_get_app_type_list_by_code: " + e);}
+            try {handle_get_app_type_list_code(data);} catch(e) { _log("Error calling: handle_get_app_type_list_code: " + e);}
         }
         
     }
@@ -1689,14 +1689,14 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_by_uuid: function
+    count_site_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1709,7 +1709,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_by_uuid_callback: function(data) {
+    count_site_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1720,26 +1720,26 @@ platform.site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_count_site_by_uuid_callback", true);
+            _log("ERRORS::site_count_site_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_by_uuid(data);} catch(e) { _log("Error calling: error_count_site_by_uuid: " + e);}
+            try {error_count_site_uuid(data);} catch(e) { _log("Error calling: error_count_site_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_count_site_by_uuid_callback", false);
+            _log("SUCCESS::site_count_site_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_by_uuid(data);} catch(e) { _log("Error calling: handle_count_site_by_uuid: " + e);}
+            try {handle_count_site_uuid(data);} catch(e) { _log("Error calling: handle_count_site_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_by_code: function
+    count_site_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -1752,7 +1752,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_by_code_callback: function(data) {
+    count_site_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1763,26 +1763,26 @@ platform.site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_count_site_by_code_callback", true);
+            _log("ERRORS::site_count_site_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_by_code(data);} catch(e) { _log("Error calling: error_count_site_by_code: " + e);}
+            try {error_count_site_code(data);} catch(e) { _log("Error calling: error_count_site_code: " + e);}
         }
         else {
-            _log("SUCCESS::site_count_site_by_code_callback", false);
+            _log("SUCCESS::site_count_site_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_by_code(data);} catch(e) { _log("Error calling: handle_count_site_by_code: " + e);}
+            try {handle_count_site_code(data);} catch(e) { _log("Error calling: handle_count_site_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_by_type_id: function
+    count_site_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -1795,7 +1795,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_by_type_id_callback: function(data) {
+    count_site_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1806,19 +1806,19 @@ platform.site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_count_site_by_type_id_callback", true);
+            _log("ERRORS::site_count_site_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_by_type_id(data);} catch(e) { _log("Error calling: error_count_site_by_type_id: " + e);}
+            try {error_count_site_type_id(data);} catch(e) { _log("Error calling: error_count_site_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_count_site_by_type_id_callback", false);
+            _log("SUCCESS::site_count_site_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_by_type_id(data);} catch(e) { _log("Error calling: handle_count_site_by_type_id: " + e);}
+            try {handle_count_site_type_id(data);} catch(e) { _log("Error calling: handle_count_site_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_by_code_by_type_id: function
+    count_site_code_type_id: function
     (
         code,
         type_id,
@@ -1826,7 +1826,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-code/by-type-id"
+                + "/code/type-id"
                 + "/@code/" + code            
                 + "/@type_id/" + type_id            
                 ;
@@ -1840,7 +1840,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_by_code_by_type_id_callback: function(data) {
+    count_site_code_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1851,19 +1851,19 @@ platform.site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_count_site_by_code_by_type_id_callback", true);
+            _log("ERRORS::site_count_site_code_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_by_code_by_type_id(data);} catch(e) { _log("Error calling: error_count_site_by_code_by_type_id: " + e);}
+            try {error_count_site_code_type_id(data);} catch(e) { _log("Error calling: error_count_site_code_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_count_site_by_code_by_type_id_callback", false);
+            _log("SUCCESS::site_count_site_code_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_by_code_by_type_id(data);} catch(e) { _log("Error calling: handle_count_site_by_code_by_type_id: " + e);}
+            try {handle_count_site_code_type_id(data);} catch(e) { _log("Error calling: handle_count_site_code_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_by_domain_by_type_id: function
+    count_site_domain_type_id: function
     (
         domain,
         type_id,
@@ -1871,7 +1871,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-domain/by-type-id"
+                + "/domain/type-id"
                 + "/@domain/" + domain            
                 + "/@type_id/" + type_id            
                 ;
@@ -1885,7 +1885,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_by_domain_by_type_id_callback: function(data) {
+    count_site_domain_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1896,26 +1896,26 @@ platform.site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_count_site_by_domain_by_type_id_callback", true);
+            _log("ERRORS::site_count_site_domain_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_by_domain_by_type_id(data);} catch(e) { _log("Error calling: error_count_site_by_domain_by_type_id: " + e);}
+            try {error_count_site_domain_type_id(data);} catch(e) { _log("Error calling: error_count_site_domain_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_count_site_by_domain_by_type_id_callback", false);
+            _log("SUCCESS::site_count_site_domain_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_by_domain_by_type_id(data);} catch(e) { _log("Error calling: handle_count_site_by_domain_by_type_id: " + e);}
+            try {handle_count_site_domain_type_id(data);} catch(e) { _log("Error calling: handle_count_site_domain_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_by_domain: function
+    count_site_domain: function
     (
         domain,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'count'
-                + "/by-domain"
+                + "/domain"
                 + "/@domain/" + domain            
                 ;
 
@@ -1928,7 +1928,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_by_domain_callback: function(data) {
+    count_site_domain_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1939,19 +1939,19 @@ platform.site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_count_site_by_domain_callback", true);
+            _log("ERRORS::site_count_site_domain_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_by_domain(data);} catch(e) { _log("Error calling: error_count_site_by_domain: " + e);}
+            try {error_count_site_domain(data);} catch(e) { _log("Error calling: error_count_site_domain: " + e);}
         }
         else {
-            _log("SUCCESS::site_count_site_by_domain_callback", false);
+            _log("SUCCESS::site_count_site_domain_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_by_domain(data);} catch(e) { _log("Error calling: handle_count_site_by_domain: " + e);}
+            try {handle_count_site_domain(data);} catch(e) { _log("Error calling: handle_count_site_domain: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_site_list_by_filter: function
+    browse_site_list_filter: function
     (
         page,
         page_size,
@@ -1960,7 +1960,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -1975,7 +1975,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_site_list_by_filter_callback: function(data) {
+    browse_site_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1985,20 +1985,20 @@ platform.site.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_browse_site_list_by_filter_callback", true);
+            _log("ERRORS::site_browse_site_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_site_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_site_list_by_filter: " + e);}
+            try {error_browse_site_list_filter(data);} catch(e) { _log("Error calling: error_browse_site_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::site_browse_site_list_by_filter_callback", false);
+            _log("SUCCESS::site_browse_site_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_site_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_site_list_by_filter: " + e);}
+            try {handle_browse_site_list_filter(data);} catch(e) { _log("Error calling: handle_browse_site_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_site_by_uuid: function
+    set_site_uuid: function
     (
         status,
         domain,
@@ -2016,7 +2016,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -2045,7 +2045,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_site_by_uuid_callback: function(data) {
+    set_site_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2055,19 +2055,19 @@ platform.site.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_set_site_by_uuid_callback", true);
+            _log("ERRORS::site_set_site_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_site_by_uuid(data);} catch(e) { _log("Error calling: error_set_site_by_uuid: " + e);}
+            try {error_set_site_uuid(data);} catch(e) { _log("Error calling: error_set_site_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_set_site_by_uuid_callback", false);
+            _log("SUCCESS::site_set_site_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_site_by_uuid(data);} catch(e) { _log("Error calling: handle_set_site_by_uuid: " + e);}
+            try {handle_set_site_uuid(data);} catch(e) { _log("Error calling: handle_set_site_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_site_by_code: function
+    set_site_code: function
     (
         status,
         domain,
@@ -2085,7 +2085,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -2114,7 +2114,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_site_by_code_callback: function(data) {
+    set_site_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2124,26 +2124,26 @@ platform.site.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_set_site_by_code_callback", true);
+            _log("ERRORS::site_set_site_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_site_by_code(data);} catch(e) { _log("Error calling: error_set_site_by_code: " + e);}
+            try {error_set_site_code(data);} catch(e) { _log("Error calling: error_set_site_code: " + e);}
         }
         else {
-            _log("SUCCESS::site_set_site_by_code_callback", false);
+            _log("SUCCESS::site_set_site_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_site_by_code(data);} catch(e) { _log("Error calling: handle_set_site_by_code: " + e);}
+            try {handle_set_site_code(data);} catch(e) { _log("Error calling: handle_set_site_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_site_by_uuid: function
+    del_site_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2156,7 +2156,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_site_by_uuid_callback: function(data) {
+    del_site_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2166,27 +2166,27 @@ platform.site.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_del_site_by_uuid_callback", true);
+            _log("ERRORS::site_del_site_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_site_by_uuid(data);} catch(e) { _log("Error calling: error_del_site_by_uuid: " + e);}
+            try {error_del_site_uuid(data);} catch(e) { _log("Error calling: error_del_site_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_del_site_by_uuid_callback", false);
+            _log("SUCCESS::site_del_site_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_site_by_uuid(data);} catch(e) { _log("Error calling: handle_del_site_by_uuid: " + e);}
+            try {handle_del_site_uuid(data);} catch(e) { _log("Error calling: handle_del_site_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_site_by_code: function
+    del_site_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2199,7 +2199,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_site_by_code_callback: function(data) {
+    del_site_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2209,14 +2209,14 @@ platform.site.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_del_site_by_code_callback", true);
+            _log("ERRORS::site_del_site_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_site_by_code(data);} catch(e) { _log("Error calling: error_del_site_by_code: " + e);}
+            try {error_del_site_code(data);} catch(e) { _log("Error calling: error_del_site_code: " + e);}
         }
         else {
-            _log("SUCCESS::site_del_site_by_code_callback", false);
+            _log("SUCCESS::site_del_site_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_site_by_code(data);} catch(e) { _log("Error calling: handle_del_site_by_code: " + e);}
+            try {handle_del_site_code(data);} catch(e) { _log("Error calling: handle_del_site_code: " + e);}
         }
         
     }
@@ -2264,14 +2264,14 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_uuid: function
+    get_site_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2285,7 +2285,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_uuid_callback: function(data) {
+    get_site_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2295,27 +2295,27 @@ platform.site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_get_site_list_by_uuid_callback", true);
+            _log("ERRORS::site_get_site_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_site_list_by_uuid: " + e);}
+            try {error_get_site_list_uuid(data);} catch(e) { _log("Error calling: error_get_site_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_get_site_list_by_uuid_callback", false);
+            _log("SUCCESS::site_get_site_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_site_list_by_uuid: " + e);}
+            try {handle_get_site_list_uuid(data);} catch(e) { _log("Error calling: handle_get_site_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_code: function
+    get_site_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2329,7 +2329,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_code_callback: function(data) {
+    get_site_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2339,27 +2339,27 @@ platform.site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_get_site_list_by_code_callback", true);
+            _log("ERRORS::site_get_site_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_list_by_code(data);} catch(e) { _log("Error calling: error_get_site_list_by_code: " + e);}
+            try {error_get_site_list_code(data);} catch(e) { _log("Error calling: error_get_site_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::site_get_site_list_by_code_callback", false);
+            _log("SUCCESS::site_get_site_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_list_by_code(data);} catch(e) { _log("Error calling: handle_get_site_list_by_code: " + e);}
+            try {handle_get_site_list_code(data);} catch(e) { _log("Error calling: handle_get_site_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_type_id: function
+    get_site_list_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -2373,7 +2373,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_type_id_callback: function(data) {
+    get_site_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2383,20 +2383,20 @@ platform.site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_get_site_list_by_type_id_callback", true);
+            _log("ERRORS::site_get_site_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_site_list_by_type_id: " + e);}
+            try {error_get_site_list_type_id(data);} catch(e) { _log("Error calling: error_get_site_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_get_site_list_by_type_id_callback", false);
+            _log("SUCCESS::site_get_site_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_site_list_by_type_id: " + e);}
+            try {handle_get_site_list_type_id(data);} catch(e) { _log("Error calling: handle_get_site_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_code_list_by_type_id: function
+    get_site_list_code_list_type_id: function
     (
         code,
         type_id,
@@ -2404,7 +2404,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-code/by-type-id"
+                + "/code/type-id"
                 + "/@code/" + code            
                 + "/@type_id/" + type_id            
                 ;
@@ -2419,7 +2419,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_code_list_by_type_id_callback: function(data) {
+    get_site_list_code_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2429,20 +2429,20 @@ platform.site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_get_site_list_by_code_list_by_type_id_callback", true);
+            _log("ERRORS::site_get_site_list_code_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_list_by_code_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_site_list_by_code_list_by_type_id: " + e);}
+            try {error_get_site_list_code_list_type_id(data);} catch(e) { _log("Error calling: error_get_site_list_code_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_get_site_list_by_code_list_by_type_id_callback", false);
+            _log("SUCCESS::site_get_site_list_code_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_list_by_code_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_site_list_by_code_list_by_type_id: " + e);}
+            try {handle_get_site_list_code_list_type_id(data);} catch(e) { _log("Error calling: handle_get_site_list_code_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_domain_list_by_type_id: function
+    get_site_list_domain_list_type_id: function
     (
         domain,
         type_id,
@@ -2450,7 +2450,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-domain/by-type-id"
+                + "/domain/type-id"
                 + "/@domain/" + domain            
                 + "/@type_id/" + type_id            
                 ;
@@ -2465,7 +2465,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_domain_list_by_type_id_callback: function(data) {
+    get_site_list_domain_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2475,27 +2475,27 @@ platform.site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_get_site_list_by_domain_list_by_type_id_callback", true);
+            _log("ERRORS::site_get_site_list_domain_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_list_by_domain_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_site_list_by_domain_list_by_type_id: " + e);}
+            try {error_get_site_list_domain_list_type_id(data);} catch(e) { _log("Error calling: error_get_site_list_domain_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_get_site_list_by_domain_list_by_type_id_callback", false);
+            _log("SUCCESS::site_get_site_list_domain_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_list_by_domain_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_site_list_by_domain_list_by_type_id: " + e);}
+            try {handle_get_site_list_domain_list_type_id(data);} catch(e) { _log("Error calling: handle_get_site_list_domain_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_domain: function
+    get_site_list_domain: function
     (
         domain,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_service + 'get'
-                + "/by-domain"
+                + "/domain"
                 + "/@domain/" + domain            
                 ;
 
@@ -2509,7 +2509,7 @@ platform.site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_list_by_domain_callback: function(data) {
+    get_site_list_domain_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2519,14 +2519,14 @@ platform.site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_get_site_list_by_domain_callback", true);
+            _log("ERRORS::site_get_site_list_domain_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_list_by_domain(data);} catch(e) { _log("Error calling: error_get_site_list_by_domain: " + e);}
+            try {error_get_site_list_domain(data);} catch(e) { _log("Error calling: error_get_site_list_domain: " + e);}
         }
         else {
-            _log("SUCCESS::site_get_site_list_by_domain_callback", false);
+            _log("SUCCESS::site_get_site_list_domain_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_list_by_domain(data);} catch(e) { _log("Error calling: handle_get_site_list_by_domain: " + e);}
+            try {handle_get_site_list_domain(data);} catch(e) { _log("Error calling: handle_get_site_list_domain: " + e);}
         }
         
     }
@@ -2586,14 +2586,14 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_type_by_uuid: function
+    count_site_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2606,7 +2606,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_type_by_uuid_callback: function(data) {
+    count_site_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2617,26 +2617,26 @@ platform.site_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_count_site_type_by_uuid_callback", true);
+            _log("ERRORS::site_type_count_site_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_type_by_uuid(data);} catch(e) { _log("Error calling: error_count_site_type_by_uuid: " + e);}
+            try {error_count_site_type_uuid(data);} catch(e) { _log("Error calling: error_count_site_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_count_site_type_by_uuid_callback", false);
+            _log("SUCCESS::site_type_count_site_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_type_by_uuid(data);} catch(e) { _log("Error calling: handle_count_site_type_by_uuid: " + e);}
+            try {handle_count_site_type_uuid(data);} catch(e) { _log("Error calling: handle_count_site_type_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_type_by_code: function
+    count_site_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2649,7 +2649,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_type_by_code_callback: function(data) {
+    count_site_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2660,19 +2660,19 @@ platform.site_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_count_site_type_by_code_callback", true);
+            _log("ERRORS::site_type_count_site_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_type_by_code(data);} catch(e) { _log("Error calling: error_count_site_type_by_code: " + e);}
+            try {error_count_site_type_code(data);} catch(e) { _log("Error calling: error_count_site_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_count_site_type_by_code_callback", false);
+            _log("SUCCESS::site_type_count_site_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_type_by_code(data);} catch(e) { _log("Error calling: handle_count_site_type_by_code: " + e);}
+            try {handle_count_site_type_code(data);} catch(e) { _log("Error calling: handle_count_site_type_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_site_type_list_by_filter: function
+    browse_site_type_list_filter: function
     (
         page,
         page_size,
@@ -2681,7 +2681,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -2696,7 +2696,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_site_type_list_by_filter_callback: function(data) {
+    browse_site_type_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2706,20 +2706,20 @@ platform.site_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_browse_site_type_list_by_filter_callback", true);
+            _log("ERRORS::site_type_browse_site_type_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_site_type_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_site_type_list_by_filter: " + e);}
+            try {error_browse_site_type_list_filter(data);} catch(e) { _log("Error calling: error_browse_site_type_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_browse_site_type_list_by_filter_callback", false);
+            _log("SUCCESS::site_type_browse_site_type_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_site_type_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_site_type_list_by_filter: " + e);}
+            try {handle_browse_site_type_list_filter(data);} catch(e) { _log("Error calling: handle_browse_site_type_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_site_type_by_uuid: function
+    set_site_type_uuid: function
     (
         status,
         code,
@@ -2735,7 +2735,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -2762,7 +2762,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_site_type_by_uuid_callback: function(data) {
+    set_site_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2772,19 +2772,19 @@ platform.site_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_set_site_type_by_uuid_callback", true);
+            _log("ERRORS::site_type_set_site_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_site_type_by_uuid(data);} catch(e) { _log("Error calling: error_set_site_type_by_uuid: " + e);}
+            try {error_set_site_type_uuid(data);} catch(e) { _log("Error calling: error_set_site_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_set_site_type_by_uuid_callback", false);
+            _log("SUCCESS::site_type_set_site_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_site_type_by_uuid(data);} catch(e) { _log("Error calling: handle_set_site_type_by_uuid: " + e);}
+            try {handle_set_site_type_uuid(data);} catch(e) { _log("Error calling: handle_set_site_type_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_site_type_by_code: function
+    set_site_type_code: function
     (
         status,
         code,
@@ -2800,7 +2800,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -2827,7 +2827,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_site_type_by_code_callback: function(data) {
+    set_site_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2837,26 +2837,26 @@ platform.site_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_set_site_type_by_code_callback", true);
+            _log("ERRORS::site_type_set_site_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_site_type_by_code(data);} catch(e) { _log("Error calling: error_set_site_type_by_code: " + e);}
+            try {error_set_site_type_code(data);} catch(e) { _log("Error calling: error_set_site_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_set_site_type_by_code_callback", false);
+            _log("SUCCESS::site_type_set_site_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_site_type_by_code(data);} catch(e) { _log("Error calling: handle_set_site_type_by_code: " + e);}
+            try {handle_set_site_type_code(data);} catch(e) { _log("Error calling: handle_set_site_type_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_site_type_by_uuid: function
+    del_site_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2869,7 +2869,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_site_type_by_uuid_callback: function(data) {
+    del_site_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2879,27 +2879,27 @@ platform.site_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_del_site_type_by_uuid_callback", true);
+            _log("ERRORS::site_type_del_site_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_site_type_by_uuid(data);} catch(e) { _log("Error calling: error_del_site_type_by_uuid: " + e);}
+            try {error_del_site_type_uuid(data);} catch(e) { _log("Error calling: error_del_site_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_del_site_type_by_uuid_callback", false);
+            _log("SUCCESS::site_type_del_site_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_site_type_by_uuid(data);} catch(e) { _log("Error calling: handle_del_site_type_by_uuid: " + e);}
+            try {handle_del_site_type_uuid(data);} catch(e) { _log("Error calling: handle_del_site_type_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_site_type_by_code: function
+    del_site_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -2912,7 +2912,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_site_type_by_code_callback: function(data) {
+    del_site_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2922,14 +2922,14 @@ platform.site_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_del_site_type_by_code_callback", true);
+            _log("ERRORS::site_type_del_site_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_site_type_by_code(data);} catch(e) { _log("Error calling: error_del_site_type_by_code: " + e);}
+            try {error_del_site_type_code(data);} catch(e) { _log("Error calling: error_del_site_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_del_site_type_by_code_callback", false);
+            _log("SUCCESS::site_type_del_site_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_site_type_by_code(data);} catch(e) { _log("Error calling: handle_del_site_type_by_code: " + e);}
+            try {handle_del_site_type_code(data);} catch(e) { _log("Error calling: handle_del_site_type_code: " + e);}
         }
         
     }
@@ -2977,14 +2977,14 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_type_list_by_uuid: function
+    get_site_type_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2998,7 +2998,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_type_list_by_uuid_callback: function(data) {
+    get_site_type_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3008,27 +3008,27 @@ platform.site_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_get_site_type_list_by_uuid_callback", true);
+            _log("ERRORS::site_type_get_site_type_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_type_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_site_type_list_by_uuid: " + e);}
+            try {error_get_site_type_list_uuid(data);} catch(e) { _log("Error calling: error_get_site_type_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_get_site_type_list_by_uuid_callback", false);
+            _log("SUCCESS::site_type_get_site_type_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_type_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_site_type_list_by_uuid: " + e);}
+            try {handle_get_site_type_list_uuid(data);} catch(e) { _log("Error calling: handle_get_site_type_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_type_list_by_code: function
+    get_site_type_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3042,7 +3042,7 @@ platform.site_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_type_list_by_code_callback: function(data) {
+    get_site_type_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3052,14 +3052,14 @@ platform.site_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_type_get_site_type_list_by_code_callback", true);
+            _log("ERRORS::site_type_get_site_type_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_type_list_by_code(data);} catch(e) { _log("Error calling: error_get_site_type_list_by_code: " + e);}
+            try {error_get_site_type_list_code(data);} catch(e) { _log("Error calling: error_get_site_type_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::site_type_get_site_type_list_by_code_callback", false);
+            _log("SUCCESS::site_type_get_site_type_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_type_list_by_code(data);} catch(e) { _log("Error calling: handle_get_site_type_list_by_code: " + e);}
+            try {handle_get_site_type_list_code(data);} catch(e) { _log("Error calling: handle_get_site_type_list_code: " + e);}
         }
         
     }
@@ -3119,14 +3119,14 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_by_uuid: function
+    count_org_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3139,7 +3139,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_by_uuid_callback: function(data) {
+    count_org_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3150,26 +3150,26 @@ platform.org.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_count_org_by_uuid_callback", true);
+            _log("ERRORS::org_count_org_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_by_uuid(data);} catch(e) { _log("Error calling: error_count_org_by_uuid: " + e);}
+            try {error_count_org_uuid(data);} catch(e) { _log("Error calling: error_count_org_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_count_org_by_uuid_callback", false);
+            _log("SUCCESS::org_count_org_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_by_uuid(data);} catch(e) { _log("Error calling: handle_count_org_by_uuid: " + e);}
+            try {handle_count_org_uuid(data);} catch(e) { _log("Error calling: handle_count_org_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_org_by_code: function
+    count_org_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3182,7 +3182,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_by_code_callback: function(data) {
+    count_org_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3193,26 +3193,26 @@ platform.org.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_count_org_by_code_callback", true);
+            _log("ERRORS::org_count_org_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_by_code(data);} catch(e) { _log("Error calling: error_count_org_by_code: " + e);}
+            try {error_count_org_code(data);} catch(e) { _log("Error calling: error_count_org_code: " + e);}
         }
         else {
-            _log("SUCCESS::org_count_org_by_code_callback", false);
+            _log("SUCCESS::org_count_org_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_by_code(data);} catch(e) { _log("Error calling: handle_count_org_by_code: " + e);}
+            try {handle_count_org_code(data);} catch(e) { _log("Error calling: handle_count_org_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_org_by_name: function
+    count_org_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -3225,7 +3225,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_by_name_callback: function(data) {
+    count_org_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3236,19 +3236,19 @@ platform.org.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_count_org_by_name_callback", true);
+            _log("ERRORS::org_count_org_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_by_name(data);} catch(e) { _log("Error calling: error_count_org_by_name: " + e);}
+            try {error_count_org_name(data);} catch(e) { _log("Error calling: error_count_org_name: " + e);}
         }
         else {
-            _log("SUCCESS::org_count_org_by_name_callback", false);
+            _log("SUCCESS::org_count_org_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_by_name(data);} catch(e) { _log("Error calling: handle_count_org_by_name: " + e);}
+            try {handle_count_org_name(data);} catch(e) { _log("Error calling: handle_count_org_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_org_list_by_filter: function
+    browse_org_list_filter: function
     (
         page,
         page_size,
@@ -3257,7 +3257,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -3272,7 +3272,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_org_list_by_filter_callback: function(data) {
+    browse_org_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3282,20 +3282,20 @@ platform.org.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_browse_org_list_by_filter_callback", true);
+            _log("ERRORS::org_browse_org_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_org_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_org_list_by_filter: " + e);}
+            try {error_browse_org_list_filter(data);} catch(e) { _log("Error calling: error_browse_org_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::org_browse_org_list_by_filter_callback", false);
+            _log("SUCCESS::org_browse_org_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_org_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_org_list_by_filter: " + e);}
+            try {handle_browse_org_list_filter(data);} catch(e) { _log("Error calling: handle_browse_org_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_org_by_uuid: function
+    set_org_uuid: function
     (
         status,
         code,
@@ -3312,7 +3312,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -3340,7 +3340,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_org_by_uuid_callback: function(data) {
+    set_org_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3350,26 +3350,26 @@ platform.org.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_set_org_by_uuid_callback", true);
+            _log("ERRORS::org_set_org_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_org_by_uuid(data);} catch(e) { _log("Error calling: error_set_org_by_uuid: " + e);}
+            try {error_set_org_uuid(data);} catch(e) { _log("Error calling: error_set_org_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_set_org_by_uuid_callback", false);
+            _log("SUCCESS::org_set_org_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_org_by_uuid(data);} catch(e) { _log("Error calling: handle_set_org_by_uuid: " + e);}
+            try {handle_set_org_uuid(data);} catch(e) { _log("Error calling: handle_set_org_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_org_by_uuid: function
+    del_org_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3382,7 +3382,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_org_by_uuid_callback: function(data) {
+    del_org_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3392,14 +3392,14 @@ platform.org.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_del_org_by_uuid_callback", true);
+            _log("ERRORS::org_del_org_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_org_by_uuid(data);} catch(e) { _log("Error calling: error_del_org_by_uuid: " + e);}
+            try {error_del_org_uuid(data);} catch(e) { _log("Error calling: error_del_org_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_del_org_by_uuid_callback", false);
+            _log("SUCCESS::org_del_org_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_org_by_uuid(data);} catch(e) { _log("Error calling: handle_del_org_by_uuid: " + e);}
+            try {handle_del_org_uuid(data);} catch(e) { _log("Error calling: handle_del_org_uuid: " + e);}
         }
         
     }
@@ -3447,14 +3447,14 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_list_by_uuid: function
+    get_org_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3468,7 +3468,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_list_by_uuid_callback: function(data) {
+    get_org_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3478,27 +3478,27 @@ platform.org.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_get_org_list_by_uuid_callback", true);
+            _log("ERRORS::org_get_org_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_org_list_by_uuid: " + e);}
+            try {error_get_org_list_uuid(data);} catch(e) { _log("Error calling: error_get_org_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_get_org_list_by_uuid_callback", false);
+            _log("SUCCESS::org_get_org_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_org_list_by_uuid: " + e);}
+            try {handle_get_org_list_uuid(data);} catch(e) { _log("Error calling: handle_get_org_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_org_list_by_code: function
+    get_org_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3512,7 +3512,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_list_by_code_callback: function(data) {
+    get_org_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3522,27 +3522,27 @@ platform.org.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_get_org_list_by_code_callback", true);
+            _log("ERRORS::org_get_org_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_list_by_code(data);} catch(e) { _log("Error calling: error_get_org_list_by_code: " + e);}
+            try {error_get_org_list_code(data);} catch(e) { _log("Error calling: error_get_org_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::org_get_org_list_by_code_callback", false);
+            _log("SUCCESS::org_get_org_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_list_by_code(data);} catch(e) { _log("Error calling: handle_get_org_list_by_code: " + e);}
+            try {handle_get_org_list_code(data);} catch(e) { _log("Error calling: handle_get_org_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_org_list_by_name: function
+    get_org_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -3556,7 +3556,7 @@ platform.org.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_list_by_name_callback: function(data) {
+    get_org_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3566,14 +3566,14 @@ platform.org.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_get_org_list_by_name_callback", true);
+            _log("ERRORS::org_get_org_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_list_by_name(data);} catch(e) { _log("Error calling: error_get_org_list_by_name: " + e);}
+            try {error_get_org_list_name(data);} catch(e) { _log("Error calling: error_get_org_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::org_get_org_list_by_name_callback", false);
+            _log("SUCCESS::org_get_org_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_list_by_name(data);} catch(e) { _log("Error calling: handle_get_org_list_by_name: " + e);}
+            try {handle_get_org_list_name(data);} catch(e) { _log("Error calling: handle_get_org_list_name: " + e);}
         }
         
     }
@@ -3633,14 +3633,14 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_type_by_uuid: function
+    count_org_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3653,7 +3653,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_type_by_uuid_callback: function(data) {
+    count_org_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3664,26 +3664,26 @@ platform.org_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_count_org_type_by_uuid_callback", true);
+            _log("ERRORS::org_type_count_org_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_type_by_uuid(data);} catch(e) { _log("Error calling: error_count_org_type_by_uuid: " + e);}
+            try {error_count_org_type_uuid(data);} catch(e) { _log("Error calling: error_count_org_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_count_org_type_by_uuid_callback", false);
+            _log("SUCCESS::org_type_count_org_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_type_by_uuid(data);} catch(e) { _log("Error calling: handle_count_org_type_by_uuid: " + e);}
+            try {handle_count_org_type_uuid(data);} catch(e) { _log("Error calling: handle_count_org_type_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_org_type_by_code: function
+    count_org_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3696,7 +3696,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_type_by_code_callback: function(data) {
+    count_org_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3707,19 +3707,19 @@ platform.org_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_count_org_type_by_code_callback", true);
+            _log("ERRORS::org_type_count_org_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_type_by_code(data);} catch(e) { _log("Error calling: error_count_org_type_by_code: " + e);}
+            try {error_count_org_type_code(data);} catch(e) { _log("Error calling: error_count_org_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_count_org_type_by_code_callback", false);
+            _log("SUCCESS::org_type_count_org_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_type_by_code(data);} catch(e) { _log("Error calling: handle_count_org_type_by_code: " + e);}
+            try {handle_count_org_type_code(data);} catch(e) { _log("Error calling: handle_count_org_type_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_org_type_list_by_filter: function
+    browse_org_type_list_filter: function
     (
         page,
         page_size,
@@ -3728,7 +3728,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -3743,7 +3743,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_org_type_list_by_filter_callback: function(data) {
+    browse_org_type_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3753,20 +3753,20 @@ platform.org_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_browse_org_type_list_by_filter_callback", true);
+            _log("ERRORS::org_type_browse_org_type_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_org_type_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_org_type_list_by_filter: " + e);}
+            try {error_browse_org_type_list_filter(data);} catch(e) { _log("Error calling: error_browse_org_type_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_browse_org_type_list_by_filter_callback", false);
+            _log("SUCCESS::org_type_browse_org_type_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_org_type_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_org_type_list_by_filter: " + e);}
+            try {handle_browse_org_type_list_filter(data);} catch(e) { _log("Error calling: handle_browse_org_type_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_org_type_by_uuid: function
+    set_org_type_uuid: function
     (
         status,
         code,
@@ -3782,7 +3782,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -3809,7 +3809,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_org_type_by_uuid_callback: function(data) {
+    set_org_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3819,19 +3819,19 @@ platform.org_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_set_org_type_by_uuid_callback", true);
+            _log("ERRORS::org_type_set_org_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_org_type_by_uuid(data);} catch(e) { _log("Error calling: error_set_org_type_by_uuid: " + e);}
+            try {error_set_org_type_uuid(data);} catch(e) { _log("Error calling: error_set_org_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_set_org_type_by_uuid_callback", false);
+            _log("SUCCESS::org_type_set_org_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_org_type_by_uuid(data);} catch(e) { _log("Error calling: handle_set_org_type_by_uuid: " + e);}
+            try {handle_set_org_type_uuid(data);} catch(e) { _log("Error calling: handle_set_org_type_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_org_type_by_code: function
+    set_org_type_code: function
     (
         status,
         code,
@@ -3847,7 +3847,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -3874,7 +3874,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_org_type_by_code_callback: function(data) {
+    set_org_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3884,26 +3884,26 @@ platform.org_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_set_org_type_by_code_callback", true);
+            _log("ERRORS::org_type_set_org_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_org_type_by_code(data);} catch(e) { _log("Error calling: error_set_org_type_by_code: " + e);}
+            try {error_set_org_type_code(data);} catch(e) { _log("Error calling: error_set_org_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_set_org_type_by_code_callback", false);
+            _log("SUCCESS::org_type_set_org_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_org_type_by_code(data);} catch(e) { _log("Error calling: handle_set_org_type_by_code: " + e);}
+            try {handle_set_org_type_code(data);} catch(e) { _log("Error calling: handle_set_org_type_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_org_type_by_uuid: function
+    del_org_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3916,7 +3916,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_org_type_by_uuid_callback: function(data) {
+    del_org_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3926,27 +3926,27 @@ platform.org_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_del_org_type_by_uuid_callback", true);
+            _log("ERRORS::org_type_del_org_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_org_type_by_uuid(data);} catch(e) { _log("Error calling: error_del_org_type_by_uuid: " + e);}
+            try {error_del_org_type_uuid(data);} catch(e) { _log("Error calling: error_del_org_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_del_org_type_by_uuid_callback", false);
+            _log("SUCCESS::org_type_del_org_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_org_type_by_uuid(data);} catch(e) { _log("Error calling: handle_del_org_type_by_uuid: " + e);}
+            try {handle_del_org_type_uuid(data);} catch(e) { _log("Error calling: handle_del_org_type_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_org_type_by_code: function
+    del_org_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -3959,7 +3959,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_org_type_by_code_callback: function(data) {
+    del_org_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3969,14 +3969,14 @@ platform.org_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_del_org_type_by_code_callback", true);
+            _log("ERRORS::org_type_del_org_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_org_type_by_code(data);} catch(e) { _log("Error calling: error_del_org_type_by_code: " + e);}
+            try {error_del_org_type_code(data);} catch(e) { _log("Error calling: error_del_org_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_del_org_type_by_code_callback", false);
+            _log("SUCCESS::org_type_del_org_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_org_type_by_code(data);} catch(e) { _log("Error calling: handle_del_org_type_by_code: " + e);}
+            try {handle_del_org_type_code(data);} catch(e) { _log("Error calling: handle_del_org_type_code: " + e);}
         }
         
     }
@@ -4024,14 +4024,14 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_type_list_by_uuid: function
+    get_org_type_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4045,7 +4045,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_type_list_by_uuid_callback: function(data) {
+    get_org_type_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4055,27 +4055,27 @@ platform.org_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_get_org_type_list_by_uuid_callback", true);
+            _log("ERRORS::org_type_get_org_type_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_type_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_org_type_list_by_uuid: " + e);}
+            try {error_get_org_type_list_uuid(data);} catch(e) { _log("Error calling: error_get_org_type_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_get_org_type_list_by_uuid_callback", false);
+            _log("SUCCESS::org_type_get_org_type_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_type_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_org_type_list_by_uuid: " + e);}
+            try {handle_get_org_type_list_uuid(data);} catch(e) { _log("Error calling: handle_get_org_type_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_org_type_list_by_code: function
+    get_org_type_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4089,7 +4089,7 @@ platform.org_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_type_list_by_code_callback: function(data) {
+    get_org_type_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4099,14 +4099,14 @@ platform.org_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_type_get_org_type_list_by_code_callback", true);
+            _log("ERRORS::org_type_get_org_type_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_type_list_by_code(data);} catch(e) { _log("Error calling: error_get_org_type_list_by_code: " + e);}
+            try {error_get_org_type_list_code(data);} catch(e) { _log("Error calling: error_get_org_type_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::org_type_get_org_type_list_by_code_callback", false);
+            _log("SUCCESS::org_type_get_org_type_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_type_list_by_code(data);} catch(e) { _log("Error calling: handle_get_org_type_list_by_code: " + e);}
+            try {handle_get_org_type_list_code(data);} catch(e) { _log("Error calling: handle_get_org_type_list_code: " + e);}
         }
         
     }
@@ -4166,14 +4166,14 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_item_by_uuid: function
+    count_content_item_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4186,7 +4186,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_item_by_uuid_callback: function(data) {
+    count_content_item_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4197,26 +4197,26 @@ platform.content_item.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_count_content_item_by_uuid_callback", true);
+            _log("ERRORS::content_item_count_content_item_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_item_by_uuid(data);} catch(e) { _log("Error calling: error_count_content_item_by_uuid: " + e);}
+            try {error_count_content_item_uuid(data);} catch(e) { _log("Error calling: error_count_content_item_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_count_content_item_by_uuid_callback", false);
+            _log("SUCCESS::content_item_count_content_item_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_item_by_uuid(data);} catch(e) { _log("Error calling: handle_count_content_item_by_uuid: " + e);}
+            try {handle_count_content_item_uuid(data);} catch(e) { _log("Error calling: handle_count_content_item_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_content_item_by_code: function
+    count_content_item_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4229,7 +4229,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_item_by_code_callback: function(data) {
+    count_content_item_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4240,26 +4240,26 @@ platform.content_item.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_count_content_item_by_code_callback", true);
+            _log("ERRORS::content_item_count_content_item_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_item_by_code(data);} catch(e) { _log("Error calling: error_count_content_item_by_code: " + e);}
+            try {error_count_content_item_code(data);} catch(e) { _log("Error calling: error_count_content_item_code: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_count_content_item_by_code_callback", false);
+            _log("SUCCESS::content_item_count_content_item_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_item_by_code(data);} catch(e) { _log("Error calling: handle_count_content_item_by_code: " + e);}
+            try {handle_count_content_item_code(data);} catch(e) { _log("Error calling: handle_count_content_item_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_content_item_by_name: function
+    count_content_item_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -4272,7 +4272,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_item_by_name_callback: function(data) {
+    count_content_item_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4283,26 +4283,26 @@ platform.content_item.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_count_content_item_by_name_callback", true);
+            _log("ERRORS::content_item_count_content_item_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_item_by_name(data);} catch(e) { _log("Error calling: error_count_content_item_by_name: " + e);}
+            try {error_count_content_item_name(data);} catch(e) { _log("Error calling: error_count_content_item_name: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_count_content_item_by_name_callback", false);
+            _log("SUCCESS::content_item_count_content_item_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_item_by_name(data);} catch(e) { _log("Error calling: handle_count_content_item_by_name: " + e);}
+            try {handle_count_content_item_name(data);} catch(e) { _log("Error calling: handle_count_content_item_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_content_item_by_path: function
+    count_content_item_path: function
     (
         path,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'count'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -4315,7 +4315,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_item_by_path_callback: function(data) {
+    count_content_item_path_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4326,19 +4326,19 @@ platform.content_item.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_count_content_item_by_path_callback", true);
+            _log("ERRORS::content_item_count_content_item_path_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_item_by_path(data);} catch(e) { _log("Error calling: error_count_content_item_by_path: " + e);}
+            try {error_count_content_item_path(data);} catch(e) { _log("Error calling: error_count_content_item_path: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_count_content_item_by_path_callback", false);
+            _log("SUCCESS::content_item_count_content_item_path_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_item_by_path(data);} catch(e) { _log("Error calling: handle_count_content_item_by_path: " + e);}
+            try {handle_count_content_item_path(data);} catch(e) { _log("Error calling: handle_count_content_item_path: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_content_item_list_by_filter: function
+    browse_content_item_list_filter: function
     (
         page,
         page_size,
@@ -4347,7 +4347,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -4362,7 +4362,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_content_item_list_by_filter_callback: function(data) {
+    browse_content_item_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4372,20 +4372,20 @@ platform.content_item.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_browse_content_item_list_by_filter_callback", true);
+            _log("ERRORS::content_item_browse_content_item_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_content_item_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_content_item_list_by_filter: " + e);}
+            try {error_browse_content_item_list_filter(data);} catch(e) { _log("Error calling: error_browse_content_item_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_browse_content_item_list_by_filter_callback", false);
+            _log("SUCCESS::content_item_browse_content_item_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_content_item_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_content_item_list_by_filter: " + e);}
+            try {handle_browse_content_item_list_filter(data);} catch(e) { _log("Error calling: handle_browse_content_item_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_content_item_by_uuid: function
+    set_content_item_uuid: function
     (
         status,
         type_id,
@@ -4406,7 +4406,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -4438,7 +4438,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_content_item_by_uuid_callback: function(data) {
+    set_content_item_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4448,26 +4448,26 @@ platform.content_item.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_set_content_item_by_uuid_callback", true);
+            _log("ERRORS::content_item_set_content_item_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_content_item_by_uuid(data);} catch(e) { _log("Error calling: error_set_content_item_by_uuid: " + e);}
+            try {error_set_content_item_uuid(data);} catch(e) { _log("Error calling: error_set_content_item_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_set_content_item_by_uuid_callback", false);
+            _log("SUCCESS::content_item_set_content_item_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_content_item_by_uuid(data);} catch(e) { _log("Error calling: handle_set_content_item_by_uuid: " + e);}
+            try {handle_set_content_item_uuid(data);} catch(e) { _log("Error calling: handle_set_content_item_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_content_item_by_uuid: function
+    del_content_item_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4480,7 +4480,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_content_item_by_uuid_callback: function(data) {
+    del_content_item_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4490,27 +4490,27 @@ platform.content_item.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_del_content_item_by_uuid_callback", true);
+            _log("ERRORS::content_item_del_content_item_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_content_item_by_uuid(data);} catch(e) { _log("Error calling: error_del_content_item_by_uuid: " + e);}
+            try {error_del_content_item_uuid(data);} catch(e) { _log("Error calling: error_del_content_item_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_del_content_item_by_uuid_callback", false);
+            _log("SUCCESS::content_item_del_content_item_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_content_item_by_uuid(data);} catch(e) { _log("Error calling: handle_del_content_item_by_uuid: " + e);}
+            try {handle_del_content_item_uuid(data);} catch(e) { _log("Error calling: handle_del_content_item_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_content_item_by_path: function
+    del_content_item_path: function
     (
         path,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'del'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -4523,7 +4523,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_content_item_by_path_callback: function(data) {
+    del_content_item_path_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4533,14 +4533,14 @@ platform.content_item.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_del_content_item_by_path_callback", true);
+            _log("ERRORS::content_item_del_content_item_path_callback", true);
             // call a method that can be inline callback
-            try {error_del_content_item_by_path(data);} catch(e) { _log("Error calling: error_del_content_item_by_path: " + e);}
+            try {error_del_content_item_path(data);} catch(e) { _log("Error calling: error_del_content_item_path: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_del_content_item_by_path_callback", false);
+            _log("SUCCESS::content_item_del_content_item_path_callback", false);
             // call a method that can be inline callback
-            try {handle_del_content_item_by_path(data);} catch(e) { _log("Error calling: handle_del_content_item_by_path: " + e);}
+            try {handle_del_content_item_path(data);} catch(e) { _log("Error calling: handle_del_content_item_path: " + e);}
         }
         
     }
@@ -4588,14 +4588,14 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_item_list_by_uuid: function
+    get_content_item_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4609,7 +4609,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_item_list_by_uuid_callback: function(data) {
+    get_content_item_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4619,27 +4619,27 @@ platform.content_item.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_get_content_item_list_by_uuid_callback", true);
+            _log("ERRORS::content_item_get_content_item_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_item_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_content_item_list_by_uuid: " + e);}
+            try {error_get_content_item_list_uuid(data);} catch(e) { _log("Error calling: error_get_content_item_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_get_content_item_list_by_uuid_callback", false);
+            _log("SUCCESS::content_item_get_content_item_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_item_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_content_item_list_by_uuid: " + e);}
+            try {handle_get_content_item_list_uuid(data);} catch(e) { _log("Error calling: handle_get_content_item_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_item_list_by_code: function
+    get_content_item_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4653,7 +4653,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_item_list_by_code_callback: function(data) {
+    get_content_item_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4663,27 +4663,27 @@ platform.content_item.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_get_content_item_list_by_code_callback", true);
+            _log("ERRORS::content_item_get_content_item_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_item_list_by_code(data);} catch(e) { _log("Error calling: error_get_content_item_list_by_code: " + e);}
+            try {error_get_content_item_list_code(data);} catch(e) { _log("Error calling: error_get_content_item_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_get_content_item_list_by_code_callback", false);
+            _log("SUCCESS::content_item_get_content_item_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_item_list_by_code(data);} catch(e) { _log("Error calling: handle_get_content_item_list_by_code: " + e);}
+            try {handle_get_content_item_list_code(data);} catch(e) { _log("Error calling: handle_get_content_item_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_item_list_by_name: function
+    get_content_item_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -4697,7 +4697,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_item_list_by_name_callback: function(data) {
+    get_content_item_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4707,27 +4707,27 @@ platform.content_item.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_get_content_item_list_by_name_callback", true);
+            _log("ERRORS::content_item_get_content_item_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_item_list_by_name(data);} catch(e) { _log("Error calling: error_get_content_item_list_by_name: " + e);}
+            try {error_get_content_item_list_name(data);} catch(e) { _log("Error calling: error_get_content_item_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_get_content_item_list_by_name_callback", false);
+            _log("SUCCESS::content_item_get_content_item_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_item_list_by_name(data);} catch(e) { _log("Error calling: handle_get_content_item_list_by_name: " + e);}
+            try {handle_get_content_item_list_name(data);} catch(e) { _log("Error calling: handle_get_content_item_list_name: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_item_list_by_path: function
+    get_content_item_list_path: function
     (
         path,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_service + 'get'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -4741,7 +4741,7 @@ platform.content_item.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_item_list_by_path_callback: function(data) {
+    get_content_item_list_path_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4751,14 +4751,14 @@ platform.content_item.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_get_content_item_list_by_path_callback", true);
+            _log("ERRORS::content_item_get_content_item_list_path_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_item_list_by_path(data);} catch(e) { _log("Error calling: error_get_content_item_list_by_path: " + e);}
+            try {error_get_content_item_list_path(data);} catch(e) { _log("Error calling: error_get_content_item_list_path: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_get_content_item_list_by_path_callback", false);
+            _log("SUCCESS::content_item_get_content_item_list_path_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_item_list_by_path(data);} catch(e) { _log("Error calling: handle_get_content_item_list_by_path: " + e);}
+            try {handle_get_content_item_list_path(data);} catch(e) { _log("Error calling: handle_get_content_item_list_path: " + e);}
         }
         
     }
@@ -4818,14 +4818,14 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_item_type_by_uuid: function
+    count_content_item_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4838,7 +4838,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_item_type_by_uuid_callback: function(data) {
+    count_content_item_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4849,26 +4849,26 @@ platform.content_item_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_count_content_item_type_by_uuid_callback", true);
+            _log("ERRORS::content_item_type_count_content_item_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_item_type_by_uuid(data);} catch(e) { _log("Error calling: error_count_content_item_type_by_uuid: " + e);}
+            try {error_count_content_item_type_uuid(data);} catch(e) { _log("Error calling: error_count_content_item_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_count_content_item_type_by_uuid_callback", false);
+            _log("SUCCESS::content_item_type_count_content_item_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_item_type_by_uuid(data);} catch(e) { _log("Error calling: handle_count_content_item_type_by_uuid: " + e);}
+            try {handle_count_content_item_type_uuid(data);} catch(e) { _log("Error calling: handle_count_content_item_type_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_content_item_type_by_code: function
+    count_content_item_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -4881,7 +4881,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_item_type_by_code_callback: function(data) {
+    count_content_item_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4892,19 +4892,19 @@ platform.content_item_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_count_content_item_type_by_code_callback", true);
+            _log("ERRORS::content_item_type_count_content_item_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_item_type_by_code(data);} catch(e) { _log("Error calling: error_count_content_item_type_by_code: " + e);}
+            try {error_count_content_item_type_code(data);} catch(e) { _log("Error calling: error_count_content_item_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_count_content_item_type_by_code_callback", false);
+            _log("SUCCESS::content_item_type_count_content_item_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_item_type_by_code(data);} catch(e) { _log("Error calling: handle_count_content_item_type_by_code: " + e);}
+            try {handle_count_content_item_type_code(data);} catch(e) { _log("Error calling: handle_count_content_item_type_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_content_item_type_list_by_filter: function
+    browse_content_item_type_list_filter: function
     (
         page,
         page_size,
@@ -4913,7 +4913,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -4928,7 +4928,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_content_item_type_list_by_filter_callback: function(data) {
+    browse_content_item_type_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4938,20 +4938,20 @@ platform.content_item_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_browse_content_item_type_list_by_filter_callback", true);
+            _log("ERRORS::content_item_type_browse_content_item_type_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_content_item_type_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_content_item_type_list_by_filter: " + e);}
+            try {error_browse_content_item_type_list_filter(data);} catch(e) { _log("Error calling: error_browse_content_item_type_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_browse_content_item_type_list_by_filter_callback", false);
+            _log("SUCCESS::content_item_type_browse_content_item_type_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_content_item_type_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_content_item_type_list_by_filter: " + e);}
+            try {handle_browse_content_item_type_list_filter(data);} catch(e) { _log("Error calling: handle_browse_content_item_type_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_content_item_type_by_uuid: function
+    set_content_item_type_uuid: function
     (
         status,
         code,
@@ -4967,7 +4967,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -4994,7 +4994,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_content_item_type_by_uuid_callback: function(data) {
+    set_content_item_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5004,19 +5004,19 @@ platform.content_item_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_set_content_item_type_by_uuid_callback", true);
+            _log("ERRORS::content_item_type_set_content_item_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_content_item_type_by_uuid(data);} catch(e) { _log("Error calling: error_set_content_item_type_by_uuid: " + e);}
+            try {error_set_content_item_type_uuid(data);} catch(e) { _log("Error calling: error_set_content_item_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_set_content_item_type_by_uuid_callback", false);
+            _log("SUCCESS::content_item_type_set_content_item_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_content_item_type_by_uuid(data);} catch(e) { _log("Error calling: handle_set_content_item_type_by_uuid: " + e);}
+            try {handle_set_content_item_type_uuid(data);} catch(e) { _log("Error calling: handle_set_content_item_type_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_content_item_type_by_code: function
+    set_content_item_type_code: function
     (
         status,
         code,
@@ -5032,7 +5032,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'set'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                         
                 ;
@@ -5059,7 +5059,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_content_item_type_by_code_callback: function(data) {
+    set_content_item_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5069,26 +5069,26 @@ platform.content_item_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_set_content_item_type_by_code_callback", true);
+            _log("ERRORS::content_item_type_set_content_item_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_content_item_type_by_code(data);} catch(e) { _log("Error calling: error_set_content_item_type_by_code: " + e);}
+            try {error_set_content_item_type_code(data);} catch(e) { _log("Error calling: error_set_content_item_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_set_content_item_type_by_code_callback", false);
+            _log("SUCCESS::content_item_type_set_content_item_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_content_item_type_by_code(data);} catch(e) { _log("Error calling: handle_set_content_item_type_by_code: " + e);}
+            try {handle_set_content_item_type_code(data);} catch(e) { _log("Error calling: handle_set_content_item_type_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_content_item_type_by_uuid: function
+    del_content_item_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5101,7 +5101,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_content_item_type_by_uuid_callback: function(data) {
+    del_content_item_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5111,27 +5111,27 @@ platform.content_item_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_del_content_item_type_by_uuid_callback", true);
+            _log("ERRORS::content_item_type_del_content_item_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_content_item_type_by_uuid(data);} catch(e) { _log("Error calling: error_del_content_item_type_by_uuid: " + e);}
+            try {error_del_content_item_type_uuid(data);} catch(e) { _log("Error calling: error_del_content_item_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_del_content_item_type_by_uuid_callback", false);
+            _log("SUCCESS::content_item_type_del_content_item_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_content_item_type_by_uuid(data);} catch(e) { _log("Error calling: handle_del_content_item_type_by_uuid: " + e);}
+            try {handle_del_content_item_type_uuid(data);} catch(e) { _log("Error calling: handle_del_content_item_type_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_content_item_type_by_code: function
+    del_content_item_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'del'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5144,7 +5144,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_content_item_type_by_code_callback: function(data) {
+    del_content_item_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5154,14 +5154,14 @@ platform.content_item_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_del_content_item_type_by_code_callback", true);
+            _log("ERRORS::content_item_type_del_content_item_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_content_item_type_by_code(data);} catch(e) { _log("Error calling: error_del_content_item_type_by_code: " + e);}
+            try {error_del_content_item_type_code(data);} catch(e) { _log("Error calling: error_del_content_item_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_del_content_item_type_by_code_callback", false);
+            _log("SUCCESS::content_item_type_del_content_item_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_content_item_type_by_code(data);} catch(e) { _log("Error calling: handle_del_content_item_type_by_code: " + e);}
+            try {handle_del_content_item_type_code(data);} catch(e) { _log("Error calling: handle_del_content_item_type_code: " + e);}
         }
         
     }
@@ -5209,14 +5209,14 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_item_type_list_by_uuid: function
+    get_content_item_type_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5230,7 +5230,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_item_type_list_by_uuid_callback: function(data) {
+    get_content_item_type_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5240,27 +5240,27 @@ platform.content_item_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_get_content_item_type_list_by_uuid_callback", true);
+            _log("ERRORS::content_item_type_get_content_item_type_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_item_type_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_content_item_type_list_by_uuid: " + e);}
+            try {error_get_content_item_type_list_uuid(data);} catch(e) { _log("Error calling: error_get_content_item_type_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_get_content_item_type_list_by_uuid_callback", false);
+            _log("SUCCESS::content_item_type_get_content_item_type_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_item_type_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_content_item_type_list_by_uuid: " + e);}
+            try {handle_get_content_item_type_list_uuid(data);} catch(e) { _log("Error calling: handle_get_content_item_type_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_item_type_list_by_code: function
+    get_content_item_type_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_item_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5274,7 +5274,7 @@ platform.content_item_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_item_type_list_by_code_callback: function(data) {
+    get_content_item_type_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5284,14 +5284,14 @@ platform.content_item_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_item_type_get_content_item_type_list_by_code_callback", true);
+            _log("ERRORS::content_item_type_get_content_item_type_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_item_type_list_by_code(data);} catch(e) { _log("Error calling: error_get_content_item_type_list_by_code: " + e);}
+            try {error_get_content_item_type_list_code(data);} catch(e) { _log("Error calling: error_get_content_item_type_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::content_item_type_get_content_item_type_list_by_code_callback", false);
+            _log("SUCCESS::content_item_type_get_content_item_type_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_item_type_list_by_code(data);} catch(e) { _log("Error calling: handle_get_content_item_type_list_by_code: " + e);}
+            try {handle_get_content_item_type_list_code(data);} catch(e) { _log("Error calling: handle_get_content_item_type_list_code: " + e);}
         }
         
     }
@@ -5351,14 +5351,14 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_page_by_uuid: function
+    count_content_page_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5371,7 +5371,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_page_by_uuid_callback: function(data) {
+    count_content_page_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5382,26 +5382,26 @@ platform.content_page.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_count_content_page_by_uuid_callback", true);
+            _log("ERRORS::content_page_count_content_page_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_page_by_uuid(data);} catch(e) { _log("Error calling: error_count_content_page_by_uuid: " + e);}
+            try {error_count_content_page_uuid(data);} catch(e) { _log("Error calling: error_count_content_page_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_count_content_page_by_uuid_callback", false);
+            _log("SUCCESS::content_page_count_content_page_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_page_by_uuid(data);} catch(e) { _log("Error calling: handle_count_content_page_by_uuid: " + e);}
+            try {handle_count_content_page_uuid(data);} catch(e) { _log("Error calling: handle_count_content_page_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_content_page_by_code: function
+    count_content_page_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5414,7 +5414,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_page_by_code_callback: function(data) {
+    count_content_page_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5425,26 +5425,26 @@ platform.content_page.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_count_content_page_by_code_callback", true);
+            _log("ERRORS::content_page_count_content_page_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_page_by_code(data);} catch(e) { _log("Error calling: error_count_content_page_by_code: " + e);}
+            try {error_count_content_page_code(data);} catch(e) { _log("Error calling: error_count_content_page_code: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_count_content_page_by_code_callback", false);
+            _log("SUCCESS::content_page_count_content_page_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_page_by_code(data);} catch(e) { _log("Error calling: handle_count_content_page_by_code: " + e);}
+            try {handle_count_content_page_code(data);} catch(e) { _log("Error calling: handle_count_content_page_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_content_page_by_name: function
+    count_content_page_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -5457,7 +5457,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_page_by_name_callback: function(data) {
+    count_content_page_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5468,26 +5468,26 @@ platform.content_page.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_count_content_page_by_name_callback", true);
+            _log("ERRORS::content_page_count_content_page_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_page_by_name(data);} catch(e) { _log("Error calling: error_count_content_page_by_name: " + e);}
+            try {error_count_content_page_name(data);} catch(e) { _log("Error calling: error_count_content_page_name: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_count_content_page_by_name_callback", false);
+            _log("SUCCESS::content_page_count_content_page_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_page_by_name(data);} catch(e) { _log("Error calling: handle_count_content_page_by_name: " + e);}
+            try {handle_count_content_page_name(data);} catch(e) { _log("Error calling: handle_count_content_page_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_content_page_by_path: function
+    count_content_page_path: function
     (
         path,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'count'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -5500,7 +5500,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_content_page_by_path_callback: function(data) {
+    count_content_page_path_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5511,19 +5511,19 @@ platform.content_page.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_count_content_page_by_path_callback", true);
+            _log("ERRORS::content_page_count_content_page_path_callback", true);
             // call a method that can be inline callback
-            try {error_count_content_page_by_path(data);} catch(e) { _log("Error calling: error_count_content_page_by_path: " + e);}
+            try {error_count_content_page_path(data);} catch(e) { _log("Error calling: error_count_content_page_path: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_count_content_page_by_path_callback", false);
+            _log("SUCCESS::content_page_count_content_page_path_callback", false);
             // call a method that can be inline callback
-            try {handle_count_content_page_by_path(data);} catch(e) { _log("Error calling: handle_count_content_page_by_path: " + e);}
+            try {handle_count_content_page_path(data);} catch(e) { _log("Error calling: handle_count_content_page_path: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_content_page_list_by_filter: function
+    browse_content_page_list_filter: function
     (
         page,
         page_size,
@@ -5532,7 +5532,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -5547,7 +5547,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_content_page_list_by_filter_callback: function(data) {
+    browse_content_page_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5557,20 +5557,20 @@ platform.content_page.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_browse_content_page_list_by_filter_callback", true);
+            _log("ERRORS::content_page_browse_content_page_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_content_page_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_content_page_list_by_filter: " + e);}
+            try {error_browse_content_page_list_filter(data);} catch(e) { _log("Error calling: error_browse_content_page_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_browse_content_page_list_by_filter_callback", false);
+            _log("SUCCESS::content_page_browse_content_page_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_content_page_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_content_page_list_by_filter: " + e);}
+            try {handle_browse_content_page_list_filter(data);} catch(e) { _log("Error calling: handle_browse_content_page_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_content_page_by_uuid: function
+    set_content_page_uuid: function
     (
         status,
         code,
@@ -5591,7 +5591,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -5623,7 +5623,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_content_page_by_uuid_callback: function(data) {
+    set_content_page_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5633,26 +5633,26 @@ platform.content_page.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_set_content_page_by_uuid_callback", true);
+            _log("ERRORS::content_page_set_content_page_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_content_page_by_uuid(data);} catch(e) { _log("Error calling: error_set_content_page_by_uuid: " + e);}
+            try {error_set_content_page_uuid(data);} catch(e) { _log("Error calling: error_set_content_page_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_set_content_page_by_uuid_callback", false);
+            _log("SUCCESS::content_page_set_content_page_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_content_page_by_uuid(data);} catch(e) { _log("Error calling: handle_set_content_page_by_uuid: " + e);}
+            try {handle_set_content_page_uuid(data);} catch(e) { _log("Error calling: handle_set_content_page_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_content_page_by_uuid: function
+    del_content_page_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5665,7 +5665,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_content_page_by_uuid_callback: function(data) {
+    del_content_page_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5675,20 +5675,20 @@ platform.content_page.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_del_content_page_by_uuid_callback", true);
+            _log("ERRORS::content_page_del_content_page_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_content_page_by_uuid(data);} catch(e) { _log("Error calling: error_del_content_page_by_uuid: " + e);}
+            try {error_del_content_page_uuid(data);} catch(e) { _log("Error calling: error_del_content_page_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_del_content_page_by_uuid_callback", false);
+            _log("SUCCESS::content_page_del_content_page_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_content_page_by_uuid(data);} catch(e) { _log("Error calling: handle_del_content_page_by_uuid: " + e);}
+            try {handle_del_content_page_uuid(data);} catch(e) { _log("Error calling: handle_del_content_page_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_content_page_by_path_by_site_id: function
+    del_content_page_path_site_id: function
     (
         path,
         site_id,
@@ -5696,7 +5696,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'del'
-                + "/by-path/by-site-id"
+                + "/path/site-id"
                 + "/@path/" + path            
                 + "/@site_id/" + site_id            
                 ;
@@ -5710,7 +5710,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_content_page_by_path_by_site_id_callback: function(data) {
+    del_content_page_path_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5720,27 +5720,27 @@ platform.content_page.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_del_content_page_by_path_by_site_id_callback", true);
+            _log("ERRORS::content_page_del_content_page_path_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_content_page_by_path_by_site_id(data);} catch(e) { _log("Error calling: error_del_content_page_by_path_by_site_id: " + e);}
+            try {error_del_content_page_path_site_id(data);} catch(e) { _log("Error calling: error_del_content_page_path_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_del_content_page_by_path_by_site_id_callback", false);
+            _log("SUCCESS::content_page_del_content_page_path_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_content_page_by_path_by_site_id(data);} catch(e) { _log("Error calling: handle_del_content_page_by_path_by_site_id: " + e);}
+            try {handle_del_content_page_path_site_id(data);} catch(e) { _log("Error calling: handle_del_content_page_path_site_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_content_page_by_path: function
+    del_content_page_path: function
     (
         path,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'del'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -5753,7 +5753,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_content_page_by_path_callback: function(data) {
+    del_content_page_path_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5763,14 +5763,14 @@ platform.content_page.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_del_content_page_by_path_callback", true);
+            _log("ERRORS::content_page_del_content_page_path_callback", true);
             // call a method that can be inline callback
-            try {error_del_content_page_by_path(data);} catch(e) { _log("Error calling: error_del_content_page_by_path: " + e);}
+            try {error_del_content_page_path(data);} catch(e) { _log("Error calling: error_del_content_page_path: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_del_content_page_by_path_callback", false);
+            _log("SUCCESS::content_page_del_content_page_path_callback", false);
             // call a method that can be inline callback
-            try {handle_del_content_page_by_path(data);} catch(e) { _log("Error calling: handle_del_content_page_by_path: " + e);}
+            try {handle_del_content_page_path(data);} catch(e) { _log("Error calling: handle_del_content_page_path: " + e);}
         }
         
     }
@@ -5818,14 +5818,14 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_uuid: function
+    get_content_page_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5839,7 +5839,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_uuid_callback: function(data) {
+    get_content_page_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5849,27 +5849,27 @@ platform.content_page.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_get_content_page_list_by_uuid_callback", true);
+            _log("ERRORS::content_page_get_content_page_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_page_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_content_page_list_by_uuid: " + e);}
+            try {error_get_content_page_list_uuid(data);} catch(e) { _log("Error calling: error_get_content_page_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_get_content_page_list_by_uuid_callback", false);
+            _log("SUCCESS::content_page_get_content_page_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_page_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_content_page_list_by_uuid: " + e);}
+            try {handle_get_content_page_list_uuid(data);} catch(e) { _log("Error calling: handle_get_content_page_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_code: function
+    get_content_page_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -5883,7 +5883,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_code_callback: function(data) {
+    get_content_page_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5893,27 +5893,27 @@ platform.content_page.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_get_content_page_list_by_code_callback", true);
+            _log("ERRORS::content_page_get_content_page_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_page_list_by_code(data);} catch(e) { _log("Error calling: error_get_content_page_list_by_code: " + e);}
+            try {error_get_content_page_list_code(data);} catch(e) { _log("Error calling: error_get_content_page_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_get_content_page_list_by_code_callback", false);
+            _log("SUCCESS::content_page_get_content_page_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_page_list_by_code(data);} catch(e) { _log("Error calling: handle_get_content_page_list_by_code: " + e);}
+            try {handle_get_content_page_list_code(data);} catch(e) { _log("Error calling: handle_get_content_page_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_name: function
+    get_content_page_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -5927,7 +5927,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_name_callback: function(data) {
+    get_content_page_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5937,27 +5937,27 @@ platform.content_page.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_get_content_page_list_by_name_callback", true);
+            _log("ERRORS::content_page_get_content_page_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_page_list_by_name(data);} catch(e) { _log("Error calling: error_get_content_page_list_by_name: " + e);}
+            try {error_get_content_page_list_name(data);} catch(e) { _log("Error calling: error_get_content_page_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_get_content_page_list_by_name_callback", false);
+            _log("SUCCESS::content_page_get_content_page_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_page_list_by_name(data);} catch(e) { _log("Error calling: handle_get_content_page_list_by_name: " + e);}
+            try {handle_get_content_page_list_name(data);} catch(e) { _log("Error calling: handle_get_content_page_list_name: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_path: function
+    get_content_page_list_path: function
     (
         path,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-path"
+                + "/path"
                 + "/@path/" + path            
                 ;
 
@@ -5971,7 +5971,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_path_callback: function(data) {
+    get_content_page_list_path_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5981,27 +5981,27 @@ platform.content_page.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_get_content_page_list_by_path_callback", true);
+            _log("ERRORS::content_page_get_content_page_list_path_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_page_list_by_path(data);} catch(e) { _log("Error calling: error_get_content_page_list_by_path: " + e);}
+            try {error_get_content_page_list_path(data);} catch(e) { _log("Error calling: error_get_content_page_list_path: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_get_content_page_list_by_path_callback", false);
+            _log("SUCCESS::content_page_get_content_page_list_path_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_page_list_by_path(data);} catch(e) { _log("Error calling: handle_get_content_page_list_by_path: " + e);}
+            try {handle_get_content_page_list_path(data);} catch(e) { _log("Error calling: handle_get_content_page_list_path: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_site_id: function
+    get_content_page_list_site_id: function
     (
         site_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -6015,7 +6015,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_site_id_callback: function(data) {
+    get_content_page_list_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6025,20 +6025,20 @@ platform.content_page.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_get_content_page_list_by_site_id_callback", true);
+            _log("ERRORS::content_page_get_content_page_list_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_page_list_by_site_id(data);} catch(e) { _log("Error calling: error_get_content_page_list_by_site_id: " + e);}
+            try {error_get_content_page_list_site_id(data);} catch(e) { _log("Error calling: error_get_content_page_list_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_get_content_page_list_by_site_id_callback", false);
+            _log("SUCCESS::content_page_get_content_page_list_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_page_list_by_site_id(data);} catch(e) { _log("Error calling: handle_get_content_page_list_by_site_id: " + e);}
+            try {handle_get_content_page_list_site_id(data);} catch(e) { _log("Error calling: handle_get_content_page_list_site_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_site_id_list_by_path: function
+    get_content_page_list_site_id_list_path: function
     (
         site_id,
         path,
@@ -6046,7 +6046,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.content_page_service + 'get'
-                + "/by-site-id/by-path"
+                + "/site-id/path"
                 + "/@site_id/" + site_id            
                 + "/@path/" + path            
                 ;
@@ -6061,7 +6061,7 @@ platform.content_page.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_content_page_list_by_site_id_list_by_path_callback: function(data) {
+    get_content_page_list_site_id_list_path_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6071,14 +6071,14 @@ platform.content_page.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::content_page_get_content_page_list_by_site_id_list_by_path_callback", true);
+            _log("ERRORS::content_page_get_content_page_list_site_id_list_path_callback", true);
             // call a method that can be inline callback
-            try {error_get_content_page_list_by_site_id_list_by_path(data);} catch(e) { _log("Error calling: error_get_content_page_list_by_site_id_list_by_path: " + e);}
+            try {error_get_content_page_list_site_id_list_path(data);} catch(e) { _log("Error calling: error_get_content_page_list_site_id_list_path: " + e);}
         }
         else {
-            _log("SUCCESS::content_page_get_content_page_list_by_site_id_list_by_path_callback", false);
+            _log("SUCCESS::content_page_get_content_page_list_site_id_list_path_callback", false);
             // call a method that can be inline callback
-            try {handle_get_content_page_list_by_site_id_list_by_path(data);} catch(e) { _log("Error calling: handle_get_content_page_list_by_site_id_list_by_path: " + e);}
+            try {handle_get_content_page_list_site_id_list_path(data);} catch(e) { _log("Error calling: handle_get_content_page_list_site_id_list_path: " + e);}
         }
         
     }
@@ -6138,14 +6138,14 @@ platform.message.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_message_by_uuid: function
+    count_message_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6158,7 +6158,7 @@ platform.message.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_message_by_uuid_callback: function(data) {
+    count_message_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6169,19 +6169,19 @@ platform.message.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::message_count_message_by_uuid_callback", true);
+            _log("ERRORS::message_count_message_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_message_by_uuid(data);} catch(e) { _log("Error calling: error_count_message_by_uuid: " + e);}
+            try {error_count_message_uuid(data);} catch(e) { _log("Error calling: error_count_message_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::message_count_message_by_uuid_callback", false);
+            _log("SUCCESS::message_count_message_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_message_by_uuid(data);} catch(e) { _log("Error calling: handle_count_message_by_uuid: " + e);}
+            try {handle_count_message_uuid(data);} catch(e) { _log("Error calling: handle_count_message_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_message_list_by_filter: function
+    browse_message_list_filter: function
     (
         page,
         page_size,
@@ -6190,7 +6190,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -6205,7 +6205,7 @@ platform.message.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_message_list_by_filter_callback: function(data) {
+    browse_message_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6215,20 +6215,20 @@ platform.message.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::message_browse_message_list_by_filter_callback", true);
+            _log("ERRORS::message_browse_message_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_message_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_message_list_by_filter: " + e);}
+            try {error_browse_message_list_filter(data);} catch(e) { _log("Error calling: error_browse_message_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::message_browse_message_list_by_filter_callback", false);
+            _log("SUCCESS::message_browse_message_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_message_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_message_list_by_filter: " + e);}
+            try {handle_browse_message_list_filter(data);} catch(e) { _log("Error calling: handle_browse_message_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_message_by_uuid: function
+    set_message_uuid: function
     (
         status,
         profile_from_name,
@@ -6249,7 +6249,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -6281,7 +6281,7 @@ platform.message.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_message_by_uuid_callback: function(data) {
+    set_message_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6291,26 +6291,26 @@ platform.message.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::message_set_message_by_uuid_callback", true);
+            _log("ERRORS::message_set_message_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_message_by_uuid(data);} catch(e) { _log("Error calling: error_set_message_by_uuid: " + e);}
+            try {error_set_message_uuid(data);} catch(e) { _log("Error calling: error_set_message_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::message_set_message_by_uuid_callback", false);
+            _log("SUCCESS::message_set_message_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_message_by_uuid(data);} catch(e) { _log("Error calling: handle_set_message_by_uuid: " + e);}
+            try {handle_set_message_uuid(data);} catch(e) { _log("Error calling: handle_set_message_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_message_by_uuid: function
+    del_message_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6323,7 +6323,7 @@ platform.message.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_message_by_uuid_callback: function(data) {
+    del_message_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6333,14 +6333,14 @@ platform.message.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::message_del_message_by_uuid_callback", true);
+            _log("ERRORS::message_del_message_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_message_by_uuid(data);} catch(e) { _log("Error calling: error_del_message_by_uuid: " + e);}
+            try {error_del_message_uuid(data);} catch(e) { _log("Error calling: error_del_message_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::message_del_message_by_uuid_callback", false);
+            _log("SUCCESS::message_del_message_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_message_by_uuid(data);} catch(e) { _log("Error calling: handle_del_message_by_uuid: " + e);}
+            try {handle_del_message_uuid(data);} catch(e) { _log("Error calling: handle_del_message_uuid: " + e);}
         }
         
     }
@@ -6388,14 +6388,14 @@ platform.message.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_message_list_by_uuid: function
+    get_message_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.message_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6409,7 +6409,7 @@ platform.message.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_message_list_by_uuid_callback: function(data) {
+    get_message_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6419,14 +6419,14 @@ platform.message.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::message_get_message_list_by_uuid_callback", true);
+            _log("ERRORS::message_get_message_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_message_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_message_list_by_uuid: " + e);}
+            try {error_get_message_list_uuid(data);} catch(e) { _log("Error calling: error_get_message_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::message_get_message_list_by_uuid_callback", false);
+            _log("SUCCESS::message_get_message_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_message_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_message_list_by_uuid: " + e);}
+            try {handle_get_message_list_uuid(data);} catch(e) { _log("Error calling: handle_get_message_list_uuid: " + e);}
         }
         
     }
@@ -6486,14 +6486,14 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_by_uuid: function
+    count_offer_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6506,7 +6506,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_by_uuid_callback: function(data) {
+    count_offer_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6517,26 +6517,26 @@ platform.offer.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_count_offer_by_uuid_callback", true);
+            _log("ERRORS::offer_count_offer_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_by_uuid(data);} catch(e) { _log("Error calling: error_count_offer_by_uuid: " + e);}
+            try {error_count_offer_uuid(data);} catch(e) { _log("Error calling: error_count_offer_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_count_offer_by_uuid_callback", false);
+            _log("SUCCESS::offer_count_offer_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_by_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_by_uuid: " + e);}
+            try {handle_count_offer_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_by_code: function
+    count_offer_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -6549,7 +6549,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_by_code_callback: function(data) {
+    count_offer_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6560,26 +6560,26 @@ platform.offer.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_count_offer_by_code_callback", true);
+            _log("ERRORS::offer_count_offer_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_by_code(data);} catch(e) { _log("Error calling: error_count_offer_by_code: " + e);}
+            try {error_count_offer_code(data);} catch(e) { _log("Error calling: error_count_offer_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_count_offer_by_code_callback", false);
+            _log("SUCCESS::offer_count_offer_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_by_code(data);} catch(e) { _log("Error calling: handle_count_offer_by_code: " + e);}
+            try {handle_count_offer_code(data);} catch(e) { _log("Error calling: handle_count_offer_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_by_name: function
+    count_offer_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -6592,7 +6592,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_by_name_callback: function(data) {
+    count_offer_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6603,26 +6603,26 @@ platform.offer.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_count_offer_by_name_callback", true);
+            _log("ERRORS::offer_count_offer_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_by_name(data);} catch(e) { _log("Error calling: error_count_offer_by_name: " + e);}
+            try {error_count_offer_name(data);} catch(e) { _log("Error calling: error_count_offer_name: " + e);}
         }
         else {
-            _log("SUCCESS::offer_count_offer_by_name_callback", false);
+            _log("SUCCESS::offer_count_offer_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_by_name(data);} catch(e) { _log("Error calling: handle_count_offer_by_name: " + e);}
+            try {handle_count_offer_name(data);} catch(e) { _log("Error calling: handle_count_offer_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_by_org_id: function
+    count_offer_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -6635,7 +6635,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_by_org_id_callback: function(data) {
+    count_offer_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6646,19 +6646,19 @@ platform.offer.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_count_offer_by_org_id_callback", true);
+            _log("ERRORS::offer_count_offer_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_by_org_id(data);} catch(e) { _log("Error calling: error_count_offer_by_org_id: " + e);}
+            try {error_count_offer_org_id(data);} catch(e) { _log("Error calling: error_count_offer_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_count_offer_by_org_id_callback", false);
+            _log("SUCCESS::offer_count_offer_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_by_org_id(data);} catch(e) { _log("Error calling: handle_count_offer_by_org_id: " + e);}
+            try {handle_count_offer_org_id(data);} catch(e) { _log("Error calling: handle_count_offer_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_offer_list_by_filter: function
+    browse_offer_list_filter: function
     (
         page,
         page_size,
@@ -6667,7 +6667,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -6682,7 +6682,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_offer_list_by_filter_callback: function(data) {
+    browse_offer_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6692,20 +6692,20 @@ platform.offer.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_browse_offer_list_by_filter_callback", true);
+            _log("ERRORS::offer_browse_offer_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_offer_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_offer_list_by_filter: " + e);}
+            try {error_browse_offer_list_filter(data);} catch(e) { _log("Error calling: error_browse_offer_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::offer_browse_offer_list_by_filter_callback", false);
+            _log("SUCCESS::offer_browse_offer_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_offer_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_list_by_filter: " + e);}
+            try {handle_browse_offer_list_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_offer_by_uuid: function
+    set_offer_uuid: function
     (
         status,
         code,
@@ -6725,7 +6725,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -6756,7 +6756,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_offer_by_uuid_callback: function(data) {
+    set_offer_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6766,26 +6766,26 @@ platform.offer.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_set_offer_by_uuid_callback", true);
+            _log("ERRORS::offer_set_offer_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_offer_by_uuid(data);} catch(e) { _log("Error calling: error_set_offer_by_uuid: " + e);}
+            try {error_set_offer_uuid(data);} catch(e) { _log("Error calling: error_set_offer_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_set_offer_by_uuid_callback", false);
+            _log("SUCCESS::offer_set_offer_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_offer_by_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_by_uuid: " + e);}
+            try {handle_set_offer_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_offer_by_uuid: function
+    del_offer_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6798,7 +6798,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_by_uuid_callback: function(data) {
+    del_offer_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6808,27 +6808,27 @@ platform.offer.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_del_offer_by_uuid_callback", true);
+            _log("ERRORS::offer_del_offer_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_by_uuid(data);} catch(e) { _log("Error calling: error_del_offer_by_uuid: " + e);}
+            try {error_del_offer_uuid(data);} catch(e) { _log("Error calling: error_del_offer_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_del_offer_by_uuid_callback", false);
+            _log("SUCCESS::offer_del_offer_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_by_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_by_uuid: " + e);}
+            try {handle_del_offer_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_offer_by_org_id: function
+    del_offer_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'del'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -6841,7 +6841,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_by_org_id_callback: function(data) {
+    del_offer_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6851,14 +6851,14 @@ platform.offer.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_del_offer_by_org_id_callback", true);
+            _log("ERRORS::offer_del_offer_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_by_org_id(data);} catch(e) { _log("Error calling: error_del_offer_by_org_id: " + e);}
+            try {error_del_offer_org_id(data);} catch(e) { _log("Error calling: error_del_offer_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_del_offer_by_org_id_callback", false);
+            _log("SUCCESS::offer_del_offer_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_by_org_id(data);} catch(e) { _log("Error calling: handle_del_offer_by_org_id: " + e);}
+            try {handle_del_offer_org_id(data);} catch(e) { _log("Error calling: handle_del_offer_org_id: " + e);}
         }
         
     }
@@ -6906,14 +6906,14 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_list_by_uuid: function
+    get_offer_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6927,7 +6927,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_list_by_uuid_callback: function(data) {
+    get_offer_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6937,27 +6937,27 @@ platform.offer.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_get_offer_list_by_uuid_callback", true);
+            _log("ERRORS::offer_get_offer_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_offer_list_by_uuid: " + e);}
+            try {error_get_offer_list_uuid(data);} catch(e) { _log("Error calling: error_get_offer_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_get_offer_list_by_uuid_callback", false);
+            _log("SUCCESS::offer_get_offer_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_list_by_uuid: " + e);}
+            try {handle_get_offer_list_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_list_by_code: function
+    get_offer_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -6971,7 +6971,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_list_by_code_callback: function(data) {
+    get_offer_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6981,27 +6981,27 @@ platform.offer.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_get_offer_list_by_code_callback", true);
+            _log("ERRORS::offer_get_offer_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_list_by_code(data);} catch(e) { _log("Error calling: error_get_offer_list_by_code: " + e);}
+            try {error_get_offer_list_code(data);} catch(e) { _log("Error calling: error_get_offer_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_get_offer_list_by_code_callback", false);
+            _log("SUCCESS::offer_get_offer_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_list_by_code(data);} catch(e) { _log("Error calling: handle_get_offer_list_by_code: " + e);}
+            try {handle_get_offer_list_code(data);} catch(e) { _log("Error calling: handle_get_offer_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_list_by_name: function
+    get_offer_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -7015,7 +7015,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_list_by_name_callback: function(data) {
+    get_offer_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7025,27 +7025,27 @@ platform.offer.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_get_offer_list_by_name_callback", true);
+            _log("ERRORS::offer_get_offer_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_list_by_name(data);} catch(e) { _log("Error calling: error_get_offer_list_by_name: " + e);}
+            try {error_get_offer_list_name(data);} catch(e) { _log("Error calling: error_get_offer_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::offer_get_offer_list_by_name_callback", false);
+            _log("SUCCESS::offer_get_offer_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_list_by_name(data);} catch(e) { _log("Error calling: handle_get_offer_list_by_name: " + e);}
+            try {handle_get_offer_list_name(data);} catch(e) { _log("Error calling: handle_get_offer_list_name: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_list_by_org_id: function
+    get_offer_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -7059,7 +7059,7 @@ platform.offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_list_by_org_id_callback: function(data) {
+    get_offer_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7069,14 +7069,14 @@ platform.offer.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_get_offer_list_by_org_id_callback", true);
+            _log("ERRORS::offer_get_offer_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_offer_list_by_org_id: " + e);}
+            try {error_get_offer_list_org_id(data);} catch(e) { _log("Error calling: error_get_offer_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_get_offer_list_by_org_id_callback", false);
+            _log("SUCCESS::offer_get_offer_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_offer_list_by_org_id: " + e);}
+            try {handle_get_offer_list_org_id(data);} catch(e) { _log("Error calling: handle_get_offer_list_org_id: " + e);}
         }
         
     }
@@ -7136,14 +7136,14 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_type_by_uuid: function
+    count_offer_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7156,7 +7156,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_type_by_uuid_callback: function(data) {
+    count_offer_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7167,26 +7167,26 @@ platform.offer_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_count_offer_type_by_uuid_callback", true);
+            _log("ERRORS::offer_type_count_offer_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_type_by_uuid(data);} catch(e) { _log("Error calling: error_count_offer_type_by_uuid: " + e);}
+            try {error_count_offer_type_uuid(data);} catch(e) { _log("Error calling: error_count_offer_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_count_offer_type_by_uuid_callback", false);
+            _log("SUCCESS::offer_type_count_offer_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_type_by_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_type_by_uuid: " + e);}
+            try {handle_count_offer_type_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_type_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_type_by_code: function
+    count_offer_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -7199,7 +7199,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_type_by_code_callback: function(data) {
+    count_offer_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7210,26 +7210,26 @@ platform.offer_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_count_offer_type_by_code_callback", true);
+            _log("ERRORS::offer_type_count_offer_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_type_by_code(data);} catch(e) { _log("Error calling: error_count_offer_type_by_code: " + e);}
+            try {error_count_offer_type_code(data);} catch(e) { _log("Error calling: error_count_offer_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_count_offer_type_by_code_callback", false);
+            _log("SUCCESS::offer_type_count_offer_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_type_by_code(data);} catch(e) { _log("Error calling: handle_count_offer_type_by_code: " + e);}
+            try {handle_count_offer_type_code(data);} catch(e) { _log("Error calling: handle_count_offer_type_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_type_by_name: function
+    count_offer_type_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -7242,7 +7242,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_type_by_name_callback: function(data) {
+    count_offer_type_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7253,19 +7253,19 @@ platform.offer_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_count_offer_type_by_name_callback", true);
+            _log("ERRORS::offer_type_count_offer_type_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_type_by_name(data);} catch(e) { _log("Error calling: error_count_offer_type_by_name: " + e);}
+            try {error_count_offer_type_name(data);} catch(e) { _log("Error calling: error_count_offer_type_name: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_count_offer_type_by_name_callback", false);
+            _log("SUCCESS::offer_type_count_offer_type_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_type_by_name(data);} catch(e) { _log("Error calling: handle_count_offer_type_by_name: " + e);}
+            try {handle_count_offer_type_name(data);} catch(e) { _log("Error calling: handle_count_offer_type_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_offer_type_list_by_filter: function
+    browse_offer_type_list_filter: function
     (
         page,
         page_size,
@@ -7274,7 +7274,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -7289,7 +7289,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_offer_type_list_by_filter_callback: function(data) {
+    browse_offer_type_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7299,20 +7299,20 @@ platform.offer_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_browse_offer_type_list_by_filter_callback", true);
+            _log("ERRORS::offer_type_browse_offer_type_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_offer_type_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_offer_type_list_by_filter: " + e);}
+            try {error_browse_offer_type_list_filter(data);} catch(e) { _log("Error calling: error_browse_offer_type_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_browse_offer_type_list_by_filter_callback", false);
+            _log("SUCCESS::offer_type_browse_offer_type_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_offer_type_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_type_list_by_filter: " + e);}
+            try {handle_browse_offer_type_list_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_type_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_offer_type_by_uuid: function
+    set_offer_type_uuid: function
     (
         status,
         code,
@@ -7328,7 +7328,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -7355,7 +7355,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_offer_type_by_uuid_callback: function(data) {
+    set_offer_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7365,26 +7365,26 @@ platform.offer_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_set_offer_type_by_uuid_callback", true);
+            _log("ERRORS::offer_type_set_offer_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_offer_type_by_uuid(data);} catch(e) { _log("Error calling: error_set_offer_type_by_uuid: " + e);}
+            try {error_set_offer_type_uuid(data);} catch(e) { _log("Error calling: error_set_offer_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_set_offer_type_by_uuid_callback", false);
+            _log("SUCCESS::offer_type_set_offer_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_offer_type_by_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_type_by_uuid: " + e);}
+            try {handle_set_offer_type_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_type_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_offer_type_by_uuid: function
+    del_offer_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7397,7 +7397,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_type_by_uuid_callback: function(data) {
+    del_offer_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7407,14 +7407,14 @@ platform.offer_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_del_offer_type_by_uuid_callback", true);
+            _log("ERRORS::offer_type_del_offer_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_type_by_uuid(data);} catch(e) { _log("Error calling: error_del_offer_type_by_uuid: " + e);}
+            try {error_del_offer_type_uuid(data);} catch(e) { _log("Error calling: error_del_offer_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_del_offer_type_by_uuid_callback", false);
+            _log("SUCCESS::offer_type_del_offer_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_type_by_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_type_by_uuid: " + e);}
+            try {handle_del_offer_type_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_type_uuid: " + e);}
         }
         
     }
@@ -7462,14 +7462,14 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_type_list_by_uuid: function
+    get_offer_type_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7483,7 +7483,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_type_list_by_uuid_callback: function(data) {
+    get_offer_type_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7493,27 +7493,27 @@ platform.offer_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_get_offer_type_list_by_uuid_callback", true);
+            _log("ERRORS::offer_type_get_offer_type_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_type_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_offer_type_list_by_uuid: " + e);}
+            try {error_get_offer_type_list_uuid(data);} catch(e) { _log("Error calling: error_get_offer_type_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_get_offer_type_list_by_uuid_callback", false);
+            _log("SUCCESS::offer_type_get_offer_type_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_type_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_type_list_by_uuid: " + e);}
+            try {handle_get_offer_type_list_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_type_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_type_list_by_code: function
+    get_offer_type_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -7527,7 +7527,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_type_list_by_code_callback: function(data) {
+    get_offer_type_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7537,27 +7537,27 @@ platform.offer_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_get_offer_type_list_by_code_callback", true);
+            _log("ERRORS::offer_type_get_offer_type_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_type_list_by_code(data);} catch(e) { _log("Error calling: error_get_offer_type_list_by_code: " + e);}
+            try {error_get_offer_type_list_code(data);} catch(e) { _log("Error calling: error_get_offer_type_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_get_offer_type_list_by_code_callback", false);
+            _log("SUCCESS::offer_type_get_offer_type_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_type_list_by_code(data);} catch(e) { _log("Error calling: handle_get_offer_type_list_by_code: " + e);}
+            try {handle_get_offer_type_list_code(data);} catch(e) { _log("Error calling: handle_get_offer_type_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_type_list_by_name: function
+    get_offer_type_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_type_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -7571,7 +7571,7 @@ platform.offer_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_type_list_by_name_callback: function(data) {
+    get_offer_type_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7581,14 +7581,14 @@ platform.offer_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_type_get_offer_type_list_by_name_callback", true);
+            _log("ERRORS::offer_type_get_offer_type_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_type_list_by_name(data);} catch(e) { _log("Error calling: error_get_offer_type_list_by_name: " + e);}
+            try {error_get_offer_type_list_name(data);} catch(e) { _log("Error calling: error_get_offer_type_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::offer_type_get_offer_type_list_by_name_callback", false);
+            _log("SUCCESS::offer_type_get_offer_type_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_type_list_by_name(data);} catch(e) { _log("Error calling: handle_get_offer_type_list_by_name: " + e);}
+            try {handle_get_offer_type_list_name(data);} catch(e) { _log("Error calling: handle_get_offer_type_list_name: " + e);}
         }
         
     }
@@ -7648,14 +7648,14 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_uuid: function
+    count_offer_location_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -7668,7 +7668,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_uuid_callback: function(data) {
+    count_offer_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7679,26 +7679,26 @@ platform.offer_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_count_offer_location_by_uuid_callback", true);
+            _log("ERRORS::offer_location_count_offer_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_location_by_uuid(data);} catch(e) { _log("Error calling: error_count_offer_location_by_uuid: " + e);}
+            try {error_count_offer_location_uuid(data);} catch(e) { _log("Error calling: error_count_offer_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_count_offer_location_by_uuid_callback", false);
+            _log("SUCCESS::offer_location_count_offer_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_location_by_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_location_by_uuid: " + e);}
+            try {handle_count_offer_location_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_location_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_offer_id: function
+    count_offer_location_offer_id: function
     (
         offer_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -7711,7 +7711,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_offer_id_callback: function(data) {
+    count_offer_location_offer_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7722,26 +7722,26 @@ platform.offer_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_count_offer_location_by_offer_id_callback", true);
+            _log("ERRORS::offer_location_count_offer_location_offer_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_location_by_offer_id(data);} catch(e) { _log("Error calling: error_count_offer_location_by_offer_id: " + e);}
+            try {error_count_offer_location_offer_id(data);} catch(e) { _log("Error calling: error_count_offer_location_offer_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_count_offer_location_by_offer_id_callback", false);
+            _log("SUCCESS::offer_location_count_offer_location_offer_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_location_by_offer_id(data);} catch(e) { _log("Error calling: handle_count_offer_location_by_offer_id: " + e);}
+            try {handle_count_offer_location_offer_id(data);} catch(e) { _log("Error calling: handle_count_offer_location_offer_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_city: function
+    count_offer_location_city: function
     (
         city,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-city"
+                + "/city"
                 + "/@city/" + city            
                 ;
 
@@ -7754,7 +7754,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_city_callback: function(data) {
+    count_offer_location_city_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7765,26 +7765,26 @@ platform.offer_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_count_offer_location_by_city_callback", true);
+            _log("ERRORS::offer_location_count_offer_location_city_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_location_by_city(data);} catch(e) { _log("Error calling: error_count_offer_location_by_city: " + e);}
+            try {error_count_offer_location_city(data);} catch(e) { _log("Error calling: error_count_offer_location_city: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_count_offer_location_by_city_callback", false);
+            _log("SUCCESS::offer_location_count_offer_location_city_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_location_by_city(data);} catch(e) { _log("Error calling: handle_count_offer_location_by_city: " + e);}
+            try {handle_count_offer_location_city(data);} catch(e) { _log("Error calling: handle_count_offer_location_city: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_country_code: function
+    count_offer_location_country_code: function
     (
         country_code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-country-code"
+                + "/country-code"
                 + "/@country_code/" + country_code            
                 ;
 
@@ -7797,7 +7797,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_country_code_callback: function(data) {
+    count_offer_location_country_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7808,26 +7808,26 @@ platform.offer_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_count_offer_location_by_country_code_callback", true);
+            _log("ERRORS::offer_location_count_offer_location_country_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_location_by_country_code(data);} catch(e) { _log("Error calling: error_count_offer_location_by_country_code: " + e);}
+            try {error_count_offer_location_country_code(data);} catch(e) { _log("Error calling: error_count_offer_location_country_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_count_offer_location_by_country_code_callback", false);
+            _log("SUCCESS::offer_location_count_offer_location_country_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_location_by_country_code(data);} catch(e) { _log("Error calling: handle_count_offer_location_by_country_code: " + e);}
+            try {handle_count_offer_location_country_code(data);} catch(e) { _log("Error calling: handle_count_offer_location_country_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_postal_code: function
+    count_offer_location_postal_code: function
     (
         postal_code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'count'
-                + "/by-postal-code"
+                + "/postal-code"
                 + "/@postal_code/" + postal_code            
                 ;
 
@@ -7840,7 +7840,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_location_by_postal_code_callback: function(data) {
+    count_offer_location_postal_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7851,19 +7851,19 @@ platform.offer_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_count_offer_location_by_postal_code_callback", true);
+            _log("ERRORS::offer_location_count_offer_location_postal_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_location_by_postal_code(data);} catch(e) { _log("Error calling: error_count_offer_location_by_postal_code: " + e);}
+            try {error_count_offer_location_postal_code(data);} catch(e) { _log("Error calling: error_count_offer_location_postal_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_count_offer_location_by_postal_code_callback", false);
+            _log("SUCCESS::offer_location_count_offer_location_postal_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_location_by_postal_code(data);} catch(e) { _log("Error calling: handle_count_offer_location_by_postal_code: " + e);}
+            try {handle_count_offer_location_postal_code(data);} catch(e) { _log("Error calling: handle_count_offer_location_postal_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_offer_location_list_by_filter: function
+    browse_offer_location_list_filter: function
     (
         page,
         page_size,
@@ -7872,7 +7872,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -7887,7 +7887,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_offer_location_list_by_filter_callback: function(data) {
+    browse_offer_location_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7897,20 +7897,20 @@ platform.offer_location.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_browse_offer_location_list_by_filter_callback", true);
+            _log("ERRORS::offer_location_browse_offer_location_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_offer_location_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_offer_location_list_by_filter: " + e);}
+            try {error_browse_offer_location_list_filter(data);} catch(e) { _log("Error calling: error_browse_offer_location_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_browse_offer_location_list_by_filter_callback", false);
+            _log("SUCCESS::offer_location_browse_offer_location_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_offer_location_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_location_list_by_filter: " + e);}
+            try {handle_browse_offer_location_list_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_location_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_offer_location_by_uuid: function
+    set_offer_location_uuid: function
     (
         status,
         fax,
@@ -7943,7 +7943,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -7987,7 +7987,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_offer_location_by_uuid_callback: function(data) {
+    set_offer_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -7997,26 +7997,26 @@ platform.offer_location.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_set_offer_location_by_uuid_callback", true);
+            _log("ERRORS::offer_location_set_offer_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_offer_location_by_uuid(data);} catch(e) { _log("Error calling: error_set_offer_location_by_uuid: " + e);}
+            try {error_set_offer_location_uuid(data);} catch(e) { _log("Error calling: error_set_offer_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_set_offer_location_by_uuid_callback", false);
+            _log("SUCCESS::offer_location_set_offer_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_offer_location_by_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_location_by_uuid: " + e);}
+            try {handle_set_offer_location_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_location_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_offer_location_by_uuid: function
+    del_offer_location_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8029,7 +8029,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_location_by_uuid_callback: function(data) {
+    del_offer_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8039,14 +8039,14 @@ platform.offer_location.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_del_offer_location_by_uuid_callback", true);
+            _log("ERRORS::offer_location_del_offer_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_location_by_uuid(data);} catch(e) { _log("Error calling: error_del_offer_location_by_uuid: " + e);}
+            try {error_del_offer_location_uuid(data);} catch(e) { _log("Error calling: error_del_offer_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_del_offer_location_by_uuid_callback", false);
+            _log("SUCCESS::offer_location_del_offer_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_location_by_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_location_by_uuid: " + e);}
+            try {handle_del_offer_location_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_location_uuid: " + e);}
         }
         
     }
@@ -8094,14 +8094,14 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_uuid: function
+    get_offer_location_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8115,7 +8115,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_uuid_callback: function(data) {
+    get_offer_location_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8125,27 +8125,27 @@ platform.offer_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_get_offer_location_list_by_uuid_callback", true);
+            _log("ERRORS::offer_location_get_offer_location_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_location_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_offer_location_list_by_uuid: " + e);}
+            try {error_get_offer_location_list_uuid(data);} catch(e) { _log("Error calling: error_get_offer_location_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_get_offer_location_list_by_uuid_callback", false);
+            _log("SUCCESS::offer_location_get_offer_location_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_location_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_by_uuid: " + e);}
+            try {handle_get_offer_location_list_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_offer_id: function
+    get_offer_location_list_offer_id: function
     (
         offer_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -8159,7 +8159,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_offer_id_callback: function(data) {
+    get_offer_location_list_offer_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8169,27 +8169,27 @@ platform.offer_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_get_offer_location_list_by_offer_id_callback", true);
+            _log("ERRORS::offer_location_get_offer_location_list_offer_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_location_list_by_offer_id(data);} catch(e) { _log("Error calling: error_get_offer_location_list_by_offer_id: " + e);}
+            try {error_get_offer_location_list_offer_id(data);} catch(e) { _log("Error calling: error_get_offer_location_list_offer_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_get_offer_location_list_by_offer_id_callback", false);
+            _log("SUCCESS::offer_location_get_offer_location_list_offer_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_location_list_by_offer_id(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_by_offer_id: " + e);}
+            try {handle_get_offer_location_list_offer_id(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_offer_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_city: function
+    get_offer_location_list_city: function
     (
         city,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-city"
+                + "/city"
                 + "/@city/" + city            
                 ;
 
@@ -8203,7 +8203,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_city_callback: function(data) {
+    get_offer_location_list_city_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8213,27 +8213,27 @@ platform.offer_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_get_offer_location_list_by_city_callback", true);
+            _log("ERRORS::offer_location_get_offer_location_list_city_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_location_list_by_city(data);} catch(e) { _log("Error calling: error_get_offer_location_list_by_city: " + e);}
+            try {error_get_offer_location_list_city(data);} catch(e) { _log("Error calling: error_get_offer_location_list_city: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_get_offer_location_list_by_city_callback", false);
+            _log("SUCCESS::offer_location_get_offer_location_list_city_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_location_list_by_city(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_by_city: " + e);}
+            try {handle_get_offer_location_list_city(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_city: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_country_code: function
+    get_offer_location_list_country_code: function
     (
         country_code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-country-code"
+                + "/country-code"
                 + "/@country_code/" + country_code            
                 ;
 
@@ -8247,7 +8247,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_country_code_callback: function(data) {
+    get_offer_location_list_country_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8257,27 +8257,27 @@ platform.offer_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_get_offer_location_list_by_country_code_callback", true);
+            _log("ERRORS::offer_location_get_offer_location_list_country_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_location_list_by_country_code(data);} catch(e) { _log("Error calling: error_get_offer_location_list_by_country_code: " + e);}
+            try {error_get_offer_location_list_country_code(data);} catch(e) { _log("Error calling: error_get_offer_location_list_country_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_get_offer_location_list_by_country_code_callback", false);
+            _log("SUCCESS::offer_location_get_offer_location_list_country_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_location_list_by_country_code(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_by_country_code: " + e);}
+            try {handle_get_offer_location_list_country_code(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_country_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_postal_code: function
+    get_offer_location_list_postal_code: function
     (
         postal_code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_location_service + 'get'
-                + "/by-postal-code"
+                + "/postal-code"
                 + "/@postal_code/" + postal_code            
                 ;
 
@@ -8291,7 +8291,7 @@ platform.offer_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_location_list_by_postal_code_callback: function(data) {
+    get_offer_location_list_postal_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8301,14 +8301,14 @@ platform.offer_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_location_get_offer_location_list_by_postal_code_callback", true);
+            _log("ERRORS::offer_location_get_offer_location_list_postal_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_location_list_by_postal_code(data);} catch(e) { _log("Error calling: error_get_offer_location_list_by_postal_code: " + e);}
+            try {error_get_offer_location_list_postal_code(data);} catch(e) { _log("Error calling: error_get_offer_location_list_postal_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_location_get_offer_location_list_by_postal_code_callback", false);
+            _log("SUCCESS::offer_location_get_offer_location_list_postal_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_location_list_by_postal_code(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_by_postal_code: " + e);}
+            try {handle_get_offer_location_list_postal_code(data);} catch(e) { _log("Error calling: handle_get_offer_location_list_postal_code: " + e);}
         }
         
     }
@@ -8368,14 +8368,14 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_uuid: function
+    count_offer_category_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8388,7 +8388,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_uuid_callback: function(data) {
+    count_offer_category_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8399,26 +8399,26 @@ platform.offer_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_count_offer_category_by_uuid_callback", true);
+            _log("ERRORS::offer_category_count_offer_category_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_by_uuid(data);} catch(e) { _log("Error calling: error_count_offer_category_by_uuid: " + e);}
+            try {error_count_offer_category_uuid(data);} catch(e) { _log("Error calling: error_count_offer_category_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_count_offer_category_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_count_offer_category_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_by_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_category_by_uuid: " + e);}
+            try {handle_count_offer_category_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_category_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_code: function
+    count_offer_category_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -8431,7 +8431,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_code_callback: function(data) {
+    count_offer_category_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8442,26 +8442,26 @@ platform.offer_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_count_offer_category_by_code_callback", true);
+            _log("ERRORS::offer_category_count_offer_category_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_by_code(data);} catch(e) { _log("Error calling: error_count_offer_category_by_code: " + e);}
+            try {error_count_offer_category_code(data);} catch(e) { _log("Error calling: error_count_offer_category_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_count_offer_category_by_code_callback", false);
+            _log("SUCCESS::offer_category_count_offer_category_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_by_code(data);} catch(e) { _log("Error calling: handle_count_offer_category_by_code: " + e);}
+            try {handle_count_offer_category_code(data);} catch(e) { _log("Error calling: handle_count_offer_category_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_name: function
+    count_offer_category_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -8474,7 +8474,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_name_callback: function(data) {
+    count_offer_category_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8485,26 +8485,26 @@ platform.offer_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_count_offer_category_by_name_callback", true);
+            _log("ERRORS::offer_category_count_offer_category_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_by_name(data);} catch(e) { _log("Error calling: error_count_offer_category_by_name: " + e);}
+            try {error_count_offer_category_name(data);} catch(e) { _log("Error calling: error_count_offer_category_name: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_count_offer_category_by_name_callback", false);
+            _log("SUCCESS::offer_category_count_offer_category_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_by_name(data);} catch(e) { _log("Error calling: handle_count_offer_category_by_name: " + e);}
+            try {handle_count_offer_category_name(data);} catch(e) { _log("Error calling: handle_count_offer_category_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_org_id: function
+    count_offer_category_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -8517,7 +8517,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_org_id_callback: function(data) {
+    count_offer_category_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8528,26 +8528,26 @@ platform.offer_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_count_offer_category_by_org_id_callback", true);
+            _log("ERRORS::offer_category_count_offer_category_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_by_org_id(data);} catch(e) { _log("Error calling: error_count_offer_category_by_org_id: " + e);}
+            try {error_count_offer_category_org_id(data);} catch(e) { _log("Error calling: error_count_offer_category_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_count_offer_category_by_org_id_callback", false);
+            _log("SUCCESS::offer_category_count_offer_category_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_by_org_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_by_org_id: " + e);}
+            try {handle_count_offer_category_org_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_type_id: function
+    count_offer_category_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -8560,7 +8560,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_type_id_callback: function(data) {
+    count_offer_category_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8571,19 +8571,19 @@ platform.offer_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_count_offer_category_by_type_id_callback", true);
+            _log("ERRORS::offer_category_count_offer_category_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_by_type_id(data);} catch(e) { _log("Error calling: error_count_offer_category_by_type_id: " + e);}
+            try {error_count_offer_category_type_id(data);} catch(e) { _log("Error calling: error_count_offer_category_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_count_offer_category_by_type_id_callback", false);
+            _log("SUCCESS::offer_category_count_offer_category_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_by_type_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_by_type_id: " + e);}
+            try {handle_count_offer_category_type_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_org_id_by_type_id: function
+    count_offer_category_org_id_type_id: function
     (
         org_id,
         type_id,
@@ -8591,7 +8591,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'count'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -8605,7 +8605,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_by_org_id_by_type_id_callback: function(data) {
+    count_offer_category_org_id_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8616,19 +8616,19 @@ platform.offer_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_count_offer_category_by_org_id_by_type_id_callback", true);
+            _log("ERRORS::offer_category_count_offer_category_org_id_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: error_count_offer_category_by_org_id_by_type_id: " + e);}
+            try {error_count_offer_category_org_id_type_id(data);} catch(e) { _log("Error calling: error_count_offer_category_org_id_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_count_offer_category_by_org_id_by_type_id_callback", false);
+            _log("SUCCESS::offer_category_count_offer_category_org_id_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_by_org_id_by_type_id: " + e);}
+            try {handle_count_offer_category_org_id_type_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_org_id_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_offer_category_list_by_filter: function
+    browse_offer_category_list_filter: function
     (
         page,
         page_size,
@@ -8637,7 +8637,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -8652,7 +8652,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_offer_category_list_by_filter_callback: function(data) {
+    browse_offer_category_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8662,20 +8662,20 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_browse_offer_category_list_by_filter_callback", true);
+            _log("ERRORS::offer_category_browse_offer_category_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_offer_category_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_offer_category_list_by_filter: " + e);}
+            try {error_browse_offer_category_list_filter(data);} catch(e) { _log("Error calling: error_browse_offer_category_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_browse_offer_category_list_by_filter_callback", false);
+            _log("SUCCESS::offer_category_browse_offer_category_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_offer_category_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_category_list_by_filter: " + e);}
+            try {handle_browse_offer_category_list_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_category_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_offer_category_by_uuid: function
+    set_offer_category_uuid: function
     (
         status,
         code,
@@ -8693,7 +8693,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -8722,7 +8722,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_offer_category_by_uuid_callback: function(data) {
+    set_offer_category_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8732,26 +8732,26 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_set_offer_category_by_uuid_callback", true);
+            _log("ERRORS::offer_category_set_offer_category_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_offer_category_by_uuid(data);} catch(e) { _log("Error calling: error_set_offer_category_by_uuid: " + e);}
+            try {error_set_offer_category_uuid(data);} catch(e) { _log("Error calling: error_set_offer_category_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_set_offer_category_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_set_offer_category_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_offer_category_by_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_category_by_uuid: " + e);}
+            try {handle_set_offer_category_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_category_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_offer_category_by_uuid: function
+    del_offer_category_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8764,7 +8764,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_category_by_uuid_callback: function(data) {
+    del_offer_category_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8774,20 +8774,20 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_del_offer_category_by_uuid_callback", true);
+            _log("ERRORS::offer_category_del_offer_category_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_category_by_uuid(data);} catch(e) { _log("Error calling: error_del_offer_category_by_uuid: " + e);}
+            try {error_del_offer_category_uuid(data);} catch(e) { _log("Error calling: error_del_offer_category_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_del_offer_category_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_del_offer_category_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_category_by_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_category_by_uuid: " + e);}
+            try {handle_del_offer_category_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_category_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_offer_category_by_code_by_org_id: function
+    del_offer_category_code_org_id: function
     (
         code,
         org_id,
@@ -8795,7 +8795,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'del'
-                + "/by-code/by-org-id"
+                + "/code/org-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 ;
@@ -8809,7 +8809,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_category_by_code_by_org_id_callback: function(data) {
+    del_offer_category_code_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8819,20 +8819,20 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_del_offer_category_by_code_by_org_id_callback", true);
+            _log("ERRORS::offer_category_del_offer_category_code_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_category_by_code_by_org_id(data);} catch(e) { _log("Error calling: error_del_offer_category_by_code_by_org_id: " + e);}
+            try {error_del_offer_category_code_org_id(data);} catch(e) { _log("Error calling: error_del_offer_category_code_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_del_offer_category_by_code_by_org_id_callback", false);
+            _log("SUCCESS::offer_category_del_offer_category_code_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_category_by_code_by_org_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_by_code_by_org_id: " + e);}
+            try {handle_del_offer_category_code_org_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_code_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_offer_category_by_code_by_org_id_by_type_id: function
+    del_offer_category_code_org_id_type_id: function
     (
         code,
         org_id,
@@ -8841,7 +8841,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'del'
-                + "/by-code/by-org-id/by-type-id"
+                + "/code/org-id/type-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
@@ -8856,7 +8856,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_category_by_code_by_org_id_by_type_id_callback: function(data) {
+    del_offer_category_code_org_id_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8866,14 +8866,14 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_del_offer_category_by_code_by_org_id_by_type_id_callback", true);
+            _log("ERRORS::offer_category_del_offer_category_code_org_id_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_category_by_code_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: error_del_offer_category_by_code_by_org_id_by_type_id: " + e);}
+            try {error_del_offer_category_code_org_id_type_id(data);} catch(e) { _log("Error calling: error_del_offer_category_code_org_id_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_del_offer_category_by_code_by_org_id_by_type_id_callback", false);
+            _log("SUCCESS::offer_category_del_offer_category_code_org_id_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_category_by_code_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_by_code_by_org_id_by_type_id: " + e);}
+            try {handle_del_offer_category_code_org_id_type_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_code_org_id_type_id: " + e);}
         }
         
     }
@@ -8921,14 +8921,14 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_uuid: function
+    get_offer_category_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -8942,7 +8942,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_uuid_callback: function(data) {
+    get_offer_category_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8952,27 +8952,27 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_get_offer_category_list_by_uuid_callback", true);
+            _log("ERRORS::offer_category_get_offer_category_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_offer_category_list_by_uuid: " + e);}
+            try {error_get_offer_category_list_uuid(data);} catch(e) { _log("Error calling: error_get_offer_category_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_get_offer_category_list_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_get_offer_category_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_by_uuid: " + e);}
+            try {handle_get_offer_category_list_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_code: function
+    get_offer_category_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -8986,7 +8986,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_code_callback: function(data) {
+    get_offer_category_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -8996,27 +8996,27 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_get_offer_category_list_by_code_callback", true);
+            _log("ERRORS::offer_category_get_offer_category_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_list_by_code(data);} catch(e) { _log("Error calling: error_get_offer_category_list_by_code: " + e);}
+            try {error_get_offer_category_list_code(data);} catch(e) { _log("Error calling: error_get_offer_category_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_get_offer_category_list_by_code_callback", false);
+            _log("SUCCESS::offer_category_get_offer_category_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_list_by_code(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_by_code: " + e);}
+            try {handle_get_offer_category_list_code(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_name: function
+    get_offer_category_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -9030,7 +9030,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_name_callback: function(data) {
+    get_offer_category_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9040,27 +9040,27 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_get_offer_category_list_by_name_callback", true);
+            _log("ERRORS::offer_category_get_offer_category_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_list_by_name(data);} catch(e) { _log("Error calling: error_get_offer_category_list_by_name: " + e);}
+            try {error_get_offer_category_list_name(data);} catch(e) { _log("Error calling: error_get_offer_category_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_get_offer_category_list_by_name_callback", false);
+            _log("SUCCESS::offer_category_get_offer_category_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_list_by_name(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_by_name: " + e);}
+            try {handle_get_offer_category_list_name(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_name: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_org_id: function
+    get_offer_category_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -9074,7 +9074,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_org_id_callback: function(data) {
+    get_offer_category_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9084,27 +9084,27 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_get_offer_category_list_by_org_id_callback", true);
+            _log("ERRORS::offer_category_get_offer_category_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_offer_category_list_by_org_id: " + e);}
+            try {error_get_offer_category_list_org_id(data);} catch(e) { _log("Error calling: error_get_offer_category_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_get_offer_category_list_by_org_id_callback", false);
+            _log("SUCCESS::offer_category_get_offer_category_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_by_org_id: " + e);}
+            try {handle_get_offer_category_list_org_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_type_id: function
+    get_offer_category_list_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -9118,7 +9118,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_type_id_callback: function(data) {
+    get_offer_category_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9128,20 +9128,20 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_get_offer_category_list_by_type_id_callback", true);
+            _log("ERRORS::offer_category_get_offer_category_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_offer_category_list_by_type_id: " + e);}
+            try {error_get_offer_category_list_type_id(data);} catch(e) { _log("Error calling: error_get_offer_category_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_get_offer_category_list_by_type_id_callback", false);
+            _log("SUCCESS::offer_category_get_offer_category_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_by_type_id: " + e);}
+            try {handle_get_offer_category_list_type_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_org_id_list_by_type_id: function
+    get_offer_category_list_org_id_list_type_id: function
     (
         org_id,
         type_id,
@@ -9149,7 +9149,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_service + 'get'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -9164,7 +9164,7 @@ platform.offer_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_list_by_org_id_list_by_type_id_callback: function(data) {
+    get_offer_category_list_org_id_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9174,14 +9174,14 @@ platform.offer_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_get_offer_category_list_by_org_id_list_by_type_id_callback", true);
+            _log("ERRORS::offer_category_get_offer_category_list_org_id_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_list_by_org_id_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_offer_category_list_by_org_id_list_by_type_id: " + e);}
+            try {error_get_offer_category_list_org_id_list_type_id(data);} catch(e) { _log("Error calling: error_get_offer_category_list_org_id_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_get_offer_category_list_by_org_id_list_by_type_id_callback", false);
+            _log("SUCCESS::offer_category_get_offer_category_list_org_id_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_list_by_org_id_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_by_org_id_list_by_type_id: " + e);}
+            try {handle_get_offer_category_list_org_id_list_type_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_list_org_id_list_type_id: " + e);}
         }
         
     }
@@ -9241,14 +9241,14 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_tree_by_uuid: function
+    count_offer_category_tree_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9261,7 +9261,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_tree_by_uuid_callback: function(data) {
+    count_offer_category_tree_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9272,26 +9272,26 @@ platform.offer_category_tree.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_count_offer_category_tree_by_uuid_callback", true);
+            _log("ERRORS::offer_category_tree_count_offer_category_tree_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_tree_by_uuid(data);} catch(e) { _log("Error calling: error_count_offer_category_tree_by_uuid: " + e);}
+            try {error_count_offer_category_tree_uuid(data);} catch(e) { _log("Error calling: error_count_offer_category_tree_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_count_offer_category_tree_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_tree_count_offer_category_tree_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_tree_by_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_category_tree_by_uuid: " + e);}
+            try {handle_count_offer_category_tree_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_category_tree_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_tree_by_parent_id: function
+    count_offer_category_tree_parent_id: function
     (
         parent_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'count'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -9304,7 +9304,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_tree_by_parent_id_callback: function(data) {
+    count_offer_category_tree_parent_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9315,26 +9315,26 @@ platform.offer_category_tree.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_count_offer_category_tree_by_parent_id_callback", true);
+            _log("ERRORS::offer_category_tree_count_offer_category_tree_parent_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_tree_by_parent_id(data);} catch(e) { _log("Error calling: error_count_offer_category_tree_by_parent_id: " + e);}
+            try {error_count_offer_category_tree_parent_id(data);} catch(e) { _log("Error calling: error_count_offer_category_tree_parent_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_count_offer_category_tree_by_parent_id_callback", false);
+            _log("SUCCESS::offer_category_tree_count_offer_category_tree_parent_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_tree_by_parent_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_tree_by_parent_id: " + e);}
+            try {handle_count_offer_category_tree_parent_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_tree_parent_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_tree_by_category_id: function
+    count_offer_category_tree_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -9347,7 +9347,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_tree_by_category_id_callback: function(data) {
+    count_offer_category_tree_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9358,19 +9358,19 @@ platform.offer_category_tree.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_count_offer_category_tree_by_category_id_callback", true);
+            _log("ERRORS::offer_category_tree_count_offer_category_tree_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_tree_by_category_id(data);} catch(e) { _log("Error calling: error_count_offer_category_tree_by_category_id: " + e);}
+            try {error_count_offer_category_tree_category_id(data);} catch(e) { _log("Error calling: error_count_offer_category_tree_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_count_offer_category_tree_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_tree_count_offer_category_tree_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_tree_by_category_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_tree_by_category_id: " + e);}
+            try {handle_count_offer_category_tree_category_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_tree_category_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_tree_by_parent_id_by_category_id: function
+    count_offer_category_tree_parent_id_category_id: function
     (
         parent_id,
         category_id,
@@ -9378,7 +9378,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'count'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -9392,7 +9392,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_tree_by_parent_id_by_category_id_callback: function(data) {
+    count_offer_category_tree_parent_id_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9403,19 +9403,19 @@ platform.offer_category_tree.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_count_offer_category_tree_by_parent_id_by_category_id_callback", true);
+            _log("ERRORS::offer_category_tree_count_offer_category_tree_parent_id_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_tree_by_parent_id_by_category_id(data);} catch(e) { _log("Error calling: error_count_offer_category_tree_by_parent_id_by_category_id: " + e);}
+            try {error_count_offer_category_tree_parent_id_category_id(data);} catch(e) { _log("Error calling: error_count_offer_category_tree_parent_id_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_count_offer_category_tree_by_parent_id_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_tree_count_offer_category_tree_parent_id_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_tree_by_parent_id_by_category_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_tree_by_parent_id_by_category_id: " + e);}
+            try {handle_count_offer_category_tree_parent_id_category_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_tree_parent_id_category_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_offer_category_tree_list_by_filter: function
+    browse_offer_category_tree_list_filter: function
     (
         page,
         page_size,
@@ -9424,7 +9424,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -9439,7 +9439,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_offer_category_tree_list_by_filter_callback: function(data) {
+    browse_offer_category_tree_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9449,20 +9449,20 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_browse_offer_category_tree_list_by_filter_callback", true);
+            _log("ERRORS::offer_category_tree_browse_offer_category_tree_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_offer_category_tree_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_offer_category_tree_list_by_filter: " + e);}
+            try {error_browse_offer_category_tree_list_filter(data);} catch(e) { _log("Error calling: error_browse_offer_category_tree_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_browse_offer_category_tree_list_by_filter_callback", false);
+            _log("SUCCESS::offer_category_tree_browse_offer_category_tree_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_offer_category_tree_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_category_tree_list_by_filter: " + e);}
+            try {handle_browse_offer_category_tree_list_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_category_tree_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_offer_category_tree_by_uuid: function
+    set_offer_category_tree_uuid: function
     (
         status,
         parent_id,
@@ -9476,7 +9476,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -9501,7 +9501,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_offer_category_tree_by_uuid_callback: function(data) {
+    set_offer_category_tree_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9511,26 +9511,26 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_set_offer_category_tree_by_uuid_callback", true);
+            _log("ERRORS::offer_category_tree_set_offer_category_tree_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_offer_category_tree_by_uuid(data);} catch(e) { _log("Error calling: error_set_offer_category_tree_by_uuid: " + e);}
+            try {error_set_offer_category_tree_uuid(data);} catch(e) { _log("Error calling: error_set_offer_category_tree_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_set_offer_category_tree_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_tree_set_offer_category_tree_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_offer_category_tree_by_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_category_tree_by_uuid: " + e);}
+            try {handle_set_offer_category_tree_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_category_tree_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_offer_category_tree_by_uuid: function
+    del_offer_category_tree_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9543,7 +9543,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_category_tree_by_uuid_callback: function(data) {
+    del_offer_category_tree_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9553,27 +9553,27 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_del_offer_category_tree_by_uuid_callback", true);
+            _log("ERRORS::offer_category_tree_del_offer_category_tree_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_category_tree_by_uuid(data);} catch(e) { _log("Error calling: error_del_offer_category_tree_by_uuid: " + e);}
+            try {error_del_offer_category_tree_uuid(data);} catch(e) { _log("Error calling: error_del_offer_category_tree_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_del_offer_category_tree_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_tree_del_offer_category_tree_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_category_tree_by_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_category_tree_by_uuid: " + e);}
+            try {handle_del_offer_category_tree_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_category_tree_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_offer_category_tree_by_parent_id: function
+    del_offer_category_tree_parent_id: function
     (
         parent_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'del'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -9586,7 +9586,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_category_tree_by_parent_id_callback: function(data) {
+    del_offer_category_tree_parent_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9596,27 +9596,27 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_del_offer_category_tree_by_parent_id_callback", true);
+            _log("ERRORS::offer_category_tree_del_offer_category_tree_parent_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_category_tree_by_parent_id(data);} catch(e) { _log("Error calling: error_del_offer_category_tree_by_parent_id: " + e);}
+            try {error_del_offer_category_tree_parent_id(data);} catch(e) { _log("Error calling: error_del_offer_category_tree_parent_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_del_offer_category_tree_by_parent_id_callback", false);
+            _log("SUCCESS::offer_category_tree_del_offer_category_tree_parent_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_category_tree_by_parent_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_tree_by_parent_id: " + e);}
+            try {handle_del_offer_category_tree_parent_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_tree_parent_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_offer_category_tree_by_category_id: function
+    del_offer_category_tree_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'del'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -9629,7 +9629,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_category_tree_by_category_id_callback: function(data) {
+    del_offer_category_tree_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9639,20 +9639,20 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_del_offer_category_tree_by_category_id_callback", true);
+            _log("ERRORS::offer_category_tree_del_offer_category_tree_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_category_tree_by_category_id(data);} catch(e) { _log("Error calling: error_del_offer_category_tree_by_category_id: " + e);}
+            try {error_del_offer_category_tree_category_id(data);} catch(e) { _log("Error calling: error_del_offer_category_tree_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_del_offer_category_tree_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_tree_del_offer_category_tree_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_category_tree_by_category_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_tree_by_category_id: " + e);}
+            try {handle_del_offer_category_tree_category_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_tree_category_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_offer_category_tree_by_parent_id_by_category_id: function
+    del_offer_category_tree_parent_id_category_id: function
     (
         parent_id,
         category_id,
@@ -9660,7 +9660,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'del'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -9674,7 +9674,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_category_tree_by_parent_id_by_category_id_callback: function(data) {
+    del_offer_category_tree_parent_id_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9684,14 +9684,14 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_del_offer_category_tree_by_parent_id_by_category_id_callback", true);
+            _log("ERRORS::offer_category_tree_del_offer_category_tree_parent_id_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_category_tree_by_parent_id_by_category_id(data);} catch(e) { _log("Error calling: error_del_offer_category_tree_by_parent_id_by_category_id: " + e);}
+            try {error_del_offer_category_tree_parent_id_category_id(data);} catch(e) { _log("Error calling: error_del_offer_category_tree_parent_id_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_del_offer_category_tree_by_parent_id_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_tree_del_offer_category_tree_parent_id_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_category_tree_by_parent_id_by_category_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_tree_by_parent_id_by_category_id: " + e);}
+            try {handle_del_offer_category_tree_parent_id_category_id(data);} catch(e) { _log("Error calling: handle_del_offer_category_tree_parent_id_category_id: " + e);}
         }
         
     }
@@ -9739,14 +9739,14 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_tree_list_by_uuid: function
+    get_offer_category_tree_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9760,7 +9760,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_tree_list_by_uuid_callback: function(data) {
+    get_offer_category_tree_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9770,27 +9770,27 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_get_offer_category_tree_list_by_uuid_callback", true);
+            _log("ERRORS::offer_category_tree_get_offer_category_tree_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_tree_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_offer_category_tree_list_by_uuid: " + e);}
+            try {error_get_offer_category_tree_list_uuid(data);} catch(e) { _log("Error calling: error_get_offer_category_tree_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_get_offer_category_tree_list_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_tree_get_offer_category_tree_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_tree_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_category_tree_list_by_uuid: " + e);}
+            try {handle_get_offer_category_tree_list_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_category_tree_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_tree_list_by_parent_id: function
+    get_offer_category_tree_list_parent_id: function
     (
         parent_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'get'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -9804,7 +9804,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_tree_list_by_parent_id_callback: function(data) {
+    get_offer_category_tree_list_parent_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9814,27 +9814,27 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_get_offer_category_tree_list_by_parent_id_callback", true);
+            _log("ERRORS::offer_category_tree_get_offer_category_tree_list_parent_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_tree_list_by_parent_id(data);} catch(e) { _log("Error calling: error_get_offer_category_tree_list_by_parent_id: " + e);}
+            try {error_get_offer_category_tree_list_parent_id(data);} catch(e) { _log("Error calling: error_get_offer_category_tree_list_parent_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_get_offer_category_tree_list_by_parent_id_callback", false);
+            _log("SUCCESS::offer_category_tree_get_offer_category_tree_list_parent_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_tree_list_by_parent_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_tree_list_by_parent_id: " + e);}
+            try {handle_get_offer_category_tree_list_parent_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_tree_list_parent_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_tree_list_by_category_id: function
+    get_offer_category_tree_list_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -9848,7 +9848,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_tree_list_by_category_id_callback: function(data) {
+    get_offer_category_tree_list_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9858,20 +9858,20 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_get_offer_category_tree_list_by_category_id_callback", true);
+            _log("ERRORS::offer_category_tree_get_offer_category_tree_list_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_tree_list_by_category_id(data);} catch(e) { _log("Error calling: error_get_offer_category_tree_list_by_category_id: " + e);}
+            try {error_get_offer_category_tree_list_category_id(data);} catch(e) { _log("Error calling: error_get_offer_category_tree_list_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_get_offer_category_tree_list_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_tree_get_offer_category_tree_list_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_tree_list_by_category_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_tree_list_by_category_id: " + e);}
+            try {handle_get_offer_category_tree_list_category_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_tree_list_category_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_tree_list_by_parent_id_list_by_category_id: function
+    get_offer_category_tree_list_parent_id_list_category_id: function
     (
         parent_id,
         category_id,
@@ -9879,7 +9879,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_tree_service + 'get'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -9894,7 +9894,7 @@ platform.offer_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_tree_list_by_parent_id_list_by_category_id_callback: function(data) {
+    get_offer_category_tree_list_parent_id_list_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -9904,14 +9904,14 @@ platform.offer_category_tree.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_tree_get_offer_category_tree_list_by_parent_id_list_by_category_id_callback", true);
+            _log("ERRORS::offer_category_tree_get_offer_category_tree_list_parent_id_list_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_tree_list_by_parent_id_list_by_category_id(data);} catch(e) { _log("Error calling: error_get_offer_category_tree_list_by_parent_id_list_by_category_id: " + e);}
+            try {error_get_offer_category_tree_list_parent_id_list_category_id(data);} catch(e) { _log("Error calling: error_get_offer_category_tree_list_parent_id_list_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_tree_get_offer_category_tree_list_by_parent_id_list_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_tree_get_offer_category_tree_list_parent_id_list_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_tree_list_by_parent_id_list_by_category_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_tree_list_by_parent_id_list_by_category_id: " + e);}
+            try {handle_get_offer_category_tree_list_parent_id_list_category_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_tree_list_parent_id_list_category_id: " + e);}
         }
         
     }
@@ -9971,14 +9971,14 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_assoc_by_uuid: function
+    count_offer_category_assoc_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -9991,7 +9991,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_assoc_by_uuid_callback: function(data) {
+    count_offer_category_assoc_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10002,26 +10002,26 @@ platform.offer_category_assoc.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_count_offer_category_assoc_by_uuid_callback", true);
+            _log("ERRORS::offer_category_assoc_count_offer_category_assoc_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: error_count_offer_category_assoc_by_uuid: " + e);}
+            try {error_count_offer_category_assoc_uuid(data);} catch(e) { _log("Error calling: error_count_offer_category_assoc_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_count_offer_category_assoc_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_assoc_count_offer_category_assoc_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_category_assoc_by_uuid: " + e);}
+            try {handle_count_offer_category_assoc_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_category_assoc_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_assoc_by_offer_id: function
+    count_offer_category_assoc_offer_id: function
     (
         offer_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'count'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -10034,7 +10034,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_assoc_by_offer_id_callback: function(data) {
+    count_offer_category_assoc_offer_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10045,26 +10045,26 @@ platform.offer_category_assoc.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_count_offer_category_assoc_by_offer_id_callback", true);
+            _log("ERRORS::offer_category_assoc_count_offer_category_assoc_offer_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_assoc_by_offer_id(data);} catch(e) { _log("Error calling: error_count_offer_category_assoc_by_offer_id: " + e);}
+            try {error_count_offer_category_assoc_offer_id(data);} catch(e) { _log("Error calling: error_count_offer_category_assoc_offer_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_count_offer_category_assoc_by_offer_id_callback", false);
+            _log("SUCCESS::offer_category_assoc_count_offer_category_assoc_offer_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_assoc_by_offer_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_assoc_by_offer_id: " + e);}
+            try {handle_count_offer_category_assoc_offer_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_assoc_offer_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_assoc_by_category_id: function
+    count_offer_category_assoc_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -10077,7 +10077,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_assoc_by_category_id_callback: function(data) {
+    count_offer_category_assoc_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10088,19 +10088,19 @@ platform.offer_category_assoc.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_count_offer_category_assoc_by_category_id_callback", true);
+            _log("ERRORS::offer_category_assoc_count_offer_category_assoc_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_assoc_by_category_id(data);} catch(e) { _log("Error calling: error_count_offer_category_assoc_by_category_id: " + e);}
+            try {error_count_offer_category_assoc_category_id(data);} catch(e) { _log("Error calling: error_count_offer_category_assoc_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_count_offer_category_assoc_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_assoc_count_offer_category_assoc_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_assoc_by_category_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_assoc_by_category_id: " + e);}
+            try {handle_count_offer_category_assoc_category_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_assoc_category_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_category_assoc_by_offer_id_by_category_id: function
+    count_offer_category_assoc_offer_id_category_id: function
     (
         offer_id,
         category_id,
@@ -10108,7 +10108,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'count'
-                + "/by-offer-id/by-category-id"
+                + "/offer-id/category-id"
                 + "/@offer_id/" + offer_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -10122,7 +10122,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_category_assoc_by_offer_id_by_category_id_callback: function(data) {
+    count_offer_category_assoc_offer_id_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10133,19 +10133,19 @@ platform.offer_category_assoc.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_count_offer_category_assoc_by_offer_id_by_category_id_callback", true);
+            _log("ERRORS::offer_category_assoc_count_offer_category_assoc_offer_id_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_category_assoc_by_offer_id_by_category_id(data);} catch(e) { _log("Error calling: error_count_offer_category_assoc_by_offer_id_by_category_id: " + e);}
+            try {error_count_offer_category_assoc_offer_id_category_id(data);} catch(e) { _log("Error calling: error_count_offer_category_assoc_offer_id_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_count_offer_category_assoc_by_offer_id_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_assoc_count_offer_category_assoc_offer_id_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_category_assoc_by_offer_id_by_category_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_assoc_by_offer_id_by_category_id: " + e);}
+            try {handle_count_offer_category_assoc_offer_id_category_id(data);} catch(e) { _log("Error calling: handle_count_offer_category_assoc_offer_id_category_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_offer_category_assoc_list_by_filter: function
+    browse_offer_category_assoc_list_filter: function
     (
         page,
         page_size,
@@ -10154,7 +10154,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -10169,7 +10169,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_offer_category_assoc_list_by_filter_callback: function(data) {
+    browse_offer_category_assoc_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10179,20 +10179,20 @@ platform.offer_category_assoc.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_browse_offer_category_assoc_list_by_filter_callback", true);
+            _log("ERRORS::offer_category_assoc_browse_offer_category_assoc_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_offer_category_assoc_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_offer_category_assoc_list_by_filter: " + e);}
+            try {error_browse_offer_category_assoc_list_filter(data);} catch(e) { _log("Error calling: error_browse_offer_category_assoc_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_browse_offer_category_assoc_list_by_filter_callback", false);
+            _log("SUCCESS::offer_category_assoc_browse_offer_category_assoc_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_offer_category_assoc_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_category_assoc_list_by_filter: " + e);}
+            try {handle_browse_offer_category_assoc_list_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_category_assoc_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_offer_category_assoc_by_uuid: function
+    set_offer_category_assoc_uuid: function
     (
         status,
         uuid,
@@ -10206,7 +10206,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -10231,7 +10231,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_offer_category_assoc_by_uuid_callback: function(data) {
+    set_offer_category_assoc_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10241,26 +10241,26 @@ platform.offer_category_assoc.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_set_offer_category_assoc_by_uuid_callback", true);
+            _log("ERRORS::offer_category_assoc_set_offer_category_assoc_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_offer_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: error_set_offer_category_assoc_by_uuid: " + e);}
+            try {error_set_offer_category_assoc_uuid(data);} catch(e) { _log("Error calling: error_set_offer_category_assoc_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_set_offer_category_assoc_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_assoc_set_offer_category_assoc_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_offer_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_category_assoc_by_uuid: " + e);}
+            try {handle_set_offer_category_assoc_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_category_assoc_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_offer_category_assoc_by_uuid: function
+    del_offer_category_assoc_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10273,7 +10273,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_category_assoc_by_uuid_callback: function(data) {
+    del_offer_category_assoc_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10283,14 +10283,14 @@ platform.offer_category_assoc.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_del_offer_category_assoc_by_uuid_callback", true);
+            _log("ERRORS::offer_category_assoc_del_offer_category_assoc_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: error_del_offer_category_assoc_by_uuid: " + e);}
+            try {error_del_offer_category_assoc_uuid(data);} catch(e) { _log("Error calling: error_del_offer_category_assoc_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_del_offer_category_assoc_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_assoc_del_offer_category_assoc_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_category_assoc_by_uuid: " + e);}
+            try {handle_del_offer_category_assoc_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_category_assoc_uuid: " + e);}
         }
         
     }
@@ -10338,14 +10338,14 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_assoc_list_by_uuid: function
+    get_offer_category_assoc_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10359,7 +10359,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_assoc_list_by_uuid_callback: function(data) {
+    get_offer_category_assoc_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10369,27 +10369,27 @@ platform.offer_category_assoc.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_get_offer_category_assoc_list_by_uuid_callback", true);
+            _log("ERRORS::offer_category_assoc_get_offer_category_assoc_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_assoc_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_offer_category_assoc_list_by_uuid: " + e);}
+            try {error_get_offer_category_assoc_list_uuid(data);} catch(e) { _log("Error calling: error_get_offer_category_assoc_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_get_offer_category_assoc_list_by_uuid_callback", false);
+            _log("SUCCESS::offer_category_assoc_get_offer_category_assoc_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_assoc_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_category_assoc_list_by_uuid: " + e);}
+            try {handle_get_offer_category_assoc_list_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_category_assoc_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_assoc_list_by_offer_id: function
+    get_offer_category_assoc_list_offer_id: function
     (
         offer_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'get'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -10403,7 +10403,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_assoc_list_by_offer_id_callback: function(data) {
+    get_offer_category_assoc_list_offer_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10413,27 +10413,27 @@ platform.offer_category_assoc.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_get_offer_category_assoc_list_by_offer_id_callback", true);
+            _log("ERRORS::offer_category_assoc_get_offer_category_assoc_list_offer_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_assoc_list_by_offer_id(data);} catch(e) { _log("Error calling: error_get_offer_category_assoc_list_by_offer_id: " + e);}
+            try {error_get_offer_category_assoc_list_offer_id(data);} catch(e) { _log("Error calling: error_get_offer_category_assoc_list_offer_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_get_offer_category_assoc_list_by_offer_id_callback", false);
+            _log("SUCCESS::offer_category_assoc_get_offer_category_assoc_list_offer_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_assoc_list_by_offer_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_assoc_list_by_offer_id: " + e);}
+            try {handle_get_offer_category_assoc_list_offer_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_assoc_list_offer_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_assoc_list_by_category_id: function
+    get_offer_category_assoc_list_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -10447,7 +10447,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_assoc_list_by_category_id_callback: function(data) {
+    get_offer_category_assoc_list_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10457,20 +10457,20 @@ platform.offer_category_assoc.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_get_offer_category_assoc_list_by_category_id_callback", true);
+            _log("ERRORS::offer_category_assoc_get_offer_category_assoc_list_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_assoc_list_by_category_id(data);} catch(e) { _log("Error calling: error_get_offer_category_assoc_list_by_category_id: " + e);}
+            try {error_get_offer_category_assoc_list_category_id(data);} catch(e) { _log("Error calling: error_get_offer_category_assoc_list_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_get_offer_category_assoc_list_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_assoc_get_offer_category_assoc_list_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_assoc_list_by_category_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_assoc_list_by_category_id: " + e);}
+            try {handle_get_offer_category_assoc_list_category_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_assoc_list_category_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_category_assoc_list_by_offer_id_list_by_category_id: function
+    get_offer_category_assoc_list_offer_id_list_category_id: function
     (
         offer_id,
         category_id,
@@ -10478,7 +10478,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_category_assoc_service + 'get'
-                + "/by-offer-id/by-category-id"
+                + "/offer-id/category-id"
                 + "/@offer_id/" + offer_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -10493,7 +10493,7 @@ platform.offer_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_category_assoc_list_by_offer_id_list_by_category_id_callback: function(data) {
+    get_offer_category_assoc_list_offer_id_list_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10503,14 +10503,14 @@ platform.offer_category_assoc.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_category_assoc_get_offer_category_assoc_list_by_offer_id_list_by_category_id_callback", true);
+            _log("ERRORS::offer_category_assoc_get_offer_category_assoc_list_offer_id_list_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_category_assoc_list_by_offer_id_list_by_category_id(data);} catch(e) { _log("Error calling: error_get_offer_category_assoc_list_by_offer_id_list_by_category_id: " + e);}
+            try {error_get_offer_category_assoc_list_offer_id_list_category_id(data);} catch(e) { _log("Error calling: error_get_offer_category_assoc_list_offer_id_list_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_category_assoc_get_offer_category_assoc_list_by_offer_id_list_by_category_id_callback", false);
+            _log("SUCCESS::offer_category_assoc_get_offer_category_assoc_list_offer_id_list_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_category_assoc_list_by_offer_id_list_by_category_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_assoc_list_by_offer_id_list_by_category_id: " + e);}
+            try {handle_get_offer_category_assoc_list_offer_id_list_category_id(data);} catch(e) { _log("Error calling: handle_get_offer_category_assoc_list_offer_id_list_category_id: " + e);}
         }
         
     }
@@ -10570,14 +10570,14 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_game_location_by_uuid: function
+    count_offer_game_location_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10590,7 +10590,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_game_location_by_uuid_callback: function(data) {
+    count_offer_game_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10601,26 +10601,26 @@ platform.offer_game_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_count_offer_game_location_by_uuid_callback", true);
+            _log("ERRORS::offer_game_location_count_offer_game_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_game_location_by_uuid(data);} catch(e) { _log("Error calling: error_count_offer_game_location_by_uuid: " + e);}
+            try {error_count_offer_game_location_uuid(data);} catch(e) { _log("Error calling: error_count_offer_game_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_count_offer_game_location_by_uuid_callback", false);
+            _log("SUCCESS::offer_game_location_count_offer_game_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_game_location_by_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_game_location_by_uuid: " + e);}
+            try {handle_count_offer_game_location_uuid(data);} catch(e) { _log("Error calling: handle_count_offer_game_location_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_game_location_by_game_location_id: function
+    count_offer_game_location_game_location_id: function
     (
         game_location_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'count'
-                + "/by-game-location-id"
+                + "/game-location-id"
                 + "/@game_location_id/" + game_location_id            
                 ;
 
@@ -10633,7 +10633,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_game_location_by_game_location_id_callback: function(data) {
+    count_offer_game_location_game_location_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10644,26 +10644,26 @@ platform.offer_game_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_count_offer_game_location_by_game_location_id_callback", true);
+            _log("ERRORS::offer_game_location_count_offer_game_location_game_location_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_game_location_by_game_location_id(data);} catch(e) { _log("Error calling: error_count_offer_game_location_by_game_location_id: " + e);}
+            try {error_count_offer_game_location_game_location_id(data);} catch(e) { _log("Error calling: error_count_offer_game_location_game_location_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_count_offer_game_location_by_game_location_id_callback", false);
+            _log("SUCCESS::offer_game_location_count_offer_game_location_game_location_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_game_location_by_game_location_id(data);} catch(e) { _log("Error calling: handle_count_offer_game_location_by_game_location_id: " + e);}
+            try {handle_count_offer_game_location_game_location_id(data);} catch(e) { _log("Error calling: handle_count_offer_game_location_game_location_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_game_location_by_offer_id: function
+    count_offer_game_location_offer_id: function
     (
         offer_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'count'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -10676,7 +10676,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_game_location_by_offer_id_callback: function(data) {
+    count_offer_game_location_offer_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10687,19 +10687,19 @@ platform.offer_game_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_count_offer_game_location_by_offer_id_callback", true);
+            _log("ERRORS::offer_game_location_count_offer_game_location_offer_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_game_location_by_offer_id(data);} catch(e) { _log("Error calling: error_count_offer_game_location_by_offer_id: " + e);}
+            try {error_count_offer_game_location_offer_id(data);} catch(e) { _log("Error calling: error_count_offer_game_location_offer_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_count_offer_game_location_by_offer_id_callback", false);
+            _log("SUCCESS::offer_game_location_count_offer_game_location_offer_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_game_location_by_offer_id(data);} catch(e) { _log("Error calling: handle_count_offer_game_location_by_offer_id: " + e);}
+            try {handle_count_offer_game_location_offer_id(data);} catch(e) { _log("Error calling: handle_count_offer_game_location_offer_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_offer_game_location_by_offer_id_by_game_location_id: function
+    count_offer_game_location_offer_id_game_location_id: function
     (
         offer_id,
         game_location_id,
@@ -10707,7 +10707,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'count'
-                + "/by-offer-id/by-game-location-id"
+                + "/offer-id/game-location-id"
                 + "/@offer_id/" + offer_id            
                 + "/@game_location_id/" + game_location_id            
                 ;
@@ -10721,7 +10721,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_offer_game_location_by_offer_id_by_game_location_id_callback: function(data) {
+    count_offer_game_location_offer_id_game_location_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10732,19 +10732,19 @@ platform.offer_game_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_count_offer_game_location_by_offer_id_by_game_location_id_callback", true);
+            _log("ERRORS::offer_game_location_count_offer_game_location_offer_id_game_location_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_offer_game_location_by_offer_id_by_game_location_id(data);} catch(e) { _log("Error calling: error_count_offer_game_location_by_offer_id_by_game_location_id: " + e);}
+            try {error_count_offer_game_location_offer_id_game_location_id(data);} catch(e) { _log("Error calling: error_count_offer_game_location_offer_id_game_location_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_count_offer_game_location_by_offer_id_by_game_location_id_callback", false);
+            _log("SUCCESS::offer_game_location_count_offer_game_location_offer_id_game_location_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_offer_game_location_by_offer_id_by_game_location_id(data);} catch(e) { _log("Error calling: handle_count_offer_game_location_by_offer_id_by_game_location_id: " + e);}
+            try {handle_count_offer_game_location_offer_id_game_location_id(data);} catch(e) { _log("Error calling: handle_count_offer_game_location_offer_id_game_location_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_offer_game_location_list_by_filter: function
+    browse_offer_game_location_list_filter: function
     (
         page,
         page_size,
@@ -10753,7 +10753,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -10768,7 +10768,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_offer_game_location_list_by_filter_callback: function(data) {
+    browse_offer_game_location_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10778,20 +10778,20 @@ platform.offer_game_location.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_browse_offer_game_location_list_by_filter_callback", true);
+            _log("ERRORS::offer_game_location_browse_offer_game_location_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_offer_game_location_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_offer_game_location_list_by_filter: " + e);}
+            try {error_browse_offer_game_location_list_filter(data);} catch(e) { _log("Error calling: error_browse_offer_game_location_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_browse_offer_game_location_list_by_filter_callback", false);
+            _log("SUCCESS::offer_game_location_browse_offer_game_location_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_offer_game_location_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_game_location_list_by_filter: " + e);}
+            try {handle_browse_offer_game_location_list_filter(data);} catch(e) { _log("Error calling: handle_browse_offer_game_location_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_offer_game_location_by_uuid: function
+    set_offer_game_location_uuid: function
     (
         status,
         game_location_id,
@@ -10806,7 +10806,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -10832,7 +10832,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_offer_game_location_by_uuid_callback: function(data) {
+    set_offer_game_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10842,26 +10842,26 @@ platform.offer_game_location.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_set_offer_game_location_by_uuid_callback", true);
+            _log("ERRORS::offer_game_location_set_offer_game_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_offer_game_location_by_uuid(data);} catch(e) { _log("Error calling: error_set_offer_game_location_by_uuid: " + e);}
+            try {error_set_offer_game_location_uuid(data);} catch(e) { _log("Error calling: error_set_offer_game_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_set_offer_game_location_by_uuid_callback", false);
+            _log("SUCCESS::offer_game_location_set_offer_game_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_offer_game_location_by_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_game_location_by_uuid: " + e);}
+            try {handle_set_offer_game_location_uuid(data);} catch(e) { _log("Error calling: handle_set_offer_game_location_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_offer_game_location_by_uuid: function
+    del_offer_game_location_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10874,7 +10874,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_offer_game_location_by_uuid_callback: function(data) {
+    del_offer_game_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10884,14 +10884,14 @@ platform.offer_game_location.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_del_offer_game_location_by_uuid_callback", true);
+            _log("ERRORS::offer_game_location_del_offer_game_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_offer_game_location_by_uuid(data);} catch(e) { _log("Error calling: error_del_offer_game_location_by_uuid: " + e);}
+            try {error_del_offer_game_location_uuid(data);} catch(e) { _log("Error calling: error_del_offer_game_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_del_offer_game_location_by_uuid_callback", false);
+            _log("SUCCESS::offer_game_location_del_offer_game_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_offer_game_location_by_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_game_location_by_uuid: " + e);}
+            try {handle_del_offer_game_location_uuid(data);} catch(e) { _log("Error calling: handle_del_offer_game_location_uuid: " + e);}
         }
         
     }
@@ -10939,14 +10939,14 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_game_location_list_by_uuid: function
+    get_offer_game_location_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -10960,7 +10960,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_game_location_list_by_uuid_callback: function(data) {
+    get_offer_game_location_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -10970,27 +10970,27 @@ platform.offer_game_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_get_offer_game_location_list_by_uuid_callback", true);
+            _log("ERRORS::offer_game_location_get_offer_game_location_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_game_location_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_offer_game_location_list_by_uuid: " + e);}
+            try {error_get_offer_game_location_list_uuid(data);} catch(e) { _log("Error calling: error_get_offer_game_location_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_get_offer_game_location_list_by_uuid_callback", false);
+            _log("SUCCESS::offer_game_location_get_offer_game_location_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_game_location_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_game_location_list_by_uuid: " + e);}
+            try {handle_get_offer_game_location_list_uuid(data);} catch(e) { _log("Error calling: handle_get_offer_game_location_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_game_location_list_by_game_location_id: function
+    get_offer_game_location_list_game_location_id: function
     (
         game_location_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'get'
-                + "/by-game-location-id"
+                + "/game-location-id"
                 + "/@game_location_id/" + game_location_id            
                 ;
 
@@ -11004,7 +11004,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_game_location_list_by_game_location_id_callback: function(data) {
+    get_offer_game_location_list_game_location_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11014,27 +11014,27 @@ platform.offer_game_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_get_offer_game_location_list_by_game_location_id_callback", true);
+            _log("ERRORS::offer_game_location_get_offer_game_location_list_game_location_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_game_location_list_by_game_location_id(data);} catch(e) { _log("Error calling: error_get_offer_game_location_list_by_game_location_id: " + e);}
+            try {error_get_offer_game_location_list_game_location_id(data);} catch(e) { _log("Error calling: error_get_offer_game_location_list_game_location_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_get_offer_game_location_list_by_game_location_id_callback", false);
+            _log("SUCCESS::offer_game_location_get_offer_game_location_list_game_location_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_game_location_list_by_game_location_id(data);} catch(e) { _log("Error calling: handle_get_offer_game_location_list_by_game_location_id: " + e);}
+            try {handle_get_offer_game_location_list_game_location_id(data);} catch(e) { _log("Error calling: handle_get_offer_game_location_list_game_location_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_game_location_list_by_offer_id: function
+    get_offer_game_location_list_offer_id: function
     (
         offer_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'get'
-                + "/by-offer-id"
+                + "/offer-id"
                 + "/@offer_id/" + offer_id            
                 ;
 
@@ -11048,7 +11048,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_game_location_list_by_offer_id_callback: function(data) {
+    get_offer_game_location_list_offer_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11058,20 +11058,20 @@ platform.offer_game_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_get_offer_game_location_list_by_offer_id_callback", true);
+            _log("ERRORS::offer_game_location_get_offer_game_location_list_offer_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_game_location_list_by_offer_id(data);} catch(e) { _log("Error calling: error_get_offer_game_location_list_by_offer_id: " + e);}
+            try {error_get_offer_game_location_list_offer_id(data);} catch(e) { _log("Error calling: error_get_offer_game_location_list_offer_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_get_offer_game_location_list_by_offer_id_callback", false);
+            _log("SUCCESS::offer_game_location_get_offer_game_location_list_offer_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_game_location_list_by_offer_id(data);} catch(e) { _log("Error calling: handle_get_offer_game_location_list_by_offer_id: " + e);}
+            try {handle_get_offer_game_location_list_offer_id(data);} catch(e) { _log("Error calling: handle_get_offer_game_location_list_offer_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_offer_game_location_list_by_offer_id_list_by_game_location_id: function
+    get_offer_game_location_list_offer_id_list_game_location_id: function
     (
         offer_id,
         game_location_id,
@@ -11079,7 +11079,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.offer_game_location_service + 'get'
-                + "/by-offer-id/by-game-location-id"
+                + "/offer-id/game-location-id"
                 + "/@offer_id/" + offer_id            
                 + "/@game_location_id/" + game_location_id            
                 ;
@@ -11094,7 +11094,7 @@ platform.offer_game_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_offer_game_location_list_by_offer_id_list_by_game_location_id_callback: function(data) {
+    get_offer_game_location_list_offer_id_list_game_location_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11104,14 +11104,14 @@ platform.offer_game_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::offer_game_location_get_offer_game_location_list_by_offer_id_list_by_game_location_id_callback", true);
+            _log("ERRORS::offer_game_location_get_offer_game_location_list_offer_id_list_game_location_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_offer_game_location_list_by_offer_id_list_by_game_location_id(data);} catch(e) { _log("Error calling: error_get_offer_game_location_list_by_offer_id_list_by_game_location_id: " + e);}
+            try {error_get_offer_game_location_list_offer_id_list_game_location_id(data);} catch(e) { _log("Error calling: error_get_offer_game_location_list_offer_id_list_game_location_id: " + e);}
         }
         else {
-            _log("SUCCESS::offer_game_location_get_offer_game_location_list_by_offer_id_list_by_game_location_id_callback", false);
+            _log("SUCCESS::offer_game_location_get_offer_game_location_list_offer_id_list_game_location_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_offer_game_location_list_by_offer_id_list_by_game_location_id(data);} catch(e) { _log("Error calling: handle_get_offer_game_location_list_by_offer_id_list_by_game_location_id: " + e);}
+            try {handle_get_offer_game_location_list_offer_id_list_game_location_id(data);} catch(e) { _log("Error calling: handle_get_offer_game_location_list_offer_id_list_game_location_id: " + e);}
         }
         
     }
@@ -11171,14 +11171,14 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_info_by_uuid: function
+    count_event_info_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11191,7 +11191,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_info_by_uuid_callback: function(data) {
+    count_event_info_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11202,26 +11202,26 @@ platform.event_info.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_count_event_info_by_uuid_callback", true);
+            _log("ERRORS::event_info_count_event_info_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_info_by_uuid(data);} catch(e) { _log("Error calling: error_count_event_info_by_uuid: " + e);}
+            try {error_count_event_info_uuid(data);} catch(e) { _log("Error calling: error_count_event_info_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_count_event_info_by_uuid_callback", false);
+            _log("SUCCESS::event_info_count_event_info_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_info_by_uuid(data);} catch(e) { _log("Error calling: handle_count_event_info_by_uuid: " + e);}
+            try {handle_count_event_info_uuid(data);} catch(e) { _log("Error calling: handle_count_event_info_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_info_by_code: function
+    count_event_info_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -11234,7 +11234,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_info_by_code_callback: function(data) {
+    count_event_info_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11245,26 +11245,26 @@ platform.event_info.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_count_event_info_by_code_callback", true);
+            _log("ERRORS::event_info_count_event_info_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_info_by_code(data);} catch(e) { _log("Error calling: error_count_event_info_by_code: " + e);}
+            try {error_count_event_info_code(data);} catch(e) { _log("Error calling: error_count_event_info_code: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_count_event_info_by_code_callback", false);
+            _log("SUCCESS::event_info_count_event_info_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_info_by_code(data);} catch(e) { _log("Error calling: handle_count_event_info_by_code: " + e);}
+            try {handle_count_event_info_code(data);} catch(e) { _log("Error calling: handle_count_event_info_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_info_by_name: function
+    count_event_info_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -11277,7 +11277,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_info_by_name_callback: function(data) {
+    count_event_info_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11288,26 +11288,26 @@ platform.event_info.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_count_event_info_by_name_callback", true);
+            _log("ERRORS::event_info_count_event_info_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_info_by_name(data);} catch(e) { _log("Error calling: error_count_event_info_by_name: " + e);}
+            try {error_count_event_info_name(data);} catch(e) { _log("Error calling: error_count_event_info_name: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_count_event_info_by_name_callback", false);
+            _log("SUCCESS::event_info_count_event_info_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_info_by_name(data);} catch(e) { _log("Error calling: handle_count_event_info_by_name: " + e);}
+            try {handle_count_event_info_name(data);} catch(e) { _log("Error calling: handle_count_event_info_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_info_by_org_id: function
+    count_event_info_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -11320,7 +11320,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_info_by_org_id_callback: function(data) {
+    count_event_info_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11331,19 +11331,19 @@ platform.event_info.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_count_event_info_by_org_id_callback", true);
+            _log("ERRORS::event_info_count_event_info_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_info_by_org_id(data);} catch(e) { _log("Error calling: error_count_event_info_by_org_id: " + e);}
+            try {error_count_event_info_org_id(data);} catch(e) { _log("Error calling: error_count_event_info_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_count_event_info_by_org_id_callback", false);
+            _log("SUCCESS::event_info_count_event_info_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_info_by_org_id(data);} catch(e) { _log("Error calling: handle_count_event_info_by_org_id: " + e);}
+            try {handle_count_event_info_org_id(data);} catch(e) { _log("Error calling: handle_count_event_info_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_event_info_list_by_filter: function
+    browse_event_info_list_filter: function
     (
         page,
         page_size,
@@ -11352,7 +11352,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -11367,7 +11367,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_event_info_list_by_filter_callback: function(data) {
+    browse_event_info_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11377,20 +11377,20 @@ platform.event_info.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_browse_event_info_list_by_filter_callback", true);
+            _log("ERRORS::event_info_browse_event_info_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_event_info_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_event_info_list_by_filter: " + e);}
+            try {error_browse_event_info_list_filter(data);} catch(e) { _log("Error calling: error_browse_event_info_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_browse_event_info_list_by_filter_callback", false);
+            _log("SUCCESS::event_info_browse_event_info_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_event_info_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_event_info_list_by_filter: " + e);}
+            try {handle_browse_event_info_list_filter(data);} catch(e) { _log("Error calling: handle_browse_event_info_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_event_info_by_uuid: function
+    set_event_info_uuid: function
     (
         status,
         code,
@@ -11409,7 +11409,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -11439,7 +11439,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_event_info_by_uuid_callback: function(data) {
+    set_event_info_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11449,26 +11449,26 @@ platform.event_info.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_set_event_info_by_uuid_callback", true);
+            _log("ERRORS::event_info_set_event_info_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_event_info_by_uuid(data);} catch(e) { _log("Error calling: error_set_event_info_by_uuid: " + e);}
+            try {error_set_event_info_uuid(data);} catch(e) { _log("Error calling: error_set_event_info_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_set_event_info_by_uuid_callback", false);
+            _log("SUCCESS::event_info_set_event_info_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_event_info_by_uuid(data);} catch(e) { _log("Error calling: handle_set_event_info_by_uuid: " + e);}
+            try {handle_set_event_info_uuid(data);} catch(e) { _log("Error calling: handle_set_event_info_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_event_info_by_uuid: function
+    del_event_info_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11481,7 +11481,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_info_by_uuid_callback: function(data) {
+    del_event_info_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11491,27 +11491,27 @@ platform.event_info.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_del_event_info_by_uuid_callback", true);
+            _log("ERRORS::event_info_del_event_info_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_info_by_uuid(data);} catch(e) { _log("Error calling: error_del_event_info_by_uuid: " + e);}
+            try {error_del_event_info_uuid(data);} catch(e) { _log("Error calling: error_del_event_info_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_del_event_info_by_uuid_callback", false);
+            _log("SUCCESS::event_info_del_event_info_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_info_by_uuid(data);} catch(e) { _log("Error calling: handle_del_event_info_by_uuid: " + e);}
+            try {handle_del_event_info_uuid(data);} catch(e) { _log("Error calling: handle_del_event_info_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_event_info_by_org_id: function
+    del_event_info_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'del'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -11524,7 +11524,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_info_by_org_id_callback: function(data) {
+    del_event_info_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11534,14 +11534,14 @@ platform.event_info.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_del_event_info_by_org_id_callback", true);
+            _log("ERRORS::event_info_del_event_info_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_info_by_org_id(data);} catch(e) { _log("Error calling: error_del_event_info_by_org_id: " + e);}
+            try {error_del_event_info_org_id(data);} catch(e) { _log("Error calling: error_del_event_info_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_del_event_info_by_org_id_callback", false);
+            _log("SUCCESS::event_info_del_event_info_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_info_by_org_id(data);} catch(e) { _log("Error calling: handle_del_event_info_by_org_id: " + e);}
+            try {handle_del_event_info_org_id(data);} catch(e) { _log("Error calling: handle_del_event_info_org_id: " + e);}
         }
         
     }
@@ -11589,14 +11589,14 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_info_list_by_uuid: function
+    get_event_info_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11610,7 +11610,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_info_list_by_uuid_callback: function(data) {
+    get_event_info_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11620,27 +11620,27 @@ platform.event_info.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_get_event_info_list_by_uuid_callback", true);
+            _log("ERRORS::event_info_get_event_info_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_info_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_event_info_list_by_uuid: " + e);}
+            try {error_get_event_info_list_uuid(data);} catch(e) { _log("Error calling: error_get_event_info_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_get_event_info_list_by_uuid_callback", false);
+            _log("SUCCESS::event_info_get_event_info_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_info_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_event_info_list_by_uuid: " + e);}
+            try {handle_get_event_info_list_uuid(data);} catch(e) { _log("Error calling: handle_get_event_info_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_info_list_by_code: function
+    get_event_info_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -11654,7 +11654,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_info_list_by_code_callback: function(data) {
+    get_event_info_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11664,27 +11664,27 @@ platform.event_info.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_get_event_info_list_by_code_callback", true);
+            _log("ERRORS::event_info_get_event_info_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_info_list_by_code(data);} catch(e) { _log("Error calling: error_get_event_info_list_by_code: " + e);}
+            try {error_get_event_info_list_code(data);} catch(e) { _log("Error calling: error_get_event_info_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_get_event_info_list_by_code_callback", false);
+            _log("SUCCESS::event_info_get_event_info_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_info_list_by_code(data);} catch(e) { _log("Error calling: handle_get_event_info_list_by_code: " + e);}
+            try {handle_get_event_info_list_code(data);} catch(e) { _log("Error calling: handle_get_event_info_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_info_list_by_name: function
+    get_event_info_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -11698,7 +11698,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_info_list_by_name_callback: function(data) {
+    get_event_info_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11708,27 +11708,27 @@ platform.event_info.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_get_event_info_list_by_name_callback", true);
+            _log("ERRORS::event_info_get_event_info_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_info_list_by_name(data);} catch(e) { _log("Error calling: error_get_event_info_list_by_name: " + e);}
+            try {error_get_event_info_list_name(data);} catch(e) { _log("Error calling: error_get_event_info_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_get_event_info_list_by_name_callback", false);
+            _log("SUCCESS::event_info_get_event_info_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_info_list_by_name(data);} catch(e) { _log("Error calling: handle_get_event_info_list_by_name: " + e);}
+            try {handle_get_event_info_list_name(data);} catch(e) { _log("Error calling: handle_get_event_info_list_name: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_info_list_by_org_id: function
+    get_event_info_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_info_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -11742,7 +11742,7 @@ platform.event_info.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_info_list_by_org_id_callback: function(data) {
+    get_event_info_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11752,14 +11752,14 @@ platform.event_info.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_info_get_event_info_list_by_org_id_callback", true);
+            _log("ERRORS::event_info_get_event_info_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_info_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_event_info_list_by_org_id: " + e);}
+            try {error_get_event_info_list_org_id(data);} catch(e) { _log("Error calling: error_get_event_info_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_info_get_event_info_list_by_org_id_callback", false);
+            _log("SUCCESS::event_info_get_event_info_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_info_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_event_info_list_by_org_id: " + e);}
+            try {handle_get_event_info_list_org_id(data);} catch(e) { _log("Error calling: handle_get_event_info_list_org_id: " + e);}
         }
         
     }
@@ -11819,14 +11819,14 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_uuid: function
+    count_event_location_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -11839,7 +11839,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_uuid_callback: function(data) {
+    count_event_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11850,26 +11850,26 @@ platform.event_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_count_event_location_by_uuid_callback", true);
+            _log("ERRORS::event_location_count_event_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_location_by_uuid(data);} catch(e) { _log("Error calling: error_count_event_location_by_uuid: " + e);}
+            try {error_count_event_location_uuid(data);} catch(e) { _log("Error calling: error_count_event_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_count_event_location_by_uuid_callback", false);
+            _log("SUCCESS::event_location_count_event_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_location_by_uuid(data);} catch(e) { _log("Error calling: handle_count_event_location_by_uuid: " + e);}
+            try {handle_count_event_location_uuid(data);} catch(e) { _log("Error calling: handle_count_event_location_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_event_id: function
+    count_event_location_event_id: function
     (
         event_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-event-id"
+                + "/event-id"
                 + "/@event_id/" + event_id            
                 ;
 
@@ -11882,7 +11882,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_event_id_callback: function(data) {
+    count_event_location_event_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11893,26 +11893,26 @@ platform.event_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_count_event_location_by_event_id_callback", true);
+            _log("ERRORS::event_location_count_event_location_event_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_location_by_event_id(data);} catch(e) { _log("Error calling: error_count_event_location_by_event_id: " + e);}
+            try {error_count_event_location_event_id(data);} catch(e) { _log("Error calling: error_count_event_location_event_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_count_event_location_by_event_id_callback", false);
+            _log("SUCCESS::event_location_count_event_location_event_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_location_by_event_id(data);} catch(e) { _log("Error calling: handle_count_event_location_by_event_id: " + e);}
+            try {handle_count_event_location_event_id(data);} catch(e) { _log("Error calling: handle_count_event_location_event_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_city: function
+    count_event_location_city: function
     (
         city,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-city"
+                + "/city"
                 + "/@city/" + city            
                 ;
 
@@ -11925,7 +11925,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_city_callback: function(data) {
+    count_event_location_city_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11936,26 +11936,26 @@ platform.event_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_count_event_location_by_city_callback", true);
+            _log("ERRORS::event_location_count_event_location_city_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_location_by_city(data);} catch(e) { _log("Error calling: error_count_event_location_by_city: " + e);}
+            try {error_count_event_location_city(data);} catch(e) { _log("Error calling: error_count_event_location_city: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_count_event_location_by_city_callback", false);
+            _log("SUCCESS::event_location_count_event_location_city_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_location_by_city(data);} catch(e) { _log("Error calling: handle_count_event_location_by_city: " + e);}
+            try {handle_count_event_location_city(data);} catch(e) { _log("Error calling: handle_count_event_location_city: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_country_code: function
+    count_event_location_country_code: function
     (
         country_code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-country-code"
+                + "/country-code"
                 + "/@country_code/" + country_code            
                 ;
 
@@ -11968,7 +11968,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_country_code_callback: function(data) {
+    count_event_location_country_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -11979,26 +11979,26 @@ platform.event_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_count_event_location_by_country_code_callback", true);
+            _log("ERRORS::event_location_count_event_location_country_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_location_by_country_code(data);} catch(e) { _log("Error calling: error_count_event_location_by_country_code: " + e);}
+            try {error_count_event_location_country_code(data);} catch(e) { _log("Error calling: error_count_event_location_country_code: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_count_event_location_by_country_code_callback", false);
+            _log("SUCCESS::event_location_count_event_location_country_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_location_by_country_code(data);} catch(e) { _log("Error calling: handle_count_event_location_by_country_code: " + e);}
+            try {handle_count_event_location_country_code(data);} catch(e) { _log("Error calling: handle_count_event_location_country_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_postal_code: function
+    count_event_location_postal_code: function
     (
         postal_code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'count'
-                + "/by-postal-code"
+                + "/postal-code"
                 + "/@postal_code/" + postal_code            
                 ;
 
@@ -12011,7 +12011,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_location_by_postal_code_callback: function(data) {
+    count_event_location_postal_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12022,19 +12022,19 @@ platform.event_location.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_count_event_location_by_postal_code_callback", true);
+            _log("ERRORS::event_location_count_event_location_postal_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_location_by_postal_code(data);} catch(e) { _log("Error calling: error_count_event_location_by_postal_code: " + e);}
+            try {error_count_event_location_postal_code(data);} catch(e) { _log("Error calling: error_count_event_location_postal_code: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_count_event_location_by_postal_code_callback", false);
+            _log("SUCCESS::event_location_count_event_location_postal_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_location_by_postal_code(data);} catch(e) { _log("Error calling: handle_count_event_location_by_postal_code: " + e);}
+            try {handle_count_event_location_postal_code(data);} catch(e) { _log("Error calling: handle_count_event_location_postal_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_event_location_list_by_filter: function
+    browse_event_location_list_filter: function
     (
         page,
         page_size,
@@ -12043,7 +12043,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -12058,7 +12058,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_event_location_list_by_filter_callback: function(data) {
+    browse_event_location_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12068,20 +12068,20 @@ platform.event_location.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_browse_event_location_list_by_filter_callback", true);
+            _log("ERRORS::event_location_browse_event_location_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_event_location_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_event_location_list_by_filter: " + e);}
+            try {error_browse_event_location_list_filter(data);} catch(e) { _log("Error calling: error_browse_event_location_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_browse_event_location_list_by_filter_callback", false);
+            _log("SUCCESS::event_location_browse_event_location_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_event_location_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_event_location_list_by_filter: " + e);}
+            try {handle_browse_event_location_list_filter(data);} catch(e) { _log("Error calling: handle_browse_event_location_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_event_location_by_uuid: function
+    set_event_location_uuid: function
     (
         status,
         fax,
@@ -12114,7 +12114,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -12158,7 +12158,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_event_location_by_uuid_callback: function(data) {
+    set_event_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12168,26 +12168,26 @@ platform.event_location.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_set_event_location_by_uuid_callback", true);
+            _log("ERRORS::event_location_set_event_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_event_location_by_uuid(data);} catch(e) { _log("Error calling: error_set_event_location_by_uuid: " + e);}
+            try {error_set_event_location_uuid(data);} catch(e) { _log("Error calling: error_set_event_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_set_event_location_by_uuid_callback", false);
+            _log("SUCCESS::event_location_set_event_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_event_location_by_uuid(data);} catch(e) { _log("Error calling: handle_set_event_location_by_uuid: " + e);}
+            try {handle_set_event_location_uuid(data);} catch(e) { _log("Error calling: handle_set_event_location_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_event_location_by_uuid: function
+    del_event_location_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12200,7 +12200,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_location_by_uuid_callback: function(data) {
+    del_event_location_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12210,14 +12210,14 @@ platform.event_location.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_del_event_location_by_uuid_callback", true);
+            _log("ERRORS::event_location_del_event_location_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_location_by_uuid(data);} catch(e) { _log("Error calling: error_del_event_location_by_uuid: " + e);}
+            try {error_del_event_location_uuid(data);} catch(e) { _log("Error calling: error_del_event_location_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_del_event_location_by_uuid_callback", false);
+            _log("SUCCESS::event_location_del_event_location_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_location_by_uuid(data);} catch(e) { _log("Error calling: handle_del_event_location_by_uuid: " + e);}
+            try {handle_del_event_location_uuid(data);} catch(e) { _log("Error calling: handle_del_event_location_uuid: " + e);}
         }
         
     }
@@ -12265,14 +12265,14 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_uuid: function
+    get_event_location_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12286,7 +12286,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_uuid_callback: function(data) {
+    get_event_location_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12296,27 +12296,27 @@ platform.event_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_get_event_location_list_by_uuid_callback", true);
+            _log("ERRORS::event_location_get_event_location_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_location_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_event_location_list_by_uuid: " + e);}
+            try {error_get_event_location_list_uuid(data);} catch(e) { _log("Error calling: error_get_event_location_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_get_event_location_list_by_uuid_callback", false);
+            _log("SUCCESS::event_location_get_event_location_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_location_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_event_location_list_by_uuid: " + e);}
+            try {handle_get_event_location_list_uuid(data);} catch(e) { _log("Error calling: handle_get_event_location_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_event_id: function
+    get_event_location_list_event_id: function
     (
         event_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-event-id"
+                + "/event-id"
                 + "/@event_id/" + event_id            
                 ;
 
@@ -12330,7 +12330,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_event_id_callback: function(data) {
+    get_event_location_list_event_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12340,27 +12340,27 @@ platform.event_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_get_event_location_list_by_event_id_callback", true);
+            _log("ERRORS::event_location_get_event_location_list_event_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_location_list_by_event_id(data);} catch(e) { _log("Error calling: error_get_event_location_list_by_event_id: " + e);}
+            try {error_get_event_location_list_event_id(data);} catch(e) { _log("Error calling: error_get_event_location_list_event_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_get_event_location_list_by_event_id_callback", false);
+            _log("SUCCESS::event_location_get_event_location_list_event_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_location_list_by_event_id(data);} catch(e) { _log("Error calling: handle_get_event_location_list_by_event_id: " + e);}
+            try {handle_get_event_location_list_event_id(data);} catch(e) { _log("Error calling: handle_get_event_location_list_event_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_city: function
+    get_event_location_list_city: function
     (
         city,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-city"
+                + "/city"
                 + "/@city/" + city            
                 ;
 
@@ -12374,7 +12374,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_city_callback: function(data) {
+    get_event_location_list_city_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12384,27 +12384,27 @@ platform.event_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_get_event_location_list_by_city_callback", true);
+            _log("ERRORS::event_location_get_event_location_list_city_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_location_list_by_city(data);} catch(e) { _log("Error calling: error_get_event_location_list_by_city: " + e);}
+            try {error_get_event_location_list_city(data);} catch(e) { _log("Error calling: error_get_event_location_list_city: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_get_event_location_list_by_city_callback", false);
+            _log("SUCCESS::event_location_get_event_location_list_city_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_location_list_by_city(data);} catch(e) { _log("Error calling: handle_get_event_location_list_by_city: " + e);}
+            try {handle_get_event_location_list_city(data);} catch(e) { _log("Error calling: handle_get_event_location_list_city: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_country_code: function
+    get_event_location_list_country_code: function
     (
         country_code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-country-code"
+                + "/country-code"
                 + "/@country_code/" + country_code            
                 ;
 
@@ -12418,7 +12418,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_country_code_callback: function(data) {
+    get_event_location_list_country_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12428,27 +12428,27 @@ platform.event_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_get_event_location_list_by_country_code_callback", true);
+            _log("ERRORS::event_location_get_event_location_list_country_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_location_list_by_country_code(data);} catch(e) { _log("Error calling: error_get_event_location_list_by_country_code: " + e);}
+            try {error_get_event_location_list_country_code(data);} catch(e) { _log("Error calling: error_get_event_location_list_country_code: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_get_event_location_list_by_country_code_callback", false);
+            _log("SUCCESS::event_location_get_event_location_list_country_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_location_list_by_country_code(data);} catch(e) { _log("Error calling: handle_get_event_location_list_by_country_code: " + e);}
+            try {handle_get_event_location_list_country_code(data);} catch(e) { _log("Error calling: handle_get_event_location_list_country_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_postal_code: function
+    get_event_location_list_postal_code: function
     (
         postal_code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_location_service + 'get'
-                + "/by-postal-code"
+                + "/postal-code"
                 + "/@postal_code/" + postal_code            
                 ;
 
@@ -12462,7 +12462,7 @@ platform.event_location.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_location_list_by_postal_code_callback: function(data) {
+    get_event_location_list_postal_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12472,14 +12472,14 @@ platform.event_location.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_location_get_event_location_list_by_postal_code_callback", true);
+            _log("ERRORS::event_location_get_event_location_list_postal_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_location_list_by_postal_code(data);} catch(e) { _log("Error calling: error_get_event_location_list_by_postal_code: " + e);}
+            try {error_get_event_location_list_postal_code(data);} catch(e) { _log("Error calling: error_get_event_location_list_postal_code: " + e);}
         }
         else {
-            _log("SUCCESS::event_location_get_event_location_list_by_postal_code_callback", false);
+            _log("SUCCESS::event_location_get_event_location_list_postal_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_location_list_by_postal_code(data);} catch(e) { _log("Error calling: handle_get_event_location_list_by_postal_code: " + e);}
+            try {handle_get_event_location_list_postal_code(data);} catch(e) { _log("Error calling: handle_get_event_location_list_postal_code: " + e);}
         }
         
     }
@@ -12539,14 +12539,14 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_uuid: function
+    count_event_category_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12559,7 +12559,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_uuid_callback: function(data) {
+    count_event_category_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12570,26 +12570,26 @@ platform.event_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_count_event_category_by_uuid_callback", true);
+            _log("ERRORS::event_category_count_event_category_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_by_uuid(data);} catch(e) { _log("Error calling: error_count_event_category_by_uuid: " + e);}
+            try {error_count_event_category_uuid(data);} catch(e) { _log("Error calling: error_count_event_category_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_count_event_category_by_uuid_callback", false);
+            _log("SUCCESS::event_category_count_event_category_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_by_uuid(data);} catch(e) { _log("Error calling: handle_count_event_category_by_uuid: " + e);}
+            try {handle_count_event_category_uuid(data);} catch(e) { _log("Error calling: handle_count_event_category_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_code: function
+    count_event_category_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -12602,7 +12602,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_code_callback: function(data) {
+    count_event_category_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12613,26 +12613,26 @@ platform.event_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_count_event_category_by_code_callback", true);
+            _log("ERRORS::event_category_count_event_category_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_by_code(data);} catch(e) { _log("Error calling: error_count_event_category_by_code: " + e);}
+            try {error_count_event_category_code(data);} catch(e) { _log("Error calling: error_count_event_category_code: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_count_event_category_by_code_callback", false);
+            _log("SUCCESS::event_category_count_event_category_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_by_code(data);} catch(e) { _log("Error calling: handle_count_event_category_by_code: " + e);}
+            try {handle_count_event_category_code(data);} catch(e) { _log("Error calling: handle_count_event_category_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_name: function
+    count_event_category_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -12645,7 +12645,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_name_callback: function(data) {
+    count_event_category_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12656,26 +12656,26 @@ platform.event_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_count_event_category_by_name_callback", true);
+            _log("ERRORS::event_category_count_event_category_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_by_name(data);} catch(e) { _log("Error calling: error_count_event_category_by_name: " + e);}
+            try {error_count_event_category_name(data);} catch(e) { _log("Error calling: error_count_event_category_name: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_count_event_category_by_name_callback", false);
+            _log("SUCCESS::event_category_count_event_category_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_by_name(data);} catch(e) { _log("Error calling: handle_count_event_category_by_name: " + e);}
+            try {handle_count_event_category_name(data);} catch(e) { _log("Error calling: handle_count_event_category_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_org_id: function
+    count_event_category_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -12688,7 +12688,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_org_id_callback: function(data) {
+    count_event_category_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12699,26 +12699,26 @@ platform.event_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_count_event_category_by_org_id_callback", true);
+            _log("ERRORS::event_category_count_event_category_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_by_org_id(data);} catch(e) { _log("Error calling: error_count_event_category_by_org_id: " + e);}
+            try {error_count_event_category_org_id(data);} catch(e) { _log("Error calling: error_count_event_category_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_count_event_category_by_org_id_callback", false);
+            _log("SUCCESS::event_category_count_event_category_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_by_org_id(data);} catch(e) { _log("Error calling: handle_count_event_category_by_org_id: " + e);}
+            try {handle_count_event_category_org_id(data);} catch(e) { _log("Error calling: handle_count_event_category_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_type_id: function
+    count_event_category_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -12731,7 +12731,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_type_id_callback: function(data) {
+    count_event_category_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12742,19 +12742,19 @@ platform.event_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_count_event_category_by_type_id_callback", true);
+            _log("ERRORS::event_category_count_event_category_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_by_type_id(data);} catch(e) { _log("Error calling: error_count_event_category_by_type_id: " + e);}
+            try {error_count_event_category_type_id(data);} catch(e) { _log("Error calling: error_count_event_category_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_count_event_category_by_type_id_callback", false);
+            _log("SUCCESS::event_category_count_event_category_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_by_type_id(data);} catch(e) { _log("Error calling: handle_count_event_category_by_type_id: " + e);}
+            try {handle_count_event_category_type_id(data);} catch(e) { _log("Error calling: handle_count_event_category_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_org_id_by_type_id: function
+    count_event_category_org_id_type_id: function
     (
         org_id,
         type_id,
@@ -12762,7 +12762,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'count'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -12776,7 +12776,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_by_org_id_by_type_id_callback: function(data) {
+    count_event_category_org_id_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12787,19 +12787,19 @@ platform.event_category.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_count_event_category_by_org_id_by_type_id_callback", true);
+            _log("ERRORS::event_category_count_event_category_org_id_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: error_count_event_category_by_org_id_by_type_id: " + e);}
+            try {error_count_event_category_org_id_type_id(data);} catch(e) { _log("Error calling: error_count_event_category_org_id_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_count_event_category_by_org_id_by_type_id_callback", false);
+            _log("SUCCESS::event_category_count_event_category_org_id_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: handle_count_event_category_by_org_id_by_type_id: " + e);}
+            try {handle_count_event_category_org_id_type_id(data);} catch(e) { _log("Error calling: handle_count_event_category_org_id_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_event_category_list_by_filter: function
+    browse_event_category_list_filter: function
     (
         page,
         page_size,
@@ -12808,7 +12808,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -12823,7 +12823,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_event_category_list_by_filter_callback: function(data) {
+    browse_event_category_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12833,20 +12833,20 @@ platform.event_category.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_browse_event_category_list_by_filter_callback", true);
+            _log("ERRORS::event_category_browse_event_category_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_event_category_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_event_category_list_by_filter: " + e);}
+            try {error_browse_event_category_list_filter(data);} catch(e) { _log("Error calling: error_browse_event_category_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_browse_event_category_list_by_filter_callback", false);
+            _log("SUCCESS::event_category_browse_event_category_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_event_category_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_event_category_list_by_filter: " + e);}
+            try {handle_browse_event_category_list_filter(data);} catch(e) { _log("Error calling: handle_browse_event_category_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_event_category_by_uuid: function
+    set_event_category_uuid: function
     (
         status,
         code,
@@ -12864,7 +12864,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -12893,7 +12893,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_event_category_by_uuid_callback: function(data) {
+    set_event_category_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12903,26 +12903,26 @@ platform.event_category.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_set_event_category_by_uuid_callback", true);
+            _log("ERRORS::event_category_set_event_category_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_event_category_by_uuid(data);} catch(e) { _log("Error calling: error_set_event_category_by_uuid: " + e);}
+            try {error_set_event_category_uuid(data);} catch(e) { _log("Error calling: error_set_event_category_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_set_event_category_by_uuid_callback", false);
+            _log("SUCCESS::event_category_set_event_category_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_event_category_by_uuid(data);} catch(e) { _log("Error calling: handle_set_event_category_by_uuid: " + e);}
+            try {handle_set_event_category_uuid(data);} catch(e) { _log("Error calling: handle_set_event_category_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_event_category_by_uuid: function
+    del_event_category_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -12935,7 +12935,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_category_by_uuid_callback: function(data) {
+    del_event_category_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12945,20 +12945,20 @@ platform.event_category.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_del_event_category_by_uuid_callback", true);
+            _log("ERRORS::event_category_del_event_category_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_category_by_uuid(data);} catch(e) { _log("Error calling: error_del_event_category_by_uuid: " + e);}
+            try {error_del_event_category_uuid(data);} catch(e) { _log("Error calling: error_del_event_category_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_del_event_category_by_uuid_callback", false);
+            _log("SUCCESS::event_category_del_event_category_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_category_by_uuid(data);} catch(e) { _log("Error calling: handle_del_event_category_by_uuid: " + e);}
+            try {handle_del_event_category_uuid(data);} catch(e) { _log("Error calling: handle_del_event_category_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_event_category_by_code_by_org_id: function
+    del_event_category_code_org_id: function
     (
         code,
         org_id,
@@ -12966,7 +12966,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'del'
-                + "/by-code/by-org-id"
+                + "/code/org-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 ;
@@ -12980,7 +12980,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_category_by_code_by_org_id_callback: function(data) {
+    del_event_category_code_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -12990,20 +12990,20 @@ platform.event_category.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_del_event_category_by_code_by_org_id_callback", true);
+            _log("ERRORS::event_category_del_event_category_code_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_category_by_code_by_org_id(data);} catch(e) { _log("Error calling: error_del_event_category_by_code_by_org_id: " + e);}
+            try {error_del_event_category_code_org_id(data);} catch(e) { _log("Error calling: error_del_event_category_code_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_del_event_category_by_code_by_org_id_callback", false);
+            _log("SUCCESS::event_category_del_event_category_code_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_category_by_code_by_org_id(data);} catch(e) { _log("Error calling: handle_del_event_category_by_code_by_org_id: " + e);}
+            try {handle_del_event_category_code_org_id(data);} catch(e) { _log("Error calling: handle_del_event_category_code_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_event_category_by_code_by_org_id_by_type_id: function
+    del_event_category_code_org_id_type_id: function
     (
         code,
         org_id,
@@ -13012,7 +13012,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'del'
-                + "/by-code/by-org-id/by-type-id"
+                + "/code/org-id/type-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
@@ -13027,7 +13027,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_category_by_code_by_org_id_by_type_id_callback: function(data) {
+    del_event_category_code_org_id_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13037,14 +13037,14 @@ platform.event_category.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_del_event_category_by_code_by_org_id_by_type_id_callback", true);
+            _log("ERRORS::event_category_del_event_category_code_org_id_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_category_by_code_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: error_del_event_category_by_code_by_org_id_by_type_id: " + e);}
+            try {error_del_event_category_code_org_id_type_id(data);} catch(e) { _log("Error calling: error_del_event_category_code_org_id_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_del_event_category_by_code_by_org_id_by_type_id_callback", false);
+            _log("SUCCESS::event_category_del_event_category_code_org_id_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_category_by_code_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: handle_del_event_category_by_code_by_org_id_by_type_id: " + e);}
+            try {handle_del_event_category_code_org_id_type_id(data);} catch(e) { _log("Error calling: handle_del_event_category_code_org_id_type_id: " + e);}
         }
         
     }
@@ -13092,14 +13092,14 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_uuid: function
+    get_event_category_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13113,7 +13113,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_uuid_callback: function(data) {
+    get_event_category_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13123,27 +13123,27 @@ platform.event_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_get_event_category_list_by_uuid_callback", true);
+            _log("ERRORS::event_category_get_event_category_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_event_category_list_by_uuid: " + e);}
+            try {error_get_event_category_list_uuid(data);} catch(e) { _log("Error calling: error_get_event_category_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_get_event_category_list_by_uuid_callback", false);
+            _log("SUCCESS::event_category_get_event_category_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_event_category_list_by_uuid: " + e);}
+            try {handle_get_event_category_list_uuid(data);} catch(e) { _log("Error calling: handle_get_event_category_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_code: function
+    get_event_category_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -13157,7 +13157,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_code_callback: function(data) {
+    get_event_category_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13167,27 +13167,27 @@ platform.event_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_get_event_category_list_by_code_callback", true);
+            _log("ERRORS::event_category_get_event_category_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_list_by_code(data);} catch(e) { _log("Error calling: error_get_event_category_list_by_code: " + e);}
+            try {error_get_event_category_list_code(data);} catch(e) { _log("Error calling: error_get_event_category_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_get_event_category_list_by_code_callback", false);
+            _log("SUCCESS::event_category_get_event_category_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_list_by_code(data);} catch(e) { _log("Error calling: handle_get_event_category_list_by_code: " + e);}
+            try {handle_get_event_category_list_code(data);} catch(e) { _log("Error calling: handle_get_event_category_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_name: function
+    get_event_category_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -13201,7 +13201,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_name_callback: function(data) {
+    get_event_category_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13211,27 +13211,27 @@ platform.event_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_get_event_category_list_by_name_callback", true);
+            _log("ERRORS::event_category_get_event_category_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_list_by_name(data);} catch(e) { _log("Error calling: error_get_event_category_list_by_name: " + e);}
+            try {error_get_event_category_list_name(data);} catch(e) { _log("Error calling: error_get_event_category_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_get_event_category_list_by_name_callback", false);
+            _log("SUCCESS::event_category_get_event_category_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_list_by_name(data);} catch(e) { _log("Error calling: handle_get_event_category_list_by_name: " + e);}
+            try {handle_get_event_category_list_name(data);} catch(e) { _log("Error calling: handle_get_event_category_list_name: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_org_id: function
+    get_event_category_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -13245,7 +13245,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_org_id_callback: function(data) {
+    get_event_category_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13255,27 +13255,27 @@ platform.event_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_get_event_category_list_by_org_id_callback", true);
+            _log("ERRORS::event_category_get_event_category_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_event_category_list_by_org_id: " + e);}
+            try {error_get_event_category_list_org_id(data);} catch(e) { _log("Error calling: error_get_event_category_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_get_event_category_list_by_org_id_callback", false);
+            _log("SUCCESS::event_category_get_event_category_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_event_category_list_by_org_id: " + e);}
+            try {handle_get_event_category_list_org_id(data);} catch(e) { _log("Error calling: handle_get_event_category_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_type_id: function
+    get_event_category_list_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -13289,7 +13289,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_type_id_callback: function(data) {
+    get_event_category_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13299,20 +13299,20 @@ platform.event_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_get_event_category_list_by_type_id_callback", true);
+            _log("ERRORS::event_category_get_event_category_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_event_category_list_by_type_id: " + e);}
+            try {error_get_event_category_list_type_id(data);} catch(e) { _log("Error calling: error_get_event_category_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_get_event_category_list_by_type_id_callback", false);
+            _log("SUCCESS::event_category_get_event_category_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_event_category_list_by_type_id: " + e);}
+            try {handle_get_event_category_list_type_id(data);} catch(e) { _log("Error calling: handle_get_event_category_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_org_id_list_by_type_id: function
+    get_event_category_list_org_id_list_type_id: function
     (
         org_id,
         type_id,
@@ -13320,7 +13320,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_service + 'get'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -13335,7 +13335,7 @@ platform.event_category.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_list_by_org_id_list_by_type_id_callback: function(data) {
+    get_event_category_list_org_id_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13345,14 +13345,14 @@ platform.event_category.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_get_event_category_list_by_org_id_list_by_type_id_callback", true);
+            _log("ERRORS::event_category_get_event_category_list_org_id_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_list_by_org_id_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_event_category_list_by_org_id_list_by_type_id: " + e);}
+            try {error_get_event_category_list_org_id_list_type_id(data);} catch(e) { _log("Error calling: error_get_event_category_list_org_id_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_get_event_category_list_by_org_id_list_by_type_id_callback", false);
+            _log("SUCCESS::event_category_get_event_category_list_org_id_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_list_by_org_id_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_event_category_list_by_org_id_list_by_type_id: " + e);}
+            try {handle_get_event_category_list_org_id_list_type_id(data);} catch(e) { _log("Error calling: handle_get_event_category_list_org_id_list_type_id: " + e);}
         }
         
     }
@@ -13412,14 +13412,14 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_tree_by_uuid: function
+    count_event_category_tree_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13432,7 +13432,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_tree_by_uuid_callback: function(data) {
+    count_event_category_tree_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13443,26 +13443,26 @@ platform.event_category_tree.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_count_event_category_tree_by_uuid_callback", true);
+            _log("ERRORS::event_category_tree_count_event_category_tree_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_tree_by_uuid(data);} catch(e) { _log("Error calling: error_count_event_category_tree_by_uuid: " + e);}
+            try {error_count_event_category_tree_uuid(data);} catch(e) { _log("Error calling: error_count_event_category_tree_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_count_event_category_tree_by_uuid_callback", false);
+            _log("SUCCESS::event_category_tree_count_event_category_tree_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_tree_by_uuid(data);} catch(e) { _log("Error calling: handle_count_event_category_tree_by_uuid: " + e);}
+            try {handle_count_event_category_tree_uuid(data);} catch(e) { _log("Error calling: handle_count_event_category_tree_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_tree_by_parent_id: function
+    count_event_category_tree_parent_id: function
     (
         parent_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'count'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -13475,7 +13475,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_tree_by_parent_id_callback: function(data) {
+    count_event_category_tree_parent_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13486,26 +13486,26 @@ platform.event_category_tree.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_count_event_category_tree_by_parent_id_callback", true);
+            _log("ERRORS::event_category_tree_count_event_category_tree_parent_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_tree_by_parent_id(data);} catch(e) { _log("Error calling: error_count_event_category_tree_by_parent_id: " + e);}
+            try {error_count_event_category_tree_parent_id(data);} catch(e) { _log("Error calling: error_count_event_category_tree_parent_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_count_event_category_tree_by_parent_id_callback", false);
+            _log("SUCCESS::event_category_tree_count_event_category_tree_parent_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_tree_by_parent_id(data);} catch(e) { _log("Error calling: handle_count_event_category_tree_by_parent_id: " + e);}
+            try {handle_count_event_category_tree_parent_id(data);} catch(e) { _log("Error calling: handle_count_event_category_tree_parent_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_tree_by_category_id: function
+    count_event_category_tree_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -13518,7 +13518,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_tree_by_category_id_callback: function(data) {
+    count_event_category_tree_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13529,19 +13529,19 @@ platform.event_category_tree.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_count_event_category_tree_by_category_id_callback", true);
+            _log("ERRORS::event_category_tree_count_event_category_tree_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_tree_by_category_id(data);} catch(e) { _log("Error calling: error_count_event_category_tree_by_category_id: " + e);}
+            try {error_count_event_category_tree_category_id(data);} catch(e) { _log("Error calling: error_count_event_category_tree_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_count_event_category_tree_by_category_id_callback", false);
+            _log("SUCCESS::event_category_tree_count_event_category_tree_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_tree_by_category_id(data);} catch(e) { _log("Error calling: handle_count_event_category_tree_by_category_id: " + e);}
+            try {handle_count_event_category_tree_category_id(data);} catch(e) { _log("Error calling: handle_count_event_category_tree_category_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_tree_by_parent_id_by_category_id: function
+    count_event_category_tree_parent_id_category_id: function
     (
         parent_id,
         category_id,
@@ -13549,7 +13549,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'count'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -13563,7 +13563,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_tree_by_parent_id_by_category_id_callback: function(data) {
+    count_event_category_tree_parent_id_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13574,19 +13574,19 @@ platform.event_category_tree.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_count_event_category_tree_by_parent_id_by_category_id_callback", true);
+            _log("ERRORS::event_category_tree_count_event_category_tree_parent_id_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_tree_by_parent_id_by_category_id(data);} catch(e) { _log("Error calling: error_count_event_category_tree_by_parent_id_by_category_id: " + e);}
+            try {error_count_event_category_tree_parent_id_category_id(data);} catch(e) { _log("Error calling: error_count_event_category_tree_parent_id_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_count_event_category_tree_by_parent_id_by_category_id_callback", false);
+            _log("SUCCESS::event_category_tree_count_event_category_tree_parent_id_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_tree_by_parent_id_by_category_id(data);} catch(e) { _log("Error calling: handle_count_event_category_tree_by_parent_id_by_category_id: " + e);}
+            try {handle_count_event_category_tree_parent_id_category_id(data);} catch(e) { _log("Error calling: handle_count_event_category_tree_parent_id_category_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_event_category_tree_list_by_filter: function
+    browse_event_category_tree_list_filter: function
     (
         page,
         page_size,
@@ -13595,7 +13595,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -13610,7 +13610,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_event_category_tree_list_by_filter_callback: function(data) {
+    browse_event_category_tree_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13620,20 +13620,20 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_browse_event_category_tree_list_by_filter_callback", true);
+            _log("ERRORS::event_category_tree_browse_event_category_tree_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_event_category_tree_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_event_category_tree_list_by_filter: " + e);}
+            try {error_browse_event_category_tree_list_filter(data);} catch(e) { _log("Error calling: error_browse_event_category_tree_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_browse_event_category_tree_list_by_filter_callback", false);
+            _log("SUCCESS::event_category_tree_browse_event_category_tree_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_event_category_tree_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_event_category_tree_list_by_filter: " + e);}
+            try {handle_browse_event_category_tree_list_filter(data);} catch(e) { _log("Error calling: handle_browse_event_category_tree_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_event_category_tree_by_uuid: function
+    set_event_category_tree_uuid: function
     (
         status,
         parent_id,
@@ -13647,7 +13647,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -13672,7 +13672,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_event_category_tree_by_uuid_callback: function(data) {
+    set_event_category_tree_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13682,26 +13682,26 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_set_event_category_tree_by_uuid_callback", true);
+            _log("ERRORS::event_category_tree_set_event_category_tree_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_event_category_tree_by_uuid(data);} catch(e) { _log("Error calling: error_set_event_category_tree_by_uuid: " + e);}
+            try {error_set_event_category_tree_uuid(data);} catch(e) { _log("Error calling: error_set_event_category_tree_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_set_event_category_tree_by_uuid_callback", false);
+            _log("SUCCESS::event_category_tree_set_event_category_tree_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_event_category_tree_by_uuid(data);} catch(e) { _log("Error calling: handle_set_event_category_tree_by_uuid: " + e);}
+            try {handle_set_event_category_tree_uuid(data);} catch(e) { _log("Error calling: handle_set_event_category_tree_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_event_category_tree_by_uuid: function
+    del_event_category_tree_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13714,7 +13714,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_category_tree_by_uuid_callback: function(data) {
+    del_event_category_tree_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13724,27 +13724,27 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_del_event_category_tree_by_uuid_callback", true);
+            _log("ERRORS::event_category_tree_del_event_category_tree_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_category_tree_by_uuid(data);} catch(e) { _log("Error calling: error_del_event_category_tree_by_uuid: " + e);}
+            try {error_del_event_category_tree_uuid(data);} catch(e) { _log("Error calling: error_del_event_category_tree_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_del_event_category_tree_by_uuid_callback", false);
+            _log("SUCCESS::event_category_tree_del_event_category_tree_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_category_tree_by_uuid(data);} catch(e) { _log("Error calling: handle_del_event_category_tree_by_uuid: " + e);}
+            try {handle_del_event_category_tree_uuid(data);} catch(e) { _log("Error calling: handle_del_event_category_tree_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_event_category_tree_by_parent_id: function
+    del_event_category_tree_parent_id: function
     (
         parent_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'del'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -13757,7 +13757,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_category_tree_by_parent_id_callback: function(data) {
+    del_event_category_tree_parent_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13767,27 +13767,27 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_del_event_category_tree_by_parent_id_callback", true);
+            _log("ERRORS::event_category_tree_del_event_category_tree_parent_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_category_tree_by_parent_id(data);} catch(e) { _log("Error calling: error_del_event_category_tree_by_parent_id: " + e);}
+            try {error_del_event_category_tree_parent_id(data);} catch(e) { _log("Error calling: error_del_event_category_tree_parent_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_del_event_category_tree_by_parent_id_callback", false);
+            _log("SUCCESS::event_category_tree_del_event_category_tree_parent_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_category_tree_by_parent_id(data);} catch(e) { _log("Error calling: handle_del_event_category_tree_by_parent_id: " + e);}
+            try {handle_del_event_category_tree_parent_id(data);} catch(e) { _log("Error calling: handle_del_event_category_tree_parent_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_event_category_tree_by_category_id: function
+    del_event_category_tree_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'del'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -13800,7 +13800,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_category_tree_by_category_id_callback: function(data) {
+    del_event_category_tree_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13810,20 +13810,20 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_del_event_category_tree_by_category_id_callback", true);
+            _log("ERRORS::event_category_tree_del_event_category_tree_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_category_tree_by_category_id(data);} catch(e) { _log("Error calling: error_del_event_category_tree_by_category_id: " + e);}
+            try {error_del_event_category_tree_category_id(data);} catch(e) { _log("Error calling: error_del_event_category_tree_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_del_event_category_tree_by_category_id_callback", false);
+            _log("SUCCESS::event_category_tree_del_event_category_tree_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_category_tree_by_category_id(data);} catch(e) { _log("Error calling: handle_del_event_category_tree_by_category_id: " + e);}
+            try {handle_del_event_category_tree_category_id(data);} catch(e) { _log("Error calling: handle_del_event_category_tree_category_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_event_category_tree_by_parent_id_by_category_id: function
+    del_event_category_tree_parent_id_category_id: function
     (
         parent_id,
         category_id,
@@ -13831,7 +13831,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'del'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -13845,7 +13845,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_category_tree_by_parent_id_by_category_id_callback: function(data) {
+    del_event_category_tree_parent_id_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13855,14 +13855,14 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_del_event_category_tree_by_parent_id_by_category_id_callback", true);
+            _log("ERRORS::event_category_tree_del_event_category_tree_parent_id_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_category_tree_by_parent_id_by_category_id(data);} catch(e) { _log("Error calling: error_del_event_category_tree_by_parent_id_by_category_id: " + e);}
+            try {error_del_event_category_tree_parent_id_category_id(data);} catch(e) { _log("Error calling: error_del_event_category_tree_parent_id_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_del_event_category_tree_by_parent_id_by_category_id_callback", false);
+            _log("SUCCESS::event_category_tree_del_event_category_tree_parent_id_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_category_tree_by_parent_id_by_category_id(data);} catch(e) { _log("Error calling: handle_del_event_category_tree_by_parent_id_by_category_id: " + e);}
+            try {handle_del_event_category_tree_parent_id_category_id(data);} catch(e) { _log("Error calling: handle_del_event_category_tree_parent_id_category_id: " + e);}
         }
         
     }
@@ -13910,14 +13910,14 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_tree_list_by_uuid: function
+    get_event_category_tree_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -13931,7 +13931,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_tree_list_by_uuid_callback: function(data) {
+    get_event_category_tree_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13941,27 +13941,27 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_get_event_category_tree_list_by_uuid_callback", true);
+            _log("ERRORS::event_category_tree_get_event_category_tree_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_tree_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_event_category_tree_list_by_uuid: " + e);}
+            try {error_get_event_category_tree_list_uuid(data);} catch(e) { _log("Error calling: error_get_event_category_tree_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_get_event_category_tree_list_by_uuid_callback", false);
+            _log("SUCCESS::event_category_tree_get_event_category_tree_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_tree_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_event_category_tree_list_by_uuid: " + e);}
+            try {handle_get_event_category_tree_list_uuid(data);} catch(e) { _log("Error calling: handle_get_event_category_tree_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_tree_list_by_parent_id: function
+    get_event_category_tree_list_parent_id: function
     (
         parent_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'get'
-                + "/by-parent-id"
+                + "/parent-id"
                 + "/@parent_id/" + parent_id            
                 ;
 
@@ -13975,7 +13975,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_tree_list_by_parent_id_callback: function(data) {
+    get_event_category_tree_list_parent_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -13985,27 +13985,27 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_get_event_category_tree_list_by_parent_id_callback", true);
+            _log("ERRORS::event_category_tree_get_event_category_tree_list_parent_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_tree_list_by_parent_id(data);} catch(e) { _log("Error calling: error_get_event_category_tree_list_by_parent_id: " + e);}
+            try {error_get_event_category_tree_list_parent_id(data);} catch(e) { _log("Error calling: error_get_event_category_tree_list_parent_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_get_event_category_tree_list_by_parent_id_callback", false);
+            _log("SUCCESS::event_category_tree_get_event_category_tree_list_parent_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_tree_list_by_parent_id(data);} catch(e) { _log("Error calling: handle_get_event_category_tree_list_by_parent_id: " + e);}
+            try {handle_get_event_category_tree_list_parent_id(data);} catch(e) { _log("Error calling: handle_get_event_category_tree_list_parent_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_tree_list_by_category_id: function
+    get_event_category_tree_list_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -14019,7 +14019,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_tree_list_by_category_id_callback: function(data) {
+    get_event_category_tree_list_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14029,20 +14029,20 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_get_event_category_tree_list_by_category_id_callback", true);
+            _log("ERRORS::event_category_tree_get_event_category_tree_list_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_tree_list_by_category_id(data);} catch(e) { _log("Error calling: error_get_event_category_tree_list_by_category_id: " + e);}
+            try {error_get_event_category_tree_list_category_id(data);} catch(e) { _log("Error calling: error_get_event_category_tree_list_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_get_event_category_tree_list_by_category_id_callback", false);
+            _log("SUCCESS::event_category_tree_get_event_category_tree_list_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_tree_list_by_category_id(data);} catch(e) { _log("Error calling: handle_get_event_category_tree_list_by_category_id: " + e);}
+            try {handle_get_event_category_tree_list_category_id(data);} catch(e) { _log("Error calling: handle_get_event_category_tree_list_category_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_tree_list_by_parent_id_list_by_category_id: function
+    get_event_category_tree_list_parent_id_list_category_id: function
     (
         parent_id,
         category_id,
@@ -14050,7 +14050,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_tree_service + 'get'
-                + "/by-parent-id/by-category-id"
+                + "/parent-id/category-id"
                 + "/@parent_id/" + parent_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -14065,7 +14065,7 @@ platform.event_category_tree.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_tree_list_by_parent_id_list_by_category_id_callback: function(data) {
+    get_event_category_tree_list_parent_id_list_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14075,14 +14075,14 @@ platform.event_category_tree.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_tree_get_event_category_tree_list_by_parent_id_list_by_category_id_callback", true);
+            _log("ERRORS::event_category_tree_get_event_category_tree_list_parent_id_list_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_tree_list_by_parent_id_list_by_category_id(data);} catch(e) { _log("Error calling: error_get_event_category_tree_list_by_parent_id_list_by_category_id: " + e);}
+            try {error_get_event_category_tree_list_parent_id_list_category_id(data);} catch(e) { _log("Error calling: error_get_event_category_tree_list_parent_id_list_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_tree_get_event_category_tree_list_by_parent_id_list_by_category_id_callback", false);
+            _log("SUCCESS::event_category_tree_get_event_category_tree_list_parent_id_list_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_tree_list_by_parent_id_list_by_category_id(data);} catch(e) { _log("Error calling: handle_get_event_category_tree_list_by_parent_id_list_by_category_id: " + e);}
+            try {handle_get_event_category_tree_list_parent_id_list_category_id(data);} catch(e) { _log("Error calling: handle_get_event_category_tree_list_parent_id_list_category_id: " + e);}
         }
         
     }
@@ -14142,14 +14142,14 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_assoc_by_uuid: function
+    count_event_category_assoc_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14162,7 +14162,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_assoc_by_uuid_callback: function(data) {
+    count_event_category_assoc_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14173,26 +14173,26 @@ platform.event_category_assoc.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_count_event_category_assoc_by_uuid_callback", true);
+            _log("ERRORS::event_category_assoc_count_event_category_assoc_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: error_count_event_category_assoc_by_uuid: " + e);}
+            try {error_count_event_category_assoc_uuid(data);} catch(e) { _log("Error calling: error_count_event_category_assoc_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_count_event_category_assoc_by_uuid_callback", false);
+            _log("SUCCESS::event_category_assoc_count_event_category_assoc_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: handle_count_event_category_assoc_by_uuid: " + e);}
+            try {handle_count_event_category_assoc_uuid(data);} catch(e) { _log("Error calling: handle_count_event_category_assoc_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_assoc_by_event_id: function
+    count_event_category_assoc_event_id: function
     (
         event_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'count'
-                + "/by-event-id"
+                + "/event-id"
                 + "/@event_id/" + event_id            
                 ;
 
@@ -14205,7 +14205,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_assoc_by_event_id_callback: function(data) {
+    count_event_category_assoc_event_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14216,26 +14216,26 @@ platform.event_category_assoc.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_count_event_category_assoc_by_event_id_callback", true);
+            _log("ERRORS::event_category_assoc_count_event_category_assoc_event_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_assoc_by_event_id(data);} catch(e) { _log("Error calling: error_count_event_category_assoc_by_event_id: " + e);}
+            try {error_count_event_category_assoc_event_id(data);} catch(e) { _log("Error calling: error_count_event_category_assoc_event_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_count_event_category_assoc_by_event_id_callback", false);
+            _log("SUCCESS::event_category_assoc_count_event_category_assoc_event_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_assoc_by_event_id(data);} catch(e) { _log("Error calling: handle_count_event_category_assoc_by_event_id: " + e);}
+            try {handle_count_event_category_assoc_event_id(data);} catch(e) { _log("Error calling: handle_count_event_category_assoc_event_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_assoc_by_category_id: function
+    count_event_category_assoc_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'count'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -14248,7 +14248,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_assoc_by_category_id_callback: function(data) {
+    count_event_category_assoc_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14259,19 +14259,19 @@ platform.event_category_assoc.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_count_event_category_assoc_by_category_id_callback", true);
+            _log("ERRORS::event_category_assoc_count_event_category_assoc_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_assoc_by_category_id(data);} catch(e) { _log("Error calling: error_count_event_category_assoc_by_category_id: " + e);}
+            try {error_count_event_category_assoc_category_id(data);} catch(e) { _log("Error calling: error_count_event_category_assoc_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_count_event_category_assoc_by_category_id_callback", false);
+            _log("SUCCESS::event_category_assoc_count_event_category_assoc_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_assoc_by_category_id(data);} catch(e) { _log("Error calling: handle_count_event_category_assoc_by_category_id: " + e);}
+            try {handle_count_event_category_assoc_category_id(data);} catch(e) { _log("Error calling: handle_count_event_category_assoc_category_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_event_category_assoc_by_event_id_by_category_id: function
+    count_event_category_assoc_event_id_category_id: function
     (
         event_id,
         category_id,
@@ -14279,7 +14279,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'count'
-                + "/by-event-id/by-category-id"
+                + "/event-id/category-id"
                 + "/@event_id/" + event_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -14293,7 +14293,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_event_category_assoc_by_event_id_by_category_id_callback: function(data) {
+    count_event_category_assoc_event_id_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14304,19 +14304,19 @@ platform.event_category_assoc.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_count_event_category_assoc_by_event_id_by_category_id_callback", true);
+            _log("ERRORS::event_category_assoc_count_event_category_assoc_event_id_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_event_category_assoc_by_event_id_by_category_id(data);} catch(e) { _log("Error calling: error_count_event_category_assoc_by_event_id_by_category_id: " + e);}
+            try {error_count_event_category_assoc_event_id_category_id(data);} catch(e) { _log("Error calling: error_count_event_category_assoc_event_id_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_count_event_category_assoc_by_event_id_by_category_id_callback", false);
+            _log("SUCCESS::event_category_assoc_count_event_category_assoc_event_id_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_event_category_assoc_by_event_id_by_category_id(data);} catch(e) { _log("Error calling: handle_count_event_category_assoc_by_event_id_by_category_id: " + e);}
+            try {handle_count_event_category_assoc_event_id_category_id(data);} catch(e) { _log("Error calling: handle_count_event_category_assoc_event_id_category_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_event_category_assoc_list_by_filter: function
+    browse_event_category_assoc_list_filter: function
     (
         page,
         page_size,
@@ -14325,7 +14325,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -14340,7 +14340,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_event_category_assoc_list_by_filter_callback: function(data) {
+    browse_event_category_assoc_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14350,20 +14350,20 @@ platform.event_category_assoc.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_browse_event_category_assoc_list_by_filter_callback", true);
+            _log("ERRORS::event_category_assoc_browse_event_category_assoc_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_event_category_assoc_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_event_category_assoc_list_by_filter: " + e);}
+            try {error_browse_event_category_assoc_list_filter(data);} catch(e) { _log("Error calling: error_browse_event_category_assoc_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_browse_event_category_assoc_list_by_filter_callback", false);
+            _log("SUCCESS::event_category_assoc_browse_event_category_assoc_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_event_category_assoc_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_event_category_assoc_list_by_filter: " + e);}
+            try {handle_browse_event_category_assoc_list_filter(data);} catch(e) { _log("Error calling: handle_browse_event_category_assoc_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_event_category_assoc_by_uuid: function
+    set_event_category_assoc_uuid: function
     (
         status,
         event_id,
@@ -14377,7 +14377,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -14402,7 +14402,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_event_category_assoc_by_uuid_callback: function(data) {
+    set_event_category_assoc_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14412,26 +14412,26 @@ platform.event_category_assoc.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_set_event_category_assoc_by_uuid_callback", true);
+            _log("ERRORS::event_category_assoc_set_event_category_assoc_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_event_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: error_set_event_category_assoc_by_uuid: " + e);}
+            try {error_set_event_category_assoc_uuid(data);} catch(e) { _log("Error calling: error_set_event_category_assoc_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_set_event_category_assoc_by_uuid_callback", false);
+            _log("SUCCESS::event_category_assoc_set_event_category_assoc_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_event_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: handle_set_event_category_assoc_by_uuid: " + e);}
+            try {handle_set_event_category_assoc_uuid(data);} catch(e) { _log("Error calling: handle_set_event_category_assoc_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_event_category_assoc_by_uuid: function
+    del_event_category_assoc_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14444,7 +14444,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_event_category_assoc_by_uuid_callback: function(data) {
+    del_event_category_assoc_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14454,14 +14454,14 @@ platform.event_category_assoc.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_del_event_category_assoc_by_uuid_callback", true);
+            _log("ERRORS::event_category_assoc_del_event_category_assoc_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_event_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: error_del_event_category_assoc_by_uuid: " + e);}
+            try {error_del_event_category_assoc_uuid(data);} catch(e) { _log("Error calling: error_del_event_category_assoc_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_del_event_category_assoc_by_uuid_callback", false);
+            _log("SUCCESS::event_category_assoc_del_event_category_assoc_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_event_category_assoc_by_uuid(data);} catch(e) { _log("Error calling: handle_del_event_category_assoc_by_uuid: " + e);}
+            try {handle_del_event_category_assoc_uuid(data);} catch(e) { _log("Error calling: handle_del_event_category_assoc_uuid: " + e);}
         }
         
     }
@@ -14509,14 +14509,14 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_assoc_list_by_uuid: function
+    get_event_category_assoc_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14530,7 +14530,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_assoc_list_by_uuid_callback: function(data) {
+    get_event_category_assoc_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14540,27 +14540,27 @@ platform.event_category_assoc.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_get_event_category_assoc_list_by_uuid_callback", true);
+            _log("ERRORS::event_category_assoc_get_event_category_assoc_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_assoc_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_event_category_assoc_list_by_uuid: " + e);}
+            try {error_get_event_category_assoc_list_uuid(data);} catch(e) { _log("Error calling: error_get_event_category_assoc_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_get_event_category_assoc_list_by_uuid_callback", false);
+            _log("SUCCESS::event_category_assoc_get_event_category_assoc_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_assoc_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_event_category_assoc_list_by_uuid: " + e);}
+            try {handle_get_event_category_assoc_list_uuid(data);} catch(e) { _log("Error calling: handle_get_event_category_assoc_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_assoc_list_by_event_id: function
+    get_event_category_assoc_list_event_id: function
     (
         event_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'get'
-                + "/by-event-id"
+                + "/event-id"
                 + "/@event_id/" + event_id            
                 ;
 
@@ -14574,7 +14574,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_assoc_list_by_event_id_callback: function(data) {
+    get_event_category_assoc_list_event_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14584,27 +14584,27 @@ platform.event_category_assoc.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_get_event_category_assoc_list_by_event_id_callback", true);
+            _log("ERRORS::event_category_assoc_get_event_category_assoc_list_event_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_assoc_list_by_event_id(data);} catch(e) { _log("Error calling: error_get_event_category_assoc_list_by_event_id: " + e);}
+            try {error_get_event_category_assoc_list_event_id(data);} catch(e) { _log("Error calling: error_get_event_category_assoc_list_event_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_get_event_category_assoc_list_by_event_id_callback", false);
+            _log("SUCCESS::event_category_assoc_get_event_category_assoc_list_event_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_assoc_list_by_event_id(data);} catch(e) { _log("Error calling: handle_get_event_category_assoc_list_by_event_id: " + e);}
+            try {handle_get_event_category_assoc_list_event_id(data);} catch(e) { _log("Error calling: handle_get_event_category_assoc_list_event_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_assoc_list_by_category_id: function
+    get_event_category_assoc_list_category_id: function
     (
         category_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'get'
-                + "/by-category-id"
+                + "/category-id"
                 + "/@category_id/" + category_id            
                 ;
 
@@ -14618,7 +14618,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_assoc_list_by_category_id_callback: function(data) {
+    get_event_category_assoc_list_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14628,20 +14628,20 @@ platform.event_category_assoc.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_get_event_category_assoc_list_by_category_id_callback", true);
+            _log("ERRORS::event_category_assoc_get_event_category_assoc_list_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_assoc_list_by_category_id(data);} catch(e) { _log("Error calling: error_get_event_category_assoc_list_by_category_id: " + e);}
+            try {error_get_event_category_assoc_list_category_id(data);} catch(e) { _log("Error calling: error_get_event_category_assoc_list_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_get_event_category_assoc_list_by_category_id_callback", false);
+            _log("SUCCESS::event_category_assoc_get_event_category_assoc_list_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_assoc_list_by_category_id(data);} catch(e) { _log("Error calling: handle_get_event_category_assoc_list_by_category_id: " + e);}
+            try {handle_get_event_category_assoc_list_category_id(data);} catch(e) { _log("Error calling: handle_get_event_category_assoc_list_category_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_event_category_assoc_list_by_event_id_list_by_category_id: function
+    get_event_category_assoc_list_event_id_list_category_id: function
     (
         event_id,
         category_id,
@@ -14649,7 +14649,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.event_category_assoc_service + 'get'
-                + "/by-event-id/by-category-id"
+                + "/event-id/category-id"
                 + "/@event_id/" + event_id            
                 + "/@category_id/" + category_id            
                 ;
@@ -14664,7 +14664,7 @@ platform.event_category_assoc.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_event_category_assoc_list_by_event_id_list_by_category_id_callback: function(data) {
+    get_event_category_assoc_list_event_id_list_category_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14674,14 +14674,14 @@ platform.event_category_assoc.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::event_category_assoc_get_event_category_assoc_list_by_event_id_list_by_category_id_callback", true);
+            _log("ERRORS::event_category_assoc_get_event_category_assoc_list_event_id_list_category_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_event_category_assoc_list_by_event_id_list_by_category_id(data);} catch(e) { _log("Error calling: error_get_event_category_assoc_list_by_event_id_list_by_category_id: " + e);}
+            try {error_get_event_category_assoc_list_event_id_list_category_id(data);} catch(e) { _log("Error calling: error_get_event_category_assoc_list_event_id_list_category_id: " + e);}
         }
         else {
-            _log("SUCCESS::event_category_assoc_get_event_category_assoc_list_by_event_id_list_by_category_id_callback", false);
+            _log("SUCCESS::event_category_assoc_get_event_category_assoc_list_event_id_list_category_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_event_category_assoc_list_by_event_id_list_by_category_id(data);} catch(e) { _log("Error calling: handle_get_event_category_assoc_list_by_event_id_list_by_category_id: " + e);}
+            try {handle_get_event_category_assoc_list_event_id_list_category_id(data);} catch(e) { _log("Error calling: handle_get_event_category_assoc_list_event_id_list_category_id: " + e);}
         }
         
     }
@@ -14741,14 +14741,14 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_by_uuid: function
+    count_channel_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -14761,7 +14761,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_by_uuid_callback: function(data) {
+    count_channel_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14772,26 +14772,26 @@ platform.channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_count_channel_by_uuid_callback", true);
+            _log("ERRORS::channel_count_channel_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_by_uuid(data);} catch(e) { _log("Error calling: error_count_channel_by_uuid: " + e);}
+            try {error_count_channel_uuid(data);} catch(e) { _log("Error calling: error_count_channel_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::channel_count_channel_by_uuid_callback", false);
+            _log("SUCCESS::channel_count_channel_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_by_uuid(data);} catch(e) { _log("Error calling: handle_count_channel_by_uuid: " + e);}
+            try {handle_count_channel_uuid(data);} catch(e) { _log("Error calling: handle_count_channel_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_channel_by_code: function
+    count_channel_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -14804,7 +14804,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_by_code_callback: function(data) {
+    count_channel_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14815,26 +14815,26 @@ platform.channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_count_channel_by_code_callback", true);
+            _log("ERRORS::channel_count_channel_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_by_code(data);} catch(e) { _log("Error calling: error_count_channel_by_code: " + e);}
+            try {error_count_channel_code(data);} catch(e) { _log("Error calling: error_count_channel_code: " + e);}
         }
         else {
-            _log("SUCCESS::channel_count_channel_by_code_callback", false);
+            _log("SUCCESS::channel_count_channel_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_by_code(data);} catch(e) { _log("Error calling: handle_count_channel_by_code: " + e);}
+            try {handle_count_channel_code(data);} catch(e) { _log("Error calling: handle_count_channel_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_channel_by_name: function
+    count_channel_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -14847,7 +14847,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_by_name_callback: function(data) {
+    count_channel_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14858,26 +14858,26 @@ platform.channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_count_channel_by_name_callback", true);
+            _log("ERRORS::channel_count_channel_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_by_name(data);} catch(e) { _log("Error calling: error_count_channel_by_name: " + e);}
+            try {error_count_channel_name(data);} catch(e) { _log("Error calling: error_count_channel_name: " + e);}
         }
         else {
-            _log("SUCCESS::channel_count_channel_by_name_callback", false);
+            _log("SUCCESS::channel_count_channel_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_by_name(data);} catch(e) { _log("Error calling: handle_count_channel_by_name: " + e);}
+            try {handle_count_channel_name(data);} catch(e) { _log("Error calling: handle_count_channel_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_channel_by_org_id: function
+    count_channel_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -14890,7 +14890,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_by_org_id_callback: function(data) {
+    count_channel_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14901,26 +14901,26 @@ platform.channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_count_channel_by_org_id_callback", true);
+            _log("ERRORS::channel_count_channel_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_by_org_id(data);} catch(e) { _log("Error calling: error_count_channel_by_org_id: " + e);}
+            try {error_count_channel_org_id(data);} catch(e) { _log("Error calling: error_count_channel_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::channel_count_channel_by_org_id_callback", false);
+            _log("SUCCESS::channel_count_channel_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_by_org_id(data);} catch(e) { _log("Error calling: handle_count_channel_by_org_id: " + e);}
+            try {handle_count_channel_org_id(data);} catch(e) { _log("Error calling: handle_count_channel_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_channel_by_type_id: function
+    count_channel_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -14933,7 +14933,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_by_type_id_callback: function(data) {
+    count_channel_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14944,19 +14944,19 @@ platform.channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_count_channel_by_type_id_callback", true);
+            _log("ERRORS::channel_count_channel_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_by_type_id(data);} catch(e) { _log("Error calling: error_count_channel_by_type_id: " + e);}
+            try {error_count_channel_type_id(data);} catch(e) { _log("Error calling: error_count_channel_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::channel_count_channel_by_type_id_callback", false);
+            _log("SUCCESS::channel_count_channel_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_by_type_id(data);} catch(e) { _log("Error calling: handle_count_channel_by_type_id: " + e);}
+            try {handle_count_channel_type_id(data);} catch(e) { _log("Error calling: handle_count_channel_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_channel_by_org_id_by_type_id: function
+    count_channel_org_id_type_id: function
     (
         org_id,
         type_id,
@@ -14964,7 +14964,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'count'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -14978,7 +14978,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_by_org_id_by_type_id_callback: function(data) {
+    count_channel_org_id_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -14989,19 +14989,19 @@ platform.channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_count_channel_by_org_id_by_type_id_callback", true);
+            _log("ERRORS::channel_count_channel_org_id_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: error_count_channel_by_org_id_by_type_id: " + e);}
+            try {error_count_channel_org_id_type_id(data);} catch(e) { _log("Error calling: error_count_channel_org_id_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::channel_count_channel_by_org_id_by_type_id_callback", false);
+            _log("SUCCESS::channel_count_channel_org_id_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: handle_count_channel_by_org_id_by_type_id: " + e);}
+            try {handle_count_channel_org_id_type_id(data);} catch(e) { _log("Error calling: handle_count_channel_org_id_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_channel_list_by_filter: function
+    browse_channel_list_filter: function
     (
         page,
         page_size,
@@ -15010,7 +15010,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -15025,7 +15025,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_channel_list_by_filter_callback: function(data) {
+    browse_channel_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15035,20 +15035,20 @@ platform.channel.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_browse_channel_list_by_filter_callback", true);
+            _log("ERRORS::channel_browse_channel_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_channel_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_channel_list_by_filter: " + e);}
+            try {error_browse_channel_list_filter(data);} catch(e) { _log("Error calling: error_browse_channel_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::channel_browse_channel_list_by_filter_callback", false);
+            _log("SUCCESS::channel_browse_channel_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_channel_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_channel_list_by_filter: " + e);}
+            try {handle_browse_channel_list_filter(data);} catch(e) { _log("Error calling: handle_browse_channel_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_channel_by_uuid: function
+    set_channel_uuid: function
     (
         status,
         code,
@@ -15066,7 +15066,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -15095,7 +15095,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_channel_by_uuid_callback: function(data) {
+    set_channel_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15105,26 +15105,26 @@ platform.channel.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_set_channel_by_uuid_callback", true);
+            _log("ERRORS::channel_set_channel_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_channel_by_uuid(data);} catch(e) { _log("Error calling: error_set_channel_by_uuid: " + e);}
+            try {error_set_channel_uuid(data);} catch(e) { _log("Error calling: error_set_channel_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::channel_set_channel_by_uuid_callback", false);
+            _log("SUCCESS::channel_set_channel_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_channel_by_uuid(data);} catch(e) { _log("Error calling: handle_set_channel_by_uuid: " + e);}
+            try {handle_set_channel_uuid(data);} catch(e) { _log("Error calling: handle_set_channel_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_channel_by_uuid: function
+    del_channel_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15137,7 +15137,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_channel_by_uuid_callback: function(data) {
+    del_channel_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15147,20 +15147,20 @@ platform.channel.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_del_channel_by_uuid_callback", true);
+            _log("ERRORS::channel_del_channel_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_channel_by_uuid(data);} catch(e) { _log("Error calling: error_del_channel_by_uuid: " + e);}
+            try {error_del_channel_uuid(data);} catch(e) { _log("Error calling: error_del_channel_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::channel_del_channel_by_uuid_callback", false);
+            _log("SUCCESS::channel_del_channel_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_channel_by_uuid(data);} catch(e) { _log("Error calling: handle_del_channel_by_uuid: " + e);}
+            try {handle_del_channel_uuid(data);} catch(e) { _log("Error calling: handle_del_channel_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_channel_by_code_by_org_id: function
+    del_channel_code_org_id: function
     (
         code,
         org_id,
@@ -15168,7 +15168,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'del'
-                + "/by-code/by-org-id"
+                + "/code/org-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 ;
@@ -15182,7 +15182,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_channel_by_code_by_org_id_callback: function(data) {
+    del_channel_code_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15192,20 +15192,20 @@ platform.channel.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_del_channel_by_code_by_org_id_callback", true);
+            _log("ERRORS::channel_del_channel_code_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_channel_by_code_by_org_id(data);} catch(e) { _log("Error calling: error_del_channel_by_code_by_org_id: " + e);}
+            try {error_del_channel_code_org_id(data);} catch(e) { _log("Error calling: error_del_channel_code_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::channel_del_channel_by_code_by_org_id_callback", false);
+            _log("SUCCESS::channel_del_channel_code_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_channel_by_code_by_org_id(data);} catch(e) { _log("Error calling: handle_del_channel_by_code_by_org_id: " + e);}
+            try {handle_del_channel_code_org_id(data);} catch(e) { _log("Error calling: handle_del_channel_code_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_channel_by_code_by_org_id_by_type_id: function
+    del_channel_code_org_id_type_id: function
     (
         code,
         org_id,
@@ -15214,7 +15214,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'del'
-                + "/by-code/by-org-id/by-type-id"
+                + "/code/org-id/type-id"
                 + "/@code/" + code            
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
@@ -15229,7 +15229,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_channel_by_code_by_org_id_by_type_id_callback: function(data) {
+    del_channel_code_org_id_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15239,14 +15239,14 @@ platform.channel.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_del_channel_by_code_by_org_id_by_type_id_callback", true);
+            _log("ERRORS::channel_del_channel_code_org_id_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_channel_by_code_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: error_del_channel_by_code_by_org_id_by_type_id: " + e);}
+            try {error_del_channel_code_org_id_type_id(data);} catch(e) { _log("Error calling: error_del_channel_code_org_id_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::channel_del_channel_by_code_by_org_id_by_type_id_callback", false);
+            _log("SUCCESS::channel_del_channel_code_org_id_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_channel_by_code_by_org_id_by_type_id(data);} catch(e) { _log("Error calling: handle_del_channel_by_code_by_org_id_by_type_id: " + e);}
+            try {handle_del_channel_code_org_id_type_id(data);} catch(e) { _log("Error calling: handle_del_channel_code_org_id_type_id: " + e);}
         }
         
     }
@@ -15294,14 +15294,14 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_uuid: function
+    get_channel_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15315,7 +15315,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_uuid_callback: function(data) {
+    get_channel_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15325,27 +15325,27 @@ platform.channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_get_channel_list_by_uuid_callback", true);
+            _log("ERRORS::channel_get_channel_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_channel_list_by_uuid: " + e);}
+            try {error_get_channel_list_uuid(data);} catch(e) { _log("Error calling: error_get_channel_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::channel_get_channel_list_by_uuid_callback", false);
+            _log("SUCCESS::channel_get_channel_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_channel_list_by_uuid: " + e);}
+            try {handle_get_channel_list_uuid(data);} catch(e) { _log("Error calling: handle_get_channel_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_code: function
+    get_channel_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -15359,7 +15359,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_code_callback: function(data) {
+    get_channel_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15369,27 +15369,27 @@ platform.channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_get_channel_list_by_code_callback", true);
+            _log("ERRORS::channel_get_channel_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_list_by_code(data);} catch(e) { _log("Error calling: error_get_channel_list_by_code: " + e);}
+            try {error_get_channel_list_code(data);} catch(e) { _log("Error calling: error_get_channel_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::channel_get_channel_list_by_code_callback", false);
+            _log("SUCCESS::channel_get_channel_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_list_by_code(data);} catch(e) { _log("Error calling: handle_get_channel_list_by_code: " + e);}
+            try {handle_get_channel_list_code(data);} catch(e) { _log("Error calling: handle_get_channel_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_name: function
+    get_channel_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -15403,7 +15403,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_name_callback: function(data) {
+    get_channel_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15413,27 +15413,27 @@ platform.channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_get_channel_list_by_name_callback", true);
+            _log("ERRORS::channel_get_channel_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_list_by_name(data);} catch(e) { _log("Error calling: error_get_channel_list_by_name: " + e);}
+            try {error_get_channel_list_name(data);} catch(e) { _log("Error calling: error_get_channel_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::channel_get_channel_list_by_name_callback", false);
+            _log("SUCCESS::channel_get_channel_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_list_by_name(data);} catch(e) { _log("Error calling: handle_get_channel_list_by_name: " + e);}
+            try {handle_get_channel_list_name(data);} catch(e) { _log("Error calling: handle_get_channel_list_name: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_org_id: function
+    get_channel_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -15447,7 +15447,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_org_id_callback: function(data) {
+    get_channel_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15457,27 +15457,27 @@ platform.channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_get_channel_list_by_org_id_callback", true);
+            _log("ERRORS::channel_get_channel_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_channel_list_by_org_id: " + e);}
+            try {error_get_channel_list_org_id(data);} catch(e) { _log("Error calling: error_get_channel_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::channel_get_channel_list_by_org_id_callback", false);
+            _log("SUCCESS::channel_get_channel_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_channel_list_by_org_id: " + e);}
+            try {handle_get_channel_list_org_id(data);} catch(e) { _log("Error calling: handle_get_channel_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_type_id: function
+    get_channel_list_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-type-id"
+                + "/type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -15491,7 +15491,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_type_id_callback: function(data) {
+    get_channel_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15501,20 +15501,20 @@ platform.channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_get_channel_list_by_type_id_callback", true);
+            _log("ERRORS::channel_get_channel_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_channel_list_by_type_id: " + e);}
+            try {error_get_channel_list_type_id(data);} catch(e) { _log("Error calling: error_get_channel_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::channel_get_channel_list_by_type_id_callback", false);
+            _log("SUCCESS::channel_get_channel_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_channel_list_by_type_id: " + e);}
+            try {handle_get_channel_list_type_id(data);} catch(e) { _log("Error calling: handle_get_channel_list_type_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_org_id_list_by_type_id: function
+    get_channel_list_org_id_list_type_id: function
     (
         org_id,
         type_id,
@@ -15522,7 +15522,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_service + 'get'
-                + "/by-org-id/by-type-id"
+                + "/org-id/type-id"
                 + "/@org_id/" + org_id            
                 + "/@type_id/" + type_id            
                 ;
@@ -15537,7 +15537,7 @@ platform.channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_list_by_org_id_list_by_type_id_callback: function(data) {
+    get_channel_list_org_id_list_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15547,14 +15547,14 @@ platform.channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_get_channel_list_by_org_id_list_by_type_id_callback", true);
+            _log("ERRORS::channel_get_channel_list_org_id_list_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_list_by_org_id_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_channel_list_by_org_id_list_by_type_id: " + e);}
+            try {error_get_channel_list_org_id_list_type_id(data);} catch(e) { _log("Error calling: error_get_channel_list_org_id_list_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::channel_get_channel_list_by_org_id_list_by_type_id_callback", false);
+            _log("SUCCESS::channel_get_channel_list_org_id_list_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_list_by_org_id_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_channel_list_by_org_id_list_by_type_id: " + e);}
+            try {handle_get_channel_list_org_id_list_type_id(data);} catch(e) { _log("Error calling: handle_get_channel_list_org_id_list_type_id: " + e);}
         }
         
     }
@@ -15614,14 +15614,14 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_type_by_uuid: function
+    count_channel_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15634,7 +15634,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_type_by_uuid_callback: function(data) {
+    count_channel_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15645,26 +15645,26 @@ platform.channel_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_count_channel_type_by_uuid_callback", true);
+            _log("ERRORS::channel_type_count_channel_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_type_by_uuid(data);} catch(e) { _log("Error calling: error_count_channel_type_by_uuid: " + e);}
+            try {error_count_channel_type_uuid(data);} catch(e) { _log("Error calling: error_count_channel_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_count_channel_type_by_uuid_callback", false);
+            _log("SUCCESS::channel_type_count_channel_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_type_by_uuid(data);} catch(e) { _log("Error calling: handle_count_channel_type_by_uuid: " + e);}
+            try {handle_count_channel_type_uuid(data);} catch(e) { _log("Error calling: handle_count_channel_type_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_channel_type_by_code: function
+    count_channel_type_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -15677,7 +15677,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_type_by_code_callback: function(data) {
+    count_channel_type_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15688,26 +15688,26 @@ platform.channel_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_count_channel_type_by_code_callback", true);
+            _log("ERRORS::channel_type_count_channel_type_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_type_by_code(data);} catch(e) { _log("Error calling: error_count_channel_type_by_code: " + e);}
+            try {error_count_channel_type_code(data);} catch(e) { _log("Error calling: error_count_channel_type_code: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_count_channel_type_by_code_callback", false);
+            _log("SUCCESS::channel_type_count_channel_type_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_type_by_code(data);} catch(e) { _log("Error calling: handle_count_channel_type_by_code: " + e);}
+            try {handle_count_channel_type_code(data);} catch(e) { _log("Error calling: handle_count_channel_type_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_channel_type_by_name: function
+    count_channel_type_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -15720,7 +15720,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_channel_type_by_name_callback: function(data) {
+    count_channel_type_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15731,19 +15731,19 @@ platform.channel_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_count_channel_type_by_name_callback", true);
+            _log("ERRORS::channel_type_count_channel_type_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_channel_type_by_name(data);} catch(e) { _log("Error calling: error_count_channel_type_by_name: " + e);}
+            try {error_count_channel_type_name(data);} catch(e) { _log("Error calling: error_count_channel_type_name: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_count_channel_type_by_name_callback", false);
+            _log("SUCCESS::channel_type_count_channel_type_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_channel_type_by_name(data);} catch(e) { _log("Error calling: handle_count_channel_type_by_name: " + e);}
+            try {handle_count_channel_type_name(data);} catch(e) { _log("Error calling: handle_count_channel_type_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_channel_type_list_by_filter: function
+    browse_channel_type_list_filter: function
     (
         page,
         page_size,
@@ -15752,7 +15752,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -15767,7 +15767,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_channel_type_list_by_filter_callback: function(data) {
+    browse_channel_type_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15777,20 +15777,20 @@ platform.channel_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_browse_channel_type_list_by_filter_callback", true);
+            _log("ERRORS::channel_type_browse_channel_type_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_channel_type_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_channel_type_list_by_filter: " + e);}
+            try {error_browse_channel_type_list_filter(data);} catch(e) { _log("Error calling: error_browse_channel_type_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_browse_channel_type_list_by_filter_callback", false);
+            _log("SUCCESS::channel_type_browse_channel_type_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_channel_type_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_channel_type_list_by_filter: " + e);}
+            try {handle_browse_channel_type_list_filter(data);} catch(e) { _log("Error calling: handle_browse_channel_type_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_channel_type_by_uuid: function
+    set_channel_type_uuid: function
     (
         status,
         code,
@@ -15806,7 +15806,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -15833,7 +15833,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_channel_type_by_uuid_callback: function(data) {
+    set_channel_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15843,26 +15843,26 @@ platform.channel_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_set_channel_type_by_uuid_callback", true);
+            _log("ERRORS::channel_type_set_channel_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_channel_type_by_uuid(data);} catch(e) { _log("Error calling: error_set_channel_type_by_uuid: " + e);}
+            try {error_set_channel_type_uuid(data);} catch(e) { _log("Error calling: error_set_channel_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_set_channel_type_by_uuid_callback", false);
+            _log("SUCCESS::channel_type_set_channel_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_channel_type_by_uuid(data);} catch(e) { _log("Error calling: handle_set_channel_type_by_uuid: " + e);}
+            try {handle_set_channel_type_uuid(data);} catch(e) { _log("Error calling: handle_set_channel_type_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_channel_type_by_uuid: function
+    del_channel_type_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15875,7 +15875,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_channel_type_by_uuid_callback: function(data) {
+    del_channel_type_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15885,14 +15885,14 @@ platform.channel_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_del_channel_type_by_uuid_callback", true);
+            _log("ERRORS::channel_type_del_channel_type_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_channel_type_by_uuid(data);} catch(e) { _log("Error calling: error_del_channel_type_by_uuid: " + e);}
+            try {error_del_channel_type_uuid(data);} catch(e) { _log("Error calling: error_del_channel_type_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_del_channel_type_by_uuid_callback", false);
+            _log("SUCCESS::channel_type_del_channel_type_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_channel_type_by_uuid(data);} catch(e) { _log("Error calling: handle_del_channel_type_by_uuid: " + e);}
+            try {handle_del_channel_type_uuid(data);} catch(e) { _log("Error calling: handle_del_channel_type_uuid: " + e);}
         }
         
     }
@@ -15940,14 +15940,14 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_type_list_by_uuid: function
+    get_channel_type_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -15961,7 +15961,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_type_list_by_uuid_callback: function(data) {
+    get_channel_type_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -15971,27 +15971,27 @@ platform.channel_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_get_channel_type_list_by_uuid_callback", true);
+            _log("ERRORS::channel_type_get_channel_type_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_type_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_channel_type_list_by_uuid: " + e);}
+            try {error_get_channel_type_list_uuid(data);} catch(e) { _log("Error calling: error_get_channel_type_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_get_channel_type_list_by_uuid_callback", false);
+            _log("SUCCESS::channel_type_get_channel_type_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_type_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_channel_type_list_by_uuid: " + e);}
+            try {handle_get_channel_type_list_uuid(data);} catch(e) { _log("Error calling: handle_get_channel_type_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_channel_type_list_by_code: function
+    get_channel_type_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -16005,7 +16005,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_type_list_by_code_callback: function(data) {
+    get_channel_type_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16015,27 +16015,27 @@ platform.channel_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_get_channel_type_list_by_code_callback", true);
+            _log("ERRORS::channel_type_get_channel_type_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_type_list_by_code(data);} catch(e) { _log("Error calling: error_get_channel_type_list_by_code: " + e);}
+            try {error_get_channel_type_list_code(data);} catch(e) { _log("Error calling: error_get_channel_type_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_get_channel_type_list_by_code_callback", false);
+            _log("SUCCESS::channel_type_get_channel_type_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_type_list_by_code(data);} catch(e) { _log("Error calling: handle_get_channel_type_list_by_code: " + e);}
+            try {handle_get_channel_type_list_code(data);} catch(e) { _log("Error calling: handle_get_channel_type_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_channel_type_list_by_name: function
+    get_channel_type_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.channel_type_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -16049,7 +16049,7 @@ platform.channel_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_channel_type_list_by_name_callback: function(data) {
+    get_channel_type_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16059,14 +16059,14 @@ platform.channel_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::channel_type_get_channel_type_list_by_name_callback", true);
+            _log("ERRORS::channel_type_get_channel_type_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_channel_type_list_by_name(data);} catch(e) { _log("Error calling: error_get_channel_type_list_by_name: " + e);}
+            try {error_get_channel_type_list_name(data);} catch(e) { _log("Error calling: error_get_channel_type_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::channel_type_get_channel_type_list_by_name_callback", false);
+            _log("SUCCESS::channel_type_get_channel_type_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_channel_type_list_by_name(data);} catch(e) { _log("Error calling: handle_get_channel_type_list_by_name: " + e);}
+            try {handle_get_channel_type_list_name(data);} catch(e) { _log("Error calling: handle_get_channel_type_list_name: " + e);}
         }
         
     }
@@ -16126,14 +16126,14 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_question_by_uuid: function
+    count_question_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -16146,7 +16146,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_question_by_uuid_callback: function(data) {
+    count_question_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16157,26 +16157,26 @@ platform.question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_count_question_by_uuid_callback", true);
+            _log("ERRORS::question_count_question_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_question_by_uuid(data);} catch(e) { _log("Error calling: error_count_question_by_uuid: " + e);}
+            try {error_count_question_uuid(data);} catch(e) { _log("Error calling: error_count_question_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::question_count_question_by_uuid_callback", false);
+            _log("SUCCESS::question_count_question_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_question_by_uuid(data);} catch(e) { _log("Error calling: handle_count_question_by_uuid: " + e);}
+            try {handle_count_question_uuid(data);} catch(e) { _log("Error calling: handle_count_question_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_question_by_code: function
+    count_question_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -16189,7 +16189,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_question_by_code_callback: function(data) {
+    count_question_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16200,26 +16200,26 @@ platform.question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_count_question_by_code_callback", true);
+            _log("ERRORS::question_count_question_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_question_by_code(data);} catch(e) { _log("Error calling: error_count_question_by_code: " + e);}
+            try {error_count_question_code(data);} catch(e) { _log("Error calling: error_count_question_code: " + e);}
         }
         else {
-            _log("SUCCESS::question_count_question_by_code_callback", false);
+            _log("SUCCESS::question_count_question_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_question_by_code(data);} catch(e) { _log("Error calling: handle_count_question_by_code: " + e);}
+            try {handle_count_question_code(data);} catch(e) { _log("Error calling: handle_count_question_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_question_by_name: function
+    count_question_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -16232,7 +16232,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_question_by_name_callback: function(data) {
+    count_question_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16243,26 +16243,26 @@ platform.question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_count_question_by_name_callback", true);
+            _log("ERRORS::question_count_question_name_callback", true);
             // call a method that can be inline callback
-            try {error_count_question_by_name(data);} catch(e) { _log("Error calling: error_count_question_by_name: " + e);}
+            try {error_count_question_name(data);} catch(e) { _log("Error calling: error_count_question_name: " + e);}
         }
         else {
-            _log("SUCCESS::question_count_question_by_name_callback", false);
+            _log("SUCCESS::question_count_question_name_callback", false);
             // call a method that can be inline callback
-            try {handle_count_question_by_name(data);} catch(e) { _log("Error calling: handle_count_question_by_name: " + e);}
+            try {handle_count_question_name(data);} catch(e) { _log("Error calling: handle_count_question_name: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_question_by_channel_id: function
+    count_question_channel_id: function
     (
         channel_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -16275,7 +16275,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_question_by_channel_id_callback: function(data) {
+    count_question_channel_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16286,26 +16286,26 @@ platform.question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_count_question_by_channel_id_callback", true);
+            _log("ERRORS::question_count_question_channel_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_question_by_channel_id(data);} catch(e) { _log("Error calling: error_count_question_by_channel_id: " + e);}
+            try {error_count_question_channel_id(data);} catch(e) { _log("Error calling: error_count_question_channel_id: " + e);}
         }
         else {
-            _log("SUCCESS::question_count_question_by_channel_id_callback", false);
+            _log("SUCCESS::question_count_question_channel_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_question_by_channel_id(data);} catch(e) { _log("Error calling: handle_count_question_by_channel_id: " + e);}
+            try {handle_count_question_channel_id(data);} catch(e) { _log("Error calling: handle_count_question_channel_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_question_by_org_id: function
+    count_question_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -16318,7 +16318,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_question_by_org_id_callback: function(data) {
+    count_question_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16329,19 +16329,19 @@ platform.question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_count_question_by_org_id_callback", true);
+            _log("ERRORS::question_count_question_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_question_by_org_id(data);} catch(e) { _log("Error calling: error_count_question_by_org_id: " + e);}
+            try {error_count_question_org_id(data);} catch(e) { _log("Error calling: error_count_question_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::question_count_question_by_org_id_callback", false);
+            _log("SUCCESS::question_count_question_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_question_by_org_id(data);} catch(e) { _log("Error calling: handle_count_question_by_org_id: " + e);}
+            try {handle_count_question_org_id(data);} catch(e) { _log("Error calling: handle_count_question_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_question_by_channel_id_by_org_id: function
+    count_question_channel_id_org_id: function
     (
         channel_id,
         org_id,
@@ -16349,7 +16349,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -16363,7 +16363,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_question_by_channel_id_by_org_id_callback: function(data) {
+    count_question_channel_id_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16374,19 +16374,19 @@ platform.question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_count_question_by_channel_id_by_org_id_callback", true);
+            _log("ERRORS::question_count_question_channel_id_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_question_by_channel_id_by_org_id(data);} catch(e) { _log("Error calling: error_count_question_by_channel_id_by_org_id: " + e);}
+            try {error_count_question_channel_id_org_id(data);} catch(e) { _log("Error calling: error_count_question_channel_id_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::question_count_question_by_channel_id_by_org_id_callback", false);
+            _log("SUCCESS::question_count_question_channel_id_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_question_by_channel_id_by_org_id(data);} catch(e) { _log("Error calling: handle_count_question_by_channel_id_by_org_id: " + e);}
+            try {handle_count_question_channel_id_org_id(data);} catch(e) { _log("Error calling: handle_count_question_channel_id_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_question_by_channel_id_by_code: function
+    count_question_channel_id_code: function
     (
         channel_id,
         code,
@@ -16394,7 +16394,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'count'
-                + "/by-channel-id/by-code"
+                + "/channel-id/code"
                 + "/@channel_id/" + channel_id            
                 + "/@code/" + code            
                 ;
@@ -16408,7 +16408,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_question_by_channel_id_by_code_callback: function(data) {
+    count_question_channel_id_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16419,19 +16419,19 @@ platform.question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_count_question_by_channel_id_by_code_callback", true);
+            _log("ERRORS::question_count_question_channel_id_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_question_by_channel_id_by_code(data);} catch(e) { _log("Error calling: error_count_question_by_channel_id_by_code: " + e);}
+            try {error_count_question_channel_id_code(data);} catch(e) { _log("Error calling: error_count_question_channel_id_code: " + e);}
         }
         else {
-            _log("SUCCESS::question_count_question_by_channel_id_by_code_callback", false);
+            _log("SUCCESS::question_count_question_channel_id_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_question_by_channel_id_by_code(data);} catch(e) { _log("Error calling: handle_count_question_by_channel_id_by_code: " + e);}
+            try {handle_count_question_channel_id_code(data);} catch(e) { _log("Error calling: handle_count_question_channel_id_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_question_list_by_filter: function
+    browse_question_list_filter: function
     (
         page,
         page_size,
@@ -16440,7 +16440,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -16455,7 +16455,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_question_list_by_filter_callback: function(data) {
+    browse_question_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16465,20 +16465,20 @@ platform.question.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_browse_question_list_by_filter_callback", true);
+            _log("ERRORS::question_browse_question_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_question_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_question_list_by_filter: " + e);}
+            try {error_browse_question_list_filter(data);} catch(e) { _log("Error calling: error_browse_question_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::question_browse_question_list_by_filter_callback", false);
+            _log("SUCCESS::question_browse_question_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_question_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_question_list_by_filter: " + e);}
+            try {handle_browse_question_list_filter(data);} catch(e) { _log("Error calling: handle_browse_question_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_question_by_uuid: function
+    set_question_uuid: function
     (
         status,
         code,
@@ -16497,7 +16497,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -16527,7 +16527,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_question_by_uuid_callback: function(data) {
+    set_question_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16537,19 +16537,19 @@ platform.question.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_set_question_by_uuid_callback", true);
+            _log("ERRORS::question_set_question_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_question_by_uuid(data);} catch(e) { _log("Error calling: error_set_question_by_uuid: " + e);}
+            try {error_set_question_uuid(data);} catch(e) { _log("Error calling: error_set_question_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::question_set_question_by_uuid_callback", false);
+            _log("SUCCESS::question_set_question_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_question_by_uuid(data);} catch(e) { _log("Error calling: handle_set_question_by_uuid: " + e);}
+            try {handle_set_question_uuid(data);} catch(e) { _log("Error calling: handle_set_question_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_question_by_channel_id_by_code: function
+    set_question_channel_id_code: function
     (
         status,
         code,
@@ -16568,7 +16568,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'set'
-                + "/by-channel-id/by-code"
+                + "/channel-id/code"
                 + "/@channel_id/" + channel_id            
                 + "/@code/" + code            
                         
@@ -16599,7 +16599,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_question_by_channel_id_by_code_callback: function(data) {
+    set_question_channel_id_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16609,26 +16609,26 @@ platform.question.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_set_question_by_channel_id_by_code_callback", true);
+            _log("ERRORS::question_set_question_channel_id_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_question_by_channel_id_by_code(data);} catch(e) { _log("Error calling: error_set_question_by_channel_id_by_code: " + e);}
+            try {error_set_question_channel_id_code(data);} catch(e) { _log("Error calling: error_set_question_channel_id_code: " + e);}
         }
         else {
-            _log("SUCCESS::question_set_question_by_channel_id_by_code_callback", false);
+            _log("SUCCESS::question_set_question_channel_id_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_question_by_channel_id_by_code(data);} catch(e) { _log("Error calling: handle_set_question_by_channel_id_by_code: " + e);}
+            try {handle_set_question_channel_id_code(data);} catch(e) { _log("Error calling: handle_set_question_channel_id_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_question_by_uuid: function
+    del_question_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -16641,7 +16641,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_question_by_uuid_callback: function(data) {
+    del_question_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16651,20 +16651,20 @@ platform.question.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_del_question_by_uuid_callback", true);
+            _log("ERRORS::question_del_question_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_question_by_uuid(data);} catch(e) { _log("Error calling: error_del_question_by_uuid: " + e);}
+            try {error_del_question_uuid(data);} catch(e) { _log("Error calling: error_del_question_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::question_del_question_by_uuid_callback", false);
+            _log("SUCCESS::question_del_question_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_question_by_uuid(data);} catch(e) { _log("Error calling: handle_del_question_by_uuid: " + e);}
+            try {handle_del_question_uuid(data);} catch(e) { _log("Error calling: handle_del_question_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_question_by_channel_id_by_org_id: function
+    del_question_channel_id_org_id: function
     (
         channel_id,
         org_id,
@@ -16672,7 +16672,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'del'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -16686,7 +16686,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_question_by_channel_id_by_org_id_callback: function(data) {
+    del_question_channel_id_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16696,14 +16696,14 @@ platform.question.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_del_question_by_channel_id_by_org_id_callback", true);
+            _log("ERRORS::question_del_question_channel_id_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_question_by_channel_id_by_org_id(data);} catch(e) { _log("Error calling: error_del_question_by_channel_id_by_org_id: " + e);}
+            try {error_del_question_channel_id_org_id(data);} catch(e) { _log("Error calling: error_del_question_channel_id_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::question_del_question_by_channel_id_by_org_id_callback", false);
+            _log("SUCCESS::question_del_question_channel_id_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_question_by_channel_id_by_org_id(data);} catch(e) { _log("Error calling: handle_del_question_by_channel_id_by_org_id: " + e);}
+            try {handle_del_question_channel_id_org_id(data);} catch(e) { _log("Error calling: handle_del_question_channel_id_org_id: " + e);}
         }
         
     }
@@ -16751,14 +16751,14 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_uuid: function
+    get_question_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -16772,7 +16772,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_uuid_callback: function(data) {
+    get_question_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16782,27 +16782,27 @@ platform.question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_get_question_list_by_uuid_callback", true);
+            _log("ERRORS::question_get_question_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_question_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_question_list_by_uuid: " + e);}
+            try {error_get_question_list_uuid(data);} catch(e) { _log("Error calling: error_get_question_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::question_get_question_list_by_uuid_callback", false);
+            _log("SUCCESS::question_get_question_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_question_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_question_list_by_uuid: " + e);}
+            try {handle_get_question_list_uuid(data);} catch(e) { _log("Error calling: handle_get_question_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_code: function
+    get_question_list_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-code"
+                + "/code"
                 + "/@code/" + code            
                 ;
 
@@ -16816,7 +16816,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_code_callback: function(data) {
+    get_question_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16826,27 +16826,27 @@ platform.question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_get_question_list_by_code_callback", true);
+            _log("ERRORS::question_get_question_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_question_list_by_code(data);} catch(e) { _log("Error calling: error_get_question_list_by_code: " + e);}
+            try {error_get_question_list_code(data);} catch(e) { _log("Error calling: error_get_question_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::question_get_question_list_by_code_callback", false);
+            _log("SUCCESS::question_get_question_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_question_list_by_code(data);} catch(e) { _log("Error calling: handle_get_question_list_by_code: " + e);}
+            try {handle_get_question_list_code(data);} catch(e) { _log("Error calling: handle_get_question_list_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_name: function
+    get_question_list_name: function
     (
         name,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-name"
+                + "/name"
                 + "/@name/" + name            
                 ;
 
@@ -16860,7 +16860,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_name_callback: function(data) {
+    get_question_list_name_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16870,27 +16870,27 @@ platform.question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_get_question_list_by_name_callback", true);
+            _log("ERRORS::question_get_question_list_name_callback", true);
             // call a method that can be inline callback
-            try {error_get_question_list_by_name(data);} catch(e) { _log("Error calling: error_get_question_list_by_name: " + e);}
+            try {error_get_question_list_name(data);} catch(e) { _log("Error calling: error_get_question_list_name: " + e);}
         }
         else {
-            _log("SUCCESS::question_get_question_list_by_name_callback", false);
+            _log("SUCCESS::question_get_question_list_name_callback", false);
             // call a method that can be inline callback
-            try {handle_get_question_list_by_name(data);} catch(e) { _log("Error calling: handle_get_question_list_by_name: " + e);}
+            try {handle_get_question_list_name(data);} catch(e) { _log("Error calling: handle_get_question_list_name: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_type: function
+    get_question_list_type: function
     (
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-type"
+                + "/type"
                 + "/@type/" + type            
                 ;
 
@@ -16904,7 +16904,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_type_callback: function(data) {
+    get_question_list_type_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16914,27 +16914,27 @@ platform.question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_get_question_list_by_type_callback", true);
+            _log("ERRORS::question_get_question_list_type_callback", true);
             // call a method that can be inline callback
-            try {error_get_question_list_by_type(data);} catch(e) { _log("Error calling: error_get_question_list_by_type: " + e);}
+            try {error_get_question_list_type(data);} catch(e) { _log("Error calling: error_get_question_list_type: " + e);}
         }
         else {
-            _log("SUCCESS::question_get_question_list_by_type_callback", false);
+            _log("SUCCESS::question_get_question_list_type_callback", false);
             // call a method that can be inline callback
-            try {handle_get_question_list_by_type(data);} catch(e) { _log("Error calling: handle_get_question_list_by_type: " + e);}
+            try {handle_get_question_list_type(data);} catch(e) { _log("Error calling: handle_get_question_list_type: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_channel_id: function
+    get_question_list_channel_id: function
     (
         channel_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -16948,7 +16948,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_channel_id_callback: function(data) {
+    get_question_list_channel_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -16958,27 +16958,27 @@ platform.question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_get_question_list_by_channel_id_callback", true);
+            _log("ERRORS::question_get_question_list_channel_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_question_list_by_channel_id(data);} catch(e) { _log("Error calling: error_get_question_list_by_channel_id: " + e);}
+            try {error_get_question_list_channel_id(data);} catch(e) { _log("Error calling: error_get_question_list_channel_id: " + e);}
         }
         else {
-            _log("SUCCESS::question_get_question_list_by_channel_id_callback", false);
+            _log("SUCCESS::question_get_question_list_channel_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_question_list_by_channel_id(data);} catch(e) { _log("Error calling: handle_get_question_list_by_channel_id: " + e);}
+            try {handle_get_question_list_channel_id(data);} catch(e) { _log("Error calling: handle_get_question_list_channel_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_org_id: function
+    get_question_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -16992,7 +16992,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_org_id_callback: function(data) {
+    get_question_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17002,20 +17002,20 @@ platform.question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_get_question_list_by_org_id_callback", true);
+            _log("ERRORS::question_get_question_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_question_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_question_list_by_org_id: " + e);}
+            try {error_get_question_list_org_id(data);} catch(e) { _log("Error calling: error_get_question_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::question_get_question_list_by_org_id_callback", false);
+            _log("SUCCESS::question_get_question_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_question_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_question_list_by_org_id: " + e);}
+            try {handle_get_question_list_org_id(data);} catch(e) { _log("Error calling: handle_get_question_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_channel_id_list_by_org_id: function
+    get_question_list_channel_id_list_org_id: function
     (
         channel_id,
         org_id,
@@ -17023,7 +17023,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -17038,7 +17038,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_channel_id_list_by_org_id_callback: function(data) {
+    get_question_list_channel_id_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17048,20 +17048,20 @@ platform.question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_get_question_list_by_channel_id_list_by_org_id_callback", true);
+            _log("ERRORS::question_get_question_list_channel_id_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_question_list_by_channel_id_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_question_list_by_channel_id_list_by_org_id: " + e);}
+            try {error_get_question_list_channel_id_list_org_id(data);} catch(e) { _log("Error calling: error_get_question_list_channel_id_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::question_get_question_list_by_channel_id_list_by_org_id_callback", false);
+            _log("SUCCESS::question_get_question_list_channel_id_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_question_list_by_channel_id_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_question_list_by_channel_id_list_by_org_id: " + e);}
+            try {handle_get_question_list_channel_id_list_org_id(data);} catch(e) { _log("Error calling: handle_get_question_list_channel_id_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_channel_id_list_by_code: function
+    get_question_list_channel_id_list_code: function
     (
         channel_id,
         code,
@@ -17069,7 +17069,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.question_service + 'get'
-                + "/by-channel-id/by-code"
+                + "/channel-id/code"
                 + "/@channel_id/" + channel_id            
                 + "/@code/" + code            
                 ;
@@ -17084,7 +17084,7 @@ platform.question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_question_list_by_channel_id_list_by_code_callback: function(data) {
+    get_question_list_channel_id_list_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17094,14 +17094,14 @@ platform.question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::question_get_question_list_by_channel_id_list_by_code_callback", true);
+            _log("ERRORS::question_get_question_list_channel_id_list_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_question_list_by_channel_id_list_by_code(data);} catch(e) { _log("Error calling: error_get_question_list_by_channel_id_list_by_code: " + e);}
+            try {error_get_question_list_channel_id_list_code(data);} catch(e) { _log("Error calling: error_get_question_list_channel_id_list_code: " + e);}
         }
         else {
-            _log("SUCCESS::question_get_question_list_by_channel_id_list_by_code_callback", false);
+            _log("SUCCESS::question_get_question_list_channel_id_list_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_question_list_by_channel_id_list_by_code(data);} catch(e) { _log("Error calling: handle_get_question_list_by_channel_id_list_by_code: " + e);}
+            try {handle_get_question_list_channel_id_list_code(data);} catch(e) { _log("Error calling: handle_get_question_list_channel_id_list_code: " + e);}
         }
         
     }
@@ -17161,14 +17161,14 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_offer_by_uuid: function
+    count_profile_offer_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17181,7 +17181,7 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_offer_by_uuid_callback: function(data) {
+    count_profile_offer_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17192,26 +17192,26 @@ platform.profile_offer.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_offer_count_profile_offer_by_uuid_callback", true);
+            _log("ERRORS::profile_offer_count_profile_offer_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_offer_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_offer_by_uuid: " + e);}
+            try {error_count_profile_offer_uuid(data);} catch(e) { _log("Error calling: error_count_profile_offer_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_offer_count_profile_offer_by_uuid_callback", false);
+            _log("SUCCESS::profile_offer_count_profile_offer_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_offer_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_offer_by_uuid: " + e);}
+            try {handle_count_profile_offer_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_offer_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_offer_by_profile_id: function
+    count_profile_offer_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -17224,7 +17224,7 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_offer_by_profile_id_callback: function(data) {
+    count_profile_offer_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17235,19 +17235,19 @@ platform.profile_offer.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_offer_count_profile_offer_by_profile_id_callback", true);
+            _log("ERRORS::profile_offer_count_profile_offer_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_offer_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_offer_by_profile_id: " + e);}
+            try {error_count_profile_offer_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_offer_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_offer_count_profile_offer_by_profile_id_callback", false);
+            _log("SUCCESS::profile_offer_count_profile_offer_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_offer_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_offer_by_profile_id: " + e);}
+            try {handle_count_profile_offer_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_offer_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_offer_list_by_filter: function
+    browse_profile_offer_list_filter: function
     (
         page,
         page_size,
@@ -17256,7 +17256,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -17271,7 +17271,7 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_offer_list_by_filter_callback: function(data) {
+    browse_profile_offer_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17281,20 +17281,20 @@ platform.profile_offer.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_offer_browse_profile_offer_list_by_filter_callback", true);
+            _log("ERRORS::profile_offer_browse_profile_offer_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_offer_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_offer_list_by_filter: " + e);}
+            try {error_browse_profile_offer_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_offer_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_offer_browse_profile_offer_list_by_filter_callback", false);
+            _log("SUCCESS::profile_offer_browse_profile_offer_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_offer_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_offer_list_by_filter: " + e);}
+            try {handle_browse_profile_offer_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_offer_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_offer_by_uuid: function
+    set_profile_offer_uuid: function
     (
         status,
         redeem_code,
@@ -17311,7 +17311,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -17339,7 +17339,7 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_offer_by_uuid_callback: function(data) {
+    set_profile_offer_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17349,26 +17349,26 @@ platform.profile_offer.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_offer_set_profile_offer_by_uuid_callback", true);
+            _log("ERRORS::profile_offer_set_profile_offer_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_offer_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_offer_by_uuid: " + e);}
+            try {error_set_profile_offer_uuid(data);} catch(e) { _log("Error calling: error_set_profile_offer_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_offer_set_profile_offer_by_uuid_callback", false);
+            _log("SUCCESS::profile_offer_set_profile_offer_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_offer_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_offer_by_uuid: " + e);}
+            try {handle_set_profile_offer_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_offer_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_offer_by_uuid: function
+    del_profile_offer_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17381,7 +17381,7 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_offer_by_uuid_callback: function(data) {
+    del_profile_offer_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17391,27 +17391,27 @@ platform.profile_offer.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_offer_del_profile_offer_by_uuid_callback", true);
+            _log("ERRORS::profile_offer_del_profile_offer_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_offer_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_offer_by_uuid: " + e);}
+            try {error_del_profile_offer_uuid(data);} catch(e) { _log("Error calling: error_del_profile_offer_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_offer_del_profile_offer_by_uuid_callback", false);
+            _log("SUCCESS::profile_offer_del_profile_offer_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_offer_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_offer_by_uuid: " + e);}
+            try {handle_del_profile_offer_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_offer_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_offer_by_profile_id: function
+    del_profile_offer_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'del'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -17424,7 +17424,7 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_offer_by_profile_id_callback: function(data) {
+    del_profile_offer_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17434,14 +17434,14 @@ platform.profile_offer.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_offer_del_profile_offer_by_profile_id_callback", true);
+            _log("ERRORS::profile_offer_del_profile_offer_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_offer_by_profile_id(data);} catch(e) { _log("Error calling: error_del_profile_offer_by_profile_id: " + e);}
+            try {error_del_profile_offer_profile_id(data);} catch(e) { _log("Error calling: error_del_profile_offer_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_offer_del_profile_offer_by_profile_id_callback", false);
+            _log("SUCCESS::profile_offer_del_profile_offer_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_offer_by_profile_id(data);} catch(e) { _log("Error calling: handle_del_profile_offer_by_profile_id: " + e);}
+            try {handle_del_profile_offer_profile_id(data);} catch(e) { _log("Error calling: handle_del_profile_offer_profile_id: " + e);}
         }
         
     }
@@ -17489,14 +17489,14 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_offer_list_by_uuid: function
+    get_profile_offer_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17510,7 +17510,7 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_offer_list_by_uuid_callback: function(data) {
+    get_profile_offer_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17520,27 +17520,27 @@ platform.profile_offer.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_offer_get_profile_offer_list_by_uuid_callback", true);
+            _log("ERRORS::profile_offer_get_profile_offer_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_offer_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_offer_list_by_uuid: " + e);}
+            try {error_get_profile_offer_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_offer_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_offer_get_profile_offer_list_by_uuid_callback", false);
+            _log("SUCCESS::profile_offer_get_profile_offer_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_offer_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_offer_list_by_uuid: " + e);}
+            try {handle_get_profile_offer_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_offer_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_offer_list_by_profile_id: function
+    get_profile_offer_list_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_offer_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -17554,7 +17554,7 @@ platform.profile_offer.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_offer_list_by_profile_id_callback: function(data) {
+    get_profile_offer_list_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17564,14 +17564,14 @@ platform.profile_offer.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_offer_get_profile_offer_list_by_profile_id_callback", true);
+            _log("ERRORS::profile_offer_get_profile_offer_list_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_offer_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_offer_list_by_profile_id: " + e);}
+            try {error_get_profile_offer_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_offer_list_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_offer_get_profile_offer_list_by_profile_id_callback", false);
+            _log("SUCCESS::profile_offer_get_profile_offer_list_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_offer_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_offer_list_by_profile_id: " + e);}
+            try {handle_get_profile_offer_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_offer_list_profile_id: " + e);}
         }
         
     }
@@ -17631,14 +17631,14 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_app_by_uuid: function
+    count_profile_app_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17651,7 +17651,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_app_by_uuid_callback: function(data) {
+    count_profile_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17662,19 +17662,19 @@ platform.profile_app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_count_profile_app_by_uuid_callback", true);
+            _log("ERRORS::profile_app_count_profile_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_app_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_app_by_uuid: " + e);}
+            try {error_count_profile_app_uuid(data);} catch(e) { _log("Error calling: error_count_profile_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_count_profile_app_by_uuid_callback", false);
+            _log("SUCCESS::profile_app_count_profile_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_app_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_app_by_uuid: " + e);}
+            try {handle_count_profile_app_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_app_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_app_by_profile_id_by_app_id: function
+    count_profile_app_profile_id_app_id: function
     (
         profile_id,
         app_id,
@@ -17682,7 +17682,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'count'
-                + "/by-profile-id/by-app-id"
+                + "/profile-id/app-id"
                 + "/@profile_id/" + profile_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -17696,7 +17696,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_app_by_profile_id_by_app_id_callback: function(data) {
+    count_profile_app_profile_id_app_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17707,19 +17707,19 @@ platform.profile_app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_count_profile_app_by_profile_id_by_app_id_callback", true);
+            _log("ERRORS::profile_app_count_profile_app_profile_id_app_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_app_by_profile_id_by_app_id(data);} catch(e) { _log("Error calling: error_count_profile_app_by_profile_id_by_app_id: " + e);}
+            try {error_count_profile_app_profile_id_app_id(data);} catch(e) { _log("Error calling: error_count_profile_app_profile_id_app_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_count_profile_app_by_profile_id_by_app_id_callback", false);
+            _log("SUCCESS::profile_app_count_profile_app_profile_id_app_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_app_by_profile_id_by_app_id(data);} catch(e) { _log("Error calling: handle_count_profile_app_by_profile_id_by_app_id: " + e);}
+            try {handle_count_profile_app_profile_id_app_id(data);} catch(e) { _log("Error calling: handle_count_profile_app_profile_id_app_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_app_list_by_filter: function
+    browse_profile_app_list_filter: function
     (
         page,
         page_size,
@@ -17728,7 +17728,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -17743,7 +17743,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_app_list_by_filter_callback: function(data) {
+    browse_profile_app_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17753,20 +17753,20 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_browse_profile_app_list_by_filter_callback", true);
+            _log("ERRORS::profile_app_browse_profile_app_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_app_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_app_list_by_filter: " + e);}
+            try {error_browse_profile_app_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_app_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_browse_profile_app_list_by_filter_callback", false);
+            _log("SUCCESS::profile_app_browse_profile_app_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_app_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_app_list_by_filter: " + e);}
+            try {handle_browse_profile_app_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_app_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_app_by_uuid: function
+    set_profile_app_uuid: function
     (
         status,
         uuid,
@@ -17780,7 +17780,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -17805,7 +17805,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_app_by_uuid_callback: function(data) {
+    set_profile_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17815,19 +17815,19 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_set_profile_app_by_uuid_callback", true);
+            _log("ERRORS::profile_app_set_profile_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_app_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_app_by_uuid: " + e);}
+            try {error_set_profile_app_uuid(data);} catch(e) { _log("Error calling: error_set_profile_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_set_profile_app_by_uuid_callback", false);
+            _log("SUCCESS::profile_app_set_profile_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_app_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_app_by_uuid: " + e);}
+            try {handle_set_profile_app_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_app_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_app_by_profile_id_by_app_id: function
+    set_profile_app_profile_id_app_id: function
     (
         status,
         uuid,
@@ -17841,7 +17841,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'set'
-                + "/by-profile-id/by-app-id"
+                + "/profile-id/app-id"
                 + "/@profile_id/" + profile_id            
                 + "/@app_id/" + app_id            
                         
@@ -17867,7 +17867,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_app_by_profile_id_by_app_id_callback: function(data) {
+    set_profile_app_profile_id_app_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17877,26 +17877,26 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_set_profile_app_by_profile_id_by_app_id_callback", true);
+            _log("ERRORS::profile_app_set_profile_app_profile_id_app_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_app_by_profile_id_by_app_id(data);} catch(e) { _log("Error calling: error_set_profile_app_by_profile_id_by_app_id: " + e);}
+            try {error_set_profile_app_profile_id_app_id(data);} catch(e) { _log("Error calling: error_set_profile_app_profile_id_app_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_set_profile_app_by_profile_id_by_app_id_callback", false);
+            _log("SUCCESS::profile_app_set_profile_app_profile_id_app_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_app_by_profile_id_by_app_id(data);} catch(e) { _log("Error calling: handle_set_profile_app_by_profile_id_by_app_id: " + e);}
+            try {handle_set_profile_app_profile_id_app_id(data);} catch(e) { _log("Error calling: handle_set_profile_app_profile_id_app_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_app_by_uuid: function
+    del_profile_app_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -17909,7 +17909,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_app_by_uuid_callback: function(data) {
+    del_profile_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17919,20 +17919,20 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_del_profile_app_by_uuid_callback", true);
+            _log("ERRORS::profile_app_del_profile_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_app_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_app_by_uuid: " + e);}
+            try {error_del_profile_app_uuid(data);} catch(e) { _log("Error calling: error_del_profile_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_del_profile_app_by_uuid_callback", false);
+            _log("SUCCESS::profile_app_del_profile_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_app_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_app_by_uuid: " + e);}
+            try {handle_del_profile_app_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_app_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_app_by_profile_id_by_app_id: function
+    del_profile_app_profile_id_app_id: function
     (
         profile_id,
         app_id,
@@ -17940,7 +17940,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'del'
-                + "/by-profile-id/by-app-id"
+                + "/profile-id/app-id"
                 + "/@profile_id/" + profile_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -17954,7 +17954,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_app_by_profile_id_by_app_id_callback: function(data) {
+    del_profile_app_profile_id_app_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -17964,14 +17964,14 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_del_profile_app_by_profile_id_by_app_id_callback", true);
+            _log("ERRORS::profile_app_del_profile_app_profile_id_app_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_app_by_profile_id_by_app_id(data);} catch(e) { _log("Error calling: error_del_profile_app_by_profile_id_by_app_id: " + e);}
+            try {error_del_profile_app_profile_id_app_id(data);} catch(e) { _log("Error calling: error_del_profile_app_profile_id_app_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_del_profile_app_by_profile_id_by_app_id_callback", false);
+            _log("SUCCESS::profile_app_del_profile_app_profile_id_app_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_app_by_profile_id_by_app_id(data);} catch(e) { _log("Error calling: handle_del_profile_app_by_profile_id_by_app_id: " + e);}
+            try {handle_del_profile_app_profile_id_app_id(data);} catch(e) { _log("Error calling: handle_del_profile_app_profile_id_app_id: " + e);}
         }
         
     }
@@ -18019,14 +18019,14 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_app_list_by_uuid: function
+    get_profile_app_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18040,7 +18040,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_app_list_by_uuid_callback: function(data) {
+    get_profile_app_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18050,27 +18050,27 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_get_profile_app_list_by_uuid_callback", true);
+            _log("ERRORS::profile_app_get_profile_app_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_app_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_app_list_by_uuid: " + e);}
+            try {error_get_profile_app_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_app_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_get_profile_app_list_by_uuid_callback", false);
+            _log("SUCCESS::profile_app_get_profile_app_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_app_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_app_list_by_uuid: " + e);}
+            try {handle_get_profile_app_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_app_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_app_list_by_app_id: function
+    get_profile_app_list_app_id: function
     (
         app_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'get'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -18084,7 +18084,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_app_list_by_app_id_callback: function(data) {
+    get_profile_app_list_app_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18094,27 +18094,27 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_get_profile_app_list_by_app_id_callback", true);
+            _log("ERRORS::profile_app_get_profile_app_list_app_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_app_list_by_app_id(data);} catch(e) { _log("Error calling: error_get_profile_app_list_by_app_id: " + e);}
+            try {error_get_profile_app_list_app_id(data);} catch(e) { _log("Error calling: error_get_profile_app_list_app_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_get_profile_app_list_by_app_id_callback", false);
+            _log("SUCCESS::profile_app_get_profile_app_list_app_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_app_list_by_app_id(data);} catch(e) { _log("Error calling: handle_get_profile_app_list_by_app_id: " + e);}
+            try {handle_get_profile_app_list_app_id(data);} catch(e) { _log("Error calling: handle_get_profile_app_list_app_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_app_list_by_profile_id: function
+    get_profile_app_list_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -18128,7 +18128,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_app_list_by_profile_id_callback: function(data) {
+    get_profile_app_list_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18138,20 +18138,20 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_get_profile_app_list_by_profile_id_callback", true);
+            _log("ERRORS::profile_app_get_profile_app_list_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_app_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_app_list_by_profile_id: " + e);}
+            try {error_get_profile_app_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_app_list_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_get_profile_app_list_by_profile_id_callback", false);
+            _log("SUCCESS::profile_app_get_profile_app_list_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_app_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_app_list_by_profile_id: " + e);}
+            try {handle_get_profile_app_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_app_list_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_app_list_by_profile_id_list_by_app_id: function
+    get_profile_app_list_profile_id_list_app_id: function
     (
         profile_id,
         app_id,
@@ -18159,7 +18159,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_app_service + 'get'
-                + "/by-profile-id/by-app-id"
+                + "/profile-id/app-id"
                 + "/@profile_id/" + profile_id            
                 + "/@app_id/" + app_id            
                 ;
@@ -18174,7 +18174,7 @@ platform.profile_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_app_list_by_profile_id_list_by_app_id_callback: function(data) {
+    get_profile_app_list_profile_id_list_app_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18184,14 +18184,14 @@ platform.profile_app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_app_get_profile_app_list_by_profile_id_list_by_app_id_callback", true);
+            _log("ERRORS::profile_app_get_profile_app_list_profile_id_list_app_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_app_list_by_profile_id_list_by_app_id(data);} catch(e) { _log("Error calling: error_get_profile_app_list_by_profile_id_list_by_app_id: " + e);}
+            try {error_get_profile_app_list_profile_id_list_app_id(data);} catch(e) { _log("Error calling: error_get_profile_app_list_profile_id_list_app_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_app_get_profile_app_list_by_profile_id_list_by_app_id_callback", false);
+            _log("SUCCESS::profile_app_get_profile_app_list_profile_id_list_app_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_app_list_by_profile_id_list_by_app_id(data);} catch(e) { _log("Error calling: handle_get_profile_app_list_by_profile_id_list_by_app_id: " + e);}
+            try {handle_get_profile_app_list_profile_id_list_app_id(data);} catch(e) { _log("Error calling: handle_get_profile_app_list_profile_id_list_app_id: " + e);}
         }
         
     }
@@ -18251,14 +18251,14 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_org_by_uuid: function
+    count_profile_org_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18271,7 +18271,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_org_by_uuid_callback: function(data) {
+    count_profile_org_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18282,26 +18282,26 @@ platform.profile_org.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_count_profile_org_by_uuid_callback", true);
+            _log("ERRORS::profile_org_count_profile_org_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_org_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_org_by_uuid: " + e);}
+            try {error_count_profile_org_uuid(data);} catch(e) { _log("Error calling: error_count_profile_org_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_count_profile_org_by_uuid_callback", false);
+            _log("SUCCESS::profile_org_count_profile_org_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_org_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_org_by_uuid: " + e);}
+            try {handle_count_profile_org_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_org_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_org_by_org_id: function
+    count_profile_org_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -18314,7 +18314,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_org_by_org_id_callback: function(data) {
+    count_profile_org_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18325,26 +18325,26 @@ platform.profile_org.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_count_profile_org_by_org_id_callback", true);
+            _log("ERRORS::profile_org_count_profile_org_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_org_by_org_id(data);} catch(e) { _log("Error calling: error_count_profile_org_by_org_id: " + e);}
+            try {error_count_profile_org_org_id(data);} catch(e) { _log("Error calling: error_count_profile_org_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_count_profile_org_by_org_id_callback", false);
+            _log("SUCCESS::profile_org_count_profile_org_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_org_by_org_id(data);} catch(e) { _log("Error calling: handle_count_profile_org_by_org_id: " + e);}
+            try {handle_count_profile_org_org_id(data);} catch(e) { _log("Error calling: handle_count_profile_org_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_org_by_profile_id: function
+    count_profile_org_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -18357,7 +18357,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_org_by_profile_id_callback: function(data) {
+    count_profile_org_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18368,19 +18368,19 @@ platform.profile_org.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_count_profile_org_by_profile_id_callback", true);
+            _log("ERRORS::profile_org_count_profile_org_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_org_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_org_by_profile_id: " + e);}
+            try {error_count_profile_org_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_org_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_count_profile_org_by_profile_id_callback", false);
+            _log("SUCCESS::profile_org_count_profile_org_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_org_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_org_by_profile_id: " + e);}
+            try {handle_count_profile_org_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_org_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_org_list_by_filter: function
+    browse_profile_org_list_filter: function
     (
         page,
         page_size,
@@ -18389,7 +18389,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -18404,7 +18404,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_org_list_by_filter_callback: function(data) {
+    browse_profile_org_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18414,20 +18414,20 @@ platform.profile_org.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_browse_profile_org_list_by_filter_callback", true);
+            _log("ERRORS::profile_org_browse_profile_org_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_org_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_org_list_by_filter: " + e);}
+            try {error_browse_profile_org_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_org_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_browse_profile_org_list_by_filter_callback", false);
+            _log("SUCCESS::profile_org_browse_profile_org_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_org_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_org_list_by_filter: " + e);}
+            try {handle_browse_profile_org_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_org_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_org_by_uuid: function
+    set_profile_org_uuid: function
     (
         status,
         type_id,
@@ -18442,7 +18442,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -18468,7 +18468,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_org_by_uuid_callback: function(data) {
+    set_profile_org_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18478,26 +18478,26 @@ platform.profile_org.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_set_profile_org_by_uuid_callback", true);
+            _log("ERRORS::profile_org_set_profile_org_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_org_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_org_by_uuid: " + e);}
+            try {error_set_profile_org_uuid(data);} catch(e) { _log("Error calling: error_set_profile_org_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_set_profile_org_by_uuid_callback", false);
+            _log("SUCCESS::profile_org_set_profile_org_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_org_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_org_by_uuid: " + e);}
+            try {handle_set_profile_org_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_org_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_org_by_uuid: function
+    del_profile_org_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18510,7 +18510,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_org_by_uuid_callback: function(data) {
+    del_profile_org_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18520,14 +18520,14 @@ platform.profile_org.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_del_profile_org_by_uuid_callback", true);
+            _log("ERRORS::profile_org_del_profile_org_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_org_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_org_by_uuid: " + e);}
+            try {error_del_profile_org_uuid(data);} catch(e) { _log("Error calling: error_del_profile_org_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_del_profile_org_by_uuid_callback", false);
+            _log("SUCCESS::profile_org_del_profile_org_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_org_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_org_by_uuid: " + e);}
+            try {handle_del_profile_org_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_org_uuid: " + e);}
         }
         
     }
@@ -18575,14 +18575,14 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_org_list_by_uuid: function
+    get_profile_org_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18596,7 +18596,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_org_list_by_uuid_callback: function(data) {
+    get_profile_org_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18606,27 +18606,27 @@ platform.profile_org.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_get_profile_org_list_by_uuid_callback", true);
+            _log("ERRORS::profile_org_get_profile_org_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_org_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_org_list_by_uuid: " + e);}
+            try {error_get_profile_org_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_org_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_get_profile_org_list_by_uuid_callback", false);
+            _log("SUCCESS::profile_org_get_profile_org_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_org_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_org_list_by_uuid: " + e);}
+            try {handle_get_profile_org_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_org_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_org_list_by_org_id: function
+    get_profile_org_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -18640,7 +18640,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_org_list_by_org_id_callback: function(data) {
+    get_profile_org_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18650,27 +18650,27 @@ platform.profile_org.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_get_profile_org_list_by_org_id_callback", true);
+            _log("ERRORS::profile_org_get_profile_org_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_org_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_profile_org_list_by_org_id: " + e);}
+            try {error_get_profile_org_list_org_id(data);} catch(e) { _log("Error calling: error_get_profile_org_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_get_profile_org_list_by_org_id_callback", false);
+            _log("SUCCESS::profile_org_get_profile_org_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_org_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_profile_org_list_by_org_id: " + e);}
+            try {handle_get_profile_org_list_org_id(data);} catch(e) { _log("Error calling: handle_get_profile_org_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_org_list_by_profile_id: function
+    get_profile_org_list_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_org_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -18684,7 +18684,7 @@ platform.profile_org.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_org_list_by_profile_id_callback: function(data) {
+    get_profile_org_list_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18694,14 +18694,14 @@ platform.profile_org.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_org_get_profile_org_list_by_profile_id_callback", true);
+            _log("ERRORS::profile_org_get_profile_org_list_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_org_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_org_list_by_profile_id: " + e);}
+            try {error_get_profile_org_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_org_list_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_org_get_profile_org_list_by_profile_id_callback", false);
+            _log("SUCCESS::profile_org_get_profile_org_list_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_org_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_org_list_by_profile_id: " + e);}
+            try {handle_get_profile_org_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_org_list_profile_id: " + e);}
         }
         
     }
@@ -18761,14 +18761,14 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_uuid: function
+    count_profile_question_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -18781,7 +18781,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_uuid_callback: function(data) {
+    count_profile_question_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18792,26 +18792,26 @@ platform.profile_question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_count_profile_question_by_uuid_callback", true);
+            _log("ERRORS::profile_question_count_profile_question_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_question_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_question_by_uuid: " + e);}
+            try {error_count_profile_question_uuid(data);} catch(e) { _log("Error calling: error_count_profile_question_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_count_profile_question_by_uuid_callback", false);
+            _log("SUCCESS::profile_question_count_profile_question_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_question_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_question_by_uuid: " + e);}
+            try {handle_count_profile_question_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_question_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_channel_id: function
+    count_profile_question_channel_id: function
     (
         channel_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -18824,7 +18824,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_channel_id_callback: function(data) {
+    count_profile_question_channel_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18835,26 +18835,26 @@ platform.profile_question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_count_profile_question_by_channel_id_callback", true);
+            _log("ERRORS::profile_question_count_profile_question_channel_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_question_by_channel_id(data);} catch(e) { _log("Error calling: error_count_profile_question_by_channel_id: " + e);}
+            try {error_count_profile_question_channel_id(data);} catch(e) { _log("Error calling: error_count_profile_question_channel_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_count_profile_question_by_channel_id_callback", false);
+            _log("SUCCESS::profile_question_count_profile_question_channel_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_question_by_channel_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_by_channel_id: " + e);}
+            try {handle_count_profile_question_channel_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_channel_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_org_id: function
+    count_profile_question_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -18867,7 +18867,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_org_id_callback: function(data) {
+    count_profile_question_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18878,26 +18878,26 @@ platform.profile_question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_count_profile_question_by_org_id_callback", true);
+            _log("ERRORS::profile_question_count_profile_question_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_question_by_org_id(data);} catch(e) { _log("Error calling: error_count_profile_question_by_org_id: " + e);}
+            try {error_count_profile_question_org_id(data);} catch(e) { _log("Error calling: error_count_profile_question_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_count_profile_question_by_org_id_callback", false);
+            _log("SUCCESS::profile_question_count_profile_question_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_question_by_org_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_by_org_id: " + e);}
+            try {handle_count_profile_question_org_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_profile_id: function
+    count_profile_question_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -18910,7 +18910,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_profile_id_callback: function(data) {
+    count_profile_question_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18921,26 +18921,26 @@ platform.profile_question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_count_profile_question_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_count_profile_question_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_question_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_question_by_profile_id: " + e);}
+            try {error_count_profile_question_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_question_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_count_profile_question_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_count_profile_question_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_question_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_by_profile_id: " + e);}
+            try {handle_count_profile_question_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_question_id: function
+    count_profile_question_question_id: function
     (
         question_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-question-id"
+                + "/question-id"
                 + "/@question_id/" + question_id            
                 ;
 
@@ -18953,7 +18953,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_question_id_callback: function(data) {
+    count_profile_question_question_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -18964,19 +18964,19 @@ platform.profile_question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_count_profile_question_by_question_id_callback", true);
+            _log("ERRORS::profile_question_count_profile_question_question_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_question_by_question_id(data);} catch(e) { _log("Error calling: error_count_profile_question_by_question_id: " + e);}
+            try {error_count_profile_question_question_id(data);} catch(e) { _log("Error calling: error_count_profile_question_question_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_count_profile_question_by_question_id_callback", false);
+            _log("SUCCESS::profile_question_count_profile_question_question_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_question_by_question_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_by_question_id: " + e);}
+            try {handle_count_profile_question_question_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_question_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_channel_id_by_org_id: function
+    count_profile_question_channel_id_org_id: function
     (
         channel_id,
         org_id,
@@ -18984,7 +18984,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -18998,7 +18998,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_channel_id_by_org_id_callback: function(data) {
+    count_profile_question_channel_id_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19009,19 +19009,19 @@ platform.profile_question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_count_profile_question_by_channel_id_by_org_id_callback", true);
+            _log("ERRORS::profile_question_count_profile_question_channel_id_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_question_by_channel_id_by_org_id(data);} catch(e) { _log("Error calling: error_count_profile_question_by_channel_id_by_org_id: " + e);}
+            try {error_count_profile_question_channel_id_org_id(data);} catch(e) { _log("Error calling: error_count_profile_question_channel_id_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_count_profile_question_by_channel_id_by_org_id_callback", false);
+            _log("SUCCESS::profile_question_count_profile_question_channel_id_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_question_by_channel_id_by_org_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_by_channel_id_by_org_id: " + e);}
+            try {handle_count_profile_question_channel_id_org_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_channel_id_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_channel_id_by_profile_id: function
+    count_profile_question_channel_id_profile_id: function
     (
         channel_id,
         profile_id,
@@ -19029,7 +19029,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -19043,7 +19043,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_channel_id_by_profile_id_callback: function(data) {
+    count_profile_question_channel_id_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19054,19 +19054,19 @@ platform.profile_question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_count_profile_question_by_channel_id_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_count_profile_question_channel_id_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_question_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_question_by_channel_id_by_profile_id: " + e);}
+            try {error_count_profile_question_channel_id_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_question_channel_id_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_count_profile_question_by_channel_id_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_count_profile_question_channel_id_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_question_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_by_channel_id_by_profile_id: " + e);}
+            try {handle_count_profile_question_channel_id_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_channel_id_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_question_id_by_profile_id: function
+    count_profile_question_question_id_profile_id: function
     (
         question_id,
         profile_id,
@@ -19074,7 +19074,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'count'
-                + "/by-question-id/by-profile-id"
+                + "/question-id/profile-id"
                 + "/@question_id/" + question_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -19088,7 +19088,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_question_by_question_id_by_profile_id_callback: function(data) {
+    count_profile_question_question_id_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19099,19 +19099,19 @@ platform.profile_question.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_count_profile_question_by_question_id_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_count_profile_question_question_id_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_question_by_question_id_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_question_by_question_id_by_profile_id: " + e);}
+            try {error_count_profile_question_question_id_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_question_question_id_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_count_profile_question_by_question_id_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_count_profile_question_question_id_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_question_by_question_id_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_by_question_id_by_profile_id: " + e);}
+            try {handle_count_profile_question_question_id_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_question_question_id_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_question_list_by_filter: function
+    browse_profile_question_list_filter: function
     (
         page,
         page_size,
@@ -19120,7 +19120,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -19135,7 +19135,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_question_list_by_filter_callback: function(data) {
+    browse_profile_question_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19145,20 +19145,20 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_browse_profile_question_list_by_filter_callback", true);
+            _log("ERRORS::profile_question_browse_profile_question_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_question_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_question_list_by_filter: " + e);}
+            try {error_browse_profile_question_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_question_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_browse_profile_question_list_by_filter_callback", false);
+            _log("SUCCESS::profile_question_browse_profile_question_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_question_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_question_list_by_filter: " + e);}
+            try {handle_browse_profile_question_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_question_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_question_by_uuid: function
+    set_profile_question_uuid: function
     (
         status,
         profile_id,
@@ -19176,7 +19176,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -19205,7 +19205,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_question_by_uuid_callback: function(data) {
+    set_profile_question_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19215,19 +19215,19 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_set_profile_question_by_uuid_callback", true);
+            _log("ERRORS::profile_question_set_profile_question_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_question_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_question_by_uuid: " + e);}
+            try {error_set_profile_question_uuid(data);} catch(e) { _log("Error calling: error_set_profile_question_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_set_profile_question_by_uuid_callback", false);
+            _log("SUCCESS::profile_question_set_profile_question_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_question_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_question_by_uuid: " + e);}
+            try {handle_set_profile_question_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_question_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_question_by_channel_id_by_profile_id: function
+    set_profile_question_channel_id_profile_id: function
     (
         status,
         profile_id,
@@ -19245,7 +19245,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'set'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                         
@@ -19275,7 +19275,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_question_by_channel_id_by_profile_id_callback: function(data) {
+    set_profile_question_channel_id_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19285,19 +19285,19 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_set_profile_question_by_channel_id_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_set_profile_question_channel_id_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_question_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_question_by_channel_id_by_profile_id: " + e);}
+            try {error_set_profile_question_channel_id_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_question_channel_id_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_set_profile_question_by_channel_id_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_set_profile_question_channel_id_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_question_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_question_by_channel_id_by_profile_id: " + e);}
+            try {handle_set_profile_question_channel_id_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_question_channel_id_profile_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_question_by_question_id_by_profile_id: function
+    set_profile_question_question_id_profile_id: function
     (
         status,
         profile_id,
@@ -19315,7 +19315,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'set'
-                + "/by-question-id/by-profile-id"
+                + "/question-id/profile-id"
                 + "/@question_id/" + question_id            
                 + "/@profile_id/" + profile_id            
                         
@@ -19345,7 +19345,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_question_by_question_id_by_profile_id_callback: function(data) {
+    set_profile_question_question_id_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19355,19 +19355,19 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_set_profile_question_by_question_id_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_set_profile_question_question_id_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_question_by_question_id_by_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_question_by_question_id_by_profile_id: " + e);}
+            try {error_set_profile_question_question_id_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_question_question_id_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_set_profile_question_by_question_id_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_set_profile_question_question_id_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_question_by_question_id_by_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_question_by_question_id_by_profile_id: " + e);}
+            try {handle_set_profile_question_question_id_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_question_question_id_profile_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_question_by_channel_id_by_question_id_by_profile_id: function
+    set_profile_question_channel_id_question_id_profile_id: function
     (
         status,
         profile_id,
@@ -19385,7 +19385,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'set'
-                + "/by-channel-id/by-question-id/by-profile-id"
+                + "/channel-id/question-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@question_id/" + question_id            
                 + "/@profile_id/" + profile_id            
@@ -19416,7 +19416,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_question_by_channel_id_by_question_id_by_profile_id_callback: function(data) {
+    set_profile_question_channel_id_question_id_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19426,26 +19426,26 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_set_profile_question_by_channel_id_by_question_id_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_set_profile_question_channel_id_question_id_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_question_by_channel_id_by_question_id_by_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_question_by_channel_id_by_question_id_by_profile_id: " + e);}
+            try {error_set_profile_question_channel_id_question_id_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_question_channel_id_question_id_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_set_profile_question_by_channel_id_by_question_id_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_set_profile_question_channel_id_question_id_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_question_by_channel_id_by_question_id_by_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_question_by_channel_id_by_question_id_by_profile_id: " + e);}
+            try {handle_set_profile_question_channel_id_question_id_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_question_channel_id_question_id_profile_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_question_by_uuid: function
+    del_profile_question_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -19458,7 +19458,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_question_by_uuid_callback: function(data) {
+    del_profile_question_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19468,20 +19468,20 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_del_profile_question_by_uuid_callback", true);
+            _log("ERRORS::profile_question_del_profile_question_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_question_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_question_by_uuid: " + e);}
+            try {error_del_profile_question_uuid(data);} catch(e) { _log("Error calling: error_del_profile_question_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_del_profile_question_by_uuid_callback", false);
+            _log("SUCCESS::profile_question_del_profile_question_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_question_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_question_by_uuid: " + e);}
+            try {handle_del_profile_question_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_question_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_question_by_channel_id_by_org_id: function
+    del_profile_question_channel_id_org_id: function
     (
         channel_id,
         org_id,
@@ -19489,7 +19489,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'del'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -19503,7 +19503,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_question_by_channel_id_by_org_id_callback: function(data) {
+    del_profile_question_channel_id_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19513,14 +19513,14 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_del_profile_question_by_channel_id_by_org_id_callback", true);
+            _log("ERRORS::profile_question_del_profile_question_channel_id_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_question_by_channel_id_by_org_id(data);} catch(e) { _log("Error calling: error_del_profile_question_by_channel_id_by_org_id: " + e);}
+            try {error_del_profile_question_channel_id_org_id(data);} catch(e) { _log("Error calling: error_del_profile_question_channel_id_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_del_profile_question_by_channel_id_by_org_id_callback", false);
+            _log("SUCCESS::profile_question_del_profile_question_channel_id_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_question_by_channel_id_by_org_id(data);} catch(e) { _log("Error calling: handle_del_profile_question_by_channel_id_by_org_id: " + e);}
+            try {handle_del_profile_question_channel_id_org_id(data);} catch(e) { _log("Error calling: handle_del_profile_question_channel_id_org_id: " + e);}
         }
         
     }
@@ -19568,14 +19568,14 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_uuid: function
+    get_profile_question_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -19589,7 +19589,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_uuid_callback: function(data) {
+    get_profile_question_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19599,27 +19599,27 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_get_profile_question_list_by_uuid_callback", true);
+            _log("ERRORS::profile_question_get_profile_question_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_question_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_question_list_by_uuid: " + e);}
+            try {error_get_profile_question_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_question_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_get_profile_question_list_by_uuid_callback", false);
+            _log("SUCCESS::profile_question_get_profile_question_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_question_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_by_uuid: " + e);}
+            try {handle_get_profile_question_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_channel_id: function
+    get_profile_question_list_channel_id: function
     (
         channel_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -19633,7 +19633,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_channel_id_callback: function(data) {
+    get_profile_question_list_channel_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19643,27 +19643,27 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_get_profile_question_list_by_channel_id_callback", true);
+            _log("ERRORS::profile_question_get_profile_question_list_channel_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_question_list_by_channel_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_by_channel_id: " + e);}
+            try {error_get_profile_question_list_channel_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_channel_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_get_profile_question_list_by_channel_id_callback", false);
+            _log("SUCCESS::profile_question_get_profile_question_list_channel_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_question_list_by_channel_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_by_channel_id: " + e);}
+            try {handle_get_profile_question_list_channel_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_channel_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_org_id: function
+    get_profile_question_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -19677,7 +19677,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_org_id_callback: function(data) {
+    get_profile_question_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19687,27 +19687,27 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_get_profile_question_list_by_org_id_callback", true);
+            _log("ERRORS::profile_question_get_profile_question_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_question_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_by_org_id: " + e);}
+            try {error_get_profile_question_list_org_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_get_profile_question_list_by_org_id_callback", false);
+            _log("SUCCESS::profile_question_get_profile_question_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_question_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_by_org_id: " + e);}
+            try {handle_get_profile_question_list_org_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_profile_id: function
+    get_profile_question_list_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -19721,7 +19721,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_profile_id_callback: function(data) {
+    get_profile_question_list_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19731,27 +19731,27 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_get_profile_question_list_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_get_profile_question_list_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_question_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_by_profile_id: " + e);}
+            try {error_get_profile_question_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_get_profile_question_list_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_get_profile_question_list_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_question_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_by_profile_id: " + e);}
+            try {handle_get_profile_question_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_question_id: function
+    get_profile_question_list_question_id: function
     (
         question_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-question-id"
+                + "/question-id"
                 + "/@question_id/" + question_id            
                 ;
 
@@ -19765,7 +19765,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_question_id_callback: function(data) {
+    get_profile_question_list_question_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19775,20 +19775,20 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_get_profile_question_list_by_question_id_callback", true);
+            _log("ERRORS::profile_question_get_profile_question_list_question_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_question_list_by_question_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_by_question_id: " + e);}
+            try {error_get_profile_question_list_question_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_question_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_get_profile_question_list_by_question_id_callback", false);
+            _log("SUCCESS::profile_question_get_profile_question_list_question_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_question_list_by_question_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_by_question_id: " + e);}
+            try {handle_get_profile_question_list_question_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_question_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_channel_id_list_by_org_id: function
+    get_profile_question_list_channel_id_list_org_id: function
     (
         channel_id,
         org_id,
@@ -19796,7 +19796,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-channel-id/by-org-id"
+                + "/channel-id/org-id"
                 + "/@channel_id/" + channel_id            
                 + "/@org_id/" + org_id            
                 ;
@@ -19811,7 +19811,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_channel_id_list_by_org_id_callback: function(data) {
+    get_profile_question_list_channel_id_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19821,20 +19821,20 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_get_profile_question_list_by_channel_id_list_by_org_id_callback", true);
+            _log("ERRORS::profile_question_get_profile_question_list_channel_id_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_question_list_by_channel_id_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_by_channel_id_list_by_org_id: " + e);}
+            try {error_get_profile_question_list_channel_id_list_org_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_channel_id_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_get_profile_question_list_by_channel_id_list_by_org_id_callback", false);
+            _log("SUCCESS::profile_question_get_profile_question_list_channel_id_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_question_list_by_channel_id_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_by_channel_id_list_by_org_id: " + e);}
+            try {handle_get_profile_question_list_channel_id_list_org_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_channel_id_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_channel_id_list_by_profile_id: function
+    get_profile_question_list_channel_id_list_profile_id: function
     (
         channel_id,
         profile_id,
@@ -19842,7 +19842,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -19857,7 +19857,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_channel_id_list_by_profile_id_callback: function(data) {
+    get_profile_question_list_channel_id_list_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19867,20 +19867,20 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_get_profile_question_list_by_channel_id_list_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_get_profile_question_list_channel_id_list_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_question_list_by_channel_id_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_by_channel_id_list_by_profile_id: " + e);}
+            try {error_get_profile_question_list_channel_id_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_channel_id_list_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_get_profile_question_list_by_channel_id_list_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_get_profile_question_list_channel_id_list_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_question_list_by_channel_id_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_by_channel_id_list_by_profile_id: " + e);}
+            try {handle_get_profile_question_list_channel_id_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_channel_id_list_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_question_id_list_by_profile_id: function
+    get_profile_question_list_question_id_list_profile_id: function
     (
         question_id,
         profile_id,
@@ -19888,7 +19888,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_question_service + 'get'
-                + "/by-question-id/by-profile-id"
+                + "/question-id/profile-id"
                 + "/@question_id/" + question_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -19903,7 +19903,7 @@ platform.profile_question.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_question_list_by_question_id_list_by_profile_id_callback: function(data) {
+    get_profile_question_list_question_id_list_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -19913,14 +19913,14 @@ platform.profile_question.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_question_get_profile_question_list_by_question_id_list_by_profile_id_callback", true);
+            _log("ERRORS::profile_question_get_profile_question_list_question_id_list_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_question_list_by_question_id_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_by_question_id_list_by_profile_id: " + e);}
+            try {error_get_profile_question_list_question_id_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_question_list_question_id_list_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_question_get_profile_question_list_by_question_id_list_by_profile_id_callback", false);
+            _log("SUCCESS::profile_question_get_profile_question_list_question_id_list_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_question_list_by_question_id_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_by_question_id_list_by_profile_id: " + e);}
+            try {handle_get_profile_question_list_question_id_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_question_list_question_id_list_profile_id: " + e);}
         }
         
     }
@@ -19980,14 +19980,14 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_channel_by_uuid: function
+    count_profile_channel_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20000,7 +20000,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_channel_by_uuid_callback: function(data) {
+    count_profile_channel_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20011,26 +20011,26 @@ platform.profile_channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_count_profile_channel_by_uuid_callback", true);
+            _log("ERRORS::profile_channel_count_profile_channel_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_channel_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_channel_by_uuid: " + e);}
+            try {error_count_profile_channel_uuid(data);} catch(e) { _log("Error calling: error_count_profile_channel_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_count_profile_channel_by_uuid_callback", false);
+            _log("SUCCESS::profile_channel_count_profile_channel_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_channel_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_channel_by_uuid: " + e);}
+            try {handle_count_profile_channel_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_channel_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_channel_by_channel_id: function
+    count_profile_channel_channel_id: function
     (
         channel_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'count'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -20043,7 +20043,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_channel_by_channel_id_callback: function(data) {
+    count_profile_channel_channel_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20054,26 +20054,26 @@ platform.profile_channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_count_profile_channel_by_channel_id_callback", true);
+            _log("ERRORS::profile_channel_count_profile_channel_channel_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_channel_by_channel_id(data);} catch(e) { _log("Error calling: error_count_profile_channel_by_channel_id: " + e);}
+            try {error_count_profile_channel_channel_id(data);} catch(e) { _log("Error calling: error_count_profile_channel_channel_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_count_profile_channel_by_channel_id_callback", false);
+            _log("SUCCESS::profile_channel_count_profile_channel_channel_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_channel_by_channel_id(data);} catch(e) { _log("Error calling: handle_count_profile_channel_by_channel_id: " + e);}
+            try {handle_count_profile_channel_channel_id(data);} catch(e) { _log("Error calling: handle_count_profile_channel_channel_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_channel_by_profile_id: function
+    count_profile_channel_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'count'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -20086,7 +20086,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_channel_by_profile_id_callback: function(data) {
+    count_profile_channel_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20097,19 +20097,19 @@ platform.profile_channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_count_profile_channel_by_profile_id_callback", true);
+            _log("ERRORS::profile_channel_count_profile_channel_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_channel_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_channel_by_profile_id: " + e);}
+            try {error_count_profile_channel_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_channel_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_count_profile_channel_by_profile_id_callback", false);
+            _log("SUCCESS::profile_channel_count_profile_channel_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_channel_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_channel_by_profile_id: " + e);}
+            try {handle_count_profile_channel_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_channel_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_channel_by_channel_id_by_profile_id: function
+    count_profile_channel_channel_id_profile_id: function
     (
         channel_id,
         profile_id,
@@ -20117,7 +20117,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'count'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -20131,7 +20131,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_channel_by_channel_id_by_profile_id_callback: function(data) {
+    count_profile_channel_channel_id_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20142,19 +20142,19 @@ platform.profile_channel.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_count_profile_channel_by_channel_id_by_profile_id_callback", true);
+            _log("ERRORS::profile_channel_count_profile_channel_channel_id_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_channel_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_channel_by_channel_id_by_profile_id: " + e);}
+            try {error_count_profile_channel_channel_id_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_channel_channel_id_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_count_profile_channel_by_channel_id_by_profile_id_callback", false);
+            _log("SUCCESS::profile_channel_count_profile_channel_channel_id_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_channel_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_channel_by_channel_id_by_profile_id: " + e);}
+            try {handle_count_profile_channel_channel_id_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_channel_channel_id_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_channel_list_by_filter: function
+    browse_profile_channel_list_filter: function
     (
         page,
         page_size,
@@ -20163,7 +20163,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -20178,7 +20178,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_channel_list_by_filter_callback: function(data) {
+    browse_profile_channel_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20188,20 +20188,20 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_browse_profile_channel_list_by_filter_callback", true);
+            _log("ERRORS::profile_channel_browse_profile_channel_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_channel_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_channel_list_by_filter: " + e);}
+            try {error_browse_profile_channel_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_channel_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_browse_profile_channel_list_by_filter_callback", false);
+            _log("SUCCESS::profile_channel_browse_profile_channel_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_channel_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_channel_list_by_filter: " + e);}
+            try {handle_browse_profile_channel_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_channel_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_channel_by_uuid: function
+    set_profile_channel_uuid: function
     (
         status,
         channel_id,
@@ -20215,7 +20215,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -20240,7 +20240,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_channel_by_uuid_callback: function(data) {
+    set_profile_channel_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20250,19 +20250,19 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_set_profile_channel_by_uuid_callback", true);
+            _log("ERRORS::profile_channel_set_profile_channel_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_channel_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_channel_by_uuid: " + e);}
+            try {error_set_profile_channel_uuid(data);} catch(e) { _log("Error calling: error_set_profile_channel_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_set_profile_channel_by_uuid_callback", false);
+            _log("SUCCESS::profile_channel_set_profile_channel_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_channel_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_channel_by_uuid: " + e);}
+            try {handle_set_profile_channel_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_channel_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_channel_by_channel_id_by_profile_id: function
+    set_profile_channel_channel_id_profile_id: function
     (
         status,
         channel_id,
@@ -20276,7 +20276,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'set'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                         
@@ -20302,7 +20302,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_channel_by_channel_id_by_profile_id_callback: function(data) {
+    set_profile_channel_channel_id_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20312,26 +20312,26 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_set_profile_channel_by_channel_id_by_profile_id_callback", true);
+            _log("ERRORS::profile_channel_set_profile_channel_channel_id_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_channel_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_channel_by_channel_id_by_profile_id: " + e);}
+            try {error_set_profile_channel_channel_id_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_channel_channel_id_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_set_profile_channel_by_channel_id_by_profile_id_callback", false);
+            _log("SUCCESS::profile_channel_set_profile_channel_channel_id_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_channel_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_channel_by_channel_id_by_profile_id: " + e);}
+            try {handle_set_profile_channel_channel_id_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_channel_channel_id_profile_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_channel_by_uuid: function
+    del_profile_channel_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20344,7 +20344,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_channel_by_uuid_callback: function(data) {
+    del_profile_channel_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20354,20 +20354,20 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_del_profile_channel_by_uuid_callback", true);
+            _log("ERRORS::profile_channel_del_profile_channel_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_channel_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_channel_by_uuid: " + e);}
+            try {error_del_profile_channel_uuid(data);} catch(e) { _log("Error calling: error_del_profile_channel_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_del_profile_channel_by_uuid_callback", false);
+            _log("SUCCESS::profile_channel_del_profile_channel_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_channel_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_channel_by_uuid: " + e);}
+            try {handle_del_profile_channel_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_channel_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_channel_by_channel_id_by_profile_id: function
+    del_profile_channel_channel_id_profile_id: function
     (
         channel_id,
         profile_id,
@@ -20375,7 +20375,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'del'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -20389,7 +20389,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_channel_by_channel_id_by_profile_id_callback: function(data) {
+    del_profile_channel_channel_id_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20399,14 +20399,14 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_del_profile_channel_by_channel_id_by_profile_id_callback", true);
+            _log("ERRORS::profile_channel_del_profile_channel_channel_id_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_channel_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: error_del_profile_channel_by_channel_id_by_profile_id: " + e);}
+            try {error_del_profile_channel_channel_id_profile_id(data);} catch(e) { _log("Error calling: error_del_profile_channel_channel_id_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_del_profile_channel_by_channel_id_by_profile_id_callback", false);
+            _log("SUCCESS::profile_channel_del_profile_channel_channel_id_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_channel_by_channel_id_by_profile_id(data);} catch(e) { _log("Error calling: handle_del_profile_channel_by_channel_id_by_profile_id: " + e);}
+            try {handle_del_profile_channel_channel_id_profile_id(data);} catch(e) { _log("Error calling: handle_del_profile_channel_channel_id_profile_id: " + e);}
         }
         
     }
@@ -20454,14 +20454,14 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_channel_list_by_uuid: function
+    get_profile_channel_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20475,7 +20475,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_channel_list_by_uuid_callback: function(data) {
+    get_profile_channel_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20485,27 +20485,27 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_get_profile_channel_list_by_uuid_callback", true);
+            _log("ERRORS::profile_channel_get_profile_channel_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_channel_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_channel_list_by_uuid: " + e);}
+            try {error_get_profile_channel_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_channel_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_get_profile_channel_list_by_uuid_callback", false);
+            _log("SUCCESS::profile_channel_get_profile_channel_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_channel_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_channel_list_by_uuid: " + e);}
+            try {handle_get_profile_channel_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_channel_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_channel_list_by_channel_id: function
+    get_profile_channel_list_channel_id: function
     (
         channel_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'get'
-                + "/by-channel-id"
+                + "/channel-id"
                 + "/@channel_id/" + channel_id            
                 ;
 
@@ -20519,7 +20519,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_channel_list_by_channel_id_callback: function(data) {
+    get_profile_channel_list_channel_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20529,27 +20529,27 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_get_profile_channel_list_by_channel_id_callback", true);
+            _log("ERRORS::profile_channel_get_profile_channel_list_channel_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_channel_list_by_channel_id(data);} catch(e) { _log("Error calling: error_get_profile_channel_list_by_channel_id: " + e);}
+            try {error_get_profile_channel_list_channel_id(data);} catch(e) { _log("Error calling: error_get_profile_channel_list_channel_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_get_profile_channel_list_by_channel_id_callback", false);
+            _log("SUCCESS::profile_channel_get_profile_channel_list_channel_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_channel_list_by_channel_id(data);} catch(e) { _log("Error calling: handle_get_profile_channel_list_by_channel_id: " + e);}
+            try {handle_get_profile_channel_list_channel_id(data);} catch(e) { _log("Error calling: handle_get_profile_channel_list_channel_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_channel_list_by_profile_id: function
+    get_profile_channel_list_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'get'
-                + "/by-profile-id"
+                + "/profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -20563,7 +20563,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_channel_list_by_profile_id_callback: function(data) {
+    get_profile_channel_list_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20573,20 +20573,20 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_get_profile_channel_list_by_profile_id_callback", true);
+            _log("ERRORS::profile_channel_get_profile_channel_list_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_channel_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_channel_list_by_profile_id: " + e);}
+            try {error_get_profile_channel_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_channel_list_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_get_profile_channel_list_by_profile_id_callback", false);
+            _log("SUCCESS::profile_channel_get_profile_channel_list_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_channel_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_channel_list_by_profile_id: " + e);}
+            try {handle_get_profile_channel_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_channel_list_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_channel_list_by_channel_id_list_by_profile_id: function
+    get_profile_channel_list_channel_id_list_profile_id: function
     (
         channel_id,
         profile_id,
@@ -20594,7 +20594,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.profile_channel_service + 'get'
-                + "/by-channel-id/by-profile-id"
+                + "/channel-id/profile-id"
                 + "/@channel_id/" + channel_id            
                 + "/@profile_id/" + profile_id            
                 ;
@@ -20609,7 +20609,7 @@ platform.profile_channel.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_channel_list_by_channel_id_list_by_profile_id_callback: function(data) {
+    get_profile_channel_list_channel_id_list_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20619,14 +20619,14 @@ platform.profile_channel.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_channel_get_profile_channel_list_by_channel_id_list_by_profile_id_callback", true);
+            _log("ERRORS::profile_channel_get_profile_channel_list_channel_id_list_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_channel_list_by_channel_id_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_channel_list_by_channel_id_list_by_profile_id: " + e);}
+            try {error_get_profile_channel_list_channel_id_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_channel_list_channel_id_list_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_channel_get_profile_channel_list_by_channel_id_list_by_profile_id_callback", false);
+            _log("SUCCESS::profile_channel_get_profile_channel_list_channel_id_list_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_channel_list_by_channel_id_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_channel_list_by_channel_id_list_by_profile_id: " + e);}
+            try {handle_get_profile_channel_list_channel_id_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_channel_list_channel_id_list_profile_id: " + e);}
         }
         
     }
@@ -20686,14 +20686,14 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_site_by_uuid: function
+    count_org_site_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -20706,7 +20706,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_site_by_uuid_callback: function(data) {
+    count_org_site_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20717,26 +20717,26 @@ platform.org_site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_count_org_site_by_uuid_callback", true);
+            _log("ERRORS::org_site_count_org_site_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_site_by_uuid(data);} catch(e) { _log("Error calling: error_count_org_site_by_uuid: " + e);}
+            try {error_count_org_site_uuid(data);} catch(e) { _log("Error calling: error_count_org_site_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_count_org_site_by_uuid_callback", false);
+            _log("SUCCESS::org_site_count_org_site_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_site_by_uuid(data);} catch(e) { _log("Error calling: handle_count_org_site_by_uuid: " + e);}
+            try {handle_count_org_site_uuid(data);} catch(e) { _log("Error calling: handle_count_org_site_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_org_site_by_org_id: function
+    count_org_site_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'count'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -20749,7 +20749,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_site_by_org_id_callback: function(data) {
+    count_org_site_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20760,26 +20760,26 @@ platform.org_site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_count_org_site_by_org_id_callback", true);
+            _log("ERRORS::org_site_count_org_site_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_site_by_org_id(data);} catch(e) { _log("Error calling: error_count_org_site_by_org_id: " + e);}
+            try {error_count_org_site_org_id(data);} catch(e) { _log("Error calling: error_count_org_site_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_count_org_site_by_org_id_callback", false);
+            _log("SUCCESS::org_site_count_org_site_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_site_by_org_id(data);} catch(e) { _log("Error calling: handle_count_org_site_by_org_id: " + e);}
+            try {handle_count_org_site_org_id(data);} catch(e) { _log("Error calling: handle_count_org_site_org_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_org_site_by_site_id: function
+    count_org_site_site_id: function
     (
         site_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'count'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -20792,7 +20792,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_site_by_site_id_callback: function(data) {
+    count_org_site_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20803,19 +20803,19 @@ platform.org_site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_count_org_site_by_site_id_callback", true);
+            _log("ERRORS::org_site_count_org_site_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_site_by_site_id(data);} catch(e) { _log("Error calling: error_count_org_site_by_site_id: " + e);}
+            try {error_count_org_site_site_id(data);} catch(e) { _log("Error calling: error_count_org_site_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_count_org_site_by_site_id_callback", false);
+            _log("SUCCESS::org_site_count_org_site_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_site_by_site_id(data);} catch(e) { _log("Error calling: handle_count_org_site_by_site_id: " + e);}
+            try {handle_count_org_site_site_id(data);} catch(e) { _log("Error calling: handle_count_org_site_site_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_org_site_by_org_id_by_site_id: function
+    count_org_site_org_id_site_id: function
     (
         org_id,
         site_id,
@@ -20823,7 +20823,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'count'
-                + "/by-org-id/by-site-id"
+                + "/org-id/site-id"
                 + "/@org_id/" + org_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -20837,7 +20837,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_org_site_by_org_id_by_site_id_callback: function(data) {
+    count_org_site_org_id_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20848,19 +20848,19 @@ platform.org_site.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_count_org_site_by_org_id_by_site_id_callback", true);
+            _log("ERRORS::org_site_count_org_site_org_id_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_org_site_by_org_id_by_site_id(data);} catch(e) { _log("Error calling: error_count_org_site_by_org_id_by_site_id: " + e);}
+            try {error_count_org_site_org_id_site_id(data);} catch(e) { _log("Error calling: error_count_org_site_org_id_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_count_org_site_by_org_id_by_site_id_callback", false);
+            _log("SUCCESS::org_site_count_org_site_org_id_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_org_site_by_org_id_by_site_id(data);} catch(e) { _log("Error calling: handle_count_org_site_by_org_id_by_site_id: " + e);}
+            try {handle_count_org_site_org_id_site_id(data);} catch(e) { _log("Error calling: handle_count_org_site_org_id_site_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_org_site_list_by_filter: function
+    browse_org_site_list_filter: function
     (
         page,
         page_size,
@@ -20869,7 +20869,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -20884,7 +20884,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_org_site_list_by_filter_callback: function(data) {
+    browse_org_site_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20894,20 +20894,20 @@ platform.org_site.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_browse_org_site_list_by_filter_callback", true);
+            _log("ERRORS::org_site_browse_org_site_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_org_site_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_org_site_list_by_filter: " + e);}
+            try {error_browse_org_site_list_filter(data);} catch(e) { _log("Error calling: error_browse_org_site_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_browse_org_site_list_by_filter_callback", false);
+            _log("SUCCESS::org_site_browse_org_site_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_org_site_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_org_site_list_by_filter: " + e);}
+            try {handle_browse_org_site_list_filter(data);} catch(e) { _log("Error calling: handle_browse_org_site_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_org_site_by_uuid: function
+    set_org_site_uuid: function
     (
         status,
         uuid,
@@ -20921,7 +20921,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -20946,7 +20946,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_org_site_by_uuid_callback: function(data) {
+    set_org_site_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -20956,19 +20956,19 @@ platform.org_site.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_set_org_site_by_uuid_callback", true);
+            _log("ERRORS::org_site_set_org_site_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_org_site_by_uuid(data);} catch(e) { _log("Error calling: error_set_org_site_by_uuid: " + e);}
+            try {error_set_org_site_uuid(data);} catch(e) { _log("Error calling: error_set_org_site_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_set_org_site_by_uuid_callback", false);
+            _log("SUCCESS::org_site_set_org_site_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_org_site_by_uuid(data);} catch(e) { _log("Error calling: handle_set_org_site_by_uuid: " + e);}
+            try {handle_set_org_site_uuid(data);} catch(e) { _log("Error calling: handle_set_org_site_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_org_site_by_org_id_by_site_id: function
+    set_org_site_org_id_site_id: function
     (
         status,
         uuid,
@@ -20982,7 +20982,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'set'
-                + "/by-org-id/by-site-id"
+                + "/org-id/site-id"
                 + "/@org_id/" + org_id            
                 + "/@site_id/" + site_id            
                         
@@ -21008,7 +21008,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_org_site_by_org_id_by_site_id_callback: function(data) {
+    set_org_site_org_id_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21018,26 +21018,26 @@ platform.org_site.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_set_org_site_by_org_id_by_site_id_callback", true);
+            _log("ERRORS::org_site_set_org_site_org_id_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_org_site_by_org_id_by_site_id(data);} catch(e) { _log("Error calling: error_set_org_site_by_org_id_by_site_id: " + e);}
+            try {error_set_org_site_org_id_site_id(data);} catch(e) { _log("Error calling: error_set_org_site_org_id_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_set_org_site_by_org_id_by_site_id_callback", false);
+            _log("SUCCESS::org_site_set_org_site_org_id_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_org_site_by_org_id_by_site_id(data);} catch(e) { _log("Error calling: handle_set_org_site_by_org_id_by_site_id: " + e);}
+            try {handle_set_org_site_org_id_site_id(data);} catch(e) { _log("Error calling: handle_set_org_site_org_id_site_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_org_site_by_uuid: function
+    del_org_site_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21050,7 +21050,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_org_site_by_uuid_callback: function(data) {
+    del_org_site_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21060,20 +21060,20 @@ platform.org_site.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_del_org_site_by_uuid_callback", true);
+            _log("ERRORS::org_site_del_org_site_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_org_site_by_uuid(data);} catch(e) { _log("Error calling: error_del_org_site_by_uuid: " + e);}
+            try {error_del_org_site_uuid(data);} catch(e) { _log("Error calling: error_del_org_site_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_del_org_site_by_uuid_callback", false);
+            _log("SUCCESS::org_site_del_org_site_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_org_site_by_uuid(data);} catch(e) { _log("Error calling: handle_del_org_site_by_uuid: " + e);}
+            try {handle_del_org_site_uuid(data);} catch(e) { _log("Error calling: handle_del_org_site_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_org_site_by_org_id_by_site_id: function
+    del_org_site_org_id_site_id: function
     (
         org_id,
         site_id,
@@ -21081,7 +21081,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'del'
-                + "/by-org-id/by-site-id"
+                + "/org-id/site-id"
                 + "/@org_id/" + org_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -21095,7 +21095,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_org_site_by_org_id_by_site_id_callback: function(data) {
+    del_org_site_org_id_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21105,14 +21105,14 @@ platform.org_site.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_del_org_site_by_org_id_by_site_id_callback", true);
+            _log("ERRORS::org_site_del_org_site_org_id_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_org_site_by_org_id_by_site_id(data);} catch(e) { _log("Error calling: error_del_org_site_by_org_id_by_site_id: " + e);}
+            try {error_del_org_site_org_id_site_id(data);} catch(e) { _log("Error calling: error_del_org_site_org_id_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_del_org_site_by_org_id_by_site_id_callback", false);
+            _log("SUCCESS::org_site_del_org_site_org_id_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_org_site_by_org_id_by_site_id(data);} catch(e) { _log("Error calling: handle_del_org_site_by_org_id_by_site_id: " + e);}
+            try {handle_del_org_site_org_id_site_id(data);} catch(e) { _log("Error calling: handle_del_org_site_org_id_site_id: " + e);}
         }
         
     }
@@ -21160,14 +21160,14 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_site_list_by_uuid: function
+    get_org_site_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21181,7 +21181,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_site_list_by_uuid_callback: function(data) {
+    get_org_site_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21191,27 +21191,27 @@ platform.org_site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_get_org_site_list_by_uuid_callback", true);
+            _log("ERRORS::org_site_get_org_site_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_site_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_org_site_list_by_uuid: " + e);}
+            try {error_get_org_site_list_uuid(data);} catch(e) { _log("Error calling: error_get_org_site_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_get_org_site_list_by_uuid_callback", false);
+            _log("SUCCESS::org_site_get_org_site_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_site_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_org_site_list_by_uuid: " + e);}
+            try {handle_get_org_site_list_uuid(data);} catch(e) { _log("Error calling: handle_get_org_site_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_org_site_list_by_org_id: function
+    get_org_site_list_org_id: function
     (
         org_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'get'
-                + "/by-org-id"
+                + "/org-id"
                 + "/@org_id/" + org_id            
                 ;
 
@@ -21225,7 +21225,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_site_list_by_org_id_callback: function(data) {
+    get_org_site_list_org_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21235,27 +21235,27 @@ platform.org_site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_get_org_site_list_by_org_id_callback", true);
+            _log("ERRORS::org_site_get_org_site_list_org_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_site_list_by_org_id(data);} catch(e) { _log("Error calling: error_get_org_site_list_by_org_id: " + e);}
+            try {error_get_org_site_list_org_id(data);} catch(e) { _log("Error calling: error_get_org_site_list_org_id: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_get_org_site_list_by_org_id_callback", false);
+            _log("SUCCESS::org_site_get_org_site_list_org_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_site_list_by_org_id(data);} catch(e) { _log("Error calling: handle_get_org_site_list_by_org_id: " + e);}
+            try {handle_get_org_site_list_org_id(data);} catch(e) { _log("Error calling: handle_get_org_site_list_org_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_org_site_list_by_site_id: function
+    get_org_site_list_site_id: function
     (
         site_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'get'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -21269,7 +21269,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_site_list_by_site_id_callback: function(data) {
+    get_org_site_list_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21279,20 +21279,20 @@ platform.org_site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_get_org_site_list_by_site_id_callback", true);
+            _log("ERRORS::org_site_get_org_site_list_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_site_list_by_site_id(data);} catch(e) { _log("Error calling: error_get_org_site_list_by_site_id: " + e);}
+            try {error_get_org_site_list_site_id(data);} catch(e) { _log("Error calling: error_get_org_site_list_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_get_org_site_list_by_site_id_callback", false);
+            _log("SUCCESS::org_site_get_org_site_list_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_site_list_by_site_id(data);} catch(e) { _log("Error calling: handle_get_org_site_list_by_site_id: " + e);}
+            try {handle_get_org_site_list_site_id(data);} catch(e) { _log("Error calling: handle_get_org_site_list_site_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_org_site_list_by_org_id_list_by_site_id: function
+    get_org_site_list_org_id_list_site_id: function
     (
         org_id,
         site_id,
@@ -21300,7 +21300,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.org_site_service + 'get'
-                + "/by-org-id/by-site-id"
+                + "/org-id/site-id"
                 + "/@org_id/" + org_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -21315,7 +21315,7 @@ platform.org_site.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_org_site_list_by_org_id_list_by_site_id_callback: function(data) {
+    get_org_site_list_org_id_list_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21325,14 +21325,14 @@ platform.org_site.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::org_site_get_org_site_list_by_org_id_list_by_site_id_callback", true);
+            _log("ERRORS::org_site_get_org_site_list_org_id_list_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_org_site_list_by_org_id_list_by_site_id(data);} catch(e) { _log("Error calling: error_get_org_site_list_by_org_id_list_by_site_id: " + e);}
+            try {error_get_org_site_list_org_id_list_site_id(data);} catch(e) { _log("Error calling: error_get_org_site_list_org_id_list_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::org_site_get_org_site_list_by_org_id_list_by_site_id_callback", false);
+            _log("SUCCESS::org_site_get_org_site_list_org_id_list_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_org_site_list_by_org_id_list_by_site_id(data);} catch(e) { _log("Error calling: handle_get_org_site_list_by_org_id_list_by_site_id: " + e);}
+            try {handle_get_org_site_list_org_id_list_site_id(data);} catch(e) { _log("Error calling: handle_get_org_site_list_org_id_list_site_id: " + e);}
         }
         
     }
@@ -21392,14 +21392,14 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_app_by_uuid: function
+    count_site_app_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21412,7 +21412,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_app_by_uuid_callback: function(data) {
+    count_site_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21423,26 +21423,26 @@ platform.site_app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_count_site_app_by_uuid_callback", true);
+            _log("ERRORS::site_app_count_site_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_app_by_uuid(data);} catch(e) { _log("Error calling: error_count_site_app_by_uuid: " + e);}
+            try {error_count_site_app_uuid(data);} catch(e) { _log("Error calling: error_count_site_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_count_site_app_by_uuid_callback", false);
+            _log("SUCCESS::site_app_count_site_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_app_by_uuid(data);} catch(e) { _log("Error calling: handle_count_site_app_by_uuid: " + e);}
+            try {handle_count_site_app_uuid(data);} catch(e) { _log("Error calling: handle_count_site_app_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_app_by_app_id: function
+    count_site_app_app_id: function
     (
         app_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'count'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -21455,7 +21455,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_app_by_app_id_callback: function(data) {
+    count_site_app_app_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21466,26 +21466,26 @@ platform.site_app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_count_site_app_by_app_id_callback", true);
+            _log("ERRORS::site_app_count_site_app_app_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_app_by_app_id(data);} catch(e) { _log("Error calling: error_count_site_app_by_app_id: " + e);}
+            try {error_count_site_app_app_id(data);} catch(e) { _log("Error calling: error_count_site_app_app_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_count_site_app_by_app_id_callback", false);
+            _log("SUCCESS::site_app_count_site_app_app_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_app_by_app_id(data);} catch(e) { _log("Error calling: handle_count_site_app_by_app_id: " + e);}
+            try {handle_count_site_app_app_id(data);} catch(e) { _log("Error calling: handle_count_site_app_app_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_app_by_site_id: function
+    count_site_app_site_id: function
     (
         site_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'count'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -21498,7 +21498,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_app_by_site_id_callback: function(data) {
+    count_site_app_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21509,19 +21509,19 @@ platform.site_app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_count_site_app_by_site_id_callback", true);
+            _log("ERRORS::site_app_count_site_app_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_app_by_site_id(data);} catch(e) { _log("Error calling: error_count_site_app_by_site_id: " + e);}
+            try {error_count_site_app_site_id(data);} catch(e) { _log("Error calling: error_count_site_app_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_count_site_app_by_site_id_callback", false);
+            _log("SUCCESS::site_app_count_site_app_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_app_by_site_id(data);} catch(e) { _log("Error calling: handle_count_site_app_by_site_id: " + e);}
+            try {handle_count_site_app_site_id(data);} catch(e) { _log("Error calling: handle_count_site_app_site_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_site_app_by_app_id_by_site_id: function
+    count_site_app_app_id_site_id: function
     (
         app_id,
         site_id,
@@ -21529,7 +21529,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'count'
-                + "/by-app-id/by-site-id"
+                + "/app-id/site-id"
                 + "/@app_id/" + app_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -21543,7 +21543,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_site_app_by_app_id_by_site_id_callback: function(data) {
+    count_site_app_app_id_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21554,19 +21554,19 @@ platform.site_app.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_count_site_app_by_app_id_by_site_id_callback", true);
+            _log("ERRORS::site_app_count_site_app_app_id_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_site_app_by_app_id_by_site_id(data);} catch(e) { _log("Error calling: error_count_site_app_by_app_id_by_site_id: " + e);}
+            try {error_count_site_app_app_id_site_id(data);} catch(e) { _log("Error calling: error_count_site_app_app_id_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_count_site_app_by_app_id_by_site_id_callback", false);
+            _log("SUCCESS::site_app_count_site_app_app_id_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_site_app_by_app_id_by_site_id(data);} catch(e) { _log("Error calling: handle_count_site_app_by_app_id_by_site_id: " + e);}
+            try {handle_count_site_app_app_id_site_id(data);} catch(e) { _log("Error calling: handle_count_site_app_app_id_site_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_site_app_list_by_filter: function
+    browse_site_app_list_filter: function
     (
         page,
         page_size,
@@ -21575,7 +21575,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -21590,7 +21590,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_site_app_list_by_filter_callback: function(data) {
+    browse_site_app_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21600,20 +21600,20 @@ platform.site_app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_browse_site_app_list_by_filter_callback", true);
+            _log("ERRORS::site_app_browse_site_app_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_site_app_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_site_app_list_by_filter: " + e);}
+            try {error_browse_site_app_list_filter(data);} catch(e) { _log("Error calling: error_browse_site_app_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_browse_site_app_list_by_filter_callback", false);
+            _log("SUCCESS::site_app_browse_site_app_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_site_app_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_site_app_list_by_filter: " + e);}
+            try {handle_browse_site_app_list_filter(data);} catch(e) { _log("Error calling: handle_browse_site_app_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_site_app_by_uuid: function
+    set_site_app_uuid: function
     (
         status,
         uuid,
@@ -21627,7 +21627,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -21652,7 +21652,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_site_app_by_uuid_callback: function(data) {
+    set_site_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21662,19 +21662,19 @@ platform.site_app.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_set_site_app_by_uuid_callback", true);
+            _log("ERRORS::site_app_set_site_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_site_app_by_uuid(data);} catch(e) { _log("Error calling: error_set_site_app_by_uuid: " + e);}
+            try {error_set_site_app_uuid(data);} catch(e) { _log("Error calling: error_set_site_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_set_site_app_by_uuid_callback", false);
+            _log("SUCCESS::site_app_set_site_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_site_app_by_uuid(data);} catch(e) { _log("Error calling: handle_set_site_app_by_uuid: " + e);}
+            try {handle_set_site_app_uuid(data);} catch(e) { _log("Error calling: handle_set_site_app_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_site_app_by_app_id_by_site_id: function
+    set_site_app_app_id_site_id: function
     (
         status,
         uuid,
@@ -21688,7 +21688,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'set'
-                + "/by-app-id/by-site-id"
+                + "/app-id/site-id"
                 + "/@app_id/" + app_id            
                 + "/@site_id/" + site_id            
                         
@@ -21714,7 +21714,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_site_app_by_app_id_by_site_id_callback: function(data) {
+    set_site_app_app_id_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21724,26 +21724,26 @@ platform.site_app.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_set_site_app_by_app_id_by_site_id_callback", true);
+            _log("ERRORS::site_app_set_site_app_app_id_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_site_app_by_app_id_by_site_id(data);} catch(e) { _log("Error calling: error_set_site_app_by_app_id_by_site_id: " + e);}
+            try {error_set_site_app_app_id_site_id(data);} catch(e) { _log("Error calling: error_set_site_app_app_id_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_set_site_app_by_app_id_by_site_id_callback", false);
+            _log("SUCCESS::site_app_set_site_app_app_id_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_site_app_by_app_id_by_site_id(data);} catch(e) { _log("Error calling: handle_set_site_app_by_app_id_by_site_id: " + e);}
+            try {handle_set_site_app_app_id_site_id(data);} catch(e) { _log("Error calling: handle_set_site_app_app_id_site_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_site_app_by_uuid: function
+    del_site_app_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21756,7 +21756,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_site_app_by_uuid_callback: function(data) {
+    del_site_app_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21766,20 +21766,20 @@ platform.site_app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_del_site_app_by_uuid_callback", true);
+            _log("ERRORS::site_app_del_site_app_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_site_app_by_uuid(data);} catch(e) { _log("Error calling: error_del_site_app_by_uuid: " + e);}
+            try {error_del_site_app_uuid(data);} catch(e) { _log("Error calling: error_del_site_app_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_del_site_app_by_uuid_callback", false);
+            _log("SUCCESS::site_app_del_site_app_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_site_app_by_uuid(data);} catch(e) { _log("Error calling: handle_del_site_app_by_uuid: " + e);}
+            try {handle_del_site_app_uuid(data);} catch(e) { _log("Error calling: handle_del_site_app_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_site_app_by_app_id_by_site_id: function
+    del_site_app_app_id_site_id: function
     (
         app_id,
         site_id,
@@ -21787,7 +21787,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'del'
-                + "/by-app-id/by-site-id"
+                + "/app-id/site-id"
                 + "/@app_id/" + app_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -21801,7 +21801,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_site_app_by_app_id_by_site_id_callback: function(data) {
+    del_site_app_app_id_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21811,14 +21811,14 @@ platform.site_app.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_del_site_app_by_app_id_by_site_id_callback", true);
+            _log("ERRORS::site_app_del_site_app_app_id_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_site_app_by_app_id_by_site_id(data);} catch(e) { _log("Error calling: error_del_site_app_by_app_id_by_site_id: " + e);}
+            try {error_del_site_app_app_id_site_id(data);} catch(e) { _log("Error calling: error_del_site_app_app_id_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_del_site_app_by_app_id_by_site_id_callback", false);
+            _log("SUCCESS::site_app_del_site_app_app_id_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_site_app_by_app_id_by_site_id(data);} catch(e) { _log("Error calling: handle_del_site_app_by_app_id_by_site_id: " + e);}
+            try {handle_del_site_app_app_id_site_id(data);} catch(e) { _log("Error calling: handle_del_site_app_app_id_site_id: " + e);}
         }
         
     }
@@ -21866,14 +21866,14 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_app_list_by_uuid: function
+    get_site_app_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -21887,7 +21887,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_app_list_by_uuid_callback: function(data) {
+    get_site_app_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21897,27 +21897,27 @@ platform.site_app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_get_site_app_list_by_uuid_callback", true);
+            _log("ERRORS::site_app_get_site_app_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_app_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_site_app_list_by_uuid: " + e);}
+            try {error_get_site_app_list_uuid(data);} catch(e) { _log("Error calling: error_get_site_app_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_get_site_app_list_by_uuid_callback", false);
+            _log("SUCCESS::site_app_get_site_app_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_app_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_site_app_list_by_uuid: " + e);}
+            try {handle_get_site_app_list_uuid(data);} catch(e) { _log("Error calling: handle_get_site_app_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_app_list_by_app_id: function
+    get_site_app_list_app_id: function
     (
         app_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'get'
-                + "/by-app-id"
+                + "/app-id"
                 + "/@app_id/" + app_id            
                 ;
 
@@ -21931,7 +21931,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_app_list_by_app_id_callback: function(data) {
+    get_site_app_list_app_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21941,27 +21941,27 @@ platform.site_app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_get_site_app_list_by_app_id_callback", true);
+            _log("ERRORS::site_app_get_site_app_list_app_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_app_list_by_app_id(data);} catch(e) { _log("Error calling: error_get_site_app_list_by_app_id: " + e);}
+            try {error_get_site_app_list_app_id(data);} catch(e) { _log("Error calling: error_get_site_app_list_app_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_get_site_app_list_by_app_id_callback", false);
+            _log("SUCCESS::site_app_get_site_app_list_app_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_app_list_by_app_id(data);} catch(e) { _log("Error calling: handle_get_site_app_list_by_app_id: " + e);}
+            try {handle_get_site_app_list_app_id(data);} catch(e) { _log("Error calling: handle_get_site_app_list_app_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_app_list_by_site_id: function
+    get_site_app_list_site_id: function
     (
         site_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'get'
-                + "/by-site-id"
+                + "/site-id"
                 + "/@site_id/" + site_id            
                 ;
 
@@ -21975,7 +21975,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_app_list_by_site_id_callback: function(data) {
+    get_site_app_list_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -21985,20 +21985,20 @@ platform.site_app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_get_site_app_list_by_site_id_callback", true);
+            _log("ERRORS::site_app_get_site_app_list_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_app_list_by_site_id(data);} catch(e) { _log("Error calling: error_get_site_app_list_by_site_id: " + e);}
+            try {error_get_site_app_list_site_id(data);} catch(e) { _log("Error calling: error_get_site_app_list_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_get_site_app_list_by_site_id_callback", false);
+            _log("SUCCESS::site_app_get_site_app_list_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_app_list_by_site_id(data);} catch(e) { _log("Error calling: handle_get_site_app_list_by_site_id: " + e);}
+            try {handle_get_site_app_list_site_id(data);} catch(e) { _log("Error calling: handle_get_site_app_list_site_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_site_app_list_by_app_id_list_by_site_id: function
+    get_site_app_list_app_id_list_site_id: function
     (
         app_id,
         site_id,
@@ -22006,7 +22006,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.site_app_service + 'get'
-                + "/by-app-id/by-site-id"
+                + "/app-id/site-id"
                 + "/@app_id/" + app_id            
                 + "/@site_id/" + site_id            
                 ;
@@ -22021,7 +22021,7 @@ platform.site_app.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_site_app_list_by_app_id_list_by_site_id_callback: function(data) {
+    get_site_app_list_app_id_list_site_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22031,14 +22031,14 @@ platform.site_app.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::site_app_get_site_app_list_by_app_id_list_by_site_id_callback", true);
+            _log("ERRORS::site_app_get_site_app_list_app_id_list_site_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_site_app_list_by_app_id_list_by_site_id(data);} catch(e) { _log("Error calling: error_get_site_app_list_by_app_id_list_by_site_id: " + e);}
+            try {error_get_site_app_list_app_id_list_site_id(data);} catch(e) { _log("Error calling: error_get_site_app_list_app_id_list_site_id: " + e);}
         }
         else {
-            _log("SUCCESS::site_app_get_site_app_list_by_app_id_list_by_site_id_callback", false);
+            _log("SUCCESS::site_app_get_site_app_list_app_id_list_site_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_site_app_list_by_app_id_list_by_site_id(data);} catch(e) { _log("Error calling: handle_get_site_app_list_by_app_id_list_by_site_id: " + e);}
+            try {handle_get_site_app_list_app_id_list_site_id(data);} catch(e) { _log("Error calling: handle_get_site_app_list_app_id_list_site_id: " + e);}
         }
         
     }
@@ -22098,14 +22098,14 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_photo_by_uuid: function
+    count_photo_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -22118,7 +22118,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_photo_by_uuid_callback: function(data) {
+    count_photo_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22129,26 +22129,26 @@ platform.photo.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_count_photo_by_uuid_callback", true);
+            _log("ERRORS::photo_count_photo_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_photo_by_uuid(data);} catch(e) { _log("Error calling: error_count_photo_by_uuid: " + e);}
+            try {error_count_photo_uuid(data);} catch(e) { _log("Error calling: error_count_photo_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::photo_count_photo_by_uuid_callback", false);
+            _log("SUCCESS::photo_count_photo_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_photo_by_uuid(data);} catch(e) { _log("Error calling: handle_count_photo_by_uuid: " + e);}
+            try {handle_count_photo_uuid(data);} catch(e) { _log("Error calling: handle_count_photo_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_photo_by_external_id: function
+    count_photo_external_id: function
     (
         external_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -22161,7 +22161,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_photo_by_external_id_callback: function(data) {
+    count_photo_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22172,26 +22172,26 @@ platform.photo.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_count_photo_by_external_id_callback", true);
+            _log("ERRORS::photo_count_photo_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_photo_by_external_id(data);} catch(e) { _log("Error calling: error_count_photo_by_external_id: " + e);}
+            try {error_count_photo_external_id(data);} catch(e) { _log("Error calling: error_count_photo_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_count_photo_by_external_id_callback", false);
+            _log("SUCCESS::photo_count_photo_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_photo_by_external_id(data);} catch(e) { _log("Error calling: handle_count_photo_by_external_id: " + e);}
+            try {handle_count_photo_external_id(data);} catch(e) { _log("Error calling: handle_count_photo_external_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_photo_by_url: function
+    count_photo_url: function
     (
         url,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -22204,7 +22204,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_photo_by_url_callback: function(data) {
+    count_photo_url_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22215,19 +22215,19 @@ platform.photo.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_count_photo_by_url_callback", true);
+            _log("ERRORS::photo_count_photo_url_callback", true);
             // call a method that can be inline callback
-            try {error_count_photo_by_url(data);} catch(e) { _log("Error calling: error_count_photo_by_url: " + e);}
+            try {error_count_photo_url(data);} catch(e) { _log("Error calling: error_count_photo_url: " + e);}
         }
         else {
-            _log("SUCCESS::photo_count_photo_by_url_callback", false);
+            _log("SUCCESS::photo_count_photo_url_callback", false);
             // call a method that can be inline callback
-            try {handle_count_photo_by_url(data);} catch(e) { _log("Error calling: handle_count_photo_by_url: " + e);}
+            try {handle_count_photo_url(data);} catch(e) { _log("Error calling: handle_count_photo_url: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_photo_by_url_by_external_id: function
+    count_photo_url_external_id: function
     (
         url,
         external_id,
@@ -22235,7 +22235,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -22249,7 +22249,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_photo_by_url_by_external_id_callback: function(data) {
+    count_photo_url_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22260,19 +22260,19 @@ platform.photo.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_count_photo_by_url_by_external_id_callback", true);
+            _log("ERRORS::photo_count_photo_url_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_photo_by_url_by_external_id(data);} catch(e) { _log("Error calling: error_count_photo_by_url_by_external_id: " + e);}
+            try {error_count_photo_url_external_id(data);} catch(e) { _log("Error calling: error_count_photo_url_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_count_photo_by_url_by_external_id_callback", false);
+            _log("SUCCESS::photo_count_photo_url_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_photo_by_url_by_external_id(data);} catch(e) { _log("Error calling: handle_count_photo_by_url_by_external_id: " + e);}
+            try {handle_count_photo_url_external_id(data);} catch(e) { _log("Error calling: handle_count_photo_url_external_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_photo_by_uuid_by_external_id: function
+    count_photo_uuid_external_id: function
     (
         uuid,
         external_id,
@@ -22280,7 +22280,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'count'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -22294,7 +22294,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_photo_by_uuid_by_external_id_callback: function(data) {
+    count_photo_uuid_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22305,19 +22305,19 @@ platform.photo.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_count_photo_by_uuid_by_external_id_callback", true);
+            _log("ERRORS::photo_count_photo_uuid_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_photo_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: error_count_photo_by_uuid_by_external_id: " + e);}
+            try {error_count_photo_uuid_external_id(data);} catch(e) { _log("Error calling: error_count_photo_uuid_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_count_photo_by_uuid_by_external_id_callback", false);
+            _log("SUCCESS::photo_count_photo_uuid_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_photo_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: handle_count_photo_by_uuid_by_external_id: " + e);}
+            try {handle_count_photo_uuid_external_id(data);} catch(e) { _log("Error calling: handle_count_photo_uuid_external_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_photo_list_by_filter: function
+    browse_photo_list_filter: function
     (
         page,
         page_size,
@@ -22326,7 +22326,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -22341,7 +22341,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_photo_list_by_filter_callback: function(data) {
+    browse_photo_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22351,20 +22351,20 @@ platform.photo.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_browse_photo_list_by_filter_callback", true);
+            _log("ERRORS::photo_browse_photo_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_photo_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_photo_list_by_filter: " + e);}
+            try {error_browse_photo_list_filter(data);} catch(e) { _log("Error calling: error_browse_photo_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::photo_browse_photo_list_by_filter_callback", false);
+            _log("SUCCESS::photo_browse_photo_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_photo_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_photo_list_by_filter: " + e);}
+            try {handle_browse_photo_list_filter(data);} catch(e) { _log("Error calling: handle_browse_photo_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_photo_by_uuid: function
+    set_photo_uuid: function
     (
         status,
         third_party_oembed,
@@ -22387,7 +22387,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -22421,7 +22421,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_photo_by_uuid_callback: function(data) {
+    set_photo_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22431,19 +22431,19 @@ platform.photo.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_set_photo_by_uuid_callback", true);
+            _log("ERRORS::photo_set_photo_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_photo_by_uuid(data);} catch(e) { _log("Error calling: error_set_photo_by_uuid: " + e);}
+            try {error_set_photo_uuid(data);} catch(e) { _log("Error calling: error_set_photo_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::photo_set_photo_by_uuid_callback", false);
+            _log("SUCCESS::photo_set_photo_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_photo_by_uuid(data);} catch(e) { _log("Error calling: handle_set_photo_by_uuid: " + e);}
+            try {handle_set_photo_uuid(data);} catch(e) { _log("Error calling: handle_set_photo_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_photo_by_external_id: function
+    set_photo_external_id: function
     (
         status,
         third_party_oembed,
@@ -22466,7 +22466,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                         
                 ;
@@ -22500,7 +22500,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_photo_by_external_id_callback: function(data) {
+    set_photo_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22510,19 +22510,19 @@ platform.photo.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_set_photo_by_external_id_callback", true);
+            _log("ERRORS::photo_set_photo_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_photo_by_external_id(data);} catch(e) { _log("Error calling: error_set_photo_by_external_id: " + e);}
+            try {error_set_photo_external_id(data);} catch(e) { _log("Error calling: error_set_photo_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_set_photo_by_external_id_callback", false);
+            _log("SUCCESS::photo_set_photo_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_photo_by_external_id(data);} catch(e) { _log("Error calling: handle_set_photo_by_external_id: " + e);}
+            try {handle_set_photo_external_id(data);} catch(e) { _log("Error calling: handle_set_photo_external_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_photo_by_url: function
+    set_photo_url: function
     (
         status,
         third_party_oembed,
@@ -22545,7 +22545,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -22579,7 +22579,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_photo_by_url_callback: function(data) {
+    set_photo_url_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22589,19 +22589,19 @@ platform.photo.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_set_photo_by_url_callback", true);
+            _log("ERRORS::photo_set_photo_url_callback", true);
             // call a method that can be inline callback
-            try {error_set_photo_by_url(data);} catch(e) { _log("Error calling: error_set_photo_by_url: " + e);}
+            try {error_set_photo_url(data);} catch(e) { _log("Error calling: error_set_photo_url: " + e);}
         }
         else {
-            _log("SUCCESS::photo_set_photo_by_url_callback", false);
+            _log("SUCCESS::photo_set_photo_url_callback", false);
             // call a method that can be inline callback
-            try {handle_set_photo_by_url(data);} catch(e) { _log("Error calling: handle_set_photo_by_url: " + e);}
+            try {handle_set_photo_url(data);} catch(e) { _log("Error calling: handle_set_photo_url: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_photo_by_url_by_external_id: function
+    set_photo_url_external_id: function
     (
         status,
         third_party_oembed,
@@ -22624,7 +22624,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                         
@@ -22659,7 +22659,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_photo_by_url_by_external_id_callback: function(data) {
+    set_photo_url_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22669,19 +22669,19 @@ platform.photo.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_set_photo_by_url_by_external_id_callback", true);
+            _log("ERRORS::photo_set_photo_url_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_photo_by_url_by_external_id(data);} catch(e) { _log("Error calling: error_set_photo_by_url_by_external_id: " + e);}
+            try {error_set_photo_url_external_id(data);} catch(e) { _log("Error calling: error_set_photo_url_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_set_photo_by_url_by_external_id_callback", false);
+            _log("SUCCESS::photo_set_photo_url_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_photo_by_url_by_external_id(data);} catch(e) { _log("Error calling: handle_set_photo_by_url_by_external_id: " + e);}
+            try {handle_set_photo_url_external_id(data);} catch(e) { _log("Error calling: handle_set_photo_url_external_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_photo_by_uuid_by_external_id: function
+    set_photo_uuid_external_id: function
     (
         status,
         third_party_oembed,
@@ -22704,7 +22704,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'set'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                         
@@ -22739,7 +22739,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_photo_by_uuid_by_external_id_callback: function(data) {
+    set_photo_uuid_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22749,26 +22749,26 @@ platform.photo.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_set_photo_by_uuid_by_external_id_callback", true);
+            _log("ERRORS::photo_set_photo_uuid_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_photo_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: error_set_photo_by_uuid_by_external_id: " + e);}
+            try {error_set_photo_uuid_external_id(data);} catch(e) { _log("Error calling: error_set_photo_uuid_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_set_photo_by_uuid_by_external_id_callback", false);
+            _log("SUCCESS::photo_set_photo_uuid_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_photo_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: handle_set_photo_by_uuid_by_external_id: " + e);}
+            try {handle_set_photo_uuid_external_id(data);} catch(e) { _log("Error calling: handle_set_photo_uuid_external_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_photo_by_uuid: function
+    del_photo_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -22781,7 +22781,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_photo_by_uuid_callback: function(data) {
+    del_photo_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22791,27 +22791,27 @@ platform.photo.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_del_photo_by_uuid_callback", true);
+            _log("ERRORS::photo_del_photo_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_photo_by_uuid(data);} catch(e) { _log("Error calling: error_del_photo_by_uuid: " + e);}
+            try {error_del_photo_uuid(data);} catch(e) { _log("Error calling: error_del_photo_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::photo_del_photo_by_uuid_callback", false);
+            _log("SUCCESS::photo_del_photo_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_photo_by_uuid(data);} catch(e) { _log("Error calling: handle_del_photo_by_uuid: " + e);}
+            try {handle_del_photo_uuid(data);} catch(e) { _log("Error calling: handle_del_photo_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_photo_by_external_id: function
+    del_photo_external_id: function
     (
         external_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -22824,7 +22824,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_photo_by_external_id_callback: function(data) {
+    del_photo_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22834,27 +22834,27 @@ platform.photo.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_del_photo_by_external_id_callback", true);
+            _log("ERRORS::photo_del_photo_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_photo_by_external_id(data);} catch(e) { _log("Error calling: error_del_photo_by_external_id: " + e);}
+            try {error_del_photo_external_id(data);} catch(e) { _log("Error calling: error_del_photo_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_del_photo_by_external_id_callback", false);
+            _log("SUCCESS::photo_del_photo_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_photo_by_external_id(data);} catch(e) { _log("Error calling: handle_del_photo_by_external_id: " + e);}
+            try {handle_del_photo_external_id(data);} catch(e) { _log("Error calling: handle_del_photo_external_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_photo_by_url: function
+    del_photo_url: function
     (
         url,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -22867,7 +22867,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_photo_by_url_callback: function(data) {
+    del_photo_url_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22877,20 +22877,20 @@ platform.photo.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_del_photo_by_url_callback", true);
+            _log("ERRORS::photo_del_photo_url_callback", true);
             // call a method that can be inline callback
-            try {error_del_photo_by_url(data);} catch(e) { _log("Error calling: error_del_photo_by_url: " + e);}
+            try {error_del_photo_url(data);} catch(e) { _log("Error calling: error_del_photo_url: " + e);}
         }
         else {
-            _log("SUCCESS::photo_del_photo_by_url_callback", false);
+            _log("SUCCESS::photo_del_photo_url_callback", false);
             // call a method that can be inline callback
-            try {handle_del_photo_by_url(data);} catch(e) { _log("Error calling: handle_del_photo_by_url: " + e);}
+            try {handle_del_photo_url(data);} catch(e) { _log("Error calling: handle_del_photo_url: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_photo_by_url_by_external_id: function
+    del_photo_url_external_id: function
     (
         url,
         external_id,
@@ -22898,7 +22898,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -22912,7 +22912,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_photo_by_url_by_external_id_callback: function(data) {
+    del_photo_url_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22922,20 +22922,20 @@ platform.photo.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_del_photo_by_url_by_external_id_callback", true);
+            _log("ERRORS::photo_del_photo_url_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_photo_by_url_by_external_id(data);} catch(e) { _log("Error calling: error_del_photo_by_url_by_external_id: " + e);}
+            try {error_del_photo_url_external_id(data);} catch(e) { _log("Error calling: error_del_photo_url_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_del_photo_by_url_by_external_id_callback", false);
+            _log("SUCCESS::photo_del_photo_url_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_photo_by_url_by_external_id(data);} catch(e) { _log("Error calling: handle_del_photo_by_url_by_external_id: " + e);}
+            try {handle_del_photo_url_external_id(data);} catch(e) { _log("Error calling: handle_del_photo_url_external_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_photo_by_uuid_by_external_id: function
+    del_photo_uuid_external_id: function
     (
         uuid,
         external_id,
@@ -22943,7 +22943,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'del'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -22957,7 +22957,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_photo_by_uuid_by_external_id_callback: function(data) {
+    del_photo_uuid_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -22967,14 +22967,14 @@ platform.photo.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_del_photo_by_uuid_by_external_id_callback", true);
+            _log("ERRORS::photo_del_photo_uuid_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_photo_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: error_del_photo_by_uuid_by_external_id: " + e);}
+            try {error_del_photo_uuid_external_id(data);} catch(e) { _log("Error calling: error_del_photo_uuid_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_del_photo_by_uuid_by_external_id_callback", false);
+            _log("SUCCESS::photo_del_photo_uuid_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_photo_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: handle_del_photo_by_uuid_by_external_id: " + e);}
+            try {handle_del_photo_uuid_external_id(data);} catch(e) { _log("Error calling: handle_del_photo_uuid_external_id: " + e);}
         }
         
     }
@@ -23022,14 +23022,14 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_uuid: function
+    get_photo_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -23043,7 +23043,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_uuid_callback: function(data) {
+    get_photo_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23053,27 +23053,27 @@ platform.photo.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_get_photo_list_by_uuid_callback", true);
+            _log("ERRORS::photo_get_photo_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_photo_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_photo_list_by_uuid: " + e);}
+            try {error_get_photo_list_uuid(data);} catch(e) { _log("Error calling: error_get_photo_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::photo_get_photo_list_by_uuid_callback", false);
+            _log("SUCCESS::photo_get_photo_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_photo_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_photo_list_by_uuid: " + e);}
+            try {handle_get_photo_list_uuid(data);} catch(e) { _log("Error calling: handle_get_photo_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_external_id: function
+    get_photo_list_external_id: function
     (
         external_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -23087,7 +23087,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_external_id_callback: function(data) {
+    get_photo_list_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23097,27 +23097,27 @@ platform.photo.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_get_photo_list_by_external_id_callback", true);
+            _log("ERRORS::photo_get_photo_list_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_photo_list_by_external_id(data);} catch(e) { _log("Error calling: error_get_photo_list_by_external_id: " + e);}
+            try {error_get_photo_list_external_id(data);} catch(e) { _log("Error calling: error_get_photo_list_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_get_photo_list_by_external_id_callback", false);
+            _log("SUCCESS::photo_get_photo_list_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_photo_list_by_external_id(data);} catch(e) { _log("Error calling: handle_get_photo_list_by_external_id: " + e);}
+            try {handle_get_photo_list_external_id(data);} catch(e) { _log("Error calling: handle_get_photo_list_external_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_url: function
+    get_photo_list_url: function
     (
         url,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -23131,7 +23131,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_url_callback: function(data) {
+    get_photo_list_url_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23141,20 +23141,20 @@ platform.photo.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_get_photo_list_by_url_callback", true);
+            _log("ERRORS::photo_get_photo_list_url_callback", true);
             // call a method that can be inline callback
-            try {error_get_photo_list_by_url(data);} catch(e) { _log("Error calling: error_get_photo_list_by_url: " + e);}
+            try {error_get_photo_list_url(data);} catch(e) { _log("Error calling: error_get_photo_list_url: " + e);}
         }
         else {
-            _log("SUCCESS::photo_get_photo_list_by_url_callback", false);
+            _log("SUCCESS::photo_get_photo_list_url_callback", false);
             // call a method that can be inline callback
-            try {handle_get_photo_list_by_url(data);} catch(e) { _log("Error calling: handle_get_photo_list_by_url: " + e);}
+            try {handle_get_photo_list_url(data);} catch(e) { _log("Error calling: handle_get_photo_list_url: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_url_list_by_external_id: function
+    get_photo_list_url_list_external_id: function
     (
         url,
         external_id,
@@ -23162,7 +23162,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -23177,7 +23177,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_url_list_by_external_id_callback: function(data) {
+    get_photo_list_url_list_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23187,20 +23187,20 @@ platform.photo.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_get_photo_list_by_url_list_by_external_id_callback", true);
+            _log("ERRORS::photo_get_photo_list_url_list_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_photo_list_by_url_list_by_external_id(data);} catch(e) { _log("Error calling: error_get_photo_list_by_url_list_by_external_id: " + e);}
+            try {error_get_photo_list_url_list_external_id(data);} catch(e) { _log("Error calling: error_get_photo_list_url_list_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_get_photo_list_by_url_list_by_external_id_callback", false);
+            _log("SUCCESS::photo_get_photo_list_url_list_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_photo_list_by_url_list_by_external_id(data);} catch(e) { _log("Error calling: handle_get_photo_list_by_url_list_by_external_id: " + e);}
+            try {handle_get_photo_list_url_list_external_id(data);} catch(e) { _log("Error calling: handle_get_photo_list_url_list_external_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_uuid_list_by_external_id: function
+    get_photo_list_uuid_list_external_id: function
     (
         uuid,
         external_id,
@@ -23208,7 +23208,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.photo_service + 'get'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -23223,7 +23223,7 @@ platform.photo.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_photo_list_by_uuid_list_by_external_id_callback: function(data) {
+    get_photo_list_uuid_list_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23233,14 +23233,14 @@ platform.photo.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::photo_get_photo_list_by_uuid_list_by_external_id_callback", true);
+            _log("ERRORS::photo_get_photo_list_uuid_list_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_photo_list_by_uuid_list_by_external_id(data);} catch(e) { _log("Error calling: error_get_photo_list_by_uuid_list_by_external_id: " + e);}
+            try {error_get_photo_list_uuid_list_external_id(data);} catch(e) { _log("Error calling: error_get_photo_list_uuid_list_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::photo_get_photo_list_by_uuid_list_by_external_id_callback", false);
+            _log("SUCCESS::photo_get_photo_list_uuid_list_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_photo_list_by_uuid_list_by_external_id(data);} catch(e) { _log("Error calling: handle_get_photo_list_by_uuid_list_by_external_id: " + e);}
+            try {handle_get_photo_list_uuid_list_external_id(data);} catch(e) { _log("Error calling: handle_get_photo_list_uuid_list_external_id: " + e);}
         }
         
     }
@@ -23300,14 +23300,14 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_video_by_uuid: function
+    count_video_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -23320,7 +23320,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_video_by_uuid_callback: function(data) {
+    count_video_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23331,26 +23331,26 @@ platform.video.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_count_video_by_uuid_callback", true);
+            _log("ERRORS::video_count_video_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_video_by_uuid(data);} catch(e) { _log("Error calling: error_count_video_by_uuid: " + e);}
+            try {error_count_video_uuid(data);} catch(e) { _log("Error calling: error_count_video_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::video_count_video_by_uuid_callback", false);
+            _log("SUCCESS::video_count_video_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_video_by_uuid(data);} catch(e) { _log("Error calling: handle_count_video_by_uuid: " + e);}
+            try {handle_count_video_uuid(data);} catch(e) { _log("Error calling: handle_count_video_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_video_by_external_id: function
+    count_video_external_id: function
     (
         external_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -23363,7 +23363,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_video_by_external_id_callback: function(data) {
+    count_video_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23374,26 +23374,26 @@ platform.video.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_count_video_by_external_id_callback", true);
+            _log("ERRORS::video_count_video_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_video_by_external_id(data);} catch(e) { _log("Error calling: error_count_video_by_external_id: " + e);}
+            try {error_count_video_external_id(data);} catch(e) { _log("Error calling: error_count_video_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_count_video_by_external_id_callback", false);
+            _log("SUCCESS::video_count_video_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_video_by_external_id(data);} catch(e) { _log("Error calling: handle_count_video_by_external_id: " + e);}
+            try {handle_count_video_external_id(data);} catch(e) { _log("Error calling: handle_count_video_external_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_video_by_url: function
+    count_video_url: function
     (
         url,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -23406,7 +23406,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_video_by_url_callback: function(data) {
+    count_video_url_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23417,19 +23417,19 @@ platform.video.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_count_video_by_url_callback", true);
+            _log("ERRORS::video_count_video_url_callback", true);
             // call a method that can be inline callback
-            try {error_count_video_by_url(data);} catch(e) { _log("Error calling: error_count_video_by_url: " + e);}
+            try {error_count_video_url(data);} catch(e) { _log("Error calling: error_count_video_url: " + e);}
         }
         else {
-            _log("SUCCESS::video_count_video_by_url_callback", false);
+            _log("SUCCESS::video_count_video_url_callback", false);
             // call a method that can be inline callback
-            try {handle_count_video_by_url(data);} catch(e) { _log("Error calling: handle_count_video_by_url: " + e);}
+            try {handle_count_video_url(data);} catch(e) { _log("Error calling: handle_count_video_url: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_video_by_url_by_external_id: function
+    count_video_url_external_id: function
     (
         url,
         external_id,
@@ -23437,7 +23437,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -23451,7 +23451,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_video_by_url_by_external_id_callback: function(data) {
+    count_video_url_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23462,19 +23462,19 @@ platform.video.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_count_video_by_url_by_external_id_callback", true);
+            _log("ERRORS::video_count_video_url_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_video_by_url_by_external_id(data);} catch(e) { _log("Error calling: error_count_video_by_url_by_external_id: " + e);}
+            try {error_count_video_url_external_id(data);} catch(e) { _log("Error calling: error_count_video_url_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_count_video_by_url_by_external_id_callback", false);
+            _log("SUCCESS::video_count_video_url_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_video_by_url_by_external_id(data);} catch(e) { _log("Error calling: handle_count_video_by_url_by_external_id: " + e);}
+            try {handle_count_video_url_external_id(data);} catch(e) { _log("Error calling: handle_count_video_url_external_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_video_by_uuid_by_external_id: function
+    count_video_uuid_external_id: function
     (
         uuid,
         external_id,
@@ -23482,7 +23482,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'count'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -23496,7 +23496,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_video_by_uuid_by_external_id_callback: function(data) {
+    count_video_uuid_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23507,19 +23507,19 @@ platform.video.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_count_video_by_uuid_by_external_id_callback", true);
+            _log("ERRORS::video_count_video_uuid_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_video_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: error_count_video_by_uuid_by_external_id: " + e);}
+            try {error_count_video_uuid_external_id(data);} catch(e) { _log("Error calling: error_count_video_uuid_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_count_video_by_uuid_by_external_id_callback", false);
+            _log("SUCCESS::video_count_video_uuid_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_video_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: handle_count_video_by_uuid_by_external_id: " + e);}
+            try {handle_count_video_uuid_external_id(data);} catch(e) { _log("Error calling: handle_count_video_uuid_external_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_video_list_by_filter: function
+    browse_video_list_filter: function
     (
         page,
         page_size,
@@ -23528,7 +23528,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'browse'
-                + "/by-filter"
+                + "/filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -23543,7 +23543,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_video_list_by_filter_callback: function(data) {
+    browse_video_list_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23553,20 +23553,20 @@ platform.video.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_browse_video_list_by_filter_callback", true);
+            _log("ERRORS::video_browse_video_list_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_video_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_video_list_by_filter: " + e);}
+            try {error_browse_video_list_filter(data);} catch(e) { _log("Error calling: error_browse_video_list_filter: " + e);}
         }
         else {
-            _log("SUCCESS::video_browse_video_list_by_filter_callback", false);
+            _log("SUCCESS::video_browse_video_list_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_video_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_video_list_by_filter: " + e);}
+            try {handle_browse_video_list_filter(data);} catch(e) { _log("Error calling: handle_browse_video_list_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_video_by_uuid: function
+    set_video_uuid: function
     (
         status,
         third_party_oembed,
@@ -23589,7 +23589,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -23623,7 +23623,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_video_by_uuid_callback: function(data) {
+    set_video_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23633,19 +23633,19 @@ platform.video.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_set_video_by_uuid_callback", true);
+            _log("ERRORS::video_set_video_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_video_by_uuid(data);} catch(e) { _log("Error calling: error_set_video_by_uuid: " + e);}
+            try {error_set_video_uuid(data);} catch(e) { _log("Error calling: error_set_video_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::video_set_video_by_uuid_callback", false);
+            _log("SUCCESS::video_set_video_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_video_by_uuid(data);} catch(e) { _log("Error calling: handle_set_video_by_uuid: " + e);}
+            try {handle_set_video_uuid(data);} catch(e) { _log("Error calling: handle_set_video_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_video_by_external_id: function
+    set_video_external_id: function
     (
         status,
         third_party_oembed,
@@ -23668,7 +23668,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                         
                 ;
@@ -23702,7 +23702,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_video_by_external_id_callback: function(data) {
+    set_video_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23712,19 +23712,19 @@ platform.video.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_set_video_by_external_id_callback", true);
+            _log("ERRORS::video_set_video_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_video_by_external_id(data);} catch(e) { _log("Error calling: error_set_video_by_external_id: " + e);}
+            try {error_set_video_external_id(data);} catch(e) { _log("Error calling: error_set_video_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_set_video_by_external_id_callback", false);
+            _log("SUCCESS::video_set_video_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_video_by_external_id(data);} catch(e) { _log("Error calling: handle_set_video_by_external_id: " + e);}
+            try {handle_set_video_external_id(data);} catch(e) { _log("Error calling: handle_set_video_external_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_video_by_url: function
+    set_video_url: function
     (
         status,
         third_party_oembed,
@@ -23747,7 +23747,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                         
                 ;
@@ -23781,7 +23781,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_video_by_url_callback: function(data) {
+    set_video_url_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23791,19 +23791,19 @@ platform.video.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_set_video_by_url_callback", true);
+            _log("ERRORS::video_set_video_url_callback", true);
             // call a method that can be inline callback
-            try {error_set_video_by_url(data);} catch(e) { _log("Error calling: error_set_video_by_url: " + e);}
+            try {error_set_video_url(data);} catch(e) { _log("Error calling: error_set_video_url: " + e);}
         }
         else {
-            _log("SUCCESS::video_set_video_by_url_callback", false);
+            _log("SUCCESS::video_set_video_url_callback", false);
             // call a method that can be inline callback
-            try {handle_set_video_by_url(data);} catch(e) { _log("Error calling: handle_set_video_by_url: " + e);}
+            try {handle_set_video_url(data);} catch(e) { _log("Error calling: handle_set_video_url: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_video_by_url_by_external_id: function
+    set_video_url_external_id: function
     (
         status,
         third_party_oembed,
@@ -23826,7 +23826,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                         
@@ -23861,7 +23861,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_video_by_url_by_external_id_callback: function(data) {
+    set_video_url_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23871,19 +23871,19 @@ platform.video.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_set_video_by_url_by_external_id_callback", true);
+            _log("ERRORS::video_set_video_url_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_video_by_url_by_external_id(data);} catch(e) { _log("Error calling: error_set_video_by_url_by_external_id: " + e);}
+            try {error_set_video_url_external_id(data);} catch(e) { _log("Error calling: error_set_video_url_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_set_video_by_url_by_external_id_callback", false);
+            _log("SUCCESS::video_set_video_url_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_video_by_url_by_external_id(data);} catch(e) { _log("Error calling: handle_set_video_by_url_by_external_id: " + e);}
+            try {handle_set_video_url_external_id(data);} catch(e) { _log("Error calling: handle_set_video_url_external_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_video_by_uuid_by_external_id: function
+    set_video_uuid_external_id: function
     (
         status,
         third_party_oembed,
@@ -23906,7 +23906,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'set'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                         
@@ -23941,7 +23941,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_video_by_uuid_by_external_id_callback: function(data) {
+    set_video_uuid_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23951,26 +23951,26 @@ platform.video.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_set_video_by_uuid_by_external_id_callback", true);
+            _log("ERRORS::video_set_video_uuid_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_video_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: error_set_video_by_uuid_by_external_id: " + e);}
+            try {error_set_video_uuid_external_id(data);} catch(e) { _log("Error calling: error_set_video_uuid_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_set_video_by_uuid_by_external_id_callback", false);
+            _log("SUCCESS::video_set_video_uuid_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_video_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: handle_set_video_by_uuid_by_external_id: " + e);}
+            try {handle_set_video_uuid_external_id(data);} catch(e) { _log("Error calling: handle_set_video_uuid_external_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_video_by_uuid: function
+    del_video_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -23983,7 +23983,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_video_by_uuid_callback: function(data) {
+    del_video_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -23993,27 +23993,27 @@ platform.video.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_del_video_by_uuid_callback", true);
+            _log("ERRORS::video_del_video_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_video_by_uuid(data);} catch(e) { _log("Error calling: error_del_video_by_uuid: " + e);}
+            try {error_del_video_uuid(data);} catch(e) { _log("Error calling: error_del_video_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::video_del_video_by_uuid_callback", false);
+            _log("SUCCESS::video_del_video_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_video_by_uuid(data);} catch(e) { _log("Error calling: handle_del_video_by_uuid: " + e);}
+            try {handle_del_video_uuid(data);} catch(e) { _log("Error calling: handle_del_video_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_video_by_external_id: function
+    del_video_external_id: function
     (
         external_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -24026,7 +24026,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_video_by_external_id_callback: function(data) {
+    del_video_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24036,27 +24036,27 @@ platform.video.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_del_video_by_external_id_callback", true);
+            _log("ERRORS::video_del_video_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_video_by_external_id(data);} catch(e) { _log("Error calling: error_del_video_by_external_id: " + e);}
+            try {error_del_video_external_id(data);} catch(e) { _log("Error calling: error_del_video_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_del_video_by_external_id_callback", false);
+            _log("SUCCESS::video_del_video_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_video_by_external_id(data);} catch(e) { _log("Error calling: handle_del_video_by_external_id: " + e);}
+            try {handle_del_video_external_id(data);} catch(e) { _log("Error calling: handle_del_video_external_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_video_by_url: function
+    del_video_url: function
     (
         url,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -24069,7 +24069,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_video_by_url_callback: function(data) {
+    del_video_url_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24079,20 +24079,20 @@ platform.video.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_del_video_by_url_callback", true);
+            _log("ERRORS::video_del_video_url_callback", true);
             // call a method that can be inline callback
-            try {error_del_video_by_url(data);} catch(e) { _log("Error calling: error_del_video_by_url: " + e);}
+            try {error_del_video_url(data);} catch(e) { _log("Error calling: error_del_video_url: " + e);}
         }
         else {
-            _log("SUCCESS::video_del_video_by_url_callback", false);
+            _log("SUCCESS::video_del_video_url_callback", false);
             // call a method that can be inline callback
-            try {handle_del_video_by_url(data);} catch(e) { _log("Error calling: handle_del_video_by_url: " + e);}
+            try {handle_del_video_url(data);} catch(e) { _log("Error calling: handle_del_video_url: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_video_by_url_by_external_id: function
+    del_video_url_external_id: function
     (
         url,
         external_id,
@@ -24100,7 +24100,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -24114,7 +24114,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_video_by_url_by_external_id_callback: function(data) {
+    del_video_url_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24124,20 +24124,20 @@ platform.video.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_del_video_by_url_by_external_id_callback", true);
+            _log("ERRORS::video_del_video_url_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_video_by_url_by_external_id(data);} catch(e) { _log("Error calling: error_del_video_by_url_by_external_id: " + e);}
+            try {error_del_video_url_external_id(data);} catch(e) { _log("Error calling: error_del_video_url_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_del_video_by_url_by_external_id_callback", false);
+            _log("SUCCESS::video_del_video_url_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_video_by_url_by_external_id(data);} catch(e) { _log("Error calling: handle_del_video_by_url_by_external_id: " + e);}
+            try {handle_del_video_url_external_id(data);} catch(e) { _log("Error calling: handle_del_video_url_external_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_video_by_uuid_by_external_id: function
+    del_video_uuid_external_id: function
     (
         uuid,
         external_id,
@@ -24145,7 +24145,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'del'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -24159,7 +24159,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_video_by_uuid_by_external_id_callback: function(data) {
+    del_video_uuid_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24169,14 +24169,14 @@ platform.video.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_del_video_by_uuid_by_external_id_callback", true);
+            _log("ERRORS::video_del_video_uuid_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_video_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: error_del_video_by_uuid_by_external_id: " + e);}
+            try {error_del_video_uuid_external_id(data);} catch(e) { _log("Error calling: error_del_video_uuid_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_del_video_by_uuid_by_external_id_callback", false);
+            _log("SUCCESS::video_del_video_uuid_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_video_by_uuid_by_external_id(data);} catch(e) { _log("Error calling: handle_del_video_by_uuid_by_external_id: " + e);}
+            try {handle_del_video_uuid_external_id(data);} catch(e) { _log("Error calling: handle_del_video_uuid_external_id: " + e);}
         }
         
     }
@@ -24224,14 +24224,14 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_uuid: function
+    get_video_list_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-uuid"
+                + "/uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -24245,7 +24245,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_uuid_callback: function(data) {
+    get_video_list_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24255,27 +24255,27 @@ platform.video.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_get_video_list_by_uuid_callback", true);
+            _log("ERRORS::video_get_video_list_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_video_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_video_list_by_uuid: " + e);}
+            try {error_get_video_list_uuid(data);} catch(e) { _log("Error calling: error_get_video_list_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::video_get_video_list_by_uuid_callback", false);
+            _log("SUCCESS::video_get_video_list_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_video_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_video_list_by_uuid: " + e);}
+            try {handle_get_video_list_uuid(data);} catch(e) { _log("Error calling: handle_get_video_list_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_external_id: function
+    get_video_list_external_id: function
     (
         external_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-external-id"
+                + "/external-id"
                 + "/@external_id/" + external_id            
                 ;
 
@@ -24289,7 +24289,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_external_id_callback: function(data) {
+    get_video_list_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24299,27 +24299,27 @@ platform.video.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_get_video_list_by_external_id_callback", true);
+            _log("ERRORS::video_get_video_list_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_video_list_by_external_id(data);} catch(e) { _log("Error calling: error_get_video_list_by_external_id: " + e);}
+            try {error_get_video_list_external_id(data);} catch(e) { _log("Error calling: error_get_video_list_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_get_video_list_by_external_id_callback", false);
+            _log("SUCCESS::video_get_video_list_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_video_list_by_external_id(data);} catch(e) { _log("Error calling: handle_get_video_list_by_external_id: " + e);}
+            try {handle_get_video_list_external_id(data);} catch(e) { _log("Error calling: handle_get_video_list_external_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_url: function
+    get_video_list_url: function
     (
         url,
         fn
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-url"
+                + "/url"
                 + "/@url/" + url            
                 ;
 
@@ -24333,7 +24333,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_url_callback: function(data) {
+    get_video_list_url_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24343,20 +24343,20 @@ platform.video.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_get_video_list_by_url_callback", true);
+            _log("ERRORS::video_get_video_list_url_callback", true);
             // call a method that can be inline callback
-            try {error_get_video_list_by_url(data);} catch(e) { _log("Error calling: error_get_video_list_by_url: " + e);}
+            try {error_get_video_list_url(data);} catch(e) { _log("Error calling: error_get_video_list_url: " + e);}
         }
         else {
-            _log("SUCCESS::video_get_video_list_by_url_callback", false);
+            _log("SUCCESS::video_get_video_list_url_callback", false);
             // call a method that can be inline callback
-            try {handle_get_video_list_by_url(data);} catch(e) { _log("Error calling: handle_get_video_list_by_url: " + e);}
+            try {handle_get_video_list_url(data);} catch(e) { _log("Error calling: handle_get_video_list_url: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_url_list_by_external_id: function
+    get_video_list_url_list_external_id: function
     (
         url,
         external_id,
@@ -24364,7 +24364,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-url/by-external-id"
+                + "/url/external-id"
                 + "/@url/" + url            
                 + "/@external_id/" + external_id            
                 ;
@@ -24379,7 +24379,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_url_list_by_external_id_callback: function(data) {
+    get_video_list_url_list_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24389,20 +24389,20 @@ platform.video.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_get_video_list_by_url_list_by_external_id_callback", true);
+            _log("ERRORS::video_get_video_list_url_list_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_video_list_by_url_list_by_external_id(data);} catch(e) { _log("Error calling: error_get_video_list_by_url_list_by_external_id: " + e);}
+            try {error_get_video_list_url_list_external_id(data);} catch(e) { _log("Error calling: error_get_video_list_url_list_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_get_video_list_by_url_list_by_external_id_callback", false);
+            _log("SUCCESS::video_get_video_list_url_list_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_video_list_by_url_list_by_external_id(data);} catch(e) { _log("Error calling: handle_get_video_list_by_url_list_by_external_id: " + e);}
+            try {handle_get_video_list_url_list_external_id(data);} catch(e) { _log("Error calling: handle_get_video_list_url_list_external_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_uuid_list_by_external_id: function
+    get_video_list_uuid_list_external_id: function
     (
         uuid,
         external_id,
@@ -24410,7 +24410,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = platform_platform_global.video_service + 'get'
-                + "/by-uuid/by-external-id"
+                + "/uuid/external-id"
                 + "/@uuid/" + uuid            
                 + "/@external_id/" + external_id            
                 ;
@@ -24425,7 +24425,7 @@ platform.video.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_video_list_by_uuid_list_by_external_id_callback: function(data) {
+    get_video_list_uuid_list_external_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -24435,14 +24435,14 @@ platform.video.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::video_get_video_list_by_uuid_list_by_external_id_callback", true);
+            _log("ERRORS::video_get_video_list_uuid_list_external_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_video_list_by_uuid_list_by_external_id(data);} catch(e) { _log("Error calling: error_get_video_list_by_uuid_list_by_external_id: " + e);}
+            try {error_get_video_list_uuid_list_external_id(data);} catch(e) { _log("Error calling: error_get_video_list_uuid_list_external_id: " + e);}
         }
         else {
-            _log("SUCCESS::video_get_video_list_by_uuid_list_by_external_id_callback", false);
+            _log("SUCCESS::video_get_video_list_uuid_list_external_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_video_list_by_uuid_list_by_external_id(data);} catch(e) { _log("Error calling: handle_get_video_list_by_uuid_list_by_external_id: " + e);}
+            try {handle_get_video_list_uuid_list_external_id(data);} catch(e) { _log("Error calling: handle_get_video_list_uuid_list_external_id: " + e);}
         }
         
     }

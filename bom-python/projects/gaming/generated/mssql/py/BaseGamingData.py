@@ -59,7 +59,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameByUuid(
+        public virtual int CountGameUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -69,7 +69,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_count_by_uuid"
+                , "usp_game_count_uuid"
                 , parameters
                 );          
             }
@@ -79,7 +79,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameByCode(
+        public virtual int CountGameCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -89,7 +89,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_count_by_code"
+                , "usp_game_count_code"
                 , parameters
                 );          
             }
@@ -99,7 +99,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameByName(
+        public virtual int CountGameName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -109,7 +109,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_count_by_name"
+                , "usp_game_count_name"
                 , parameters
                 );          
             }
@@ -119,7 +119,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameByOrgId(
+        public virtual int CountGameOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -129,7 +129,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_count_by_org_id"
+                , "usp_game_count_org_id"
                 , parameters
                 );          
             }
@@ -139,7 +139,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameByAppId(
+        public virtual int CountGameAppId(
              app_id
         )  {
             List<SqlParameter> parameters 
@@ -149,7 +149,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_count_by_app_id"
+                , "usp_game_count_app_id"
                 , parameters
                 );          
             }
@@ -159,7 +159,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameByOrgIdByAppId(
+        public virtual int CountGameOrgIdAppId(
              org_id
             ,  app_id
         )  {
@@ -171,7 +171,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_count_by_org_id_by_app_id"
+                , "usp_game_count_org_id_app_id"
                 , parameters
                 );          
             }
@@ -181,7 +181,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -193,7 +193,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_browse_by_filter"
+                , "usp_game_browse_filter"
                 , "game"
                 , parameters
                 );         
@@ -205,7 +205,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameByUuid(string set_type, Game obj)  {
+        public virtual bool SetGameUuid(string set_type, Game obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -226,7 +226,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_set_by_uuid"
+                , "usp_game_set_uuid"
                 , parameters
                 );          
             }
@@ -237,7 +237,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameByCode(string set_type, Game obj)  {
+        public virtual bool SetGameCode(string set_type, Game obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -258,7 +258,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_set_by_code"
+                , "usp_game_set_code"
                 , parameters
                 );          
             }
@@ -269,7 +269,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameByName(string set_type, Game obj)  {
+        public virtual bool SetGameName(string set_type, Game obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -290,7 +290,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_set_by_name"
+                , "usp_game_set_name"
                 , parameters
                 );          
             }
@@ -301,7 +301,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameByOrgId(string set_type, Game obj)  {
+        public virtual bool SetGameOrgId(string set_type, Game obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -322,7 +322,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_set_by_org_id"
+                , "usp_game_set_org_id"
                 , parameters
                 );          
             }
@@ -333,7 +333,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameByAppId(string set_type, Game obj)  {
+        public virtual bool SetGameAppId(string set_type, Game obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -354,7 +354,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_set_by_app_id"
+                , "usp_game_set_app_id"
                 , parameters
                 );          
             }
@@ -365,7 +365,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameByOrgIdByAppId(string set_type, Game obj)  {
+        public virtual bool SetGameOrgIdAppId(string set_type, Game obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -386,7 +386,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_set_by_org_id_by_app_id"
+                , "usp_game_set_org_id_app_id"
                 , parameters
                 );          
             }
@@ -397,7 +397,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameByUuid(
+        public virtual bool DelGameUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -407,7 +407,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_del_by_uuid"
+                    , "usp_game_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -418,7 +418,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameByCode(
+        public virtual bool DelGameCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -428,7 +428,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_del_by_code"
+                    , "usp_game_del_code"
                     , parameters
                     );
                 return true;            
@@ -439,7 +439,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameByName(
+        public virtual bool DelGameName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -449,7 +449,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_del_by_name"
+                    , "usp_game_del_name"
                     , parameters
                     );
                 return true;            
@@ -460,7 +460,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameByOrgId(
+        public virtual bool DelGameOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -470,7 +470,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_del_by_org_id"
+                    , "usp_game_del_org_id"
                     , parameters
                     );
                 return true;            
@@ -481,7 +481,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameByAppId(
+        public virtual bool DelGameAppId(
              app_id
         )  {
             List<SqlParameter> parameters 
@@ -491,7 +491,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_del_by_app_id"
+                    , "usp_game_del_app_id"
                     , parameters
                     );
                 return true;            
@@ -502,7 +502,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameByOrgIdByAppId(
+        public virtual bool DelGameOrgIdAppId(
              org_id
             ,  app_id
         )  {
@@ -514,7 +514,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_del_by_org_id_by_app_id"
+                    , "usp_game_del_org_id_app_id"
                     , parameters
                     );
                 return true;            
@@ -544,7 +544,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameListByUuid(
+        public virtual DataSet GetGameListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -554,7 +554,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_get_by_uuid"
+                , "usp_game_get_uuid"
                 , "game"
                 , parameters
                 );           
@@ -565,7 +565,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameListByCode(
+        public virtual DataSet GetGameListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -575,7 +575,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_get_by_code"
+                , "usp_game_get_code"
                 , "game"
                 , parameters
                 );           
@@ -586,7 +586,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameListByName(
+        public virtual DataSet GetGameListName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -596,7 +596,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_get_by_name"
+                , "usp_game_get_name"
                 , "game"
                 , parameters
                 );           
@@ -607,7 +607,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameListByOrgId(
+        public virtual DataSet GetGameListOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -617,7 +617,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_get_by_org_id"
+                , "usp_game_get_org_id"
                 , "game"
                 , parameters
                 );           
@@ -628,7 +628,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameListByAppId(
+        public virtual DataSet GetGameListAppId(
              app_id
         )  {
             List<SqlParameter> parameters 
@@ -638,7 +638,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_get_by_app_id"
+                , "usp_game_get_app_id"
                 , "game"
                 , parameters
                 );           
@@ -649,7 +649,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameListByOrgIdByAppId(
+        public virtual DataSet GetGameListOrgIdAppId(
              org_id
             ,  app_id
         )  {
@@ -661,7 +661,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_get_by_org_id_by_app_id"
+                , "usp_game_get_org_id_app_id"
                 , "game"
                 , parameters
                 );           
@@ -690,7 +690,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryByUuid(
+        public virtual int CountGameCategoryUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -700,7 +700,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_count_by_uuid"
+                , "usp_game_category_count_uuid"
                 , parameters
                 );          
             }
@@ -710,7 +710,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryByCode(
+        public virtual int CountGameCategoryCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -720,7 +720,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_count_by_code"
+                , "usp_game_category_count_code"
                 , parameters
                 );          
             }
@@ -730,7 +730,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryByName(
+        public virtual int CountGameCategoryName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -740,7 +740,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_count_by_name"
+                , "usp_game_category_count_name"
                 , parameters
                 );          
             }
@@ -750,7 +750,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryByOrgId(
+        public virtual int CountGameCategoryOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -760,7 +760,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_count_by_org_id"
+                , "usp_game_category_count_org_id"
                 , parameters
                 );          
             }
@@ -770,7 +770,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryByTypeId(
+        public virtual int CountGameCategoryTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -780,7 +780,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_count_by_type_id"
+                , "usp_game_category_count_type_id"
                 , parameters
                 );          
             }
@@ -790,7 +790,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryByOrgIdByTypeId(
+        public virtual int CountGameCategoryOrgIdTypeId(
              org_id
             ,  type_id
         )  {
@@ -802,7 +802,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_count_by_org_id_by_type_id"
+                , "usp_game_category_count_org_id_type_id"
                 , parameters
                 );          
             }
@@ -812,7 +812,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameCategoryListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameCategoryListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -824,7 +824,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_browse_by_filter"
+                , "usp_game_category_browse_filter"
                 , "game_category"
                 , parameters
                 );         
@@ -836,7 +836,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameCategoryByUuid(string set_type, GameCategory obj)  {
+        public virtual bool SetGameCategoryUuid(string set_type, GameCategory obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -857,7 +857,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_set_by_uuid"
+                , "usp_game_category_set_uuid"
                 , parameters
                 );          
             }
@@ -868,7 +868,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameCategoryByUuid(
+        public virtual bool DelGameCategoryUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -878,7 +878,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_category_del_by_uuid"
+                    , "usp_game_category_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -889,7 +889,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameCategoryByCodeByOrgId(
+        public virtual bool DelGameCategoryCodeOrgId(
              code
             ,  org_id
         )  {
@@ -901,7 +901,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_category_del_by_code_by_org_id"
+                    , "usp_game_category_del_code_org_id"
                     , parameters
                     );
                 return true;            
@@ -912,7 +912,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameCategoryByCodeByOrgIdByTypeId(
+        public virtual bool DelGameCategoryCodeOrgIdTypeId(
              code
             ,  org_id
             ,  type_id
@@ -926,7 +926,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_category_del_by_code_by_org_id_by_type_id"
+                    , "usp_game_category_del_code_org_id_type_id"
                     , parameters
                     );
                 return true;            
@@ -956,7 +956,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryListByUuid(
+        public virtual DataSet GetGameCategoryListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -966,7 +966,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_get_by_uuid"
+                , "usp_game_category_get_uuid"
                 , "game_category"
                 , parameters
                 );           
@@ -977,7 +977,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryListByCode(
+        public virtual DataSet GetGameCategoryListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -987,7 +987,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_get_by_code"
+                , "usp_game_category_get_code"
                 , "game_category"
                 , parameters
                 );           
@@ -998,7 +998,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryListByName(
+        public virtual DataSet GetGameCategoryListName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -1008,7 +1008,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_get_by_name"
+                , "usp_game_category_get_name"
                 , "game_category"
                 , parameters
                 );           
@@ -1019,7 +1019,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryListByOrgId(
+        public virtual DataSet GetGameCategoryListOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -1029,7 +1029,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_get_by_org_id"
+                , "usp_game_category_get_org_id"
                 , "game_category"
                 , parameters
                 );           
@@ -1040,7 +1040,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryListByTypeId(
+        public virtual DataSet GetGameCategoryListTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -1050,7 +1050,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_get_by_type_id"
+                , "usp_game_category_get_type_id"
                 , "game_category"
                 , parameters
                 );           
@@ -1061,7 +1061,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryListByOrgIdByTypeId(
+        public virtual DataSet GetGameCategoryListOrgIdTypeId(
              org_id
             ,  type_id
         )  {
@@ -1073,7 +1073,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_get_by_org_id_by_type_id"
+                , "usp_game_category_get_org_id_type_id"
                 , "game_category"
                 , parameters
                 );           
@@ -1102,7 +1102,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryTreeByUuid(
+        public virtual int CountGameCategoryTreeUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1112,7 +1112,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_count_by_uuid"
+                , "usp_game_category_tree_count_uuid"
                 , parameters
                 );          
             }
@@ -1122,7 +1122,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryTreeByParentId(
+        public virtual int CountGameCategoryTreeParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -1132,7 +1132,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_count_by_parent_id"
+                , "usp_game_category_tree_count_parent_id"
                 , parameters
                 );          
             }
@@ -1142,7 +1142,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryTreeByCategoryId(
+        public virtual int CountGameCategoryTreeCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -1152,7 +1152,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_count_by_category_id"
+                , "usp_game_category_tree_count_category_id"
                 , parameters
                 );          
             }
@@ -1162,7 +1162,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryTreeByParentIdByCategoryId(
+        public virtual int CountGameCategoryTreeParentIdCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -1174,7 +1174,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_count_by_parent_id_by_category_id"
+                , "usp_game_category_tree_count_parent_id_category_id"
                 , parameters
                 );          
             }
@@ -1184,7 +1184,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameCategoryTreeListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameCategoryTreeListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1196,7 +1196,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_browse_by_filter"
+                , "usp_game_category_tree_browse_filter"
                 , "game_category_tree"
                 , parameters
                 );         
@@ -1208,7 +1208,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameCategoryTreeByUuid(string set_type, GameCategoryTree obj)  {
+        public virtual bool SetGameCategoryTreeUuid(string set_type, GameCategoryTree obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1225,7 +1225,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_set_by_uuid"
+                , "usp_game_category_tree_set_uuid"
                 , parameters
                 );          
             }
@@ -1236,7 +1236,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameCategoryTreeByUuid(
+        public virtual bool DelGameCategoryTreeUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1246,7 +1246,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_category_tree_del_by_uuid"
+                    , "usp_game_category_tree_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -1257,7 +1257,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameCategoryTreeByParentId(
+        public virtual bool DelGameCategoryTreeParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -1267,7 +1267,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_category_tree_del_by_parent_id"
+                    , "usp_game_category_tree_del_parent_id"
                     , parameters
                     );
                 return true;            
@@ -1278,7 +1278,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameCategoryTreeByCategoryId(
+        public virtual bool DelGameCategoryTreeCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -1288,7 +1288,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_category_tree_del_by_category_id"
+                    , "usp_game_category_tree_del_category_id"
                     , parameters
                     );
                 return true;            
@@ -1299,7 +1299,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameCategoryTreeByParentIdByCategoryId(
+        public virtual bool DelGameCategoryTreeParentIdCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -1311,7 +1311,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_category_tree_del_by_parent_id_by_category_id"
+                    , "usp_game_category_tree_del_parent_id_category_id"
                     , parameters
                     );
                 return true;            
@@ -1341,7 +1341,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryTreeListByUuid(
+        public virtual DataSet GetGameCategoryTreeListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1351,7 +1351,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_get_by_uuid"
+                , "usp_game_category_tree_get_uuid"
                 , "game_category_tree"
                 , parameters
                 );           
@@ -1362,7 +1362,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryTreeListByParentId(
+        public virtual DataSet GetGameCategoryTreeListParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -1372,7 +1372,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_get_by_parent_id"
+                , "usp_game_category_tree_get_parent_id"
                 , "game_category_tree"
                 , parameters
                 );           
@@ -1383,7 +1383,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryTreeListByCategoryId(
+        public virtual DataSet GetGameCategoryTreeListCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -1393,7 +1393,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_get_by_category_id"
+                , "usp_game_category_tree_get_category_id"
                 , "game_category_tree"
                 , parameters
                 );           
@@ -1404,7 +1404,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryTreeListByParentIdByCategoryId(
+        public virtual DataSet GetGameCategoryTreeListParentIdCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -1416,7 +1416,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_tree_get_by_parent_id_by_category_id"
+                , "usp_game_category_tree_get_parent_id_category_id"
                 , "game_category_tree"
                 , parameters
                 );           
@@ -1445,7 +1445,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryAssocByUuid(
+        public virtual int CountGameCategoryAssocUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1455,7 +1455,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_count_by_uuid"
+                , "usp_game_category_assoc_count_uuid"
                 , parameters
                 );          
             }
@@ -1465,7 +1465,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryAssocByGameId(
+        public virtual int CountGameCategoryAssocGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -1475,7 +1475,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_count_by_game_id"
+                , "usp_game_category_assoc_count_game_id"
                 , parameters
                 );          
             }
@@ -1485,7 +1485,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryAssocByCategoryId(
+        public virtual int CountGameCategoryAssocCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -1495,7 +1495,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_count_by_category_id"
+                , "usp_game_category_assoc_count_category_id"
                 , parameters
                 );          
             }
@@ -1505,7 +1505,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameCategoryAssocByGameIdByCategoryId(
+        public virtual int CountGameCategoryAssocGameIdCategoryId(
              game_id
             ,  category_id
         )  {
@@ -1517,7 +1517,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_count_by_game_id_by_category_id"
+                , "usp_game_category_assoc_count_game_id_category_id"
                 , parameters
                 );          
             }
@@ -1527,7 +1527,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameCategoryAssocListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameCategoryAssocListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1539,7 +1539,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_browse_by_filter"
+                , "usp_game_category_assoc_browse_filter"
                 , "game_category_assoc"
                 , parameters
                 );         
@@ -1551,7 +1551,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameCategoryAssocByUuid(string set_type, GameCategoryAssoc obj)  {
+        public virtual bool SetGameCategoryAssocUuid(string set_type, GameCategoryAssoc obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1568,7 +1568,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_set_by_uuid"
+                , "usp_game_category_assoc_set_uuid"
                 , parameters
                 );          
             }
@@ -1579,7 +1579,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameCategoryAssocByUuid(
+        public virtual bool DelGameCategoryAssocUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1589,7 +1589,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_category_assoc_del_by_uuid"
+                    , "usp_game_category_assoc_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -1619,7 +1619,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryAssocListByUuid(
+        public virtual DataSet GetGameCategoryAssocListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1629,7 +1629,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_get_by_uuid"
+                , "usp_game_category_assoc_get_uuid"
                 , "game_category_assoc"
                 , parameters
                 );           
@@ -1640,7 +1640,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryAssocListByGameId(
+        public virtual DataSet GetGameCategoryAssocListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -1650,7 +1650,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_get_by_game_id"
+                , "usp_game_category_assoc_get_game_id"
                 , "game_category_assoc"
                 , parameters
                 );           
@@ -1661,7 +1661,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryAssocListByCategoryId(
+        public virtual DataSet GetGameCategoryAssocListCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -1671,7 +1671,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_get_by_category_id"
+                , "usp_game_category_assoc_get_category_id"
                 , "game_category_assoc"
                 , parameters
                 );           
@@ -1682,7 +1682,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameCategoryAssocListByGameIdByCategoryId(
+        public virtual DataSet GetGameCategoryAssocListGameIdCategoryId(
              game_id
             ,  category_id
         )  {
@@ -1694,7 +1694,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_category_assoc_get_by_game_id_by_category_id"
+                , "usp_game_category_assoc_get_game_id_category_id"
                 , "game_category_assoc"
                 , parameters
                 );           
@@ -1723,7 +1723,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameTypeByUuid(
+        public virtual int CountGameTypeUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1733,7 +1733,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_type_count_by_uuid"
+                , "usp_game_type_count_uuid"
                 , parameters
                 );          
             }
@@ -1743,7 +1743,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameTypeByCode(
+        public virtual int CountGameTypeCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1753,7 +1753,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_type_count_by_code"
+                , "usp_game_type_count_code"
                 , parameters
                 );          
             }
@@ -1763,7 +1763,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameTypeByName(
+        public virtual int CountGameTypeName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -1773,7 +1773,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_type_count_by_name"
+                , "usp_game_type_count_name"
                 , parameters
                 );          
             }
@@ -1783,7 +1783,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameTypeListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameTypeListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1795,7 +1795,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_type_browse_by_filter"
+                , "usp_game_type_browse_filter"
                 , "game_type"
                 , parameters
                 );         
@@ -1807,7 +1807,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameTypeByUuid(string set_type, GameType obj)  {
+        public virtual bool SetGameTypeUuid(string set_type, GameType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1826,7 +1826,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_type_set_by_uuid"
+                , "usp_game_type_set_uuid"
                 , parameters
                 );          
             }
@@ -1837,7 +1837,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameTypeByUuid(
+        public virtual bool DelGameTypeUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1847,7 +1847,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_type_del_by_uuid"
+                    , "usp_game_type_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -1877,7 +1877,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameTypeListByUuid(
+        public virtual DataSet GetGameTypeListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1887,7 +1887,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_type_get_by_uuid"
+                , "usp_game_type_get_uuid"
                 , "game_type"
                 , parameters
                 );           
@@ -1898,7 +1898,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameTypeListByCode(
+        public virtual DataSet GetGameTypeListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1908,7 +1908,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_type_get_by_code"
+                , "usp_game_type_get_code"
                 , "game_type"
                 , parameters
                 );           
@@ -1919,7 +1919,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameTypeListByName(
+        public virtual DataSet GetGameTypeListName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -1929,7 +1929,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_type_get_by_name"
+                , "usp_game_type_get_name"
                 , "game_type"
                 , parameters
                 );           
@@ -1958,7 +1958,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameByUuid(
+        public virtual int CountProfileGameUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1968,7 +1968,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_count_by_uuid"
+                , "usp_profile_game_count_uuid"
                 , parameters
                 );          
             }
@@ -1978,7 +1978,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameByGameId(
+        public virtual int CountProfileGameGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -1988,7 +1988,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_count_by_game_id"
+                , "usp_profile_game_count_game_id"
                 , parameters
                 );          
             }
@@ -1998,7 +1998,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameByProfileId(
+        public virtual int CountProfileGameProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -2008,7 +2008,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_count_by_profile_id"
+                , "usp_profile_game_count_profile_id"
                 , parameters
                 );          
             }
@@ -2018,7 +2018,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameByProfileIdByGameId(
+        public virtual int CountProfileGameProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -2030,7 +2030,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_count_by_profile_id_by_game_id"
+                , "usp_profile_game_count_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -2040,7 +2040,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileGameListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileGameListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2052,7 +2052,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_browse_by_filter"
+                , "usp_profile_game_browse_filter"
                 , "profile_game"
                 , parameters
                 );         
@@ -2064,7 +2064,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameByUuid(string set_type, ProfileGame obj)  {
+        public virtual bool SetProfileGameUuid(string set_type, ProfileGame obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2084,7 +2084,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_set_by_uuid"
+                , "usp_profile_game_set_uuid"
                 , parameters
                 );          
             }
@@ -2095,7 +2095,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameByUuid(
+        public virtual bool DelProfileGameUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2105,7 +2105,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_del_by_uuid"
+                    , "usp_profile_game_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -2135,7 +2135,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameListByUuid(
+        public virtual DataSet GetProfileGameListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2145,7 +2145,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_get_by_uuid"
+                , "usp_profile_game_get_uuid"
                 , "profile_game"
                 , parameters
                 );           
@@ -2156,7 +2156,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameListByGameId(
+        public virtual DataSet GetProfileGameListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -2166,7 +2166,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_get_by_game_id"
+                , "usp_profile_game_get_game_id"
                 , "profile_game"
                 , parameters
                 );           
@@ -2177,7 +2177,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameListByProfileId(
+        public virtual DataSet GetProfileGameListProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -2187,7 +2187,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_get_by_profile_id"
+                , "usp_profile_game_get_profile_id"
                 , "profile_game"
                 , parameters
                 );           
@@ -2198,7 +2198,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameListByProfileIdByGameId(
+        public virtual DataSet GetProfileGameListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -2210,7 +2210,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_get_by_profile_id_by_game_id"
+                , "usp_profile_game_get_profile_id_game_id"
                 , "profile_game"
                 , parameters
                 );           
@@ -2239,7 +2239,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameNetworkByUuid(
+        public virtual int CountGameNetworkUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2249,7 +2249,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_count_by_uuid"
+                , "usp_game_network_count_uuid"
                 , parameters
                 );          
             }
@@ -2259,7 +2259,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameNetworkByCode(
+        public virtual int CountGameNetworkCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2269,7 +2269,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_count_by_code"
+                , "usp_game_network_count_code"
                 , parameters
                 );          
             }
@@ -2279,7 +2279,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameNetworkByUuidByType(
+        public virtual int CountGameNetworkUuidType(
              uuid
             ,  type
         )  {
@@ -2291,7 +2291,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_count_by_uuid_by_type"
+                , "usp_game_network_count_uuid_type"
                 , parameters
                 );          
             }
@@ -2301,7 +2301,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameNetworkListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameNetworkListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2313,7 +2313,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_browse_by_filter"
+                , "usp_game_network_browse_filter"
                 , "game_network"
                 , parameters
                 );         
@@ -2325,7 +2325,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameNetworkByUuid(string set_type, GameNetwork obj)  {
+        public virtual bool SetGameNetworkUuid(string set_type, GameNetwork obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2347,7 +2347,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_set_by_uuid"
+                , "usp_game_network_set_uuid"
                 , parameters
                 );          
             }
@@ -2358,7 +2358,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameNetworkByCode(string set_type, GameNetwork obj)  {
+        public virtual bool SetGameNetworkCode(string set_type, GameNetwork obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2380,7 +2380,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_set_by_code"
+                , "usp_game_network_set_code"
                 , parameters
                 );          
             }
@@ -2391,7 +2391,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameNetworkByUuid(
+        public virtual bool DelGameNetworkUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2401,7 +2401,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_network_del_by_uuid"
+                    , "usp_game_network_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -2431,7 +2431,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameNetworkListByUuid(
+        public virtual DataSet GetGameNetworkListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2441,7 +2441,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_get_by_uuid"
+                , "usp_game_network_get_uuid"
                 , "game_network"
                 , parameters
                 );           
@@ -2452,7 +2452,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameNetworkListByCode(
+        public virtual DataSet GetGameNetworkListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2462,7 +2462,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_get_by_code"
+                , "usp_game_network_get_code"
                 , "game_network"
                 , parameters
                 );           
@@ -2473,7 +2473,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameNetworkListByUuidByType(
+        public virtual DataSet GetGameNetworkListUuidType(
              uuid
             ,  type
         )  {
@@ -2485,7 +2485,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_get_by_uuid_by_type"
+                , "usp_game_network_get_uuid_type"
                 , "game_network"
                 , parameters
                 );           
@@ -2514,7 +2514,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameNetworkAuthByUuid(
+        public virtual int CountGameNetworkAuthUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2524,7 +2524,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_auth_count_by_uuid"
+                , "usp_game_network_auth_count_uuid"
                 , parameters
                 );          
             }
@@ -2534,7 +2534,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameNetworkAuthByGameIdByGameNetworkId(
+        public virtual int CountGameNetworkAuthGameIdGameNetworkId(
              game_id
             ,  game_network_id
         )  {
@@ -2546,7 +2546,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_auth_count_by_game_id_by_game_network_id"
+                , "usp_game_network_auth_count_game_id_game_network_id"
                 , parameters
                 );          
             }
@@ -2556,7 +2556,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameNetworkAuthListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameNetworkAuthListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2568,7 +2568,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_auth_browse_by_filter"
+                , "usp_game_network_auth_browse_filter"
                 , "game_network_auth"
                 , parameters
                 );         
@@ -2580,7 +2580,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameNetworkAuthByUuid(string set_type, GameNetworkAuth obj)  {
+        public virtual bool SetGameNetworkAuthUuid(string set_type, GameNetworkAuth obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2605,7 +2605,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_auth_set_by_uuid"
+                , "usp_game_network_auth_set_uuid"
                 , parameters
                 );          
             }
@@ -2616,7 +2616,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameNetworkAuthByGameIdByGameNetworkId(string set_type, GameNetworkAuth obj)  {
+        public virtual bool SetGameNetworkAuthGameIdGameNetworkId(string set_type, GameNetworkAuth obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2641,7 +2641,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_auth_set_by_game_id_by_game_network_id"
+                , "usp_game_network_auth_set_game_id_game_network_id"
                 , parameters
                 );          
             }
@@ -2652,7 +2652,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameNetworkAuthByUuid(
+        public virtual bool DelGameNetworkAuthUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2662,7 +2662,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_network_auth_del_by_uuid"
+                    , "usp_game_network_auth_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -2692,7 +2692,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameNetworkAuthListByUuid(
+        public virtual DataSet GetGameNetworkAuthListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2702,7 +2702,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_auth_get_by_uuid"
+                , "usp_game_network_auth_get_uuid"
                 , "game_network_auth"
                 , parameters
                 );           
@@ -2713,7 +2713,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameNetworkAuthListByGameIdByGameNetworkId(
+        public virtual DataSet GetGameNetworkAuthListGameIdGameNetworkId(
              game_id
             ,  game_network_id
         )  {
@@ -2725,7 +2725,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_network_auth_get_by_game_id_by_game_network_id"
+                , "usp_game_network_auth_get_game_id_game_network_id"
                 , "game_network_auth"
                 , parameters
                 );           
@@ -2754,7 +2754,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameNetworkByUuid(
+        public virtual int CountProfileGameNetworkUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2764,7 +2764,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_count_by_uuid"
+                , "usp_profile_game_network_count_uuid"
                 , parameters
                 );          
             }
@@ -2774,7 +2774,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameNetworkByGameId(
+        public virtual int CountProfileGameNetworkGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -2784,7 +2784,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_count_by_game_id"
+                , "usp_profile_game_network_count_game_id"
                 , parameters
                 );          
             }
@@ -2794,7 +2794,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameNetworkByProfileId(
+        public virtual int CountProfileGameNetworkProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -2804,7 +2804,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_count_by_profile_id"
+                , "usp_profile_game_network_count_profile_id"
                 , parameters
                 );          
             }
@@ -2814,29 +2814,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameNetworkByProfileIdByGameId(
-             profile_id
-            ,  game_id
-        )  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();                
-            parameters.Add(new SqlParameter("@profile_id", profile_id));
-            parameters.Add(new SqlParameter("@game_id", game_id));
-            try {        
-                return (int)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_profile_game_network_count_by_profile_id_by_game_id"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return 0;
-            }    
-        }       
-//------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameNetworkByProfileIdByGameId(
+        public virtual int CountProfileGameNetworkProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -2848,7 +2826,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_count_by_profile_id_by_game_id"
+                , "usp_profile_game_network_count_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -2858,7 +2836,29 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+        public virtual int CountProfileGameNetworkProfileIdGameId(
+             profile_id
+            ,  game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_network_count_profile_id_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountProfileGameNetworkProfileIdGameIdGameNetworkId(
              profile_id
             ,  game_id
             ,  game_network_id
@@ -2872,7 +2872,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_count_by_profile_id_by_game_id_by_game_network_id"
+                , "usp_profile_game_network_count_profile_id_game_id_game_network_id"
                 , parameters
                 );          
             }
@@ -2882,7 +2882,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+        public virtual int CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
              network_username
             ,  game_id
             ,  game_network_id
@@ -2896,7 +2896,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_count_by_network_username_by_game_id_by_game_network_id"
+                , "usp_profile_game_network_count_network_username_game_id_game_network_id"
                 , parameters
                 );          
             }
@@ -2906,7 +2906,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileGameNetworkListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileGameNetworkListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2918,7 +2918,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_browse_by_filter"
+                , "usp_profile_game_network_browse_filter"
                 , "profile_game_network"
                 , parameters
                 );         
@@ -2930,7 +2930,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameNetworkByUuid(string set_type, ProfileGameNetwork obj)  {
+        public virtual bool SetProfileGameNetworkUuid(string set_type, ProfileGameNetwork obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2956,7 +2956,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_set_by_uuid"
+                , "usp_profile_game_network_set_uuid"
                 , parameters
                 );          
             }
@@ -2967,7 +2967,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameNetworkByProfileIdByGameId(string set_type, ProfileGameNetwork obj)  {
+        public virtual bool SetProfileGameNetworkProfileIdGameId(string set_type, ProfileGameNetwork obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2993,7 +2993,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_set_by_profile_id_by_game_id"
+                , "usp_profile_game_network_set_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -3004,7 +3004,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(string set_type, ProfileGameNetwork obj)  {
+        public virtual bool SetProfileGameNetworkProfileIdGameIdGameNetworkId(string set_type, ProfileGameNetwork obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3030,7 +3030,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_set_by_profile_id_by_game_id_by_game_network_id"
+                , "usp_profile_game_network_set_profile_id_game_id_game_network_id"
                 , parameters
                 );          
             }
@@ -3041,7 +3041,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(string set_type, ProfileGameNetwork obj)  {
+        public virtual bool SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(string set_type, ProfileGameNetwork obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3067,7 +3067,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_set_by_network_username_by_game_id_by_game_network_id"
+                , "usp_profile_game_network_set_network_username_game_id_game_network_id"
                 , parameters
                 );          
             }
@@ -3078,7 +3078,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameNetworkByUuid(
+        public virtual bool DelProfileGameNetworkUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3088,7 +3088,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_network_del_by_uuid"
+                    , "usp_profile_game_network_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -3099,7 +3099,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameNetworkByProfileIdByGameId(
+        public virtual bool DelProfileGameNetworkProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -3111,7 +3111,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_network_del_by_profile_id_by_game_id"
+                    , "usp_profile_game_network_del_profile_id_game_id"
                     , parameters
                     );
                 return true;            
@@ -3122,7 +3122,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
+        public virtual bool DelProfileGameNetworkProfileIdGameIdGameNetworkId(
              profile_id
             ,  game_id
             ,  game_network_id
@@ -3136,7 +3136,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_network_del_by_profile_id_by_game_id_by_game_network_id"
+                    , "usp_profile_game_network_del_profile_id_game_id_game_network_id"
                     , parameters
                     );
                 return true;            
@@ -3147,7 +3147,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
+        public virtual bool DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
              network_username
             ,  game_id
             ,  game_network_id
@@ -3161,7 +3161,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_network_del_by_network_username_by_game_id_by_game_network_id"
+                    , "usp_profile_game_network_del_network_username_game_id_game_network_id"
                     , parameters
                     );
                 return true;            
@@ -3191,7 +3191,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameNetworkListByUuid(
+        public virtual DataSet GetProfileGameNetworkListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3201,7 +3201,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_get_by_uuid"
+                , "usp_profile_game_network_get_uuid"
                 , "profile_game_network"
                 , parameters
                 );           
@@ -3212,7 +3212,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameNetworkListByGameId(
+        public virtual DataSet GetProfileGameNetworkListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -3222,7 +3222,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_get_by_game_id"
+                , "usp_profile_game_network_get_game_id"
                 , "profile_game_network"
                 , parameters
                 );           
@@ -3233,7 +3233,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameNetworkListByProfileId(
+        public virtual DataSet GetProfileGameNetworkListProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -3243,7 +3243,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_get_by_profile_id"
+                , "usp_profile_game_network_get_profile_id"
                 , "profile_game_network"
                 , parameters
                 );           
@@ -3254,7 +3254,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameNetworkListByProfileIdByGameId(
+        public virtual DataSet GetProfileGameNetworkListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -3266,7 +3266,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_get_by_profile_id_by_game_id"
+                , "usp_profile_game_network_get_profile_id_game_id"
                 , "profile_game_network"
                 , parameters
                 );           
@@ -3277,7 +3277,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
+        public virtual DataSet GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
              profile_id
             ,  game_id
             ,  game_network_id
@@ -3291,7 +3291,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_get_by_profile_id_by_game_id_by_game_network_id"
+                , "usp_profile_game_network_get_profile_id_game_id_game_network_id"
                 , "profile_game_network"
                 , parameters
                 );           
@@ -3302,7 +3302,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
+        public virtual DataSet GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
              network_username
             ,  game_id
             ,  game_network_id
@@ -3316,7 +3316,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_network_get_by_network_username_by_game_id_by_game_network_id"
+                , "usp_profile_game_network_get_network_username_game_id_game_network_id"
                 , "profile_game_network"
                 , parameters
                 );           
@@ -3345,7 +3345,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameDataAttributeByUuid(
+        public virtual int CountProfileGameDataAttributeUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3355,7 +3355,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_count_by_uuid"
+                , "usp_profile_game_data_attribute_count_uuid"
                 , parameters
                 );          
             }
@@ -3365,7 +3365,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameDataAttributeByProfileId(
+        public virtual int CountProfileGameDataAttributeProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -3375,7 +3375,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_count_by_profile_id"
+                , "usp_profile_game_data_attribute_count_profile_id"
                 , parameters
                 );          
             }
@@ -3385,7 +3385,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameDataAttributeByProfileIdByGameIdByCode(
+        public virtual int CountProfileGameDataAttributeProfileIdGameIdCode(
              profile_id
             ,  game_id
             ,  code
@@ -3399,7 +3399,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_count_by_profile_id_by_game_id_by_code"
+                , "usp_profile_game_data_attribute_count_profile_id_game_id_code"
                 , parameters
                 );          
             }
@@ -3409,7 +3409,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileGameDataAttributeListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileGameDataAttributeListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -3421,7 +3421,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_browse_by_filter"
+                , "usp_profile_game_data_attribute_browse_filter"
                 , "profile_game_data_attribute"
                 , parameters
                 );         
@@ -3433,7 +3433,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameDataAttributeByUuid(string set_type, ProfileGameDataAttribute obj)  {
+        public virtual bool SetProfileGameDataAttributeUuid(string set_type, ProfileGameDataAttribute obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3454,7 +3454,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_set_by_uuid"
+                , "usp_profile_game_data_attribute_set_uuid"
                 , parameters
                 );          
             }
@@ -3465,7 +3465,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameDataAttributeByProfileId(string set_type, ProfileGameDataAttribute obj)  {
+        public virtual bool SetProfileGameDataAttributeProfileId(string set_type, ProfileGameDataAttribute obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3486,7 +3486,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_set_by_profile_id"
+                , "usp_profile_game_data_attribute_set_profile_id"
                 , parameters
                 );          
             }
@@ -3497,7 +3497,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameDataAttributeByProfileIdByGameIdByCode(string set_type, ProfileGameDataAttribute obj)  {
+        public virtual bool SetProfileGameDataAttributeProfileIdGameIdCode(string set_type, ProfileGameDataAttribute obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3518,7 +3518,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_set_by_profile_id_by_game_id_by_code"
+                , "usp_profile_game_data_attribute_set_profile_id_game_id_code"
                 , parameters
                 );          
             }
@@ -3529,7 +3529,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameDataAttributeByUuid(
+        public virtual bool DelProfileGameDataAttributeUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3539,7 +3539,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_data_attribute_del_by_uuid"
+                    , "usp_profile_game_data_attribute_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -3550,7 +3550,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameDataAttributeByProfileId(
+        public virtual bool DelProfileGameDataAttributeProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -3560,7 +3560,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_data_attribute_del_by_profile_id"
+                    , "usp_profile_game_data_attribute_del_profile_id"
                     , parameters
                     );
                 return true;            
@@ -3571,7 +3571,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameDataAttributeByProfileIdByGameIdByCode(
+        public virtual bool DelProfileGameDataAttributeProfileIdGameIdCode(
              profile_id
             ,  game_id
             ,  code
@@ -3585,7 +3585,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_data_attribute_del_by_profile_id_by_game_id_by_code"
+                    , "usp_profile_game_data_attribute_del_profile_id_game_id_code"
                     , parameters
                     );
                 return true;            
@@ -3596,7 +3596,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameDataAttributeListByUuid(
+        public virtual DataSet GetProfileGameDataAttributeListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3606,7 +3606,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_get_by_uuid"
+                , "usp_profile_game_data_attribute_get_uuid"
                 , "profile_game_data_attribute"
                 , parameters
                 );           
@@ -3617,7 +3617,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameDataAttributeListByProfileId(
+        public virtual DataSet GetProfileGameDataAttributeListProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -3627,7 +3627,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_get_by_profile_id"
+                , "usp_profile_game_data_attribute_get_profile_id"
                 , "profile_game_data_attribute"
                 , parameters
                 );           
@@ -3638,7 +3638,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
+        public virtual DataSet GetProfileGameDataAttributeListProfileIdGameIdCode(
              profile_id
             ,  game_id
             ,  code
@@ -3652,7 +3652,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_data_attribute_get_by_profile_id_by_game_id_by_code"
+                , "usp_profile_game_data_attribute_get_profile_id_game_id_code"
                 , "profile_game_data_attribute"
                 , parameters
                 );           
@@ -3681,7 +3681,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameSessionByUuid(
+        public virtual int CountGameSessionUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3691,7 +3691,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_count_by_uuid"
+                , "usp_game_session_count_uuid"
                 , parameters
                 );          
             }
@@ -3701,7 +3701,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameSessionByGameId(
+        public virtual int CountGameSessionGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -3711,7 +3711,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_count_by_game_id"
+                , "usp_game_session_count_game_id"
                 , parameters
                 );          
             }
@@ -3721,7 +3721,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameSessionByProfileId(
+        public virtual int CountGameSessionProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -3731,7 +3731,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_count_by_profile_id"
+                , "usp_game_session_count_profile_id"
                 , parameters
                 );          
             }
@@ -3741,7 +3741,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameSessionByProfileIdByGameId(
+        public virtual int CountGameSessionProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -3753,7 +3753,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_count_by_profile_id_by_game_id"
+                , "usp_game_session_count_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -3763,7 +3763,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameSessionListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameSessionListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -3775,7 +3775,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_browse_by_filter"
+                , "usp_game_session_browse_filter"
                 , "game_session"
                 , parameters
                 );         
@@ -3787,7 +3787,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameSessionByUuid(string set_type, GameSession obj)  {
+        public virtual bool SetGameSessionUuid(string set_type, GameSession obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3828,7 +3828,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_set_by_uuid"
+                , "usp_game_session_set_uuid"
                 , parameters
                 );          
             }
@@ -3839,7 +3839,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameSessionByUuid(
+        public virtual bool DelGameSessionUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3849,7 +3849,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_session_del_by_uuid"
+                    , "usp_game_session_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -3879,7 +3879,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameSessionListByUuid(
+        public virtual DataSet GetGameSessionListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3889,7 +3889,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_get_by_uuid"
+                , "usp_game_session_get_uuid"
                 , "game_session"
                 , parameters
                 );           
@@ -3900,7 +3900,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameSessionListByGameId(
+        public virtual DataSet GetGameSessionListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -3910,7 +3910,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_get_by_game_id"
+                , "usp_game_session_get_game_id"
                 , "game_session"
                 , parameters
                 );           
@@ -3921,7 +3921,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameSessionListByProfileId(
+        public virtual DataSet GetGameSessionListProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -3931,7 +3931,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_get_by_profile_id"
+                , "usp_game_session_get_profile_id"
                 , "game_session"
                 , parameters
                 );           
@@ -3942,7 +3942,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameSessionListByProfileIdByGameId(
+        public virtual DataSet GetGameSessionListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -3954,7 +3954,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_get_by_profile_id_by_game_id"
+                , "usp_game_session_get_profile_id_game_id"
                 , "game_session"
                 , parameters
                 );           
@@ -3983,7 +3983,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameSessionDataByUuid(
+        public virtual int CountGameSessionDataUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3993,7 +3993,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_data_count_by_uuid"
+                , "usp_game_session_data_count_uuid"
                 , parameters
                 );          
             }
@@ -4003,7 +4003,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameSessionDataListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameSessionDataListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -4015,7 +4015,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_data_browse_by_filter"
+                , "usp_game_session_data_browse_filter"
                 , "game_session_data"
                 , parameters
                 );         
@@ -4027,7 +4027,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameSessionDataByUuid(string set_type, GameSessionData obj)  {
+        public virtual bool SetGameSessionDataUuid(string set_type, GameSessionData obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4051,7 +4051,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_data_set_by_uuid"
+                , "usp_game_session_data_set_uuid"
                 , parameters
                 );          
             }
@@ -4062,7 +4062,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameSessionDataByUuid(
+        public virtual bool DelGameSessionDataUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4072,7 +4072,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_session_data_del_by_uuid"
+                    , "usp_game_session_data_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -4102,7 +4102,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameSessionDataListByUuid(
+        public virtual DataSet GetGameSessionDataListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4112,7 +4112,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_session_data_get_by_uuid"
+                , "usp_game_session_data_get_uuid"
                 , "game_session_data"
                 , parameters
                 );           
@@ -4141,7 +4141,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameContentByUuid(
+        public virtual int CountGameContentUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4151,7 +4151,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_count_by_uuid"
+                , "usp_game_content_count_uuid"
                 , parameters
                 );          
             }
@@ -4161,7 +4161,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameContentByGameId(
+        public virtual int CountGameContentGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -4171,7 +4171,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_count_by_game_id"
+                , "usp_game_content_count_game_id"
                 , parameters
                 );          
             }
@@ -4181,7 +4181,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameContentByGameIdByPath(
+        public virtual int CountGameContentGameIdPath(
              game_id
             ,  path
         )  {
@@ -4193,7 +4193,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_count_by_game_id_by_path"
+                , "usp_game_content_count_game_id_path"
                 , parameters
                 );          
             }
@@ -4203,7 +4203,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameContentByGameIdByPathByVersion(
+        public virtual int CountGameContentGameIdPathVersion(
              game_id
             ,  path
             ,  version
@@ -4217,7 +4217,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_count_by_game_id_by_path_by_version"
+                , "usp_game_content_count_game_id_path_version"
                 , parameters
                 );          
             }
@@ -4227,7 +4227,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameContentByGameIdByPathByVersionByPlatformByIncrement(
+        public virtual int CountGameContentGameIdPathVersionPlatformIncrement(
              game_id
             ,  path
             ,  version
@@ -4245,7 +4245,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_count_by_game_id_by_path_by_version_by_platform_by_increment"
+                , "usp_game_content_count_game_id_path_version_platform_increment"
                 , parameters
                 );          
             }
@@ -4255,7 +4255,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameContentListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameContentListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -4267,7 +4267,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_browse_by_filter"
+                , "usp_game_content_browse_filter"
                 , "game_content"
                 , parameters
                 );         
@@ -4279,7 +4279,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameContentByUuid(string set_type, GameContent obj)  {
+        public virtual bool SetGameContentUuid(string set_type, GameContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4309,7 +4309,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_set_by_uuid"
+                , "usp_game_content_set_uuid"
                 , parameters
                 );          
             }
@@ -4320,7 +4320,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameContentByGameId(string set_type, GameContent obj)  {
+        public virtual bool SetGameContentGameId(string set_type, GameContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4350,7 +4350,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_set_by_game_id"
+                , "usp_game_content_set_game_id"
                 , parameters
                 );          
             }
@@ -4361,7 +4361,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameContentByGameIdByPath(string set_type, GameContent obj)  {
+        public virtual bool SetGameContentGameIdPath(string set_type, GameContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4391,7 +4391,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_set_by_game_id_by_path"
+                , "usp_game_content_set_game_id_path"
                 , parameters
                 );          
             }
@@ -4402,7 +4402,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameContentByGameIdByPathByVersion(string set_type, GameContent obj)  {
+        public virtual bool SetGameContentGameIdPathVersion(string set_type, GameContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4432,7 +4432,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_set_by_game_id_by_path_by_version"
+                , "usp_game_content_set_game_id_path_version"
                 , parameters
                 );          
             }
@@ -4443,7 +4443,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameContentByGameIdByPathByVersionByPlatformByIncrement(string set_type, GameContent obj)  {
+        public virtual bool SetGameContentGameIdPathVersionPlatformIncrement(string set_type, GameContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4473,7 +4473,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_set_by_game_id_by_path_by_version_by_platform_by_increment"
+                , "usp_game_content_set_game_id_path_version_platform_increment"
                 , parameters
                 );          
             }
@@ -4484,7 +4484,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameContentByUuid(
+        public virtual bool DelGameContentUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4494,7 +4494,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_content_del_by_uuid"
+                    , "usp_game_content_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -4505,7 +4505,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameContentByGameId(
+        public virtual bool DelGameContentGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -4515,7 +4515,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_content_del_by_game_id"
+                    , "usp_game_content_del_game_id"
                     , parameters
                     );
                 return true;            
@@ -4526,7 +4526,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameContentByGameIdByPath(
+        public virtual bool DelGameContentGameIdPath(
              game_id
             ,  path
         )  {
@@ -4538,7 +4538,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_content_del_by_game_id_by_path"
+                    , "usp_game_content_del_game_id_path"
                     , parameters
                     );
                 return true;            
@@ -4549,7 +4549,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameContentByGameIdByPathByVersion(
+        public virtual bool DelGameContentGameIdPathVersion(
              game_id
             ,  path
             ,  version
@@ -4563,7 +4563,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_content_del_by_game_id_by_path_by_version"
+                    , "usp_game_content_del_game_id_path_version"
                     , parameters
                     );
                 return true;            
@@ -4574,7 +4574,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameContentByGameIdByPathByVersionByPlatformByIncrement(
+        public virtual bool DelGameContentGameIdPathVersionPlatformIncrement(
              game_id
             ,  path
             ,  version
@@ -4592,7 +4592,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_content_del_by_game_id_by_path_by_version_by_platform_by_increment"
+                    , "usp_game_content_del_game_id_path_version_platform_increment"
                     , parameters
                     );
                 return true;            
@@ -4622,7 +4622,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameContentListByUuid(
+        public virtual DataSet GetGameContentListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4632,7 +4632,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_get_by_uuid"
+                , "usp_game_content_get_uuid"
                 , "game_content"
                 , parameters
                 );           
@@ -4643,7 +4643,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameContentListByGameId(
+        public virtual DataSet GetGameContentListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -4653,7 +4653,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_get_by_game_id"
+                , "usp_game_content_get_game_id"
                 , "game_content"
                 , parameters
                 );           
@@ -4664,7 +4664,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameContentListByGameIdByPath(
+        public virtual DataSet GetGameContentListGameIdPath(
              game_id
             ,  path
         )  {
@@ -4676,7 +4676,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_get_by_game_id_by_path"
+                , "usp_game_content_get_game_id_path"
                 , "game_content"
                 , parameters
                 );           
@@ -4687,7 +4687,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameContentListByGameIdByPathByVersion(
+        public virtual DataSet GetGameContentListGameIdPathVersion(
              game_id
             ,  path
             ,  version
@@ -4701,7 +4701,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_get_by_game_id_by_path_by_version"
+                , "usp_game_content_get_game_id_path_version"
                 , "game_content"
                 , parameters
                 );           
@@ -4712,7 +4712,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
+        public virtual DataSet GetGameContentListGameIdPathVersionPlatformIncrement(
              game_id
             ,  path
             ,  version
@@ -4730,7 +4730,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_content_get_by_game_id_by_path_by_version_by_platform_by_increment"
+                , "usp_game_content_get_game_id_path_version_platform_increment"
                 , "game_content"
                 , parameters
                 );           
@@ -4759,7 +4759,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByUuid(
+        public virtual int CountGameProfileContentUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4769,7 +4769,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_uuid"
+                , "usp_game_profile_content_count_uuid"
                 , parameters
                 );          
             }
@@ -4779,7 +4779,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByGameIdByProfileId(
+        public virtual int CountGameProfileContentGameIdProfileId(
              game_id
             ,  profile_id
         )  {
@@ -4791,7 +4791,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_game_id_by_profile_id"
+                , "usp_game_profile_content_count_game_id_profile_id"
                 , parameters
                 );          
             }
@@ -4801,7 +4801,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByGameIdByUsername(
+        public virtual int CountGameProfileContentGameIdUsername(
              game_id
             ,  username
         )  {
@@ -4813,7 +4813,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_game_id_by_username"
+                , "usp_game_profile_content_count_game_id_username"
                 , parameters
                 );          
             }
@@ -4823,7 +4823,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByUsername(
+        public virtual int CountGameProfileContentUsername(
              username
         )  {
             List<SqlParameter> parameters 
@@ -4833,7 +4833,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_username"
+                , "usp_game_profile_content_count_username"
                 , parameters
                 );          
             }
@@ -4843,7 +4843,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByGameIdByProfileIdByPath(
+        public virtual int CountGameProfileContentGameIdProfileIdPath(
              game_id
             ,  profile_id
             ,  path
@@ -4857,7 +4857,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_game_id_by_profile_id_by_path"
+                , "usp_game_profile_content_count_game_id_profile_id_path"
                 , parameters
                 );          
             }
@@ -4867,7 +4867,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByGameIdByProfileIdByPathByVersion(
+        public virtual int CountGameProfileContentGameIdProfileIdPathVersion(
              game_id
             ,  profile_id
             ,  path
@@ -4883,7 +4883,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_game_id_by_profile_id_by_path_by_version"
+                , "usp_game_profile_content_count_game_id_profile_id_path_version"
                 , parameters
                 );          
             }
@@ -4893,7 +4893,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        public virtual int CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
              game_id
             ,  profile_id
             ,  path
@@ -4913,7 +4913,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment"
+                , "usp_game_profile_content_count_game_id_profile_id_path_version_platform_increment"
                 , parameters
                 );          
             }
@@ -4923,7 +4923,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByGameIdByUsernameByPath(
+        public virtual int CountGameProfileContentGameIdUsernamePath(
              game_id
             ,  username
             ,  path
@@ -4937,7 +4937,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_game_id_by_username_by_path"
+                , "usp_game_profile_content_count_game_id_username_path"
                 , parameters
                 );          
             }
@@ -4947,7 +4947,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByGameIdByUsernameByPathByVersion(
+        public virtual int CountGameProfileContentGameIdUsernamePathVersion(
              game_id
             ,  username
             ,  path
@@ -4963,7 +4963,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_game_id_by_username_by_path_by_version"
+                , "usp_game_profile_content_count_game_id_username_path_version"
                 , parameters
                 );          
             }
@@ -4973,7 +4973,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        public virtual int CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
              game_id
             ,  username
             ,  path
@@ -4993,7 +4993,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_count_by_game_id_by_username_by_path_by_version_by_platform_by_increment"
+                , "usp_game_profile_content_count_game_id_username_path_version_platform_increment"
                 , parameters
                 );          
             }
@@ -5003,7 +5003,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameProfileContentListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameProfileContentListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -5015,7 +5015,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_browse_by_filter"
+                , "usp_game_profile_content_browse_filter"
                 , "game_profile_content"
                 , parameters
                 );         
@@ -5027,7 +5027,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByUuid(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentUuid(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5060,7 +5060,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_uuid"
+                , "usp_game_profile_content_set_uuid"
                 , parameters
                 );          
             }
@@ -5071,7 +5071,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByGameIdByProfileId(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentGameIdProfileId(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5104,7 +5104,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_game_id_by_profile_id"
+                , "usp_game_profile_content_set_game_id_profile_id"
                 , parameters
                 );          
             }
@@ -5115,7 +5115,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByGameIdByUsername(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentGameIdUsername(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5148,7 +5148,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_game_id_by_username"
+                , "usp_game_profile_content_set_game_id_username"
                 , parameters
                 );          
             }
@@ -5159,7 +5159,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByUsername(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentUsername(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5192,7 +5192,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_username"
+                , "usp_game_profile_content_set_username"
                 , parameters
                 );          
             }
@@ -5203,7 +5203,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByGameIdByProfileIdByPath(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentGameIdProfileIdPath(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5236,7 +5236,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_game_id_by_profile_id_by_path"
+                , "usp_game_profile_content_set_game_id_profile_id_path"
                 , parameters
                 );          
             }
@@ -5247,7 +5247,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByGameIdByProfileIdByPathByVersion(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentGameIdProfileIdPathVersion(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5280,7 +5280,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_game_id_by_profile_id_by_path_by_version"
+                , "usp_game_profile_content_set_game_id_profile_id_path_version"
                 , parameters
                 );          
             }
@@ -5291,7 +5291,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5324,7 +5324,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment"
+                , "usp_game_profile_content_set_game_id_profile_id_path_version_platform_increment"
                 , parameters
                 );          
             }
@@ -5335,7 +5335,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByGameIdByUsernameByPath(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentGameIdUsernamePath(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5368,7 +5368,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_game_id_by_username_by_path"
+                , "usp_game_profile_content_set_game_id_username_path"
                 , parameters
                 );          
             }
@@ -5379,7 +5379,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByGameIdByUsernameByPathByVersion(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentGameIdUsernamePathVersion(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5412,7 +5412,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_game_id_by_username_by_path_by_version"
+                , "usp_game_profile_content_set_game_id_username_path_version"
                 , parameters
                 );          
             }
@@ -5423,7 +5423,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(string set_type, GameProfileContent obj)  {
+        public virtual bool SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(string set_type, GameProfileContent obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5456,7 +5456,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_set_by_game_id_by_username_by_path_by_version_by_platform_by_increment"
+                , "usp_game_profile_content_set_game_id_username_path_version_platform_increment"
                 , parameters
                 );          
             }
@@ -5467,7 +5467,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByUuid(
+        public virtual bool DelGameProfileContentUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5477,7 +5477,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_uuid"
+                    , "usp_game_profile_content_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -5488,7 +5488,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByGameIdByProfileId(
+        public virtual bool DelGameProfileContentGameIdProfileId(
              game_id
             ,  profile_id
         )  {
@@ -5500,7 +5500,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_game_id_by_profile_id"
+                    , "usp_game_profile_content_del_game_id_profile_id"
                     , parameters
                     );
                 return true;            
@@ -5511,7 +5511,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByGameIdByUsername(
+        public virtual bool DelGameProfileContentGameIdUsername(
              game_id
             ,  username
         )  {
@@ -5523,7 +5523,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_game_id_by_username"
+                    , "usp_game_profile_content_del_game_id_username"
                     , parameters
                     );
                 return true;            
@@ -5534,7 +5534,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByUsername(
+        public virtual bool DelGameProfileContentUsername(
              username
         )  {
             List<SqlParameter> parameters 
@@ -5544,7 +5544,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_username"
+                    , "usp_game_profile_content_del_username"
                     , parameters
                     );
                 return true;            
@@ -5555,7 +5555,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByGameIdByProfileIdByPath(
+        public virtual bool DelGameProfileContentGameIdProfileIdPath(
              game_id
             ,  profile_id
             ,  path
@@ -5569,7 +5569,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_game_id_by_profile_id_by_path"
+                    , "usp_game_profile_content_del_game_id_profile_id_path"
                     , parameters
                     );
                 return true;            
@@ -5580,7 +5580,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByGameIdByProfileIdByPathByVersion(
+        public virtual bool DelGameProfileContentGameIdProfileIdPathVersion(
              game_id
             ,  profile_id
             ,  path
@@ -5596,7 +5596,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_game_id_by_profile_id_by_path_by_version"
+                    , "usp_game_profile_content_del_game_id_profile_id_path_version"
                     , parameters
                     );
                 return true;            
@@ -5607,7 +5607,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        public virtual bool DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
              game_id
             ,  profile_id
             ,  path
@@ -5627,7 +5627,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment"
+                    , "usp_game_profile_content_del_game_id_profile_id_path_version_platform_increment"
                     , parameters
                     );
                 return true;            
@@ -5638,7 +5638,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByGameIdByUsernameByPath(
+        public virtual bool DelGameProfileContentGameIdUsernamePath(
              game_id
             ,  username
             ,  path
@@ -5652,7 +5652,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_game_id_by_username_by_path"
+                    , "usp_game_profile_content_del_game_id_username_path"
                     , parameters
                     );
                 return true;            
@@ -5663,7 +5663,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByGameIdByUsernameByPathByVersion(
+        public virtual bool DelGameProfileContentGameIdUsernamePathVersion(
              game_id
             ,  username
             ,  path
@@ -5679,7 +5679,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_game_id_by_username_by_path_by_version"
+                    , "usp_game_profile_content_del_game_id_username_path_version"
                     , parameters
                     );
                 return true;            
@@ -5690,7 +5690,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        public virtual bool DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
              game_id
             ,  username
             ,  path
@@ -5710,7 +5710,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_content_del_by_game_id_by_username_by_path_by_version_by_platform_by_increment"
+                    , "usp_game_profile_content_del_game_id_username_path_version_platform_increment"
                     , parameters
                     );
                 return true;            
@@ -5740,7 +5740,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByUuid(
+        public virtual DataSet GetGameProfileContentListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5750,7 +5750,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_uuid"
+                , "usp_game_profile_content_get_uuid"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5761,7 +5761,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByGameIdByProfileId(
+        public virtual DataSet GetGameProfileContentListGameIdProfileId(
              game_id
             ,  profile_id
         )  {
@@ -5773,7 +5773,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_game_id_by_profile_id"
+                , "usp_game_profile_content_get_game_id_profile_id"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5784,7 +5784,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByGameIdByUsername(
+        public virtual DataSet GetGameProfileContentListGameIdUsername(
              game_id
             ,  username
         )  {
@@ -5796,7 +5796,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_game_id_by_username"
+                , "usp_game_profile_content_get_game_id_username"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5807,7 +5807,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByUsername(
+        public virtual DataSet GetGameProfileContentListUsername(
              username
         )  {
             List<SqlParameter> parameters 
@@ -5817,7 +5817,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_username"
+                , "usp_game_profile_content_get_username"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5828,7 +5828,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByGameIdByProfileIdByPath(
+        public virtual DataSet GetGameProfileContentListGameIdProfileIdPath(
              game_id
             ,  profile_id
             ,  path
@@ -5842,7 +5842,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_game_id_by_profile_id_by_path"
+                , "usp_game_profile_content_get_game_id_profile_id_path"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5853,7 +5853,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
+        public virtual DataSet GetGameProfileContentListGameIdProfileIdPathVersion(
              game_id
             ,  profile_id
             ,  path
@@ -5869,7 +5869,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_game_id_by_profile_id_by_path_by_version"
+                , "usp_game_profile_content_get_game_id_profile_id_path_version"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5880,7 +5880,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
+        public virtual DataSet GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
              game_id
             ,  profile_id
             ,  path
@@ -5900,7 +5900,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment"
+                , "usp_game_profile_content_get_game_id_profile_id_path_version_platform_increment"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5911,7 +5911,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByGameIdByUsernameByPath(
+        public virtual DataSet GetGameProfileContentListGameIdUsernamePath(
              game_id
             ,  username
             ,  path
@@ -5925,7 +5925,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_game_id_by_username_by_path"
+                , "usp_game_profile_content_get_game_id_username_path"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5936,7 +5936,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByGameIdByUsernameByPathByVersion(
+        public virtual DataSet GetGameProfileContentListGameIdUsernamePathVersion(
              game_id
             ,  username
             ,  path
@@ -5952,7 +5952,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_game_id_by_username_by_path_by_version"
+                , "usp_game_profile_content_get_game_id_username_path_version"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -5963,7 +5963,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
+        public virtual DataSet GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
              game_id
             ,  username
             ,  path
@@ -5983,7 +5983,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_content_get_by_game_id_by_username_by_path_by_version_by_platform_by_increment"
+                , "usp_game_profile_content_get_game_id_username_path_version_platform_increment"
                 , "game_profile_content"
                 , parameters
                 );           
@@ -6012,7 +6012,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAppByUuid(
+        public virtual int CountGameAppUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6022,7 +6022,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_count_by_uuid"
+                , "usp_game_app_count_uuid"
                 , parameters
                 );          
             }
@@ -6032,7 +6032,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAppByGameId(
+        public virtual int CountGameAppGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -6042,7 +6042,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_count_by_game_id"
+                , "usp_game_app_count_game_id"
                 , parameters
                 );          
             }
@@ -6052,7 +6052,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAppByAppId(
+        public virtual int CountGameAppAppId(
              app_id
         )  {
             List<SqlParameter> parameters 
@@ -6062,7 +6062,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_count_by_app_id"
+                , "usp_game_app_count_app_id"
                 , parameters
                 );          
             }
@@ -6072,7 +6072,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAppByGameIdByAppId(
+        public virtual int CountGameAppGameIdAppId(
              game_id
             ,  app_id
         )  {
@@ -6084,7 +6084,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_count_by_game_id_by_app_id"
+                , "usp_game_app_count_game_id_app_id"
                 , parameters
                 );          
             }
@@ -6094,7 +6094,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameAppListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameAppListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -6106,7 +6106,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_browse_by_filter"
+                , "usp_game_app_browse_filter"
                 , "game_app"
                 , parameters
                 );         
@@ -6118,7 +6118,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameAppByUuid(string set_type, GameApp obj)  {
+        public virtual bool SetGameAppUuid(string set_type, GameApp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6135,7 +6135,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_set_by_uuid"
+                , "usp_game_app_set_uuid"
                 , parameters
                 );          
             }
@@ -6146,7 +6146,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameAppByUuid(
+        public virtual bool DelGameAppUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6156,7 +6156,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_app_del_by_uuid"
+                    , "usp_game_app_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -6186,7 +6186,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAppListByUuid(
+        public virtual DataSet GetGameAppListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6196,7 +6196,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_get_by_uuid"
+                , "usp_game_app_get_uuid"
                 , "game_app"
                 , parameters
                 );           
@@ -6207,7 +6207,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAppListByGameId(
+        public virtual DataSet GetGameAppListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -6217,7 +6217,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_get_by_game_id"
+                , "usp_game_app_get_game_id"
                 , "game_app"
                 , parameters
                 );           
@@ -6228,7 +6228,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAppListByAppId(
+        public virtual DataSet GetGameAppListAppId(
              app_id
         )  {
             List<SqlParameter> parameters 
@@ -6238,7 +6238,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_get_by_app_id"
+                , "usp_game_app_get_app_id"
                 , "game_app"
                 , parameters
                 );           
@@ -6249,7 +6249,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAppListByGameIdByAppId(
+        public virtual DataSet GetGameAppListGameIdAppId(
              game_id
             ,  app_id
         )  {
@@ -6261,7 +6261,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_app_get_by_game_id_by_app_id"
+                , "usp_game_app_get_game_id_app_id"
                 , "game_app"
                 , parameters
                 );           
@@ -6290,7 +6290,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameLocationByUuid(
+        public virtual int CountProfileGameLocationUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6300,7 +6300,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_count_by_uuid"
+                , "usp_profile_game_location_count_uuid"
                 , parameters
                 );          
             }
@@ -6310,7 +6310,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameLocationByGameLocationId(
+        public virtual int CountProfileGameLocationGameLocationId(
              game_location_id
         )  {
             List<SqlParameter> parameters 
@@ -6320,7 +6320,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_count_by_game_location_id"
+                , "usp_profile_game_location_count_game_location_id"
                 , parameters
                 );          
             }
@@ -6330,7 +6330,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameLocationByProfileId(
+        public virtual int CountProfileGameLocationProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -6340,7 +6340,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_count_by_profile_id"
+                , "usp_profile_game_location_count_profile_id"
                 , parameters
                 );          
             }
@@ -6350,7 +6350,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileGameLocationByProfileIdByGameLocationId(
+        public virtual int CountProfileGameLocationProfileIdGameLocationId(
              profile_id
             ,  game_location_id
         )  {
@@ -6362,7 +6362,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_count_by_profile_id_by_game_location_id"
+                , "usp_profile_game_location_count_profile_id_game_location_id"
                 , parameters
                 );          
             }
@@ -6372,7 +6372,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileGameLocationListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileGameLocationListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -6384,7 +6384,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_browse_by_filter"
+                , "usp_profile_game_location_browse_filter"
                 , "profile_game_location"
                 , parameters
                 );         
@@ -6396,7 +6396,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileGameLocationByUuid(string set_type, ProfileGameLocation obj)  {
+        public virtual bool SetProfileGameLocationUuid(string set_type, ProfileGameLocation obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6414,7 +6414,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_set_by_uuid"
+                , "usp_profile_game_location_set_uuid"
                 , parameters
                 );          
             }
@@ -6425,7 +6425,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileGameLocationByUuid(
+        public virtual bool DelProfileGameLocationUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6435,7 +6435,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_game_location_del_by_uuid"
+                    , "usp_profile_game_location_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -6465,7 +6465,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameLocationListByUuid(
+        public virtual DataSet GetProfileGameLocationListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6475,7 +6475,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_get_by_uuid"
+                , "usp_profile_game_location_get_uuid"
                 , "profile_game_location"
                 , parameters
                 );           
@@ -6486,7 +6486,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameLocationListByGameLocationId(
+        public virtual DataSet GetProfileGameLocationListGameLocationId(
              game_location_id
         )  {
             List<SqlParameter> parameters 
@@ -6496,7 +6496,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_get_by_game_location_id"
+                , "usp_profile_game_location_get_game_location_id"
                 , "profile_game_location"
                 , parameters
                 );           
@@ -6507,7 +6507,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameLocationListByProfileId(
+        public virtual DataSet GetProfileGameLocationListProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -6517,7 +6517,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_get_by_profile_id"
+                , "usp_profile_game_location_get_profile_id"
                 , "profile_game_location"
                 , parameters
                 );           
@@ -6528,7 +6528,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileGameLocationListByProfileIdByGameLocationId(
+        public virtual DataSet GetProfileGameLocationListProfileIdGameLocationId(
              profile_id
             ,  game_location_id
         )  {
@@ -6540,7 +6540,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_game_location_get_by_profile_id_by_game_location_id"
+                , "usp_profile_game_location_get_profile_id_game_location_id"
                 , "profile_game_location"
                 , parameters
                 );           
@@ -6569,7 +6569,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGamePhotoByUuid(
+        public virtual int CountGamePhotoUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6579,7 +6579,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_count_by_uuid"
+                , "usp_game_photo_count_uuid"
                 , parameters
                 );          
             }
@@ -6589,7 +6589,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGamePhotoByExternalId(
+        public virtual int CountGamePhotoExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -6599,7 +6599,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_count_by_external_id"
+                , "usp_game_photo_count_external_id"
                 , parameters
                 );          
             }
@@ -6609,7 +6609,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGamePhotoByUrl(
+        public virtual int CountGamePhotoUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -6619,7 +6619,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_count_by_url"
+                , "usp_game_photo_count_url"
                 , parameters
                 );          
             }
@@ -6629,7 +6629,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGamePhotoByUrlByExternalId(
+        public virtual int CountGamePhotoUrlExternalId(
              url
             ,  external_id
         )  {
@@ -6641,7 +6641,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_count_by_url_by_external_id"
+                , "usp_game_photo_count_url_external_id"
                 , parameters
                 );          
             }
@@ -6651,7 +6651,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGamePhotoByUuidByExternalId(
+        public virtual int CountGamePhotoUuidExternalId(
              uuid
             ,  external_id
         )  {
@@ -6663,7 +6663,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_count_by_uuid_by_external_id"
+                , "usp_game_photo_count_uuid_external_id"
                 , parameters
                 );          
             }
@@ -6673,7 +6673,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGamePhotoListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGamePhotoListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -6685,7 +6685,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_browse_by_filter"
+                , "usp_game_photo_browse_filter"
                 , "game_photo"
                 , parameters
                 );         
@@ -6697,7 +6697,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGamePhotoByUuid(string set_type, GamePhoto obj)  {
+        public virtual bool SetGamePhotoUuid(string set_type, GamePhoto obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6723,7 +6723,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_set_by_uuid"
+                , "usp_game_photo_set_uuid"
                 , parameters
                 );          
             }
@@ -6734,7 +6734,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGamePhotoByExternalId(string set_type, GamePhoto obj)  {
+        public virtual bool SetGamePhotoExternalId(string set_type, GamePhoto obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6760,7 +6760,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_set_by_external_id"
+                , "usp_game_photo_set_external_id"
                 , parameters
                 );          
             }
@@ -6771,7 +6771,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGamePhotoByUrl(string set_type, GamePhoto obj)  {
+        public virtual bool SetGamePhotoUrl(string set_type, GamePhoto obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6797,7 +6797,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_set_by_url"
+                , "usp_game_photo_set_url"
                 , parameters
                 );          
             }
@@ -6808,7 +6808,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGamePhotoByUrlByExternalId(string set_type, GamePhoto obj)  {
+        public virtual bool SetGamePhotoUrlExternalId(string set_type, GamePhoto obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6834,7 +6834,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_set_by_url_by_external_id"
+                , "usp_game_photo_set_url_external_id"
                 , parameters
                 );          
             }
@@ -6845,7 +6845,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGamePhotoByUuidByExternalId(string set_type, GamePhoto obj)  {
+        public virtual bool SetGamePhotoUuidExternalId(string set_type, GamePhoto obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6871,7 +6871,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_set_by_uuid_by_external_id"
+                , "usp_game_photo_set_uuid_external_id"
                 , parameters
                 );          
             }
@@ -6882,7 +6882,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGamePhotoByUuid(
+        public virtual bool DelGamePhotoUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6892,7 +6892,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_photo_del_by_uuid"
+                    , "usp_game_photo_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -6903,7 +6903,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGamePhotoByExternalId(
+        public virtual bool DelGamePhotoExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -6913,7 +6913,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_photo_del_by_external_id"
+                    , "usp_game_photo_del_external_id"
                     , parameters
                     );
                 return true;            
@@ -6924,7 +6924,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGamePhotoByUrl(
+        public virtual bool DelGamePhotoUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -6934,7 +6934,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_photo_del_by_url"
+                    , "usp_game_photo_del_url"
                     , parameters
                     );
                 return true;            
@@ -6945,7 +6945,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGamePhotoByUrlByExternalId(
+        public virtual bool DelGamePhotoUrlExternalId(
              url
             ,  external_id
         )  {
@@ -6957,7 +6957,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_photo_del_by_url_by_external_id"
+                    , "usp_game_photo_del_url_external_id"
                     , parameters
                     );
                 return true;            
@@ -6968,7 +6968,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGamePhotoByUuidByExternalId(
+        public virtual bool DelGamePhotoUuidExternalId(
              uuid
             ,  external_id
         )  {
@@ -6980,7 +6980,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_photo_del_by_uuid_by_external_id"
+                    , "usp_game_photo_del_uuid_external_id"
                     , parameters
                     );
                 return true;            
@@ -7010,7 +7010,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGamePhotoListByUuid(
+        public virtual DataSet GetGamePhotoListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7020,7 +7020,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_get_by_uuid"
+                , "usp_game_photo_get_uuid"
                 , "game_photo"
                 , parameters
                 );           
@@ -7031,7 +7031,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGamePhotoListByExternalId(
+        public virtual DataSet GetGamePhotoListExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -7041,7 +7041,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_get_by_external_id"
+                , "usp_game_photo_get_external_id"
                 , "game_photo"
                 , parameters
                 );           
@@ -7052,7 +7052,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGamePhotoListByUrl(
+        public virtual DataSet GetGamePhotoListUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -7062,7 +7062,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_get_by_url"
+                , "usp_game_photo_get_url"
                 , "game_photo"
                 , parameters
                 );           
@@ -7073,7 +7073,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGamePhotoListByUrlByExternalId(
+        public virtual DataSet GetGamePhotoListUrlExternalId(
              url
             ,  external_id
         )  {
@@ -7085,7 +7085,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_get_by_url_by_external_id"
+                , "usp_game_photo_get_url_external_id"
                 , "game_photo"
                 , parameters
                 );           
@@ -7096,7 +7096,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGamePhotoListByUuidByExternalId(
+        public virtual DataSet GetGamePhotoListUuidExternalId(
              uuid
             ,  external_id
         )  {
@@ -7108,7 +7108,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_photo_get_by_uuid_by_external_id"
+                , "usp_game_photo_get_uuid_external_id"
                 , "game_photo"
                 , parameters
                 );           
@@ -7137,7 +7137,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameVideoByUuid(
+        public virtual int CountGameVideoUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7147,7 +7147,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_count_by_uuid"
+                , "usp_game_video_count_uuid"
                 , parameters
                 );          
             }
@@ -7157,7 +7157,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameVideoByExternalId(
+        public virtual int CountGameVideoExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -7167,7 +7167,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_count_by_external_id"
+                , "usp_game_video_count_external_id"
                 , parameters
                 );          
             }
@@ -7177,7 +7177,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameVideoByUrl(
+        public virtual int CountGameVideoUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -7187,7 +7187,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_count_by_url"
+                , "usp_game_video_count_url"
                 , parameters
                 );          
             }
@@ -7197,7 +7197,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameVideoByUrlByExternalId(
+        public virtual int CountGameVideoUrlExternalId(
              url
             ,  external_id
         )  {
@@ -7209,7 +7209,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_count_by_url_by_external_id"
+                , "usp_game_video_count_url_external_id"
                 , parameters
                 );          
             }
@@ -7219,7 +7219,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameVideoByUuidByExternalId(
+        public virtual int CountGameVideoUuidExternalId(
              uuid
             ,  external_id
         )  {
@@ -7231,7 +7231,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_count_by_uuid_by_external_id"
+                , "usp_game_video_count_uuid_external_id"
                 , parameters
                 );          
             }
@@ -7241,7 +7241,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameVideoListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameVideoListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -7253,7 +7253,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_browse_by_filter"
+                , "usp_game_video_browse_filter"
                 , "game_video"
                 , parameters
                 );         
@@ -7265,7 +7265,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameVideoByUuid(string set_type, GameVideo obj)  {
+        public virtual bool SetGameVideoUuid(string set_type, GameVideo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7291,7 +7291,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_set_by_uuid"
+                , "usp_game_video_set_uuid"
                 , parameters
                 );          
             }
@@ -7302,7 +7302,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameVideoByExternalId(string set_type, GameVideo obj)  {
+        public virtual bool SetGameVideoExternalId(string set_type, GameVideo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7328,7 +7328,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_set_by_external_id"
+                , "usp_game_video_set_external_id"
                 , parameters
                 );          
             }
@@ -7339,7 +7339,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameVideoByUrl(string set_type, GameVideo obj)  {
+        public virtual bool SetGameVideoUrl(string set_type, GameVideo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7365,7 +7365,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_set_by_url"
+                , "usp_game_video_set_url"
                 , parameters
                 );          
             }
@@ -7376,7 +7376,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameVideoByUrlByExternalId(string set_type, GameVideo obj)  {
+        public virtual bool SetGameVideoUrlExternalId(string set_type, GameVideo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7402,7 +7402,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_set_by_url_by_external_id"
+                , "usp_game_video_set_url_external_id"
                 , parameters
                 );          
             }
@@ -7413,7 +7413,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameVideoByUuidByExternalId(string set_type, GameVideo obj)  {
+        public virtual bool SetGameVideoUuidExternalId(string set_type, GameVideo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7439,7 +7439,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_set_by_uuid_by_external_id"
+                , "usp_game_video_set_uuid_external_id"
                 , parameters
                 );          
             }
@@ -7450,7 +7450,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameVideoByUuid(
+        public virtual bool DelGameVideoUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7460,7 +7460,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_video_del_by_uuid"
+                    , "usp_game_video_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -7471,7 +7471,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameVideoByExternalId(
+        public virtual bool DelGameVideoExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -7481,7 +7481,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_video_del_by_external_id"
+                    , "usp_game_video_del_external_id"
                     , parameters
                     );
                 return true;            
@@ -7492,7 +7492,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameVideoByUrl(
+        public virtual bool DelGameVideoUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -7502,7 +7502,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_video_del_by_url"
+                    , "usp_game_video_del_url"
                     , parameters
                     );
                 return true;            
@@ -7513,7 +7513,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameVideoByUrlByExternalId(
+        public virtual bool DelGameVideoUrlExternalId(
              url
             ,  external_id
         )  {
@@ -7525,7 +7525,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_video_del_by_url_by_external_id"
+                    , "usp_game_video_del_url_external_id"
                     , parameters
                     );
                 return true;            
@@ -7536,7 +7536,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameVideoByUuidByExternalId(
+        public virtual bool DelGameVideoUuidExternalId(
              uuid
             ,  external_id
         )  {
@@ -7548,7 +7548,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_video_del_by_uuid_by_external_id"
+                    , "usp_game_video_del_uuid_external_id"
                     , parameters
                     );
                 return true;            
@@ -7578,7 +7578,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameVideoListByUuid(
+        public virtual DataSet GetGameVideoListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7588,7 +7588,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_get_by_uuid"
+                , "usp_game_video_get_uuid"
                 , "game_video"
                 , parameters
                 );           
@@ -7599,7 +7599,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameVideoListByExternalId(
+        public virtual DataSet GetGameVideoListExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -7609,7 +7609,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_get_by_external_id"
+                , "usp_game_video_get_external_id"
                 , "game_video"
                 , parameters
                 );           
@@ -7620,7 +7620,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameVideoListByUrl(
+        public virtual DataSet GetGameVideoListUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -7630,7 +7630,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_get_by_url"
+                , "usp_game_video_get_url"
                 , "game_video"
                 , parameters
                 );           
@@ -7641,7 +7641,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameVideoListByUrlByExternalId(
+        public virtual DataSet GetGameVideoListUrlExternalId(
              url
             ,  external_id
         )  {
@@ -7653,7 +7653,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_get_by_url_by_external_id"
+                , "usp_game_video_get_url_external_id"
                 , "game_video"
                 , parameters
                 );           
@@ -7664,7 +7664,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameVideoListByUuidByExternalId(
+        public virtual DataSet GetGameVideoListUuidExternalId(
              uuid
             ,  external_id
         )  {
@@ -7676,7 +7676,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_video_get_by_uuid_by_external_id"
+                , "usp_game_video_get_uuid_external_id"
                 , "game_video"
                 , parameters
                 );           
@@ -7705,7 +7705,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemWeaponByUuid(
+        public virtual int CountGameRpgItemWeaponUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7715,7 +7715,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_count_by_uuid"
+                , "usp_game_rpg_item_weapon_count_uuid"
                 , parameters
                 );          
             }
@@ -7725,7 +7725,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemWeaponByGameId(
+        public virtual int CountGameRpgItemWeaponGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -7735,7 +7735,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_count_by_game_id"
+                , "usp_game_rpg_item_weapon_count_game_id"
                 , parameters
                 );          
             }
@@ -7745,7 +7745,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemWeaponByUrl(
+        public virtual int CountGameRpgItemWeaponUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -7755,7 +7755,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_count_by_url"
+                , "usp_game_rpg_item_weapon_count_url"
                 , parameters
                 );          
             }
@@ -7765,7 +7765,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemWeaponByUrlByGameId(
+        public virtual int CountGameRpgItemWeaponUrlGameId(
              url
             ,  game_id
         )  {
@@ -7777,7 +7777,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_count_by_url_by_game_id"
+                , "usp_game_rpg_item_weapon_count_url_game_id"
                 , parameters
                 );          
             }
@@ -7787,7 +7787,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemWeaponByUuidByGameId(
+        public virtual int CountGameRpgItemWeaponUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -7799,7 +7799,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_count_by_uuid_by_game_id"
+                , "usp_game_rpg_item_weapon_count_uuid_game_id"
                 , parameters
                 );          
             }
@@ -7809,7 +7809,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameRpgItemWeaponListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameRpgItemWeaponListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -7821,7 +7821,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_browse_by_filter"
+                , "usp_game_rpg_item_weapon_browse_filter"
                 , "game_rpg_item_weapon"
                 , parameters
                 );         
@@ -7833,7 +7833,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemWeaponByUuid(string set_type, GameRpgItemWeapon obj)  {
+        public virtual bool SetGameRpgItemWeaponUuid(string set_type, GameRpgItemWeapon obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7867,7 +7867,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_set_by_uuid"
+                , "usp_game_rpg_item_weapon_set_uuid"
                 , parameters
                 );          
             }
@@ -7878,7 +7878,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemWeaponByGameId(string set_type, GameRpgItemWeapon obj)  {
+        public virtual bool SetGameRpgItemWeaponGameId(string set_type, GameRpgItemWeapon obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7912,7 +7912,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_set_by_game_id"
+                , "usp_game_rpg_item_weapon_set_game_id"
                 , parameters
                 );          
             }
@@ -7923,7 +7923,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemWeaponByUrl(string set_type, GameRpgItemWeapon obj)  {
+        public virtual bool SetGameRpgItemWeaponUrl(string set_type, GameRpgItemWeapon obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7957,7 +7957,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_set_by_url"
+                , "usp_game_rpg_item_weapon_set_url"
                 , parameters
                 );          
             }
@@ -7968,7 +7968,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemWeaponByUrlByGameId(string set_type, GameRpgItemWeapon obj)  {
+        public virtual bool SetGameRpgItemWeaponUrlGameId(string set_type, GameRpgItemWeapon obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8002,7 +8002,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_set_by_url_by_game_id"
+                , "usp_game_rpg_item_weapon_set_url_game_id"
                 , parameters
                 );          
             }
@@ -8013,7 +8013,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemWeaponByUuidByGameId(string set_type, GameRpgItemWeapon obj)  {
+        public virtual bool SetGameRpgItemWeaponUuidGameId(string set_type, GameRpgItemWeapon obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8047,7 +8047,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_set_by_uuid_by_game_id"
+                , "usp_game_rpg_item_weapon_set_uuid_game_id"
                 , parameters
                 );          
             }
@@ -8058,7 +8058,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemWeaponByUuid(
+        public virtual bool DelGameRpgItemWeaponUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8068,7 +8068,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_weapon_del_by_uuid"
+                    , "usp_game_rpg_item_weapon_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -8079,7 +8079,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemWeaponByGameId(
+        public virtual bool DelGameRpgItemWeaponGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -8089,7 +8089,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_weapon_del_by_game_id"
+                    , "usp_game_rpg_item_weapon_del_game_id"
                     , parameters
                     );
                 return true;            
@@ -8100,7 +8100,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemWeaponByUrl(
+        public virtual bool DelGameRpgItemWeaponUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -8110,7 +8110,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_weapon_del_by_url"
+                    , "usp_game_rpg_item_weapon_del_url"
                     , parameters
                     );
                 return true;            
@@ -8121,7 +8121,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemWeaponByUrlByGameId(
+        public virtual bool DelGameRpgItemWeaponUrlGameId(
              url
             ,  game_id
         )  {
@@ -8133,7 +8133,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_weapon_del_by_url_by_game_id"
+                    , "usp_game_rpg_item_weapon_del_url_game_id"
                     , parameters
                     );
                 return true;            
@@ -8144,7 +8144,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemWeaponByUuidByGameId(
+        public virtual bool DelGameRpgItemWeaponUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -8156,7 +8156,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_weapon_del_by_uuid_by_game_id"
+                    , "usp_game_rpg_item_weapon_del_uuid_game_id"
                     , parameters
                     );
                 return true;            
@@ -8186,7 +8186,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemWeaponListByUuid(
+        public virtual DataSet GetGameRpgItemWeaponListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8196,7 +8196,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_get_by_uuid"
+                , "usp_game_rpg_item_weapon_get_uuid"
                 , "game_rpg_item_weapon"
                 , parameters
                 );           
@@ -8207,7 +8207,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemWeaponListByGameId(
+        public virtual DataSet GetGameRpgItemWeaponListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -8217,7 +8217,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_get_by_game_id"
+                , "usp_game_rpg_item_weapon_get_game_id"
                 , "game_rpg_item_weapon"
                 , parameters
                 );           
@@ -8228,7 +8228,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemWeaponListByUrl(
+        public virtual DataSet GetGameRpgItemWeaponListUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -8238,7 +8238,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_get_by_url"
+                , "usp_game_rpg_item_weapon_get_url"
                 , "game_rpg_item_weapon"
                 , parameters
                 );           
@@ -8249,7 +8249,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemWeaponListByUrlByGameId(
+        public virtual DataSet GetGameRpgItemWeaponListUrlGameId(
              url
             ,  game_id
         )  {
@@ -8261,7 +8261,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_get_by_url_by_game_id"
+                , "usp_game_rpg_item_weapon_get_url_game_id"
                 , "game_rpg_item_weapon"
                 , parameters
                 );           
@@ -8272,7 +8272,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemWeaponListByUuidByGameId(
+        public virtual DataSet GetGameRpgItemWeaponListUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -8284,7 +8284,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_weapon_get_by_uuid_by_game_id"
+                , "usp_game_rpg_item_weapon_get_uuid_game_id"
                 , "game_rpg_item_weapon"
                 , parameters
                 );           
@@ -8313,7 +8313,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemSkillByUuid(
+        public virtual int CountGameRpgItemSkillUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8323,7 +8323,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_count_by_uuid"
+                , "usp_game_rpg_item_skill_count_uuid"
                 , parameters
                 );          
             }
@@ -8333,7 +8333,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemSkillByGameId(
+        public virtual int CountGameRpgItemSkillGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -8343,7 +8343,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_count_by_game_id"
+                , "usp_game_rpg_item_skill_count_game_id"
                 , parameters
                 );          
             }
@@ -8353,7 +8353,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemSkillByUrl(
+        public virtual int CountGameRpgItemSkillUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -8363,7 +8363,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_count_by_url"
+                , "usp_game_rpg_item_skill_count_url"
                 , parameters
                 );          
             }
@@ -8373,7 +8373,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemSkillByUrlByGameId(
+        public virtual int CountGameRpgItemSkillUrlGameId(
              url
             ,  game_id
         )  {
@@ -8385,7 +8385,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_count_by_url_by_game_id"
+                , "usp_game_rpg_item_skill_count_url_game_id"
                 , parameters
                 );          
             }
@@ -8395,7 +8395,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameRpgItemSkillByUuidByGameId(
+        public virtual int CountGameRpgItemSkillUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -8407,7 +8407,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_count_by_uuid_by_game_id"
+                , "usp_game_rpg_item_skill_count_uuid_game_id"
                 , parameters
                 );          
             }
@@ -8417,7 +8417,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameRpgItemSkillListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameRpgItemSkillListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -8429,7 +8429,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_browse_by_filter"
+                , "usp_game_rpg_item_skill_browse_filter"
                 , "game_rpg_item_skill"
                 , parameters
                 );         
@@ -8441,7 +8441,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemSkillByUuid(string set_type, GameRpgItemSkill obj)  {
+        public virtual bool SetGameRpgItemSkillUuid(string set_type, GameRpgItemSkill obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8475,7 +8475,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_set_by_uuid"
+                , "usp_game_rpg_item_skill_set_uuid"
                 , parameters
                 );          
             }
@@ -8486,7 +8486,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemSkillByGameId(string set_type, GameRpgItemSkill obj)  {
+        public virtual bool SetGameRpgItemSkillGameId(string set_type, GameRpgItemSkill obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8520,7 +8520,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_set_by_game_id"
+                , "usp_game_rpg_item_skill_set_game_id"
                 , parameters
                 );          
             }
@@ -8531,7 +8531,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemSkillByUrl(string set_type, GameRpgItemSkill obj)  {
+        public virtual bool SetGameRpgItemSkillUrl(string set_type, GameRpgItemSkill obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8565,7 +8565,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_set_by_url"
+                , "usp_game_rpg_item_skill_set_url"
                 , parameters
                 );          
             }
@@ -8576,7 +8576,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemSkillByUrlByGameId(string set_type, GameRpgItemSkill obj)  {
+        public virtual bool SetGameRpgItemSkillUrlGameId(string set_type, GameRpgItemSkill obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8610,7 +8610,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_set_by_url_by_game_id"
+                , "usp_game_rpg_item_skill_set_url_game_id"
                 , parameters
                 );          
             }
@@ -8621,7 +8621,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameRpgItemSkillByUuidByGameId(string set_type, GameRpgItemSkill obj)  {
+        public virtual bool SetGameRpgItemSkillUuidGameId(string set_type, GameRpgItemSkill obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8655,7 +8655,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_set_by_uuid_by_game_id"
+                , "usp_game_rpg_item_skill_set_uuid_game_id"
                 , parameters
                 );          
             }
@@ -8666,7 +8666,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemSkillByUuid(
+        public virtual bool DelGameRpgItemSkillUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8676,7 +8676,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_skill_del_by_uuid"
+                    , "usp_game_rpg_item_skill_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -8687,7 +8687,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemSkillByGameId(
+        public virtual bool DelGameRpgItemSkillGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -8697,7 +8697,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_skill_del_by_game_id"
+                    , "usp_game_rpg_item_skill_del_game_id"
                     , parameters
                     );
                 return true;            
@@ -8708,7 +8708,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemSkillByUrl(
+        public virtual bool DelGameRpgItemSkillUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -8718,7 +8718,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_skill_del_by_url"
+                    , "usp_game_rpg_item_skill_del_url"
                     , parameters
                     );
                 return true;            
@@ -8729,7 +8729,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemSkillByUrlByGameId(
+        public virtual bool DelGameRpgItemSkillUrlGameId(
              url
             ,  game_id
         )  {
@@ -8741,7 +8741,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_skill_del_by_url_by_game_id"
+                    , "usp_game_rpg_item_skill_del_url_game_id"
                     , parameters
                     );
                 return true;            
@@ -8752,7 +8752,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameRpgItemSkillByUuidByGameId(
+        public virtual bool DelGameRpgItemSkillUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -8764,7 +8764,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_rpg_item_skill_del_by_uuid_by_game_id"
+                    , "usp_game_rpg_item_skill_del_uuid_game_id"
                     , parameters
                     );
                 return true;            
@@ -8794,7 +8794,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemSkillListByUuid(
+        public virtual DataSet GetGameRpgItemSkillListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8804,7 +8804,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_get_by_uuid"
+                , "usp_game_rpg_item_skill_get_uuid"
                 , "game_rpg_item_skill"
                 , parameters
                 );           
@@ -8815,7 +8815,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemSkillListByGameId(
+        public virtual DataSet GetGameRpgItemSkillListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -8825,7 +8825,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_get_by_game_id"
+                , "usp_game_rpg_item_skill_get_game_id"
                 , "game_rpg_item_skill"
                 , parameters
                 );           
@@ -8836,7 +8836,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemSkillListByUrl(
+        public virtual DataSet GetGameRpgItemSkillListUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -8846,7 +8846,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_get_by_url"
+                , "usp_game_rpg_item_skill_get_url"
                 , "game_rpg_item_skill"
                 , parameters
                 );           
@@ -8857,7 +8857,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemSkillListByUrlByGameId(
+        public virtual DataSet GetGameRpgItemSkillListUrlGameId(
              url
             ,  game_id
         )  {
@@ -8869,7 +8869,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_get_by_url_by_game_id"
+                , "usp_game_rpg_item_skill_get_url_game_id"
                 , "game_rpg_item_skill"
                 , parameters
                 );           
@@ -8880,7 +8880,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameRpgItemSkillListByUuidByGameId(
+        public virtual DataSet GetGameRpgItemSkillListUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -8892,7 +8892,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_rpg_item_skill_get_by_uuid_by_game_id"
+                , "usp_game_rpg_item_skill_get_uuid_game_id"
                 , "game_rpg_item_skill"
                 , parameters
                 );           
@@ -8921,7 +8921,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProductByUuid(
+        public virtual int CountGameProductUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8931,7 +8931,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_count_by_uuid"
+                , "usp_game_product_count_uuid"
                 , parameters
                 );          
             }
@@ -8941,7 +8941,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProductByGameId(
+        public virtual int CountGameProductGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -8951,7 +8951,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_count_by_game_id"
+                , "usp_game_product_count_game_id"
                 , parameters
                 );          
             }
@@ -8961,7 +8961,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProductByUrl(
+        public virtual int CountGameProductUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -8971,7 +8971,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_count_by_url"
+                , "usp_game_product_count_url"
                 , parameters
                 );          
             }
@@ -8981,7 +8981,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProductByUrlByGameId(
+        public virtual int CountGameProductUrlGameId(
              url
             ,  game_id
         )  {
@@ -8993,7 +8993,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_count_by_url_by_game_id"
+                , "usp_game_product_count_url_game_id"
                 , parameters
                 );          
             }
@@ -9003,7 +9003,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProductByUuidByGameId(
+        public virtual int CountGameProductUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -9015,7 +9015,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_count_by_uuid_by_game_id"
+                , "usp_game_product_count_uuid_game_id"
                 , parameters
                 );          
             }
@@ -9025,7 +9025,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameProductListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameProductListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -9037,7 +9037,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_browse_by_filter"
+                , "usp_game_product_browse_filter"
                 , "game_product"
                 , parameters
                 );         
@@ -9049,7 +9049,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProductByUuid(string set_type, GameProduct obj)  {
+        public virtual bool SetGameProductUuid(string set_type, GameProduct obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9070,7 +9070,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_set_by_uuid"
+                , "usp_game_product_set_uuid"
                 , parameters
                 );          
             }
@@ -9081,7 +9081,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProductByGameId(string set_type, GameProduct obj)  {
+        public virtual bool SetGameProductGameId(string set_type, GameProduct obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9102,7 +9102,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_set_by_game_id"
+                , "usp_game_product_set_game_id"
                 , parameters
                 );          
             }
@@ -9113,7 +9113,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProductByUrl(string set_type, GameProduct obj)  {
+        public virtual bool SetGameProductUrl(string set_type, GameProduct obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9134,7 +9134,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_set_by_url"
+                , "usp_game_product_set_url"
                 , parameters
                 );          
             }
@@ -9145,7 +9145,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProductByUrlByGameId(string set_type, GameProduct obj)  {
+        public virtual bool SetGameProductUrlGameId(string set_type, GameProduct obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9166,7 +9166,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_set_by_url_by_game_id"
+                , "usp_game_product_set_url_game_id"
                 , parameters
                 );          
             }
@@ -9177,7 +9177,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProductByUuidByGameId(string set_type, GameProduct obj)  {
+        public virtual bool SetGameProductUuidGameId(string set_type, GameProduct obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9198,7 +9198,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_set_by_uuid_by_game_id"
+                , "usp_game_product_set_uuid_game_id"
                 , parameters
                 );          
             }
@@ -9209,7 +9209,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProductByUuid(
+        public virtual bool DelGameProductUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9219,7 +9219,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_product_del_by_uuid"
+                    , "usp_game_product_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -9230,7 +9230,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProductByGameId(
+        public virtual bool DelGameProductGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -9240,7 +9240,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_product_del_by_game_id"
+                    , "usp_game_product_del_game_id"
                     , parameters
                     );
                 return true;            
@@ -9251,7 +9251,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProductByUrl(
+        public virtual bool DelGameProductUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -9261,7 +9261,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_product_del_by_url"
+                    , "usp_game_product_del_url"
                     , parameters
                     );
                 return true;            
@@ -9272,7 +9272,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProductByUrlByGameId(
+        public virtual bool DelGameProductUrlGameId(
              url
             ,  game_id
         )  {
@@ -9284,7 +9284,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_product_del_by_url_by_game_id"
+                    , "usp_game_product_del_url_game_id"
                     , parameters
                     );
                 return true;            
@@ -9295,7 +9295,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProductByUuidByGameId(
+        public virtual bool DelGameProductUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -9307,7 +9307,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_product_del_by_uuid_by_game_id"
+                    , "usp_game_product_del_uuid_game_id"
                     , parameters
                     );
                 return true;            
@@ -9337,7 +9337,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProductListByUuid(
+        public virtual DataSet GetGameProductListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9347,7 +9347,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_get_by_uuid"
+                , "usp_game_product_get_uuid"
                 , "game_product"
                 , parameters
                 );           
@@ -9358,7 +9358,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProductListByGameId(
+        public virtual DataSet GetGameProductListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -9368,7 +9368,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_get_by_game_id"
+                , "usp_game_product_get_game_id"
                 , "game_product"
                 , parameters
                 );           
@@ -9379,7 +9379,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProductListByUrl(
+        public virtual DataSet GetGameProductListUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -9389,7 +9389,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_get_by_url"
+                , "usp_game_product_get_url"
                 , "game_product"
                 , parameters
                 );           
@@ -9400,7 +9400,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProductListByUrlByGameId(
+        public virtual DataSet GetGameProductListUrlGameId(
              url
             ,  game_id
         )  {
@@ -9412,7 +9412,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_get_by_url_by_game_id"
+                , "usp_game_product_get_url_game_id"
                 , "game_product"
                 , parameters
                 );           
@@ -9423,7 +9423,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProductListByUuidByGameId(
+        public virtual DataSet GetGameProductListUuidGameId(
              uuid
             ,  game_id
         )  {
@@ -9435,7 +9435,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_product_get_by_uuid_by_game_id"
+                , "usp_game_product_get_uuid_game_id"
                 , "game_product"
                 , parameters
                 );           
@@ -9464,7 +9464,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByUuid(
+        public virtual int CountGameStatisticLeaderboardUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9474,7 +9474,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_uuid"
+                , "usp_game_statistic_leaderboard_count_uuid"
                 , parameters
                 );          
             }
@@ -9484,7 +9484,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByGameId(
+        public virtual int CountGameStatisticLeaderboardGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -9494,7 +9494,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_game_id"
+                , "usp_game_statistic_leaderboard_count_game_id"
                 , parameters
                 );          
             }
@@ -9504,7 +9504,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByCode(
+        public virtual int CountGameStatisticLeaderboardCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -9514,7 +9514,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_code"
+                , "usp_game_statistic_leaderboard_count_code"
                 , parameters
                 );          
             }
@@ -9524,7 +9524,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByCodeByGameId(
+        public virtual int CountGameStatisticLeaderboardCodeGameId(
              code
             ,  game_id
         )  {
@@ -9536,7 +9536,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_code_by_game_id"
+                , "usp_game_statistic_leaderboard_count_code_game_id"
                 , parameters
                 );          
             }
@@ -9546,7 +9546,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByCodeByGameIdByProfileId(
+        public virtual int CountGameStatisticLeaderboardCodeGameIdProfileId(
              code
             ,  game_id
             ,  profile_id
@@ -9560,7 +9560,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_code_by_game_id_by_profile_id"
+                , "usp_game_statistic_leaderboard_count_code_game_id_profile_id"
                 , parameters
                 );          
             }
@@ -9570,7 +9570,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+        public virtual int CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
              code
             ,  game_id
             ,  profile_id
@@ -9586,7 +9586,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_code_by_game_id_by_profile_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_count_code_game_id_profile_id_timestamp"
                 , parameters
                 );          
             }
@@ -9596,7 +9596,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardByProfileIdByGameId(
+        public virtual int CountGameStatisticLeaderboardProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -9608,7 +9608,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_count_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_count_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -9618,7 +9618,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameStatisticLeaderboardListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameStatisticLeaderboardListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -9630,7 +9630,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_browse_by_filter"
+                , "usp_game_statistic_leaderboard_browse_filter"
                 , "game_statistic_leaderboard"
                 , parameters
                 );         
@@ -9642,7 +9642,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByUuid(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardUuid(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9671,7 +9671,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_uuid"
+                , "usp_game_statistic_leaderboard_set_uuid"
                 , parameters
                 );          
             }
@@ -9682,7 +9682,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9711,7 +9711,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_uuid_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -9722,7 +9722,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByCode(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardCode(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9751,7 +9751,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_code"
+                , "usp_game_statistic_leaderboard_set_code"
                 , parameters
                 );          
             }
@@ -9762,7 +9762,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByCodeByGameId(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardCodeGameId(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9791,7 +9791,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_code_by_game_id"
+                , "usp_game_statistic_leaderboard_set_code_game_id"
                 , parameters
                 );          
             }
@@ -9802,7 +9802,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByCodeByGameIdByProfileId(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardCodeGameIdProfileId(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9831,7 +9831,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_code_by_game_id_by_profile_id"
+                , "usp_game_statistic_leaderboard_set_code_game_id_profile_id"
                 , parameters
                 );          
             }
@@ -9842,7 +9842,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(string set_type, GameStatisticLeaderboard obj)  {
+        public virtual bool SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(string set_type, GameStatisticLeaderboard obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9871,7 +9871,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_set_by_code_by_game_id_by_profile_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_set_code_game_id_profile_id_timestamp"
                 , parameters
                 );          
             }
@@ -9882,7 +9882,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByUuid(
+        public virtual bool DelGameStatisticLeaderboardUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9892,7 +9892,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_uuid"
+                    , "usp_game_statistic_leaderboard_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -9903,7 +9903,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByCode(
+        public virtual bool DelGameStatisticLeaderboardCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -9913,7 +9913,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_code"
+                    , "usp_game_statistic_leaderboard_del_code"
                     , parameters
                     );
                 return true;            
@@ -9924,7 +9924,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByCodeByGameId(
+        public virtual bool DelGameStatisticLeaderboardCodeGameId(
              code
             ,  game_id
         )  {
@@ -9936,7 +9936,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_code_by_game_id"
+                    , "usp_game_statistic_leaderboard_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -9947,7 +9947,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByCodeByGameIdByProfileId(
+        public virtual bool DelGameStatisticLeaderboardCodeGameIdProfileId(
              code
             ,  game_id
             ,  profile_id
@@ -9961,7 +9961,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_code_by_game_id_by_profile_id"
+                    , "usp_game_statistic_leaderboard_del_code_game_id_profile_id"
                     , parameters
                     );
                 return true;            
@@ -9972,7 +9972,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(
+        public virtual bool DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
              code
             ,  game_id
             ,  profile_id
@@ -9988,7 +9988,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_code_by_game_id_by_profile_id_by_timestamp"
+                    , "usp_game_statistic_leaderboard_del_code_game_id_profile_id_timestamp"
                     , parameters
                     );
                 return true;            
@@ -9999,7 +9999,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardByProfileIdByGameId(
+        public virtual bool DelGameStatisticLeaderboardProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -10011,7 +10011,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_del_by_profile_id_by_game_id"
+                    , "usp_game_statistic_leaderboard_del_profile_id_game_id"
                     , parameters
                     );
                 return true;            
@@ -10041,7 +10041,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByUuid(
+        public virtual DataSet GetGameStatisticLeaderboardListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10051,7 +10051,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_uuid"
+                , "usp_game_statistic_leaderboard_get_uuid"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -10062,7 +10062,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByGameId(
+        public virtual DataSet GetGameStatisticLeaderboardListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -10072,7 +10072,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_game_id"
+                , "usp_game_statistic_leaderboard_get_game_id"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -10083,7 +10083,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByCode(
+        public virtual DataSet GetGameStatisticLeaderboardListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -10093,7 +10093,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_code"
+                , "usp_game_statistic_leaderboard_get_code"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -10104,7 +10104,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByCodeByGameId(
+        public virtual DataSet GetGameStatisticLeaderboardListCodeGameId(
              code
             ,  game_id
         )  {
@@ -10116,7 +10116,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_code_by_game_id"
+                , "usp_game_statistic_leaderboard_get_code_game_id"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -10127,7 +10127,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(
+        public virtual DataSet GetGameStatisticLeaderboardListCodeGameIdProfileId(
              code
             ,  game_id
             ,  profile_id
@@ -10141,7 +10141,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_code_by_game_id_by_profile_id"
+                , "usp_game_statistic_leaderboard_get_code_game_id_profile_id"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -10152,7 +10152,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
+        public virtual DataSet GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
              code
             ,  game_id
             ,  profile_id
@@ -10168,7 +10168,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_code_by_game_id_by_profile_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_get_code_game_id_profile_id_timestamp"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -10179,7 +10179,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByProfileIdByGameId(
+        public virtual DataSet GetGameStatisticLeaderboardListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -10191,7 +10191,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_get_profile_id_game_id"
                 , "game_statistic_leaderboard"
                 , parameters
                 );           
@@ -10202,7 +10202,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(
+        public virtual DataSet GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
              profile_id
             ,  game_id
             ,  timestamp
@@ -10216,8 +10216,789 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_get_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp"
                 , "game_statistic_leaderboard"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardItem(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardItemUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_count_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardItemGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_count_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardItemCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_count_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardItemCodeGameId(
+             code
+            ,  game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_count_code_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardItemCodeGameIdProfileId(
+             code
+            ,  game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_count_code_game_id_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+             code
+            ,  game_id
+            ,  profile_id
+            ,  timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_count_code_game_id_profile_id_timestamp"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameStatisticLeaderboardItemProfileIdGameId(
+             profile_id
+            ,  game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_count_profile_id_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameStatisticLeaderboardItemListFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_browse_filter"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardItemUuid(string set_type, GameStatisticLeaderboardItem obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_set_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp(string set_type, GameStatisticLeaderboardItem obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id_timestamp"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardItemCode(string set_type, GameStatisticLeaderboardItem obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_set_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardItemCodeGameId(string set_type, GameStatisticLeaderboardItem obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_set_code_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardItemCodeGameIdProfileId(string set_type, GameStatisticLeaderboardItem obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_set_code_game_id_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(string set_type, GameStatisticLeaderboardItem obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@username", obj.username));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@rank", obj.rank));
+            parameters.Add(new SqlParameter("@rank_change", obj.rank_change));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@rank_total_count", obj.rank_total_count));
+            parameters.Add(new SqlParameter("@absolute_value", obj.absolute_value));
+            parameters.Add(new SqlParameter("@data", obj.data));
+            parameters.Add(new SqlParameter("@stat_value", obj.stat_value));
+            parameters.Add(new SqlParameter("@network", obj.network));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@level", obj.level));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_set_code_game_id_profile_id_timestamp"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardItemUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_item_del_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardItemCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_item_del_code"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardItemCodeGameId(
+             code
+            ,  game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_item_del_code_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardItemCodeGameIdProfileId(
+             code
+            ,  game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_item_del_code_game_id_profile_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+             code
+            ,  game_id
+            ,  profile_id
+            ,  timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_item_del_code_game_id_profile_id_timestamp"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameStatisticLeaderboardItemProfileIdGameId(
+             profile_id
+            ,  game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_statistic_leaderboard_item_del_profile_id_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemListUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get_uuid"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemListGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get_game_id"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemListCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get_code"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemListCodeGameId(
+             code
+            ,  game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get_code_game_id"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+             code
+            ,  game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get_code_game_id_profile_id"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+             code
+            ,  game_id
+            ,  profile_id
+            ,  timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get_code_game_id_profile_id_timestamp"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemListProfileIdGameId(
+             profile_id
+            ,  game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get_profile_id_game_id"
+                , "game_statistic_leaderboard_item"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
+             profile_id
+            ,  game_id
+            ,  timestamp
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@timestamp", timestamp));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_statistic_leaderboard_item_get_profile_id_game_id_timestamp"
+                , "game_statistic_leaderboard_item"
                 , parameters
                 );           
             }
@@ -10245,7 +11026,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByUuid(
+        public virtual int CountGameStatisticLeaderboardRollupUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10255,7 +11036,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_uuid"
+                , "usp_game_statistic_leaderboard_rollup_count_uuid"
                 , parameters
                 );          
             }
@@ -10265,7 +11046,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByGameId(
+        public virtual int CountGameStatisticLeaderboardRollupGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -10275,7 +11056,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_count_game_id"
                 , parameters
                 );          
             }
@@ -10285,7 +11066,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByCode(
+        public virtual int CountGameStatisticLeaderboardRollupCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -10295,7 +11076,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_code"
+                , "usp_game_statistic_leaderboard_rollup_count_code"
                 , parameters
                 );          
             }
@@ -10305,7 +11086,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameId(
+        public virtual int CountGameStatisticLeaderboardRollupCodeGameId(
              code
             ,  game_id
         )  {
@@ -10317,7 +11098,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_code_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_count_code_game_id"
                 , parameters
                 );          
             }
@@ -10327,7 +11108,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+        public virtual int CountGameStatisticLeaderboardRollupCodeGameIdProfileId(
              code
             ,  game_id
             ,  profile_id
@@ -10341,7 +11122,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_code_by_game_id_by_profile_id"
+                , "usp_game_statistic_leaderboard_rollup_count_code_game_id_profile_id"
                 , parameters
                 );          
             }
@@ -10351,7 +11132,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+        public virtual int CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
              code
             ,  game_id
             ,  profile_id
@@ -10367,7 +11148,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_code_by_game_id_by_profile_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_count_code_game_id_profile_id_timestamp"
                 , parameters
                 );          
             }
@@ -10377,7 +11158,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticLeaderboardRollupByProfileIdByGameId(
+        public virtual int CountGameStatisticLeaderboardRollupProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -10389,7 +11170,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_count_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_count_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -10399,7 +11180,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameStatisticLeaderboardRollupListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameStatisticLeaderboardRollupListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -10411,7 +11192,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_browse_by_filter"
+                , "usp_game_statistic_leaderboard_rollup_browse_filter"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );         
@@ -10423,7 +11204,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByUuid(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupUuid(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10452,7 +11233,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_uuid"
+                , "usp_game_statistic_leaderboard_rollup_set_uuid"
                 , parameters
                 );          
             }
@@ -10463,7 +11244,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10492,7 +11273,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_uuid_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -10503,7 +11284,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByCode(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupCode(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10532,7 +11313,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_code"
+                , "usp_game_statistic_leaderboard_rollup_set_code"
                 , parameters
                 );          
             }
@@ -10543,7 +11324,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameId(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupCodeGameId(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10572,7 +11353,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_code_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_set_code_game_id"
                 , parameters
                 );          
             }
@@ -10583,7 +11364,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupCodeGameIdProfileId(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10612,7 +11393,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_code_by_game_id_by_profile_id"
+                , "usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_id"
                 , parameters
                 );          
             }
@@ -10623,7 +11404,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
+        public virtual bool SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(string set_type, GameStatisticLeaderboardRollup obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10652,7 +11433,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_set_by_code_by_game_id_by_profile_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_id_timestamp"
                 , parameters
                 );          
             }
@@ -10663,7 +11444,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardRollupByUuid(
+        public virtual bool DelGameStatisticLeaderboardRollupUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10673,7 +11454,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_rollup_del_by_uuid"
+                    , "usp_game_statistic_leaderboard_rollup_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -10684,7 +11465,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardRollupByCode(
+        public virtual bool DelGameStatisticLeaderboardRollupCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -10694,7 +11475,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_rollup_del_by_code"
+                    , "usp_game_statistic_leaderboard_rollup_del_code"
                     , parameters
                     );
                 return true;            
@@ -10705,7 +11486,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameId(
+        public virtual bool DelGameStatisticLeaderboardRollupCodeGameId(
              code
             ,  game_id
         )  {
@@ -10717,7 +11498,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_rollup_del_by_code_by_game_id"
+                    , "usp_game_statistic_leaderboard_rollup_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -10728,7 +11509,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(
+        public virtual bool DelGameStatisticLeaderboardRollupCodeGameIdProfileId(
              code
             ,  game_id
             ,  profile_id
@@ -10742,7 +11523,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_rollup_del_by_code_by_game_id_by_profile_id"
+                    , "usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_id"
                     , parameters
                     );
                 return true;            
@@ -10753,7 +11534,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
+        public virtual bool DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
              code
             ,  game_id
             ,  profile_id
@@ -10769,7 +11550,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_rollup_del_by_code_by_game_id_by_profile_id_by_timestamp"
+                    , "usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_id_timestamp"
                     , parameters
                     );
                 return true;            
@@ -10780,7 +11561,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticLeaderboardRollupByProfileIdByGameId(
+        public virtual bool DelGameStatisticLeaderboardRollupProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -10792,7 +11573,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_leaderboard_rollup_del_by_profile_id_by_game_id"
+                    , "usp_game_statistic_leaderboard_rollup_del_profile_id_game_id"
                     , parameters
                     );
                 return true;            
@@ -10822,7 +11603,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByUuid(
+        public virtual DataSet GetGameStatisticLeaderboardRollupListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10832,7 +11613,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_uuid"
+                , "usp_game_statistic_leaderboard_rollup_get_uuid"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10843,7 +11624,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByGameId(
+        public virtual DataSet GetGameStatisticLeaderboardRollupListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -10853,7 +11634,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_get_game_id"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10864,7 +11645,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByCode(
+        public virtual DataSet GetGameStatisticLeaderboardRollupListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -10874,7 +11655,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_code"
+                , "usp_game_statistic_leaderboard_rollup_get_code"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10885,7 +11666,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByCodeByGameId(
+        public virtual DataSet GetGameStatisticLeaderboardRollupListCodeGameId(
              code
             ,  game_id
         )  {
@@ -10897,7 +11678,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_code_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_get_code_game_id"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10908,7 +11689,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(
+        public virtual DataSet GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
              code
             ,  game_id
             ,  profile_id
@@ -10922,7 +11703,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_code_by_game_id_by_profile_id"
+                , "usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_id"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10933,7 +11714,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
+        public virtual DataSet GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
              code
             ,  game_id
             ,  profile_id
@@ -10949,7 +11730,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_code_by_game_id_by_profile_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_id_timestamp"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10960,7 +11741,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByProfileIdByGameId(
+        public virtual DataSet GetGameStatisticLeaderboardRollupListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -10972,7 +11753,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id"
+                , "usp_game_statistic_leaderboard_rollup_get_profile_id_game_id"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -10983,7 +11764,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(
+        public virtual DataSet GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
              profile_id
             ,  game_id
             ,  timestamp
@@ -10997,7 +11778,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_leaderboard_rollup_get_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_timestamp"
                 , "game_statistic_leaderboard_rollup"
                 , parameters
                 );           
@@ -11026,7 +11807,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLiveQueueByUuid(
+        public virtual int CountGameLiveQueueUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11036,7 +11817,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_queue_count_by_uuid"
+                , "usp_game_live_queue_count_uuid"
                 , parameters
                 );          
             }
@@ -11046,7 +11827,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLiveQueueByProfileIdByGameId(
+        public virtual int CountGameLiveQueueProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -11058,7 +11839,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_queue_count_by_profile_id_by_game_id"
+                , "usp_game_live_queue_count_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -11068,7 +11849,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameLiveQueueListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameLiveQueueListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -11080,7 +11861,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_queue_browse_by_filter"
+                , "usp_game_live_queue_browse_filter"
                 , "game_live_queue"
                 , parameters
                 );         
@@ -11092,7 +11873,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameLiveQueueByUuid(string set_type, GameLiveQueue obj)  {
+        public virtual bool SetGameLiveQueueUuid(string set_type, GameLiveQueue obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -11111,7 +11892,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_queue_set_by_uuid"
+                , "usp_game_live_queue_set_uuid"
                 , parameters
                 );          
             }
@@ -11122,7 +11903,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameLiveQueueByProfileIdByGameId(string set_type, GameLiveQueue obj)  {
+        public virtual bool SetGameLiveQueueProfileIdGameId(string set_type, GameLiveQueue obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -11141,7 +11922,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_queue_set_by_profile_id_by_game_id"
+                , "usp_game_live_queue_set_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -11152,7 +11933,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameLiveQueueByUuid(
+        public virtual bool DelGameLiveQueueUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11162,7 +11943,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_live_queue_del_by_uuid"
+                    , "usp_game_live_queue_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -11173,7 +11954,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameLiveQueueByProfileIdByGameId(
+        public virtual bool DelGameLiveQueueProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -11185,7 +11966,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_live_queue_del_by_profile_id_by_game_id"
+                    , "usp_game_live_queue_del_profile_id_game_id"
                     , parameters
                     );
                 return true;            
@@ -11215,7 +11996,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLiveQueueListByUuid(
+        public virtual DataSet GetGameLiveQueueListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11225,7 +12006,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_queue_get_by_uuid"
+                , "usp_game_live_queue_get_uuid"
                 , "game_live_queue"
                 , parameters
                 );           
@@ -11236,7 +12017,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLiveQueueListByGameId(
+        public virtual DataSet GetGameLiveQueueListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -11246,7 +12027,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_queue_get_by_game_id"
+                , "usp_game_live_queue_get_game_id"
                 , "game_live_queue"
                 , parameters
                 );           
@@ -11257,7 +12038,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLiveQueueListByProfileIdByGameId(
+        public virtual DataSet GetGameLiveQueueListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -11269,7 +12050,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_queue_get_by_profile_id_by_game_id"
+                , "usp_game_live_queue_get_profile_id_game_id"
                 , "game_live_queue"
                 , parameters
                 );           
@@ -11298,7 +12079,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLiveRecentQueueByUuid(
+        public virtual int CountGameLiveRecentQueueUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11308,7 +12089,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_recent_queue_count_by_uuid"
+                , "usp_game_live_recent_queue_count_uuid"
                 , parameters
                 );          
             }
@@ -11318,7 +12099,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLiveRecentQueueByProfileIdByGameId(
+        public virtual int CountGameLiveRecentQueueProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -11330,7 +12111,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_recent_queue_count_by_profile_id_by_game_id"
+                , "usp_game_live_recent_queue_count_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -11340,7 +12121,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameLiveRecentQueueListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameLiveRecentQueueListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -11352,7 +12133,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_recent_queue_browse_by_filter"
+                , "usp_game_live_recent_queue_browse_filter"
                 , "game_live_recent_queue"
                 , parameters
                 );         
@@ -11364,7 +12145,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameLiveRecentQueueByUuid(string set_type, GameLiveRecentQueue obj)  {
+        public virtual bool SetGameLiveRecentQueueUuid(string set_type, GameLiveRecentQueue obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -11388,7 +12169,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_recent_queue_set_by_uuid"
+                , "usp_game_live_recent_queue_set_uuid"
                 , parameters
                 );          
             }
@@ -11399,7 +12180,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameLiveRecentQueueByProfileIdByGameId(string set_type, GameLiveRecentQueue obj)  {
+        public virtual bool SetGameLiveRecentQueueProfileIdGameId(string set_type, GameLiveRecentQueue obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -11423,7 +12204,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_recent_queue_set_by_profile_id_by_game_id"
+                , "usp_game_live_recent_queue_set_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -11434,7 +12215,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameLiveRecentQueueByUuid(
+        public virtual bool DelGameLiveRecentQueueUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11444,7 +12225,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_live_recent_queue_del_by_uuid"
+                    , "usp_game_live_recent_queue_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -11455,7 +12236,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameLiveRecentQueueByProfileIdByGameId(
+        public virtual bool DelGameLiveRecentQueueProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -11467,7 +12248,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_live_recent_queue_del_by_profile_id_by_game_id"
+                    , "usp_game_live_recent_queue_del_profile_id_game_id"
                     , parameters
                     );
                 return true;            
@@ -11497,7 +12278,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLiveRecentQueueListByUuid(
+        public virtual DataSet GetGameLiveRecentQueueListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11507,7 +12288,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_recent_queue_get_by_uuid"
+                , "usp_game_live_recent_queue_get_uuid"
                 , "game_live_recent_queue"
                 , parameters
                 );           
@@ -11518,7 +12299,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLiveRecentQueueListByGameId(
+        public virtual DataSet GetGameLiveRecentQueueListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -11528,7 +12309,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_recent_queue_get_by_game_id"
+                , "usp_game_live_recent_queue_get_game_id"
                 , "game_live_recent_queue"
                 , parameters
                 );           
@@ -11539,7 +12320,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLiveRecentQueueListByProfileIdByGameId(
+        public virtual DataSet GetGameLiveRecentQueueListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -11551,7 +12332,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_live_recent_queue_get_by_profile_id_by_game_id"
+                , "usp_game_live_recent_queue_get_profile_id_game_id"
                 , "game_live_recent_queue"
                 , parameters
                 );           
@@ -11580,7 +12361,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByUuid(
+        public virtual int CountGameProfileStatisticUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11590,7 +12371,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_uuid"
+                , "usp_game_profile_statistic_count_uuid"
                 , parameters
                 );          
             }
@@ -11600,7 +12381,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByCode(
+        public virtual int CountGameProfileStatisticCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -11610,7 +12391,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_code"
+                , "usp_game_profile_statistic_count_code"
                 , parameters
                 );          
             }
@@ -11620,7 +12401,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByGameId(
+        public virtual int CountGameProfileStatisticGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -11630,7 +12411,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_game_id"
+                , "usp_game_profile_statistic_count_game_id"
                 , parameters
                 );          
             }
@@ -11640,7 +12421,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByCodeByGameId(
+        public virtual int CountGameProfileStatisticCodeGameId(
              code
             ,  game_id
         )  {
@@ -11652,7 +12433,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_code_by_game_id"
+                , "usp_game_profile_statistic_count_code_game_id"
                 , parameters
                 );          
             }
@@ -11662,7 +12443,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByProfileIdByGameId(
+        public virtual int CountGameProfileStatisticProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -11674,7 +12455,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_count_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -11684,7 +12465,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByCodeByProfileIdByGameId(
+        public virtual int CountGameProfileStatisticCodeProfileIdGameId(
              code
             ,  profile_id
             ,  game_id
@@ -11698,7 +12479,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_count_code_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -11708,7 +12489,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
+        public virtual int CountGameProfileStatisticCodeProfileIdGameIdTimestamp(
              code
             ,  profile_id
             ,  game_id
@@ -11724,7 +12505,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_count_code_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -11734,7 +12515,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameProfileStatisticListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameProfileStatisticListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -11746,7 +12527,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_browse_by_filter"
+                , "usp_game_profile_statistic_browse_filter"
                 , "game_profile_statistic"
                 , parameters
                 );         
@@ -11758,14 +12539,14 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByUuid(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticUuid(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -11775,6 +12556,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
             parameters.Add(new SqlParameter("@points", obj.points));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -11782,7 +12564,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_uuid"
+                , "usp_game_profile_statistic_set_uuid"
                 , parameters
                 );          
             }
@@ -11793,14 +12575,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticUuidProfileIdGameIdTimestamp(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -11810,6 +12592,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
             parameters.Add(new SqlParameter("@points", obj.points));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -11817,7 +12600,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_uuid_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_set_uuid_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -11828,14 +12611,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByProfileIdByCode(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticProfileIdCode(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -11845,6 +12628,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
             parameters.Add(new SqlParameter("@points", obj.points));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -11852,7 +12636,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_profile_id_by_code"
+                , "usp_game_profile_statistic_set_profile_id_code"
                 , parameters
                 );          
             }
@@ -11863,14 +12647,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByProfileIdByCodeByTimestamp(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticProfileIdCodeTimestamp(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -11880,6 +12664,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
             parameters.Add(new SqlParameter("@points", obj.points));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -11887,7 +12672,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_profile_id_by_code_by_timestamp"
+                , "usp_game_profile_statistic_set_profile_id_code_timestamp"
                 , parameters
                 );          
             }
@@ -11898,14 +12683,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticCodeProfileIdGameIdTimestamp(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -11915,6 +12700,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
             parameters.Add(new SqlParameter("@points", obj.points));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -11922,7 +12708,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_set_code_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -11933,14 +12719,14 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticByCodeByProfileIdByGameId(string set_type, GameProfileStatistic obj)  {
+        public virtual bool SetGameProfileStatisticCodeProfileIdGameId(string set_type, GameProfileStatistic obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@username", obj.username));
             parameters.Add(new SqlParameter("@code", obj.code));
-            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
+            parameters.Add(new SqlParameter("@stat_value_formatted", obj.stat_value_formatted));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -11950,6 +12736,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@level", obj.level));
             parameters.Add(new SqlParameter("@points", obj.points));
+            parameters.Add(new SqlParameter("@timestamp", obj.timestamp));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@type", obj.type));
                         
@@ -11957,7 +12744,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_set_code_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -11968,7 +12755,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticByUuid(
+        public virtual bool DelGameProfileStatisticUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11978,7 +12765,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_del_by_uuid"
+                    , "usp_game_profile_statistic_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -11989,7 +12776,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticByCodeByGameId(
+        public virtual bool DelGameProfileStatisticCodeGameId(
              code
             ,  game_id
         )  {
@@ -12001,7 +12788,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_del_by_code_by_game_id"
+                    , "usp_game_profile_statistic_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -12012,7 +12799,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticByProfileIdByGameId(
+        public virtual bool DelGameProfileStatisticProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -12024,7 +12811,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_del_by_profile_id_by_game_id"
+                    , "usp_game_profile_statistic_del_profile_id_game_id"
                     , parameters
                     );
                 return true;            
@@ -12035,7 +12822,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticByCodeByProfileIdByGameId(
+        public virtual bool DelGameProfileStatisticCodeProfileIdGameId(
              code
             ,  profile_id
             ,  game_id
@@ -12049,7 +12836,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_del_by_code_by_profile_id_by_game_id"
+                    , "usp_game_profile_statistic_del_code_profile_id_game_id"
                     , parameters
                     );
                 return true;            
@@ -12060,7 +12847,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByUuid(
+        public virtual DataSet GetGameProfileStatisticListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -12070,7 +12857,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_uuid"
+                , "usp_game_profile_statistic_get_uuid"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -12081,7 +12868,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByCode(
+        public virtual DataSet GetGameProfileStatisticListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -12091,7 +12878,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_code"
+                , "usp_game_profile_statistic_get_code"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -12102,7 +12889,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByGameId(
+        public virtual DataSet GetGameProfileStatisticListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -12112,7 +12899,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_game_id"
+                , "usp_game_profile_statistic_get_game_id"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -12123,7 +12910,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByCodeByGameId(
+        public virtual DataSet GetGameProfileStatisticListCodeGameId(
              code
             ,  game_id
         )  {
@@ -12135,7 +12922,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_code_by_game_id"
+                , "usp_game_profile_statistic_get_code_game_id"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -12146,7 +12933,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByProfileIdByGameId(
+        public virtual DataSet GetGameProfileStatisticListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -12158,7 +12945,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_get_profile_id_game_id"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -12169,7 +12956,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
+        public virtual DataSet GetGameProfileStatisticListProfileIdGameIdTimestamp(
              profile_id
             ,  game_id
             ,  timestamp
@@ -12183,7 +12970,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_get_profile_id_game_id_timestamp"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -12194,7 +12981,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByCodeByProfileIdByGameId(
+        public virtual DataSet GetGameProfileStatisticListCodeProfileIdGameId(
              code
             ,  profile_id
             ,  game_id
@@ -12208,7 +12995,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_get_code_profile_id_game_id"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -12219,7 +13006,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
+        public virtual DataSet GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
              code
             ,  profile_id
             ,  game_id
@@ -12235,7 +13022,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_get_code_profile_id_game_id_timestamp"
                 , "game_profile_statistic"
                 , parameters
                 );           
@@ -12264,7 +13051,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticMetaByUuid(
+        public virtual int CountGameStatisticMetaUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -12274,7 +13061,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_count_by_uuid"
+                , "usp_game_statistic_meta_count_uuid"
                 , parameters
                 );          
             }
@@ -12284,7 +13071,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticMetaByCode(
+        public virtual int CountGameStatisticMetaCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -12294,7 +13081,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_count_by_code"
+                , "usp_game_statistic_meta_count_code"
                 , parameters
                 );          
             }
@@ -12304,7 +13091,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticMetaByCodeByGameId(
+        public virtual int CountGameStatisticMetaCodeGameId(
              code
             ,  game_id
         )  {
@@ -12316,7 +13103,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_count_by_code_by_game_id"
+                , "usp_game_statistic_meta_count_code_game_id"
                 , parameters
                 );          
             }
@@ -12326,7 +13113,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticMetaByName(
+        public virtual int CountGameStatisticMetaName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -12336,7 +13123,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_count_by_name"
+                , "usp_game_statistic_meta_count_name"
                 , parameters
                 );          
             }
@@ -12346,7 +13133,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameStatisticMetaByGameId(
+        public virtual int CountGameStatisticMetaGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -12356,7 +13143,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_count_by_game_id"
+                , "usp_game_statistic_meta_count_game_id"
                 , parameters
                 );          
             }
@@ -12366,7 +13153,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameStatisticMetaListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameStatisticMetaListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -12378,7 +13165,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_browse_by_filter"
+                , "usp_game_statistic_meta_browse_filter"
                 , "game_statistic_meta"
                 , parameters
                 );         
@@ -12390,7 +13177,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticMetaByUuid(string set_type, GameStatisticMeta obj)  {
+        public virtual bool SetGameStatisticMetaUuid(string set_type, GameStatisticMeta obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -12415,7 +13202,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_set_by_uuid"
+                , "usp_game_statistic_meta_set_uuid"
                 , parameters
                 );          
             }
@@ -12426,7 +13213,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameStatisticMetaByCodeByGameId(string set_type, GameStatisticMeta obj)  {
+        public virtual bool SetGameStatisticMetaCodeGameId(string set_type, GameStatisticMeta obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -12451,7 +13238,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_set_by_code_by_game_id"
+                , "usp_game_statistic_meta_set_code_game_id"
                 , parameters
                 );          
             }
@@ -12462,7 +13249,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticMetaByUuid(
+        public virtual bool DelGameStatisticMetaUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -12472,7 +13259,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_meta_del_by_uuid"
+                    , "usp_game_statistic_meta_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -12483,7 +13270,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameStatisticMetaByCodeByGameId(
+        public virtual bool DelGameStatisticMetaCodeGameId(
              code
             ,  game_id
         )  {
@@ -12495,7 +13282,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_statistic_meta_del_by_code_by_game_id"
+                    , "usp_game_statistic_meta_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -12506,7 +13293,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticMetaListByUuid(
+        public virtual DataSet GetGameStatisticMetaListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -12516,7 +13303,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_get_by_uuid"
+                , "usp_game_statistic_meta_get_uuid"
                 , "game_statistic_meta"
                 , parameters
                 );           
@@ -12527,7 +13314,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticMetaListByCode(
+        public virtual DataSet GetGameStatisticMetaListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -12537,7 +13324,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_get_by_code"
+                , "usp_game_statistic_meta_get_code"
                 , "game_statistic_meta"
                 , parameters
                 );           
@@ -12548,7 +13335,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticMetaListByName(
+        public virtual DataSet GetGameStatisticMetaListName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -12558,7 +13345,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_get_by_name"
+                , "usp_game_statistic_meta_get_name"
                 , "game_statistic_meta"
                 , parameters
                 );           
@@ -12569,7 +13356,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticMetaListByGameId(
+        public virtual DataSet GetGameStatisticMetaListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -12579,7 +13366,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_get_by_game_id"
+                , "usp_game_statistic_meta_get_game_id"
                 , "game_statistic_meta"
                 , parameters
                 );           
@@ -12590,7 +13377,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameStatisticMetaListByCodeByGameId(
+        public virtual DataSet GetGameStatisticMetaListCodeGameId(
              code
             ,  game_id
         )  {
@@ -12602,7 +13389,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_statistic_meta_get_by_code_by_game_id"
+                , "usp_game_statistic_meta_get_code_game_id"
                 , "game_statistic_meta"
                 , parameters
                 );           
@@ -12631,7 +13418,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestampByUuid(
+        public virtual int CountGameProfileStatisticTimestampUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -12641,7 +13428,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_count_by_uuid"
+                , "usp_game_profile_statistic_timestamp_count_uuid"
                 , parameters
                 );          
             }
@@ -12651,7 +13438,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+        public virtual int CountGameProfileStatisticTimestampCodeProfileIdGameId(
              code
             ,  profile_id
             ,  game_id
@@ -12665,7 +13452,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_count_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_timestamp_count_code_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -12675,7 +13462,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+        public virtual int CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
              code
             ,  profile_id
             ,  game_id
@@ -12691,7 +13478,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_count_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_timestamp_count_code_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -12701,7 +13488,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameProfileStatisticTimestampListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameProfileStatisticTimestampListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -12713,7 +13500,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_browse_by_filter"
+                , "usp_game_profile_statistic_timestamp_browse_filter"
                 , "game_profile_statistic_timestamp"
                 , parameters
                 );         
@@ -12725,7 +13512,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticTimestampByUuid(string set_type, GameProfileStatisticTimestamp obj)  {
+        public virtual bool SetGameProfileStatisticTimestampUuid(string set_type, GameProfileStatisticTimestamp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -12744,7 +13531,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_set_by_uuid"
+                , "usp_game_profile_statistic_timestamp_set_uuid"
                 , parameters
                 );          
             }
@@ -12755,7 +13542,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(string set_type, GameProfileStatisticTimestamp obj)  {
+        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameId(string set_type, GameProfileStatisticTimestamp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -12774,7 +13561,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_set_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_timestamp_set_code_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -12785,7 +13572,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {
+        public virtual bool SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(string set_type, GameProfileStatisticTimestamp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -12804,7 +13591,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_set_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_timestamp_set_code_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -12815,7 +13602,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticTimestampByUuid(
+        public virtual bool DelGameProfileStatisticTimestampUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -12825,7 +13612,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_timestamp_del_by_uuid"
+                    , "usp_game_profile_statistic_timestamp_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -12836,7 +13623,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(
+        public virtual bool DelGameProfileStatisticTimestampCodeProfileIdGameId(
              code
             ,  profile_id
             ,  game_id
@@ -12850,7 +13637,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_timestamp_del_by_code_by_profile_id_by_game_id"
+                    , "usp_game_profile_statistic_timestamp_del_code_profile_id_game_id"
                     , parameters
                     );
                 return true;            
@@ -12861,7 +13648,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(
+        public virtual bool DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(
              code
             ,  profile_id
             ,  game_id
@@ -12877,7 +13664,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_statistic_timestamp_del_by_code_by_profile_id_by_game_id_by_timestamp"
+                    , "usp_game_profile_statistic_timestamp_del_code_profile_id_game_id_timestamp"
                     , parameters
                     );
                 return true;            
@@ -12888,7 +13675,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticTimestampListByUuid(
+        public virtual DataSet GetGameProfileStatisticTimestampListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -12898,7 +13685,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_get_by_uuid"
+                , "usp_game_profile_statistic_timestamp_get_uuid"
                 , "game_profile_statistic_timestamp"
                 , parameters
                 );           
@@ -12909,7 +13696,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(
+        public virtual DataSet GetGameProfileStatisticTimestampListCodeProfileIdGameId(
              code
             ,  profile_id
             ,  game_id
@@ -12923,7 +13710,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_get_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_statistic_timestamp_get_code_profile_id_game_id"
                 , "game_profile_statistic_timestamp"
                 , parameters
                 );           
@@ -12934,7 +13721,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(
+        public virtual DataSet GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(
              code
             ,  profile_id
             ,  game_id
@@ -12950,7 +13737,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_statistic_timestamp_get_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_statistic_timestamp_get_code_profile_id_game_id_timestamp"
                 , "game_profile_statistic_timestamp"
                 , parameters
                 );           
@@ -12979,7 +13766,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameKeyMetaByUuid(
+        public virtual int CountGameKeyMetaUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -12989,7 +13776,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_count_by_uuid"
+                , "usp_game_key_meta_count_uuid"
                 , parameters
                 );          
             }
@@ -12999,7 +13786,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameKeyMetaByCode(
+        public virtual int CountGameKeyMetaCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -13009,7 +13796,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_count_by_code"
+                , "usp_game_key_meta_count_code"
                 , parameters
                 );          
             }
@@ -13019,7 +13806,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameKeyMetaByCodeByGameId(
+        public virtual int CountGameKeyMetaCodeGameId(
              code
             ,  game_id
         )  {
@@ -13031,7 +13818,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_count_by_code_by_game_id"
+                , "usp_game_key_meta_count_code_game_id"
                 , parameters
                 );          
             }
@@ -13041,7 +13828,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameKeyMetaByName(
+        public virtual int CountGameKeyMetaName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -13051,7 +13838,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_count_by_name"
+                , "usp_game_key_meta_count_name"
                 , parameters
                 );          
             }
@@ -13061,7 +13848,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameKeyMetaByKey(
+        public virtual int CountGameKeyMetaKey(
              key
         )  {
             List<SqlParameter> parameters 
@@ -13071,7 +13858,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_count_by_key"
+                , "usp_game_key_meta_count_key"
                 , parameters
                 );          
             }
@@ -13081,7 +13868,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameKeyMetaByGameId(
+        public virtual int CountGameKeyMetaGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -13091,7 +13878,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_count_by_game_id"
+                , "usp_game_key_meta_count_game_id"
                 , parameters
                 );          
             }
@@ -13101,7 +13888,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameKeyMetaByKeyByGameId(
+        public virtual int CountGameKeyMetaKeyGameId(
              key
             ,  game_id
         )  {
@@ -13113,7 +13900,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_count_by_key_by_game_id"
+                , "usp_game_key_meta_count_key_game_id"
                 , parameters
                 );          
             }
@@ -13123,7 +13910,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameKeyMetaListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameKeyMetaListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -13135,7 +13922,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_browse_by_filter"
+                , "usp_game_key_meta_browse_filter"
                 , "game_key_meta"
                 , parameters
                 );         
@@ -13147,7 +13934,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameKeyMetaByUuid(string set_type, GameKeyMeta obj)  {
+        public virtual bool SetGameKeyMetaUuid(string set_type, GameKeyMeta obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -13175,7 +13962,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_set_by_uuid"
+                , "usp_game_key_meta_set_uuid"
                 , parameters
                 );          
             }
@@ -13186,7 +13973,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameKeyMetaByCodeByGameId(string set_type, GameKeyMeta obj)  {
+        public virtual bool SetGameKeyMetaCodeGameId(string set_type, GameKeyMeta obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -13214,7 +14001,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_set_by_code_by_game_id"
+                , "usp_game_key_meta_set_code_game_id"
                 , parameters
                 );          
             }
@@ -13225,7 +14012,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameKeyMetaByKeyByGameId(string set_type, GameKeyMeta obj)  {
+        public virtual bool SetGameKeyMetaKeyGameId(string set_type, GameKeyMeta obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -13253,7 +14040,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_set_by_key_by_game_id"
+                , "usp_game_key_meta_set_key_game_id"
                 , parameters
                 );          
             }
@@ -13264,7 +14051,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameKeyMetaByKeyByGameIdByLevel(string set_type, GameKeyMeta obj)  {
+        public virtual bool SetGameKeyMetaKeyGameIdLevel(string set_type, GameKeyMeta obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -13292,7 +14079,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_set_by_key_by_game_id_by_level"
+                , "usp_game_key_meta_set_key_game_id_level"
                 , parameters
                 );          
             }
@@ -13303,7 +14090,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameKeyMetaByUuid(
+        public virtual bool DelGameKeyMetaUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -13313,7 +14100,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_key_meta_del_by_uuid"
+                    , "usp_game_key_meta_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -13324,7 +14111,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameKeyMetaByCodeByGameId(
+        public virtual bool DelGameKeyMetaCodeGameId(
              code
             ,  game_id
         )  {
@@ -13336,7 +14123,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_key_meta_del_by_code_by_game_id"
+                    , "usp_game_key_meta_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -13347,7 +14134,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameKeyMetaByKeyByGameId(
+        public virtual bool DelGameKeyMetaKeyGameId(
              key
             ,  game_id
         )  {
@@ -13359,7 +14146,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_key_meta_del_by_key_by_game_id"
+                    , "usp_game_key_meta_del_key_game_id"
                     , parameters
                     );
                 return true;            
@@ -13370,7 +14157,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameKeyMetaListByUuid(
+        public virtual DataSet GetGameKeyMetaListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -13380,7 +14167,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_get_by_uuid"
+                , "usp_game_key_meta_get_uuid"
                 , "game_key_meta"
                 , parameters
                 );           
@@ -13391,7 +14178,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameKeyMetaListByCode(
+        public virtual DataSet GetGameKeyMetaListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -13401,7 +14188,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_get_by_code"
+                , "usp_game_key_meta_get_code"
                 , "game_key_meta"
                 , parameters
                 );           
@@ -13412,7 +14199,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameKeyMetaListByCodeByGameId(
+        public virtual DataSet GetGameKeyMetaListCodeGameId(
              code
             ,  game_id
         )  {
@@ -13424,7 +14211,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_get_by_code_by_game_id"
+                , "usp_game_key_meta_get_code_game_id"
                 , "game_key_meta"
                 , parameters
                 );           
@@ -13435,7 +14222,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameKeyMetaListByName(
+        public virtual DataSet GetGameKeyMetaListName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -13445,7 +14232,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_get_by_name"
+                , "usp_game_key_meta_get_name"
                 , "game_key_meta"
                 , parameters
                 );           
@@ -13456,7 +14243,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameKeyMetaListByKey(
+        public virtual DataSet GetGameKeyMetaListKey(
              key
         )  {
             List<SqlParameter> parameters 
@@ -13466,7 +14253,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_get_by_key"
+                , "usp_game_key_meta_get_key"
                 , "game_key_meta"
                 , parameters
                 );           
@@ -13477,7 +14264,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameKeyMetaListByGameId(
+        public virtual DataSet GetGameKeyMetaListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -13487,7 +14274,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_get_by_game_id"
+                , "usp_game_key_meta_get_game_id"
                 , "game_key_meta"
                 , parameters
                 );           
@@ -13498,7 +14285,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameKeyMetaListByKeyByGameId(
+        public virtual DataSet GetGameKeyMetaListKeyGameId(
              key
             ,  game_id
         )  {
@@ -13510,7 +14297,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_get_by_key_by_game_id"
+                , "usp_game_key_meta_get_key_game_id"
                 , "game_key_meta"
                 , parameters
                 );           
@@ -13521,7 +14308,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameKeyMetaListByCodeByLevel(
+        public virtual DataSet GetGameKeyMetaListCodeLevel(
              code
             ,  level
         )  {
@@ -13533,7 +14320,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_key_meta_get_by_code_by_level"
+                , "usp_game_key_meta_get_code_level"
                 , "game_key_meta"
                 , parameters
                 );           
@@ -13562,7 +14349,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLevelByUuid(
+        public virtual int CountGameLevelUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -13572,7 +14359,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_count_by_uuid"
+                , "usp_game_level_count_uuid"
                 , parameters
                 );          
             }
@@ -13582,7 +14369,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLevelByCode(
+        public virtual int CountGameLevelCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -13592,7 +14379,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_count_by_code"
+                , "usp_game_level_count_code"
                 , parameters
                 );          
             }
@@ -13602,7 +14389,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLevelByCodeByGameId(
+        public virtual int CountGameLevelCodeGameId(
              code
             ,  game_id
         )  {
@@ -13614,7 +14401,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_count_by_code_by_game_id"
+                , "usp_game_level_count_code_game_id"
                 , parameters
                 );          
             }
@@ -13624,7 +14411,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLevelByName(
+        public virtual int CountGameLevelName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -13634,7 +14421,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_count_by_name"
+                , "usp_game_level_count_name"
                 , parameters
                 );          
             }
@@ -13644,7 +14431,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameLevelByGameId(
+        public virtual int CountGameLevelGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -13654,7 +14441,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_count_by_game_id"
+                , "usp_game_level_count_game_id"
                 , parameters
                 );          
             }
@@ -13664,7 +14451,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameLevelListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameLevelListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -13676,7 +14463,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_browse_by_filter"
+                , "usp_game_level_browse_filter"
                 , "game_level"
                 , parameters
                 );         
@@ -13688,7 +14475,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameLevelByUuid(string set_type, GameLevel obj)  {
+        public virtual bool SetGameLevelUuid(string set_type, GameLevel obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -13711,7 +14498,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_set_by_uuid"
+                , "usp_game_level_set_uuid"
                 , parameters
                 );          
             }
@@ -13722,7 +14509,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameLevelByCodeByGameId(string set_type, GameLevel obj)  {
+        public virtual bool SetGameLevelCodeGameId(string set_type, GameLevel obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -13745,7 +14532,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_set_by_code_by_game_id"
+                , "usp_game_level_set_code_game_id"
                 , parameters
                 );          
             }
@@ -13756,7 +14543,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameLevelByUuid(
+        public virtual bool DelGameLevelUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -13766,7 +14553,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_level_del_by_uuid"
+                    , "usp_game_level_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -13777,7 +14564,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameLevelByCodeByGameId(
+        public virtual bool DelGameLevelCodeGameId(
              code
             ,  game_id
         )  {
@@ -13789,7 +14576,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_level_del_by_code_by_game_id"
+                    , "usp_game_level_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -13800,7 +14587,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLevelListByUuid(
+        public virtual DataSet GetGameLevelListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -13810,7 +14597,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_get_by_uuid"
+                , "usp_game_level_get_uuid"
                 , "game_level"
                 , parameters
                 );           
@@ -13821,7 +14608,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLevelListByCode(
+        public virtual DataSet GetGameLevelListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -13831,7 +14618,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_get_by_code"
+                , "usp_game_level_get_code"
                 , "game_level"
                 , parameters
                 );           
@@ -13842,7 +14629,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLevelListByCodeByGameId(
+        public virtual DataSet GetGameLevelListCodeGameId(
              code
             ,  game_id
         )  {
@@ -13854,7 +14641,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_get_by_code_by_game_id"
+                , "usp_game_level_get_code_game_id"
                 , "game_level"
                 , parameters
                 );           
@@ -13865,7 +14652,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLevelListByName(
+        public virtual DataSet GetGameLevelListName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -13875,7 +14662,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_get_by_name"
+                , "usp_game_level_get_name"
                 , "game_level"
                 , parameters
                 );           
@@ -13886,7 +14673,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameLevelListByGameId(
+        public virtual DataSet GetGameLevelListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -13896,7 +14683,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_level_get_by_game_id"
+                , "usp_game_level_get_game_id"
                 , "game_level"
                 , parameters
                 );           
@@ -13925,7 +14712,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileAchievementByUuid(
+        public virtual int CountGameProfileAchievementUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -13935,7 +14722,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_count_by_uuid"
+                , "usp_game_profile_achievement_count_uuid"
                 , parameters
                 );          
             }
@@ -13945,7 +14732,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileAchievementByProfileIdByCode(
+        public virtual int CountGameProfileAchievementProfileIdCode(
              profile_id
             ,  code
         )  {
@@ -13957,7 +14744,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_count_by_profile_id_by_code"
+                , "usp_game_profile_achievement_count_profile_id_code"
                 , parameters
                 );          
             }
@@ -13967,7 +14754,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileAchievementByUsername(
+        public virtual int CountGameProfileAchievementUsername(
              username
         )  {
             List<SqlParameter> parameters 
@@ -13977,7 +14764,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_count_by_username"
+                , "usp_game_profile_achievement_count_username"
                 , parameters
                 );          
             }
@@ -13987,7 +14774,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileAchievementByCodeByProfileIdByGameId(
+        public virtual int CountGameProfileAchievementCodeProfileIdGameId(
              code
             ,  profile_id
             ,  game_id
@@ -14001,7 +14788,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_achievement_count_code_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -14011,7 +14798,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
+        public virtual int CountGameProfileAchievementCodeProfileIdGameIdTimestamp(
              code
             ,  profile_id
             ,  game_id
@@ -14027,7 +14814,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_achievement_count_code_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -14037,7 +14824,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameProfileAchievementListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameProfileAchievementListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -14049,7 +14836,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_browse_by_filter"
+                , "usp_game_profile_achievement_browse_filter"
                 , "game_profile_achievement"
                 , parameters
                 );         
@@ -14061,7 +14848,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByUuid(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementUuid(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -14085,7 +14872,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_uuid"
+                , "usp_game_profile_achievement_set_uuid"
                 , parameters
                 );          
             }
@@ -14096,7 +14883,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByUuidByCode(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementUuidCode(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -14120,7 +14907,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_uuid_by_code"
+                , "usp_game_profile_achievement_set_uuid_code"
                 , parameters
                 );          
             }
@@ -14131,7 +14918,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByProfileIdByCode(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementProfileIdCode(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -14155,7 +14942,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_profile_id_by_code"
+                , "usp_game_profile_achievement_set_profile_id_code"
                 , parameters
                 );          
             }
@@ -14166,7 +14953,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByCodeByProfileIdByGameId(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementCodeProfileIdGameId(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -14190,7 +14977,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_achievement_set_code_profile_id_game_id"
                 , parameters
                 );          
             }
@@ -14201,7 +14988,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(string set_type, GameProfileAchievement obj)  {
+        public virtual bool SetGameProfileAchievementCodeProfileIdGameIdTimestamp(string set_type, GameProfileAchievement obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -14225,7 +15012,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_achievement_set_code_profile_id_game_id_timestamp"
                 , parameters
                 );          
             }
@@ -14236,7 +15023,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileAchievementByUuid(
+        public virtual bool DelGameProfileAchievementUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -14246,7 +15033,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_achievement_del_by_uuid"
+                    , "usp_game_profile_achievement_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -14257,7 +15044,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileAchievementByProfileIdByCode(
+        public virtual bool DelGameProfileAchievementProfileIdCode(
              profile_id
             ,  code
         )  {
@@ -14269,7 +15056,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_achievement_del_by_profile_id_by_code"
+                    , "usp_game_profile_achievement_del_profile_id_code"
                     , parameters
                     );
                 return true;            
@@ -14280,7 +15067,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameProfileAchievementByUuidByCode(
+        public virtual bool DelGameProfileAchievementUuidCode(
              uuid
             ,  code
         )  {
@@ -14292,7 +15079,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_profile_achievement_del_by_uuid_by_code"
+                    , "usp_game_profile_achievement_del_uuid_code"
                     , parameters
                     );
                 return true;            
@@ -14303,7 +15090,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByUuid(
+        public virtual DataSet GetGameProfileAchievementListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -14313,7 +15100,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_uuid"
+                , "usp_game_profile_achievement_get_uuid"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14324,7 +15111,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByProfileIdByCode(
+        public virtual DataSet GetGameProfileAchievementListProfileIdCode(
              profile_id
             ,  code
         )  {
@@ -14336,7 +15123,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_profile_id_by_code"
+                , "usp_game_profile_achievement_get_profile_id_code"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14347,7 +15134,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByUsername(
+        public virtual DataSet GetGameProfileAchievementListUsername(
              username
         )  {
             List<SqlParameter> parameters 
@@ -14357,7 +15144,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_username"
+                , "usp_game_profile_achievement_get_username"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14368,7 +15155,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByCode(
+        public virtual DataSet GetGameProfileAchievementListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -14378,7 +15165,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_code"
+                , "usp_game_profile_achievement_get_code"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14389,7 +15176,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByGameId(
+        public virtual DataSet GetGameProfileAchievementListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -14399,7 +15186,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_game_id"
+                , "usp_game_profile_achievement_get_game_id"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14410,7 +15197,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByCodeByGameId(
+        public virtual DataSet GetGameProfileAchievementListCodeGameId(
              code
             ,  game_id
         )  {
@@ -14422,7 +15209,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_code_by_game_id"
+                , "usp_game_profile_achievement_get_code_game_id"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14433,7 +15220,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByProfileIdByGameId(
+        public virtual DataSet GetGameProfileAchievementListProfileIdGameId(
              profile_id
             ,  game_id
         )  {
@@ -14445,7 +15232,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_profile_id_by_game_id"
+                , "usp_game_profile_achievement_get_profile_id_game_id"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14456,7 +15243,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
+        public virtual DataSet GetGameProfileAchievementListProfileIdGameIdTimestamp(
              profile_id
             ,  game_id
             ,  timestamp
@@ -14470,7 +15257,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_achievement_get_profile_id_game_id_timestamp"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14481,7 +15268,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByCodeByProfileIdByGameId(
+        public virtual DataSet GetGameProfileAchievementListCodeProfileIdGameId(
              code
             ,  profile_id
             ,  game_id
@@ -14495,7 +15282,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id"
+                , "usp_game_profile_achievement_get_code_profile_id_game_id"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14506,7 +15293,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
+        public virtual DataSet GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
              code
             ,  profile_id
             ,  game_id
@@ -14522,7 +15309,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id_by_timestamp"
+                , "usp_game_profile_achievement_get_code_profile_id_game_id_timestamp"
                 , "game_profile_achievement"
                 , parameters
                 );           
@@ -14551,7 +15338,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAchievementMetaByUuid(
+        public virtual int CountGameAchievementMetaUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -14561,7 +15348,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_count_by_uuid"
+                , "usp_game_achievement_meta_count_uuid"
                 , parameters
                 );          
             }
@@ -14571,7 +15358,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAchievementMetaByCode(
+        public virtual int CountGameAchievementMetaCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -14581,7 +15368,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_count_by_code"
+                , "usp_game_achievement_meta_count_code"
                 , parameters
                 );          
             }
@@ -14591,7 +15378,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAchievementMetaByCodeByGameId(
+        public virtual int CountGameAchievementMetaCodeGameId(
              code
             ,  game_id
         )  {
@@ -14603,7 +15390,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_count_by_code_by_game_id"
+                , "usp_game_achievement_meta_count_code_game_id"
                 , parameters
                 );          
             }
@@ -14613,7 +15400,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAchievementMetaByName(
+        public virtual int CountGameAchievementMetaName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -14623,7 +15410,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_count_by_name"
+                , "usp_game_achievement_meta_count_name"
                 , parameters
                 );          
             }
@@ -14633,7 +15420,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountGameAchievementMetaByGameId(
+        public virtual int CountGameAchievementMetaGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -14643,7 +15430,7 @@ namespace gaming {
                 return (int)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_count_by_game_id"
+                , "usp_game_achievement_meta_count_game_id"
                 , parameters
                 );          
             }
@@ -14653,7 +15440,7 @@ namespace gaming {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseGameAchievementMetaListByFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseGameAchievementMetaListFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -14665,7 +15452,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_browse_by_filter"
+                , "usp_game_achievement_meta_browse_filter"
                 , "game_achievement_meta"
                 , parameters
                 );         
@@ -14677,7 +15464,7 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameAchievementMetaByUuid(string set_type, GameAchievementMeta obj)  {
+        public virtual bool SetGameAchievementMetaUuid(string set_type, GameAchievementMeta obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -14704,7 +15491,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_set_by_uuid"
+                , "usp_game_achievement_meta_set_uuid"
                 , parameters
                 );          
             }
@@ -14715,7 +15502,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameAchievementMetaByCodeByGameId(string set_type, GameAchievementMeta obj)  {
+        public virtual bool SetGameAchievementMetaCodeGameId(string set_type, GameAchievementMeta obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -14742,7 +15529,7 @@ namespace gaming {
                 return (bool)data.ExecuteScalar(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_set_by_code_by_game_id"
+                , "usp_game_achievement_meta_set_code_game_id"
                 , parameters
                 );          
             }
@@ -14753,7 +15540,7 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameAchievementMetaByUuid(
+        public virtual bool DelGameAchievementMetaUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -14763,7 +15550,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_achievement_meta_del_by_uuid"
+                    , "usp_game_achievement_meta_del_uuid"
                     , parameters
                     );
                 return true;            
@@ -14774,7 +15561,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelGameAchievementMetaByCodeByGameId(
+        public virtual bool DelGameAchievementMetaCodeGameId(
              code
             ,  game_id
         )  {
@@ -14786,7 +15573,7 @@ namespace gaming {
                 data.ExecuteNonQuery(
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_game_achievement_meta_del_by_code_by_game_id"
+                    , "usp_game_achievement_meta_del_code_game_id"
                     , parameters
                     );
                 return true;            
@@ -14797,7 +15584,7 @@ namespace gaming {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAchievementMetaListByUuid(
+        public virtual DataSet GetGameAchievementMetaListUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -14807,7 +15594,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_get_by_uuid"
+                , "usp_game_achievement_meta_get_uuid"
                 , "game_achievement_meta"
                 , parameters
                 );           
@@ -14818,7 +15605,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAchievementMetaListByCode(
+        public virtual DataSet GetGameAchievementMetaListCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -14828,7 +15615,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_get_by_code"
+                , "usp_game_achievement_meta_get_code"
                 , "game_achievement_meta"
                 , parameters
                 );           
@@ -14839,7 +15626,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAchievementMetaListByCodeByGameId(
+        public virtual DataSet GetGameAchievementMetaListCodeGameId(
              code
             ,  game_id
         )  {
@@ -14851,7 +15638,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_get_by_code_by_game_id"
+                , "usp_game_achievement_meta_get_code_game_id"
                 , "game_achievement_meta"
                 , parameters
                 );           
@@ -14862,7 +15649,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAchievementMetaListByName(
+        public virtual DataSet GetGameAchievementMetaListName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -14872,7 +15659,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_get_by_name"
+                , "usp_game_achievement_meta_get_name"
                 , "game_achievement_meta"
                 , parameters
                 );           
@@ -14883,7 +15670,7 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetGameAchievementMetaListByGameId(
+        public virtual DataSet GetGameAchievementMetaListGameId(
              game_id
         )  {
             List<SqlParameter> parameters 
@@ -14893,7 +15680,7 @@ namespace gaming {
                 return data.ExecuteDataSet(
                 BaseGamingData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_game_achievement_meta_get_by_game_id"
+                , "usp_game_achievement_meta_get_game_id"
                 , "game_achievement_meta"
                 , parameters
                 );           

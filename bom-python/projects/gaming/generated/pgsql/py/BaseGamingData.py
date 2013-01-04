@@ -27,7 +27,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameByUuid(self
+    def CountGameUuid(self
         , uuid
     ) :
         parameters = []
@@ -46,7 +46,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameByCode(self
+    def CountGameCode(self
         , code
     ) :
         parameters = []
@@ -65,7 +65,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameByName(self
+    def CountGameName(self
         , name
     ) :
         parameters = []
@@ -84,7 +84,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameByOrgId(self
+    def CountGameOrgId(self
         , org_id
     ) :
         parameters = []
@@ -103,7 +103,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameByAppId(self
+    def CountGameAppId(self
         , app_id
     ) :
         parameters = []
@@ -122,7 +122,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameByOrgIdByAppId(self
+    def CountGameOrgIdAppId(self
         , org_id
         , app_id
     ) :
@@ -143,7 +143,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameListByFilter(self, filter_obj) :
+    def BrowseGameListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -163,7 +163,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameByUuid(self, set_type, obj) :
+    def SetGameUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -193,7 +193,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameByCode(self, set_type, obj) :
+    def SetGameCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -223,7 +223,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameByName(self, set_type, obj) :
+    def SetGameName(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -253,7 +253,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameByOrgId(self, set_type, obj) :
+    def SetGameOrgId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -283,7 +283,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameByAppId(self, set_type, obj) :
+    def SetGameAppId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -313,7 +313,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameByOrgIdByAppId(self, set_type, obj) :
+    def SetGameOrgIdAppId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -343,7 +343,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameByUuid(self
+    def DelGameUuid(self
         , uuid
     ) :
         parameters = []
@@ -362,7 +362,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameByCode(self
+    def DelGameCode(self
         , code
     ) :
         parameters = []
@@ -381,7 +381,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameByName(self
+    def DelGameName(self
         , name
     ) :
         parameters = []
@@ -400,7 +400,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameByOrgId(self
+    def DelGameOrgId(self
         , org_id
     ) :
         parameters = []
@@ -419,7 +419,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameByAppId(self
+    def DelGameAppId(self
         , app_id
     ) :
         parameters = []
@@ -438,7 +438,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameByOrgIdByAppId(self
+    def DelGameOrgIdAppId(self
         , org_id
         , app_id
     ) :
@@ -478,7 +478,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListByUuid(self
+    def GetGameListUuid(self
         , uuid
     ) :
             
@@ -499,7 +499,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListByCode(self
+    def GetGameListCode(self
         , code
     ) :
             
@@ -520,7 +520,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListByName(self
+    def GetGameListName(self
         , name
     ) :
             
@@ -541,7 +541,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListByOrgId(self
+    def GetGameListOrgId(self
         , org_id
     ) :
             
@@ -562,7 +562,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListByAppId(self
+    def GetGameListAppId(self
         , app_id
     ) :
             
@@ -583,7 +583,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListByOrgIdByAppId(self
+    def GetGameListOrgIdAppId(self
         , org_id
         , app_id
     ) :
@@ -623,7 +623,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryByUuid(self
+    def CountGameCategoryUuid(self
         , uuid
     ) :
         parameters = []
@@ -642,7 +642,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryByCode(self
+    def CountGameCategoryCode(self
         , code
     ) :
         parameters = []
@@ -661,7 +661,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryByName(self
+    def CountGameCategoryName(self
         , name
     ) :
         parameters = []
@@ -680,7 +680,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryByOrgId(self
+    def CountGameCategoryOrgId(self
         , org_id
     ) :
         parameters = []
@@ -699,7 +699,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryByTypeId(self
+    def CountGameCategoryTypeId(self
         , type_id
     ) :
         parameters = []
@@ -718,7 +718,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryByOrgIdByTypeId(self
+    def CountGameCategoryOrgIdTypeId(self
         , org_id
         , type_id
     ) :
@@ -739,7 +739,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameCategoryListByFilter(self, filter_obj) :
+    def BrowseGameCategoryListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -759,7 +759,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameCategoryByUuid(self, set_type, obj) :
+    def SetGameCategoryUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -789,7 +789,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameCategoryByUuid(self
+    def DelGameCategoryUuid(self
         , uuid
     ) :
         parameters = []
@@ -808,7 +808,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryByCodeByOrgId(self
+    def DelGameCategoryCodeOrgId(self
         , code
         , org_id
     ) :
@@ -829,7 +829,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryByCodeByOrgIdByTypeId(self
+    def DelGameCategoryCodeOrgIdTypeId(self
         , code
         , org_id
         , type_id
@@ -871,7 +871,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListByUuid(self
+    def GetGameCategoryListUuid(self
         , uuid
     ) :
             
@@ -892,7 +892,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListByCode(self
+    def GetGameCategoryListCode(self
         , code
     ) :
             
@@ -913,7 +913,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListByName(self
+    def GetGameCategoryListName(self
         , name
     ) :
             
@@ -934,7 +934,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListByOrgId(self
+    def GetGameCategoryListOrgId(self
         , org_id
     ) :
             
@@ -955,7 +955,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListByTypeId(self
+    def GetGameCategoryListTypeId(self
         , type_id
     ) :
             
@@ -976,7 +976,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListByOrgIdByTypeId(self
+    def GetGameCategoryListOrgIdTypeId(self
         , org_id
         , type_id
     ) :
@@ -1016,7 +1016,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTreeByUuid(self
+    def CountGameCategoryTreeUuid(self
         , uuid
     ) :
         parameters = []
@@ -1035,7 +1035,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTreeByParentId(self
+    def CountGameCategoryTreeParentId(self
         , parent_id
     ) :
         parameters = []
@@ -1054,7 +1054,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTreeByCategoryId(self
+    def CountGameCategoryTreeCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -1073,7 +1073,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTreeByParentIdByCategoryId(self
+    def CountGameCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -1094,7 +1094,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameCategoryTreeListByFilter(self, filter_obj) :
+    def BrowseGameCategoryTreeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1114,7 +1114,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameCategoryTreeByUuid(self, set_type, obj) :
+    def SetGameCategoryTreeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1140,7 +1140,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameCategoryTreeByUuid(self
+    def DelGameCategoryTreeUuid(self
         , uuid
     ) :
         parameters = []
@@ -1159,7 +1159,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryTreeByParentId(self
+    def DelGameCategoryTreeParentId(self
         , parent_id
     ) :
         parameters = []
@@ -1178,7 +1178,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryTreeByCategoryId(self
+    def DelGameCategoryTreeCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -1197,7 +1197,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryTreeByParentIdByCategoryId(self
+    def DelGameCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -1237,7 +1237,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryTreeListByUuid(self
+    def GetGameCategoryTreeListUuid(self
         , uuid
     ) :
             
@@ -1258,7 +1258,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryTreeListByParentId(self
+    def GetGameCategoryTreeListParentId(self
         , parent_id
     ) :
             
@@ -1279,7 +1279,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryTreeListByCategoryId(self
+    def GetGameCategoryTreeListCategoryId(self
         , category_id
     ) :
             
@@ -1300,7 +1300,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryTreeListByParentIdByCategoryId(self
+    def GetGameCategoryTreeListParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -1340,7 +1340,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryAssocByUuid(self
+    def CountGameCategoryAssocUuid(self
         , uuid
     ) :
         parameters = []
@@ -1359,7 +1359,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryAssocByGameId(self
+    def CountGameCategoryAssocGameId(self
         , game_id
     ) :
         parameters = []
@@ -1378,7 +1378,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryAssocByCategoryId(self
+    def CountGameCategoryAssocCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -1397,7 +1397,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryAssocByGameIdByCategoryId(self
+    def CountGameCategoryAssocGameIdCategoryId(self
         , game_id
         , category_id
     ) :
@@ -1418,7 +1418,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameCategoryAssocListByFilter(self, filter_obj) :
+    def BrowseGameCategoryAssocListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1438,7 +1438,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameCategoryAssocByUuid(self, set_type, obj) :
+    def SetGameCategoryAssocUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1464,7 +1464,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameCategoryAssocByUuid(self
+    def DelGameCategoryAssocUuid(self
         , uuid
     ) :
         parameters = []
@@ -1502,7 +1502,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryAssocListByUuid(self
+    def GetGameCategoryAssocListUuid(self
         , uuid
     ) :
             
@@ -1523,7 +1523,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryAssocListByGameId(self
+    def GetGameCategoryAssocListGameId(self
         , game_id
     ) :
             
@@ -1544,7 +1544,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryAssocListByCategoryId(self
+    def GetGameCategoryAssocListCategoryId(self
         , category_id
     ) :
             
@@ -1565,7 +1565,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryAssocListByGameIdByCategoryId(self
+    def GetGameCategoryAssocListGameIdCategoryId(self
         , game_id
         , category_id
     ) :
@@ -1605,7 +1605,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameTypeByUuid(self
+    def CountGameTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -1624,7 +1624,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameTypeByCode(self
+    def CountGameTypeCode(self
         , code
     ) :
         parameters = []
@@ -1643,7 +1643,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameTypeByName(self
+    def CountGameTypeName(self
         , name
     ) :
         parameters = []
@@ -1662,7 +1662,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameTypeListByFilter(self, filter_obj) :
+    def BrowseGameTypeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1682,7 +1682,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameTypeByUuid(self, set_type, obj) :
+    def SetGameTypeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1710,7 +1710,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameTypeByUuid(self
+    def DelGameTypeUuid(self
         , uuid
     ) :
         parameters = []
@@ -1748,7 +1748,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameTypeListByUuid(self
+    def GetGameTypeListUuid(self
         , uuid
     ) :
             
@@ -1769,7 +1769,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameTypeListByCode(self
+    def GetGameTypeListCode(self
         , code
     ) :
             
@@ -1790,7 +1790,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameTypeListByName(self
+    def GetGameTypeListName(self
         , name
     ) :
             
@@ -1828,7 +1828,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameByUuid(self
+    def CountProfileGameUuid(self
         , uuid
     ) :
         parameters = []
@@ -1847,7 +1847,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameByGameId(self
+    def CountProfileGameGameId(self
         , game_id
     ) :
         parameters = []
@@ -1866,7 +1866,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameByProfileId(self
+    def CountProfileGameProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -1885,7 +1885,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameByProfileIdByGameId(self
+    def CountProfileGameProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -1906,7 +1906,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseProfileGameListByFilter(self, filter_obj) :
+    def BrowseProfileGameListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1926,7 +1926,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetProfileGameByUuid(self, set_type, obj) :
+    def SetProfileGameUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1955,7 +1955,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelProfileGameByUuid(self
+    def DelProfileGameUuid(self
         , uuid
     ) :
         parameters = []
@@ -1993,7 +1993,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameListByUuid(self
+    def GetProfileGameListUuid(self
         , uuid
     ) :
             
@@ -2014,7 +2014,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameListByGameId(self
+    def GetProfileGameListGameId(self
         , game_id
     ) :
             
@@ -2035,7 +2035,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameListByProfileId(self
+    def GetProfileGameListProfileId(self
         , profile_id
     ) :
             
@@ -2056,7 +2056,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameListByProfileIdByGameId(self
+    def GetProfileGameListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -2096,7 +2096,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkByUuid(self
+    def CountGameNetworkUuid(self
         , uuid
     ) :
         parameters = []
@@ -2115,7 +2115,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkByCode(self
+    def CountGameNetworkCode(self
         , code
     ) :
         parameters = []
@@ -2134,7 +2134,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkByUuidByType(self
+    def CountGameNetworkUuidType(self
         , uuid
         , type
     ) :
@@ -2155,7 +2155,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameNetworkListByFilter(self, filter_obj) :
+    def BrowseGameNetworkListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2175,7 +2175,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameNetworkByUuid(self, set_type, obj) :
+    def SetGameNetworkUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2206,7 +2206,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameNetworkByCode(self, set_type, obj) :
+    def SetGameNetworkCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2237,7 +2237,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameNetworkByUuid(self
+    def DelGameNetworkUuid(self
         , uuid
     ) :
         parameters = []
@@ -2275,7 +2275,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkListByUuid(self
+    def GetGameNetworkListUuid(self
         , uuid
     ) :
             
@@ -2296,7 +2296,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkListByCode(self
+    def GetGameNetworkListCode(self
         , code
     ) :
             
@@ -2317,7 +2317,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkListByUuidByType(self
+    def GetGameNetworkListUuidType(self
         , uuid
         , type
     ) :
@@ -2357,7 +2357,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkAuthByUuid(self
+    def CountGameNetworkAuthUuid(self
         , uuid
     ) :
         parameters = []
@@ -2376,7 +2376,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkAuthByGameIdByGameNetworkId(self
+    def CountGameNetworkAuthGameIdGameNetworkId(self
         , game_id
         , game_network_id
     ) :
@@ -2397,7 +2397,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameNetworkAuthListByFilter(self, filter_obj) :
+    def BrowseGameNetworkAuthListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2417,7 +2417,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameNetworkAuthByUuid(self, set_type, obj) :
+    def SetGameNetworkAuthUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2451,7 +2451,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameNetworkAuthByGameIdByGameNetworkId(self, set_type, obj) :
+    def SetGameNetworkAuthGameIdGameNetworkId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2485,7 +2485,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameNetworkAuthByUuid(self
+    def DelGameNetworkAuthUuid(self
         , uuid
     ) :
         parameters = []
@@ -2523,7 +2523,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkAuthListByUuid(self
+    def GetGameNetworkAuthListUuid(self
         , uuid
     ) :
             
@@ -2544,7 +2544,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkAuthListByGameIdByGameNetworkId(self
+    def GetGameNetworkAuthListGameIdGameNetworkId(self
         , game_id
         , game_network_id
     ) :
@@ -2584,7 +2584,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkByUuid(self
+    def CountProfileGameNetworkUuid(self
         , uuid
     ) :
         parameters = []
@@ -2603,7 +2603,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkByGameId(self
+    def CountProfileGameNetworkGameId(self
         , game_id
     ) :
         parameters = []
@@ -2622,7 +2622,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkByProfileId(self
+    def CountProfileGameNetworkProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -2641,7 +2641,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkByProfileIdByGameId(self
+    def CountProfileGameNetworkProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -2662,7 +2662,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkByProfileIdByGameId(self
+    def CountProfileGameNetworkProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -2683,7 +2683,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+    def CountProfileGameNetworkProfileIdGameIdGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
@@ -2706,7 +2706,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+    def CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
@@ -2729,7 +2729,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseProfileGameNetworkListByFilter(self, filter_obj) :
+    def BrowseProfileGameNetworkListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2749,7 +2749,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetProfileGameNetworkByUuid(self, set_type, obj) :
+    def SetProfileGameNetworkUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2784,7 +2784,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameNetworkByProfileIdByGameId(self, set_type, obj) :
+    def SetProfileGameNetworkProfileIdGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2819,7 +2819,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self, set_type, obj) :
+    def SetProfileGameNetworkProfileIdGameIdGameNetworkId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2854,7 +2854,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self, set_type, obj) :
+    def SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2889,7 +2889,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelProfileGameNetworkByUuid(self
+    def DelProfileGameNetworkUuid(self
         , uuid
     ) :
         parameters = []
@@ -2908,7 +2908,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameNetworkByProfileIdByGameId(self
+    def DelProfileGameNetworkProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -2929,7 +2929,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
+    def DelProfileGameNetworkProfileIdGameIdGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
@@ -2952,7 +2952,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
+    def DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
@@ -2994,7 +2994,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListByUuid(self
+    def GetProfileGameNetworkListUuid(self
         , uuid
     ) :
             
@@ -3015,7 +3015,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListByGameId(self
+    def GetProfileGameNetworkListGameId(self
         , game_id
     ) :
             
@@ -3036,7 +3036,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListByProfileId(self
+    def GetProfileGameNetworkListProfileId(self
         , profile_id
     ) :
             
@@ -3057,7 +3057,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListByProfileIdByGameId(self
+    def GetProfileGameNetworkListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -3080,7 +3080,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(self
+    def GetProfileGameNetworkListProfileIdGameIdGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
@@ -3105,7 +3105,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(self
+    def GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
@@ -3147,7 +3147,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameDataAttributeByUuid(self
+    def CountProfileGameDataAttributeUuid(self
         , uuid
     ) :
         parameters = []
@@ -3166,7 +3166,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameDataAttributeByProfileId(self
+    def CountProfileGameDataAttributeProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -3185,7 +3185,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameDataAttributeByProfileIdByGameIdByCode(self
+    def CountProfileGameDataAttributeProfileIdGameIdCode(self
         , profile_id
         , game_id
         , code
@@ -3208,7 +3208,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseProfileGameDataAttributeListByFilter(self, filter_obj) :
+    def BrowseProfileGameDataAttributeListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3228,7 +3228,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetProfileGameDataAttributeByUuid(self, set_type, obj) :
+    def SetProfileGameDataAttributeUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3258,7 +3258,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameDataAttributeByProfileId(self, set_type, obj) :
+    def SetProfileGameDataAttributeProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3288,7 +3288,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameDataAttributeByProfileIdByGameIdByCode(self, set_type, obj) :
+    def SetProfileGameDataAttributeProfileIdGameIdCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3318,7 +3318,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelProfileGameDataAttributeByUuid(self
+    def DelProfileGameDataAttributeUuid(self
         , uuid
     ) :
         parameters = []
@@ -3337,7 +3337,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameDataAttributeByProfileId(self
+    def DelProfileGameDataAttributeProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -3356,7 +3356,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameDataAttributeByProfileIdByGameIdByCode(self
+    def DelProfileGameDataAttributeProfileIdGameIdCode(self
         , profile_id
         , game_id
         , code
@@ -3379,7 +3379,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetProfileGameDataAttributeListByUuid(self
+    def GetProfileGameDataAttributeListUuid(self
         , uuid
     ) :
             
@@ -3400,7 +3400,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameDataAttributeListByProfileId(self
+    def GetProfileGameDataAttributeListProfileId(self
         , profile_id
     ) :
             
@@ -3421,7 +3421,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameDataAttributeListByProfileIdByGameIdByCode(self
+    def GetProfileGameDataAttributeListProfileIdGameIdCode(self
         , profile_id
         , game_id
         , code
@@ -3463,7 +3463,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionByUuid(self
+    def CountGameSessionUuid(self
         , uuid
     ) :
         parameters = []
@@ -3482,7 +3482,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionByGameId(self
+    def CountGameSessionGameId(self
         , game_id
     ) :
         parameters = []
@@ -3501,7 +3501,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionByProfileId(self
+    def CountGameSessionProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -3520,7 +3520,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionByProfileIdByGameId(self
+    def CountGameSessionProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -3541,7 +3541,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameSessionListByFilter(self, filter_obj) :
+    def BrowseGameSessionListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3561,7 +3561,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameSessionByUuid(self, set_type, obj) :
+    def SetGameSessionUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.game_area) #"in_game_area"
@@ -3611,7 +3611,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameSessionByUuid(self
+    def DelGameSessionUuid(self
         , uuid
     ) :
         parameters = []
@@ -3649,7 +3649,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionListByUuid(self
+    def GetGameSessionListUuid(self
         , uuid
     ) :
             
@@ -3670,7 +3670,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionListByGameId(self
+    def GetGameSessionListGameId(self
         , game_id
     ) :
             
@@ -3691,7 +3691,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionListByProfileId(self
+    def GetGameSessionListProfileId(self
         , profile_id
     ) :
             
@@ -3712,7 +3712,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionListByProfileIdByGameId(self
+    def GetGameSessionListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -3752,7 +3752,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionDataByUuid(self
+    def CountGameSessionDataUuid(self
         , uuid
     ) :
         parameters = []
@@ -3771,7 +3771,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameSessionDataListByFilter(self, filter_obj) :
+    def BrowseGameSessionDataListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3791,7 +3791,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameSessionDataByUuid(self, set_type, obj) :
+    def SetGameSessionDataUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3824,7 +3824,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameSessionDataByUuid(self
+    def DelGameSessionDataUuid(self
         , uuid
     ) :
         parameters = []
@@ -3862,7 +3862,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionDataListByUuid(self
+    def GetGameSessionDataListUuid(self
         , uuid
     ) :
             
@@ -3900,7 +3900,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentByUuid(self
+    def CountGameContentUuid(self
         , uuid
     ) :
         parameters = []
@@ -3919,7 +3919,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentByGameId(self
+    def CountGameContentGameId(self
         , game_id
     ) :
         parameters = []
@@ -3938,7 +3938,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentByGameIdByPath(self
+    def CountGameContentGameIdPath(self
         , game_id
         , path
     ) :
@@ -3959,7 +3959,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentByGameIdByPathByVersion(self
+    def CountGameContentGameIdPathVersion(self
         , game_id
         , path
         , version
@@ -3982,7 +3982,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentByGameIdByPathByVersionByPlatformByIncrement(self
+    def CountGameContentGameIdPathVersionPlatformIncrement(self
         , game_id
         , path
         , version
@@ -4009,7 +4009,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameContentListByFilter(self, filter_obj) :
+    def BrowseGameContentListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -4029,7 +4029,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameContentByUuid(self, set_type, obj) :
+    def SetGameContentUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4068,7 +4068,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameContentByGameId(self, set_type, obj) :
+    def SetGameContentGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4107,7 +4107,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameContentByGameIdByPath(self, set_type, obj) :
+    def SetGameContentGameIdPath(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4146,7 +4146,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameContentByGameIdByPathByVersion(self, set_type, obj) :
+    def SetGameContentGameIdPathVersion(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4185,7 +4185,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameContentByGameIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameContentGameIdPathVersionPlatformIncrement(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4224,7 +4224,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameContentByUuid(self
+    def DelGameContentUuid(self
         , uuid
     ) :
         parameters = []
@@ -4243,7 +4243,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameContentByGameId(self
+    def DelGameContentGameId(self
         , game_id
     ) :
         parameters = []
@@ -4262,7 +4262,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameContentByGameIdByPath(self
+    def DelGameContentGameIdPath(self
         , game_id
         , path
     ) :
@@ -4283,7 +4283,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameContentByGameIdByPathByVersion(self
+    def DelGameContentGameIdPathVersion(self
         , game_id
         , path
         , version
@@ -4306,7 +4306,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameContentByGameIdByPathByVersionByPlatformByIncrement(self
+    def DelGameContentGameIdPathVersionPlatformIncrement(self
         , game_id
         , path
         , version
@@ -4352,7 +4352,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListByUuid(self
+    def GetGameContentListUuid(self
         , uuid
     ) :
             
@@ -4373,7 +4373,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListByGameId(self
+    def GetGameContentListGameId(self
         , game_id
     ) :
             
@@ -4394,7 +4394,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListByGameIdByPath(self
+    def GetGameContentListGameIdPath(self
         , game_id
         , path
     ) :
@@ -4417,7 +4417,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListByGameIdByPathByVersion(self
+    def GetGameContentListGameIdPathVersion(self
         , game_id
         , path
         , version
@@ -4442,7 +4442,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(self
+    def GetGameContentListGameIdPathVersionPlatformIncrement(self
         , game_id
         , path
         , version
@@ -4488,7 +4488,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByUuid(self
+    def CountGameProfileContentUuid(self
         , uuid
     ) :
         parameters = []
@@ -4507,7 +4507,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByGameIdByProfileId(self
+    def CountGameProfileContentGameIdProfileId(self
         , game_id
         , profile_id
     ) :
@@ -4528,7 +4528,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByGameIdByUsername(self
+    def CountGameProfileContentGameIdUsername(self
         , game_id
         , username
     ) :
@@ -4549,7 +4549,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByUsername(self
+    def CountGameProfileContentUsername(self
         , username
     ) :
         parameters = []
@@ -4568,7 +4568,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByGameIdByProfileIdByPath(self
+    def CountGameProfileContentGameIdProfileIdPath(self
         , game_id
         , profile_id
         , path
@@ -4591,7 +4591,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByGameIdByProfileIdByPathByVersion(self
+    def CountGameProfileContentGameIdProfileIdPathVersion(self
         , game_id
         , profile_id
         , path
@@ -4616,7 +4616,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
         , game_id
         , profile_id
         , path
@@ -4645,7 +4645,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByGameIdByUsernameByPath(self
+    def CountGameProfileContentGameIdUsernamePath(self
         , game_id
         , username
         , path
@@ -4668,7 +4668,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByGameIdByUsernameByPathByVersion(self
+    def CountGameProfileContentGameIdUsernamePathVersion(self
         , game_id
         , username
         , path
@@ -4693,7 +4693,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
         , game_id
         , username
         , path
@@ -4722,7 +4722,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProfileContentListByFilter(self, filter_obj) :
+    def BrowseGameProfileContentListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -4742,7 +4742,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProfileContentByUuid(self, set_type, obj) :
+    def SetGameProfileContentUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4784,7 +4784,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByGameIdByProfileId(self, set_type, obj) :
+    def SetGameProfileContentGameIdProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4826,7 +4826,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByGameIdByUsername(self, set_type, obj) :
+    def SetGameProfileContentGameIdUsername(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4868,7 +4868,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByUsername(self, set_type, obj) :
+    def SetGameProfileContentUsername(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4910,7 +4910,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByGameIdByProfileIdByPath(self, set_type, obj) :
+    def SetGameProfileContentGameIdProfileIdPath(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4952,7 +4952,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersion(self, set_type, obj) :
+    def SetGameProfileContentGameIdProfileIdPathVersion(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4994,7 +4994,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -5036,7 +5036,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByGameIdByUsernameByPath(self, set_type, obj) :
+    def SetGameProfileContentGameIdUsernamePath(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -5078,7 +5078,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByGameIdByUsernameByPathByVersion(self, set_type, obj) :
+    def SetGameProfileContentGameIdUsernamePathVersion(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -5120,7 +5120,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self, set_type, obj) :
+    def SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -5162,7 +5162,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProfileContentByUuid(self
+    def DelGameProfileContentUuid(self
         , uuid
     ) :
         parameters = []
@@ -5181,7 +5181,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByGameIdByProfileId(self
+    def DelGameProfileContentGameIdProfileId(self
         , game_id
         , profile_id
     ) :
@@ -5202,7 +5202,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByGameIdByUsername(self
+    def DelGameProfileContentGameIdUsername(self
         , game_id
         , username
     ) :
@@ -5223,7 +5223,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByUsername(self
+    def DelGameProfileContentUsername(self
         , username
     ) :
         parameters = []
@@ -5242,7 +5242,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByGameIdByProfileIdByPath(self
+    def DelGameProfileContentGameIdProfileIdPath(self
         , game_id
         , profile_id
         , path
@@ -5265,7 +5265,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByGameIdByProfileIdByPathByVersion(self
+    def DelGameProfileContentGameIdProfileIdPathVersion(self
         , game_id
         , profile_id
         , path
@@ -5290,7 +5290,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
         , game_id
         , profile_id
         , path
@@ -5319,7 +5319,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByGameIdByUsernameByPath(self
+    def DelGameProfileContentGameIdUsernamePath(self
         , game_id
         , username
         , path
@@ -5342,7 +5342,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByGameIdByUsernameByPathByVersion(self
+    def DelGameProfileContentGameIdUsernamePathVersion(self
         , game_id
         , username
         , path
@@ -5367,7 +5367,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
         , game_id
         , username
         , path
@@ -5415,7 +5415,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByUuid(self
+    def GetGameProfileContentListUuid(self
         , uuid
     ) :
             
@@ -5436,7 +5436,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByGameIdByProfileId(self
+    def GetGameProfileContentListGameIdProfileId(self
         , game_id
         , profile_id
     ) :
@@ -5459,7 +5459,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByGameIdByUsername(self
+    def GetGameProfileContentListGameIdUsername(self
         , game_id
         , username
     ) :
@@ -5482,7 +5482,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByUsername(self
+    def GetGameProfileContentListUsername(self
         , username
     ) :
             
@@ -5503,7 +5503,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByGameIdByProfileIdByPath(self
+    def GetGameProfileContentListGameIdProfileIdPath(self
         , game_id
         , profile_id
         , path
@@ -5528,7 +5528,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByGameIdByProfileIdByPathByVersion(self
+    def GetGameProfileContentListGameIdProfileIdPathVersion(self
         , game_id
         , profile_id
         , path
@@ -5555,7 +5555,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
+    def GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(self
         , game_id
         , profile_id
         , path
@@ -5586,7 +5586,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByGameIdByUsernameByPath(self
+    def GetGameProfileContentListGameIdUsernamePath(self
         , game_id
         , username
         , path
@@ -5611,7 +5611,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByGameIdByUsernameByPathByVersion(self
+    def GetGameProfileContentListGameIdUsernamePathVersion(self
         , game_id
         , username
         , path
@@ -5638,7 +5638,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
+    def GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(self
         , game_id
         , username
         , path
@@ -5686,7 +5686,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppByUuid(self
+    def CountGameAppUuid(self
         , uuid
     ) :
         parameters = []
@@ -5705,7 +5705,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppByGameId(self
+    def CountGameAppGameId(self
         , game_id
     ) :
         parameters = []
@@ -5724,7 +5724,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppByAppId(self
+    def CountGameAppAppId(self
         , app_id
     ) :
         parameters = []
@@ -5743,7 +5743,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppByGameIdByAppId(self
+    def CountGameAppGameIdAppId(self
         , game_id
         , app_id
     ) :
@@ -5764,7 +5764,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameAppListByFilter(self, filter_obj) :
+    def BrowseGameAppListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -5784,7 +5784,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameAppByUuid(self, set_type, obj) :
+    def SetGameAppUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -5810,7 +5810,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameAppByUuid(self
+    def DelGameAppUuid(self
         , uuid
     ) :
         parameters = []
@@ -5848,7 +5848,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAppListByUuid(self
+    def GetGameAppListUuid(self
         , uuid
     ) :
             
@@ -5869,7 +5869,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAppListByGameId(self
+    def GetGameAppListGameId(self
         , game_id
     ) :
             
@@ -5890,7 +5890,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAppListByAppId(self
+    def GetGameAppListAppId(self
         , app_id
     ) :
             
@@ -5911,7 +5911,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAppListByGameIdByAppId(self
+    def GetGameAppListGameIdAppId(self
         , game_id
         , app_id
     ) :
@@ -5951,7 +5951,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameLocationByUuid(self
+    def CountProfileGameLocationUuid(self
         , uuid
     ) :
         parameters = []
@@ -5970,7 +5970,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameLocationByGameLocationId(self
+    def CountProfileGameLocationGameLocationId(self
         , game_location_id
     ) :
         parameters = []
@@ -5989,7 +5989,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameLocationByProfileId(self
+    def CountProfileGameLocationProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -6008,7 +6008,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameLocationByProfileIdByGameLocationId(self
+    def CountProfileGameLocationProfileIdGameLocationId(self
         , profile_id
         , game_location_id
     ) :
@@ -6029,7 +6029,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseProfileGameLocationListByFilter(self, filter_obj) :
+    def BrowseProfileGameLocationListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6049,7 +6049,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetProfileGameLocationByUuid(self, set_type, obj) :
+    def SetProfileGameLocationUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6076,7 +6076,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelProfileGameLocationByUuid(self
+    def DelProfileGameLocationUuid(self
         , uuid
     ) :
         parameters = []
@@ -6114,7 +6114,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameLocationListByUuid(self
+    def GetProfileGameLocationListUuid(self
         , uuid
     ) :
             
@@ -6135,7 +6135,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameLocationListByGameLocationId(self
+    def GetProfileGameLocationListGameLocationId(self
         , game_location_id
     ) :
             
@@ -6156,7 +6156,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameLocationListByProfileId(self
+    def GetProfileGameLocationListProfileId(self
         , profile_id
     ) :
             
@@ -6177,7 +6177,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameLocationListByProfileIdByGameLocationId(self
+    def GetProfileGameLocationListProfileIdGameLocationId(self
         , profile_id
         , game_location_id
     ) :
@@ -6217,7 +6217,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoByUuid(self
+    def CountGamePhotoUuid(self
         , uuid
     ) :
         parameters = []
@@ -6236,7 +6236,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoByExternalId(self
+    def CountGamePhotoExternalId(self
         , external_id
     ) :
         parameters = []
@@ -6255,7 +6255,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoByUrl(self
+    def CountGamePhotoUrl(self
         , url
     ) :
         parameters = []
@@ -6274,7 +6274,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoByUrlByExternalId(self
+    def CountGamePhotoUrlExternalId(self
         , url
         , external_id
     ) :
@@ -6295,7 +6295,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoByUuidByExternalId(self
+    def CountGamePhotoUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -6316,7 +6316,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGamePhotoListByFilter(self, filter_obj) :
+    def BrowseGamePhotoListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6336,7 +6336,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGamePhotoByUuid(self, set_type, obj) :
+    def SetGamePhotoUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6371,7 +6371,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGamePhotoByExternalId(self, set_type, obj) :
+    def SetGamePhotoExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6406,7 +6406,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGamePhotoByUrl(self, set_type, obj) :
+    def SetGamePhotoUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6441,7 +6441,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGamePhotoByUrlByExternalId(self, set_type, obj) :
+    def SetGamePhotoUrlExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6476,7 +6476,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGamePhotoByUuidByExternalId(self, set_type, obj) :
+    def SetGamePhotoUuidExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6511,7 +6511,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGamePhotoByUuid(self
+    def DelGamePhotoUuid(self
         , uuid
     ) :
         parameters = []
@@ -6530,7 +6530,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGamePhotoByExternalId(self
+    def DelGamePhotoExternalId(self
         , external_id
     ) :
         parameters = []
@@ -6549,7 +6549,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGamePhotoByUrl(self
+    def DelGamePhotoUrl(self
         , url
     ) :
         parameters = []
@@ -6568,7 +6568,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGamePhotoByUrlByExternalId(self
+    def DelGamePhotoUrlExternalId(self
         , url
         , external_id
     ) :
@@ -6589,7 +6589,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGamePhotoByUuidByExternalId(self
+    def DelGamePhotoUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -6629,7 +6629,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListByUuid(self
+    def GetGamePhotoListUuid(self
         , uuid
     ) :
             
@@ -6650,7 +6650,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListByExternalId(self
+    def GetGamePhotoListExternalId(self
         , external_id
     ) :
             
@@ -6671,7 +6671,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListByUrl(self
+    def GetGamePhotoListUrl(self
         , url
     ) :
             
@@ -6692,7 +6692,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListByUrlByExternalId(self
+    def GetGamePhotoListUrlExternalId(self
         , url
         , external_id
     ) :
@@ -6715,7 +6715,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListByUuidByExternalId(self
+    def GetGamePhotoListUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -6755,7 +6755,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoByUuid(self
+    def CountGameVideoUuid(self
         , uuid
     ) :
         parameters = []
@@ -6774,7 +6774,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoByExternalId(self
+    def CountGameVideoExternalId(self
         , external_id
     ) :
         parameters = []
@@ -6793,7 +6793,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoByUrl(self
+    def CountGameVideoUrl(self
         , url
     ) :
         parameters = []
@@ -6812,7 +6812,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoByUrlByExternalId(self
+    def CountGameVideoUrlExternalId(self
         , url
         , external_id
     ) :
@@ -6833,7 +6833,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoByUuidByExternalId(self
+    def CountGameVideoUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -6854,7 +6854,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameVideoListByFilter(self, filter_obj) :
+    def BrowseGameVideoListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6874,7 +6874,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameVideoByUuid(self, set_type, obj) :
+    def SetGameVideoUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6909,7 +6909,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameVideoByExternalId(self, set_type, obj) :
+    def SetGameVideoExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6944,7 +6944,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameVideoByUrl(self, set_type, obj) :
+    def SetGameVideoUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6979,7 +6979,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameVideoByUrlByExternalId(self, set_type, obj) :
+    def SetGameVideoUrlExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7014,7 +7014,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameVideoByUuidByExternalId(self, set_type, obj) :
+    def SetGameVideoUuidExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7049,7 +7049,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameVideoByUuid(self
+    def DelGameVideoUuid(self
         , uuid
     ) :
         parameters = []
@@ -7068,7 +7068,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameVideoByExternalId(self
+    def DelGameVideoExternalId(self
         , external_id
     ) :
         parameters = []
@@ -7087,7 +7087,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameVideoByUrl(self
+    def DelGameVideoUrl(self
         , url
     ) :
         parameters = []
@@ -7106,7 +7106,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameVideoByUrlByExternalId(self
+    def DelGameVideoUrlExternalId(self
         , url
         , external_id
     ) :
@@ -7127,7 +7127,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameVideoByUuidByExternalId(self
+    def DelGameVideoUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -7167,7 +7167,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListByUuid(self
+    def GetGameVideoListUuid(self
         , uuid
     ) :
             
@@ -7188,7 +7188,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListByExternalId(self
+    def GetGameVideoListExternalId(self
         , external_id
     ) :
             
@@ -7209,7 +7209,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListByUrl(self
+    def GetGameVideoListUrl(self
         , url
     ) :
             
@@ -7230,7 +7230,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListByUrlByExternalId(self
+    def GetGameVideoListUrlExternalId(self
         , url
         , external_id
     ) :
@@ -7253,7 +7253,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListByUuidByExternalId(self
+    def GetGameVideoListUuidExternalId(self
         , uuid
         , external_id
     ) :
@@ -7293,7 +7293,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponByUuid(self
+    def CountGameRpgItemWeaponUuid(self
         , uuid
     ) :
         parameters = []
@@ -7312,7 +7312,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponByGameId(self
+    def CountGameRpgItemWeaponGameId(self
         , game_id
     ) :
         parameters = []
@@ -7331,7 +7331,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponByUrl(self
+    def CountGameRpgItemWeaponUrl(self
         , url
     ) :
         parameters = []
@@ -7350,7 +7350,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponByUrlByGameId(self
+    def CountGameRpgItemWeaponUrlGameId(self
         , url
         , game_id
     ) :
@@ -7371,7 +7371,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponByUuidByGameId(self
+    def CountGameRpgItemWeaponUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -7392,7 +7392,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameRpgItemWeaponListByFilter(self, filter_obj) :
+    def BrowseGameRpgItemWeaponListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -7412,7 +7412,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameRpgItemWeaponByUuid(self, set_type, obj) :
+    def SetGameRpgItemWeaponUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7455,7 +7455,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemWeaponByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7498,7 +7498,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemWeaponByUrl(self, set_type, obj) :
+    def SetGameRpgItemWeaponUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7541,7 +7541,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemWeaponByUrlByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponUrlGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7584,7 +7584,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemWeaponByUuidByGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponUuidGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7627,7 +7627,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameRpgItemWeaponByUuid(self
+    def DelGameRpgItemWeaponUuid(self
         , uuid
     ) :
         parameters = []
@@ -7646,7 +7646,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemWeaponByGameId(self
+    def DelGameRpgItemWeaponGameId(self
         , game_id
     ) :
         parameters = []
@@ -7665,7 +7665,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemWeaponByUrl(self
+    def DelGameRpgItemWeaponUrl(self
         , url
     ) :
         parameters = []
@@ -7684,7 +7684,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemWeaponByUrlByGameId(self
+    def DelGameRpgItemWeaponUrlGameId(self
         , url
         , game_id
     ) :
@@ -7705,7 +7705,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemWeaponByUuidByGameId(self
+    def DelGameRpgItemWeaponUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -7745,7 +7745,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListByUuid(self
+    def GetGameRpgItemWeaponListUuid(self
         , uuid
     ) :
             
@@ -7766,7 +7766,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListByGameId(self
+    def GetGameRpgItemWeaponListGameId(self
         , game_id
     ) :
             
@@ -7787,7 +7787,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListByUrl(self
+    def GetGameRpgItemWeaponListUrl(self
         , url
     ) :
             
@@ -7808,7 +7808,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListByUrlByGameId(self
+    def GetGameRpgItemWeaponListUrlGameId(self
         , url
         , game_id
     ) :
@@ -7831,7 +7831,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListByUuidByGameId(self
+    def GetGameRpgItemWeaponListUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -7871,7 +7871,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillByUuid(self
+    def CountGameRpgItemSkillUuid(self
         , uuid
     ) :
         parameters = []
@@ -7890,7 +7890,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillByGameId(self
+    def CountGameRpgItemSkillGameId(self
         , game_id
     ) :
         parameters = []
@@ -7909,7 +7909,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillByUrl(self
+    def CountGameRpgItemSkillUrl(self
         , url
     ) :
         parameters = []
@@ -7928,7 +7928,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillByUrlByGameId(self
+    def CountGameRpgItemSkillUrlGameId(self
         , url
         , game_id
     ) :
@@ -7949,7 +7949,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillByUuidByGameId(self
+    def CountGameRpgItemSkillUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -7970,7 +7970,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameRpgItemSkillListByFilter(self, filter_obj) :
+    def BrowseGameRpgItemSkillListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -7990,7 +7990,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameRpgItemSkillByUuid(self, set_type, obj) :
+    def SetGameRpgItemSkillUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8033,7 +8033,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemSkillByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8076,7 +8076,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemSkillByUrl(self, set_type, obj) :
+    def SetGameRpgItemSkillUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8119,7 +8119,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemSkillByUrlByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillUrlGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8162,7 +8162,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemSkillByUuidByGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillUuidGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8205,7 +8205,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameRpgItemSkillByUuid(self
+    def DelGameRpgItemSkillUuid(self
         , uuid
     ) :
         parameters = []
@@ -8224,7 +8224,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemSkillByGameId(self
+    def DelGameRpgItemSkillGameId(self
         , game_id
     ) :
         parameters = []
@@ -8243,7 +8243,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemSkillByUrl(self
+    def DelGameRpgItemSkillUrl(self
         , url
     ) :
         parameters = []
@@ -8262,7 +8262,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemSkillByUrlByGameId(self
+    def DelGameRpgItemSkillUrlGameId(self
         , url
         , game_id
     ) :
@@ -8283,7 +8283,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemSkillByUuidByGameId(self
+    def DelGameRpgItemSkillUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -8323,7 +8323,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListByUuid(self
+    def GetGameRpgItemSkillListUuid(self
         , uuid
     ) :
             
@@ -8344,7 +8344,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListByGameId(self
+    def GetGameRpgItemSkillListGameId(self
         , game_id
     ) :
             
@@ -8365,7 +8365,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListByUrl(self
+    def GetGameRpgItemSkillListUrl(self
         , url
     ) :
             
@@ -8386,7 +8386,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListByUrlByGameId(self
+    def GetGameRpgItemSkillListUrlGameId(self
         , url
         , game_id
     ) :
@@ -8409,7 +8409,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListByUuidByGameId(self
+    def GetGameRpgItemSkillListUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -8449,7 +8449,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductByUuid(self
+    def CountGameProductUuid(self
         , uuid
     ) :
         parameters = []
@@ -8468,7 +8468,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductByGameId(self
+    def CountGameProductGameId(self
         , game_id
     ) :
         parameters = []
@@ -8487,7 +8487,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductByUrl(self
+    def CountGameProductUrl(self
         , url
     ) :
         parameters = []
@@ -8506,7 +8506,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductByUrlByGameId(self
+    def CountGameProductUrlGameId(self
         , url
         , game_id
     ) :
@@ -8527,7 +8527,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductByUuidByGameId(self
+    def CountGameProductUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -8548,7 +8548,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProductListByFilter(self, filter_obj) :
+    def BrowseGameProductListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -8568,7 +8568,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProductByUuid(self, set_type, obj) :
+    def SetGameProductUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8598,7 +8598,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProductByGameId(self, set_type, obj) :
+    def SetGameProductGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8628,7 +8628,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProductByUrl(self, set_type, obj) :
+    def SetGameProductUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8658,7 +8658,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProductByUrlByGameId(self, set_type, obj) :
+    def SetGameProductUrlGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8688,7 +8688,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProductByUuidByGameId(self, set_type, obj) :
+    def SetGameProductUuidGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8718,7 +8718,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProductByUuid(self
+    def DelGameProductUuid(self
         , uuid
     ) :
         parameters = []
@@ -8737,7 +8737,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProductByGameId(self
+    def DelGameProductGameId(self
         , game_id
     ) :
         parameters = []
@@ -8756,7 +8756,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProductByUrl(self
+    def DelGameProductUrl(self
         , url
     ) :
         parameters = []
@@ -8775,7 +8775,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProductByUrlByGameId(self
+    def DelGameProductUrlGameId(self
         , url
         , game_id
     ) :
@@ -8796,7 +8796,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProductByUuidByGameId(self
+    def DelGameProductUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -8836,7 +8836,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListByUuid(self
+    def GetGameProductListUuid(self
         , uuid
     ) :
             
@@ -8857,7 +8857,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListByGameId(self
+    def GetGameProductListGameId(self
         , game_id
     ) :
             
@@ -8878,7 +8878,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListByUrl(self
+    def GetGameProductListUrl(self
         , url
     ) :
             
@@ -8899,7 +8899,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListByUrlByGameId(self
+    def GetGameProductListUrlGameId(self
         , url
         , game_id
     ) :
@@ -8922,7 +8922,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListByUuidByGameId(self
+    def GetGameProductListUuidGameId(self
         , uuid
         , game_id
     ) :
@@ -8962,7 +8962,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByUuid(self
+    def CountGameStatisticLeaderboardUuid(self
         , uuid
     ) :
         parameters = []
@@ -8981,7 +8981,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByGameId(self
+    def CountGameStatisticLeaderboardGameId(self
         , game_id
     ) :
         parameters = []
@@ -9000,7 +9000,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByCode(self
+    def CountGameStatisticLeaderboardCode(self
         , code
     ) :
         parameters = []
@@ -9019,7 +9019,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByCodeByGameId(self
+    def CountGameStatisticLeaderboardCodeGameId(self
         , code
         , game_id
     ) :
@@ -9040,7 +9040,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+    def CountGameStatisticLeaderboardCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
@@ -9063,7 +9063,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+    def CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
@@ -9088,7 +9088,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardByProfileIdByGameId(self
+    def CountGameStatisticLeaderboardProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -9109,7 +9109,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameStatisticLeaderboardListByFilter(self, filter_obj) :
+    def BrowseGameStatisticLeaderboardListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -9129,7 +9129,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameStatisticLeaderboardByUuid(self, set_type, obj) :
+    def SetGameStatisticLeaderboardUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9167,7 +9167,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9205,7 +9205,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByCode(self, set_type, obj) :
+    def SetGameStatisticLeaderboardCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9243,7 +9243,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByCodeByGameId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardCodeGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9281,7 +9281,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByCodeByGameIdByProfileId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardCodeGameIdProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9319,7 +9319,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9357,7 +9357,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameStatisticLeaderboardByUuid(self
+    def DelGameStatisticLeaderboardUuid(self
         , uuid
     ) :
         parameters = []
@@ -9376,7 +9376,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardByCode(self
+    def DelGameStatisticLeaderboardCode(self
         , code
     ) :
         parameters = []
@@ -9395,7 +9395,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardByCodeByGameId(self
+    def DelGameStatisticLeaderboardCodeGameId(self
         , code
         , game_id
     ) :
@@ -9416,7 +9416,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardByCodeByGameIdByProfileId(self
+    def DelGameStatisticLeaderboardCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
@@ -9439,7 +9439,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
+    def DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
@@ -9464,7 +9464,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardByProfileIdByGameId(self
+    def DelGameStatisticLeaderboardProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -9504,7 +9504,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByUuid(self
+    def GetGameStatisticLeaderboardListUuid(self
         , uuid
     ) :
             
@@ -9525,7 +9525,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByGameId(self
+    def GetGameStatisticLeaderboardListGameId(self
         , game_id
     ) :
             
@@ -9546,7 +9546,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByCode(self
+    def GetGameStatisticLeaderboardListCode(self
         , code
     ) :
             
@@ -9567,7 +9567,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByCodeByGameId(self
+    def GetGameStatisticLeaderboardListCodeGameId(self
         , code
         , game_id
     ) :
@@ -9590,7 +9590,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByCodeByGameIdByProfileId(self
+    def GetGameStatisticLeaderboardListCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
@@ -9615,7 +9615,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByCodeByGameIdByProfileIdByTimestamp(self
+    def GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
@@ -9642,7 +9642,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByProfileIdByGameId(self
+    def GetGameStatisticLeaderboardListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -9665,7 +9665,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListByProfileIdByGameIdByTimestamp(self
+    def GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -9681,6 +9681,751 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountGameStatisticLeaderboardItem(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardItemUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardItemGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_count_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardItemCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardItemCodeGameId(self
+        , code
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_count_code_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardItemCodeGameIdProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_count_code_game_id_profile_"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_count_code_game_id_profile_"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameStatisticLeaderboardItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_count_profile_id_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameStatisticLeaderboardItemListFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameStatisticLeaderboardItemUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardItemCode(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_set_code"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardItemCodeGameId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_set_code_game_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardItemCodeGameIdProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_set_code_game_id_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.username) #"in_username"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.rank) #"in_rank"
+        parameters.append(obj.rank_change) #"in_rank_change"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.rank_total_count) #"in_rank_total_count"
+        parameters.append(obj.absolute_value) #"in_absolute_value"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.stat_value) #"in_stat_value"
+        parameters.append(obj.network) #"in_network"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.level) #"in_level"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_set_code_game_id_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameStatisticLeaderboardItemUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardItemCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_del_code"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardItemCodeGameId(self
+        , code
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_del_code_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardItemCodeGameIdProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_del_code_game_id_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_del_code_game_id_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameStatisticLeaderboardItemProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_del_profile_id_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameStatisticLeaderboardItemList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardItemListUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardItemListGameId(self
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardItemListCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardItemListCodeGameId(self
+        , code
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get_code_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardItemListCodeGameIdProfileId(self
+        , code
+        , game_id
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get_code_game_id_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(self
+        , code
+        , game_id
+        , profile_id
+        , timestamp
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get_code_game_id_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardItemListProfileIdGameId(self
+        , profile_id
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get_profile_id_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(self
+        , profile_id
+        , game_id
+        , timestamp
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(timestamp) #"in_timestamp"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_statistic_leaderboard_item_get_profile_id_game_id_time"
             , parameters
             )
         except Exception: 
@@ -9707,7 +10452,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByUuid(self
+    def CountGameStatisticLeaderboardRollupUuid(self
         , uuid
     ) :
         parameters = []
@@ -9726,7 +10471,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByGameId(self
+    def CountGameStatisticLeaderboardRollupGameId(self
         , game_id
     ) :
         parameters = []
@@ -9745,7 +10490,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByCode(self
+    def CountGameStatisticLeaderboardRollupCode(self
         , code
     ) :
         parameters = []
@@ -9764,7 +10509,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByCodeByGameId(self
+    def CountGameStatisticLeaderboardRollupCodeGameId(self
         , code
         , game_id
     ) :
@@ -9785,7 +10530,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+    def CountGameStatisticLeaderboardRollupCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
@@ -9808,7 +10553,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+    def CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
@@ -9833,7 +10578,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupByProfileIdByGameId(self
+    def CountGameStatisticLeaderboardRollupProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -9854,7 +10599,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameStatisticLeaderboardRollupListByFilter(self, filter_obj) :
+    def BrowseGameStatisticLeaderboardRollupListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -9874,7 +10619,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameStatisticLeaderboardRollupByUuid(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9912,7 +10657,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9950,7 +10695,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByCode(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9988,7 +10733,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByCodeByGameId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupCodeGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10026,7 +10771,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupCodeGameIdProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10064,7 +10809,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :
+    def SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10102,7 +10847,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameStatisticLeaderboardRollupByUuid(self
+    def DelGameStatisticLeaderboardRollupUuid(self
         , uuid
     ) :
         parameters = []
@@ -10121,7 +10866,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupByCode(self
+    def DelGameStatisticLeaderboardRollupCode(self
         , code
     ) :
         parameters = []
@@ -10140,7 +10885,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupByCodeByGameId(self
+    def DelGameStatisticLeaderboardRollupCodeGameId(self
         , code
         , game_id
     ) :
@@ -10161,7 +10906,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileId(self
+    def DelGameStatisticLeaderboardRollupCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
@@ -10184,7 +10929,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
+    def DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
@@ -10209,7 +10954,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupByProfileIdByGameId(self
+    def DelGameStatisticLeaderboardRollupProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -10249,7 +10994,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByUuid(self
+    def GetGameStatisticLeaderboardRollupListUuid(self
         , uuid
     ) :
             
@@ -10270,7 +11015,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByGameId(self
+    def GetGameStatisticLeaderboardRollupListGameId(self
         , game_id
     ) :
             
@@ -10291,7 +11036,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByCode(self
+    def GetGameStatisticLeaderboardRollupListCode(self
         , code
     ) :
             
@@ -10312,7 +11057,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByCodeByGameId(self
+    def GetGameStatisticLeaderboardRollupListCodeGameId(self
         , code
         , game_id
     ) :
@@ -10335,7 +11080,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileId(self
+    def GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(self
         , code
         , game_id
         , profile_id
@@ -10360,7 +11105,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(self
+    def GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(self
         , code
         , game_id
         , profile_id
@@ -10387,7 +11132,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByProfileIdByGameId(self
+    def GetGameStatisticLeaderboardRollupListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -10410,7 +11155,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
+    def GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -10452,7 +11197,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLiveQueueByUuid(self
+    def CountGameLiveQueueUuid(self
         , uuid
     ) :
         parameters = []
@@ -10471,7 +11216,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLiveQueueByProfileIdByGameId(self
+    def CountGameLiveQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -10492,7 +11237,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameLiveQueueListByFilter(self, filter_obj) :
+    def BrowseGameLiveQueueListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -10512,7 +11257,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameLiveQueueByUuid(self, set_type, obj) :
+    def SetGameLiveQueueUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10540,7 +11285,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameLiveQueueByProfileIdByGameId(self, set_type, obj) :
+    def SetGameLiveQueueProfileIdGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10568,7 +11313,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameLiveQueueByUuid(self
+    def DelGameLiveQueueUuid(self
         , uuid
     ) :
         parameters = []
@@ -10587,7 +11332,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameLiveQueueByProfileIdByGameId(self
+    def DelGameLiveQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -10627,7 +11372,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveQueueListByUuid(self
+    def GetGameLiveQueueListUuid(self
         , uuid
     ) :
             
@@ -10648,7 +11393,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveQueueListByGameId(self
+    def GetGameLiveQueueListGameId(self
         , game_id
     ) :
             
@@ -10669,7 +11414,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveQueueListByProfileIdByGameId(self
+    def GetGameLiveQueueListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -10709,7 +11454,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLiveRecentQueueByUuid(self
+    def CountGameLiveRecentQueueUuid(self
         , uuid
     ) :
         parameters = []
@@ -10728,7 +11473,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLiveRecentQueueByProfileIdByGameId(self
+    def CountGameLiveRecentQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -10749,7 +11494,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameLiveRecentQueueListByFilter(self, filter_obj) :
+    def BrowseGameLiveRecentQueueListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -10769,7 +11514,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameLiveRecentQueueByUuid(self, set_type, obj) :
+    def SetGameLiveRecentQueueUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10802,7 +11547,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameLiveRecentQueueByProfileIdByGameId(self, set_type, obj) :
+    def SetGameLiveRecentQueueProfileIdGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10835,7 +11580,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameLiveRecentQueueByUuid(self
+    def DelGameLiveRecentQueueUuid(self
         , uuid
     ) :
         parameters = []
@@ -10854,7 +11599,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameLiveRecentQueueByProfileIdByGameId(self
+    def DelGameLiveRecentQueueProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -10894,7 +11639,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveRecentQueueListByUuid(self
+    def GetGameLiveRecentQueueListUuid(self
         , uuid
     ) :
             
@@ -10915,7 +11660,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveRecentQueueListByGameId(self
+    def GetGameLiveRecentQueueListGameId(self
         , game_id
     ) :
             
@@ -10936,7 +11681,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveRecentQueueListByProfileIdByGameId(self
+    def GetGameLiveRecentQueueListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -10976,7 +11721,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByUuid(self
+    def CountGameProfileStatisticUuid(self
         , uuid
     ) :
         parameters = []
@@ -10995,7 +11740,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByCode(self
+    def CountGameProfileStatisticCode(self
         , code
     ) :
         parameters = []
@@ -11014,7 +11759,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByGameId(self
+    def CountGameProfileStatisticGameId(self
         , game_id
     ) :
         parameters = []
@@ -11033,7 +11778,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByCodeByGameId(self
+    def CountGameProfileStatisticCodeGameId(self
         , code
         , game_id
     ) :
@@ -11054,7 +11799,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByProfileIdByGameId(self
+    def CountGameProfileStatisticProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -11075,7 +11820,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByCodeByProfileIdByGameId(self
+    def CountGameProfileStatisticCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
@@ -11098,7 +11843,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self
+    def CountGameProfileStatisticCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
@@ -11123,7 +11868,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProfileStatisticListByFilter(self, filter_obj) :
+    def BrowseGameProfileStatisticListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -11143,13 +11888,13 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProfileStatisticByUuid(self, set_type, obj) :
+    def SetGameProfileStatisticUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.code) #"in_code"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
@@ -11159,6 +11904,7 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
         parameters.append(obj.points) #"in_points"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -11176,13 +11922,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticUuidProfileIdGameIdTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.code) #"in_code"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
@@ -11192,6 +11938,7 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
         parameters.append(obj.points) #"in_points"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -11209,13 +11956,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByProfileIdByCode(self, set_type, obj) :
+    def SetGameProfileStatisticProfileIdCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.code) #"in_code"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
@@ -11225,6 +11972,7 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
         parameters.append(obj.points) #"in_points"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -11242,13 +11990,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByProfileIdByCodeByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticProfileIdCodeTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.code) #"in_code"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
@@ -11258,6 +12006,7 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
         parameters.append(obj.points) #"in_points"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -11275,13 +12024,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticCodeProfileIdGameIdTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.code) #"in_code"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
@@ -11291,6 +12040,7 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
         parameters.append(obj.points) #"in_points"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -11308,13 +12058,13 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticByCodeByProfileIdByGameId(self, set_type, obj) :
+    def SetGameProfileStatisticCodeProfileIdGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.username) #"in_username"
         parameters.append(obj.code) #"in_code"
-        parameters.append(obj.timestamp) #"in_timestamp"
+        parameters.append(obj.stat_value_formatted) #"in_stat_value_formatted"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
@@ -11324,6 +12074,7 @@ class BaseGamingData(object):
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.level) #"in_level"
         parameters.append(obj.points) #"in_points"
+        parameters.append(obj.timestamp) #"in_timestamp"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.type) #"in_type"
                         
@@ -11341,7 +12092,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProfileStatisticByUuid(self
+    def DelGameProfileStatisticUuid(self
         , uuid
     ) :
         parameters = []
@@ -11360,7 +12111,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticByCodeByGameId(self
+    def DelGameProfileStatisticCodeGameId(self
         , code
         , game_id
     ) :
@@ -11381,7 +12132,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticByProfileIdByGameId(self
+    def DelGameProfileStatisticProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -11402,7 +12153,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticByCodeByProfileIdByGameId(self
+    def DelGameProfileStatisticCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
@@ -11425,7 +12176,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameProfileStatisticListByUuid(self
+    def GetGameProfileStatisticListUuid(self
         , uuid
     ) :
             
@@ -11446,7 +12197,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByCode(self
+    def GetGameProfileStatisticListCode(self
         , code
     ) :
             
@@ -11467,7 +12218,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByGameId(self
+    def GetGameProfileStatisticListGameId(self
         , game_id
     ) :
             
@@ -11488,7 +12239,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByCodeByGameId(self
+    def GetGameProfileStatisticListCodeGameId(self
         , code
         , game_id
     ) :
@@ -11511,7 +12262,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByProfileIdByGameId(self
+    def GetGameProfileStatisticListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -11534,7 +12285,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -11559,7 +12310,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByCodeByProfileIdByGameId(self
+    def GetGameProfileStatisticListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
@@ -11584,7 +12335,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
@@ -11628,7 +12379,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaByUuid(self
+    def CountGameStatisticMetaUuid(self
         , uuid
     ) :
         parameters = []
@@ -11647,7 +12398,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaByCode(self
+    def CountGameStatisticMetaCode(self
         , code
     ) :
         parameters = []
@@ -11666,7 +12417,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaByCodeByGameId(self
+    def CountGameStatisticMetaCodeGameId(self
         , code
         , game_id
     ) :
@@ -11687,7 +12438,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaByName(self
+    def CountGameStatisticMetaName(self
         , name
     ) :
         parameters = []
@@ -11706,7 +12457,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaByGameId(self
+    def CountGameStatisticMetaGameId(self
         , game_id
     ) :
         parameters = []
@@ -11725,7 +12476,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameStatisticMetaListByFilter(self, filter_obj) :
+    def BrowseGameStatisticMetaListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -11745,7 +12496,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameStatisticMetaByUuid(self, set_type, obj) :
+    def SetGameStatisticMetaUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11779,7 +12530,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticMetaByCodeByGameId(self, set_type, obj) :
+    def SetGameStatisticMetaCodeGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11813,7 +12564,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameStatisticMetaByUuid(self
+    def DelGameStatisticMetaUuid(self
         , uuid
     ) :
         parameters = []
@@ -11832,7 +12583,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticMetaByCodeByGameId(self
+    def DelGameStatisticMetaCodeGameId(self
         , code
         , game_id
     ) :
@@ -11853,7 +12604,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameStatisticMetaListByUuid(self
+    def GetGameStatisticMetaListUuid(self
         , uuid
     ) :
             
@@ -11874,7 +12625,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListByCode(self
+    def GetGameStatisticMetaListCode(self
         , code
     ) :
             
@@ -11895,7 +12646,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListByName(self
+    def GetGameStatisticMetaListName(self
         , name
     ) :
             
@@ -11916,7 +12667,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListByGameId(self
+    def GetGameStatisticMetaListGameId(self
         , game_id
     ) :
             
@@ -11937,7 +12688,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListByCodeByGameId(self
+    def GetGameStatisticMetaListCodeGameId(self
         , code
         , game_id
     ) :
@@ -11977,7 +12728,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticTimestampByUuid(self
+    def CountGameProfileStatisticTimestampUuid(self
         , uuid
     ) :
         parameters = []
@@ -11996,7 +12747,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+    def CountGameProfileStatisticTimestampCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
@@ -12019,7 +12770,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+    def CountGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
@@ -12044,7 +12795,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProfileStatisticTimestampListByFilter(self, filter_obj) :
+    def BrowseGameProfileStatisticTimestampListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -12064,7 +12815,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProfileStatisticTimestampByUuid(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12092,7 +12843,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameId(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampCodeProfileIdGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12120,7 +12871,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12148,7 +12899,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProfileStatisticTimestampByUuid(self
+    def DelGameProfileStatisticTimestampUuid(self
         , uuid
     ) :
         parameters = []
@@ -12167,7 +12918,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticTimestampByCodeByProfileIdByGameId(self
+    def DelGameProfileStatisticTimestampCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
@@ -12190,7 +12941,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticTimestampByCodeByProfileIdByGameIdByTimestamp(self
+    def DelGameProfileStatisticTimestampCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
@@ -12215,7 +12966,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameProfileStatisticTimestampListByUuid(self
+    def GetGameProfileStatisticTimestampListUuid(self
         , uuid
     ) :
             
@@ -12236,7 +12987,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticTimestampListByCodeByProfileIdByGameId(self
+    def GetGameProfileStatisticTimestampListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
@@ -12261,7 +13012,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticTimestampListByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileStatisticTimestampListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
@@ -12305,7 +13056,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaByUuid(self
+    def CountGameKeyMetaUuid(self
         , uuid
     ) :
         parameters = []
@@ -12324,7 +13075,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaByCode(self
+    def CountGameKeyMetaCode(self
         , code
     ) :
         parameters = []
@@ -12343,7 +13094,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaByCodeByGameId(self
+    def CountGameKeyMetaCodeGameId(self
         , code
         , game_id
     ) :
@@ -12364,7 +13115,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaByName(self
+    def CountGameKeyMetaName(self
         , name
     ) :
         parameters = []
@@ -12383,7 +13134,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaByKey(self
+    def CountGameKeyMetaKey(self
         , key
     ) :
         parameters = []
@@ -12402,7 +13153,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaByGameId(self
+    def CountGameKeyMetaGameId(self
         , game_id
     ) :
         parameters = []
@@ -12421,7 +13172,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaByKeyByGameId(self
+    def CountGameKeyMetaKeyGameId(self
         , key
         , game_id
     ) :
@@ -12442,7 +13193,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameKeyMetaListByFilter(self, filter_obj) :
+    def BrowseGameKeyMetaListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -12462,7 +13213,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameKeyMetaByUuid(self, set_type, obj) :
+    def SetGameKeyMetaUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12499,7 +13250,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameKeyMetaByCodeByGameId(self, set_type, obj) :
+    def SetGameKeyMetaCodeGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12536,7 +13287,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameKeyMetaByKeyByGameId(self, set_type, obj) :
+    def SetGameKeyMetaKeyGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12573,7 +13324,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameKeyMetaByKeyByGameIdByLevel(self, set_type, obj) :
+    def SetGameKeyMetaKeyGameIdLevel(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12610,7 +13361,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameKeyMetaByUuid(self
+    def DelGameKeyMetaUuid(self
         , uuid
     ) :
         parameters = []
@@ -12629,7 +13380,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameKeyMetaByCodeByGameId(self
+    def DelGameKeyMetaCodeGameId(self
         , code
         , game_id
     ) :
@@ -12650,7 +13401,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameKeyMetaByKeyByGameId(self
+    def DelGameKeyMetaKeyGameId(self
         , key
         , game_id
     ) :
@@ -12671,7 +13422,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameKeyMetaListByUuid(self
+    def GetGameKeyMetaListUuid(self
         , uuid
     ) :
             
@@ -12692,7 +13443,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListByCode(self
+    def GetGameKeyMetaListCode(self
         , code
     ) :
             
@@ -12713,7 +13464,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListByCodeByGameId(self
+    def GetGameKeyMetaListCodeGameId(self
         , code
         , game_id
     ) :
@@ -12736,7 +13487,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListByName(self
+    def GetGameKeyMetaListName(self
         , name
     ) :
             
@@ -12757,7 +13508,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListByKey(self
+    def GetGameKeyMetaListKey(self
         , key
     ) :
             
@@ -12778,7 +13529,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListByGameId(self
+    def GetGameKeyMetaListGameId(self
         , game_id
     ) :
             
@@ -12799,7 +13550,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListByKeyByGameId(self
+    def GetGameKeyMetaListKeyGameId(self
         , key
         , game_id
     ) :
@@ -12822,7 +13573,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListByCodeByLevel(self
+    def GetGameKeyMetaListCodeLevel(self
         , code
         , level
     ) :
@@ -12862,7 +13613,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelByUuid(self
+    def CountGameLevelUuid(self
         , uuid
     ) :
         parameters = []
@@ -12881,7 +13632,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelByCode(self
+    def CountGameLevelCode(self
         , code
     ) :
         parameters = []
@@ -12900,7 +13651,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelByCodeByGameId(self
+    def CountGameLevelCodeGameId(self
         , code
         , game_id
     ) :
@@ -12921,7 +13672,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelByName(self
+    def CountGameLevelName(self
         , name
     ) :
         parameters = []
@@ -12940,7 +13691,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelByGameId(self
+    def CountGameLevelGameId(self
         , game_id
     ) :
         parameters = []
@@ -12959,7 +13710,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameLevelListByFilter(self, filter_obj) :
+    def BrowseGameLevelListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -12979,7 +13730,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameLevelByUuid(self, set_type, obj) :
+    def SetGameLevelUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13011,7 +13762,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameLevelByCodeByGameId(self, set_type, obj) :
+    def SetGameLevelCodeGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13043,7 +13794,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameLevelByUuid(self
+    def DelGameLevelUuid(self
         , uuid
     ) :
         parameters = []
@@ -13062,7 +13813,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameLevelByCodeByGameId(self
+    def DelGameLevelCodeGameId(self
         , code
         , game_id
     ) :
@@ -13083,7 +13834,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameLevelListByUuid(self
+    def GetGameLevelListUuid(self
         , uuid
     ) :
             
@@ -13104,7 +13855,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListByCode(self
+    def GetGameLevelListCode(self
         , code
     ) :
             
@@ -13125,7 +13876,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListByCodeByGameId(self
+    def GetGameLevelListCodeGameId(self
         , code
         , game_id
     ) :
@@ -13148,7 +13899,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListByName(self
+    def GetGameLevelListName(self
         , name
     ) :
             
@@ -13169,7 +13920,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListByGameId(self
+    def GetGameLevelListGameId(self
         , game_id
     ) :
             
@@ -13207,7 +13958,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementByUuid(self
+    def CountGameProfileAchievementUuid(self
         , uuid
     ) :
         parameters = []
@@ -13226,7 +13977,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementByProfileIdByCode(self
+    def CountGameProfileAchievementProfileIdCode(self
         , profile_id
         , code
     ) :
@@ -13247,7 +13998,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementByUsername(self
+    def CountGameProfileAchievementUsername(self
         , username
     ) :
         parameters = []
@@ -13266,7 +14017,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementByCodeByProfileIdByGameId(self
+    def CountGameProfileAchievementCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
@@ -13289,7 +14040,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self
+    def CountGameProfileAchievementCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
@@ -13314,7 +14065,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProfileAchievementListByFilter(self, filter_obj) :
+    def BrowseGameProfileAchievementListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -13334,7 +14085,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProfileAchievementByUuid(self, set_type, obj) :
+    def SetGameProfileAchievementUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13367,7 +14118,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementByUuidByCode(self, set_type, obj) :
+    def SetGameProfileAchievementUuidCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13400,7 +14151,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementByProfileIdByCode(self, set_type, obj) :
+    def SetGameProfileAchievementProfileIdCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13433,7 +14184,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementByCodeByProfileIdByGameId(self, set_type, obj) :
+    def SetGameProfileAchievementCodeProfileIdGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13466,7 +14217,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
+    def SetGameProfileAchievementCodeProfileIdGameIdTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13499,7 +14250,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProfileAchievementByUuid(self
+    def DelGameProfileAchievementUuid(self
         , uuid
     ) :
         parameters = []
@@ -13518,7 +14269,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileAchievementByProfileIdByCode(self
+    def DelGameProfileAchievementProfileIdCode(self
         , profile_id
         , code
     ) :
@@ -13539,7 +14290,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileAchievementByUuidByCode(self
+    def DelGameProfileAchievementUuidCode(self
         , uuid
         , code
     ) :
@@ -13560,7 +14311,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameProfileAchievementListByUuid(self
+    def GetGameProfileAchievementListUuid(self
         , uuid
     ) :
             
@@ -13581,7 +14332,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByProfileIdByCode(self
+    def GetGameProfileAchievementListProfileIdCode(self
         , profile_id
         , code
     ) :
@@ -13604,7 +14355,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByUsername(self
+    def GetGameProfileAchievementListUsername(self
         , username
     ) :
             
@@ -13625,7 +14376,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByCode(self
+    def GetGameProfileAchievementListCode(self
         , code
     ) :
             
@@ -13646,7 +14397,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByGameId(self
+    def GetGameProfileAchievementListGameId(self
         , game_id
     ) :
             
@@ -13667,7 +14418,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByCodeByGameId(self
+    def GetGameProfileAchievementListCodeGameId(self
         , code
         , game_id
     ) :
@@ -13690,7 +14441,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByProfileIdByGameId(self
+    def GetGameProfileAchievementListProfileIdGameId(self
         , profile_id
         , game_id
     ) :
@@ -13713,7 +14464,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileAchievementListProfileIdGameIdTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -13738,7 +14489,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByCodeByProfileIdByGameId(self
+    def GetGameProfileAchievementListCodeProfileIdGameId(self
         , code
         , profile_id
         , game_id
@@ -13763,7 +14514,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(self
+    def GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(self
         , code
         , profile_id
         , game_id
@@ -13807,7 +14558,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaByUuid(self
+    def CountGameAchievementMetaUuid(self
         , uuid
     ) :
         parameters = []
@@ -13826,7 +14577,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaByCode(self
+    def CountGameAchievementMetaCode(self
         , code
     ) :
         parameters = []
@@ -13845,7 +14596,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaByCodeByGameId(self
+    def CountGameAchievementMetaCodeGameId(self
         , code
         , game_id
     ) :
@@ -13866,7 +14617,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaByName(self
+    def CountGameAchievementMetaName(self
         , name
     ) :
         parameters = []
@@ -13885,7 +14636,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaByGameId(self
+    def CountGameAchievementMetaGameId(self
         , game_id
     ) :
         parameters = []
@@ -13904,7 +14655,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameAchievementMetaListByFilter(self, filter_obj) :
+    def BrowseGameAchievementMetaListFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -13924,7 +14675,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameAchievementMetaByUuid(self, set_type, obj) :
+    def SetGameAchievementMetaUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13960,7 +14711,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameAchievementMetaByCodeByGameId(self, set_type, obj) :
+    def SetGameAchievementMetaCodeGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13996,7 +14747,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameAchievementMetaByUuid(self
+    def DelGameAchievementMetaUuid(self
         , uuid
     ) :
         parameters = []
@@ -14015,7 +14766,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameAchievementMetaByCodeByGameId(self
+    def DelGameAchievementMetaCodeGameId(self
         , code
         , game_id
     ) :
@@ -14036,7 +14787,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameAchievementMetaListByUuid(self
+    def GetGameAchievementMetaListUuid(self
         , uuid
     ) :
             
@@ -14057,7 +14808,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListByCode(self
+    def GetGameAchievementMetaListCode(self
         , code
     ) :
             
@@ -14078,7 +14829,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListByCodeByGameId(self
+    def GetGameAchievementMetaListCodeGameId(self
         , code
         , game_id
     ) :
@@ -14101,7 +14852,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListByName(self
+    def GetGameAchievementMetaListName(self
         , name
     ) :
             
@@ -14122,7 +14873,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListByGameId(self
+    def GetGameAchievementMetaListGameId(self
         , game_id
     ) :
             

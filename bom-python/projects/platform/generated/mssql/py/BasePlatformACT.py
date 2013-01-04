@@ -46,60 +46,60 @@ class BasePlatformACT(object):
         return self.data.CountApp(
         )
                
-    def CountAppByUuid(self
+    def CountAppUuid(self
         , uuid
     ) :         
-        return self.data.CountAppByUuid(
+        return self.data.CountAppUuid(
             uuid
         )
                
-    def CountAppByCode(self
+    def CountAppCode(self
         , code
     ) :         
-        return self.data.CountAppByCode(
+        return self.data.CountAppCode(
             code
         )
                
-    def CountAppByTypeId(self
+    def CountAppTypeId(self
         , type_id
     ) :         
-        return self.data.CountAppByTypeId(
+        return self.data.CountAppTypeId(
             type_id
         )
                
-    def CountAppByCodeByTypeId(self
+    def CountAppCodeTypeId(self
         , code
         , type_id
     ) :         
-        return self.data.CountAppByCodeByTypeId(
+        return self.data.CountAppCodeTypeId(
             code
             , type_id
         )
                
-    def CountAppByPlatformByTypeId(self
+    def CountAppPlatformTypeId(self
         , platform
         , type_id
     ) :         
-        return self.data.CountAppByPlatformByTypeId(
+        return self.data.CountAppPlatformTypeId(
             platform
             , type_id
         )
                
-    def CountAppByPlatform(self
+    def CountAppPlatform(self
         , platform
     ) :         
-        return self.data.CountAppByPlatform(
+        return self.data.CountAppPlatform(
             platform
         )
                
-    def BrowseAppListByFilter(self, filter_obj) :
+    def BrowseAppListFilter(self, filter_obj) :
         result = AppResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseAppListByFilter(filter_obj)
+        rows = self.data.BrowseAppListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 app = self.FillApp(row)
@@ -109,23 +109,23 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetAppByUuid(self, set_type, obj) :            
-            return self.data.SetAppByUuid(set_type, obj)
+    def SetAppUuid(self, set_type, obj) :            
+            return self.data.SetAppUuid(set_type, obj)
             
-    def SetAppByCode(self, set_type, obj) :            
-            return self.data.SetAppByCode(set_type, obj)
+    def SetAppCode(self, set_type, obj) :            
+            return self.data.SetAppCode(set_type, obj)
             
-    def DelAppByUuid(self
+    def DelAppUuid(self
         , uuid
     ) :
-        return self.data.DelAppByUuid(
+        return self.data.DelAppUuid(
             uuid
         )
         
-    def DelAppByCode(self
+    def DelAppCode(self
         , code
     ) :
-        return self.data.DelAppByCode(
+        return self.data.DelAppCode(
             code
         )
         
@@ -142,12 +142,12 @@ class BasePlatformACT(object):
                 results.append(app)
             return results        
         
-    def GetAppListByUuid(self
+    def GetAppListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetAppListByUuid(
+        rows = self.data.GetAppListUuid(
             uuid
         )
         
@@ -157,12 +157,12 @@ class BasePlatformACT(object):
                 results.append(app)
             return results        
         
-    def GetAppListByCode(self
+    def GetAppListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetAppListByCode(
+        rows = self.data.GetAppListCode(
             code
         )
         
@@ -172,12 +172,12 @@ class BasePlatformACT(object):
                 results.append(app)
             return results        
         
-    def GetAppListByTypeId(self
+    def GetAppListTypeId(self
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetAppListByTypeId(
+        rows = self.data.GetAppListTypeId(
             type_id
         )
         
@@ -187,13 +187,13 @@ class BasePlatformACT(object):
                 results.append(app)
             return results        
         
-    def GetAppListByCodeByTypeId(self
+    def GetAppListCodeTypeId(self
         , code
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetAppListByCodeByTypeId(
+        rows = self.data.GetAppListCodeTypeId(
             code
             , type_id
         )
@@ -204,13 +204,13 @@ class BasePlatformACT(object):
                 results.append(app)
             return results        
         
-    def GetAppListByPlatformByTypeId(self
+    def GetAppListPlatformTypeId(self
         , platform
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetAppListByPlatformByTypeId(
+        rows = self.data.GetAppListPlatformTypeId(
             platform
             , type_id
         )
@@ -221,12 +221,12 @@ class BasePlatformACT(object):
                 results.append(app)
             return results        
         
-    def GetAppListByPlatform(self
+    def GetAppListPlatform(self
         , platform
     ) :
 
         results = []
-        rows = self.data.GetAppListByPlatform(
+        rows = self.data.GetAppListPlatform(
             platform
         )
         
@@ -268,28 +268,28 @@ class BasePlatformACT(object):
         return self.data.CountAppType(
         )
                
-    def CountAppTypeByUuid(self
+    def CountAppTypeUuid(self
         , uuid
     ) :         
-        return self.data.CountAppTypeByUuid(
+        return self.data.CountAppTypeUuid(
             uuid
         )
                
-    def CountAppTypeByCode(self
+    def CountAppTypeCode(self
         , code
     ) :         
-        return self.data.CountAppTypeByCode(
+        return self.data.CountAppTypeCode(
             code
         )
                
-    def BrowseAppTypeListByFilter(self, filter_obj) :
+    def BrowseAppTypeListFilter(self, filter_obj) :
         result = AppTypeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseAppTypeListByFilter(filter_obj)
+        rows = self.data.BrowseAppTypeListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 app_type = self.FillAppType(row)
@@ -299,23 +299,23 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetAppTypeByUuid(self, set_type, obj) :            
-            return self.data.SetAppTypeByUuid(set_type, obj)
+    def SetAppTypeUuid(self, set_type, obj) :            
+            return self.data.SetAppTypeUuid(set_type, obj)
             
-    def SetAppTypeByCode(self, set_type, obj) :            
-            return self.data.SetAppTypeByCode(set_type, obj)
+    def SetAppTypeCode(self, set_type, obj) :            
+            return self.data.SetAppTypeCode(set_type, obj)
             
-    def DelAppTypeByUuid(self
+    def DelAppTypeUuid(self
         , uuid
     ) :
-        return self.data.DelAppTypeByUuid(
+        return self.data.DelAppTypeUuid(
             uuid
         )
         
-    def DelAppTypeByCode(self
+    def DelAppTypeCode(self
         , code
     ) :
-        return self.data.DelAppTypeByCode(
+        return self.data.DelAppTypeCode(
             code
         )
         
@@ -332,12 +332,12 @@ class BasePlatformACT(object):
                 results.append(app_type)
             return results        
         
-    def GetAppTypeListByUuid(self
+    def GetAppTypeListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetAppTypeListByUuid(
+        rows = self.data.GetAppTypeListUuid(
             uuid
         )
         
@@ -347,12 +347,12 @@ class BasePlatformACT(object):
                 results.append(app_type)
             return results        
         
-    def GetAppTypeListByCode(self
+    def GetAppTypeListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetAppTypeListByCode(
+        rows = self.data.GetAppTypeListCode(
             code
         )
         
@@ -398,60 +398,60 @@ class BasePlatformACT(object):
         return self.data.CountSite(
         )
                
-    def CountSiteByUuid(self
+    def CountSiteUuid(self
         , uuid
     ) :         
-        return self.data.CountSiteByUuid(
+        return self.data.CountSiteUuid(
             uuid
         )
                
-    def CountSiteByCode(self
+    def CountSiteCode(self
         , code
     ) :         
-        return self.data.CountSiteByCode(
+        return self.data.CountSiteCode(
             code
         )
                
-    def CountSiteByTypeId(self
+    def CountSiteTypeId(self
         , type_id
     ) :         
-        return self.data.CountSiteByTypeId(
+        return self.data.CountSiteTypeId(
             type_id
         )
                
-    def CountSiteByCodeByTypeId(self
+    def CountSiteCodeTypeId(self
         , code
         , type_id
     ) :         
-        return self.data.CountSiteByCodeByTypeId(
+        return self.data.CountSiteCodeTypeId(
             code
             , type_id
         )
                
-    def CountSiteByDomainByTypeId(self
+    def CountSiteDomainTypeId(self
         , domain
         , type_id
     ) :         
-        return self.data.CountSiteByDomainByTypeId(
+        return self.data.CountSiteDomainTypeId(
             domain
             , type_id
         )
                
-    def CountSiteByDomain(self
+    def CountSiteDomain(self
         , domain
     ) :         
-        return self.data.CountSiteByDomain(
+        return self.data.CountSiteDomain(
             domain
         )
                
-    def BrowseSiteListByFilter(self, filter_obj) :
+    def BrowseSiteListFilter(self, filter_obj) :
         result = SiteResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseSiteListByFilter(filter_obj)
+        rows = self.data.BrowseSiteListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 site = self.FillSite(row)
@@ -461,23 +461,23 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetSiteByUuid(self, set_type, obj) :            
-            return self.data.SetSiteByUuid(set_type, obj)
+    def SetSiteUuid(self, set_type, obj) :            
+            return self.data.SetSiteUuid(set_type, obj)
             
-    def SetSiteByCode(self, set_type, obj) :            
-            return self.data.SetSiteByCode(set_type, obj)
+    def SetSiteCode(self, set_type, obj) :            
+            return self.data.SetSiteCode(set_type, obj)
             
-    def DelSiteByUuid(self
+    def DelSiteUuid(self
         , uuid
     ) :
-        return self.data.DelSiteByUuid(
+        return self.data.DelSiteUuid(
             uuid
         )
         
-    def DelSiteByCode(self
+    def DelSiteCode(self
         , code
     ) :
-        return self.data.DelSiteByCode(
+        return self.data.DelSiteCode(
             code
         )
         
@@ -494,12 +494,12 @@ class BasePlatformACT(object):
                 results.append(site)
             return results        
         
-    def GetSiteListByUuid(self
+    def GetSiteListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetSiteListByUuid(
+        rows = self.data.GetSiteListUuid(
             uuid
         )
         
@@ -509,12 +509,12 @@ class BasePlatformACT(object):
                 results.append(site)
             return results        
         
-    def GetSiteListByCode(self
+    def GetSiteListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetSiteListByCode(
+        rows = self.data.GetSiteListCode(
             code
         )
         
@@ -524,12 +524,12 @@ class BasePlatformACT(object):
                 results.append(site)
             return results        
         
-    def GetSiteListByTypeId(self
+    def GetSiteListTypeId(self
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetSiteListByTypeId(
+        rows = self.data.GetSiteListTypeId(
             type_id
         )
         
@@ -539,13 +539,13 @@ class BasePlatformACT(object):
                 results.append(site)
             return results        
         
-    def GetSiteListByCodeByTypeId(self
+    def GetSiteListCodeTypeId(self
         , code
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetSiteListByCodeByTypeId(
+        rows = self.data.GetSiteListCodeTypeId(
             code
             , type_id
         )
@@ -556,13 +556,13 @@ class BasePlatformACT(object):
                 results.append(site)
             return results        
         
-    def GetSiteListByDomainByTypeId(self
+    def GetSiteListDomainTypeId(self
         , domain
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetSiteListByDomainByTypeId(
+        rows = self.data.GetSiteListDomainTypeId(
             domain
             , type_id
         )
@@ -573,12 +573,12 @@ class BasePlatformACT(object):
                 results.append(site)
             return results        
         
-    def GetSiteListByDomain(self
+    def GetSiteListDomain(self
         , domain
     ) :
 
         results = []
-        rows = self.data.GetSiteListByDomain(
+        rows = self.data.GetSiteListDomain(
             domain
         )
         
@@ -620,28 +620,28 @@ class BasePlatformACT(object):
         return self.data.CountSiteType(
         )
                
-    def CountSiteTypeByUuid(self
+    def CountSiteTypeUuid(self
         , uuid
     ) :         
-        return self.data.CountSiteTypeByUuid(
+        return self.data.CountSiteTypeUuid(
             uuid
         )
                
-    def CountSiteTypeByCode(self
+    def CountSiteTypeCode(self
         , code
     ) :         
-        return self.data.CountSiteTypeByCode(
+        return self.data.CountSiteTypeCode(
             code
         )
                
-    def BrowseSiteTypeListByFilter(self, filter_obj) :
+    def BrowseSiteTypeListFilter(self, filter_obj) :
         result = SiteTypeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseSiteTypeListByFilter(filter_obj)
+        rows = self.data.BrowseSiteTypeListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 site_type = self.FillSiteType(row)
@@ -651,23 +651,23 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetSiteTypeByUuid(self, set_type, obj) :            
-            return self.data.SetSiteTypeByUuid(set_type, obj)
+    def SetSiteTypeUuid(self, set_type, obj) :            
+            return self.data.SetSiteTypeUuid(set_type, obj)
             
-    def SetSiteTypeByCode(self, set_type, obj) :            
-            return self.data.SetSiteTypeByCode(set_type, obj)
+    def SetSiteTypeCode(self, set_type, obj) :            
+            return self.data.SetSiteTypeCode(set_type, obj)
             
-    def DelSiteTypeByUuid(self
+    def DelSiteTypeUuid(self
         , uuid
     ) :
-        return self.data.DelSiteTypeByUuid(
+        return self.data.DelSiteTypeUuid(
             uuid
         )
         
-    def DelSiteTypeByCode(self
+    def DelSiteTypeCode(self
         , code
     ) :
-        return self.data.DelSiteTypeByCode(
+        return self.data.DelSiteTypeCode(
             code
         )
         
@@ -684,12 +684,12 @@ class BasePlatformACT(object):
                 results.append(site_type)
             return results        
         
-    def GetSiteTypeListByUuid(self
+    def GetSiteTypeListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetSiteTypeListByUuid(
+        rows = self.data.GetSiteTypeListUuid(
             uuid
         )
         
@@ -699,12 +699,12 @@ class BasePlatformACT(object):
                 results.append(site_type)
             return results        
         
-    def GetSiteTypeListByCode(self
+    def GetSiteTypeListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetSiteTypeListByCode(
+        rows = self.data.GetSiteTypeListCode(
             code
         )
         
@@ -748,35 +748,35 @@ class BasePlatformACT(object):
         return self.data.CountOrg(
         )
                
-    def CountOrgByUuid(self
+    def CountOrgUuid(self
         , uuid
     ) :         
-        return self.data.CountOrgByUuid(
+        return self.data.CountOrgUuid(
             uuid
         )
                
-    def CountOrgByCode(self
+    def CountOrgCode(self
         , code
     ) :         
-        return self.data.CountOrgByCode(
+        return self.data.CountOrgCode(
             code
         )
                
-    def CountOrgByName(self
+    def CountOrgName(self
         , name
     ) :         
-        return self.data.CountOrgByName(
+        return self.data.CountOrgName(
             name
         )
                
-    def BrowseOrgListByFilter(self, filter_obj) :
+    def BrowseOrgListFilter(self, filter_obj) :
         result = OrgResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOrgListByFilter(filter_obj)
+        rows = self.data.BrowseOrgListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 org = self.FillOrg(row)
@@ -786,13 +786,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOrgByUuid(self, set_type, obj) :            
-            return self.data.SetOrgByUuid(set_type, obj)
+    def SetOrgUuid(self, set_type, obj) :            
+            return self.data.SetOrgUuid(set_type, obj)
             
-    def DelOrgByUuid(self
+    def DelOrgUuid(self
         , uuid
     ) :
-        return self.data.DelOrgByUuid(
+        return self.data.DelOrgUuid(
             uuid
         )
         
@@ -809,12 +809,12 @@ class BasePlatformACT(object):
                 results.append(org)
             return results        
         
-    def GetOrgListByUuid(self
+    def GetOrgListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOrgListByUuid(
+        rows = self.data.GetOrgListUuid(
             uuid
         )
         
@@ -824,12 +824,12 @@ class BasePlatformACT(object):
                 results.append(org)
             return results        
         
-    def GetOrgListByCode(self
+    def GetOrgListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetOrgListByCode(
+        rows = self.data.GetOrgListCode(
             code
         )
         
@@ -839,12 +839,12 @@ class BasePlatformACT(object):
                 results.append(org)
             return results        
         
-    def GetOrgListByName(self
+    def GetOrgListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetOrgListByName(
+        rows = self.data.GetOrgListName(
             name
         )
         
@@ -886,28 +886,28 @@ class BasePlatformACT(object):
         return self.data.CountOrgType(
         )
                
-    def CountOrgTypeByUuid(self
+    def CountOrgTypeUuid(self
         , uuid
     ) :         
-        return self.data.CountOrgTypeByUuid(
+        return self.data.CountOrgTypeUuid(
             uuid
         )
                
-    def CountOrgTypeByCode(self
+    def CountOrgTypeCode(self
         , code
     ) :         
-        return self.data.CountOrgTypeByCode(
+        return self.data.CountOrgTypeCode(
             code
         )
                
-    def BrowseOrgTypeListByFilter(self, filter_obj) :
+    def BrowseOrgTypeListFilter(self, filter_obj) :
         result = OrgTypeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOrgTypeListByFilter(filter_obj)
+        rows = self.data.BrowseOrgTypeListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 org_type = self.FillOrgType(row)
@@ -917,23 +917,23 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOrgTypeByUuid(self, set_type, obj) :            
-            return self.data.SetOrgTypeByUuid(set_type, obj)
+    def SetOrgTypeUuid(self, set_type, obj) :            
+            return self.data.SetOrgTypeUuid(set_type, obj)
             
-    def SetOrgTypeByCode(self, set_type, obj) :            
-            return self.data.SetOrgTypeByCode(set_type, obj)
+    def SetOrgTypeCode(self, set_type, obj) :            
+            return self.data.SetOrgTypeCode(set_type, obj)
             
-    def DelOrgTypeByUuid(self
+    def DelOrgTypeUuid(self
         , uuid
     ) :
-        return self.data.DelOrgTypeByUuid(
+        return self.data.DelOrgTypeUuid(
             uuid
         )
         
-    def DelOrgTypeByCode(self
+    def DelOrgTypeCode(self
         , code
     ) :
-        return self.data.DelOrgTypeByCode(
+        return self.data.DelOrgTypeCode(
             code
         )
         
@@ -950,12 +950,12 @@ class BasePlatformACT(object):
                 results.append(org_type)
             return results        
         
-    def GetOrgTypeListByUuid(self
+    def GetOrgTypeListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOrgTypeListByUuid(
+        rows = self.data.GetOrgTypeListUuid(
             uuid
         )
         
@@ -965,12 +965,12 @@ class BasePlatformACT(object):
                 results.append(org_type)
             return results        
         
-    def GetOrgTypeListByCode(self
+    def GetOrgTypeListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetOrgTypeListByCode(
+        rows = self.data.GetOrgTypeListCode(
             code
         )
         
@@ -1022,42 +1022,42 @@ class BasePlatformACT(object):
         return self.data.CountContentItem(
         )
                
-    def CountContentItemByUuid(self
+    def CountContentItemUuid(self
         , uuid
     ) :         
-        return self.data.CountContentItemByUuid(
+        return self.data.CountContentItemUuid(
             uuid
         )
                
-    def CountContentItemByCode(self
+    def CountContentItemCode(self
         , code
     ) :         
-        return self.data.CountContentItemByCode(
+        return self.data.CountContentItemCode(
             code
         )
                
-    def CountContentItemByName(self
+    def CountContentItemName(self
         , name
     ) :         
-        return self.data.CountContentItemByName(
+        return self.data.CountContentItemName(
             name
         )
                
-    def CountContentItemByPath(self
+    def CountContentItemPath(self
         , path
     ) :         
-        return self.data.CountContentItemByPath(
+        return self.data.CountContentItemPath(
             path
         )
                
-    def BrowseContentItemListByFilter(self, filter_obj) :
+    def BrowseContentItemListFilter(self, filter_obj) :
         result = ContentItemResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseContentItemListByFilter(filter_obj)
+        rows = self.data.BrowseContentItemListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 content_item = self.FillContentItem(row)
@@ -1067,20 +1067,20 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetContentItemByUuid(self, set_type, obj) :            
-            return self.data.SetContentItemByUuid(set_type, obj)
+    def SetContentItemUuid(self, set_type, obj) :            
+            return self.data.SetContentItemUuid(set_type, obj)
             
-    def DelContentItemByUuid(self
+    def DelContentItemUuid(self
         , uuid
     ) :
-        return self.data.DelContentItemByUuid(
+        return self.data.DelContentItemUuid(
             uuid
         )
         
-    def DelContentItemByPath(self
+    def DelContentItemPath(self
         , path
     ) :
-        return self.data.DelContentItemByPath(
+        return self.data.DelContentItemPath(
             path
         )
         
@@ -1097,12 +1097,12 @@ class BasePlatformACT(object):
                 results.append(content_item)
             return results        
         
-    def GetContentItemListByUuid(self
+    def GetContentItemListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetContentItemListByUuid(
+        rows = self.data.GetContentItemListUuid(
             uuid
         )
         
@@ -1112,12 +1112,12 @@ class BasePlatformACT(object):
                 results.append(content_item)
             return results        
         
-    def GetContentItemListByCode(self
+    def GetContentItemListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetContentItemListByCode(
+        rows = self.data.GetContentItemListCode(
             code
         )
         
@@ -1127,12 +1127,12 @@ class BasePlatformACT(object):
                 results.append(content_item)
             return results        
         
-    def GetContentItemListByName(self
+    def GetContentItemListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetContentItemListByName(
+        rows = self.data.GetContentItemListName(
             name
         )
         
@@ -1142,12 +1142,12 @@ class BasePlatformACT(object):
                 results.append(content_item)
             return results        
         
-    def GetContentItemListByPath(self
+    def GetContentItemListPath(self
         , path
     ) :
 
         results = []
-        rows = self.data.GetContentItemListByPath(
+        rows = self.data.GetContentItemListPath(
             path
         )
         
@@ -1189,28 +1189,28 @@ class BasePlatformACT(object):
         return self.data.CountContentItemType(
         )
                
-    def CountContentItemTypeByUuid(self
+    def CountContentItemTypeUuid(self
         , uuid
     ) :         
-        return self.data.CountContentItemTypeByUuid(
+        return self.data.CountContentItemTypeUuid(
             uuid
         )
                
-    def CountContentItemTypeByCode(self
+    def CountContentItemTypeCode(self
         , code
     ) :         
-        return self.data.CountContentItemTypeByCode(
+        return self.data.CountContentItemTypeCode(
             code
         )
                
-    def BrowseContentItemTypeListByFilter(self, filter_obj) :
+    def BrowseContentItemTypeListFilter(self, filter_obj) :
         result = ContentItemTypeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseContentItemTypeListByFilter(filter_obj)
+        rows = self.data.BrowseContentItemTypeListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 content_item_type = self.FillContentItemType(row)
@@ -1220,23 +1220,23 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetContentItemTypeByUuid(self, set_type, obj) :            
-            return self.data.SetContentItemTypeByUuid(set_type, obj)
+    def SetContentItemTypeUuid(self, set_type, obj) :            
+            return self.data.SetContentItemTypeUuid(set_type, obj)
             
-    def SetContentItemTypeByCode(self, set_type, obj) :            
-            return self.data.SetContentItemTypeByCode(set_type, obj)
+    def SetContentItemTypeCode(self, set_type, obj) :            
+            return self.data.SetContentItemTypeCode(set_type, obj)
             
-    def DelContentItemTypeByUuid(self
+    def DelContentItemTypeUuid(self
         , uuid
     ) :
-        return self.data.DelContentItemTypeByUuid(
+        return self.data.DelContentItemTypeUuid(
             uuid
         )
         
-    def DelContentItemTypeByCode(self
+    def DelContentItemTypeCode(self
         , code
     ) :
-        return self.data.DelContentItemTypeByCode(
+        return self.data.DelContentItemTypeCode(
             code
         )
         
@@ -1253,12 +1253,12 @@ class BasePlatformACT(object):
                 results.append(content_item_type)
             return results        
         
-    def GetContentItemTypeListByUuid(self
+    def GetContentItemTypeListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetContentItemTypeListByUuid(
+        rows = self.data.GetContentItemTypeListUuid(
             uuid
         )
         
@@ -1268,12 +1268,12 @@ class BasePlatformACT(object):
                 results.append(content_item_type)
             return results        
         
-    def GetContentItemTypeListByCode(self
+    def GetContentItemTypeListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetContentItemTypeListByCode(
+        rows = self.data.GetContentItemTypeListCode(
             code
         )
         
@@ -1325,42 +1325,42 @@ class BasePlatformACT(object):
         return self.data.CountContentPage(
         )
                
-    def CountContentPageByUuid(self
+    def CountContentPageUuid(self
         , uuid
     ) :         
-        return self.data.CountContentPageByUuid(
+        return self.data.CountContentPageUuid(
             uuid
         )
                
-    def CountContentPageByCode(self
+    def CountContentPageCode(self
         , code
     ) :         
-        return self.data.CountContentPageByCode(
+        return self.data.CountContentPageCode(
             code
         )
                
-    def CountContentPageByName(self
+    def CountContentPageName(self
         , name
     ) :         
-        return self.data.CountContentPageByName(
+        return self.data.CountContentPageName(
             name
         )
                
-    def CountContentPageByPath(self
+    def CountContentPagePath(self
         , path
     ) :         
-        return self.data.CountContentPageByPath(
+        return self.data.CountContentPagePath(
             path
         )
                
-    def BrowseContentPageListByFilter(self, filter_obj) :
+    def BrowseContentPageListFilter(self, filter_obj) :
         result = ContentPageResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseContentPageListByFilter(filter_obj)
+        rows = self.data.BrowseContentPageListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 content_page = self.FillContentPage(row)
@@ -1370,29 +1370,29 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetContentPageByUuid(self, set_type, obj) :            
-            return self.data.SetContentPageByUuid(set_type, obj)
+    def SetContentPageUuid(self, set_type, obj) :            
+            return self.data.SetContentPageUuid(set_type, obj)
             
-    def DelContentPageByUuid(self
+    def DelContentPageUuid(self
         , uuid
     ) :
-        return self.data.DelContentPageByUuid(
+        return self.data.DelContentPageUuid(
             uuid
         )
         
-    def DelContentPageByPathBySiteId(self
+    def DelContentPagePathSiteId(self
         , path
         , site_id
     ) :
-        return self.data.DelContentPageByPathBySiteId(
+        return self.data.DelContentPagePathSiteId(
             path
             , site_id
         )
         
-    def DelContentPageByPath(self
+    def DelContentPagePath(self
         , path
     ) :
-        return self.data.DelContentPageByPath(
+        return self.data.DelContentPagePath(
             path
         )
         
@@ -1409,12 +1409,12 @@ class BasePlatformACT(object):
                 results.append(content_page)
             return results        
         
-    def GetContentPageListByUuid(self
+    def GetContentPageListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetContentPageListByUuid(
+        rows = self.data.GetContentPageListUuid(
             uuid
         )
         
@@ -1424,12 +1424,12 @@ class BasePlatformACT(object):
                 results.append(content_page)
             return results        
         
-    def GetContentPageListByCode(self
+    def GetContentPageListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetContentPageListByCode(
+        rows = self.data.GetContentPageListCode(
             code
         )
         
@@ -1439,12 +1439,12 @@ class BasePlatformACT(object):
                 results.append(content_page)
             return results        
         
-    def GetContentPageListByName(self
+    def GetContentPageListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetContentPageListByName(
+        rows = self.data.GetContentPageListName(
             name
         )
         
@@ -1454,12 +1454,12 @@ class BasePlatformACT(object):
                 results.append(content_page)
             return results        
         
-    def GetContentPageListByPath(self
+    def GetContentPageListPath(self
         , path
     ) :
 
         results = []
-        rows = self.data.GetContentPageListByPath(
+        rows = self.data.GetContentPageListPath(
             path
         )
         
@@ -1469,12 +1469,12 @@ class BasePlatformACT(object):
                 results.append(content_page)
             return results        
         
-    def GetContentPageListBySiteId(self
+    def GetContentPageListSiteId(self
         , site_id
     ) :
 
         results = []
-        rows = self.data.GetContentPageListBySiteId(
+        rows = self.data.GetContentPageListSiteId(
             site_id
         )
         
@@ -1484,13 +1484,13 @@ class BasePlatformACT(object):
                 results.append(content_page)
             return results        
         
-    def GetContentPageListBySiteIdByPath(self
+    def GetContentPageListSiteIdPath(self
         , site_id
         , path
     ) :
 
         results = []
-        rows = self.data.GetContentPageListBySiteIdByPath(
+        rows = self.data.GetContentPageListSiteIdPath(
             site_id
             , path
         )
@@ -1543,21 +1543,21 @@ class BasePlatformACT(object):
         return self.data.CountMessage(
         )
                
-    def CountMessageByUuid(self
+    def CountMessageUuid(self
         , uuid
     ) :         
-        return self.data.CountMessageByUuid(
+        return self.data.CountMessageUuid(
             uuid
         )
                
-    def BrowseMessageListByFilter(self, filter_obj) :
+    def BrowseMessageListFilter(self, filter_obj) :
         result = MessageResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseMessageListByFilter(filter_obj)
+        rows = self.data.BrowseMessageListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 message = self.FillMessage(row)
@@ -1567,13 +1567,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetMessageByUuid(self, set_type, obj) :            
-            return self.data.SetMessageByUuid(set_type, obj)
+    def SetMessageUuid(self, set_type, obj) :            
+            return self.data.SetMessageUuid(set_type, obj)
             
-    def DelMessageByUuid(self
+    def DelMessageUuid(self
         , uuid
     ) :
-        return self.data.DelMessageByUuid(
+        return self.data.DelMessageUuid(
             uuid
         )
         
@@ -1590,12 +1590,12 @@ class BasePlatformACT(object):
                 results.append(message)
             return results        
         
-    def GetMessageListByUuid(self
+    def GetMessageListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetMessageListByUuid(
+        rows = self.data.GetMessageListUuid(
             uuid
         )
         
@@ -1645,42 +1645,42 @@ class BasePlatformACT(object):
         return self.data.CountOffer(
         )
                
-    def CountOfferByUuid(self
+    def CountOfferUuid(self
         , uuid
     ) :         
-        return self.data.CountOfferByUuid(
+        return self.data.CountOfferUuid(
             uuid
         )
                
-    def CountOfferByCode(self
+    def CountOfferCode(self
         , code
     ) :         
-        return self.data.CountOfferByCode(
+        return self.data.CountOfferCode(
             code
         )
                
-    def CountOfferByName(self
+    def CountOfferName(self
         , name
     ) :         
-        return self.data.CountOfferByName(
+        return self.data.CountOfferName(
             name
         )
                
-    def CountOfferByOrgId(self
+    def CountOfferOrgId(self
         , org_id
     ) :         
-        return self.data.CountOfferByOrgId(
+        return self.data.CountOfferOrgId(
             org_id
         )
                
-    def BrowseOfferListByFilter(self, filter_obj) :
+    def BrowseOfferListFilter(self, filter_obj) :
         result = OfferResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOfferListByFilter(filter_obj)
+        rows = self.data.BrowseOfferListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 offer = self.FillOffer(row)
@@ -1690,20 +1690,20 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOfferByUuid(self, set_type, obj) :            
-            return self.data.SetOfferByUuid(set_type, obj)
+    def SetOfferUuid(self, set_type, obj) :            
+            return self.data.SetOfferUuid(set_type, obj)
             
-    def DelOfferByUuid(self
+    def DelOfferUuid(self
         , uuid
     ) :
-        return self.data.DelOfferByUuid(
+        return self.data.DelOfferUuid(
             uuid
         )
         
-    def DelOfferByOrgId(self
+    def DelOfferOrgId(self
         , org_id
     ) :
-        return self.data.DelOfferByOrgId(
+        return self.data.DelOfferOrgId(
             org_id
         )
         
@@ -1720,12 +1720,12 @@ class BasePlatformACT(object):
                 results.append(offer)
             return results        
         
-    def GetOfferListByUuid(self
+    def GetOfferListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOfferListByUuid(
+        rows = self.data.GetOfferListUuid(
             uuid
         )
         
@@ -1735,12 +1735,12 @@ class BasePlatformACT(object):
                 results.append(offer)
             return results        
         
-    def GetOfferListByCode(self
+    def GetOfferListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetOfferListByCode(
+        rows = self.data.GetOfferListCode(
             code
         )
         
@@ -1750,12 +1750,12 @@ class BasePlatformACT(object):
                 results.append(offer)
             return results        
         
-    def GetOfferListByName(self
+    def GetOfferListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetOfferListByName(
+        rows = self.data.GetOfferListName(
             name
         )
         
@@ -1765,12 +1765,12 @@ class BasePlatformACT(object):
                 results.append(offer)
             return results        
         
-    def GetOfferListByOrgId(self
+    def GetOfferListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetOfferListByOrgId(
+        rows = self.data.GetOfferListOrgId(
             org_id
         )
         
@@ -1812,35 +1812,35 @@ class BasePlatformACT(object):
         return self.data.CountOfferType(
         )
                
-    def CountOfferTypeByUuid(self
+    def CountOfferTypeUuid(self
         , uuid
     ) :         
-        return self.data.CountOfferTypeByUuid(
+        return self.data.CountOfferTypeUuid(
             uuid
         )
                
-    def CountOfferTypeByCode(self
+    def CountOfferTypeCode(self
         , code
     ) :         
-        return self.data.CountOfferTypeByCode(
+        return self.data.CountOfferTypeCode(
             code
         )
                
-    def CountOfferTypeByName(self
+    def CountOfferTypeName(self
         , name
     ) :         
-        return self.data.CountOfferTypeByName(
+        return self.data.CountOfferTypeName(
             name
         )
                
-    def BrowseOfferTypeListByFilter(self, filter_obj) :
+    def BrowseOfferTypeListFilter(self, filter_obj) :
         result = OfferTypeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOfferTypeListByFilter(filter_obj)
+        rows = self.data.BrowseOfferTypeListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 offer_type = self.FillOfferType(row)
@@ -1850,13 +1850,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOfferTypeByUuid(self, set_type, obj) :            
-            return self.data.SetOfferTypeByUuid(set_type, obj)
+    def SetOfferTypeUuid(self, set_type, obj) :            
+            return self.data.SetOfferTypeUuid(set_type, obj)
             
-    def DelOfferTypeByUuid(self
+    def DelOfferTypeUuid(self
         , uuid
     ) :
-        return self.data.DelOfferTypeByUuid(
+        return self.data.DelOfferTypeUuid(
             uuid
         )
         
@@ -1873,12 +1873,12 @@ class BasePlatformACT(object):
                 results.append(offer_type)
             return results        
         
-    def GetOfferTypeListByUuid(self
+    def GetOfferTypeListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOfferTypeListByUuid(
+        rows = self.data.GetOfferTypeListUuid(
             uuid
         )
         
@@ -1888,12 +1888,12 @@ class BasePlatformACT(object):
                 results.append(offer_type)
             return results        
         
-    def GetOfferTypeListByCode(self
+    def GetOfferTypeListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetOfferTypeListByCode(
+        rows = self.data.GetOfferTypeListCode(
             code
         )
         
@@ -1903,12 +1903,12 @@ class BasePlatformACT(object):
                 results.append(offer_type)
             return results        
         
-    def GetOfferTypeListByName(self
+    def GetOfferTypeListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetOfferTypeListByName(
+        rows = self.data.GetOfferTypeListName(
             name
         )
         
@@ -1984,49 +1984,49 @@ class BasePlatformACT(object):
         return self.data.CountOfferLocation(
         )
                
-    def CountOfferLocationByUuid(self
+    def CountOfferLocationUuid(self
         , uuid
     ) :         
-        return self.data.CountOfferLocationByUuid(
+        return self.data.CountOfferLocationUuid(
             uuid
         )
                
-    def CountOfferLocationByOfferId(self
+    def CountOfferLocationOfferId(self
         , offer_id
     ) :         
-        return self.data.CountOfferLocationByOfferId(
+        return self.data.CountOfferLocationOfferId(
             offer_id
         )
                
-    def CountOfferLocationByCity(self
+    def CountOfferLocationCity(self
         , city
     ) :         
-        return self.data.CountOfferLocationByCity(
+        return self.data.CountOfferLocationCity(
             city
         )
                
-    def CountOfferLocationByCountryCode(self
+    def CountOfferLocationCountryCode(self
         , country_code
     ) :         
-        return self.data.CountOfferLocationByCountryCode(
+        return self.data.CountOfferLocationCountryCode(
             country_code
         )
                
-    def CountOfferLocationByPostalCode(self
+    def CountOfferLocationPostalCode(self
         , postal_code
     ) :         
-        return self.data.CountOfferLocationByPostalCode(
+        return self.data.CountOfferLocationPostalCode(
             postal_code
         )
                
-    def BrowseOfferLocationListByFilter(self, filter_obj) :
+    def BrowseOfferLocationListFilter(self, filter_obj) :
         result = OfferLocationResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOfferLocationListByFilter(filter_obj)
+        rows = self.data.BrowseOfferLocationListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 offer_location = self.FillOfferLocation(row)
@@ -2036,13 +2036,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOfferLocationByUuid(self, set_type, obj) :            
-            return self.data.SetOfferLocationByUuid(set_type, obj)
+    def SetOfferLocationUuid(self, set_type, obj) :            
+            return self.data.SetOfferLocationUuid(set_type, obj)
             
-    def DelOfferLocationByUuid(self
+    def DelOfferLocationUuid(self
         , uuid
     ) :
-        return self.data.DelOfferLocationByUuid(
+        return self.data.DelOfferLocationUuid(
             uuid
         )
         
@@ -2059,12 +2059,12 @@ class BasePlatformACT(object):
                 results.append(offer_location)
             return results        
         
-    def GetOfferLocationListByUuid(self
+    def GetOfferLocationListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOfferLocationListByUuid(
+        rows = self.data.GetOfferLocationListUuid(
             uuid
         )
         
@@ -2074,12 +2074,12 @@ class BasePlatformACT(object):
                 results.append(offer_location)
             return results        
         
-    def GetOfferLocationListByOfferId(self
+    def GetOfferLocationListOfferId(self
         , offer_id
     ) :
 
         results = []
-        rows = self.data.GetOfferLocationListByOfferId(
+        rows = self.data.GetOfferLocationListOfferId(
             offer_id
         )
         
@@ -2089,12 +2089,12 @@ class BasePlatformACT(object):
                 results.append(offer_location)
             return results        
         
-    def GetOfferLocationListByCity(self
+    def GetOfferLocationListCity(self
         , city
     ) :
 
         results = []
-        rows = self.data.GetOfferLocationListByCity(
+        rows = self.data.GetOfferLocationListCity(
             city
         )
         
@@ -2104,12 +2104,12 @@ class BasePlatformACT(object):
                 results.append(offer_location)
             return results        
         
-    def GetOfferLocationListByCountryCode(self
+    def GetOfferLocationListCountryCode(self
         , country_code
     ) :
 
         results = []
-        rows = self.data.GetOfferLocationListByCountryCode(
+        rows = self.data.GetOfferLocationListCountryCode(
             country_code
         )
         
@@ -2119,12 +2119,12 @@ class BasePlatformACT(object):
                 results.append(offer_location)
             return results        
         
-    def GetOfferLocationListByPostalCode(self
+    def GetOfferLocationListPostalCode(self
         , postal_code
     ) :
 
         results = []
-        rows = self.data.GetOfferLocationListByPostalCode(
+        rows = self.data.GetOfferLocationListPostalCode(
             postal_code
         )
         
@@ -2170,58 +2170,58 @@ class BasePlatformACT(object):
         return self.data.CountOfferCategory(
         )
                
-    def CountOfferCategoryByUuid(self
+    def CountOfferCategoryUuid(self
         , uuid
     ) :         
-        return self.data.CountOfferCategoryByUuid(
+        return self.data.CountOfferCategoryUuid(
             uuid
         )
                
-    def CountOfferCategoryByCode(self
+    def CountOfferCategoryCode(self
         , code
     ) :         
-        return self.data.CountOfferCategoryByCode(
+        return self.data.CountOfferCategoryCode(
             code
         )
                
-    def CountOfferCategoryByName(self
+    def CountOfferCategoryName(self
         , name
     ) :         
-        return self.data.CountOfferCategoryByName(
+        return self.data.CountOfferCategoryName(
             name
         )
                
-    def CountOfferCategoryByOrgId(self
+    def CountOfferCategoryOrgId(self
         , org_id
     ) :         
-        return self.data.CountOfferCategoryByOrgId(
+        return self.data.CountOfferCategoryOrgId(
             org_id
         )
                
-    def CountOfferCategoryByTypeId(self
+    def CountOfferCategoryTypeId(self
         , type_id
     ) :         
-        return self.data.CountOfferCategoryByTypeId(
+        return self.data.CountOfferCategoryTypeId(
             type_id
         )
                
-    def CountOfferCategoryByOrgIdByTypeId(self
+    def CountOfferCategoryOrgIdTypeId(self
         , org_id
         , type_id
     ) :         
-        return self.data.CountOfferCategoryByOrgIdByTypeId(
+        return self.data.CountOfferCategoryOrgIdTypeId(
             org_id
             , type_id
         )
                
-    def BrowseOfferCategoryListByFilter(self, filter_obj) :
+    def BrowseOfferCategoryListFilter(self, filter_obj) :
         result = OfferCategoryResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOfferCategoryListByFilter(filter_obj)
+        rows = self.data.BrowseOfferCategoryListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 offer_category = self.FillOfferCategory(row)
@@ -2231,31 +2231,31 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOfferCategoryByUuid(self, set_type, obj) :            
-            return self.data.SetOfferCategoryByUuid(set_type, obj)
+    def SetOfferCategoryUuid(self, set_type, obj) :            
+            return self.data.SetOfferCategoryUuid(set_type, obj)
             
-    def DelOfferCategoryByUuid(self
+    def DelOfferCategoryUuid(self
         , uuid
     ) :
-        return self.data.DelOfferCategoryByUuid(
+        return self.data.DelOfferCategoryUuid(
             uuid
         )
         
-    def DelOfferCategoryByCodeByOrgId(self
+    def DelOfferCategoryCodeOrgId(self
         , code
         , org_id
     ) :
-        return self.data.DelOfferCategoryByCodeByOrgId(
+        return self.data.DelOfferCategoryCodeOrgId(
             code
             , org_id
         )
         
-    def DelOfferCategoryByCodeByOrgIdByTypeId(self
+    def DelOfferCategoryCodeOrgIdTypeId(self
         , code
         , org_id
         , type_id
     ) :
-        return self.data.DelOfferCategoryByCodeByOrgIdByTypeId(
+        return self.data.DelOfferCategoryCodeOrgIdTypeId(
             code
             , org_id
             , type_id
@@ -2274,12 +2274,12 @@ class BasePlatformACT(object):
                 results.append(offer_category)
             return results        
         
-    def GetOfferCategoryListByUuid(self
+    def GetOfferCategoryListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryListByUuid(
+        rows = self.data.GetOfferCategoryListUuid(
             uuid
         )
         
@@ -2289,12 +2289,12 @@ class BasePlatformACT(object):
                 results.append(offer_category)
             return results        
         
-    def GetOfferCategoryListByCode(self
+    def GetOfferCategoryListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryListByCode(
+        rows = self.data.GetOfferCategoryListCode(
             code
         )
         
@@ -2304,12 +2304,12 @@ class BasePlatformACT(object):
                 results.append(offer_category)
             return results        
         
-    def GetOfferCategoryListByName(self
+    def GetOfferCategoryListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryListByName(
+        rows = self.data.GetOfferCategoryListName(
             name
         )
         
@@ -2319,12 +2319,12 @@ class BasePlatformACT(object):
                 results.append(offer_category)
             return results        
         
-    def GetOfferCategoryListByOrgId(self
+    def GetOfferCategoryListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryListByOrgId(
+        rows = self.data.GetOfferCategoryListOrgId(
             org_id
         )
         
@@ -2334,12 +2334,12 @@ class BasePlatformACT(object):
                 results.append(offer_category)
             return results        
         
-    def GetOfferCategoryListByTypeId(self
+    def GetOfferCategoryListTypeId(self
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryListByTypeId(
+        rows = self.data.GetOfferCategoryListTypeId(
             type_id
         )
         
@@ -2349,13 +2349,13 @@ class BasePlatformACT(object):
                 results.append(offer_category)
             return results        
         
-    def GetOfferCategoryListByOrgIdByTypeId(self
+    def GetOfferCategoryListOrgIdTypeId(self
         , org_id
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryListByOrgIdByTypeId(
+        rows = self.data.GetOfferCategoryListOrgIdTypeId(
             org_id
             , type_id
         )
@@ -2394,44 +2394,44 @@ class BasePlatformACT(object):
         return self.data.CountOfferCategoryTree(
         )
                
-    def CountOfferCategoryTreeByUuid(self
+    def CountOfferCategoryTreeUuid(self
         , uuid
     ) :         
-        return self.data.CountOfferCategoryTreeByUuid(
+        return self.data.CountOfferCategoryTreeUuid(
             uuid
         )
                
-    def CountOfferCategoryTreeByParentId(self
+    def CountOfferCategoryTreeParentId(self
         , parent_id
     ) :         
-        return self.data.CountOfferCategoryTreeByParentId(
+        return self.data.CountOfferCategoryTreeParentId(
             parent_id
         )
                
-    def CountOfferCategoryTreeByCategoryId(self
+    def CountOfferCategoryTreeCategoryId(self
         , category_id
     ) :         
-        return self.data.CountOfferCategoryTreeByCategoryId(
+        return self.data.CountOfferCategoryTreeCategoryId(
             category_id
         )
                
-    def CountOfferCategoryTreeByParentIdByCategoryId(self
+    def CountOfferCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :         
-        return self.data.CountOfferCategoryTreeByParentIdByCategoryId(
+        return self.data.CountOfferCategoryTreeParentIdCategoryId(
             parent_id
             , category_id
         )
                
-    def BrowseOfferCategoryTreeListByFilter(self, filter_obj) :
+    def BrowseOfferCategoryTreeListFilter(self, filter_obj) :
         result = OfferCategoryTreeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOfferCategoryTreeListByFilter(filter_obj)
+        rows = self.data.BrowseOfferCategoryTreeListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 offer_category_tree = self.FillOfferCategoryTree(row)
@@ -2441,35 +2441,35 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOfferCategoryTreeByUuid(self, set_type, obj) :            
-            return self.data.SetOfferCategoryTreeByUuid(set_type, obj)
+    def SetOfferCategoryTreeUuid(self, set_type, obj) :            
+            return self.data.SetOfferCategoryTreeUuid(set_type, obj)
             
-    def DelOfferCategoryTreeByUuid(self
+    def DelOfferCategoryTreeUuid(self
         , uuid
     ) :
-        return self.data.DelOfferCategoryTreeByUuid(
+        return self.data.DelOfferCategoryTreeUuid(
             uuid
         )
         
-    def DelOfferCategoryTreeByParentId(self
+    def DelOfferCategoryTreeParentId(self
         , parent_id
     ) :
-        return self.data.DelOfferCategoryTreeByParentId(
+        return self.data.DelOfferCategoryTreeParentId(
             parent_id
         )
         
-    def DelOfferCategoryTreeByCategoryId(self
+    def DelOfferCategoryTreeCategoryId(self
         , category_id
     ) :
-        return self.data.DelOfferCategoryTreeByCategoryId(
+        return self.data.DelOfferCategoryTreeCategoryId(
             category_id
         )
         
-    def DelOfferCategoryTreeByParentIdByCategoryId(self
+    def DelOfferCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
-        return self.data.DelOfferCategoryTreeByParentIdByCategoryId(
+        return self.data.DelOfferCategoryTreeParentIdCategoryId(
             parent_id
             , category_id
         )
@@ -2487,12 +2487,12 @@ class BasePlatformACT(object):
                 results.append(offer_category_tree)
             return results        
         
-    def GetOfferCategoryTreeListByUuid(self
+    def GetOfferCategoryTreeListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryTreeListByUuid(
+        rows = self.data.GetOfferCategoryTreeListUuid(
             uuid
         )
         
@@ -2502,12 +2502,12 @@ class BasePlatformACT(object):
                 results.append(offer_category_tree)
             return results        
         
-    def GetOfferCategoryTreeListByParentId(self
+    def GetOfferCategoryTreeListParentId(self
         , parent_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryTreeListByParentId(
+        rows = self.data.GetOfferCategoryTreeListParentId(
             parent_id
         )
         
@@ -2517,12 +2517,12 @@ class BasePlatformACT(object):
                 results.append(offer_category_tree)
             return results        
         
-    def GetOfferCategoryTreeListByCategoryId(self
+    def GetOfferCategoryTreeListCategoryId(self
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryTreeListByCategoryId(
+        rows = self.data.GetOfferCategoryTreeListCategoryId(
             category_id
         )
         
@@ -2532,13 +2532,13 @@ class BasePlatformACT(object):
                 results.append(offer_category_tree)
             return results        
         
-    def GetOfferCategoryTreeListByParentIdByCategoryId(self
+    def GetOfferCategoryTreeListParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryTreeListByParentIdByCategoryId(
+        rows = self.data.GetOfferCategoryTreeListParentIdCategoryId(
             parent_id
             , category_id
         )
@@ -2577,44 +2577,44 @@ class BasePlatformACT(object):
         return self.data.CountOfferCategoryAssoc(
         )
                
-    def CountOfferCategoryAssocByUuid(self
+    def CountOfferCategoryAssocUuid(self
         , uuid
     ) :         
-        return self.data.CountOfferCategoryAssocByUuid(
+        return self.data.CountOfferCategoryAssocUuid(
             uuid
         )
                
-    def CountOfferCategoryAssocByOfferId(self
+    def CountOfferCategoryAssocOfferId(self
         , offer_id
     ) :         
-        return self.data.CountOfferCategoryAssocByOfferId(
+        return self.data.CountOfferCategoryAssocOfferId(
             offer_id
         )
                
-    def CountOfferCategoryAssocByCategoryId(self
+    def CountOfferCategoryAssocCategoryId(self
         , category_id
     ) :         
-        return self.data.CountOfferCategoryAssocByCategoryId(
+        return self.data.CountOfferCategoryAssocCategoryId(
             category_id
         )
                
-    def CountOfferCategoryAssocByOfferIdByCategoryId(self
+    def CountOfferCategoryAssocOfferIdCategoryId(self
         , offer_id
         , category_id
     ) :         
-        return self.data.CountOfferCategoryAssocByOfferIdByCategoryId(
+        return self.data.CountOfferCategoryAssocOfferIdCategoryId(
             offer_id
             , category_id
         )
                
-    def BrowseOfferCategoryAssocListByFilter(self, filter_obj) :
+    def BrowseOfferCategoryAssocListFilter(self, filter_obj) :
         result = OfferCategoryAssocResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOfferCategoryAssocListByFilter(filter_obj)
+        rows = self.data.BrowseOfferCategoryAssocListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 offer_category_assoc = self.FillOfferCategoryAssoc(row)
@@ -2624,13 +2624,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOfferCategoryAssocByUuid(self, set_type, obj) :            
-            return self.data.SetOfferCategoryAssocByUuid(set_type, obj)
+    def SetOfferCategoryAssocUuid(self, set_type, obj) :            
+            return self.data.SetOfferCategoryAssocUuid(set_type, obj)
             
-    def DelOfferCategoryAssocByUuid(self
+    def DelOfferCategoryAssocUuid(self
         , uuid
     ) :
-        return self.data.DelOfferCategoryAssocByUuid(
+        return self.data.DelOfferCategoryAssocUuid(
             uuid
         )
         
@@ -2647,12 +2647,12 @@ class BasePlatformACT(object):
                 results.append(offer_category_assoc)
             return results        
         
-    def GetOfferCategoryAssocListByUuid(self
+    def GetOfferCategoryAssocListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryAssocListByUuid(
+        rows = self.data.GetOfferCategoryAssocListUuid(
             uuid
         )
         
@@ -2662,12 +2662,12 @@ class BasePlatformACT(object):
                 results.append(offer_category_assoc)
             return results        
         
-    def GetOfferCategoryAssocListByOfferId(self
+    def GetOfferCategoryAssocListOfferId(self
         , offer_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryAssocListByOfferId(
+        rows = self.data.GetOfferCategoryAssocListOfferId(
             offer_id
         )
         
@@ -2677,12 +2677,12 @@ class BasePlatformACT(object):
                 results.append(offer_category_assoc)
             return results        
         
-    def GetOfferCategoryAssocListByCategoryId(self
+    def GetOfferCategoryAssocListCategoryId(self
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryAssocListByCategoryId(
+        rows = self.data.GetOfferCategoryAssocListCategoryId(
             category_id
         )
         
@@ -2692,13 +2692,13 @@ class BasePlatformACT(object):
                 results.append(offer_category_assoc)
             return results        
         
-    def GetOfferCategoryAssocListByOfferIdByCategoryId(self
+    def GetOfferCategoryAssocListOfferIdCategoryId(self
         , offer_id
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetOfferCategoryAssocListByOfferIdByCategoryId(
+        rows = self.data.GetOfferCategoryAssocListOfferIdCategoryId(
             offer_id
             , category_id
         )
@@ -2739,44 +2739,44 @@ class BasePlatformACT(object):
         return self.data.CountOfferGameLocation(
         )
                
-    def CountOfferGameLocationByUuid(self
+    def CountOfferGameLocationUuid(self
         , uuid
     ) :         
-        return self.data.CountOfferGameLocationByUuid(
+        return self.data.CountOfferGameLocationUuid(
             uuid
         )
                
-    def CountOfferGameLocationByGameLocationId(self
+    def CountOfferGameLocationGameLocationId(self
         , game_location_id
     ) :         
-        return self.data.CountOfferGameLocationByGameLocationId(
+        return self.data.CountOfferGameLocationGameLocationId(
             game_location_id
         )
                
-    def CountOfferGameLocationByOfferId(self
+    def CountOfferGameLocationOfferId(self
         , offer_id
     ) :         
-        return self.data.CountOfferGameLocationByOfferId(
+        return self.data.CountOfferGameLocationOfferId(
             offer_id
         )
                
-    def CountOfferGameLocationByOfferIdByGameLocationId(self
+    def CountOfferGameLocationOfferIdGameLocationId(self
         , offer_id
         , game_location_id
     ) :         
-        return self.data.CountOfferGameLocationByOfferIdByGameLocationId(
+        return self.data.CountOfferGameLocationOfferIdGameLocationId(
             offer_id
             , game_location_id
         )
                
-    def BrowseOfferGameLocationListByFilter(self, filter_obj) :
+    def BrowseOfferGameLocationListFilter(self, filter_obj) :
         result = OfferGameLocationResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOfferGameLocationListByFilter(filter_obj)
+        rows = self.data.BrowseOfferGameLocationListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 offer_game_location = self.FillOfferGameLocation(row)
@@ -2786,13 +2786,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOfferGameLocationByUuid(self, set_type, obj) :            
-            return self.data.SetOfferGameLocationByUuid(set_type, obj)
+    def SetOfferGameLocationUuid(self, set_type, obj) :            
+            return self.data.SetOfferGameLocationUuid(set_type, obj)
             
-    def DelOfferGameLocationByUuid(self
+    def DelOfferGameLocationUuid(self
         , uuid
     ) :
-        return self.data.DelOfferGameLocationByUuid(
+        return self.data.DelOfferGameLocationUuid(
             uuid
         )
         
@@ -2809,12 +2809,12 @@ class BasePlatformACT(object):
                 results.append(offer_game_location)
             return results        
         
-    def GetOfferGameLocationListByUuid(self
+    def GetOfferGameLocationListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOfferGameLocationListByUuid(
+        rows = self.data.GetOfferGameLocationListUuid(
             uuid
         )
         
@@ -2824,12 +2824,12 @@ class BasePlatformACT(object):
                 results.append(offer_game_location)
             return results        
         
-    def GetOfferGameLocationListByGameLocationId(self
+    def GetOfferGameLocationListGameLocationId(self
         , game_location_id
     ) :
 
         results = []
-        rows = self.data.GetOfferGameLocationListByGameLocationId(
+        rows = self.data.GetOfferGameLocationListGameLocationId(
             game_location_id
         )
         
@@ -2839,12 +2839,12 @@ class BasePlatformACT(object):
                 results.append(offer_game_location)
             return results        
         
-    def GetOfferGameLocationListByOfferId(self
+    def GetOfferGameLocationListOfferId(self
         , offer_id
     ) :
 
         results = []
-        rows = self.data.GetOfferGameLocationListByOfferId(
+        rows = self.data.GetOfferGameLocationListOfferId(
             offer_id
         )
         
@@ -2854,13 +2854,13 @@ class BasePlatformACT(object):
                 results.append(offer_game_location)
             return results        
         
-    def GetOfferGameLocationListByOfferIdByGameLocationId(self
+    def GetOfferGameLocationListOfferIdGameLocationId(self
         , offer_id
         , game_location_id
     ) :
 
         results = []
-        rows = self.data.GetOfferGameLocationListByOfferIdByGameLocationId(
+        rows = self.data.GetOfferGameLocationListOfferIdGameLocationId(
             offer_id
             , game_location_id
         )
@@ -2909,42 +2909,42 @@ class BasePlatformACT(object):
         return self.data.CountEventInfo(
         )
                
-    def CountEventInfoByUuid(self
+    def CountEventInfoUuid(self
         , uuid
     ) :         
-        return self.data.CountEventInfoByUuid(
+        return self.data.CountEventInfoUuid(
             uuid
         )
                
-    def CountEventInfoByCode(self
+    def CountEventInfoCode(self
         , code
     ) :         
-        return self.data.CountEventInfoByCode(
+        return self.data.CountEventInfoCode(
             code
         )
                
-    def CountEventInfoByName(self
+    def CountEventInfoName(self
         , name
     ) :         
-        return self.data.CountEventInfoByName(
+        return self.data.CountEventInfoName(
             name
         )
                
-    def CountEventInfoByOrgId(self
+    def CountEventInfoOrgId(self
         , org_id
     ) :         
-        return self.data.CountEventInfoByOrgId(
+        return self.data.CountEventInfoOrgId(
             org_id
         )
                
-    def BrowseEventInfoListByFilter(self, filter_obj) :
+    def BrowseEventInfoListFilter(self, filter_obj) :
         result = EventInfoResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseEventInfoListByFilter(filter_obj)
+        rows = self.data.BrowseEventInfoListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 event_info = self.FillEventInfo(row)
@@ -2954,20 +2954,20 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetEventInfoByUuid(self, set_type, obj) :            
-            return self.data.SetEventInfoByUuid(set_type, obj)
+    def SetEventInfoUuid(self, set_type, obj) :            
+            return self.data.SetEventInfoUuid(set_type, obj)
             
-    def DelEventInfoByUuid(self
+    def DelEventInfoUuid(self
         , uuid
     ) :
-        return self.data.DelEventInfoByUuid(
+        return self.data.DelEventInfoUuid(
             uuid
         )
         
-    def DelEventInfoByOrgId(self
+    def DelEventInfoOrgId(self
         , org_id
     ) :
-        return self.data.DelEventInfoByOrgId(
+        return self.data.DelEventInfoOrgId(
             org_id
         )
         
@@ -2984,12 +2984,12 @@ class BasePlatformACT(object):
                 results.append(event_info)
             return results        
         
-    def GetEventInfoListByUuid(self
+    def GetEventInfoListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetEventInfoListByUuid(
+        rows = self.data.GetEventInfoListUuid(
             uuid
         )
         
@@ -2999,12 +2999,12 @@ class BasePlatformACT(object):
                 results.append(event_info)
             return results        
         
-    def GetEventInfoListByCode(self
+    def GetEventInfoListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetEventInfoListByCode(
+        rows = self.data.GetEventInfoListCode(
             code
         )
         
@@ -3014,12 +3014,12 @@ class BasePlatformACT(object):
                 results.append(event_info)
             return results        
         
-    def GetEventInfoListByName(self
+    def GetEventInfoListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetEventInfoListByName(
+        rows = self.data.GetEventInfoListName(
             name
         )
         
@@ -3029,12 +3029,12 @@ class BasePlatformACT(object):
                 results.append(event_info)
             return results        
         
-    def GetEventInfoListByOrgId(self
+    def GetEventInfoListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetEventInfoListByOrgId(
+        rows = self.data.GetEventInfoListOrgId(
             org_id
         )
         
@@ -3110,49 +3110,49 @@ class BasePlatformACT(object):
         return self.data.CountEventLocation(
         )
                
-    def CountEventLocationByUuid(self
+    def CountEventLocationUuid(self
         , uuid
     ) :         
-        return self.data.CountEventLocationByUuid(
+        return self.data.CountEventLocationUuid(
             uuid
         )
                
-    def CountEventLocationByEventId(self
+    def CountEventLocationEventId(self
         , event_id
     ) :         
-        return self.data.CountEventLocationByEventId(
+        return self.data.CountEventLocationEventId(
             event_id
         )
                
-    def CountEventLocationByCity(self
+    def CountEventLocationCity(self
         , city
     ) :         
-        return self.data.CountEventLocationByCity(
+        return self.data.CountEventLocationCity(
             city
         )
                
-    def CountEventLocationByCountryCode(self
+    def CountEventLocationCountryCode(self
         , country_code
     ) :         
-        return self.data.CountEventLocationByCountryCode(
+        return self.data.CountEventLocationCountryCode(
             country_code
         )
                
-    def CountEventLocationByPostalCode(self
+    def CountEventLocationPostalCode(self
         , postal_code
     ) :         
-        return self.data.CountEventLocationByPostalCode(
+        return self.data.CountEventLocationPostalCode(
             postal_code
         )
                
-    def BrowseEventLocationListByFilter(self, filter_obj) :
+    def BrowseEventLocationListFilter(self, filter_obj) :
         result = EventLocationResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseEventLocationListByFilter(filter_obj)
+        rows = self.data.BrowseEventLocationListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 event_location = self.FillEventLocation(row)
@@ -3162,13 +3162,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetEventLocationByUuid(self, set_type, obj) :            
-            return self.data.SetEventLocationByUuid(set_type, obj)
+    def SetEventLocationUuid(self, set_type, obj) :            
+            return self.data.SetEventLocationUuid(set_type, obj)
             
-    def DelEventLocationByUuid(self
+    def DelEventLocationUuid(self
         , uuid
     ) :
-        return self.data.DelEventLocationByUuid(
+        return self.data.DelEventLocationUuid(
             uuid
         )
         
@@ -3185,12 +3185,12 @@ class BasePlatformACT(object):
                 results.append(event_location)
             return results        
         
-    def GetEventLocationListByUuid(self
+    def GetEventLocationListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetEventLocationListByUuid(
+        rows = self.data.GetEventLocationListUuid(
             uuid
         )
         
@@ -3200,12 +3200,12 @@ class BasePlatformACT(object):
                 results.append(event_location)
             return results        
         
-    def GetEventLocationListByEventId(self
+    def GetEventLocationListEventId(self
         , event_id
     ) :
 
         results = []
-        rows = self.data.GetEventLocationListByEventId(
+        rows = self.data.GetEventLocationListEventId(
             event_id
         )
         
@@ -3215,12 +3215,12 @@ class BasePlatformACT(object):
                 results.append(event_location)
             return results        
         
-    def GetEventLocationListByCity(self
+    def GetEventLocationListCity(self
         , city
     ) :
 
         results = []
-        rows = self.data.GetEventLocationListByCity(
+        rows = self.data.GetEventLocationListCity(
             city
         )
         
@@ -3230,12 +3230,12 @@ class BasePlatformACT(object):
                 results.append(event_location)
             return results        
         
-    def GetEventLocationListByCountryCode(self
+    def GetEventLocationListCountryCode(self
         , country_code
     ) :
 
         results = []
-        rows = self.data.GetEventLocationListByCountryCode(
+        rows = self.data.GetEventLocationListCountryCode(
             country_code
         )
         
@@ -3245,12 +3245,12 @@ class BasePlatformACT(object):
                 results.append(event_location)
             return results        
         
-    def GetEventLocationListByPostalCode(self
+    def GetEventLocationListPostalCode(self
         , postal_code
     ) :
 
         results = []
-        rows = self.data.GetEventLocationListByPostalCode(
+        rows = self.data.GetEventLocationListPostalCode(
             postal_code
         )
         
@@ -3296,58 +3296,58 @@ class BasePlatformACT(object):
         return self.data.CountEventCategory(
         )
                
-    def CountEventCategoryByUuid(self
+    def CountEventCategoryUuid(self
         , uuid
     ) :         
-        return self.data.CountEventCategoryByUuid(
+        return self.data.CountEventCategoryUuid(
             uuid
         )
                
-    def CountEventCategoryByCode(self
+    def CountEventCategoryCode(self
         , code
     ) :         
-        return self.data.CountEventCategoryByCode(
+        return self.data.CountEventCategoryCode(
             code
         )
                
-    def CountEventCategoryByName(self
+    def CountEventCategoryName(self
         , name
     ) :         
-        return self.data.CountEventCategoryByName(
+        return self.data.CountEventCategoryName(
             name
         )
                
-    def CountEventCategoryByOrgId(self
+    def CountEventCategoryOrgId(self
         , org_id
     ) :         
-        return self.data.CountEventCategoryByOrgId(
+        return self.data.CountEventCategoryOrgId(
             org_id
         )
                
-    def CountEventCategoryByTypeId(self
+    def CountEventCategoryTypeId(self
         , type_id
     ) :         
-        return self.data.CountEventCategoryByTypeId(
+        return self.data.CountEventCategoryTypeId(
             type_id
         )
                
-    def CountEventCategoryByOrgIdByTypeId(self
+    def CountEventCategoryOrgIdTypeId(self
         , org_id
         , type_id
     ) :         
-        return self.data.CountEventCategoryByOrgIdByTypeId(
+        return self.data.CountEventCategoryOrgIdTypeId(
             org_id
             , type_id
         )
                
-    def BrowseEventCategoryListByFilter(self, filter_obj) :
+    def BrowseEventCategoryListFilter(self, filter_obj) :
         result = EventCategoryResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseEventCategoryListByFilter(filter_obj)
+        rows = self.data.BrowseEventCategoryListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 event_category = self.FillEventCategory(row)
@@ -3357,31 +3357,31 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetEventCategoryByUuid(self, set_type, obj) :            
-            return self.data.SetEventCategoryByUuid(set_type, obj)
+    def SetEventCategoryUuid(self, set_type, obj) :            
+            return self.data.SetEventCategoryUuid(set_type, obj)
             
-    def DelEventCategoryByUuid(self
+    def DelEventCategoryUuid(self
         , uuid
     ) :
-        return self.data.DelEventCategoryByUuid(
+        return self.data.DelEventCategoryUuid(
             uuid
         )
         
-    def DelEventCategoryByCodeByOrgId(self
+    def DelEventCategoryCodeOrgId(self
         , code
         , org_id
     ) :
-        return self.data.DelEventCategoryByCodeByOrgId(
+        return self.data.DelEventCategoryCodeOrgId(
             code
             , org_id
         )
         
-    def DelEventCategoryByCodeByOrgIdByTypeId(self
+    def DelEventCategoryCodeOrgIdTypeId(self
         , code
         , org_id
         , type_id
     ) :
-        return self.data.DelEventCategoryByCodeByOrgIdByTypeId(
+        return self.data.DelEventCategoryCodeOrgIdTypeId(
             code
             , org_id
             , type_id
@@ -3400,12 +3400,12 @@ class BasePlatformACT(object):
                 results.append(event_category)
             return results        
         
-    def GetEventCategoryListByUuid(self
+    def GetEventCategoryListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryListByUuid(
+        rows = self.data.GetEventCategoryListUuid(
             uuid
         )
         
@@ -3415,12 +3415,12 @@ class BasePlatformACT(object):
                 results.append(event_category)
             return results        
         
-    def GetEventCategoryListByCode(self
+    def GetEventCategoryListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryListByCode(
+        rows = self.data.GetEventCategoryListCode(
             code
         )
         
@@ -3430,12 +3430,12 @@ class BasePlatformACT(object):
                 results.append(event_category)
             return results        
         
-    def GetEventCategoryListByName(self
+    def GetEventCategoryListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryListByName(
+        rows = self.data.GetEventCategoryListName(
             name
         )
         
@@ -3445,12 +3445,12 @@ class BasePlatformACT(object):
                 results.append(event_category)
             return results        
         
-    def GetEventCategoryListByOrgId(self
+    def GetEventCategoryListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryListByOrgId(
+        rows = self.data.GetEventCategoryListOrgId(
             org_id
         )
         
@@ -3460,12 +3460,12 @@ class BasePlatformACT(object):
                 results.append(event_category)
             return results        
         
-    def GetEventCategoryListByTypeId(self
+    def GetEventCategoryListTypeId(self
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryListByTypeId(
+        rows = self.data.GetEventCategoryListTypeId(
             type_id
         )
         
@@ -3475,13 +3475,13 @@ class BasePlatformACT(object):
                 results.append(event_category)
             return results        
         
-    def GetEventCategoryListByOrgIdByTypeId(self
+    def GetEventCategoryListOrgIdTypeId(self
         , org_id
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryListByOrgIdByTypeId(
+        rows = self.data.GetEventCategoryListOrgIdTypeId(
             org_id
             , type_id
         )
@@ -3520,44 +3520,44 @@ class BasePlatformACT(object):
         return self.data.CountEventCategoryTree(
         )
                
-    def CountEventCategoryTreeByUuid(self
+    def CountEventCategoryTreeUuid(self
         , uuid
     ) :         
-        return self.data.CountEventCategoryTreeByUuid(
+        return self.data.CountEventCategoryTreeUuid(
             uuid
         )
                
-    def CountEventCategoryTreeByParentId(self
+    def CountEventCategoryTreeParentId(self
         , parent_id
     ) :         
-        return self.data.CountEventCategoryTreeByParentId(
+        return self.data.CountEventCategoryTreeParentId(
             parent_id
         )
                
-    def CountEventCategoryTreeByCategoryId(self
+    def CountEventCategoryTreeCategoryId(self
         , category_id
     ) :         
-        return self.data.CountEventCategoryTreeByCategoryId(
+        return self.data.CountEventCategoryTreeCategoryId(
             category_id
         )
                
-    def CountEventCategoryTreeByParentIdByCategoryId(self
+    def CountEventCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :         
-        return self.data.CountEventCategoryTreeByParentIdByCategoryId(
+        return self.data.CountEventCategoryTreeParentIdCategoryId(
             parent_id
             , category_id
         )
                
-    def BrowseEventCategoryTreeListByFilter(self, filter_obj) :
+    def BrowseEventCategoryTreeListFilter(self, filter_obj) :
         result = EventCategoryTreeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseEventCategoryTreeListByFilter(filter_obj)
+        rows = self.data.BrowseEventCategoryTreeListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 event_category_tree = self.FillEventCategoryTree(row)
@@ -3567,35 +3567,35 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetEventCategoryTreeByUuid(self, set_type, obj) :            
-            return self.data.SetEventCategoryTreeByUuid(set_type, obj)
+    def SetEventCategoryTreeUuid(self, set_type, obj) :            
+            return self.data.SetEventCategoryTreeUuid(set_type, obj)
             
-    def DelEventCategoryTreeByUuid(self
+    def DelEventCategoryTreeUuid(self
         , uuid
     ) :
-        return self.data.DelEventCategoryTreeByUuid(
+        return self.data.DelEventCategoryTreeUuid(
             uuid
         )
         
-    def DelEventCategoryTreeByParentId(self
+    def DelEventCategoryTreeParentId(self
         , parent_id
     ) :
-        return self.data.DelEventCategoryTreeByParentId(
+        return self.data.DelEventCategoryTreeParentId(
             parent_id
         )
         
-    def DelEventCategoryTreeByCategoryId(self
+    def DelEventCategoryTreeCategoryId(self
         , category_id
     ) :
-        return self.data.DelEventCategoryTreeByCategoryId(
+        return self.data.DelEventCategoryTreeCategoryId(
             category_id
         )
         
-    def DelEventCategoryTreeByParentIdByCategoryId(self
+    def DelEventCategoryTreeParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
-        return self.data.DelEventCategoryTreeByParentIdByCategoryId(
+        return self.data.DelEventCategoryTreeParentIdCategoryId(
             parent_id
             , category_id
         )
@@ -3613,12 +3613,12 @@ class BasePlatformACT(object):
                 results.append(event_category_tree)
             return results        
         
-    def GetEventCategoryTreeListByUuid(self
+    def GetEventCategoryTreeListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryTreeListByUuid(
+        rows = self.data.GetEventCategoryTreeListUuid(
             uuid
         )
         
@@ -3628,12 +3628,12 @@ class BasePlatformACT(object):
                 results.append(event_category_tree)
             return results        
         
-    def GetEventCategoryTreeListByParentId(self
+    def GetEventCategoryTreeListParentId(self
         , parent_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryTreeListByParentId(
+        rows = self.data.GetEventCategoryTreeListParentId(
             parent_id
         )
         
@@ -3643,12 +3643,12 @@ class BasePlatformACT(object):
                 results.append(event_category_tree)
             return results        
         
-    def GetEventCategoryTreeListByCategoryId(self
+    def GetEventCategoryTreeListCategoryId(self
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryTreeListByCategoryId(
+        rows = self.data.GetEventCategoryTreeListCategoryId(
             category_id
         )
         
@@ -3658,13 +3658,13 @@ class BasePlatformACT(object):
                 results.append(event_category_tree)
             return results        
         
-    def GetEventCategoryTreeListByParentIdByCategoryId(self
+    def GetEventCategoryTreeListParentIdCategoryId(self
         , parent_id
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryTreeListByParentIdByCategoryId(
+        rows = self.data.GetEventCategoryTreeListParentIdCategoryId(
             parent_id
             , category_id
         )
@@ -3703,44 +3703,44 @@ class BasePlatformACT(object):
         return self.data.CountEventCategoryAssoc(
         )
                
-    def CountEventCategoryAssocByUuid(self
+    def CountEventCategoryAssocUuid(self
         , uuid
     ) :         
-        return self.data.CountEventCategoryAssocByUuid(
+        return self.data.CountEventCategoryAssocUuid(
             uuid
         )
                
-    def CountEventCategoryAssocByEventId(self
+    def CountEventCategoryAssocEventId(self
         , event_id
     ) :         
-        return self.data.CountEventCategoryAssocByEventId(
+        return self.data.CountEventCategoryAssocEventId(
             event_id
         )
                
-    def CountEventCategoryAssocByCategoryId(self
+    def CountEventCategoryAssocCategoryId(self
         , category_id
     ) :         
-        return self.data.CountEventCategoryAssocByCategoryId(
+        return self.data.CountEventCategoryAssocCategoryId(
             category_id
         )
                
-    def CountEventCategoryAssocByEventIdByCategoryId(self
+    def CountEventCategoryAssocEventIdCategoryId(self
         , event_id
         , category_id
     ) :         
-        return self.data.CountEventCategoryAssocByEventIdByCategoryId(
+        return self.data.CountEventCategoryAssocEventIdCategoryId(
             event_id
             , category_id
         )
                
-    def BrowseEventCategoryAssocListByFilter(self, filter_obj) :
+    def BrowseEventCategoryAssocListFilter(self, filter_obj) :
         result = EventCategoryAssocResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseEventCategoryAssocListByFilter(filter_obj)
+        rows = self.data.BrowseEventCategoryAssocListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 event_category_assoc = self.FillEventCategoryAssoc(row)
@@ -3750,13 +3750,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetEventCategoryAssocByUuid(self, set_type, obj) :            
-            return self.data.SetEventCategoryAssocByUuid(set_type, obj)
+    def SetEventCategoryAssocUuid(self, set_type, obj) :            
+            return self.data.SetEventCategoryAssocUuid(set_type, obj)
             
-    def DelEventCategoryAssocByUuid(self
+    def DelEventCategoryAssocUuid(self
         , uuid
     ) :
-        return self.data.DelEventCategoryAssocByUuid(
+        return self.data.DelEventCategoryAssocUuid(
             uuid
         )
         
@@ -3773,12 +3773,12 @@ class BasePlatformACT(object):
                 results.append(event_category_assoc)
             return results        
         
-    def GetEventCategoryAssocListByUuid(self
+    def GetEventCategoryAssocListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryAssocListByUuid(
+        rows = self.data.GetEventCategoryAssocListUuid(
             uuid
         )
         
@@ -3788,12 +3788,12 @@ class BasePlatformACT(object):
                 results.append(event_category_assoc)
             return results        
         
-    def GetEventCategoryAssocListByEventId(self
+    def GetEventCategoryAssocListEventId(self
         , event_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryAssocListByEventId(
+        rows = self.data.GetEventCategoryAssocListEventId(
             event_id
         )
         
@@ -3803,12 +3803,12 @@ class BasePlatformACT(object):
                 results.append(event_category_assoc)
             return results        
         
-    def GetEventCategoryAssocListByCategoryId(self
+    def GetEventCategoryAssocListCategoryId(self
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryAssocListByCategoryId(
+        rows = self.data.GetEventCategoryAssocListCategoryId(
             category_id
         )
         
@@ -3818,13 +3818,13 @@ class BasePlatformACT(object):
                 results.append(event_category_assoc)
             return results        
         
-    def GetEventCategoryAssocListByEventIdByCategoryId(self
+    def GetEventCategoryAssocListEventIdCategoryId(self
         , event_id
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetEventCategoryAssocListByEventIdByCategoryId(
+        rows = self.data.GetEventCategoryAssocListEventIdCategoryId(
             event_id
             , category_id
         )
@@ -3871,58 +3871,58 @@ class BasePlatformACT(object):
         return self.data.CountChannel(
         )
                
-    def CountChannelByUuid(self
+    def CountChannelUuid(self
         , uuid
     ) :         
-        return self.data.CountChannelByUuid(
+        return self.data.CountChannelUuid(
             uuid
         )
                
-    def CountChannelByCode(self
+    def CountChannelCode(self
         , code
     ) :         
-        return self.data.CountChannelByCode(
+        return self.data.CountChannelCode(
             code
         )
                
-    def CountChannelByName(self
+    def CountChannelName(self
         , name
     ) :         
-        return self.data.CountChannelByName(
+        return self.data.CountChannelName(
             name
         )
                
-    def CountChannelByOrgId(self
+    def CountChannelOrgId(self
         , org_id
     ) :         
-        return self.data.CountChannelByOrgId(
+        return self.data.CountChannelOrgId(
             org_id
         )
                
-    def CountChannelByTypeId(self
+    def CountChannelTypeId(self
         , type_id
     ) :         
-        return self.data.CountChannelByTypeId(
+        return self.data.CountChannelTypeId(
             type_id
         )
                
-    def CountChannelByOrgIdByTypeId(self
+    def CountChannelOrgIdTypeId(self
         , org_id
         , type_id
     ) :         
-        return self.data.CountChannelByOrgIdByTypeId(
+        return self.data.CountChannelOrgIdTypeId(
             org_id
             , type_id
         )
                
-    def BrowseChannelListByFilter(self, filter_obj) :
+    def BrowseChannelListFilter(self, filter_obj) :
         result = ChannelResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseChannelListByFilter(filter_obj)
+        rows = self.data.BrowseChannelListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 channel = self.FillChannel(row)
@@ -3932,31 +3932,31 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetChannelByUuid(self, set_type, obj) :            
-            return self.data.SetChannelByUuid(set_type, obj)
+    def SetChannelUuid(self, set_type, obj) :            
+            return self.data.SetChannelUuid(set_type, obj)
             
-    def DelChannelByUuid(self
+    def DelChannelUuid(self
         , uuid
     ) :
-        return self.data.DelChannelByUuid(
+        return self.data.DelChannelUuid(
             uuid
         )
         
-    def DelChannelByCodeByOrgId(self
+    def DelChannelCodeOrgId(self
         , code
         , org_id
     ) :
-        return self.data.DelChannelByCodeByOrgId(
+        return self.data.DelChannelCodeOrgId(
             code
             , org_id
         )
         
-    def DelChannelByCodeByOrgIdByTypeId(self
+    def DelChannelCodeOrgIdTypeId(self
         , code
         , org_id
         , type_id
     ) :
-        return self.data.DelChannelByCodeByOrgIdByTypeId(
+        return self.data.DelChannelCodeOrgIdTypeId(
             code
             , org_id
             , type_id
@@ -3975,12 +3975,12 @@ class BasePlatformACT(object):
                 results.append(channel)
             return results        
         
-    def GetChannelListByUuid(self
+    def GetChannelListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetChannelListByUuid(
+        rows = self.data.GetChannelListUuid(
             uuid
         )
         
@@ -3990,12 +3990,12 @@ class BasePlatformACT(object):
                 results.append(channel)
             return results        
         
-    def GetChannelListByCode(self
+    def GetChannelListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetChannelListByCode(
+        rows = self.data.GetChannelListCode(
             code
         )
         
@@ -4005,12 +4005,12 @@ class BasePlatformACT(object):
                 results.append(channel)
             return results        
         
-    def GetChannelListByName(self
+    def GetChannelListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetChannelListByName(
+        rows = self.data.GetChannelListName(
             name
         )
         
@@ -4020,12 +4020,12 @@ class BasePlatformACT(object):
                 results.append(channel)
             return results        
         
-    def GetChannelListByOrgId(self
+    def GetChannelListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetChannelListByOrgId(
+        rows = self.data.GetChannelListOrgId(
             org_id
         )
         
@@ -4035,12 +4035,12 @@ class BasePlatformACT(object):
                 results.append(channel)
             return results        
         
-    def GetChannelListByTypeId(self
+    def GetChannelListTypeId(self
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetChannelListByTypeId(
+        rows = self.data.GetChannelListTypeId(
             type_id
         )
         
@@ -4050,13 +4050,13 @@ class BasePlatformACT(object):
                 results.append(channel)
             return results        
         
-    def GetChannelListByOrgIdByTypeId(self
+    def GetChannelListOrgIdTypeId(self
         , org_id
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetChannelListByOrgIdByTypeId(
+        rows = self.data.GetChannelListOrgIdTypeId(
             org_id
             , type_id
         )
@@ -4099,35 +4099,35 @@ class BasePlatformACT(object):
         return self.data.CountChannelType(
         )
                
-    def CountChannelTypeByUuid(self
+    def CountChannelTypeUuid(self
         , uuid
     ) :         
-        return self.data.CountChannelTypeByUuid(
+        return self.data.CountChannelTypeUuid(
             uuid
         )
                
-    def CountChannelTypeByCode(self
+    def CountChannelTypeCode(self
         , code
     ) :         
-        return self.data.CountChannelTypeByCode(
+        return self.data.CountChannelTypeCode(
             code
         )
                
-    def CountChannelTypeByName(self
+    def CountChannelTypeName(self
         , name
     ) :         
-        return self.data.CountChannelTypeByName(
+        return self.data.CountChannelTypeName(
             name
         )
                
-    def BrowseChannelTypeListByFilter(self, filter_obj) :
+    def BrowseChannelTypeListFilter(self, filter_obj) :
         result = ChannelTypeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseChannelTypeListByFilter(filter_obj)
+        rows = self.data.BrowseChannelTypeListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 channel_type = self.FillChannelType(row)
@@ -4137,13 +4137,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetChannelTypeByUuid(self, set_type, obj) :            
-            return self.data.SetChannelTypeByUuid(set_type, obj)
+    def SetChannelTypeUuid(self, set_type, obj) :            
+            return self.data.SetChannelTypeUuid(set_type, obj)
             
-    def DelChannelTypeByUuid(self
+    def DelChannelTypeUuid(self
         , uuid
     ) :
-        return self.data.DelChannelTypeByUuid(
+        return self.data.DelChannelTypeUuid(
             uuid
         )
         
@@ -4160,12 +4160,12 @@ class BasePlatformACT(object):
                 results.append(channel_type)
             return results        
         
-    def GetChannelTypeListByUuid(self
+    def GetChannelTypeListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetChannelTypeListByUuid(
+        rows = self.data.GetChannelTypeListUuid(
             uuid
         )
         
@@ -4175,12 +4175,12 @@ class BasePlatformACT(object):
                 results.append(channel_type)
             return results        
         
-    def GetChannelTypeListByCode(self
+    def GetChannelTypeListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetChannelTypeListByCode(
+        rows = self.data.GetChannelTypeListCode(
             code
         )
         
@@ -4190,12 +4190,12 @@ class BasePlatformACT(object):
                 results.append(channel_type)
             return results        
         
-    def GetChannelTypeListByName(self
+    def GetChannelTypeListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetChannelTypeListByName(
+        rows = self.data.GetChannelTypeListName(
             name
         )
         
@@ -4243,67 +4243,67 @@ class BasePlatformACT(object):
         return self.data.CountQuestion(
         )
                
-    def CountQuestionByUuid(self
+    def CountQuestionUuid(self
         , uuid
     ) :         
-        return self.data.CountQuestionByUuid(
+        return self.data.CountQuestionUuid(
             uuid
         )
                
-    def CountQuestionByCode(self
+    def CountQuestionCode(self
         , code
     ) :         
-        return self.data.CountQuestionByCode(
+        return self.data.CountQuestionCode(
             code
         )
                
-    def CountQuestionByName(self
+    def CountQuestionName(self
         , name
     ) :         
-        return self.data.CountQuestionByName(
+        return self.data.CountQuestionName(
             name
         )
                
-    def CountQuestionByChannelId(self
+    def CountQuestionChannelId(self
         , channel_id
     ) :         
-        return self.data.CountQuestionByChannelId(
+        return self.data.CountQuestionChannelId(
             channel_id
         )
                
-    def CountQuestionByOrgId(self
+    def CountQuestionOrgId(self
         , org_id
     ) :         
-        return self.data.CountQuestionByOrgId(
+        return self.data.CountQuestionOrgId(
             org_id
         )
                
-    def CountQuestionByChannelIdByOrgId(self
+    def CountQuestionChannelIdOrgId(self
         , channel_id
         , org_id
     ) :         
-        return self.data.CountQuestionByChannelIdByOrgId(
+        return self.data.CountQuestionChannelIdOrgId(
             channel_id
             , org_id
         )
                
-    def CountQuestionByChannelIdByCode(self
+    def CountQuestionChannelIdCode(self
         , channel_id
         , code
     ) :         
-        return self.data.CountQuestionByChannelIdByCode(
+        return self.data.CountQuestionChannelIdCode(
             channel_id
             , code
         )
                
-    def BrowseQuestionListByFilter(self, filter_obj) :
+    def BrowseQuestionListFilter(self, filter_obj) :
         result = QuestionResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseQuestionListByFilter(filter_obj)
+        rows = self.data.BrowseQuestionListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 question = self.FillQuestion(row)
@@ -4313,24 +4313,24 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetQuestionByUuid(self, set_type, obj) :            
-            return self.data.SetQuestionByUuid(set_type, obj)
+    def SetQuestionUuid(self, set_type, obj) :            
+            return self.data.SetQuestionUuid(set_type, obj)
             
-    def SetQuestionByChannelIdByCode(self, set_type, obj) :            
-            return self.data.SetQuestionByChannelIdByCode(set_type, obj)
+    def SetQuestionChannelIdCode(self, set_type, obj) :            
+            return self.data.SetQuestionChannelIdCode(set_type, obj)
             
-    def DelQuestionByUuid(self
+    def DelQuestionUuid(self
         , uuid
     ) :
-        return self.data.DelQuestionByUuid(
+        return self.data.DelQuestionUuid(
             uuid
         )
         
-    def DelQuestionByChannelIdByOrgId(self
+    def DelQuestionChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
-        return self.data.DelQuestionByChannelIdByOrgId(
+        return self.data.DelQuestionChannelIdOrgId(
             channel_id
             , org_id
         )
@@ -4348,12 +4348,12 @@ class BasePlatformACT(object):
                 results.append(question)
             return results        
         
-    def GetQuestionListByUuid(self
+    def GetQuestionListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetQuestionListByUuid(
+        rows = self.data.GetQuestionListUuid(
             uuid
         )
         
@@ -4363,12 +4363,12 @@ class BasePlatformACT(object):
                 results.append(question)
             return results        
         
-    def GetQuestionListByCode(self
+    def GetQuestionListCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetQuestionListByCode(
+        rows = self.data.GetQuestionListCode(
             code
         )
         
@@ -4378,12 +4378,12 @@ class BasePlatformACT(object):
                 results.append(question)
             return results        
         
-    def GetQuestionListByName(self
+    def GetQuestionListName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetQuestionListByName(
+        rows = self.data.GetQuestionListName(
             name
         )
         
@@ -4393,12 +4393,12 @@ class BasePlatformACT(object):
                 results.append(question)
             return results        
         
-    def GetQuestionListByType(self
+    def GetQuestionListType(self
         , type
     ) :
 
         results = []
-        rows = self.data.GetQuestionListByType(
+        rows = self.data.GetQuestionListType(
             type
         )
         
@@ -4408,12 +4408,12 @@ class BasePlatformACT(object):
                 results.append(question)
             return results        
         
-    def GetQuestionListByChannelId(self
+    def GetQuestionListChannelId(self
         , channel_id
     ) :
 
         results = []
-        rows = self.data.GetQuestionListByChannelId(
+        rows = self.data.GetQuestionListChannelId(
             channel_id
         )
         
@@ -4423,12 +4423,12 @@ class BasePlatformACT(object):
                 results.append(question)
             return results        
         
-    def GetQuestionListByOrgId(self
+    def GetQuestionListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetQuestionListByOrgId(
+        rows = self.data.GetQuestionListOrgId(
             org_id
         )
         
@@ -4438,13 +4438,13 @@ class BasePlatformACT(object):
                 results.append(question)
             return results        
         
-    def GetQuestionListByChannelIdByOrgId(self
+    def GetQuestionListChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetQuestionListByChannelIdByOrgId(
+        rows = self.data.GetQuestionListChannelIdOrgId(
             channel_id
             , org_id
         )
@@ -4455,13 +4455,13 @@ class BasePlatformACT(object):
                 results.append(question)
             return results        
         
-    def GetQuestionListByChannelIdByCode(self
+    def GetQuestionListChannelIdCode(self
         , channel_id
         , code
     ) :
 
         results = []
-        rows = self.data.GetQuestionListByChannelIdByCode(
+        rows = self.data.GetQuestionListChannelIdCode(
             channel_id
             , code
         )
@@ -4506,28 +4506,28 @@ class BasePlatformACT(object):
         return self.data.CountProfileOffer(
         )
                
-    def CountProfileOfferByUuid(self
+    def CountProfileOfferUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileOfferByUuid(
+        return self.data.CountProfileOfferUuid(
             uuid
         )
                
-    def CountProfileOfferByProfileId(self
+    def CountProfileOfferProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileOfferByProfileId(
+        return self.data.CountProfileOfferProfileId(
             profile_id
         )
                
-    def BrowseProfileOfferListByFilter(self, filter_obj) :
+    def BrowseProfileOfferListFilter(self, filter_obj) :
         result = ProfileOfferResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileOfferListByFilter(filter_obj)
+        rows = self.data.BrowseProfileOfferListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_offer = self.FillProfileOffer(row)
@@ -4537,20 +4537,20 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetProfileOfferByUuid(self, set_type, obj) :            
-            return self.data.SetProfileOfferByUuid(set_type, obj)
+    def SetProfileOfferUuid(self, set_type, obj) :            
+            return self.data.SetProfileOfferUuid(set_type, obj)
             
-    def DelProfileOfferByUuid(self
+    def DelProfileOfferUuid(self
         , uuid
     ) :
-        return self.data.DelProfileOfferByUuid(
+        return self.data.DelProfileOfferUuid(
             uuid
         )
         
-    def DelProfileOfferByProfileId(self
+    def DelProfileOfferProfileId(self
         , profile_id
     ) :
-        return self.data.DelProfileOfferByProfileId(
+        return self.data.DelProfileOfferProfileId(
             profile_id
         )
         
@@ -4567,12 +4567,12 @@ class BasePlatformACT(object):
                 results.append(profile_offer)
             return results        
         
-    def GetProfileOfferListByUuid(self
+    def GetProfileOfferListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileOfferListByUuid(
+        rows = self.data.GetProfileOfferListUuid(
             uuid
         )
         
@@ -4582,12 +4582,12 @@ class BasePlatformACT(object):
                 results.append(profile_offer)
             return results        
         
-    def GetProfileOfferListByProfileId(self
+    def GetProfileOfferListProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileOfferListByProfileId(
+        rows = self.data.GetProfileOfferListProfileId(
             profile_id
         )
         
@@ -4625,30 +4625,30 @@ class BasePlatformACT(object):
         return self.data.CountProfileApp(
         )
                
-    def CountProfileAppByUuid(self
+    def CountProfileAppUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileAppByUuid(
+        return self.data.CountProfileAppUuid(
             uuid
         )
                
-    def CountProfileAppByProfileIdByAppId(self
+    def CountProfileAppProfileIdAppId(self
         , profile_id
         , app_id
     ) :         
-        return self.data.CountProfileAppByProfileIdByAppId(
+        return self.data.CountProfileAppProfileIdAppId(
             profile_id
             , app_id
         )
                
-    def BrowseProfileAppListByFilter(self, filter_obj) :
+    def BrowseProfileAppListFilter(self, filter_obj) :
         result = ProfileAppResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileAppListByFilter(filter_obj)
+        rows = self.data.BrowseProfileAppListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_app = self.FillProfileApp(row)
@@ -4658,24 +4658,24 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetProfileAppByUuid(self, set_type, obj) :            
-            return self.data.SetProfileAppByUuid(set_type, obj)
+    def SetProfileAppUuid(self, set_type, obj) :            
+            return self.data.SetProfileAppUuid(set_type, obj)
             
-    def SetProfileAppByProfileIdByAppId(self, set_type, obj) :            
-            return self.data.SetProfileAppByProfileIdByAppId(set_type, obj)
+    def SetProfileAppProfileIdAppId(self, set_type, obj) :            
+            return self.data.SetProfileAppProfileIdAppId(set_type, obj)
             
-    def DelProfileAppByUuid(self
+    def DelProfileAppUuid(self
         , uuid
     ) :
-        return self.data.DelProfileAppByUuid(
+        return self.data.DelProfileAppUuid(
             uuid
         )
         
-    def DelProfileAppByProfileIdByAppId(self
+    def DelProfileAppProfileIdAppId(self
         , profile_id
         , app_id
     ) :
-        return self.data.DelProfileAppByProfileIdByAppId(
+        return self.data.DelProfileAppProfileIdAppId(
             profile_id
             , app_id
         )
@@ -4693,12 +4693,12 @@ class BasePlatformACT(object):
                 results.append(profile_app)
             return results        
         
-    def GetProfileAppListByUuid(self
+    def GetProfileAppListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileAppListByUuid(
+        rows = self.data.GetProfileAppListUuid(
             uuid
         )
         
@@ -4708,12 +4708,12 @@ class BasePlatformACT(object):
                 results.append(profile_app)
             return results        
         
-    def GetProfileAppListByAppId(self
+    def GetProfileAppListAppId(self
         , app_id
     ) :
 
         results = []
-        rows = self.data.GetProfileAppListByAppId(
+        rows = self.data.GetProfileAppListAppId(
             app_id
         )
         
@@ -4723,12 +4723,12 @@ class BasePlatformACT(object):
                 results.append(profile_app)
             return results        
         
-    def GetProfileAppListByProfileId(self
+    def GetProfileAppListProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileAppListByProfileId(
+        rows = self.data.GetProfileAppListProfileId(
             profile_id
         )
         
@@ -4738,13 +4738,13 @@ class BasePlatformACT(object):
                 results.append(profile_app)
             return results        
         
-    def GetProfileAppListByProfileIdByAppId(self
+    def GetProfileAppListProfileIdAppId(self
         , profile_id
         , app_id
     ) :
 
         results = []
-        rows = self.data.GetProfileAppListByProfileIdByAppId(
+        rows = self.data.GetProfileAppListProfileIdAppId(
             profile_id
             , app_id
         )
@@ -4785,35 +4785,35 @@ class BasePlatformACT(object):
         return self.data.CountProfileOrg(
         )
                
-    def CountProfileOrgByUuid(self
+    def CountProfileOrgUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileOrgByUuid(
+        return self.data.CountProfileOrgUuid(
             uuid
         )
                
-    def CountProfileOrgByOrgId(self
+    def CountProfileOrgOrgId(self
         , org_id
     ) :         
-        return self.data.CountProfileOrgByOrgId(
+        return self.data.CountProfileOrgOrgId(
             org_id
         )
                
-    def CountProfileOrgByProfileId(self
+    def CountProfileOrgProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileOrgByProfileId(
+        return self.data.CountProfileOrgProfileId(
             profile_id
         )
                
-    def BrowseProfileOrgListByFilter(self, filter_obj) :
+    def BrowseProfileOrgListFilter(self, filter_obj) :
         result = ProfileOrgResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileOrgListByFilter(filter_obj)
+        rows = self.data.BrowseProfileOrgListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_org = self.FillProfileOrg(row)
@@ -4823,13 +4823,13 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetProfileOrgByUuid(self, set_type, obj) :            
-            return self.data.SetProfileOrgByUuid(set_type, obj)
+    def SetProfileOrgUuid(self, set_type, obj) :            
+            return self.data.SetProfileOrgUuid(set_type, obj)
             
-    def DelProfileOrgByUuid(self
+    def DelProfileOrgUuid(self
         , uuid
     ) :
-        return self.data.DelProfileOrgByUuid(
+        return self.data.DelProfileOrgUuid(
             uuid
         )
         
@@ -4846,12 +4846,12 @@ class BasePlatformACT(object):
                 results.append(profile_org)
             return results        
         
-    def GetProfileOrgListByUuid(self
+    def GetProfileOrgListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileOrgListByUuid(
+        rows = self.data.GetProfileOrgListUuid(
             uuid
         )
         
@@ -4861,12 +4861,12 @@ class BasePlatformACT(object):
                 results.append(profile_org)
             return results        
         
-    def GetProfileOrgListByOrgId(self
+    def GetProfileOrgListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetProfileOrgListByOrgId(
+        rows = self.data.GetProfileOrgListOrgId(
             org_id
         )
         
@@ -4876,12 +4876,12 @@ class BasePlatformACT(object):
                 results.append(profile_org)
             return results        
         
-    def GetProfileOrgListByProfileId(self
+    def GetProfileOrgListProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileOrgListByProfileId(
+        rows = self.data.GetProfileOrgListProfileId(
             profile_id
         )
         
@@ -4927,76 +4927,76 @@ class BasePlatformACT(object):
         return self.data.CountProfileQuestion(
         )
                
-    def CountProfileQuestionByUuid(self
+    def CountProfileQuestionUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileQuestionByUuid(
+        return self.data.CountProfileQuestionUuid(
             uuid
         )
                
-    def CountProfileQuestionByChannelId(self
+    def CountProfileQuestionChannelId(self
         , channel_id
     ) :         
-        return self.data.CountProfileQuestionByChannelId(
+        return self.data.CountProfileQuestionChannelId(
             channel_id
         )
                
-    def CountProfileQuestionByOrgId(self
+    def CountProfileQuestionOrgId(self
         , org_id
     ) :         
-        return self.data.CountProfileQuestionByOrgId(
+        return self.data.CountProfileQuestionOrgId(
             org_id
         )
                
-    def CountProfileQuestionByProfileId(self
+    def CountProfileQuestionProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileQuestionByProfileId(
+        return self.data.CountProfileQuestionProfileId(
             profile_id
         )
                
-    def CountProfileQuestionByQuestionId(self
+    def CountProfileQuestionQuestionId(self
         , question_id
     ) :         
-        return self.data.CountProfileQuestionByQuestionId(
+        return self.data.CountProfileQuestionQuestionId(
             question_id
         )
                
-    def CountProfileQuestionByChannelIdByOrgId(self
+    def CountProfileQuestionChannelIdOrgId(self
         , channel_id
         , org_id
     ) :         
-        return self.data.CountProfileQuestionByChannelIdByOrgId(
+        return self.data.CountProfileQuestionChannelIdOrgId(
             channel_id
             , org_id
         )
                
-    def CountProfileQuestionByChannelIdByProfileId(self
+    def CountProfileQuestionChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :         
-        return self.data.CountProfileQuestionByChannelIdByProfileId(
+        return self.data.CountProfileQuestionChannelIdProfileId(
             channel_id
             , profile_id
         )
                
-    def CountProfileQuestionByQuestionIdByProfileId(self
+    def CountProfileQuestionQuestionIdProfileId(self
         , question_id
         , profile_id
     ) :         
-        return self.data.CountProfileQuestionByQuestionIdByProfileId(
+        return self.data.CountProfileQuestionQuestionIdProfileId(
             question_id
             , profile_id
         )
                
-    def BrowseProfileQuestionListByFilter(self, filter_obj) :
+    def BrowseProfileQuestionListFilter(self, filter_obj) :
         result = ProfileQuestionResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileQuestionListByFilter(filter_obj)
+        rows = self.data.BrowseProfileQuestionListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_question = self.FillProfileQuestion(row)
@@ -5006,30 +5006,30 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetProfileQuestionByUuid(self, set_type, obj) :            
-            return self.data.SetProfileQuestionByUuid(set_type, obj)
+    def SetProfileQuestionUuid(self, set_type, obj) :            
+            return self.data.SetProfileQuestionUuid(set_type, obj)
             
-    def SetProfileQuestionByChannelIdByProfileId(self, set_type, obj) :            
-            return self.data.SetProfileQuestionByChannelIdByProfileId(set_type, obj)
+    def SetProfileQuestionChannelIdProfileId(self, set_type, obj) :            
+            return self.data.SetProfileQuestionChannelIdProfileId(set_type, obj)
             
-    def SetProfileQuestionByQuestionIdByProfileId(self, set_type, obj) :            
-            return self.data.SetProfileQuestionByQuestionIdByProfileId(set_type, obj)
+    def SetProfileQuestionQuestionIdProfileId(self, set_type, obj) :            
+            return self.data.SetProfileQuestionQuestionIdProfileId(set_type, obj)
             
-    def SetProfileQuestionByChannelIdByQuestionIdByProfileId(self, set_type, obj) :            
-            return self.data.SetProfileQuestionByChannelIdByQuestionIdByProfileId(set_type, obj)
+    def SetProfileQuestionChannelIdQuestionIdProfileId(self, set_type, obj) :            
+            return self.data.SetProfileQuestionChannelIdQuestionIdProfileId(set_type, obj)
             
-    def DelProfileQuestionByUuid(self
+    def DelProfileQuestionUuid(self
         , uuid
     ) :
-        return self.data.DelProfileQuestionByUuid(
+        return self.data.DelProfileQuestionUuid(
             uuid
         )
         
-    def DelProfileQuestionByChannelIdByOrgId(self
+    def DelProfileQuestionChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
-        return self.data.DelProfileQuestionByChannelIdByOrgId(
+        return self.data.DelProfileQuestionChannelIdOrgId(
             channel_id
             , org_id
         )
@@ -5047,12 +5047,12 @@ class BasePlatformACT(object):
                 results.append(profile_question)
             return results        
         
-    def GetProfileQuestionListByUuid(self
+    def GetProfileQuestionListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileQuestionListByUuid(
+        rows = self.data.GetProfileQuestionListUuid(
             uuid
         )
         
@@ -5062,12 +5062,12 @@ class BasePlatformACT(object):
                 results.append(profile_question)
             return results        
         
-    def GetProfileQuestionListByChannelId(self
+    def GetProfileQuestionListChannelId(self
         , channel_id
     ) :
 
         results = []
-        rows = self.data.GetProfileQuestionListByChannelId(
+        rows = self.data.GetProfileQuestionListChannelId(
             channel_id
         )
         
@@ -5077,12 +5077,12 @@ class BasePlatformACT(object):
                 results.append(profile_question)
             return results        
         
-    def GetProfileQuestionListByOrgId(self
+    def GetProfileQuestionListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetProfileQuestionListByOrgId(
+        rows = self.data.GetProfileQuestionListOrgId(
             org_id
         )
         
@@ -5092,12 +5092,12 @@ class BasePlatformACT(object):
                 results.append(profile_question)
             return results        
         
-    def GetProfileQuestionListByProfileId(self
+    def GetProfileQuestionListProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileQuestionListByProfileId(
+        rows = self.data.GetProfileQuestionListProfileId(
             profile_id
         )
         
@@ -5107,12 +5107,12 @@ class BasePlatformACT(object):
                 results.append(profile_question)
             return results        
         
-    def GetProfileQuestionListByQuestionId(self
+    def GetProfileQuestionListQuestionId(self
         , question_id
     ) :
 
         results = []
-        rows = self.data.GetProfileQuestionListByQuestionId(
+        rows = self.data.GetProfileQuestionListQuestionId(
             question_id
         )
         
@@ -5122,13 +5122,13 @@ class BasePlatformACT(object):
                 results.append(profile_question)
             return results        
         
-    def GetProfileQuestionListByChannelIdByOrgId(self
+    def GetProfileQuestionListChannelIdOrgId(self
         , channel_id
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetProfileQuestionListByChannelIdByOrgId(
+        rows = self.data.GetProfileQuestionListChannelIdOrgId(
             channel_id
             , org_id
         )
@@ -5139,13 +5139,13 @@ class BasePlatformACT(object):
                 results.append(profile_question)
             return results        
         
-    def GetProfileQuestionListByChannelIdByProfileId(self
+    def GetProfileQuestionListChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileQuestionListByChannelIdByProfileId(
+        rows = self.data.GetProfileQuestionListChannelIdProfileId(
             channel_id
             , profile_id
         )
@@ -5156,13 +5156,13 @@ class BasePlatformACT(object):
                 results.append(profile_question)
             return results        
         
-    def GetProfileQuestionListByQuestionIdByProfileId(self
+    def GetProfileQuestionListQuestionIdProfileId(self
         , question_id
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileQuestionListByQuestionIdByProfileId(
+        rows = self.data.GetProfileQuestionListQuestionIdProfileId(
             question_id
             , profile_id
         )
@@ -5201,44 +5201,44 @@ class BasePlatformACT(object):
         return self.data.CountProfileChannel(
         )
                
-    def CountProfileChannelByUuid(self
+    def CountProfileChannelUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileChannelByUuid(
+        return self.data.CountProfileChannelUuid(
             uuid
         )
                
-    def CountProfileChannelByChannelId(self
+    def CountProfileChannelChannelId(self
         , channel_id
     ) :         
-        return self.data.CountProfileChannelByChannelId(
+        return self.data.CountProfileChannelChannelId(
             channel_id
         )
                
-    def CountProfileChannelByProfileId(self
+    def CountProfileChannelProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileChannelByProfileId(
+        return self.data.CountProfileChannelProfileId(
             profile_id
         )
                
-    def CountProfileChannelByChannelIdByProfileId(self
+    def CountProfileChannelChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :         
-        return self.data.CountProfileChannelByChannelIdByProfileId(
+        return self.data.CountProfileChannelChannelIdProfileId(
             channel_id
             , profile_id
         )
                
-    def BrowseProfileChannelListByFilter(self, filter_obj) :
+    def BrowseProfileChannelListFilter(self, filter_obj) :
         result = ProfileChannelResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileChannelListByFilter(filter_obj)
+        rows = self.data.BrowseProfileChannelListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_channel = self.FillProfileChannel(row)
@@ -5248,24 +5248,24 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetProfileChannelByUuid(self, set_type, obj) :            
-            return self.data.SetProfileChannelByUuid(set_type, obj)
+    def SetProfileChannelUuid(self, set_type, obj) :            
+            return self.data.SetProfileChannelUuid(set_type, obj)
             
-    def SetProfileChannelByChannelIdByProfileId(self, set_type, obj) :            
-            return self.data.SetProfileChannelByChannelIdByProfileId(set_type, obj)
+    def SetProfileChannelChannelIdProfileId(self, set_type, obj) :            
+            return self.data.SetProfileChannelChannelIdProfileId(set_type, obj)
             
-    def DelProfileChannelByUuid(self
+    def DelProfileChannelUuid(self
         , uuid
     ) :
-        return self.data.DelProfileChannelByUuid(
+        return self.data.DelProfileChannelUuid(
             uuid
         )
         
-    def DelProfileChannelByChannelIdByProfileId(self
+    def DelProfileChannelChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :
-        return self.data.DelProfileChannelByChannelIdByProfileId(
+        return self.data.DelProfileChannelChannelIdProfileId(
             channel_id
             , profile_id
         )
@@ -5283,12 +5283,12 @@ class BasePlatformACT(object):
                 results.append(profile_channel)
             return results        
         
-    def GetProfileChannelListByUuid(self
+    def GetProfileChannelListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileChannelListByUuid(
+        rows = self.data.GetProfileChannelListUuid(
             uuid
         )
         
@@ -5298,12 +5298,12 @@ class BasePlatformACT(object):
                 results.append(profile_channel)
             return results        
         
-    def GetProfileChannelListByChannelId(self
+    def GetProfileChannelListChannelId(self
         , channel_id
     ) :
 
         results = []
-        rows = self.data.GetProfileChannelListByChannelId(
+        rows = self.data.GetProfileChannelListChannelId(
             channel_id
         )
         
@@ -5313,12 +5313,12 @@ class BasePlatformACT(object):
                 results.append(profile_channel)
             return results        
         
-    def GetProfileChannelListByProfileId(self
+    def GetProfileChannelListProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileChannelListByProfileId(
+        rows = self.data.GetProfileChannelListProfileId(
             profile_id
         )
         
@@ -5328,13 +5328,13 @@ class BasePlatformACT(object):
                 results.append(profile_channel)
             return results        
         
-    def GetProfileChannelListByChannelIdByProfileId(self
+    def GetProfileChannelListChannelIdProfileId(self
         , channel_id
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileChannelListByChannelIdByProfileId(
+        rows = self.data.GetProfileChannelListChannelIdProfileId(
             channel_id
             , profile_id
         )
@@ -5373,44 +5373,44 @@ class BasePlatformACT(object):
         return self.data.CountOrgSite(
         )
                
-    def CountOrgSiteByUuid(self
+    def CountOrgSiteUuid(self
         , uuid
     ) :         
-        return self.data.CountOrgSiteByUuid(
+        return self.data.CountOrgSiteUuid(
             uuid
         )
                
-    def CountOrgSiteByOrgId(self
+    def CountOrgSiteOrgId(self
         , org_id
     ) :         
-        return self.data.CountOrgSiteByOrgId(
+        return self.data.CountOrgSiteOrgId(
             org_id
         )
                
-    def CountOrgSiteBySiteId(self
+    def CountOrgSiteSiteId(self
         , site_id
     ) :         
-        return self.data.CountOrgSiteBySiteId(
+        return self.data.CountOrgSiteSiteId(
             site_id
         )
                
-    def CountOrgSiteByOrgIdBySiteId(self
+    def CountOrgSiteOrgIdSiteId(self
         , org_id
         , site_id
     ) :         
-        return self.data.CountOrgSiteByOrgIdBySiteId(
+        return self.data.CountOrgSiteOrgIdSiteId(
             org_id
             , site_id
         )
                
-    def BrowseOrgSiteListByFilter(self, filter_obj) :
+    def BrowseOrgSiteListFilter(self, filter_obj) :
         result = OrgSiteResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseOrgSiteListByFilter(filter_obj)
+        rows = self.data.BrowseOrgSiteListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 org_site = self.FillOrgSite(row)
@@ -5420,24 +5420,24 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetOrgSiteByUuid(self, set_type, obj) :            
-            return self.data.SetOrgSiteByUuid(set_type, obj)
+    def SetOrgSiteUuid(self, set_type, obj) :            
+            return self.data.SetOrgSiteUuid(set_type, obj)
             
-    def SetOrgSiteByOrgIdBySiteId(self, set_type, obj) :            
-            return self.data.SetOrgSiteByOrgIdBySiteId(set_type, obj)
+    def SetOrgSiteOrgIdSiteId(self, set_type, obj) :            
+            return self.data.SetOrgSiteOrgIdSiteId(set_type, obj)
             
-    def DelOrgSiteByUuid(self
+    def DelOrgSiteUuid(self
         , uuid
     ) :
-        return self.data.DelOrgSiteByUuid(
+        return self.data.DelOrgSiteUuid(
             uuid
         )
         
-    def DelOrgSiteByOrgIdBySiteId(self
+    def DelOrgSiteOrgIdSiteId(self
         , org_id
         , site_id
     ) :
-        return self.data.DelOrgSiteByOrgIdBySiteId(
+        return self.data.DelOrgSiteOrgIdSiteId(
             org_id
             , site_id
         )
@@ -5455,12 +5455,12 @@ class BasePlatformACT(object):
                 results.append(org_site)
             return results        
         
-    def GetOrgSiteListByUuid(self
+    def GetOrgSiteListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetOrgSiteListByUuid(
+        rows = self.data.GetOrgSiteListUuid(
             uuid
         )
         
@@ -5470,12 +5470,12 @@ class BasePlatformACT(object):
                 results.append(org_site)
             return results        
         
-    def GetOrgSiteListByOrgId(self
+    def GetOrgSiteListOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetOrgSiteListByOrgId(
+        rows = self.data.GetOrgSiteListOrgId(
             org_id
         )
         
@@ -5485,12 +5485,12 @@ class BasePlatformACT(object):
                 results.append(org_site)
             return results        
         
-    def GetOrgSiteListBySiteId(self
+    def GetOrgSiteListSiteId(self
         , site_id
     ) :
 
         results = []
-        rows = self.data.GetOrgSiteListBySiteId(
+        rows = self.data.GetOrgSiteListSiteId(
             site_id
         )
         
@@ -5500,13 +5500,13 @@ class BasePlatformACT(object):
                 results.append(org_site)
             return results        
         
-    def GetOrgSiteListByOrgIdBySiteId(self
+    def GetOrgSiteListOrgIdSiteId(self
         , org_id
         , site_id
     ) :
 
         results = []
-        rows = self.data.GetOrgSiteListByOrgIdBySiteId(
+        rows = self.data.GetOrgSiteListOrgIdSiteId(
             org_id
             , site_id
         )
@@ -5545,44 +5545,44 @@ class BasePlatformACT(object):
         return self.data.CountSiteApp(
         )
                
-    def CountSiteAppByUuid(self
+    def CountSiteAppUuid(self
         , uuid
     ) :         
-        return self.data.CountSiteAppByUuid(
+        return self.data.CountSiteAppUuid(
             uuid
         )
                
-    def CountSiteAppByAppId(self
+    def CountSiteAppAppId(self
         , app_id
     ) :         
-        return self.data.CountSiteAppByAppId(
+        return self.data.CountSiteAppAppId(
             app_id
         )
                
-    def CountSiteAppBySiteId(self
+    def CountSiteAppSiteId(self
         , site_id
     ) :         
-        return self.data.CountSiteAppBySiteId(
+        return self.data.CountSiteAppSiteId(
             site_id
         )
                
-    def CountSiteAppByAppIdBySiteId(self
+    def CountSiteAppAppIdSiteId(self
         , app_id
         , site_id
     ) :         
-        return self.data.CountSiteAppByAppIdBySiteId(
+        return self.data.CountSiteAppAppIdSiteId(
             app_id
             , site_id
         )
                
-    def BrowseSiteAppListByFilter(self, filter_obj) :
+    def BrowseSiteAppListFilter(self, filter_obj) :
         result = SiteAppResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseSiteAppListByFilter(filter_obj)
+        rows = self.data.BrowseSiteAppListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 site_app = self.FillSiteApp(row)
@@ -5592,24 +5592,24 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetSiteAppByUuid(self, set_type, obj) :            
-            return self.data.SetSiteAppByUuid(set_type, obj)
+    def SetSiteAppUuid(self, set_type, obj) :            
+            return self.data.SetSiteAppUuid(set_type, obj)
             
-    def SetSiteAppByAppIdBySiteId(self, set_type, obj) :            
-            return self.data.SetSiteAppByAppIdBySiteId(set_type, obj)
+    def SetSiteAppAppIdSiteId(self, set_type, obj) :            
+            return self.data.SetSiteAppAppIdSiteId(set_type, obj)
             
-    def DelSiteAppByUuid(self
+    def DelSiteAppUuid(self
         , uuid
     ) :
-        return self.data.DelSiteAppByUuid(
+        return self.data.DelSiteAppUuid(
             uuid
         )
         
-    def DelSiteAppByAppIdBySiteId(self
+    def DelSiteAppAppIdSiteId(self
         , app_id
         , site_id
     ) :
-        return self.data.DelSiteAppByAppIdBySiteId(
+        return self.data.DelSiteAppAppIdSiteId(
             app_id
             , site_id
         )
@@ -5627,12 +5627,12 @@ class BasePlatformACT(object):
                 results.append(site_app)
             return results        
         
-    def GetSiteAppListByUuid(self
+    def GetSiteAppListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetSiteAppListByUuid(
+        rows = self.data.GetSiteAppListUuid(
             uuid
         )
         
@@ -5642,12 +5642,12 @@ class BasePlatformACT(object):
                 results.append(site_app)
             return results        
         
-    def GetSiteAppListByAppId(self
+    def GetSiteAppListAppId(self
         , app_id
     ) :
 
         results = []
-        rows = self.data.GetSiteAppListByAppId(
+        rows = self.data.GetSiteAppListAppId(
             app_id
         )
         
@@ -5657,12 +5657,12 @@ class BasePlatformACT(object):
                 results.append(site_app)
             return results        
         
-    def GetSiteAppListBySiteId(self
+    def GetSiteAppListSiteId(self
         , site_id
     ) :
 
         results = []
-        rows = self.data.GetSiteAppListBySiteId(
+        rows = self.data.GetSiteAppListSiteId(
             site_id
         )
         
@@ -5672,13 +5672,13 @@ class BasePlatformACT(object):
                 results.append(site_app)
             return results        
         
-    def GetSiteAppListByAppIdBySiteId(self
+    def GetSiteAppListAppIdSiteId(self
         , app_id
         , site_id
     ) :
 
         results = []
-        rows = self.data.GetSiteAppListByAppIdBySiteId(
+        rows = self.data.GetSiteAppListAppIdSiteId(
             app_id
             , site_id
         )
@@ -5735,53 +5735,53 @@ class BasePlatformACT(object):
         return self.data.CountPhoto(
         )
                
-    def CountPhotoByUuid(self
+    def CountPhotoUuid(self
         , uuid
     ) :         
-        return self.data.CountPhotoByUuid(
+        return self.data.CountPhotoUuid(
             uuid
         )
                
-    def CountPhotoByExternalId(self
+    def CountPhotoExternalId(self
         , external_id
     ) :         
-        return self.data.CountPhotoByExternalId(
+        return self.data.CountPhotoExternalId(
             external_id
         )
                
-    def CountPhotoByUrl(self
+    def CountPhotoUrl(self
         , url
     ) :         
-        return self.data.CountPhotoByUrl(
+        return self.data.CountPhotoUrl(
             url
         )
                
-    def CountPhotoByUrlByExternalId(self
+    def CountPhotoUrlExternalId(self
         , url
         , external_id
     ) :         
-        return self.data.CountPhotoByUrlByExternalId(
+        return self.data.CountPhotoUrlExternalId(
             url
             , external_id
         )
                
-    def CountPhotoByUuidByExternalId(self
+    def CountPhotoUuidExternalId(self
         , uuid
         , external_id
     ) :         
-        return self.data.CountPhotoByUuidByExternalId(
+        return self.data.CountPhotoUuidExternalId(
             uuid
             , external_id
         )
                
-    def BrowsePhotoListByFilter(self, filter_obj) :
+    def BrowsePhotoListFilter(self, filter_obj) :
         result = PhotoResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowsePhotoListByFilter(filter_obj)
+        rows = self.data.BrowsePhotoListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 photo = self.FillPhoto(row)
@@ -5791,56 +5791,56 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetPhotoByUuid(self, set_type, obj) :            
-            return self.data.SetPhotoByUuid(set_type, obj)
+    def SetPhotoUuid(self, set_type, obj) :            
+            return self.data.SetPhotoUuid(set_type, obj)
             
-    def SetPhotoByExternalId(self, set_type, obj) :            
-            return self.data.SetPhotoByExternalId(set_type, obj)
+    def SetPhotoExternalId(self, set_type, obj) :            
+            return self.data.SetPhotoExternalId(set_type, obj)
             
-    def SetPhotoByUrl(self, set_type, obj) :            
-            return self.data.SetPhotoByUrl(set_type, obj)
+    def SetPhotoUrl(self, set_type, obj) :            
+            return self.data.SetPhotoUrl(set_type, obj)
             
-    def SetPhotoByUrlByExternalId(self, set_type, obj) :            
-            return self.data.SetPhotoByUrlByExternalId(set_type, obj)
+    def SetPhotoUrlExternalId(self, set_type, obj) :            
+            return self.data.SetPhotoUrlExternalId(set_type, obj)
             
-    def SetPhotoByUuidByExternalId(self, set_type, obj) :            
-            return self.data.SetPhotoByUuidByExternalId(set_type, obj)
+    def SetPhotoUuidExternalId(self, set_type, obj) :            
+            return self.data.SetPhotoUuidExternalId(set_type, obj)
             
-    def DelPhotoByUuid(self
+    def DelPhotoUuid(self
         , uuid
     ) :
-        return self.data.DelPhotoByUuid(
+        return self.data.DelPhotoUuid(
             uuid
         )
         
-    def DelPhotoByExternalId(self
+    def DelPhotoExternalId(self
         , external_id
     ) :
-        return self.data.DelPhotoByExternalId(
+        return self.data.DelPhotoExternalId(
             external_id
         )
         
-    def DelPhotoByUrl(self
+    def DelPhotoUrl(self
         , url
     ) :
-        return self.data.DelPhotoByUrl(
+        return self.data.DelPhotoUrl(
             url
         )
         
-    def DelPhotoByUrlByExternalId(self
+    def DelPhotoUrlExternalId(self
         , url
         , external_id
     ) :
-        return self.data.DelPhotoByUrlByExternalId(
+        return self.data.DelPhotoUrlExternalId(
             url
             , external_id
         )
         
-    def DelPhotoByUuidByExternalId(self
+    def DelPhotoUuidExternalId(self
         , uuid
         , external_id
     ) :
-        return self.data.DelPhotoByUuidByExternalId(
+        return self.data.DelPhotoUuidExternalId(
             uuid
             , external_id
         )
@@ -5858,12 +5858,12 @@ class BasePlatformACT(object):
                 results.append(photo)
             return results        
         
-    def GetPhotoListByUuid(self
+    def GetPhotoListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetPhotoListByUuid(
+        rows = self.data.GetPhotoListUuid(
             uuid
         )
         
@@ -5873,12 +5873,12 @@ class BasePlatformACT(object):
                 results.append(photo)
             return results        
         
-    def GetPhotoListByExternalId(self
+    def GetPhotoListExternalId(self
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetPhotoListByExternalId(
+        rows = self.data.GetPhotoListExternalId(
             external_id
         )
         
@@ -5888,12 +5888,12 @@ class BasePlatformACT(object):
                 results.append(photo)
             return results        
         
-    def GetPhotoListByUrl(self
+    def GetPhotoListUrl(self
         , url
     ) :
 
         results = []
-        rows = self.data.GetPhotoListByUrl(
+        rows = self.data.GetPhotoListUrl(
             url
         )
         
@@ -5903,13 +5903,13 @@ class BasePlatformACT(object):
                 results.append(photo)
             return results        
         
-    def GetPhotoListByUrlByExternalId(self
+    def GetPhotoListUrlExternalId(self
         , url
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetPhotoListByUrlByExternalId(
+        rows = self.data.GetPhotoListUrlExternalId(
             url
             , external_id
         )
@@ -5920,13 +5920,13 @@ class BasePlatformACT(object):
                 results.append(photo)
             return results        
         
-    def GetPhotoListByUuidByExternalId(self
+    def GetPhotoListUuidExternalId(self
         , uuid
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetPhotoListByUuidByExternalId(
+        rows = self.data.GetPhotoListUuidExternalId(
             uuid
             , external_id
         )
@@ -5983,53 +5983,53 @@ class BasePlatformACT(object):
         return self.data.CountVideo(
         )
                
-    def CountVideoByUuid(self
+    def CountVideoUuid(self
         , uuid
     ) :         
-        return self.data.CountVideoByUuid(
+        return self.data.CountVideoUuid(
             uuid
         )
                
-    def CountVideoByExternalId(self
+    def CountVideoExternalId(self
         , external_id
     ) :         
-        return self.data.CountVideoByExternalId(
+        return self.data.CountVideoExternalId(
             external_id
         )
                
-    def CountVideoByUrl(self
+    def CountVideoUrl(self
         , url
     ) :         
-        return self.data.CountVideoByUrl(
+        return self.data.CountVideoUrl(
             url
         )
                
-    def CountVideoByUrlByExternalId(self
+    def CountVideoUrlExternalId(self
         , url
         , external_id
     ) :         
-        return self.data.CountVideoByUrlByExternalId(
+        return self.data.CountVideoUrlExternalId(
             url
             , external_id
         )
                
-    def CountVideoByUuidByExternalId(self
+    def CountVideoUuidExternalId(self
         , uuid
         , external_id
     ) :         
-        return self.data.CountVideoByUuidByExternalId(
+        return self.data.CountVideoUuidExternalId(
             uuid
             , external_id
         )
                
-    def BrowseVideoListByFilter(self, filter_obj) :
+    def BrowseVideoListFilter(self, filter_obj) :
         result = VideoResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseVideoListByFilter(filter_obj)
+        rows = self.data.BrowseVideoListFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 video = self.FillVideo(row)
@@ -6039,56 +6039,56 @@ class BasePlatformACT(object):
         
         return result
 
-    def SetVideoByUuid(self, set_type, obj) :            
-            return self.data.SetVideoByUuid(set_type, obj)
+    def SetVideoUuid(self, set_type, obj) :            
+            return self.data.SetVideoUuid(set_type, obj)
             
-    def SetVideoByExternalId(self, set_type, obj) :            
-            return self.data.SetVideoByExternalId(set_type, obj)
+    def SetVideoExternalId(self, set_type, obj) :            
+            return self.data.SetVideoExternalId(set_type, obj)
             
-    def SetVideoByUrl(self, set_type, obj) :            
-            return self.data.SetVideoByUrl(set_type, obj)
+    def SetVideoUrl(self, set_type, obj) :            
+            return self.data.SetVideoUrl(set_type, obj)
             
-    def SetVideoByUrlByExternalId(self, set_type, obj) :            
-            return self.data.SetVideoByUrlByExternalId(set_type, obj)
+    def SetVideoUrlExternalId(self, set_type, obj) :            
+            return self.data.SetVideoUrlExternalId(set_type, obj)
             
-    def SetVideoByUuidByExternalId(self, set_type, obj) :            
-            return self.data.SetVideoByUuidByExternalId(set_type, obj)
+    def SetVideoUuidExternalId(self, set_type, obj) :            
+            return self.data.SetVideoUuidExternalId(set_type, obj)
             
-    def DelVideoByUuid(self
+    def DelVideoUuid(self
         , uuid
     ) :
-        return self.data.DelVideoByUuid(
+        return self.data.DelVideoUuid(
             uuid
         )
         
-    def DelVideoByExternalId(self
+    def DelVideoExternalId(self
         , external_id
     ) :
-        return self.data.DelVideoByExternalId(
+        return self.data.DelVideoExternalId(
             external_id
         )
         
-    def DelVideoByUrl(self
+    def DelVideoUrl(self
         , url
     ) :
-        return self.data.DelVideoByUrl(
+        return self.data.DelVideoUrl(
             url
         )
         
-    def DelVideoByUrlByExternalId(self
+    def DelVideoUrlExternalId(self
         , url
         , external_id
     ) :
-        return self.data.DelVideoByUrlByExternalId(
+        return self.data.DelVideoUrlExternalId(
             url
             , external_id
         )
         
-    def DelVideoByUuidByExternalId(self
+    def DelVideoUuidExternalId(self
         , uuid
         , external_id
     ) :
-        return self.data.DelVideoByUuidByExternalId(
+        return self.data.DelVideoUuidExternalId(
             uuid
             , external_id
         )
@@ -6106,12 +6106,12 @@ class BasePlatformACT(object):
                 results.append(video)
             return results        
         
-    def GetVideoListByUuid(self
+    def GetVideoListUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetVideoListByUuid(
+        rows = self.data.GetVideoListUuid(
             uuid
         )
         
@@ -6121,12 +6121,12 @@ class BasePlatformACT(object):
                 results.append(video)
             return results        
         
-    def GetVideoListByExternalId(self
+    def GetVideoListExternalId(self
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetVideoListByExternalId(
+        rows = self.data.GetVideoListExternalId(
             external_id
         )
         
@@ -6136,12 +6136,12 @@ class BasePlatformACT(object):
                 results.append(video)
             return results        
         
-    def GetVideoListByUrl(self
+    def GetVideoListUrl(self
         , url
     ) :
 
         results = []
-        rows = self.data.GetVideoListByUrl(
+        rows = self.data.GetVideoListUrl(
             url
         )
         
@@ -6151,13 +6151,13 @@ class BasePlatformACT(object):
                 results.append(video)
             return results        
         
-    def GetVideoListByUrlByExternalId(self
+    def GetVideoListUrlExternalId(self
         , url
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetVideoListByUrlByExternalId(
+        rows = self.data.GetVideoListUrlExternalId(
             url
             , external_id
         )
@@ -6168,13 +6168,13 @@ class BasePlatformACT(object):
                 results.append(video)
             return results        
         
-    def GetVideoListByUuidByExternalId(self
+    def GetVideoListUuidExternalId(self
         , uuid
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetVideoListByUuidByExternalId(
+        rows = self.data.GetVideoListUuidExternalId(
             uuid
             , external_id
         )

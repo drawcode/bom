@@ -1264,6 +1264,94 @@
         }
     },
     {
+        "id":"game_statistic_leaderboard_item",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "code":{"type":"string", "maximum":500, "required":false},
+            "game_id":{"type":"uuid",  "required":false},
+            "profile_id":{"type":"uuid",  "required":false},
+            "absolute_value":{"type":"float", "required":false},
+            "stat_value":{"type":"float", "required":false},
+            "stat_value_formatted":{"type":"string", "maximum":500, "required":false},
+            "username":{"type":"string", "maximum":500, "required":false},
+            "network":{"type":"string", "maximum":500, "required":false},
+            "data":{"type":"data", "required":false},
+            "type":{"type":"string", "maximum":500, "required":false},
+            "level":{"type":"string", "maximum":500, "required":false},
+            "timestamp":{"type":"float", "required":false},
+            "rank":{"type":"int", "required":false},
+            "rank_change":{"type":"int", "required":false},
+            "rank_total_count":{"type":"int", "required":false}
+
+        },
+        "indexes":[
+            {"fields":["code"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "level"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "username", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "profile_id", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["code", "game_id", "type"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]},
+                {"params":["profile_id", "game_id", "timestamp"]}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["uuid", "profile_id","game_id","timestamp"]},                
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "count":[
+                {},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["code"]},
+                {"params":["code", "game_id"]},
+                {"params":["code", "game_id", "profile_id"]},
+                {"params":["code", "game_id", "profile_id", "timestamp"]},
+                {"params":["profile_id", "game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
         "id":"game_statistic_leaderboard_rollup",
         "extends": "base_entity",
         "description":"",
@@ -1456,6 +1544,7 @@
             "game_id":{"type":"uuid",  "required":false},
             "profile_id":{"type":"uuid",  "required":false},
             "stat_value":{"type":"float", "required":false},
+            "stat_value_formatted":{"type":"string", "maximum":500, "required":false},
             "username":{"type":"string", "maximum":500, "required":false},
             "data":{"type":"data", "required":false},
             "type":{"type":"string", "maximum":500, "required":false},

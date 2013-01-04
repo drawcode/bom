@@ -37,11 +37,12 @@ class GameProfileStatistic extends BaseEntity {
     
     public $username;
     public $code;
+    public $timestamp;
     public $level;
-    public $type;
+    public $stat_value_formatted;
     public $profile_id;
     public $points;
-    public $timestamp;
+    public $type;
     public $game_id;
     public $data;
     public $stat_value;

@@ -906,6 +906,45 @@ class BaseResponse :
     
 //------------------------------------------------------------------------------
         
+    public class BaseResponseGameStatisticLeaderboardItem {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameStatisticLeaderboardItemString : BaseResponseGameStatisticLeaderboardItem {
+        public string data = "";
+    }
+    
+    public class ResponseGameStatisticLeaderboardItemBool : BaseResponseGameStatisticLeaderboardItem {
+        public bool data;
+    }
+    
+    public class ResponseGameStatisticLeaderboardItemInt : BaseResponseGameStatisticLeaderboardItem {
+        public int data;
+    }
+    
+    public class ResponseGameStatisticLeaderboardItemObject : BaseResponseGameStatisticLeaderboardItem {
+        public GameStatisticLeaderboardItem data = new GameStatisticLeaderboardItem();
+    }
+    
+    public class ResponseGameStatisticLeaderboardItemResult : BaseResponseGameStatisticLeaderboardItem {
+        public GameStatisticLeaderboardItemResult data = new GameStatisticLeaderboardItemResult();
+    }
+    
+    public class ResponseGameStatisticLeaderboardItemList : BaseResponseGameStatisticLeaderboardItem {
+        public List<GameStatisticLeaderboardItem> data = new List<GameStatisticLeaderboardItem>();
+    }
+    
+    public class ResponseGameStatisticLeaderboardItemDict : BaseResponseGameStatisticLeaderboardItem {
+        public Dictionary<string, GameStatisticLeaderboardItem> data
+            = new Dictionary<string, GameStatisticLeaderboardItem>();
+    }
+    
+//------------------------------------------------------------------------------
+        
     public class BaseResponseGameStatisticLeaderboardRollup {
         public string message = "Success";
         public int error = 0;
